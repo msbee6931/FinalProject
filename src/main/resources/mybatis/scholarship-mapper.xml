@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Scholarship">
+
+<insert id="insertScholarship" parameterType="java.util.List">
+<foreach item="i" collection="list" open="INSERT ALL"  close="SELECT * FROM DUAL" separator=" " >
+	into scholarship(std_code,s_kind,s_rec,s_smt,s_spt,s_etc,sSum,s_date) values (#{i.std_code},#{i.s_kind},#{i.s_rec},#{i.s_smt},#{i.s_spt},#{i.s_etc},#{i.sSum},sysdate)
+	</foreach>
+</insert>
+
+<insert id="reqSchFile">
+	insert into reqSchFile values (reqSchFile_seq.nextval,#{parentSeq},#{fileName},#{savedFileName},#{fileSize})
+</insert>
+
+<insert id="reqScholar">
+	insert into reqScholar values (reqScholar_seq.nextval,#{std_code},#{title},#{contents},sysdate)
+</insert>
+
+<select id="selectlastSeq" resultType="int">
+	SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'REQSCHOLAR_SEQ'
+</select>
+
+<select id="selectReqScholar" resultType="kh.spring.dto.ReqScholarDTO">
+	select * from reqScholar order by 1
+</select>
+
+<select id="selectSeqReqScholar" resultType="kh.spring.dto.ReqScholarDTO">
+	select * from reqScholar where seq = #{seq}
+</select>
+
+<select id="selectReqSchFile" resultType="kh.spring.dto.ReqSchFileDTO">
+	select * from reqSchFile where parentSeq = #{seq}
+</select>
+
+<select id="selectCountFile" resultType="int">
+	select count(*) from reqSchFile where parentSeq = #{seq}
+</select>
+
+<select id="selectDTOByStd_Code" resultType="kh.spring.dto.ScholarshipDTO">
+select * from scholarship where std_code=#{std_code}
+</select>
+
+</mapper>

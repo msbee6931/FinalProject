@@ -1,0 +1,133 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Class">
+	<insert id="classInsert">
+		insert into class values(#{classPart},#{className},#{classSeq},#{classPoint},#{passFail},#{proCode},#{proName},#{dept},#{classTime},#{classRoom},#{limit},#{basketLimit},#{grade},#{classGoal},#{classMethod},#{classEvaluation},#{classReferences},'AR','',sysdate)
+	</insert>
+	<insert id="classScheduleInsert">
+		insert into classSchedule values(#{classSeq},#{proCode},#{week1},#{week2},#{week3},#{week4},#{week5},#{week6},#{week7},#{week8},#{week9},#{week10},#{week11},#{week12},#{week13},#{week14},#{week15})
+	</insert>
+	<update id="classUpdate">
+		update class set classPart=#{classPart,jdbcType=VARCHAR},className=#{className,jdbcType=VARCHAR},classPoint=#{classPoint,jdbcType=VARCHAR},dept=#{dept,jdbcType=VARCHAR},classTime=#{classTime,jdbcType=VARCHAR},classRoom=#{classRoom,jdbcType=VARCHAR},limit= #{limit,jdbcType=VARCHAR},basketLimit=#{basketLimit,jdbcType=VARCHAR},grade=#{grade,jdbcType=VARCHAR},classGoal=#{classGoal,jdbcType=VARCHAR},classMethod=#{classMethod,jdbcType=VARCHAR},classEvaluation=#{classEvaluation,jdbcType=VARCHAR},classReferences=#{classReferences,jdbcType=VARCHAR},reqState = 'AR' where classSeq=#{classSeq}  
+	</update>
+	<update id="classScheduleUpdate">
+		update classSchedule set week1=#{week1,jdbcType=VARCHAR},week2=#{week2,jdbcType=VARCHAR},week3=#{week3,jdbcType=VARCHAR},week4=#{week4,jdbcType=VARCHAR},week5=#{week5,jdbcType=VARCHAR},week6=#{week6,jdbcType=VARCHAR},week7=#{week7,jdbcType=VARCHAR},week8=#{week8,jdbcType=VARCHAR},week9=#{week9,jdbcType=VARCHAR},week10=#{week10,jdbcType=VARCHAR},week11=#{week11,jdbcType=VARCHAR},week12=#{week12,jdbcType=VARCHAR},week13=#{week13,jdbcType=VARCHAR},week14=#{week14,jdbcType=VARCHAR},week15=#{week15,jdbcType=VARCHAR} where classSeq=#{classSeq,jdbcType=VARCHAR}
+	</update>
+	<select id="classReqList" resultType="kh.spring.dto.ClassDTO">
+		select * from class where reqState = 'AR'
+	</select>
+	<select id="classListProCode" resultType="kh.spring.dto.ClassDTO">
+		select * from class where proCode = #{proCode} and reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD')
+	</select>
+	<select id="classList" resultType="kh.spring.dto.ClassDTO">
+		select * from class where reqState ='A'
+	</select>
+	<delete id="classDel">
+		delete from class where reqState in('AR','DC','C') and classSeq in
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
+	</delete>
+	<delete id="scheduleDel">
+		delete from classSchedule where classSeq in	
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
+	</delete>
+	<update id="reqUpdAtoDR">
+		update class set reqState = 'DR' where reqState ='A' and classSeq in
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
+	</update>
+	<update id="reqUpdARtoA">
+		update class set reqState = 'A', rejectMsg ='' where reqState ='AR' and classSeq in
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
+	</update>
+	<update id="reqUpdDRtoDC">
+		update class set reqState = 'DC' where reqState ='DR' and classSeq in
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
+	</update>
+	<select id="classListSeq" resultType="kh.spring.dto.ClassDTO">
+		select * from class where classSeq = #{classSeq}
+	</select>
+	<select id="classScheduleSeq" resultType="kh.spring.dto.ClassScheduleDTO">
+		select * from classSchedule where classSeq = #{classSeq}
+	</select>
+	<select id="classReqListA" resultType="kh.spring.dto.ClassDTO">
+		select * from class where reqState in ('AR','DR')
+	</select>
+	<update id="rejectMsgInsert">
+		update class set reqState = 'C', rejectMsg = #{rejectMsg}
+		where reqState in('AR','A') and classSeq in
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
+	</update>
+	<select id="classListYear" resultType="kh.spring.dto.ClassDTO">
+		select * from class where reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD') and reqState ='A'
+	</select>
+	<insert id="stdTimeTableInsert" parameterType="java.util.List">
+		<foreach collection="list" item="i" open="INSERT ALL" close="SELECT * FROM DUAL" separator=" ">
+		 into stdTimeTable values(#{i.sCode},#{i.classCode},#{i.time},#{i.mon,jdbcType=VARCHAR},#{i.tue,jdbcType=VARCHAR},#{i.wed,jdbcType=VARCHAR},#{i.thu,jdbcType=VARCHAR},#{i.fri,jdbcType=VARCHAR},#{i.sat,jdbcType=VARCHAR},#{i.sun,jdbcType=VARCHAR},sysdate)
+		 </foreach>
+	</insert>
+	<delete id="stdTimeTableDelete">
+		delete from stdTimeTable where sCode = #{sCode} and classCode = #{classCode}
+	</delete>
+	<delete id="stdTimeTablesDelete">
+		delete from stdTimeTable where
+			classCode in<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.classCode}</foreach> 
+			and sCode in<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.sCode}</foreach> 
+		
+	</delete>
+	<select id="stdTimeTableList" resultType="kh.spring.dto.StdTimeTableDTO">
+		select * from stdTimeTable where sCode =#{dto.sCode} and reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD')
+	</select>
+	<insert id="stdClassInsert">
+		insert into studentClass values(#{sCode},#{sName},#{classCode},#{basket},sysdate)
+	</insert>
+	<insert id="stdClassesInsert">
+		<foreach collection="list" item="i" open="INSERT ALL" close="SELECT * FROM DUAL" separator=" ">
+		into studentClass values(#{i.sCode},#{i.sName},#{i.classCode},#{i.basket},sysdate)
+		</foreach>
+	</insert>
+	<select id="stdClassCount" resultType="int">
+		select count(*) from studentClass where classCode = #{classCode} and basket = 'N'
+	</select>
+	<select id="stdBasketCount" resultType="int">
+		select count(*) from studentClass where classCode = #{classCode} and basket = 'Y'
+	</select>
+	<delete id="stdClassDelete">
+		delete from studentClass where classCode = #{classCode} and sCode = #{sCode}
+	</delete>
+	<delete id="stdClassesDelete">
+		delete from studentClass where 
+		classCode in<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.classCode}</foreach> 
+		and sCode in<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.sCode}</foreach> 
+	</delete>
+	<update id="limitUpd">
+		update class set limit =#{limit} where classSeq = #{classSeq}
+	</update>
+	<update id="limitBasketUpd">
+		update class set basketLimit =#{basketLimit} where classSeq = #{classSeq}
+	</update>
+
+	<select id="myClassList" resultType ="kh.spring.dto.StudentClassDTO">
+		select * from studentClass where sCode =#{dto.sCode} and reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD') and basket ='N'
+	</select>
+	<select id="myBasketList" resultType ="kh.spring.dto.StudentClassDTO">
+		select * from studentClass where sCode =#{dto.sCode} and reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD') and basket = 'Y'
+	</select>
+	<select id="myClassSeq" resultType="kh.spring.dto.ClassDTO">
+		select * from class where classSeq in
+		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classCode} </foreach>
+	</select>
+	<delete id="stdClassSeqDel">
+		delete from studentClass where classCode in
+		<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.classCode}</foreach>
+	</delete>
+	<delete id="stdTimeTableSeqDel">
+			delete from stdTimeTable where classCode in
+		<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.classCode}</foreach>
+	</delete>
+	<select id="proClassList" resultType="kh.spring.dto.ClassDTO">
+		select * from class where proCode = #{proCode} and reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD') and reqState ='A'
+	</select>
+	<select id="stdListSeq" resultType="kh.spring.dto.StudentClassDTO">
+		select * from studentClass where classCode =#{classCode}
+	</select>
+</mapper>

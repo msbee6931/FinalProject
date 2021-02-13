@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Attend">
+	<select id="attendDayList" resultType="kh.spring.dto.AttendDTO">
+		select * from attend where classCode =#{classCode}
+	</select>
+	<select id="attendList" resultType="kh.spring.dto.AttendDTO">
+		select * from attend where classCode =#{classCode} and attendDay = #{attendDay}
+	</select>
+	<insert id="attendInsert" parameterType="java.util.List">
+		<foreach collection="list" item="i" open="insert all" close="select * from Dual" separator=" ">	 
+		 into attend values(#{i.classCode},#{i.sCode},#{i.sName},#{i.attendDay},#{i.attendState,jdbcType=VARCHAR},#{i.absenceReason,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	<update id="attendUpd" >	
+		update attend set attendState = #{attendState}, absenceReason = #{absenceReason,jdbcType=VARCHAR} where sCode = #{sCode} and attendDay = #{attendDay}
+	</update>
+	<delete id="attendDel">
+		delete from attend where attendDay = #{attendDay} and classCode =#{classCode}
+	</delete>
+</mapper>

@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PostMessage">
+<select id="listByReceiver" resultType="kh.spring.dto.PostMessageDTO">
+select * from postmessage where receiver=#{receiver} order by 5, 1 desc
+</select>
+<select id="listBySender" resultType="kh.spring.dto.PostMessageDTO">
+select * from postmessage where sender=#{sender} order by 1 desc
+</select>
+<select id="alarm" resultType="int">
+select count(seq) from postmessage where receiver=#{receiver} and confirm='N'
+</select>
+<update id="update">
+	update postmessage set reply=#{reply} where seq =#{seq}
+</update>
+<update id="updateConfirm">
+	update postmessage set confirm='Y' where seq in
+	<foreach separator="," close=")" open="(" item="i" collection="list">#{i.seq} </foreach>
+</update>
+
+<delete id="delete">
+	delete from postmessage where seq in 
+	<foreach separator="," close=")" open="(" item="i" collection="list">#{i.seq} </foreach>
+</delete>
+<insert id="insert">
+	insert into postmessage values(postmessage_seq.nextval,#{receiver},#{sender},#{contents},'N',null)
+</insert>
+
+
+</mapper>

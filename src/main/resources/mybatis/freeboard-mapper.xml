@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Free">
+
+   <select resultType="kh.spring.dto.FreeBoardDTO" id="listByCpage">
+      select * from (select freeboard.*,row_number() over(order by write_date desc) rn from freeboard) where rn between #{startRowNum} and #{endRowNum}
+   </select>
+
+   <select resultType="int" id="getDataCount">
+      select count(seq) from freeboard
+   </select>
+   
+   <select resultType="kh.spring.dto.FreeBoardDTO" id="selectBySeq">
+   	select * from freeboard where seq=#{seq}
+   </select>
+   
+   <update id="updateView_Count">
+   	update freeboard set view_count=#{view_count} where seq=#{seq}
+   </update>
+   
+   <delete id="deleteBySeq">
+   	delete from freeboard where seq=#{seq}
+   </delete>
+   
+   <insert id="insert">
+   	insert into freeboard values(freeboard_seq.nextval,#{title},#{contents},#{writer},sysdate,0)
+   </insert>
+   
+   <update id="update">
+   	update freeboard set title=#{title}, contents=#{contents} where seq=#{seq}
+   </update>
+   
+   <select resultType="kh.spring.dto.FreeBoardDTO" id="searchByTitle">
+   	select * from freeboard where title=#{title}
+   </select>
+   
+   <delete id="deleteList">
+delete from freeboard where seq in
+	<foreach separator="," close=")" open="(" item="i" collection="list">#{i.seq} </foreach>
+</delete>
+</mapper>

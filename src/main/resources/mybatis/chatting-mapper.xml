@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="chatting">
+ 	
+ 	<!-- USER -->
+ 	<select id="getUserInfo" resultType="kh.spring.dto.UserDTO">
+ 		select * from chatUser where userId=#{userId}
+ 	</select>
+ 	
+ 	<select id="getFriendsList" resultType="kh.spring.dto.FriendDTO">
+ 		select * from friend where userId=#{userId}
+ 	</select>
+	
+	<!-- Chat -->
+ 	<insert id="insertMessage">
+ 		insert into chatMessage values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber})
+ 	</insert>
+ 	
+ 	<select id="getChatting" resultType="kh.spring.dto.MessageDTO">
+ 		select * from chatMessage where roomNumber=#{roomNumber} order by seq
+ 	</select>
+ 	
+ 	<!-- Room -->
+ 	<select id="findAllRoomByUserId" resultType="kh.spring.dto.RoomDTO">
+ 		select * from chatRoom where roomNumber like '%'||#{userId}||'%'
+ 	</select>
+ 	
+	<insert id="insertRoom">
+		insert into chatRoom values(#{roomNumber},#{roomName})
+	</insert>
+	
+	<select id="findRoomByRoomNumber" resultType="kh.spring.dto.RoomDTO">
+		select * from  chatRoom where roomNumber=#{roomNumber}
+	</select>
+	
+	<select id="findRoomById" resultType="kh.spring.dto.RoomDTO">
+		select * from chatRoom where roomNumber like #{userId}||'_'||#{friendId} or roomNumber like #{friendId}||'_'||#{userId}
+	</select>
+ </mapper>

@@ -1,0 +1,16 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Login">
+<select id="loginStu" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where s_seq= #{s_seq} and pw = #{pw}
+</select>
+
+<select id="loginPro" resultType="kh.spring.dto.ProfessorDTO">
+	select * from professor where p_seq = #{p_seq} and pw = #{pw}
+</select>
+
+<select id="loginAdm" resultType="kh.spring.dto.AdminDTO">
+	select * from admin where a_seq = #{a_seq} and pw = #{pw}
+</select>
+</mapper>

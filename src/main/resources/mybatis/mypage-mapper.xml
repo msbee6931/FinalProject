@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyPage">
+<select id="myInfoStu" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where s_seq=#{id}
+</select>
+<update id="updateMyInfoStu">
+	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
+		update students set name = #{i.name}, age= #{i.age}, email= #{i.email},
+		contact=#{i.contact}, address=#{i.address}, birth=TO_DATE(#{i.birth},'yyyyMMdd'), pw=#{i.pw}
+		where s_seq = #{i.s_seq}
+	</foreach>
+</update>
+<select id="myInfoPro" resultType="kh.spring.dto.ProfessorDTO">
+	select * from professor where p_seq=#{id}
+</select>
+<update id="updateMyInfoPro">
+	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
+		update professor set name = #{i.name}, age= #{i.age}, email= #{i.email},
+		contact=#{i.contact}, address=#{i.address}, pw=#{i.pw}
+		where p_seq = #{i.p_seq}
+	</foreach>
+</update>
+</mapper>
