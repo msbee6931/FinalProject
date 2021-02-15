@@ -42,4 +42,38 @@ select * from reference_file
 <delete id="deleteAll">
 delete from reference_file where parentseq=#{parentSeq}
 </delete>
+<select id="count" resultType="int">
+select count(*) from reference
+</select>
+<select id="selectByPage" resultType="kh.spring.dto.ReferenceDTO">
+	 select * from (select reference.*, row_number() over(order by write_date desc) rn from reference) where rn between #{startRowNum} and #{endRowNum}  
+</select>
+<select id="searchCount" resultType="int">
+	select count(*) from reference where
+	<if test="category =='1'.toString()">
+          title like '%'||#{content}||'%'
+      </if>
+      <if test="category =='2'.toString()">
+         contents like '%'||#{content}||'%'
+      </if>
+      <if test="category =='3'.toString()">
+         contents like '%'||#{content}||'%' or title like '%'||#{content}||'%'
+      </if>
+</select>
+<select id="searchByPage" resultType="kh.spring.dto.ReferenceDTO">
+	select * from (select reference.*, row_number() over(order by write_date desc) rn from reference where
+	 	<if test="category =='1'.toString()">
+          title like '%'||#{content}||'%'
+      </if>
+      <if test="category =='2'.toString()">
+         contents like '%'||#{content}||'%'
+      </if>
+      <if test="category =='3'.toString()">
+         contents like '%'||#{content}||'%' or title like '%'||#{content}||'%'
+      </if>
+	) where rn between #{startRowNum} and #{endRowNum}  
+</select>
+<select id="selectFileSeq" resultType="kh.spring.dto.Reference_FileDTO">
+	select * from reference_file where parentSeq = #{parentSeq}
+</select>
 </mapper>

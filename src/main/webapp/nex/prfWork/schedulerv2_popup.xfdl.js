@@ -18,7 +18,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsType", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"value\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"value\">공지</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"value\">보고</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"value\">팀일정</Col></Row><Row><Col id=\"code\">04</Col><Col id=\"value\">개인일정</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"value\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"value\">중간</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"value\">낮음</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"value\">높음</Col></Row><Row><Col id=\"code\">04</Col><Col id=\"value\">긴급</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("dsSchedule", this);
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"sdate\" type=\"STRING\" size=\"256\"/><Column id=\"edate\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -42,7 +47,7 @@
 
             obj = new Static("Static00_00_00","10","70","60","20",null,null,null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("일정구분");
+            obj.set_text("우선순위");
             this.addChild(obj.name, obj);
 
             obj = new Combo("cmbType","70","70","130","20",null,null,null,null,null,null,this);
@@ -69,9 +74,9 @@
             obj.set_text("확인");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnCancle","203","259","80","30",null,null,null,null,null,null,this);
+            obj = new Button("btnDel","203","259","80","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
-            obj.set_text("취소");
+            obj.set_text("삭제");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("calEDate","230","40","130","20",null,null,null,null,null,null,this);
@@ -127,8 +132,11 @@
         this.btnOk_onclick = function(obj,e)
         {
         	var objReturn;
-
-        	objReturn = {
+        	var diff = this.calEDate.value - this.calSDate.value;
+        	if(diff < 0){
+        		alert("일자를 확인하세요")
+        	}else{
+        		objReturn = {
         			"popuptype" : this.popuptype,
         			"id" : this.scheduleId,
         			"sdate" : this.calSDate.value,
@@ -136,13 +144,32 @@
         			"type" : this.cmbType.value,
         			"title" : this.edtTitle.value,
         			"content" : this.teaContent.value
-        			};
-        	this.close(JSON.stringify(objReturn, null, "\t")); // json 형식 오브젝트 전송
+        		};
+
+        		this.close(JSON.stringify(objReturn, null, "\t"));
+        	}
         };
 
-        this.btnCancle_onclick = function(obj,e)
+
+        this.btnDel_onclick = function(obj,e)
         {
-        	this.close();
+        	var objFrame = this.getOwnerFrame();
+        	this.scheduleId = objFrame.scheduleid;
+        	var objReturn;
+
+        	objReturn = {
+        		"popuptype" : "delete",
+        		"id" : this.scheduleId
+        	};
+
+        	var check = this.confirm("정말로 삭제하시겠습니까?","삭제하기")
+        	if(check){
+        		this.close(JSON.stringify(objReturn, null, "\t"));
+        	} else {
+        		return;
+        	}
+
+
         };
 
         });
@@ -152,7 +179,7 @@
         {
             this.addEventHandler("onload",this.scheduler_popup_onload,this);
             this.btnOk.addEventHandler("onclick",this.btnOk_onclick,this);
-            this.btnCancle.addEventHandler("onclick",this.btnCancle_onclick,this);
+            this.btnDel.addEventHandler("onclick",this.btnDel_onclick,this);
         };
 
         this.loadIncludeScript("schedulerv2_popup.xfdl");

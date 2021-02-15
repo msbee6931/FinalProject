@@ -71,7 +71,14 @@
         	//화면 띄울 프레임 지정
         	av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
         	av_FrameSet[formId].form.setFocus();
+        };
+        this.tab_menu_canchange = function(obj,e)
+        {
+        	var formId = obj.tabpages[e.postindex].name;
 
+        	//화면 띄울 프레임 지정
+        	av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
+        	av_FrameSet[formId].form.onload();
         };
 
         //폼 바뀔때 탭 체인지 호출함수
@@ -107,6 +114,8 @@
         };
 
 
+
+
         });
         
         // Regist UI Components Event
@@ -115,6 +124,7 @@
             this.addEventHandler("onload",this.Form_Mdi_onload,this);
             this.tab_menu.addEventHandler("onchanged",this.tab_menu_onchanged,this);
             this.tab_menu.addEventHandler("onextrabuttonclick",this.tab_menu_onextrabuttonclick,this);
+            this.tab_menu.addEventHandler("canchange",this.tab_menu_canchange,this);
         };
 
         this.loadIncludeScript("Form_Mdi.xfdl");

@@ -66,7 +66,7 @@
             obj.set_taborder("2");
             obj.set_binddataset("deptSchedule_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"418\"/></Columns><Rows><Row size=\"40\"/></Rows><Band id=\"body\"><Cell text=\"bind:schDay\"/><Cell col=\"1\" text=\"bind:title\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"Day\"/><Cell col=\"1\" text=\"Category\"/><Cell col=\"2\" text=\"Schedule\"/></Band><Band id=\"body\"><Cell text=\"bind:schDay\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/><Cell col=\"1\" text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':''\"/><Cell col=\"2\" text=\"bind:title\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
@@ -101,6 +101,12 @@
         		"",//argument
         		"fn_callback"
         	)
+
+        	var cnt= this.deptSchedule_ds.getRowCount();
+        	for(var i=0; i<cnt; i++){
+        	if(this.deptSchedule_ds.getColumn(i,"code") == 01)
+        	this.Div00.form.Grid00.setCellProperty("body",0,"background","blue"); // 색 바뀌는지 확인
+        	}
 
         	//오늘 날짜 계산하기
         	var currDate = new Date();
@@ -155,40 +161,44 @@
         //일정 상세보기 모달창 띄우기
         this.Div00_Grid00_oncelldblclick = function(obj,e)
         {
-        /*	var login = "user"; // session.login 받아올 아이디*/
+        	/*	var login = "user"; // session.login 받아올 아이디*/
         	var seq = this.deptSchedule_ds.getColumn(e.row,"seq");
         	var schDate = this.deptSchedule_ds.getColumn(e.row,"schDate");
-        /*	var id = this.deptSchedule_ds.getColumn(e.row,"id"); // 등록한 id*/
+        	/*	var id = this.deptSchedule_ds.getColumn(e.row,"id"); // 등록한 id*/
 
-        // 	id 일치하면
-        // 	if(id == login)
-        // 	{
-        		var objCF = new ChildFrame();
-        		objCF.init("deptSchedule_update_pop",200,100,400,350);
-        		objCF.set_titletext("일정 상세보기");
-        		objCF.set_formurl("prfWork::deptSchedule_update_pop.xfdl");
-        		objCF.showModal(
-        			this.getOwnerFrame(),
-        			{seq:seq,schDate:schDate},
-        			this,
-        			"fn_callback_deptSchedule"
-        		);
-        //
-        //  	} else {
-        // 		var objCF = new ChildFrame();
-        // 		objCF.init("deptSchedule_read_pop",200,100,400,350);
-        // 		objCF.set_titletext("일정 상세보기");
-        // 		objCF.set_formurl("prfWork::deptSchedule_read_pop.xfdl");
-        // 		objCF.showModal(
-        // 			this.getOwnerFrame(),
-        // 			{seq:seq,schDate:schDate},
-        // 			this,
-        // 			"fn_callback_deptSchedule"
-        // 		);
-        //  	}
+        	// 	id 일치하면
+        	// 	if(id == login)
+        	// 	{
+        	var objCF = new ChildFrame();
+        	objCF.init("deptSchedule_update_pop",200,100,400,350);
+        	objCF.set_titletext("일정 상세보기");
+        	objCF.set_formurl("prfWork::deptSchedule_update_pop.xfdl");
+        	objCF.showModal(
+        		this.getOwnerFrame(),
+        		{seq:seq,schDate:schDate},
+        		this,
+        		"fn_callback_deptSchedule"
+        	);
+        	//
+        	//  	} else {
+        	// 		var objCF = new ChildFrame();
+        	// 		objCF.init("deptSchedule_read_pop",200,100,400,350);
+        	// 		objCF.set_titletext("일정 상세보기");
+        	// 		objCF.set_formurl("prfWork::deptSchedule_read_pop.xfdl");
+        	// 		objCF.showModal(
+        	// 			this.getOwnerFrame(),
+        	// 			{seq:seq,schDate:schDate},
+        	// 			this,
+        	// 			"fn_callback_deptSchedule"
+        	// 		);
+        	//  	}
 
 
         };
+
+
+
+
 
         });
         
@@ -200,6 +210,7 @@
             this.Div00.form.cal_dept.addEventHandler("onrbuttonup",this.Div00_cal_dept_onrbuttonup,this);
             this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
+            this.deptSchedule_ds.addEventHandler("onrowsetchanged",this.deptSchedule_ds_onrowsetchanged,this);
         };
 
         this.loadIncludeScript("deptSchedule.xfdl");
