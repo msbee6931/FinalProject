@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Reference">
 <insert id="insertDTO">
-insert into reference values(reference_seq.nextval,#{writer},#{title},#{contents},sysdate)
+insert into reference values(reference_seq.nextval,#{writer},#{title},#{contents},sysdate,0)
 </insert>
 <select id="selectLastSeq" resultType="int">
 select max(seq) from reference

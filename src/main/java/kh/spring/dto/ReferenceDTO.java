@@ -8,6 +8,7 @@ public class ReferenceDTO {
 	private String title;
 	private String contents;
 	private String write_date;
+	private int view_count;
 	public int getChk() {
 		return chk;
 	}
@@ -44,7 +45,14 @@ public class ReferenceDTO {
 	public void setWrite_date(String write_date) {
 		this.write_date = write_date;
 	}
-	public ReferenceDTO(int chk, int seq, String writer, String title, String contents, String write_date) {
+	public int getView_count() {
+		return view_count;
+	}
+	public void setView_count(int view_count) {
+		this.view_count = view_count;
+	}
+	public ReferenceDTO(int chk, int seq, String writer, String title, String contents, String write_date,
+			int view_count) {
 		super();
 		this.chk = chk;
 		this.seq = seq;
@@ -52,6 +60,7 @@ public class ReferenceDTO {
 		this.title = title;
 		this.contents = contents;
 		this.write_date = write_date;
+		this.view_count = view_count;
 	}
 	public ReferenceDTO() {
 		super();
