@@ -6,7 +6,7 @@
 insert into reference values(reference_seq.nextval,#{writer},#{title},#{contents},sysdate,0)
 </insert>
 <select id="selectLastSeq" resultType="int">
-select max(seq) from reference
+SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'REFERENCE_SEQ'
 </select>
 
 <insert id="insertFileDTO">

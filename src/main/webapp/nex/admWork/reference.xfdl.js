@@ -87,7 +87,7 @@
             obj.set_font("italic 18pt \"Arial\"");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("contents","90","284","886","374",null,null,null,null,null,null,this);
+            obj = new TextArea("contents","92","284","882","380",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             this.addChild(obj.name, obj);
 
@@ -275,7 +275,11 @@
 
         	//파일전송
         	this.FileUpTransfer00.upload("/reference/uploadFile"); //file up url
-
+        	alert("등록되었습니다.")
+        	this.title.set_value("");
+        	this.contents.set_value("");
+        	this.Dataset00.reset();
+        	this.FileUpTransfer00.clearFileList();
         };
 
         });

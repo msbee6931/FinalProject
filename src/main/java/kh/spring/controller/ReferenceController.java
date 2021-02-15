@@ -47,7 +47,6 @@ public class ReferenceController {
 	
 	@RequestMapping("uploadDTO")
 	public NexacroResult uploadReferenceDTO(@ParamDataSet(name="in_ds")ReferenceDTO dto) throws Exception{
-		System.out.println("장학금 요청 컨트롤러 확인");
 
 		int seq1 = (Integer)session.getAttribute("login");
 		String writer = Integer.toString(seq1);
@@ -55,27 +54,16 @@ public class ReferenceController {
 		int sResult = Rservice.insertDTO(dto);
 		int fseq = Rservice.selectLastSeq();
 		session.setAttribute("fseq", fseq);
-		
 		NexacroResult nr = new NexacroResult();
+
 		return nr;
 	}
 
 	@RequestMapping("uploadFile")
 	public NexacroResult uploadFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		System.out.println("장학금 요청 컨트롤러 확인");
-
-//		int selectLastSeq = sService.selectLastSeq(); 
-//		System.out.println("parentSeq확인 : "+selectLastSeq);
-
-		
+		System.out.println("파일 업로드");
 		int parentSeq = (Integer)session.getAttribute("fseq");
 		System.out.println("parentSeq : "+parentSeq);
-		if(!(request instanceof MultipartHttpServletRequest)) {
-			if(logger.isDebugEnabled()) {
-				logger.debug("Request is not a MultipartHttpServletRequest");
-			}
-			return new NexacroResult();
-		}
 
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
@@ -151,12 +139,7 @@ public class ReferenceController {
 	public NexacroResult updateFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		int parentSeq = (Integer)session.getAttribute("fseq");
 		System.out.println("parentSeq : "+parentSeq);
-		if(!(request instanceof MultipartHttpServletRequest)) {
-			if(logger.isDebugEnabled()) {
-				logger.debug("Request is not a MultipartHttpServletRequest");
-			}
-			return new NexacroResult();
-		}
+		
 
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
