@@ -49,7 +49,9 @@ public class ReferenceController {
 	public NexacroResult uploadReferenceDTO(@ParamDataSet(name="in_ds")ReferenceDTO dto) throws Exception{
 		System.out.println("장학금 요청 컨트롤러 확인");
 
-		dto.setWriter("12345");
+		int seq1 = (Integer)session.getAttribute("login");
+		String writer = Integer.toString(seq1);
+		dto.setWriter(writer);
 		int sResult = Rservice.insertDTO(dto);
 		int fseq = Rservice.selectLastSeq();
 		session.setAttribute("fseq", fseq);
