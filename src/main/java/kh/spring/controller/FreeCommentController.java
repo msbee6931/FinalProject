@@ -40,8 +40,10 @@ public class FreeCommentController {
 	   @RequestMapping(value="insert", method=RequestMethod.POST)
 	   public String insert( MultipartFile files,Model model,HttpServletRequest request, FreeCommentDTO dto) {
 
-	      //String rev_writer = (String)session.getAttribute("id");
-	     String rev_writer="kms";
+		   int seq = (Integer)session.getAttribute("login");
+	      String rev_writer = Integer.toString(seq);
+	    		  
+
 	     dto.setRev_writer(rev_writer);
 
 

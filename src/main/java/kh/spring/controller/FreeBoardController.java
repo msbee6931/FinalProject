@@ -62,8 +62,9 @@ public class FreeBoardController {
 	
 	@RequestMapping("view")
 	public String view(HttpServletRequest request,Model model) {
-		// id  session에 넘어오면 주석 해제
-		//	String id = (String)session.getAttribute("id");
+		
+		int fid = (Integer)session.getAttribute("login");
+		String id= Integer.toString(fid);
 		String seq = request.getParameter("seq");
 		FreeBoardDTO pdto = FBservice.selectBySeq(seq);
 		//view_count +1 업데이트
@@ -71,9 +72,8 @@ public class FreeBoardController {
 		//변동 완료후 dto 보내기
 		FreeBoardDTO dto = FBservice.selectBySeq(seq);
 		model.addAttribute("dto",dto);
-		
-		//id session에 넘어오면 주석 해제
-		//model.addAttribute("id",id);
+
+		model.addAttribute("id",id);
 		//-----------------------------------------
 		int page =1;
 		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
@@ -110,10 +110,10 @@ public class FreeBoardController {
 	
 	@RequestMapping(value="write", method=RequestMethod.POST)
 	public String write(FreeBoardDTO dto,MultipartHttpServletRequest request, MultipartFile files,Model model) throws Exception {
-		// session id 넘어오면 주석 해제
-		//String id = (String)session.getAttribute("id");
-		//임시
-		dto.setWriter("kms");
+
+		int fid = (Integer)session.getAttribute("login");
+		String id = Integer.toString(fid);
+		dto.setWriter(id);
 		 String realPath = session.getServletContext().getRealPath("resources/files");
          File filesPath = new File(realPath); 
          System.out.println("realPath : "+realPath);
