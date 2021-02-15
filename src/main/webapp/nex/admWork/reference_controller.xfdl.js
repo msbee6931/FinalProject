@@ -20,7 +20,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("Dataset00", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"size\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -57,7 +57,7 @@
             obj.set_taborder("1");
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"201\"/><Column size=\"95\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:name\"/><Cell col=\"2\" text=\"bind:size\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"201\"/><Column size=\"95\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button02","887","85","90","30",null,null,null,null,null,null,this);
@@ -337,6 +337,21 @@
 
         };
 
+
+        this.Grid01_oncellposchanged = function(obj,e)
+        {
+        		let seq = this.reference.getColumn(e.row,"seq");
+
+        		this.transaction(
+        			"FindFile" //id
+        			,"/reference/findFile"//url
+        			,""// inData
+        			,"Dataset00=out_ds"// outData
+        			,"seq="+seq//strArg
+        			,"fn_callback"//callback
+        		);
+        };
+
         });
         
         // Regist UI Components Event
@@ -350,6 +365,8 @@
             this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
             this.Button02.addEventHandler("onclick",this.Button02_onclick,this);
             this.update.addEventHandler("onclick",this.update_onclick,this);
+            this.Grid01.addEventHandler("oncellclick",this.Grid01_oncellclick,this);
+            this.Grid01.addEventHandler("oncellposchanged",this.Grid01_oncellposchanged,this);
             this.Static01_01.addEventHandler("onclick",this.Static01_01_onclick,this);
             this.Button03_00.addEventHandler("onclick",this.Button03_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);

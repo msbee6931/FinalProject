@@ -85,6 +85,21 @@
             obj.set_font("20px/normal \"Arial\",\"-윤고딕320\"");
             this.addChild(obj.name, obj);
 
+            obj = new Button("Button00","800","70","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("2");
+            obj.set_text("관리자");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button01","500","70","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("3");
+            obj.set_text("학생");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button02","650","70","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_text("교수");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1280,720,this,function(p){});
@@ -245,6 +260,34 @@
         	}
         };
 
+        this.Button00_onclick = function(obj,e)
+        {
+        	this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Admin::Form_Top.xfdl");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Admin::Form_Left.xfdl");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Admin::Form_Mdi.xfdl");
+        	this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Admin::Form_Bottom.xfdl");
+        	this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
+
+        };
+
+        this.Button01_onclick = function(obj,e)
+        {
+        	this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Student::Form_Top.xfdl");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Student::Form_Left.xfdl");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Student::Form_Mdi.xfdl");
+        	this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Student::Form_Bottom.xfdl");
+        	this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
+        };
+
+        this.Button02_onclick = function(obj,e)
+        {
+        	this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Professor::Form_Top.xfdl");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Professor::Form_Left.xfdl");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Professor::Form_Mdi.xfdl");
+        	this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Professor::Form_Bottom.xfdl");
+        	this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
+        };
+
         });
         
         // Regist UI Components Event
@@ -252,6 +295,9 @@
         {
             this.loginForm.form.btn_login.addEventHandler("onclick",this.loginForm_btn_login_onclick,this);
             this.loginForm.form.rad_chk.addEventHandler("onitemchanged",this.Div00_Radio00_onitemchanged,this);
+            this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
+            this.Button01.addEventHandler("onclick",this.Button01_onclick,this);
+            this.Button02.addEventHandler("onclick",this.Button02_onclick,this);
         };
 
         this.loadIncludeScript("Form_login.xfdl");

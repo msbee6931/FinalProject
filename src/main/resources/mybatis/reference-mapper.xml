@@ -42,4 +42,8 @@ select * from reference_file
 <delete id="deleteAll">
 delete from reference_file where parentseq=#{parentSeq}
 </delete>
+
+<select id="selectByParentSeq" resultType="kh.spring.dto.Reference_FileDTO">
+select * from reference_file where parentseq=#{parentSeq}
+</select>
 </mapper>

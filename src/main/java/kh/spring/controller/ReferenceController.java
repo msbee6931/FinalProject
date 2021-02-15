@@ -1,6 +1,7 @@
 package kh.spring.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +23,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
+import com.nexacro.uiadapter17.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
 
+import kh.spring.dto.AttendDTO;
 import kh.spring.dto.PostMessageDTO;
 import kh.spring.dto.ReferenceDTO;
 import kh.spring.dto.Reference_FileDTO;
@@ -197,5 +200,12 @@ public class ReferenceController {
 		return nr;
 	}
 	
+	@RequestMapping("findFile")
+	public NexacroResult findFile(@ParamVariable(name="seq")int seq) {
+		NexacroResult nr = new NexacroResult();
+		List<Reference_FileDTO> list = RFservice.selectByParentSeq(seq);
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
 	
 }
