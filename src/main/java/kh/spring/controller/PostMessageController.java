@@ -25,11 +25,9 @@ public class PostMessageController {
 	public NexacroResult postMessageInsert (@ParamVariable(name="contents")String contents, @ParamVariable(name="receiver")String receiver) {
 	
 		PostMessageDTO dto = new PostMessageDTO();
-		int id = 1010001;
+		
+		int id = (Integer)session.getAttribute("login");
 		dto.setSender(id);
-		// 바꿔야하는 id
-		//String id = (String)session.getAttribute("id");
-
 		dto.setContents(contents);
 		dto.setReceiver(Integer.parseInt(receiver));
 		NexacroResult nr = new NexacroResult();

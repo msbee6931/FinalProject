@@ -24,4 +24,15 @@ public class LoginService {
 		return lDAO.loginAdm(adto);
 	}
 
+
+	public StudentsDTO selectStd(int seq) {
+		return lDAO.selectStd(seq);
+	}
+	public ProfessorDTO selectPro(int seq) {
+		return lDAO.selectPro(seq);
+	}
+	public AdminDTO selectAdm(int seq) {
+		return lDAO.selectAdm(seq);
+	}
+
 }

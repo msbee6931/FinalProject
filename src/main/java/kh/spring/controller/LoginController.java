@@ -1,5 +1,7 @@
 package kh.spring.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,6 +21,9 @@ public class LoginController {
 	@Autowired
 	private LoginService lService;
 	
+	@Autowired
+	private HttpSession session;
+	
 	@RequestMapping("loginStu.login")
 	public NexacroResult loginStu(@ParamDataSet(name="in_ds")StudentsDTO sdto) {
 		System.out.println("ㄷㅊ");
@@ -29,6 +34,7 @@ public class LoginController {
 //		dto.setPw(sdto.getPw());
 		NexacroResult nr = new NexacroResult();
 		StudentsDTO ndto = lService.loginStu(sdto);
+		session.setAttribute("login",sdto.getS_seq() );
 		nr.addDataSet("out_ds", ndto);
 		System.out.println(nr);
 		return nr;
@@ -37,6 +43,7 @@ public class LoginController {
 		System.out.println("ㄷㅊ");
 		NexacroResult nr = new NexacroResult();
 		ProfessorDTO ndto = lService.loginPro(pdto);
+		session.setAttribute("login", pdto.getP_seq());
 		nr.addDataSet("out_ds", ndto);
 		return nr;
 	}@RequestMapping("loginAdm.login")
@@ -44,7 +51,42 @@ public class LoginController {
 		System.out.println("loginAdm도착");
 		NexacroResult nr = new NexacroResult();
 		AdminDTO ndto = lService.loginAdm(adto);
+		session.setAttribute("login",adto.getA_seq());
 		nr.addDataSet("out_ds", ndto);
+
+		return nr;
+	}
+	@RequestMapping("logout.nex")
+	public NexacroResult logout(){
+		NexacroResult nr = new NexacroResult();
+		session.removeAttribute("login");
+		return nr;
+	}
+	
+	@RequestMapping("sessionA.nex")
+	public NexacroResult sessionA(){
+		NexacroResult nr = new NexacroResult();
+		int seq = (Integer)session.getAttribute("login");
+		AdminDTO dto = lService.selectAdm(seq);
+		nr.addDataSet("out_ds",dto);
+		return nr;
+	}
+	
+	@RequestMapping("sessionS.nex")
+	public NexacroResult sessionS(){
+		NexacroResult nr = new NexacroResult();
+		int seq = (Integer)session.getAttribute("login");
+		StudentsDTO dto = lService.selectStd(seq);
+		nr.addDataSet("out_ds",dto);
+		return nr;
+	}
+	
+	@RequestMapping("sessionP.nex")
+	public NexacroResult session(){
+		NexacroResult nr = new NexacroResult();
+		int seq = (Integer)session.getAttribute("login");
+		ProfessorDTO dto = lService.selectPro(seq);
+		nr.addDataSet("out_ds",dto);
 		return nr;
 	}
 	@ExceptionHandler

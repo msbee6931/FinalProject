@@ -23,5 +23,15 @@ public class LoginDAO {
 	public AdminDTO loginAdm(AdminDTO adto) {
 		return db.selectOne("Login.loginAdm", adto);
 	}
+	
+	public StudentsDTO selectStd(int seq) {
+		return db.selectOne("Login.selectStudents",seq);
+	}
+	public ProfessorDTO selectPro(int seq) {
+		return db.selectOne("Login.selectProfessor", seq);
+	}
+	public AdminDTO selectAdm(int seq) {
+		return db.selectOne("Login.selectAdmin", seq);
+	}
 
 }

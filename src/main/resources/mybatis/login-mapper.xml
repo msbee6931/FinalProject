@@ -13,4 +13,17 @@
 <select id="loginAdm" resultType="kh.spring.dto.AdminDTO">
 	select * from admin where a_seq = #{a_seq} and pw = #{pw}
 </select>
+
+
+<select id="selectStudents" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where s_seq= #{seq}
+</select>
+
+<select id="selectProfessor" resultType="kh.spring.dto.ProfessorDTO">
+	select * from professor where p_seq = #{seq}
+</select>
+
+<select id="selectAdmin" resultType="kh.spring.dto.AdminDTO">
+	select * from admin where a_seq = #{seq}
+</select>
 </mapper>

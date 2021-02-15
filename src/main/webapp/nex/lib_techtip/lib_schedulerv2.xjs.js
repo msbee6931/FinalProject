@@ -20,7 +20,6 @@
 
         	//스케줄러 설정 함수 호출
         	this.gfnSetScheduler(objGraphics);
-
         }
 
         /**
@@ -33,7 +32,7 @@
         {
         	var i, j;
 
-        	var nRightGap = 0;
+        	var nRightGap = 0
         	var nBottomGap = 0;
 
         	//스케줄러 설정 정보 가져오기
@@ -443,7 +442,6 @@
         	for(i=0;i<objDs.rowcount;i++)
         	{
         		//일정 데이터 가져오기
-        		sSeq = objDs.getColumn(i,"seq");
         		sId = objDs.getColumn(i, "id");
         		sSDate = objDs.getColumn(i, "sdate");
         		sEDate = objDs.getColumn(i, "edate");
@@ -510,7 +508,7 @@
         					objScheduleBg = this.gfnSetGraphicProperties("GraphicsRect", objScheduleRectProp);
 
         					//일정에 일정 배경 오브젝트 추가
-        					objScheduleGroup.addChild("schedule_"+sSeq+"_bg_"+j, objScheduleBg);
+        					objScheduleGroup.addChild("schedule_"+sId+"_bg_"+j, objScheduleBg);
 
         					//일정 텍스트 Left 좌표 설정
         					objScheduleTextProp.x = nLeft + 5;
@@ -525,7 +523,7 @@
         					objScheduleText = this.gfnSetGraphicProperties("GraphicsText", objScheduleTextProp);
 
         					//일정에 일정 텍스트 오브젝트 추가
-        					objScheduleGroup.addChild("schedule_"+sSeq+"_text_"+j, objScheduleText);
+        					objScheduleGroup.addChild("schedule_"+sId+"_text_"+j, objScheduleText);
         				}
         				//일정을 표현할 수 없을 경우 More버튼 만들기
         				else
@@ -827,7 +825,6 @@
         		objScheduleTextProp = objScheduleConfig.graphicstext;
 
         		//일정 데이터 가져오기
-        		sSeq = objDs.getColumn(i,"seq");
         		sId = objDs.getColumn(i, "id");
         		sSDate = objDs.getColumn(i, "sdate");
         		sEDate = objDs.getColumn(i, "edate");
@@ -845,7 +842,7 @@
         		objScheduleBg = this.gfnLoadScheduleBg(sDate, sSDate, sEDate, nWidth, nHeight, objScheduleType[sType], objScheduleRectProp);
 
         		//일정에 일정 배경 오브젝트 추가
-        		objSchedule.addChild("schedule_"+sSeq+"_bg", objScheduleBg);
+        		objSchedule.addChild("schedule_"+sId+"_bg", objScheduleBg);
 
         		//일정 텍스트 Left 좌표 설정
         		objScheduleTextProp.x = 15;
@@ -860,7 +857,7 @@
         		objScheduleText = this.gfnSetGraphicProperties("GraphicsText", objScheduleTextProp);
 
         		//일정에 일정 텍스트 오브젝트 추가
-        		objSchedule.addChild("schedule_"+sSeq+"_text", objScheduleText);
+        		objSchedule.addChild("schedule_"+sId+"_text", objScheduleText);
 
         		//일자에 일정 오브젝트 추가
         		objSchedulePop.addChild(sId, objSchedule);

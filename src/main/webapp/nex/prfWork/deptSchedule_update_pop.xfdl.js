@@ -145,7 +145,16 @@
         	var cFirm = this.confirm("정말 삭제하시겠습니까?","일정 삭제하기");
 
         	if(cFirm){
-        	this.alert("삭제완료");
+        	this.transaction(
+        		"deleteScheule",//id
+        		"/schedule/deleteScheule",//url (절대경로)
+        		"",//in_ds:U
+        		"deptSchedule_ds=out_ds=out_ds",//()_out_ds
+        		"oriSeq='"+this.seq+"'",//argument
+        		"fn_callback"
+        		)
+
+        		this.close();
         	} else {
         		return;
         	}
