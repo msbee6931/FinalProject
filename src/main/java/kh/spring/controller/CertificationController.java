@@ -48,10 +48,8 @@ public class CertificationController {
 
 	@RequestMapping("enrollment")
 	public String enrollmnet(Model model) {
-		//String s_seq = (String)session.getAttribute("id");
-
-		//합치면 지울내용
-		String s_seq = "2201001";
+		int is_seq = (Integer)session.getAttribute("login");
+		String s_seq = Integer.toString(is_seq);
 
 
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);
@@ -102,10 +100,8 @@ public class CertificationController {
 	}
 	@RequestMapping("graduate")
 	public String graduate(Model model){
-		//String s_seq = (String)session.getAttribute("id");
-
-		//합치면 지울내용
-		String s_seq = "2201001";
+		int is_seq = (Integer)session.getAttribute("login");
+		String s_seq = Integer.toString(is_seq);
 
 
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);
@@ -140,10 +136,8 @@ public class CertificationController {
 	}
 	@RequestMapping("payment")
 	public String payment(Model model) {
-		//String s_seq = (String)session.getAttribute("id");
-
-		//합치면 지울내용
-		String s_seq = "2201001";
+		int is_seq = (Integer)session.getAttribute("login");
+		String s_seq = Integer.toString(is_seq);
 
 
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);
@@ -212,10 +206,8 @@ public class CertificationController {
 	}
 	@RequestMapping("transcript")
 	public String transcript(Model model) {
-		//String s_seq = (String)session.getAttribute("id");
-
-		//합치면 지울내용
-		String s_seq = "2201001";
+		int is_seq = (Integer)session.getAttribute("login");
+		String s_seq = Integer.toString(is_seq);
 		
 		//--seq받은걸로 dto 찾기
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);

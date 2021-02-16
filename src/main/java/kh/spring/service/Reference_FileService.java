@@ -40,4 +40,9 @@ public class Reference_FileService {
 	public Reference_FileDTO selectFileSeq(Reference_FileDTO dto) {
 		return dao.selectFileSeq(dto);
 	}
+	
+	public List<Reference_FileDTO> selectByParentSeq(int parentSeq){
+		return dao.selectByParentSeq(parentSeq);
+
+	}
 }
