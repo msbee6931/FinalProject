@@ -6,11 +6,10 @@
 	select * from students where s_seq=#{id}
 </select>
 <update id="updateMyInfoStu">
-	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
-		update students set name = #{i.name}, age= #{i.age}, email= #{i.email},
-		contact=#{i.contact}, address=#{i.address}, birth=TO_DATE(#{i.birth},'yyyyMMdd'), pw=#{i.pw}
-		where s_seq = #{i.s_seq}
-	</foreach>
+		update students set name = #{name}, age= #{age}, email= #{email},
+		contact=#{contact}, address=#{address}, birth=TO_DATE(#{birth},'yyyyMMdd'), pw=#{pw}
+		where s_seq = #{s_seq}
+	
 </update>
 <select id="myInfoPro" resultType="kh.spring.dto.ProfessorDTO">
 	select * from professor where p_seq=#{id}

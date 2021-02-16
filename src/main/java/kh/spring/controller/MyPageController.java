@@ -27,18 +27,20 @@ public class MyPageController {
 //		int id =(int) session.getAttribute("id");
 		int id = 1;
 		NexacroResult nr = new NexacroResult();
-		List<StudentsDTO> list = mService.myInfoStu(id);
-		nr.addDataSet("out_ds",list);
+		StudentsDTO dto = mService.myInfoStu(id);
+		nr.addDataSet("out_ds",dto);
 		return nr;
 	}
 	@RequestMapping("updateMyInfoStu.nex")
-	public NexacroResult updateMyInfoStu(@ParamDataSet(name="in_ds")List<StudentsDTO> list) {
+	public NexacroResult updateMyInfoStu(@ParamDataSet(name="in_ds")StudentsDTO dto) {
 		System.out.println("도착");
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i).getPw());
+		if(dto.getBirth().length()>9) {
+		String birth = dto.getBirth().substring(0, 10);
+		String rbirth = birth.replace("-", "");
+		dto.setBirth(rbirth);
 		}
 		NexacroResult nr = new NexacroResult();
-		int result = mService.updateMyInfoStu(list);
+		int result = mService.updateMyInfoStu(dto);
 		return nr;
 	}
 	@RequestMapping("myInfoPro.nex")

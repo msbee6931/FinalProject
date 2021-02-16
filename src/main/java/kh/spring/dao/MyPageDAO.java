@@ -14,11 +14,11 @@ public class MyPageDAO {
 	@Autowired
 	private SqlSession db;
 	
-	public List<StudentsDTO> myInfoStu(int id){
-		return db.selectList("MyPage.myInfoStu", id);
+	public StudentsDTO myInfoStu(int id){
+		return db.selectOne("MyPage.myInfoStu", id);
 	}
-	public int updateMyInfoStu(List<StudentsDTO> list) {
-		return db.update("MyPage.updateMyInfoStu", list);
+	public int updateMyInfoStu(StudentsDTO dto) {
+		return db.update("MyPage.updateMyInfoStu", dto);
 	}
 	public List<ProfessorDTO> myInfoPro(int id){
 		return db.selectList("MyPage.myInfoPro", id);
