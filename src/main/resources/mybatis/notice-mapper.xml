@@ -12,7 +12,7 @@
 	insert into noticefile values (noticefile_seq.nextval,#{parentSeq},#{fileName},#{savedFileName},#{fileSize})
 </insert>
 <select id="selectNomalNotice" resultType="kh.spring.dto.NoticeDTO">
-	select * from notice where scolar = 'N'
+	select * from notice where scolar = 'N' order by writedate
 </select>
 <select id="selectNomalNotice_Info" resultType="kh.spring.dto.NoticeDTO">
 	select * from notice where n_seq = #{n_seq}
@@ -21,7 +21,7 @@
 	select * from noticefile where parentseq = #{n_seq}
 </select>
  <update id="updateNomalNotice">
-	update notice set title = #{title}, writedate = TO_DATE(#{writedate},'yyyyMMdd'), contents = #{contents} where n_seq = #{n_seq}
+	update notice set title = #{title}, writedate = sysdate, contents = #{contents} where n_seq = #{n_seq}
 </update>
 <!-- Scolar -->
 <insert id="insertScolar">
@@ -31,6 +31,53 @@
 	select * from notice where scolar = 'Y'
 </select>
 
-
-
+<select id="normalCount" resultType="int">
+select count(*) from notice where scolar ='N'
+</select>
+<select id="selectNormalByPage" resultType="kh.spring.dto.NoticeDTO">
+	 select * from (select notice.*, row_number() over(order by writedate desc) rn from notice where scolar ='N') where rn between #{startRowNum} and #{endRowNum} 
+</select>
+<select id="searchNormalCount" resultType="int">
+	select count(*) from notice where scolar ='N' and
+	<if test="category =='1'.toString()">
+          title like '%'||#{content}||'%'
+      </if>
+      <if test="category =='2'.toString()">
+         contents like '%'||#{content}||'%'
+      </if>
+      <if test="category =='3'.toString()">
+         contents like '%'||#{content}||'%' or title like '%'||#{content}||'%'
+      </if>
+</select>
+<select id="searchNormalByPage" resultType="kh.spring.dto.NoticeDTO">
+	select * from (select notice.*, row_number() over(order by writedate desc) rn from notice where scolar ='N' and
+	 	<if test="category =='1'.toString()">
+          title like '%'||#{content}||'%'
+      </if>
+      <if test="category =='2'.toString()">
+         contents like '%'||#{content}||'%'
+      </if>
+      <if test="category =='3'.toString()">
+         contents like '%'||#{content}||'%' or title like '%'||#{content}||'%' 
+      </if>
+	) where rn between #{startRowNum} and #{endRowNum} 
+</select>
+<select id="selectFileParentSeq" resultType="kh.spring.dto.NoticeFileDTO">
+	select * from noticeFile where parentSeq = #{parentSeq}
+</select>
+<select id="selectFileSeq" resultType="kh.spring.dto.NoticeFileDTO">
+	select * from noticeFile where f_seq = #{f_seq}
+</select>
+<select id="selectListSeq" resultType="kh.spring.dto.NoticeDTO">
+	select * from notice where n_seq =#{n_seq}
+</select>
+<update id="view_countUpd">
+	update notice set view_count = view_count+1 where n_seq =#{n_seq}
+</update>
+<select id="selectByParentSeq" resultType="kh.spring.dto.NoticeFileDTO">
+	select * from noticeFile where parentseq=#{parentSeq}
+</select>
+<select id="selectFileAll" resultType="kh.spring.dto.NoticeFileDTO">
+	select * from noticeFile
+</select>
 </mapper>

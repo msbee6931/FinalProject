@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일반 공지</title>
+<title>학사 공지</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -82,12 +84,16 @@ nav {
 	border: 1px solid black;
 	border-radius: 10px;
 }
+#nav-ul{
+	width:100%;
+}
 #subLabel{
 	width:fit-content;
 	color:white;
 }
-#nav-ul{
-	width:100%;
+
+#sideBox{
+	max-height:300px;
 }
 </style>
 </head>
@@ -119,13 +125,13 @@ nav {
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item p-3"><a class="nav-link active"
 								aria-current="page" href="introduce.home"><b>학교소개</b></a></li>
-							<li class="nav-item p-3"><a class="nav-link active" href="#"
+							<li class="nav-item p-3"><a class="nav-link active" href="/academicList.notice?page=1"
 								tabindex="-1"><b>공지사항</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="#"
 								tabindex="-1"><b>학사스케쥴</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="#"
 								tabindex="-1"><b>게시판</b></a></li>
-							<li class="nav-item p-3"><a class="nav-link active" href="#"
+							<li class="nav-item p-3"><a class="nav-link active" href="/reference/refList.ref?page=1"
 								tabindex="-1"><b>자료실</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="#"
 								tabindex="-1"><b>채팅</b></a></li>
@@ -139,7 +145,7 @@ nav {
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
-						<a href="/">Home&gt;</a><a href="">공지사항&gt;</a><a href="#">일반공지</a>
+						<a href="/">Home&gt;</a><a href="/academicList.notice?page=1">공지사항&gt;</a><a href="/academicList.notice?page=1">학사공지</a>
 					</h5>
 				</div>
 			</div>
@@ -148,7 +154,7 @@ nav {
 			</div>
 		</div>
 			<div class="row">
-				<div class="col-lg-2 d-grid text-center">
+				<div class="col-lg-2 d-grid text-center" id="sideBox">
 					<!--collapse 추가  -->
 					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
 					<div class="col d-grid">
@@ -156,9 +162,9 @@ nav {
 					</div>
 						<div class="collapse navbar-collapse" id="listCollapse" >
 							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item" ><a class="nav-link active" href="#">일반공지</a>
+								<li class="nav-item" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="#">학사공지</a>
+								<li class="nav-item"><a class="nav-link active" href="/academicList.notice?page=1">학사공지</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="#">장학공지</a>
 								</li>
@@ -168,36 +174,34 @@ nav {
 						</div>
 					</nav>
 				</div>
-				<div class="col-lg-10 py-4" id="box">
+				<div class="col-lg-10 d- pt-4" id="box">
 					<div class="row">
 						<div class="col-12">
 							<H3>
-								<b>일반공지</b>
+								<b>학사공지</b>
 							</H3>
 						</div>
 						<div class="col-12">
-							<div class="row">
+							<form action="/searchacademic.notice?page=1" method="post" class="row">
 								<div class="col-md-6 order-md-2">
 									<div class="row p-4">
 										<div class="col-sm-12 col-md-3 p-0">
-											<select class="form-select">
-												<option selected>전체</option>
-												<option value="1">제목</option>
-												<option value="2">내용</option>
-												<option value="3">제목+내용</option>
+											<select class="form-select" name="category" id="select">
+												<option value="1"${category == '1' ? 'selected="selected"' : ''}>제목</option>
+												<option value="2"${category == '2' ? 'selected="selected"' : ''}>내용</option>
+												<option value="3"${category == '3' ? 'selected="selected"' : ''} >제목+내용</option>			
 											</select>
 										</div>
 										<div class="col-sm-12 col-md-6 p-0">
-											<input class="form-control" type="search"
-												placeholder="검색어를 입력해주세요">
+											<input class="form-control" name="content" type="search" placeholder="검색어를 입력해주세요">
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
-											<button type="button" class="btn btn-primary d-md-block">검색</button>
+											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6  align-self-center">현재 | 현재 페이지</div>
-							</div>
+								<div class="col-md-6  align-self-center">현재 ${count}건 | 현재 ${page}/${end} 페이지</div>
+							</form>
 						</div>
 					</div>
 					<div class="row text-center" style="border-bottom: 1px solid black">
@@ -209,13 +213,57 @@ nav {
 					</div>
 					<c:forEach var="i" items="${list}">
 						<div class="row" style="border-bottom: 1px solid black">
-							<div class="col-md-2 d-none d-md-block text-center">${i.seq}</div>
-							<div class="col-md-4 col-12 text-left">${i.title}</div>
-							<div class="col-md-2 col-3 text-center">${i.write_date}</div>
-							<div class="col-md-2 col-3 text-center">(첨부파일)</div>
-							<div class="col-md-2 d-none d-md-block text-center">(조회수)</div>
+							<div class="col-md-2 d-none d-md-block text-center">${i.rn}</div>
+							<div class="col-md-4 col-12 text-left"><a href="/academicView.notice?seq=${i.n_seq}">${i.title}</a></div>
+							<div class="col-md-2 col-3 text-center">
+							<fmt:parseDate var="Date" value="${i.writedate}" pattern="yyyy-MM-dd"/>
+                            <fmt:formatDate value="${Date}" type="date" pattern="yyyy-MM-dd"/>
+                            </div> 
+                            <c:choose>
+                           	<c:when test="${i.file == 'Y'}">
+								<div class="col-md-2 col-3 text-center"><a href="/downloadAcademicAll.notice?seq=${i.n_seq}&title=${i.title}"><img src="/img/file.png"></a></div>
+							</c:when>
+							<c:otherwise>
+								<div class="col-md-2 col-3 text-center"></div>
+							</c:otherwise>	
+							</c:choose>
+							<div class="col-md-2 d-none d-md-block text-center">${i.view_count}</div>
 						</div>
 					</c:forEach>
+					<c:if test="${!empty list}">
+					<c:choose>
+					<c:when test="${type=='default'}">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center mt-3" >
+							<li class="page-item"><a class="page-link" href="/academicList.notice?page=1" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/academicList.notice?page=${page-1}"><span aria-hidden="true">&lt;</span></a></li>
+						<c:set var="nav" value="${fn:split(navi,'/')}"></c:set>
+						<c:forEach items="${nav}" var="i">
+							<li class="page-item d-none d-md-block"><a class="page-link" href="/academicList.notice?page=${i}">${i}</a></li>
+						</c:forEach>
+							<li class="page-item d-block d-md-none"><a class="page-link"><span>${page} / ${end}</span></a></li>
+							<li class="page-item"><a class="page-link" href="/academicList.notice?page=${page+1}"><span aria-hidden="true">&gt;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/academicList.notice?page=${end}"aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+						</ul>
+					</nav>
+					</c:when>
+					<c:otherwise>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center mt-3" >
+							<li class="page-item"><a class="page-link" href="/searchAcademic.notice?page=1&category=${category}&content=${content}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchAcademic.notice?page=${page-1}&category=${category}&content=${content}"><span aria-hidden="true">&lt;</span></a></li>
+						<c:set var="nav" value="${fn:split(navi,'/')}"></c:set>
+						<c:forEach items="${nav}" var="i">
+							<li class="page-item d-none d-md-block"><a class="page-link" href="/searchAcademic.notice?page=${i}&category=${category}&content=${content}">${i}</a></li>
+						</c:forEach>
+							<li class="page-item d-block d-md-none"><a class="page-link"><span>${page} / ${end}</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchAcademic.notice?page=${page+1}&category=${category}&content=${content}"><span aria-hidden="true">&gt;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchAcademic.notice?page=${end}&category=${category}&content=${content}"aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+						</ul>
+					</nav>
+					</c:otherwise>
+					</c:choose>
+					</c:if>
 				</div>
 			</div>
 		</div>

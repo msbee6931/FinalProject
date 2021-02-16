@@ -87,7 +87,7 @@
             obj.set_font("italic 18pt \"Arial\"");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("contents","90","284","886","374",null,null,null,null,null,null,this);
+            obj = new TextArea("contents","92","284","882","380",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             this.addChild(obj.name, obj);
 
@@ -257,24 +257,38 @@
 
         this.Button03_onclick = function(obj,e)
         {
-        	let title = this.title.value;
-        	let contents = this.contents.value;
-        	let nRow = this.reference.addRow();
+        	if(this.title.value==null){
+        		alert("제목을 입력하셔야합니다.");
+        	}else if(this.contents.value==null){
+        		alert("내용을 기입해 주십시오.");
+        	}else{
+        		let title = this.title.value;
+        		let contents = this.contents.value;
+        		let nRow = this.reference.addRow();
 
-        	this.reference.setColumn(nRow,"title",title);
-        	this.reference.setColumn(nRow,"contents",contents);
+        		this.reference.setColumn(nRow,"title",title);
+        		this.reference.setColumn(nRow,"contents",contents);
 
-        	this.transaction(
-        		"uploadDTO",//id
-        		"/reference/uploadDTO",//url (절대경로)
-        		"in_ds=reference:U",//in_ds:U
-        		"",//()_out_ds
-        		"",//argument
-        		"fn_callback"
+        		this.transaction(
+        			"uploadDTO",//id
+        			"/reference/uploadDTO",//url (절대경로)
+        			"in_ds=reference:U",//in_ds:U
+        			"",//()_out_ds
+        			"",//argument
+        			"fn_callback"
         	)
 
         	//파일전송
         	this.FileUpTransfer00.upload("/reference/uploadFile"); //file up url
+        	alert("등록되었습니다.")
+        	this.title.set_value("");
+        	this.contents.set_value("");
+        	this.Dataset00.reset();
+        	this.FileUpTransfer00.clearFileList();
+
+
+        		}
+
 
         };
 

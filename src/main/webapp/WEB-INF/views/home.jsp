@@ -6,7 +6,7 @@
 <head>
 <link rel="icon" type="image/png" href="http://example.com/myicon.png">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>KH정보교육원</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link
@@ -134,7 +134,7 @@ nav {
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item p-3"><a class="nav-link active"
 								aria-current="page" href="introduce.home"><b>학교소개</b></a></li>
-							<li class="nav-item p-3"><a class="nav-link active" href="#"
+							<li class="nav-item p-3"><a class="nav-link active" href="/normalList.notice?page=1""
 								tabindex="-1"><b>공지사항</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="#"
 								tabindex="-1"><b>학사스케쥴</b></a></li>
