@@ -20,7 +20,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("Dataset00", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"parentSeq\" type=\"INT\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -109,6 +109,11 @@
             obj.set_text("삭제");
             this.addChild(obj.name, obj);
 
+            obj = new Button("Button01","479","36","89","33",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_text("갱신");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1024,768,this,function(p){});
@@ -136,6 +141,7 @@
         this.Button00_onclick = function(obj,e)
         {
         	this.FileDialog00.open('파일선택', FileDialog.MULTILOAD);
+        	this.Dataset00.clearData();
         };
 
         this.FileDialog00_onclose = function(obj,e)
@@ -322,6 +328,7 @@
 
 
 
+
         };
 
         this.sample_fileuptransfer_01_onload = function(obj,e)
@@ -352,6 +359,19 @@
         		);
         };
 
+        this.Button01_onclick = function(obj,e)
+        {
+        			this.transaction(
+        			"ReferenceLoad" //id
+        			,"/reference/load"//url
+        			,""// inData
+        			,"reference=out_ds"// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
+
+        };
+
         });
         
         // Regist UI Components Event
@@ -369,6 +389,7 @@
             this.Grid01.addEventHandler("oncellposchanged",this.Grid01_oncellposchanged,this);
             this.Static01_01.addEventHandler("onclick",this.Static01_01_onclick,this);
             this.Button03_00.addEventHandler("onclick",this.Button03_onclick,this);
+            this.Button01.addEventHandler("onclick",this.Button01_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);
             this.FileUpTransfer00.addEventHandler("onsuccess",this.FileUpTransfer00_onsuccess,this);

@@ -36,7 +36,7 @@ public class LoginController {
 		StudentsDTO ndto = lService.loginStu(sdto);
 		session.setAttribute("login",sdto.getS_seq() );
 		nr.addDataSet("out_ds", ndto);
-		System.out.println(nr);
+
 		return nr;
 	}@RequestMapping("loginPro.login")
 	public NexacroResult loginPro(@ParamDataSet(name="in_ds") ProfessorDTO pdto) {

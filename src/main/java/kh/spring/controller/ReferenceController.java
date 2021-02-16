@@ -51,13 +51,35 @@ public class ReferenceController {
 	@RequestMapping("uploadDTO")
 	public NexacroResult uploadReferenceDTO(@ParamDataSet(name="in_ds")ReferenceDTO dto) throws Exception{
 
+		NexacroResult nr = new NexacroResult();
 		int seq1 = (Integer)session.getAttribute("login");
 		String writer = Integer.toString(seq1);
 		dto.setWriter(writer);
 		int sResult = Rservice.insertDTO(dto);
-		int fseq = Rservice.selectLastSeq();
-		session.setAttribute("fseq", fseq);
-		NexacroResult nr = new NexacroResult();
+		if(sResult>0) {
+			int fseq = Rservice.selectLastSeq();
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("fseq : "+fseq);
+
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			System.out.println("*");
+			session.setAttribute("fseq", fseq);
+		}else {
+			System.out.println("에러 등장");
+		}
+	      session.setAttribute("ycount", 1);
 
 		return nr;
 	}
@@ -65,9 +87,33 @@ public class ReferenceController {
 	@RequestMapping("uploadFile")
 	public NexacroResult uploadFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("파일 업로드");
+		int ycount = (Integer)session.getAttribute("ycount");
+		System.out.println(ycount);
 		int parentSeq = (Integer)session.getAttribute("fseq");
+		if(ycount==1) {
+			 parentSeq +=1;
+		}
+		
+		
+		System.out.println("*----");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
 		System.out.println("parentSeq : "+parentSeq);
 
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		System.out.println("*---");
+		
+		
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
 
@@ -108,7 +154,6 @@ public class ReferenceController {
 			}
 
 		}
-		session.removeAttribute("fseq");
 		return new NexacroResult();
 	}
 	
@@ -140,10 +185,18 @@ public class ReferenceController {
 	}
 	@RequestMapping("updateFile")
 	public NexacroResult updateFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		int parentSeq = (Integer)session.getAttribute("fseq");
+		System.out.println("파일 업데이트");
+		int parentSeq = (Integer)session.getAttribute("useq");
 		System.out.println("parentSeq : "+parentSeq);
 		
-
+		if(!(request instanceof MultipartHttpServletRequest)) {
+			if(logger.isDebugEnabled()) {
+				logger.debug("Request is not a MultipartHttpServletRequest");
+			}
+			return new NexacroResult();
+		}
+		
+		
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
 
@@ -186,7 +239,6 @@ public class ReferenceController {
 			}
 
 		}
-		session.removeAttribute("fseq");
 		return new NexacroResult();
 	}
 	
