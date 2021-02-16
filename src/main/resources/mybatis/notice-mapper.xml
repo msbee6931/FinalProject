@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Notice">
+<insert id="insertNomal">
+	insert into notice values (notice_seq.nextval,#{title},#{writedate},#{contents},'N')
+</insert>
+<select id="selectLastSeq" resultType="int">
+	SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'NOTICE_SEQ'
+</select>
+<insert id="insertNoticeFile">
+	insert into noticefile values (noticefile_seq.nextval,#{parentSeq},#{fileName},#{savedFileName},#{fileSize})
+</insert>
+<select id="selectNomalNotice" resultType="kh.spring.dto.NoticeDTO">
+	select * from notice where scolar = 'N'
+</select>
+<select id="selectNomalNotice_Info" resultType="kh.spring.dto.NoticeDTO">
+	select * from notice where n_seq = #{n_seq}
+</select>
+<select id="selectNomalNoticeFile" resultType="kh.spring.dto.NoticeFileDTO">
+	select * from noticefile where parentseq = #{n_seq}
+</select>
+ <update id="updateNomalNotice">
+	update notice set title = #{title}, writedate = TO_DATE(#{writedate},'yyyyMMdd'), contents = #{contents} where n_seq = #{n_seq}
+</update>
+<!-- Scolar -->
+<insert id="insertScolar">
+	insert into notice values(notice_seq.nextval,#{title},#{writedate},#{contents},'Y')
+</insert>
+<select id="selectScolarNotice" resultType="kh.spring.dto.NoticeDTO">
+	select * from notice where scolar = 'Y'
+</select>
+
+
+
+</mapper>
