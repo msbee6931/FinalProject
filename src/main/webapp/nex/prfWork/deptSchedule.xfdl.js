@@ -66,7 +66,7 @@
             obj.set_taborder("2");
             obj.set_binddataset("deptSchedule_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"Day\"/><Cell col=\"1\" text=\"Category\"/><Cell col=\"2\" text=\"Schedule\"/></Band><Band id=\"body\"><Cell text=\"bind:schDay\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/><Cell col=\"1\" text=\"bind:code\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/><Cell col=\"2\" text=\"bind:title\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"Day\"/><Cell col=\"1\" text=\"Category\"/><Cell col=\"2\" text=\"Schedule\"/></Band><Band id=\"body\"><Cell text=\"bind:schDay\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/><Cell col=\"1\" text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':''\"/><Cell col=\"2\" text=\"bind:title\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);

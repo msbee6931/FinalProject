@@ -103,7 +103,6 @@ public class ScholarshipController {
 			filesPath.mkdir();
 		}
 
-
 		Set<String> keySet = fileMap.keySet();
 		for(String name: keySet) {
 			MultipartFile multipartFile = fileMap.get(name);
@@ -166,7 +165,6 @@ public class ScholarshipController {
 		File targetFile = null; //실제 파일 취급
 		String tranName =""; //다운받을 파일에 입힐 이름
 
-
 		int seq = Integer.parseInt(request.getParameter("seq")); // 부모 고유 번호 받아오기
 		int countFile = sService.selectCountFile(seq); // 해당 게시물에 총 첨부된 파일 갯수
 
@@ -183,12 +181,9 @@ public class ScholarshipController {
 			String downOFile  = request.getParameter("fileName'"+i+"'"); // 넥사에서 setPostData로 보낸 데이터
 			arrOrg.add(i, downOFile);
 		}
-
-
 		for(int i=0; i<arrSaved.size();i++) {
 			//파일이 2개 이상이면 압축파일로 저장한다.
 			if(arrSaved.size()>1) {
-    
 				String uid = UUID.randomUUID().toString().replaceAll("-", "");
 			    targetFile = sService.getCompressZipFile(arrSaved, filePath, "compressZip_"+uid);	    
 			    tranName = seq+"번_장학금_요청글_첨부파일.zip";

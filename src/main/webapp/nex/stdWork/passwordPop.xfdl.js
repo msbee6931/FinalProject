@@ -69,6 +69,7 @@
         	var cpw = this.edt_pw.value;
         	var shaObj = new jsSHA("SHA-256","TEXT");
         	shaObj.update(cpw);
+        	trace(pw);
 
         	var hash = shaObj.getHash("HEX");
         	if(pw.length<64){
@@ -90,6 +91,10 @@
 
         };
 
+        this.passwordPop_onload = function(obj,e)
+        {
+
+        };
 
         });
         

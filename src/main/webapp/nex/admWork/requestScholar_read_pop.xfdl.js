@@ -261,13 +261,14 @@
 
         }
 
+
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.requestScholar_read_pop_onload,this);
-            this.Div00.form.Edit00.addEventHandler("onchanged",this.Div00_Edit00_onchanged,this);
             this.Div00.form.btn_down.addEventHandler("onclick",this.Div00_btn_down_onclick,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.btn_cancle.addEventHandler("onclick",this.Div00_btn_cancle_onclick,this);

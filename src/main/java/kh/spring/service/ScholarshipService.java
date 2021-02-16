@@ -62,7 +62,6 @@ public class ScholarshipService {
 	}
 
 	public File getCompressZipFile(ArrayList arrSaved, String filePath, String compressName) throws Exception {
-
 		  String path = filePath;
 		  String files[] = new String[arrSaved.size()];		  
 		  File destination = new File(path);
