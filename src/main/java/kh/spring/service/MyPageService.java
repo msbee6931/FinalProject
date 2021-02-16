@@ -15,11 +15,11 @@ public class MyPageService {
 	@Autowired
 	private MyPageDAO mDAO;
 	
-	public List<StudentsDTO> myInfoStu(int id){
+	public StudentsDTO myInfoStu(int id){
 		return mDAO.myInfoStu(id);
 	}
-	public int updateMyInfoStu(List<StudentsDTO> list) {
-		return mDAO.updateMyInfoStu(list);
+	public int updateMyInfoStu(StudentsDTO dto) {
+		return mDAO.updateMyInfoStu(dto);
 	}
 	public List<ProfessorDTO> myInfoPro(int id){
 		return mDAO.myInfoPro(id);

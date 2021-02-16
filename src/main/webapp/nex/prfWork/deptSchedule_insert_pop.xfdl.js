@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("ScheduleCode_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">공지사항</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">단체일정</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">개인일정</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">[공지]</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">[학과]</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">[개인]</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize

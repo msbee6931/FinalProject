@@ -57,7 +57,7 @@
             obj.set_taborder("1");
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"201\"/><Column size=\"95\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"214\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button02","887","85","90","30",null,null,null,null,null,null,this);
@@ -137,11 +137,12 @@
         
         // User Script
         this.registerScript("reference_controller.xfdl", function() {
+        this.parentSeq=0;
 
         this.Button00_onclick = function(obj,e)
         {
         	this.FileDialog00.open('파일선택', FileDialog.MULTILOAD);
-        	this.Dataset00.clearData();
+
         };
 
         this.FileDialog00_onclose = function(obj,e)
@@ -278,11 +279,23 @@
         }
         this.Button02_onclick = function(obj,e)
         {
+
         	let arr = this.Dataset00.extractRows("chk==1");
 
         	if(arr.length==0 || arr.length== -1){alert("선택된 항목이 없습니다.");return;}
 
         	this.Dataset00.deleteMultiRows(arr);
+
+
+        	 this.transaction(
+                    "ReferenceFileDel"
+                    ,"/reference/deleteFile"
+                    ,"in_ds=Dataset00:U"
+                    ,""
+                    ,""
+                    ,"fn_callback"
+                 )
+        		 this.alert("파일이 제거 되었습니다.");
         };
 
 
@@ -313,7 +326,7 @@
 
         this.update_onclick = function(obj,e)
         {
-
+        	this.contents.set_value(this.contents.value+" ");
         	this.transaction(
                     "ReferenceUpd"
                     ,"/reference/update"
@@ -334,6 +347,15 @@
         this.sample_fileuptransfer_01_onload = function(obj,e)
         {
         		this.transaction(
+        			"garbageDelte" //id
+        			,"/reference/garbageDelete"//url
+        			,""// inData
+        			,""// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
+
+        		this.transaction(
         			"ReferenceLoad" //id
         			,"/reference/load"//url
         			,""// inData
@@ -341,6 +363,7 @@
         			,""//strArg
         			,"fn_callback"//callback
         		);
+
 
         };
 
@@ -357,6 +380,7 @@
         			,"seq="+seq//strArg
         			,"fn_callback"//callback
         		);
+
         };
 
         this.Button01_onclick = function(obj,e)

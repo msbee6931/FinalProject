@@ -67,32 +67,39 @@ public class ScholarshipController {
 	@RequestMapping("uploadReqScholar.scholarship")
 	public NexacroResult uploadReqScholar(@ParamDataSet(name="in_ds")ReqScholarDTO dto) throws Exception{
 		System.out.println("장학금 요청 컨트롤러 확인");
+		int result = sService.insertReqScholar(dto);
+		if(result>0) {
+			System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡ 시퀀스 확인 >> "+dto.getSeq());
 
-		int sResult = sService.insertReqScholar(dto);
-
+		} else {
+			System.out.println("-----에러 확인");
+		}
 		NexacroResult nr = new NexacroResult();
+		nr.addVariable("parentSeq", dto.getSeq());// 패런츠 시퀀스 보내기
 		return nr;
+
 	}
 
+	//장학금 신청 파일 업로드
 	@RequestMapping("uploadReqSchFile.scholarship")
 	public NexacroResult uploadReqSchFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		System.out.println("장학금 요청 컨트롤러 확인");
+		System.out.println("장학금 요청 파일쪽 컨트롤러 확인");
+		int pSeq = Integer.parseInt(request.getParameter("parentSeq"));
+//		int selectLastSeq = sService.selectLastSeq(); 
+		System.out.println("parentSeq확인 ----------------->>>> "+pSeq);
 
-		int selectLastSeq = sService.selectLastSeq(); 
-		System.out.println("parentSeq확인 : "+selectLastSeq);
-
-		if(!(request instanceof MultipartHttpServletRequest)) {
-			if(logger.isDebugEnabled()) {
-				logger.debug("Request is not a MultipartHttpServletRequest");
-			}
-			return new NexacroResult();
-		}
+//		if(!(request instanceof MultipartHttpServletRequest)) {
+//			if(logger.isDebugEnabled()) {
+//				logger.debug("Request is not a MultipartHttpServletRequest");
+//			}
+//			return new NexacroResult();
+//		}
 
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
 
-		// parameter and multipart parameter
-		Enumeration<String> parameterNames = multipartRequest.getParameterNames();
+//		// parameter and multipart parameter
+//		Enumeration<String> parameterNames = multipartRequest.getParameterNames();
 
 		// files..
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
@@ -112,7 +119,7 @@ public class ScholarshipController {
 			String savedFileName = uid + "_" +originalFileName;
 
 
-			ReqSchFileDTO fDto = new ReqSchFileDTO("0",0,selectLastSeq,originalFileName,savedFileName, multipartFile.getSize()); 
+			ReqSchFileDTO fDto = new ReqSchFileDTO("0",0,pSeq,originalFileName,savedFileName, multipartFile.getSize()); 
 			int result = sService.insertReqSchFile(fDto);
 			//DB에 저장이 되었을 경우 파일을 복사 저장하라는 조건문
 			if(result > 0) {
@@ -122,10 +129,10 @@ public class ScholarshipController {
 
 			// upload some logic…
 
-			if(logger.isDebugEnabled()) {
-				logger.debug("uploaded file write success. file={}", 
-						originalFileName);
-			}
+//			if(logger.isDebugEnabled()) {
+//				logger.debug("uploaded file write success. file={}", 
+//						originalFileName);
+//			}
 
 		}
 
@@ -204,7 +211,24 @@ public class ScholarshipController {
 		return nfr;
 	}    
 
+	//학생쪽_장학금 신청 목록 조회
+	@RequestMapping("selectOneReqScholar.scholarship")
+	public NexacroResult selectOneReqScholar(@ParamVariable(name="code")int stdCode) {
+		NexacroResult nr = new NexacroResult();
+		List<ReqScholarDTO> list =  sService.selectOneReqScholar(stdCode);
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
+	
+	//관리자쪽 읽음 처리내역 업데이트
+	@RequestMapping("checkValueReqScholar.scholarship")
+	public NexacroResult checkValueReqScholar(@ParamVariable(name="seq")int seq) {
+		NexacroResult nr = new NexacroResult();
+		int result =  sService.checkValueReqScholar(seq);
 
+		return nr;
+	}
+	
 
 
 

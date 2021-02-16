@@ -84,7 +84,7 @@ public class ScholarshipService {
 		   
 		  try {
 		    // Zip 파일생성
-		    zos = new ZipArchiveOutputStream(new BufferedOutputStream(new FileOutputStream(outZipNm))); 
+		    //zos = new ZipArchiveOutputStream(new BufferedOutputStream(new FileOutputStream(outZipNm))); 
 		    for( int i=0; i < files.length; i++ ){
 		      //encoding 설정
 		      zos.setEncoding("UTF-8");
@@ -126,4 +126,11 @@ public class ScholarshipService {
 		return sDao.selectDTOByStd_Code(std_code);
 	}
 	
+	public List<ReqScholarDTO> selectOneReqScholar(int stdCode) {
+		return sDao.selectOneReqScholar(stdCode);
+	}
+	
+	public int checkValueReqScholar(int seq) {
+		return sDao.checkValueReqScholar(seq);
+	}
 }

@@ -20,6 +20,11 @@
             obj = new Dataset("deptSchedule_ds", this);
             obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"STRING\" size=\"256\"/><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"schDate\" type=\"STRING\" size=\"256\"/><Column id=\"schDay\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("ScheduleCode_ds", this);
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">[공지]</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">[학과]</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">[개인]</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
@@ -57,21 +62,54 @@
             obj.set_type("monthonly");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","29","31","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_insert","839","36","90","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","433","76","500","350",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","429","76","500","350",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_binddataset("deptSchedule_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"Day\"/><Cell col=\"1\" text=\"Category\"/><Cell col=\"2\" text=\"Schedule\"/></Band><Band id=\"body\"><Cell text=\"bind:schDay\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/><Cell col=\"1\" text=\"bind:code\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/><Cell col=\"2\" text=\"bind:title\" cssclass=\"expr:Category=='01'?'Expr_red':'Expr_blue'\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" displaytype=\"combotext\" combocodecol=\"code\" combodatacol=\"name\" textAlign=\"center\" combodataset=\"ScheduleCode_ds\"/><Cell col=\"1\" text=\"bind:title\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("학과 스케줄");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00","464","87","10","10",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_text("");
+            obj.set_background("#d23636");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03_00_00_00","475","85","65","15",null,null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_text("공지사항");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02","541","87","10","10",null,null,null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_text("");
+            obj.set_background("#78a2dd");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03","552","85","65","15",null,null,null,null,null,null,this);
+            obj.set_taborder("9");
+            obj.set_text("학과일정");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00","618","87","10","10",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_text("");
+            obj.set_background("#ab9f1b");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03_00","629","85","65","15",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
+            obj.set_text("개인일정");
             this.addChild(obj.name, obj);
 
             // Layout Functions

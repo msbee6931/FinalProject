@@ -30,9 +30,10 @@ update reference_file set filename=#{fileName},savedfilename=#{savedFileName},fi
 	delete from reference_file where parentseq in 
 	<foreach separator="," close=")" open="(" item="i" collection="list">#{i.seq} </foreach>
 </delete>
-
 <select id="selectAll" resultType="kh.spring.dto.ReferenceDTO">
-select * from reference order by 1 desc
+
+select * from reference order by write_date
+
 </select>
 
 <select id="selectFileAll" resultType="kh.spring.dto.Reference_FileDTO">
@@ -43,7 +44,63 @@ select * from reference_file
 delete from reference_file where parentseq=#{parentSeq}
 </delete>
 
+<select id="count" resultType="int">
+select count(*) from reference
+</select>
+<select id="selectByPage" resultType="kh.spring.dto.ReferenceDTO">
+	 select * from (select reference.*, row_number() over(order by write_date desc) rn from reference) where rn between #{startRowNum} and #{endRowNum}  
+</select>
+<select id="searchCount" resultType="int">
+	select count(*) from reference where
+	<if test="category =='1'.toString()">
+          title like '%'||#{content}||'%'
+      </if>
+      <if test="category =='2'.toString()">
+         contents like '%'||#{content}||'%'
+      </if>
+      <if test="category =='3'.toString()">
+         contents like '%'||#{content}||'%' or title like '%'||#{content}||'%'
+      </if>
+</select>
+<select id="searchByPage" resultType="kh.spring.dto.ReferenceDTO">
+	select * from (select reference.*, row_number() over(order by write_date desc) rn from reference where
+	 	<if test="category =='1'.toString()">
+          title like '%'||#{content}||'%'
+      </if>
+      <if test="category =='2'.toString()">
+         contents like '%'||#{content}||'%'
+      </if>
+      <if test="category =='3'.toString()">
+         contents like '%'||#{content}||'%' or title like '%'||#{content}||'%'
+      </if>
+	) where rn between #{startRowNum} and #{endRowNum}  
+</select>
+<select id="selectFileParentSeq" resultType="kh.spring.dto.Reference_FileDTO">
+	select * from reference_file where parentSeq = #{parentSeq}
+</select>
+<select id="selectFileSeq" resultType="kh.spring.dto.Reference_FileDTO">
+	select * from reference_file where seq = #{seq}
+</select>
+<select id="selectListSeq" resultType="kh.spring.dto.ReferenceDTO">
+	select * from reference where seq =#{seq}
+</select>
+<update id="view_countUpd">
+	update reference set view_count = view_count+1 where seq =#{seq}
+</update>
+
+
 <select id="selectByParentSeq" resultType="kh.spring.dto.Reference_FileDTO">
 select * from reference_file where parentseq=#{parentSeq}
 </select>
+
+<delete id="garbageDelete">
+delete from reference where title = 'axc_ss3321kw'
+</delete>
+
+
+<delete id="deleteFile2">
+	delete from reference_file where seq in 
+	<foreach separator="," close=")" open="(" item="i" collection="list">#{i.seq} </foreach>
+</delete>
+
 </mapper>
