@@ -15,4 +15,15 @@ public class StudentsService {
 	public StudentsDTO selectStudentsByS_Seq(String s_seq) {
 		return dao.selectStudentsByS_Seq(s_seq);
 	}
+	public StudentsDTO selectOneStd(int sCode) {
+		return dao.selectOneStd(sCode);
+	}
+	
+	public int updateStdAbs(int sCode) {
+		return dao.updateStdAbs(sCode);
+	}
+	
+	public int updateStdRest(int sCode) {
+		return dao.updateStdRest(sCode);
+	}
 }

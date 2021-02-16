@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("ScheduleCode_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">공지사항</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">단체일정</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">개인일정</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">[공지]</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">[학과]</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">[개인]</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -120,60 +120,57 @@
         	var eDate = this.cal_eDate.value;
         	var code = this.cmb_code.value;
         	var content = this.tea_content.value;
-        	var diff = eDate -sDate;
-        	if(diff < 0 ){
-        		alert("일자를 확인해주세요");
-        	}else{
-        		// 날짜간 차이 계산하기하기
-        		var fromDate = new Date();
-        		var toDate = new Date();
-        		var calDate;
-        		var day = 1000*60*60*24;
-
-        		fromDate.setFullYear(this.cal_sDate.getYear());
-        		fromDate.setMonth(this.cal_sDate.getMonth()-1);
-        		fromDate.setDate(this.cal_sDate.getDay());
-
-        		toDate.setFullYear(this.cal_eDate.getYear());
-        		toDate.setMonth(this.cal_eDate.getMonth()-1);
-        		toDate.setDate(this.cal_eDate.getDay());
-
-        		calDate = fromDate.getTime() - toDate.getTime();
-
-        		var leng = Math.abs(calDate/day); // 실제 날짜 간 차이
-        		var seq  = nexacro.round(Math.random()*10000, 0); // 랜덤으로 seq 숫자 부여
 
 
-        		for(var i=0; i<(leng+1);i++){
-        			var nRow = this.deptSchedule_ds.addRow();
-        			var schDate = (sDate+i);
+        	// 날짜간 차이 계산하기하기
+        	var fromDate = new Date();
+            var toDate = new Date();
+            var calDate;
+            var day = 1000*60*60*24;
 
-        			//나중에 로그인 처리시 아이디 값도 넣어줘야 함.
-        			this.deptSchedule_ds.setColumn(nRow,"seq",seq);
-        			this.deptSchedule_ds.setColumn(nRow,"title",title);
-        			this.deptSchedule_ds.setColumn(nRow,"sDate",sDate);
-        			this.deptSchedule_ds.setColumn(nRow,"eDate",eDate);
-        			this.deptSchedule_ds.setColumn(nRow,"schDate",schDate);
-        			this.deptSchedule_ds.setColumn(nRow,"schDay",schDate.toString().substr(6,2));
-        			this.deptSchedule_ds.setColumn(nRow,"code",code);
-        			this.deptSchedule_ds.setColumn(nRow,"content",content);
-        		}
+            fromDate.setFullYear(this.cal_sDate.getYear());
+            fromDate.setMonth(this.cal_sDate.getMonth()-1);
+            fromDate.setDate(this.cal_sDate.getDay());
+
+            toDate.setFullYear(this.cal_eDate.getYear());
+            toDate.setMonth(this.cal_eDate.getMonth()-1);
+            toDate.setDate(this.cal_eDate.getDay());
+
+            calDate = fromDate.getTime() - toDate.getTime();
+
+            var leng = Math.abs(calDate/day); // 실제 날짜 간 차이
+        	var seq  = nexacro.round(Math.random()*10000, 0); // 랜덤으로 seq 숫자 부여
+
+
+        	for(var i=0; i<(leng+1);i++){
+        		var nRow = this.deptSchedule_ds.addRow();
+        		var schDate = (sDate+i);
+
+        	//나중에 로그인 처리시 아이디 값도 넣어줘야 함.
+        	this.deptSchedule_ds.setColumn(nRow,"seq",seq);
+        	this.deptSchedule_ds.setColumn(nRow,"title",title);
+        	this.deptSchedule_ds.setColumn(nRow,"sDate",sDate);
+        	this.deptSchedule_ds.setColumn(nRow,"eDate",eDate);
+        	this.deptSchedule_ds.setColumn(nRow,"schDate",schDate);
+        	this.deptSchedule_ds.setColumn(nRow,"schDay",schDate.toString().substr(6,2));
+        	this.deptSchedule_ds.setColumn(nRow,"code",code);
+        	this.deptSchedule_ds.setColumn(nRow,"content",content);
+        	}
 
 
 
-        		this.transaction(
-        			"insertDeptScheule",//id
-        			"/schedule/insertDeptScheule",//url (절대경로)
-        			"in_ds=deptSchedule_ds:U",//in_ds:U
-        			"",//()_out_ds
-        			"seq='"+seq+"'",//argument
-        			"fn_callback"
+        	this.transaction(
+        		"insertDeptScheule",//id
+        		"/schedule/insertDeptScheule",//url (절대경로)
+        		"in_ds=deptSchedule_ds:U",//in_ds:U
+        		"",//()_out_ds
+        		"seq='"+seq+"'",//argument
+        		"fn_callback"
         		)
 
-        		var suc = "succes!";
+        	var suc = "succes!";
 
-        		this.close(suc);
-        	}
+        	this.close(suc);
         };
 
         });

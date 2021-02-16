@@ -41,5 +41,11 @@
 <select id="selectDTOByStd_Code" resultType="kh.spring.dto.ScholarshipDTO">
 select * from scholarship where std_code=#{std_code}
 </select>
+<select id="selectOneReqScholar" resultType="kh.spring.dto.ReqScholarDTO">
+	select * from reqScholar where std_code=#{stdCode}
+</select>
+<update id="checkValueReqScholar">
+	update reqScholar set checkRead='읽음' where seq=#{seq}
+</update>
 
 </mapper>

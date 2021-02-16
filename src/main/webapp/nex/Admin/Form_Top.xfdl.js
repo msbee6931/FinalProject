@@ -20,6 +20,11 @@
             obj = new Dataset("admin_alarm", this);
             obj._setContents("<ColumnInfo><Column id=\"confirm\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("session", this);
+            obj._setContents("<ColumnInfo><Column id=\"a_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
@@ -67,6 +72,10 @@
             obj = new BindItem("item0","alarm_btn","text","admin_alarm","confirm");
             this.addChild(obj.name, obj);
             obj.bind();
+
+            obj = new BindItem("item1","sta_name","text","session","a_seq");
+            this.addChild(obj.name, obj);
+            obj.bind();
         };
         
         this.loadPreloadList = function()
@@ -100,7 +109,17 @@
 
         this.btn_logout_onclick = function(obj,e)
         {
+        	this.transaction(
+        			"logout" //id
+        			,"/logout.nex"//url
+        			,""// inData
+        			,""// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
         	this.objApp.mainframe.VFrameSet00.set_separatesize("*,0,0,0");
+
+
         };
 
         this.alarm_btn_onclick = function(obj,e)
@@ -132,7 +151,17 @@
         			,""//strArg
         			,"fn_callback"//callback
         		);
+
+        		this.transaction(
+        			"sessionA" //id
+        			,"/sessionA.nex"//url
+        			,""// inData
+        			,"session=out_ds"// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
         };
+
 
 
         });
@@ -143,6 +172,7 @@
             this.addEventHandler("onload",this.Form_Top_onload,this);
             this.btn_logout.addEventHandler("onclick",this.btn_logout_onclick,this);
             this.btn_home.addEventHandler("onclick",this.btn_home_onclick,this);
+            this.sta_name.addEventHandler("onclick",this.sta_name_onclick,this);
             this.alarm_btn.addEventHandler("onclick",this.alarm_btn_onclick,this);
         };
 

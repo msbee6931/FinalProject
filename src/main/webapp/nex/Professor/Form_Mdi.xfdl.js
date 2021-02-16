@@ -65,12 +65,9 @@
         this.tab_menu_onchanged = function(obj,e)
         {
         	var sFormId = obj.tabpages[e.postindex].name;
+
         	this.av_FrameSet[sFormId].form.setFocus();
-        };
-        this.tab_menu_canchange = function(obj,e)
-        {
-        	var sFormId = obj.tabpages[e.postindex].name;
-        	this.av_FrameSet[sFormId].form.reload();
+
         };
 
         this.tab_menu_onextrabuttonclick = function(obj,e)
@@ -151,8 +148,6 @@
 
 
 
-
-
         });
         
         // Regist UI Components Event
@@ -161,7 +156,6 @@
             this.addEventHandler("onload",this.Form_Mdi_onload,this);
             this.tab_menu.addEventHandler("onchanged",this.tab_menu_onchanged,this);
             this.tab_menu.addEventHandler("onextrabuttonclick",this.tab_menu_onextrabuttonclick,this);
-            this.tab_menu.addEventHandler("canchange",this.tab_menu_canchange,this);
         };
 
         this.loadIncludeScript("Form_Mdi.xfdl");
