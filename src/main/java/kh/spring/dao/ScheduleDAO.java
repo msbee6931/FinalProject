@@ -1,12 +1,15 @@
 package kh.spring.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kh.spring.dto.DeptScheduleDTO;
+import kh.spring.dto.IndScheduleDTO;
 
 @Repository
 public class ScheduleDAO {
@@ -24,6 +27,37 @@ public class ScheduleDAO {
 	
 	public int updateDeptScheule(DeptScheduleDTO dto) {
 		return session.update("Schedule.updateDeptScheule", dto);
+	}
+	
+	public DeptScheduleDTO selectOneDeptSchedule(String seq, String schDate) {
+		   Map<String,String> param = new HashMap<>();
+		   param.put("seq", seq);
+		   param.put("schDate", schDate);
+		return session.selectOne("Schedule.selectOneDeptSchedule", param);
+	}
+	
+	public int deleteDeptSchedule(String oriSeq) {
+		return session.delete("Schedule.deleteDeptSchedule", oriSeq);
+	}
+	
+	public int insertIndSchedule(IndScheduleDTO dto) {
+		return session.insert("Schedule.insertIndSchedule", dto);
+	}
+	
+	public List<IndScheduleDTO> selectIndSchedule(){
+		return session.selectList("Schedule.selectIndSchedule");
+	}
+	
+	public IndScheduleDTO selectOneIndSchedule(String id) {
+		return session.selectOne("Schedule.selectIndSchedule", id);
+	}
+	
+	public int updateIndSchedule(IndScheduleDTO dto) {
+		return session.update("Schedule.updateIndSchedule", dto);
+	}
+	
+	public int deleteIndSchedule(String id) {
+		return session.delete("Schedule.deleteIndSchedule", id);
 	}
 
 }

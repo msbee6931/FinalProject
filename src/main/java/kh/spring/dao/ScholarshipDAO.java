@@ -60,5 +60,12 @@ public class ScholarshipDAO {
 	public ScholarshipDTO selectDTOByStd_Code(int std_code) {
 		return session.selectOne("Scholarship.selectDTOByStd_Code",std_code);
 	}
+	
+	public List<ReqScholarDTO> selectOneReqScholar(int stdCode) {
+		return session.selectList("Scholarship.selectOneReqScholar", stdCode);
+	}
+	public int checkValueReqScholar(int seq) {
+		return session.update("Scholarship.checkValueReqScholar", seq);
+	}
 
 }

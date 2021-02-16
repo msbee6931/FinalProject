@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("schFileList_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"parentSeq\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"savedFileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"seq\">1</Col><Col id=\"parentSeq\">12334</Col></Row><Row><Col id=\"parentSeq\">653</Col><Col id=\"savedFileName\">6534</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"parentSeq\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"savedFileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -70,41 +70,43 @@
             obj.set_taborder("0");
             obj.set_text("제목");
             obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #000000");
+            obj.set_border("1px solid #c1c1c1");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit01","70","139","700","271",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit01","170","150","600","160",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","69","69","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00","69","69","100","80",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("첨부파일");
             obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #000000");
+            obj.set_border("1px solid #c1c1c1");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_down","668","69","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_down","668","69","100","80",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("파일 다운로드");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","170","70","498","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","170","70","498","80",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_binddataset("schFileList_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"45\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"seq\"/><Cell col=\"2\" text=\"parentSeq\"/><Cell col=\"3\" text=\"fileName\"/><Cell col=\"4\" text=\"savedFileName\"/><Cell col=\"5\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"31\"/><Column size=\"239\"/><Column size=\"59\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancle","669","444","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_cancle","669","354","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("닫기");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_check","549","444","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_00","69","149","100","161",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
-            obj.set_text("확인 완료");
+            obj.set_text("신청사유");
+            obj.set_background("#c1c1c1");
+            obj.set_border("1px solid #c1c1c1");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -137,13 +139,14 @@
         {
         	//부모창에서 받아온 seq 값 - 해당 seq의 내용 가져오기
         	this.seq = this.parent.seq;
+        	var std_code = this.parent.std_code; // 학번
 
         	this.transaction(
         		"selectSeqReqScholar.", // 1. strSvcID
         		"/scholarship/selectSeqReqScholar.scholarship", // 2. strURL(절대경로로 입력해주어야함. 로컬호스트 뒤에는 이클립스 서버파일에 있는 path값)
         		"", // 3. strInDatasets - Sds=Fds:U, :A, :N
         		"reqScholar_ds=out_ds schFileList_ds=out_fDs", // 4. strOutDatasets - select Fds = Sds
-        		"seq='"+this.seq+"'", // 5. strArgument
+        		"seq="+this.seq, // 5. strArgument
         		"fn_callback" // 6. strCallbackFunc
         	);
 
@@ -207,26 +210,12 @@
         };
 
 
-        //-------------등록금 신청 내역 관리자 확인여부 체크하기
         this.chkValue="";
-        this.Div00_btn_check_onclick = function(obj,e)
-        {
-        	this.Div00.form.btn_check.set_text("처리 완료");
-        	this.chkValue="check";
-        };
 
-
-
+        // 닫기 버튼
         this.Div00_btn_cancle_onclick = function(obj,e)
         {
-        	this.alert(this.chkValue);
-        	if (this.chkValue == "check")
-        	{
-        		alert(this.seq);
         		this.close(this.seq);
-        	} else {
-        		this.close();
-        	}
         };
 
         //헤더 전체  클릭 적용
@@ -261,8 +250,6 @@
 
         }
 
-
-
         });
         
         // Regist UI Components Event
@@ -272,7 +259,6 @@
             this.Div00.form.btn_down.addEventHandler("onclick",this.Div00_btn_down_onclick,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.btn_cancle.addEventHandler("onclick",this.Div00_btn_cancle_onclick,this);
-            this.Div00.form.btn_check.addEventHandler("onclick",this.Div00_btn_check_onclick,this);
         };
 
         this.loadIncludeScript("requestScholar_read_pop.xfdl");

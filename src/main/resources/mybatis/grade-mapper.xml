@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Grade">
+	<select id="stdGrade" resultType="kh.spring.dto.GradeDTO">
+		select * from grade where sCode = #{sCode} and classCode = #{classCode}
+	</select>
+	<update id="stdGradeInsert">
+		MERGE INTO grade 
+			USING DUAL ON (classCode=#{classCode} and sCode = #{sCode})
+		WHEN MATCHED THEN
+		UPDATE SET attend=#{attend}, mid=#{mid}, otest=#{otest}, task =#{task}, fin=#{fin}, total=#{total}
+		WHEN NOT MATCHED THEN
+		INSERT VALUES (#{sCode},#{sName},#{classCode},#{attend},#{mid},#{otest},#{task},#{fin},#{total},#{grade,jdbcType=VARCHAR})
+	</update>
+	<select id="stdGradeList" resultType="kh.spring.dto.GradeDTO">
+		select * from grade where classCode = #{classCode}
+	</select>
+	<update id="stdGradeUpd">
+		update grade set grade =#{grade} where classCode = #{classCode} and sCode = #{sCode}
+	</update>
+	<select id="stdGradeOneList" resultType="kh.spring.dto.GradeDTO">
+		select * from grade where sCode=#{stdCode}
+	</select>
+</mapper>

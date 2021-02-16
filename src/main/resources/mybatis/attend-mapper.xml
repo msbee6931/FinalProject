@@ -19,4 +19,10 @@
 	<delete id="attendDel">
 		delete from attend where attendDay = #{attendDay} and classCode =#{classCode}
 	</delete>
+	<select id="selectOneAttend" resultType="kh.spring.dto.AttendDTO">
+		select * from attend where classCode=#{classCode} and sCode=#{sCode}
+	</select>
+	<select id="selectAttend" resultType="kh.spring.dto.AttendDTO">
+		select * from attend where classCode=#{classCode}
+	</select>
 </mapper>

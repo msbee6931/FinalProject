@@ -70,7 +70,7 @@
 
             obj = new Static("sta_dept","89","69","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
-            obj.set_text("");
+            obj.set_text("정보통신학과");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
@@ -131,7 +131,7 @@
 
             obj = new Static("sta_name","89","129","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("10");
-            obj.set_text("");
+            obj.set_text("박종혁");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
@@ -145,14 +145,14 @@
 
             obj = new Static("sta_point","89","189","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("12");
-            obj.set_text("");
+            obj.set_text("20");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_sSeq","89","99","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("13");
-            obj.set_text("");
+            obj.set_text("12345");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
@@ -304,15 +304,11 @@
         	trace(sId +":"+ errorCode +":"+errorMsg);
         }
         this.fn_callback_myClass=function(){
-        	var nPoint = 0;
         	for(var i=0; i<this.ds_myClass.getRowCountNF(); i++){
         		var classSeq = this.ds_myClass.getColumn(i,"classSeq");
         		var nRow = this.ds_class.findRowNF("classSeq",classSeq);
         		this.ds_class.deleteRow(nRow)
-        		var point = this.ds_myClass.getColumn(i,"classPoint");
-        		nPoint += parseInt(point);
         	}
-        	this.Div00.form.sta_point.set_text(20-nPoint);
          	trace(this.ds_myClass.saveXML());
         }
         this.fn_callback_TimeTable=function(){
@@ -686,6 +682,7 @@
         		this.reload();
         	}
         }
+
 
 
 

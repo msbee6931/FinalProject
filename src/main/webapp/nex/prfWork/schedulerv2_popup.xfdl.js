@@ -132,11 +132,8 @@
         this.btnOk_onclick = function(obj,e)
         {
         	var objReturn;
-        	var diff = this.calEDate.value - this.calSDate.value;
-        	if(diff < 0){
-        		alert("일자를 확인하세요")
-        	}else{
-        		objReturn = {
+
+        	objReturn = {
         			"popuptype" : this.popuptype,
         			"id" : this.scheduleId,
         			"sdate" : this.calSDate.value,
@@ -144,10 +141,9 @@
         			"type" : this.cmbType.value,
         			"title" : this.edtTitle.value,
         			"content" : this.teaContent.value
-        		};
+        			};
 
-        		this.close(JSON.stringify(objReturn, null, "\t"));
-        	}
+        	this.close(JSON.stringify(objReturn, null, "\t"));
         };
 
 
@@ -155,19 +151,20 @@
         {
         	var objFrame = this.getOwnerFrame();
         	this.scheduleId = objFrame.scheduleid;
+
         	var objReturn;
 
         	objReturn = {
-        		"popuptype" : "delete",
-        		"id" : this.scheduleId
-        	};
+        			"popuptype" : "delete",
+        			"id" : this.scheduleId
+        			};
 
-        	var check = this.confirm("정말로 삭제하시겠습니까?","삭제하기")
-        	if(check){
-        		this.close(JSON.stringify(objReturn, null, "\t"));
-        	} else {
-        		return;
-        	}
+        			var check = this.confirm("정말로 삭제하시겠습니까?","삭제하기")
+        			if(check){
+        					this.close(JSON.stringify(objReturn, null, "\t"));
+        			} else {
+        				return;
+        			}
 
 
         };

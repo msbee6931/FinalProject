@@ -6,4 +6,13 @@
 <select id="selectStudentsByS_Seq" resultType="kh.spring.dto.StudentsDTO">
 	select * from students where s_seq=#{s_seq}
 </select>
+<select id="selectOneStd" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where s_seq=#{sCode} 
+</select>
+<update id="updateStdAbs">
+	update students set rest='Y' where s_seq=#{sCode}
+</update>
+<update id="updateStdRest">
+	update students set rest='N' where s_seq=#{sCode}
+</update>
 </mapper>
