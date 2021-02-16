@@ -231,8 +231,7 @@
         	var shaObj = new jsSHA("SHA-256","TEXT");
         	shaObj.update(pw);
         	var hash = shaObj.getHash("HEX");
-
-        	trace(birth);
+        	trace(hash);
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);
@@ -253,7 +252,7 @@
         				,"" //5.strArgument text값
         				,"fn_callback" //6.strCallbackFunc
         			);
-        			trace( dataset.saveXML() );
+
         	}
         }
 
@@ -271,7 +270,6 @@
         			//this.ds_students_copy.filter("");
         };
 
-
         });
         
         // Regist UI Components Event
@@ -280,7 +278,6 @@
             this.addEventHandler("onload",this.myInfoModify_onload,this);
             this.Div00.form.btn_modify.addEventHandler("onclick",this.Div00_btn_modify_onclick,this);
             this.Div00.form.btn_cancel.addEventHandler("onclick",this.Div00_btn_cancel_onclick,this);
-            this.cal_birth.addEventHandler("onchanged",this.cal_birth_onchanged,this);
         };
 
         this.loadIncludeScript("myInfoModify.xfdl");
