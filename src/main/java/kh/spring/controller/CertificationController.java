@@ -61,11 +61,63 @@ public class CertificationController {
 		String s_num = seq.substring(4);
 
 
-		//--s_part 정의
-
-		String part = "";
-		if(s_part.contentEquals("01")) {
-			part = "컴퓨터 공학";
+		String part = null;
+		if(dto.getColcode().contentEquals("01")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "국어국문학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "영어영문학과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "국사학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "철학과";
+			}
+		}else if(dto.getColcode().contentEquals("02")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "사회복지학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "경제학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "사회학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "심리학과";
+			}
+		}else if(dto.getColcode().contentEquals("03")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "통계학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "화학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "생명과학부";
+			}
+		}else if(dto.getColcode().contentEquals("04")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "간호학부";
+			}
+		}else if(dto.getColcode().contentEquals("05")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "전기공학부";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "컴퓨터공학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "화학생물공학부";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "건축학과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "산업공학과";
+			}
+		}else if(dto.getColcode().contentEquals("06")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "교육학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "국어교육과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "영어교육과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "수학교육과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "체육교육과";
+			}
 		}
 
 		//-오늘날짜 출력하기
@@ -113,13 +165,64 @@ public class CertificationController {
 		String s_num = seq.substring(4);
 
 
-		//--s_part 정의
-
-		String part = "";
-		if(s_part.contentEquals("01")) {
-			part = "컴퓨터 공학";
+		String part = null;
+		if(dto.getColcode().contentEquals("01")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "국어국문학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "영어영문학과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "국사학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "철학과";
+			}
+		}else if(dto.getColcode().contentEquals("02")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "사회복지학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "경제학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "사회학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "심리학과";
+			}
+		}else if(dto.getColcode().contentEquals("03")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "통계학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "화학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "생명과학부";
+			}
+		}else if(dto.getColcode().contentEquals("04")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "간호학부";
+			}
+		}else if(dto.getColcode().contentEquals("05")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "전기공학부";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "컴퓨터공학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "화학생물공학부";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "건축학과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "산업공학과";
+			}
+		}else if(dto.getColcode().contentEquals("06")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "교육학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "국어교육과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "영어교육과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "수학교육과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "체육교육과";
+			}
 		}
-
 		//-- 생년월일 포맷 맞추기
 		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
@@ -148,12 +251,63 @@ public class CertificationController {
 		String s_part = seq.substring(2,4);
 		String s_num = seq.substring(4);
 
-
-		//--s_part 정의
-
-		String part = "";
-		if(s_part.contentEquals("01")) {
-			part = "컴퓨터 공학";
+		String part = null;
+		if(dto.getColcode().contentEquals("01")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "국어국문학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "영어영문학과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "국사학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "철학과";
+			}
+		}else if(dto.getColcode().contentEquals("02")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "사회복지학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "경제학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "사회학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "심리학과";
+			}
+		}else if(dto.getColcode().contentEquals("03")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "통계학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "화학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "생명과학부";
+			}
+		}else if(dto.getColcode().contentEquals("04")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "간호학부";
+			}
+		}else if(dto.getColcode().contentEquals("05")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "전기공학부";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "컴퓨터공학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "화학생물공학부";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "건축학과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "산업공학과";
+			}
+		}else if(dto.getColcode().contentEquals("06")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "교육학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "국어교육과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "영어교육과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "수학교육과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "체육교육과";
+			}
 		}
 
 		//-오늘날짜 출력하기
@@ -219,11 +373,64 @@ public class CertificationController {
 		String s_num = seq.substring(4);
 
 
-		//--s_part 정의
 
-		String part = "";
-		if(s_part.contentEquals("01")) {
-			part = "컴퓨터 공학";
+		String part = null;
+		if(dto.getColcode().contentEquals("01")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "국어국문학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "영어영문학과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "국사학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "철학과";
+			}
+		}else if(dto.getColcode().contentEquals("02")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "사회복지학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "경제학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "사회학과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "심리학과";
+			}
+		}else if(dto.getColcode().contentEquals("03")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "통계학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "화학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "생명과학부";
+			}
+		}else if(dto.getColcode().contentEquals("04")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "간호학부";
+			}
+		}else if(dto.getColcode().contentEquals("05")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "전기공학부";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "컴퓨터공학부";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "화학생물공학부";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "건축학과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "산업공학과";
+			}
+		}else if(dto.getColcode().contentEquals("06")) {
+			if(dto.getDeptcode().contentEquals("01")) {
+				part = "교육학과";
+			}else if(dto.getDeptcode().contentEquals("02")) {
+				part = "국어교육과";
+			}else if(dto.getDeptcode().contentEquals("03")) {
+				part = "영어교육과";
+			}else if(dto.getDeptcode().contentEquals("04")) {
+				part = "수학교육과";
+			}else if(dto.getDeptcode().contentEquals("05")) {
+				part = "체육교육과";
+			}
 		}
 
 		//-- 생년월일 포맷 맞추기
