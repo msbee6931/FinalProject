@@ -34,7 +34,10 @@ public class Reference_FileService {
 	public int deleteAll(int parentSeq) {
 		return dao.deleteAll(parentSeq);
 	}
-	public List<Reference_FileDTO> selectFileSeq(Reference_FileDTO dto) {
+	public List<Reference_FileDTO> selectFileParentSeq(Reference_FileDTO dto) {
+		return dao.selectFileParentSeq(dto);
+	}
+	public Reference_FileDTO selectFileSeq(Reference_FileDTO dto) {
 		return dao.selectFileSeq(dto);
 	}
 }

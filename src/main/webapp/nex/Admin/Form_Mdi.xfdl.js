@@ -78,7 +78,7 @@
 
         	//화면 띄울 프레임 지정
         	av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
-        	av_FrameSet[formId].form.onload();
+        	av_FrameSet[formId].form.reload();
         };
 
         //폼 바뀔때 탭 체인지 호출함수

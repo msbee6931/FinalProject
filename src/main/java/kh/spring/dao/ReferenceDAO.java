@@ -63,4 +63,10 @@ public class ReferenceDAO {
 		param.put("category", category);
 		return session.selectList("Reference.searchByPage",param);
 	}
+	public ReferenceDTO selectListSeq(ReferenceDTO dto) {
+		return session.selectOne("Reference.selectListSeq",dto);
+	}
+	public int view_countUpd(ReferenceDTO dto) {
+		return session.update("Reference.view_countUpd",dto);
+	}
 }

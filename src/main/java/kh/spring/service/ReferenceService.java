@@ -104,4 +104,10 @@ public class ReferenceService {
 	public List<ReferenceDTO> searchByPage(String content,String category,int page){
 		return dao.searchByPage(content,category,page);
 	}
+	public ReferenceDTO selectListSeq(ReferenceDTO dto) {
+		return dao.selectListSeq(dto);
+	}
+	public int view_countUpd(ReferenceDTO dto) {
+		return dao.view_countUpd(dto);
+	}
 }
