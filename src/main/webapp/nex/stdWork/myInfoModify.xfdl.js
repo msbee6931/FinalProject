@@ -253,7 +253,6 @@
         				,"" //5.strArgument text값
         				,"fn_callback" //6.strCallbackFunc
         			);
-        			trace( dataset.saveXML() );
         	}
         }
 

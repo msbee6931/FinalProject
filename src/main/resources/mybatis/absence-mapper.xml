@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Absence">
+<insert id="insertAbsence">
+	<selectKey keyProperty="seq" resultType="int" order="BEFORE">
+      select absence_seq.nextval from dual
+    </selectKey>
+	insert into absence (seq,std_code,sDate,eDate,code,writeDate,checkValue) values (#{seq},#{std_code},#{sDate},#{eDate},#{code},sysdate,'읽지않음')
+</insert>
+<insert id="insertFileUp">
+	insert into absenceFile values (absenceFile_seq.nextval,#{parentSeq},#{fileName},#{savedFileName},#{fileSize})
+</insert>
+<select id="selectOneAbsence" resultType="kh.spring.dto.AbsenceDTO">
+	select * from absence where seq=#{seq} 
+</select>
+<select id="selectCountFile" resultType="int">
+	select count(*) from absenceFile where parentSeq = #{seq}
+</select>
+<select id="selectAllAbsence" resultType="kh.spring.dto.AbsenceDTO">
+	select * from absence
+</select>
+<select id="selectOneFile" resultType="kh.spring.dto.AbsenceFileDTO">
+	select * from absenceFile where parentSeq=#{seq}
+</select>
+
+<select id="selectStdOne" resultType="kh.spring.dto.AbsenceDTO">
+	select * from absence where std_code=#{sCode}
+</select>
+
+<insert id="insertRest">
+	insert into rest values (rest_seq.nextval,#{std_code},#{title},sysdate)
+</insert>
+<select id="selectOneRest">
+	select * from rest where std_code=#{std_code}
+</select>
+
+</mapper>

@@ -257,20 +257,25 @@
 
         this.Button03_onclick = function(obj,e)
         {
-        	let title = this.title.value;
-        	let contents = this.contents.value;
-        	let nRow = this.reference.addRow();
+        	if(this.title.value==null){
+        		alert("제목을 입력하셔야합니다.");
+        	}else if(this.contents.value==null){
+        		alert("내용을 기입해 주십시오.");
+        	}else{
+        		let title = this.title.value;
+        		let contents = this.contents.value;
+        		let nRow = this.reference.addRow();
 
-        	this.reference.setColumn(nRow,"title",title);
-        	this.reference.setColumn(nRow,"contents",contents);
+        		this.reference.setColumn(nRow,"title",title);
+        		this.reference.setColumn(nRow,"contents",contents);
 
-        	this.transaction(
-        		"uploadDTO",//id
-        		"/reference/uploadDTO",//url (절대경로)
-        		"in_ds=reference:U",//in_ds:U
-        		"",//()_out_ds
-        		"",//argument
-        		"fn_callback"
+        		this.transaction(
+        			"uploadDTO",//id
+        			"/reference/uploadDTO",//url (절대경로)
+        			"in_ds=reference:U",//in_ds:U
+        			"",//()_out_ds
+        			"",//argument
+        			"fn_callback"
         	)
 
         	//파일전송
@@ -280,6 +285,11 @@
         	this.contents.set_value("");
         	this.Dataset00.reset();
         	this.FileUpTransfer00.clearFileList();
+
+
+        		}
+
+
         };
 
         });
