@@ -117,7 +117,7 @@ nav {
 			<div class="col-8 col-md-9"></div>
 			<div class="col-2 col-md-1">로그인</div>
 			<div class="col-2 col-md-1" id="pop">팝업창</div>
-			<div class="col-0 col-md-1"></div>
+			<div class="col-0 col-md-1"><a href="/nex">종합정보 페이지</a></div>
 		</div>
 		<div class="row headt2 p-2">
 			<nav class="navbar navbar-expand-xl navbar-light"
@@ -195,33 +195,32 @@ nav {
 </body>
 <script>
 	document.getElementById("enroll").onclick=function(){
-		location.href="/certification/enrollment"
+		location.href="/certification/enrollment";
 	}
 	document.getElementById("graduate").onclick=function(){
-		location.href="/certification/graduate"
+		location.href="/certification/graduate";
 	}
 	document.getElementById("payment").onclick=function(){
-		location.href="/certification/payment"
+		location.href="/certification/payment";
 	}
 	document.getElementById("transcript").onclick=function(){
-		location.href="/certification/transcript"
+		location.href="/certification/transcript";
 	}
 	document.getElementById("free").onclick=function(){
-		location.href="/free/boardList"
+		location.href="/free/boardList";
 	}
 
-	document.getElementById("request").onclick=function(){
+/* 	document.getElementById("request").onclick=function(){
 		location.href="/request/boardList"
+	} */
 
-
-	
 	document.getElementById("sendBtn").onclick = function(){
 		let userId = document.getElementById("userId").value;
 		location.href="/chatting/chatHome?userId="+userId;
 	}
     
 	document.getElementById('pop').onclick = function() {
-   		window.open('pop.home','', 'width=500,height=500,left=0,top=0')
+   		window.open('pop.home','', 'width=500,height=500,left=0,top=0');
     //        openPopup('quiz03.html')
 	}
 </script>
