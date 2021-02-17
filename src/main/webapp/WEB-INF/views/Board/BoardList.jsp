@@ -136,17 +136,17 @@ nav {
 				</div>
 			</nav>
 		</div>
-		<div class = main>
+		<div class = "container-fluid">
 			<div class="row pt-3">
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
-						<a href="/">Home&gt;</a><a href="/free/goBoard">자유게시판</a>
+						<a href="/">Home&gt;</a><a href="/free/goBoard">게시판</a>
 					</h5>
 				</div>
 			</div>
 		<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>자유게시판</b></h3>
+			<h3><b>게시판</b></h3>
 			</div>
 		</div>
 			<div class="row">
@@ -159,10 +159,10 @@ nav {
 							</H3>
 						</div>
 						<div class="col-12">
-							 <form action = /free/search method="post">
+							 <form action = /free/search method="post" class="row">
 								<div class="col-md-6 order-md-2">
 									<div class="row p-4">
-
+									<div class="col-sm-12 col-md-3 p-0"></div>
 										<div class="col-sm-12 col-md-6 p-0">
 											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요">
 										</div>
@@ -171,6 +171,7 @@ nav {
 										</div>
 									</div>
 								</div>
+								<div class="col-md-6  align-self-center"></div>
 							</form>
 						</div>
 					</div>

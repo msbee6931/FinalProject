@@ -33,6 +33,7 @@ public class FreeBoardController {
 	@Autowired
 	private HttpSession session;
 	
+	
 	@RequestMapping("boardList")
 	public String toBoard(HttpServletRequest request,Model model) throws Exception{
 		String cpage = null;
@@ -230,5 +231,9 @@ public class FreeBoardController {
 		return "Board/FreeList";
 	}
 	
+	@RequestMapping("goBoard")
+	public String goBoard() {
+		return "Board/BoardList";
+	}
 	
 }

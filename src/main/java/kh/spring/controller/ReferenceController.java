@@ -312,6 +312,9 @@ public class ReferenceController {
 		model.addAttribute("navi",navi);
 		model.addAttribute("page",page);
 		model.addAttribute("end",end);
+		
+		
+		Rservice.garbageDelete();
 		return "ref/pds";
 	}
 	@RequestMapping("search.ref")
@@ -354,6 +357,7 @@ public class ReferenceController {
 		model.addAttribute("page",page);
 		model.addAttribute("end",end);
 
+		Rservice.garbageDelete();
 		return "ref/pds";
 	}
 	@RequestMapping("downloadAll.ref")
