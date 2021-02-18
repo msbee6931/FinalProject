@@ -2,16 +2,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Login">
-<select id="loginStu" resultType="kh.spring.dto.StudentsDTO">
-	select * from students where s_seq= #{s_seq} and pw = #{pw}
+<select id="loginStu" resultType="int">
+	select count(*) from students where s_seq= #{s_seq} and pw = #{pw}
 </select>
 
-<select id="loginPro" resultType="kh.spring.dto.ProfessorDTO">
-	select * from professor where p_seq = #{p_seq} and pw = #{pw}
+<select id="loginPro" resultType="int">
+	select count(*) from professor where p_seq = #{p_seq} and pw = #{pw}
 </select>
 
-<select id="loginAdm" resultType="kh.spring.dto.AdminDTO">
-	select * from admin where a_seq = #{a_seq} and pw = #{pw}
+<select id="loginAdm" resultType="int">
+	select count(*) from admin where a_seq = #{a_seq} and pw = #{pw}
 </select>
 
 
@@ -26,4 +26,18 @@
 <select id="selectAdmin" resultType="kh.spring.dto.AdminDTO">
 	select * from admin where a_seq = #{seq}
 </select>
+<update id="keepLogin">
+		MERGE INTO loginInfo
+			USING DUAL ON (userId =#{userId} and userType = #{userType})
+		WHEN MATCHED THEN
+		update set sessionId =#{sessionId},sessionLimit = #{sessionLimit}
+		WHEN NOT MATCHED THEN
+		insert values(#{userId},#{sessionId},#{sessionLimit},#{userType})
+</update>
+<select id="selectLoginInfo" resultType="kh.spring.dto.LoginInfoDTO">
+	select * from loginInfo where sessionId =#{sessionId} and sessionLimit > sysdate
+</select>
+<update id="updLoginInfo">
+	update loginInfo set sessionId =#{sessionId}, sessionLimit = #{sessionLimit} where userId = #{userId} and userType = #{userType}
+</update>
 </mapper>

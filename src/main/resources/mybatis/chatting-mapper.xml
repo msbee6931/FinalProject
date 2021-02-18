@@ -10,21 +10,83 @@
  	</select>
  	
  	<select id="getFriendsList" resultType="kh.spring.dto.FriendDTO">
- 		select * from friend where userId=#{userId}
+ 		select * from friend where userId=#{userId} order by friendName
  	</select>
+ 	
+ 	<select id="getAllUserInfo" resultType="kh.spring.dto.UserDTO">
+ 		select * from chatUser
+ 	</select>
+ 	
+ 	<update id="profileUpdateAll">
+ 		update chatUser set userName=#{userName},img=#{oriName} where userId=#{userId}
+ 	</update>
+ 	
+ 	<update id="profileUpdatePic">
+ 		update chatUser set img=#{oriName} where userId=#{userId}
+ 	</update>
+ 	
+ 	<update id="profileUpdateName">
+ 		update chatUser set userName=#{userName} where userId=#{userId}
+ 	</update>
+ 	
+ 	<update id="roomJoinNameUpdate">
+ 		update chatRoomJoin set userName=#{userName} where userId=#{userId}
+ 	</update>
+ 	
+ 	<update id="friendNameUpdateU">
+		update friend set userName = #{userName} where userId=#{userId}
+ 	</update>
+ 	
+ 	<update id="friendNameUpdateF">
+		update friend set friendName = #{userName} where friendId=#{userId}
+ 	</update>
+	
+	<!-- FRIEND -->
+	<select id="searchFriend" resultType="kh.spring.dto.UserDTO">
+		select * from chatUser where userId like '%'||#{searchTxt}||'%' or userName like '%'||#{searchTxt}||'%' 
+	</select>
+	
+	<select id="isFriendExist" resultType="kh.spring.dto.FriendDTO">
+		select * from friend where userId=#{userId} and friendId=#{friendId}
+	</select>
+	
+	<insert id="insertFriend">
+		insert into friend values(#{userId},#{userName},#{friendId},#{friendName})
+	</insert>
+	
+	<select id="getInviteList" resultType="kh.spring.dto.FriendDTO" parameterType="java.util.List">
+		select * from friend where friendId not in (<foreach collection="joinList" item="item" separator=",">#{item.userId}</foreach>) and userId = #{userId}
+	</select>
 	
 	<!-- Chat -->
  	<insert id="insertMessage">
- 		insert into chatMessage values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber})
+ 		insert into chatMessage(seq,userId,message,roomNumber) values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber})
+ 	</insert> 
+ 	
+ 	<insert id="insertEmoticon">
+ 		insert into chatMessage(seq,userId,oriName,roomNumber) values(chatMessage_seq.nextval,#{userId},#{oriName},#{roomNumber})
  	</insert>
  	
  	<select id="getChatting" resultType="kh.spring.dto.MessageDTO">
- 		select * from chatMessage where roomNumber=#{roomNumber} order by seq
+ 		select 
+ 			seq,userId,roomNumber,message,oriName,savedName,uploadDate,
+ 			SUBSTR (oriName, INSTR (oriName, '.', -1) + 1)format 
+ 		from chatMessage 
+ 		where roomNumber=#{roomNumber} 
+ 		order by uploadDate
+ 	</select>
+ 	
+ 	<insert id="insertChatFile">
+ 		insert into chatMessage(seq,roomNumber,oriName,savedName,uploadDate,userId) values(chatFile_seq.nextval,#{roomNumber},#{oriName},#{savedName},default,#{userId})
+ 	</insert>
+ 	
+ 	<select id="getFile" resultType="kh.spring.dto.MessageDTO">
+ 		select * from chatMessage where savedName = #{savedName}
  	</select>
  	
  	<!-- Room -->
- 	<select id="findAllRoomByUserId" resultType="kh.spring.dto.RoomDTO">
- 		select * from chatRoom where roomNumber like '%'||#{userId}||'%'
+ 	<select id="findAllRoomByUserId" resultType="kh.spring.dto.RoomJoinDTO">
+ 		select * from chatRoomJoin where userId=#{userId}
  	</select>
  	
 	<insert id="insertRoom">
@@ -35,7 +97,24 @@
 		select * from  chatRoom where roomNumber=#{roomNumber}
 	</select>
 	
-	<select id="findRoomById" resultType="kh.spring.dto.RoomDTO">
-		select * from chatRoom where roomNumber like #{userId}||'_'||#{friendId} or roomNumber like #{friendId}||'_'||#{userId}
+	<select id="findRoomByName" resultType="kh.spring.dto.RoomJoinDTO">
+		<!-- select * from chatRoom where roomName like #{userName}||'와 '||#{friendName}||'의 채팅방' or roomName like #{friendName}||'와'||#{userName}||'의 채팅방' -->
+		select roomNumber from chatRoomJoin where roomNumber in (select roomNumber from (select * from chatRoomJoin where roomNumber in (select roomNumber from (select * from chatRoomJoin where userName=#{userName}))) group by roomNumber having count(roomNumber)=2) and userName=#{friendName}
 	</select>
+	
+	<insert id="joinRoom">
+		insert into chatRoomJoin values(#{roomNumber},#{roomName},#{userId},#{userName})
+	</insert>
+	
+	<select id="findRoomJoin" resultType="kh.spring.dto.RoomJoinDTO">
+		select * from chatRoomJoin
+	</select>
+	
+	<select id="getJoinRoomInfo" resultType="kh.spring.dto.RoomJoinDTO">
+		select * from chatRoomJoin where roomNumber=#{roomNumber}
+	</select>
+	
+	<delete id="leave">
+		delete from chatRoomJoin where roomNumber=#{roomNumber} and userId=#{userId}
+	</delete>
  </mapper>

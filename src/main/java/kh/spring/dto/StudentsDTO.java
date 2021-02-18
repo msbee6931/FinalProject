@@ -18,6 +18,7 @@ public class StudentsDTO {
 	private String gender;
 	private String deptcode;
 	private String colcode;
+	
 	public int getChk() {
 		return chk;
 	}

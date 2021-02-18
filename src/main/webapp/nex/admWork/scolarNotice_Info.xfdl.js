@@ -336,6 +336,7 @@
         	var nRow = this.ds_Notice.addRow();
         	trace(title);
         	trace(writedate);
+        	this.Tab00.Tabpage1.form.cal_writedate.
         	trace(contents);
 
         	//파일전송

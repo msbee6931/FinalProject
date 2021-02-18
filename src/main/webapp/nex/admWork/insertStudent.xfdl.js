@@ -13,12 +13,12 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(300,550);
+                this._setFormPosition(300,500);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_students_copy", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"deptcode\" type=\"STRING\" size=\"256\"/><Column id=\"colcode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -126,12 +126,12 @@
             obj.set_taborder("22");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","95","515","50","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_insert","85","455","50","30",null,null,null,null,null,null,this);
             obj.set_taborder("23");
             obj.set_text("입력");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","210","515","50","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_cancel","210","455","50","30",null,null,null,null,null,null,this);
             obj.set_taborder("24");
             obj.set_text("취소");
             this.addChild(obj.name, obj);
@@ -141,27 +141,9 @@
             obj.set_dateformat("yyyy-MM-dd");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_10_00","10","440","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("26");
-            obj.set_text("학과");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_10_01","10","475","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("27");
-            obj.set_text("colcode");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_deptcode","85","440","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("28");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_colcode","85","475","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("29");
-            this.addChild(obj.name, obj);
-
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",300,550,this,function(p){});
+            obj = new Layout("default","",300,500,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             
@@ -208,8 +190,6 @@
         	var birth = this.cal_birth.value;
         	var pw = this.edt_pw.value;
         	var gender = this.edt_gender.value;
-        	var deptcode = this.edt_deptcode.value;
-        	var colcode = this.edt_colcode.value;
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);
@@ -224,8 +204,6 @@
         	this.ds_students_copy.setColumn(addRow,"birth",birth);
         	this.ds_students_copy.setColumn(addRow,"pw",pw);
         	this.ds_students_copy.setColumn(addRow,"gender",gender);
-        	this.ds_students_copy.setColumn(addRow,"deptcode",deptcode);
-        	this.ds_students_copy.setColumn(addRow,"colcode",colcode);
 
         	this.transaction(
 
