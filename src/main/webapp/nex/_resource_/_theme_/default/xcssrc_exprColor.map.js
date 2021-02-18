@@ -27,11 +27,7 @@
 													{
 														"enabled" :
 														{
-															"color" : nexacro.ColorObject("#ffffff")
-														},
-														"mouseover" :
-														{
-															"color" : nexacro.ColorObject("#d23636")
+															"color" : nexacro.ColorObject("whitesmoke")
 														}
 													}
 												}
@@ -61,45 +57,7 @@
 													{
 														"enabled" :
 														{
-															"color" : nexacro.ColorObject("#ffffff")
-														},
-														"mouseover" :
-														{
-															"color" : nexacro.ColorObject("#ffffff")
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					{
-						"Expr_yellow" :
-						{
-							"parent" :
-							{
-								"row" :
-								{
-									"parent" :
-									{
-										"body" :
-										{
-											"parent" :
-											{
-												"Grid" :
-												{
-													"self" :
-													{
-														"enabled" :
-														{
-															"color" : nexacro.ColorObject("#ffffff")
-														},
-														"mouseover" :
-														{
-															"color" : nexacro.ColorObject("#ab9f1b")
+															"color" : nexacro.ColorObject("whitesmoke")
 														}
 													}
 												}

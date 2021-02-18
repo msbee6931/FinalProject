@@ -1,5 +1,7 @@
 package kh.spring.dto;
 
+import java.sql.Date;
+
 public class ColScheduleDTO {
 
 	private int seq;
@@ -8,6 +10,18 @@ public class ColScheduleDTO {
 	private String edate;
 	private String contents;
 	private String writedate;
+	
+	public ColScheduleDTO() {}
+	public ColScheduleDTO(int seq, String title, String sdate, String edate, String contents, String writedate) {
+		super();
+		this.seq = seq;
+		this.title = title;
+		this.sdate = sdate;
+		this.edate = edate;
+		this.contents = contents;
+		this.writedate = writedate;
+	}
+
 	public int getSeq() {
 		return seq;
 	}
@@ -44,19 +58,5 @@ public class ColScheduleDTO {
 	public void setWritedate(String writedate) {
 		this.writedate = writedate;
 	}
-	public ColScheduleDTO(int seq, String title, String sdate, String edate, String contents, String writedate) {
-		super();
-		this.seq = seq;
-		this.title = title;
-		this.sdate = sdate;
-		this.edate = edate;
-		this.contents = contents;
-		this.writedate = writedate;
-	}
-	public ColScheduleDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
+
 }

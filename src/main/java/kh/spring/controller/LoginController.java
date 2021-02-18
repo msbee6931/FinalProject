@@ -66,6 +66,7 @@ public class LoginController {
 			int result = lService.loginStu(sdto);
 			if(result > 0) {
 				session.setAttribute("std",sCode);
+				session.setAttribute("userId", Integer.toString(sCode));
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
@@ -81,6 +82,7 @@ public class LoginController {
 			int result = lService.loginPro(pdto);
 			if(result > 0) {
 				session.setAttribute("pro",sCode);
+				session.setAttribute("userId", Integer.toString(sCode));
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
@@ -115,12 +117,14 @@ public class LoginController {
 			dto.setUserId(Integer.parseInt(std));
 			dto.setUserType("std");
 			session.removeAttribute("std");
+			session.removeAttribute("userId");
 		}else if(session.getAttribute("pro") != null) {
 			System.out.println("B");
 			String pro = session.getAttribute("pro").toString();
 			dto.setUserId(Integer.parseInt(pro));
 			dto.setUserType("pro");
 			session.removeAttribute("pro");
+			session.removeAttribute("userId");
 		}else if(session.getAttribute("adm") !=null) {
 			System.out.println("C");
 			String adm = session.getAttribute("adm").toString();

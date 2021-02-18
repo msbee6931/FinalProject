@@ -308,6 +308,12 @@
         this.btn_save_onclick = function(obj,e)
         {
         	var nRow = this.ds_Notice.addRow();
+<<<<<<< HEAD:src/main/webapp/nex/admWork/scolarNotice_Info.xfdl.js
+        	trace(title);
+        	trace(writedate);
+        	this.Tab00.Tabpage1.form.cal_writedate.
+        	trace(contents);
+=======
         	var title = this.edt_title.value;
         	var contents = this.text_contents.value;
         	var list = this.com_list.value;
@@ -323,6 +329,7 @@
         		alert("학과구분 입력해주세요");
         		return;
         	}
+>>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05:src/main/webapp/nex/admWork/renotice.xfdl.js
 
         	//파일전송
         	if(this.FileUpTransfer00.filelist.length > 0){

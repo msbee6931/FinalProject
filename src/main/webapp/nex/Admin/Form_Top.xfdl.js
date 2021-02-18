@@ -25,10 +25,6 @@
             obj = new Dataset("session", this);
             obj._setContents("<ColumnInfo><Column id=\"a_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
-
-
-            obj = new FileUpTransfer("FileUpTransfer00", this);
-            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
@@ -153,6 +149,15 @@
         		);
 
         		this.transaction(
+<<<<<<< HEAD
+        			"sessionA" //id
+        			,"/sessionA.nex"//url
+        			,""// inData
+        			,"session=out_ds"// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
+=======
         			"garbageInsert" //id
         			,"/reference/garbageInsert"//url
         			,""// inData
@@ -163,6 +168,7 @@
 
         		this.FileUpTransfer00.upload("/reference/uploadFile");
 
+>>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
         };
 
 

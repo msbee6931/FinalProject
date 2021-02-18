@@ -282,6 +282,12 @@ div.MainFrame, div.VScrollBarControl, div.HScrollBarControl
 
 div.Grid .body .row .cell.Expr_red.dummy.dummy.dummy
 {
+<<<<<<< HEAD
+	background : #e82639;
+	color : whitesmoke;
+}
+.Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell
+=======
 	background : #d23636;
 	color : #ffffff;
 }
@@ -414,12 +420,29 @@ div#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy[status=mo
 	color : #ffffff;
 }
 #nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy.oddcell[status=mouseover]
+>>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
 {
-	color : #ffffff;
+	background : #e82639;
 }
+<<<<<<< HEAD
+.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy
+=======
 #nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy[status=mouseover]
+>>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
 {
+<<<<<<< HEAD
+	background : #3c76e0;
+	color : whitesmoke;
+}
+<<<<<<< HEAD
+.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell
+{
+	background : #3c76e0;
+=======
 	color : #ab9f1b;
 >>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
 	background : #ffffff;
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
 }
+=======
+>>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
