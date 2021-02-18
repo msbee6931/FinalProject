@@ -74,7 +74,7 @@
 
             obj = new Static("sta_dept","89","69","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
-            obj.set_text("정보통신학과");
+            obj.set_text("");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
@@ -135,7 +135,7 @@
 
             obj = new Static("sta_name","89","129","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("10");
-            obj.set_text("박종혁");
+            obj.set_text("");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
@@ -149,14 +149,14 @@
 
             obj = new Static("sta_point","89","189","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("12");
-            obj.set_text("20");
+            obj.set_text("");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_sSeq","89","99","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("13");
-            obj.set_text("12345");
+            obj.set_text("");
             obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             this.Div00.addChild(obj.name, obj);
@@ -302,11 +302,15 @@
         };
 
         this.fn_callback_myBasket=function(){
+        	var nPoint = 0;
         	for(var i=0; i<this.ds_myBasket.getRowCount(); i++){
         		var classSeq = this.ds_myBasket.getColumn(i,"classSeq");
         		var nRow = this.ds_class.findRow("classSeq",classSeq);
         		this.ds_class.deleteRow(nRow)
+        		var point = this.ds_myBasket.getColumn(i,"classPoint");
+        		nPoint += parseInt(point);
         	}
+        	this.Div00.form.sta_point.set_text(20 - nPoint);
         	trace(this.ds_myBasket.saveXML());
         }
          this.fn_callback_myClass=function(){

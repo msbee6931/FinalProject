@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일반 공지</title>
+<title>학사 자료실</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -77,17 +79,18 @@ nav {
 #pop {
 	cursor: pointer;
 }
-
-#box {
-	border: 1px solid black;
-	border-radius: 10px;
-}
 #subLabel{
 	width:fit-content;
 	color:white;
 }
-#nav-ul{
-	width:100%;
+#box {
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.main{
+	height:800px;
+	border : 1px solid black;
 }
 </style>
 </head>
@@ -105,8 +108,7 @@ nav {
 			<div class="col-0 col-md-1"></div>
 		</div>
 		<div class="row headt2 p-2">
-			<nav class="navbar navbar-expand-xl navbar-light"
-				style="background-color: white">
+			<nav class="navbar navbar-expand-xl navbar-light" style="background-color: white">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="#"><img src="/img/logo.PNG"></a>
 					<button class="navbar-toggler" type="button"
@@ -125,7 +127,7 @@ nav {
 								tabindex="-1"><b>학사스케쥴</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="#"
 								tabindex="-1"><b>게시판</b></a></li>
-							<li class="nav-item p-3"><a class="nav-link active" href="#"
+							<li class="nav-item p-3"><a class="nav-link active" href="/reference/refList.ref?page=1"
 								tabindex="-1"><b>자료실</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="#"
 								tabindex="-1"><b>채팅</b></a></li>
@@ -134,88 +136,62 @@ nav {
 				</div>
 			</nav>
 		</div>
-		<div class="container">
-		<div class="row pt-3">
+		<div class = "container-fluid">
+			<div class="row pt-3">
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
-						<a href="/">Home&gt;</a><a href="">공지사항&gt;</a><a href="#">일반공지</a>
+						<a href="/">Home&gt;</a><a href="/free/goBoard">게시판</a>
 					</h5>
 				</div>
 			</div>
-			<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>공지사항</b></h3>
+		<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
+			<h3><b>게시판</b></h3>
 			</div>
 		</div>
 			<div class="row">
-				<div class="col-lg-2 d-grid text-center">
-					<!--collapse 추가  -->
-					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
-					<div class="col d-grid">
-						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" ><b>공지사항</b></button>
-					</div>
-						<div class="collapse navbar-collapse" id="listCollapse" >
-							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item" ><a class="nav-link active" href="#">일반공지</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#">학사공지</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#">장학공지</a>
-								</li>
-								<li class="nav-item "><a class="nav-link" href="#">취업공지  </a>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-				<div class="col-lg-10 py-4" id="box">
+			<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
+			<div class="col-xl-12 d- pt-4" id="box">
 					<div class="row">
 						<div class="col-12">
 							<H3>
-								<b>일반공지</b>
+								<b>자유게시판</b>
 							</H3>
 						</div>
 						<div class="col-12">
-							<div class="row">
+							 <form action = /free/search method="post" class="row">
 								<div class="col-md-6 order-md-2">
 									<div class="row p-4">
-										<div class="col-sm-12 col-md-3 p-0">
-											<select class="form-select">
-												<option selected>전체</option>
-												<option value="1">제목</option>
-												<option value="2">내용</option>
-												<option value="3">제목+내용</option>
-											</select>
-										</div>
+									<div class="col-sm-12 col-md-3 p-0"></div>
 										<div class="col-sm-12 col-md-6 p-0">
-											<input class="form-control" type="search"
-												placeholder="검색어를 입력해주세요">
+											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요">
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
-											<button type="button" class="btn btn-primary d-md-block">검색</button>
+											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6  align-self-center">현재 | 현재 페이지</div>
-							</div>
+								<div class="col-md-6  align-self-center"></div>
+							</form>
 						</div>
 					</div>
 					<div class="row text-center" style="border-bottom: 1px solid black">
 						<div class="col-md-2 d-none d-md-block">번호</div>
 						<div class="col-md-4 d-none d-md-block">제목</div>
 						<div class="col-md-2 d-none d-md-block">등록일</div>
-						<div class="col-md-2 d-none d-md-block">첨부파일</div>
+						<div class="col-md-2 d-none d-md-block">작성자</div>
 						<div class="col-md-2 d-none d-md-block">조회수</div>
 					</div>
 					<c:forEach var="i" items="${list}">
 						<div class="row" style="border-bottom: 1px solid black">
 							<div class="col-md-2 d-none d-md-block text-center">${i.seq}</div>
-							<div class="col-md-4 col-12 text-left">${i.title}</div>
-							<div class="col-md-2 col-3 text-center">${i.write_date}</div>
-							<div class="col-md-2 col-3 text-center">(첨부파일)</div>
-							<div class="col-md-2 d-none d-md-block text-center">(조회수)</div>
+							<div class="col-md-4 col-12 text-left"><a href ="/free/view?seq=${i.seq }">${i.title }</a></div>
+							<div class="col-md-2 col-3 text-center">${i.write_date}</div> 
+							<div class="col-md-2 col-3 text-center">${i.writer }</div>
+							<div class="col-md-2 d-none d-md-block text-center">${i.view_count}</div>
 						</div>
 					</c:forEach>
+					<button class="btn btn-primary d-md-block" id="write">글쓰기</button>
 				</div>
 			</div>
 		</div>
@@ -225,4 +201,10 @@ nav {
 		</footer>
 	</div>
 </body>
+<script>
+    document.getElementById("write").onclick = function(){
+    	location.href="/free/writePage"
+    }
+    
+    </script>
 </html>

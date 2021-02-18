@@ -41,7 +41,7 @@
 
 
             obj = new Dataset("ds_rank", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">A+</Col><Col id=\"name\">A+</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">A</Col></Row><Row><Col id=\"id\">A-</Col><Col id=\"name\">A-</Col></Row><Row><Col id=\"id\">B+</Col><Col id=\"name\">B+</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">B</Col></Row><Row><Col id=\"id\">B-</Col><Col id=\"name\">B-</Col></Row><Row><Col id=\"id\">C+</Col><Col id=\"name\">C+</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">C</Col></Row><Row><Col id=\"id\">C-</Col><Col id=\"name\">C-</Col></Row><Row><Col id=\"id\">D+</Col><Col id=\"name\">D+</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">D</Col></Row><Row><Col id=\"id\">D-</Col><Col id=\"name\">D-</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">F</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">A+</Col><Col id=\"name\">A+</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">A</Col></Row><Row><Col id=\"id\">B+</Col><Col id=\"name\">B+</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">B</Col></Row><Row><Col id=\"id\">C+</Col><Col id=\"name\">C+</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">C</Col></Row><Row><Col id=\"id\">D+</Col><Col id=\"name\">D+</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">D</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">F</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -502,7 +502,6 @@
         		this.mask_otest.set_value("");
         		this.mask_task.set_value("");
         		this.mask_fin.set_value("");
-        		this.sta_sum.set_text(0);
         		this.sta_attendR.set_text(0);
         		this.sta_midR.set_text(0);
         		this.sta_otestR.set_text(0);
@@ -865,10 +864,10 @@
         	var B = 0;
         	for(var i=0; i<objApp.ds_grades.getRowCount(); i++){
         		var grade = objApp.ds_grades.getColumn(i,"grade");
-        		if(grade == "A"|| grade == "A-" || grade == "A+"){
+        		if(grade == "A"||  grade == "A+"){
         			A +=1;
         		}
-        		if(grade == "B"|| grade == "B-" || grade == "B+"){
+        		if(grade == "B"||  grade == "B+"){
         			B +=1;
         		}
         	}

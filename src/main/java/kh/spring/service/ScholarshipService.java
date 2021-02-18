@@ -85,7 +85,7 @@ public class ScholarshipService {
 		   
 		  try {
 		    // Zip 파일생성
-		    zos = new ZipArchiveOutputStream(new BufferedOutputStream(new FileOutputStream(outZipNm))); 
+		    //zos = new ZipArchiveOutputStream(new BufferedOutputStream(new FileOutputStream(outZipNm))); 
 		    for( int i=0; i < files.length; i++ ){
 		      //encoding 설정
 		      zos.setEncoding("UTF-8");

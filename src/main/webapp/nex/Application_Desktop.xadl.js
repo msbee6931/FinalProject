@@ -32,6 +32,21 @@
             this._addDataset(obj.name, obj);
 
 
+            obj = new Dataset("gds_students", this);
+            obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this._addDataset(obj.name, obj);
+
+
+            obj = new Dataset("gds_professor", this);
+            obj._setContents("<ColumnInfo><Column id=\"p_seq\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"lecture\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this._addDataset(obj.name, obj);
+
+
+            obj = new Dataset("gds_admin", this);
+            obj._setContents("<ColumnInfo><Column id=\"a_seq\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this._addDataset(obj.name, obj);
+
+
             obj = new Dataset("deptCode", this);
             obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">11</Col><Col id=\"name\">국어국문학과</Col></Row><Row><Col id=\"code\">12</Col><Col id=\"name\">영어영문학과</Col></Row><Row><Col id=\"code\">13</Col><Col id=\"name\">국사학과</Col></Row><Row><Col id=\"code\">14</Col><Col id=\"name\">철학과</Col></Row><Row><Col id=\"code\">21</Col><Col id=\"name\">사회복지학과</Col></Row><Row><Col id=\"code\">22</Col><Col id=\"name\">경제학부</Col></Row><Row><Col id=\"code\">23</Col><Col id=\"name\">사회학과</Col></Row><Row><Col id=\"code\">24</Col><Col id=\"name\">심리학과</Col></Row><Row><Col id=\"code\">31</Col><Col id=\"name\">통계학과</Col></Row><Row><Col id=\"code\">32</Col><Col id=\"name\">화학부</Col></Row><Row><Col id=\"code\">33</Col><Col id=\"name\">생명과학부</Col></Row><Row><Col id=\"code\">41</Col><Col id=\"name\">간호학부</Col></Row><Row><Col id=\"code\">51</Col><Col id=\"name\">전기공학부</Col></Row><Row><Col id=\"code\">52</Col><Col id=\"name\">컴퓨터공학부</Col></Row><Row><Col id=\"code\">53</Col><Col id=\"name\">화학생물공학부</Col></Row><Row><Col id=\"code\">54</Col><Col id=\"name\">건축학과</Col></Row><Row><Col id=\"code\">55</Col><Col id=\"name\">산업공학과</Col></Row><Row><Col id=\"code\">61</Col><Col id=\"name\">교육학과</Col></Row><Row><Col id=\"code\">62</Col><Col id=\"name\">국어교육과</Col></Row><Row><Col id=\"code\">63</Col><Col id=\"name\">영어교육과</Col></Row><Row><Col id=\"code\">64</Col><Col id=\"name\">수학교육과</Col></Row><Row><Col id=\"code\">65</Col><Col id=\"name\">체육교육과</Col></Row></Rows>");
             this._addDataset(obj.name, obj);

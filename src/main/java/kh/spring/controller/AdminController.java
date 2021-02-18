@@ -130,6 +130,12 @@ public class AdminController {
 	@RequestMapping("insertFaculty.nex")
 	public NexacroResult insertFaculty(@ParamDataSet(name="in_ds") List<FacultyDTO> list) {
 		NexacroResult nr = new NexacroResult();
+		String pw; String Spw = null;
+		for(int i =0; i < list.size(); i++) {
+			pw = list.get(i).getPw();
+			Spw = EncryptUtils.getSHA256(pw);
+			list.get(i).setPw(Spw);
+		}
 		int result = aService.insertFac(list);
 		return nr;
 	}

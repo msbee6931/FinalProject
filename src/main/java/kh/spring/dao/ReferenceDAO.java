@@ -69,4 +69,8 @@ public class ReferenceDAO {
 	public int view_countUpd(ReferenceDTO dto) {
 		return session.update("Reference.view_countUpd",dto);
 	}
+	
+	public int garbageDelete() {
+		return session.delete("Reference.garbageDelete");
+	}
 }

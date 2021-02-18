@@ -15,6 +15,10 @@
 		padding: 0px;
 		margin: 0px;
 	}
+	/* CONTAINER */
+	#container{
+		display: flex;
+	}
 	/* Profile */
 	.profile{
 		padding: 10px;	
@@ -34,21 +38,35 @@
 </style>
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="container">
 		<div class="profile">
 			<div class="myProfile">
-				<div class="profileImg user">이미지</div>
+				<div class="profileImg user">
+					<c:choose>
+						<c:when test="${user.getImg() == null }"><img src="/img/deepblue.png" width="30px"></c:when>
+						<c:otherwise><img src="/files/${user.getImg()}" width="30px"></c:otherwise>
+					</c:choose>
+				</div>
 				<input type="hidden" id="userId" value=${user.getUserId() }>
 				<div id="userName">${user.getUserName() }</div>
 			</div>
 			<div class="otherProfile">
 				<c:choose>
-					<c:when test="${list != null }">
-						<c:forEach var="dto" items="${list }">
+					<c:when test="${friendList != null }">
+						<c:forEach var="dto" items="${friendList }">
 							<div class="friend">
-								<div class="profileImg friend">이미지</div>
-								<div class="friendName" id="friendName">${dto.getFriendName() }</div>
-								<input type="hidden" value="${dto.getFriendId() }" class="friendId" id="friendId">				
+								<div class="profileImg other">
+									<c:forEach var="aDto" items="#{allUser}">
+										<c:if test="${dto.getFriendId() == aDto.getUserId() }">
+											<c:choose>
+												<c:when test="${aDto.getImg() == null }"><img src="/img/blue.png" width="30px"></c:when>
+												<c:otherwise><img src="/files/${aDto.getImg()}" width="30px"></c:otherwise>
+											</c:choose>
+										</c:if>
+									</c:forEach>
+								</div>
+								<div class="friendName">${dto.getFriendName() }</div>
+								<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
 							</div>
 						</c:forEach>
 					</c:when>
@@ -57,21 +75,52 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
+			<div class="btn">
+				<div class="searchInput">
+					<input type="text" id="inputTxt" placeholder="검색할 친구의 학번 혹은 이름을 입력해주세요.">
+					<input type="button" id="inputBtn" value="검색">
+				</div>
+				<div id="goChatList">chatList</div>
+				<div id="goProfile">profile update</div>
+			</div>
 		</div>
-		<div class="btn">
-			<a href="#">home</a>
-			<a href="/chatting/chatList">List</a>
-		</div>
+		<!-- <div id="main"></div> -->
 	</div>
 	
 	<script>
-	$("#friendName").on("dblclick",function(){
+	$(document).on("click",".friend",function(){
 		var userId = $("#userId").val();
-		var friendId = $("#friendId").val();
+		var friendId = $(this).children(".friendId").val();
 		var userName = $("#userName").text();
-		var friendName = $("#friendName").text();
+		var friendName = $(this).children(".friendName").text();
+		// console.log(userId + ":" + userName + ":" + friendId + ":" + friendName);
 		location.href="/chatting/roomCheck?userId="+userId+"&friendId="+friendId+"&userName="+userName+"&friendName="+friendName;
+		//$("#main").load("roomCheck?userId="+userId+"&friendId="+friendId+"&userName="+userName+"&friendName="+friendName);
+	 });
+	
+	$("#inputBtn").on("click",function(){
+		var searchTxt = $("#inputTxt").val();
+		console.log(searchTxt.length);
+		if(searchTxt == '' || searchTxt == null){
+			alert("검색할 아이디 혹은 이름을 입력해주세요!");
+		}else{
+			location.href="searchFriend?searchTxt="+searchTxt;
+		}
+		//$("#main").load("searchFriend?searchId="+searchId);
 	});
+	
+	$("#goChatList").on("click",function(){
+		//$("#main").load("chatList");
+		location.href="chatList";
+	});
+	
+	$("#goProfile").on("click",function(){
+		var url = "/chatting/profilePage";
+		var name = "profile";
+        var option = "width = 500, height = 500, top = 100, left = 200";
+		window.open(url,name,option);
+	});
+	
 	</script>
 </body>
 </html>
