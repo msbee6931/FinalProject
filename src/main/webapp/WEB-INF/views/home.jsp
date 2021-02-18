@@ -4,9 +4,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" type="image/png" href="http://example.com/myicon.png">
-<meta charset="UTF-8">
+
 <title>Insert title here</title>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.css' rel='stylesheet' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.css' rel='stylesheet' />
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.js'></script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+      },
+      navLinks: true, // can click day/week names to navigate views
+      businessHours: true, // display business hours
+      editable: true,
+     
+    });
+
+    calendar.render();
+  });
+</script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link
@@ -39,6 +66,19 @@
 
 
 <style>
+body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  
 @font-face {
 	font-family: 'GmarketSansBold';
 	src:
@@ -176,6 +216,7 @@ nav {
 				</div>
 			</div>
 		</div>
+  <div id='calendar'></div>
 		<!-- footer -->
 		<footer>
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
@@ -191,9 +232,10 @@ nav {
 			placeholder="채팅을 위한 임시아이디 입력하고 버튼클릭시 채팅으로 이동"> <input
 			type="button" value="send" id="sendBtn">
 	</div>
-
 </body>
 <script>
+
+
 	document.getElementById("enroll").onclick=function(){
 		location.href="/certification/enrollment"
 	}
