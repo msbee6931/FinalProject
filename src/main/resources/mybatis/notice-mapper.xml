@@ -3,16 +3,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Notice">
 <insert id="insertNomal">
-	insert into notice values (notice_seq.nextval,#{title},#{writedate},#{contents},'N')
+	insert into notice values (notice_seq.nextval,#{title},sysdate,#{contents},#{deptcode},0)
 </insert>
+<delete id="deleteNotice">
+	delete from notice where n_seq = #{n_seq}
+</delete>
+<delete id="deleteNoticeFile">
+	delete from noticefile where parentseq = #{n_seq}
+</delete>
 <select id="selectLastSeq" resultType="int">
 	SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'NOTICE_SEQ'
+</select>
+<select id="selectn_seq" resultType="int">
+	select count(n_seq) from notice
 </select>
 <insert id="insertNoticeFile">
 	insert into noticefile values (noticefile_seq.nextval,#{parentSeq},#{fileName},#{savedFileName},#{fileSize})
 </insert>
+<update id="updateNoticeFile">
+	update noticefile set fileName = #{fileName}, savedFileName=#{savedFileName}, fileSize=#{fileSize} 
+	where parentSeq = #{parentSeq}
+</update>
 <select id="selectNomalNotice" resultType="kh.spring.dto.NoticeDTO">
-	select * from notice where scolar = 'N'
+	select * from notice where deptcode = 'A'
 </select>
 <select id="selectNomalNotice_Info" resultType="kh.spring.dto.NoticeDTO">
 	select * from notice where n_seq = #{n_seq}
@@ -21,14 +34,23 @@
 	select * from noticefile where parentseq = #{n_seq}
 </select>
  <update id="updateNomalNotice">
-	update notice set title = #{title}, writedate = TO_DATE(#{writedate},'yyyyMMdd'), contents = #{contents} where n_seq = #{n_seq}
+	update notice set title = #{title}, writedate = sysdate , contents = #{contents}, deptcode = #{deptcode}
+	 where n_seq = #{n_seq}
 </update>
 <!-- Scolar -->
 <insert id="insertScolar">
 	insert into notice values(notice_seq.nextval,#{title},#{writedate},#{contents},'Y')
 </insert>
 <select id="selectScolarNotice" resultType="kh.spring.dto.NoticeDTO">
-	select * from notice where scolar = 'Y'
+	select * from notice where deptcode = 'B'
+</select>
+<!-- Bachelor -->
+<select id="selectBachelorNotice" resultType="kh.spring.dto.NoticeDTO">
+	select * from notice where deptcode = 'C'
+</select>
+<!-- Employ -->
+<select id="selectEmployNotice" resultType="kh.spring.dto.NoticeDTO">
+	select * from notice where deptcode = 'D'
 </select>
 
 
