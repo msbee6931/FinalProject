@@ -17,63 +17,75 @@
 		padding: 0px;
 		margin: 0px;
 	}
+	div{
+		border: 1px solid black;
+	}
+	.container{
+		padding: 50px;
+	}
+	.row{
+		--bs-gutter-x: 0rem;
+	}
 	/* PROFILE */
 	.friendName {
 		cursor: pointer;
+	}
+	/* ETC */
+	#goChatList,#goProfile{
+		text-align: center;
 	}
 </style>
 </head>
 <body>
 	<div class="container" id="container">
-		<div class="row m-5 profile">
-			<div class="row p-3 d-flex align-items-center myProfile">
-				<div class="col-6 profileImg user">
-					<c:choose>
-						<c:when test="${user.getImg() == null }"><img src="/img/deepblue.png" width="30px"></c:when>
-						<c:otherwise><img src="/files/${user.getImg()}" width="30px"></c:otherwise>
-					</c:choose>
-				</div>
-				<div class="col-6" id="userName">${user.getUserName() }</div>
-				<input type="hidden" id="userId" value=${user.getUserId() }>
-			</div>
-			<div class="row otherProfile">
+		<div>친구</div>
+		<div class="row p-3 d-flex align-items-center myProfile">
+			<div class="col-6 p-0 profileImg user">
 				<c:choose>
-					<c:when test="${friendList != null }">
-						<c:forEach var="dto" items="${friendList }">
-							<div class="row p-3 d-flex align-items-center friend">
-								<div class="col-6 profileImg other">
-									<c:forEach var="aDto" items="#{allUser}">
-										<c:if test="${dto.getFriendId() == aDto.getUserId() }">
-											<c:choose>
-												<c:when test="${aDto.getImg() == null }"><img src="/img/blue.png" width="30px"></c:when>
-												<c:otherwise><img src="/files/${aDto.getImg()}" width="30px"></c:otherwise>
-											</c:choose>
-										</c:if>
-									</c:forEach>
-								</div>
-								<div class="col-6 friendName">${dto.getFriendName() }</div>
-								<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div class="col-12">친구가 없습니다!</div>
-					</c:otherwise>
+					<c:when test="${user.getImg() == null }"><img src="/img/deepblue.png" width="50px"></c:when>
+					<c:otherwise><img src="/files/${user.getImg()}" width="50px"></c:otherwise>
 				</c:choose>
 			</div>
-			<div class="row etc">
-				<div class="row p-3 searchInput">
-					<input type="text" id="inputTxt" class="col-6" placeholder="검색할 친구를 입력해주세요.">
-					<input type="button" id="inputBtn" class="col-6" value="검색">
-				</div>
-				<div class="row btns">
-					<div id="goChatList" class="col-6">chatList</div>
-					<div id="goProfile" class="col-6">profile update</div>
-				</div>
+			<div class="col-6" id="userName">${user.getUserName() }</div>
+			<input type="hidden" id="userId" value=${user.getUserId() }>
+		</div>
+		<div class="row p-0 otherProfile">
+			<c:choose>
+				<c:when test="${friendList != null }">
+					<c:forEach var="dto" items="${friendList }">
+						<div class="row p-3 d-flex align-items-center friend">
+							<div class="col-6 profileImg other">
+								<c:forEach var="aDto" items="#{allUser}">
+									<c:if test="${dto.getFriendId() == aDto.getUserId() }">
+										<c:choose>
+											<c:when test="${aDto.getImg() == null }"><img src="/img/blue.png" width="50px"></c:when>
+											<c:otherwise><img src="/files/${aDto.getImg()}" width="50px"></c:otherwise>
+										</c:choose>
+									</c:if>
+								</c:forEach>
+							</div>
+							<div class="col-6 friendName">${dto.getFriendName() }</div>
+							<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div class="col-12">친구가 없습니다!</div>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="row etc">
+			<div class="row p-3 searchInput">
+				<input type="text" id="inputTxt" class="col-sm-8 col-12" placeholder="검색할 친구를 입력해주세요.">
+				<input type="button" id="inputBtn" class="col-sm-4 col-12" value="검색">
+			</div>
+			<div class="row btns">
+				<div id="goChatList" class="col-sm-6 col-12">chatList</div>
+				<div id="goProfile" class="col-sm-6 col-12">profile update</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
 	$(document).on("click",".friend",function(){
 		var userId = $("#userId").val();

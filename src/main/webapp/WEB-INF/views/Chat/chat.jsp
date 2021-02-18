@@ -6,60 +6,76 @@
 <head>
 <meta charset="UTF-8">
 <title>Chat</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.3.0/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="https://kit.fontawesome.com/a24c081181.js" crossorigin="anonymous"></script>
 <style>
+	/* COMMON */
 	*{
 		box-sizing: border-box;
 		padding: 0px;
 		margin: 0px;
 	}
-	.container>div{
+	div{
 		border: 1px solid black;
 	}
+	.container{
+		padding: 50px;
+	}
+	.row{
+		--bs-gutter-x: 0rem;
+	}
+	/* ROOM MEMBER */
+	
+	/* CHAT */
 	.contents .me{
 		text-align: right;
 	}
 	.contents .others{
 		text-align: left;
 	}
+	.contents img{
+		width: 100px;
+		height: 100px;
+	}
 	.etc{
 		display: flex;
 		justify-content: space-around;
-	}
-	img{
-		width: 100px;
-		height: 100px;s
 	}
 </style>
 </head>
 <body>
 	<div class="container">
-		<input type="text" id="userId" value="${userId }">
-		<input type="text" id="roomNumber" value="${roomNumber }">
+		<input type="hidden" id="userId" value="${userId }">
+		<input type="hidden" id="roomNumber" value="${roomNumber }">
 		<input type="button" id="invite" value="초대하기">
 		<input type="button" id="leave" value="방 나가기">
-		<div> 
-			<div>참가자</div>
-			<c:forEach var="jDto" items="${joinList}">
-				<c:forEach var="aDto" items="${allUser}">
+		<div class="row"> 
+			<div class="row">참가자</div>
+			<div class="row members">
+				<c:forEach var="jDto" items="${joinList}">
+					<c:forEach var="aDto" items="${allUser}">
 						<c:if test="${jDto.getUserId() == aDto.getUserId() }">
-							<div class="member">
-							<c:choose>
-								<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px"  class="joinUserImg"></c:when>
-								<c:otherwise><img src="/files/${aDto.getImg()}" class="joinUserImg"></c:otherwise>
-							</c:choose>
-							<div class="joinUserId" style="display: none">${jDto.getUserId()}</div>
-							<div class="joinUserName">${jDto.getUserName()}</div>
+							<div class="col member">
+								<div class="col">
+									<c:choose>
+										<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="30px" class="joinUserImg"></c:when>
+										<c:otherwise><img src="/files/${aDto.getImg()}" width="30px" class="joinUserImg"></c:otherwise>
+									</c:choose>
+								</div>
+								<div class="joinUserId" style="display: none">${jDto.getUserId()}</div>
+								<div class="col joinUserName">${jDto.getUserName()}</div>
 							</div>
 						</c:if>
+					</c:forEach>
 				</c:forEach>
-			</c:forEach>
+			</div>
 		</div>
-		<div class="contents">
+		<div class="row contents">
 			<c:if test="${list != null }">
 				<c:forEach var="dto" items="${list}">
 					<c:choose>
@@ -72,7 +88,7 @@
 									<div class="me"><img src="${dto.getOriName()}"></div>
 								</c:when>
 								<c:when test="${dto.getFormat()=='gif' or dto.getFormat()=='png' or dto.getFormat()=='jpg' or dto.getFormat()=='raw' or dto.getFormat()=='tif' or dto.getFormat()=='tiff' or dto.getFormat()=='bpm' or dto.getFormat()=='rle' or dto.getFormat()=='dib'}">
-									<div class='me'><img src='/files/${dto.getSavedName() }'><br><a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }'>${dto.getOriName() }</a></div>
+									<div class="me"><img src='/files/${dto.getSavedName() }'><a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }'>${dto.getOriName() }</a></div>
 								</c:when>
 								<c:otherwise>
 									<div class="me"><a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }">${dto.getOriName() }</a></div>
@@ -84,31 +100,31 @@
 								<c:if test="${dto.getUserId() == aDto.getUserId() }">						
 								<c:choose>
 									<c:when test="${dto.getOriName() == null }">
-										<div class="others">	
+										<div class="row others">	
 											<c:choose>
-												<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px"></c:when>
-												<c:otherwise><img src="/files/${aDto.getImg()}"></c:otherwise>
+												<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
+												<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
 											</c:choose>
 											${aDto.getUserName()}: ${dto.getMessage() }
 										</div>
 									</c:when>
 
 									<c:when test="${dto.getOriName() != null and dto.getSavedName() == null}">
-										<div class="others">	
+										<div class="row others">	
 											<c:choose>
-												<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px"></c:when>
-												<c:otherwise><img src="/files/${aDto.getImg()}"></c:otherwise>
+												<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
+												<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
 											</c:choose>
 											${aDto.getUserName()}:
-											<img src="${dto.getOriName()}">
+											<img src="${dto.getOriName()}" class="col">
 										</div>
 									</c:when>
 
 									<c:when test="${dto.getFormat()=='gif' or dto.getFormat()=='png' or dto.getFormat()=='jpg' or dto.getFormat()=='raw' or dto.getFormat()=='tif' or dto.getFormat()=='tiff' or dto.getFormat()=='bpm' or dto.getFormat()=='rle' or dto.getFormat()=='dib'}">
-										<div class='others'>
+										<div class='row others'>
 												<c:choose>
-													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px"></c:when>
-													<c:otherwise><img src="/files/${aDto.getImg()}"></c:otherwise>
+													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
+													<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
 												</c:choose>
 											${aDto.getUserName()}: 
 											<img src='/files/${dto.getSavedName() }'>
@@ -117,10 +133,10 @@
 									</c:when>
 									
 									<c:otherwise>
-										<div class="others">
+										<div class="row others">
 												<c:choose>
-													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px"></c:when>
-													<c:otherwise><img src="/files/${aDto.getImg()}"></c:otherwise>
+													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
+													<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
 												</c:choose>
 											${dto.getUserId()}: <br>
 											<a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }">${dto.getOriName() }</a>
@@ -134,28 +150,28 @@
 				</c:forEach>
 			</c:if>
 		</div>
-		<div id="emoticons" style="display:none;">
-			<img src="/img/happy.png" id="happy" ondblclick="sendEmoticon(this)">
-			<img src="/img/excited.png" id="excited" ondblclick="sendEmoticon(this)">
-			<img src="/img/nomal.png" id="nomal" ondblclick="sendEmoticon(this)">
-			<img src="/img/soso.png" id="soso" ondblclick="sendEmoticon(this)">
-			<img src="/img/sleepy.png" id="sleepy" ondblclick="sendEmoticon(this)">
-			<img src="/img/sad.png" id="sad" ondblclick="sendEmoticon(this)">
-			<img src="/img/angry.png" id="angry" ondblclick="sendEmoticon(this)">
-			<img src="/img/surprised.png" id="surprised" ondblclick="sendEmoticon(this)">
+		<div class="row" id="emoticons" style="display:none;">
+			<img src="/img/happy.png" id="happy" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/excited.png" id="excited" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/nomal.png" id="nomal" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/soso.png" id="soso" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/sleepy.png" id="sleepy" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/sad.png" id="sad" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/angry.png" id="angry" ondblclick="sendEmoticon(this)" class="col">
+			<img src="/img/surprised.png" id="surprised" ondblclick="sendEmoticon(this)" class="col">
 		</div>
-		<div class="etc">
-			<div id="fileWrapper">
+		<div class="row etc">
+			<div id="fileWrapper" class="col-6">
 				<i class="far fa-file-alt" id="fileIcon"></i>
 				<form name="signform" id="signform" method="POST" ENCTYPE="multipart/form-data">
     				<input type="file" id="file" name="file" multiple="true" style="display:none;" onchange="upload()" >
 				</form>	
 			</div>
-			<div id="emoticonIcon"><i class="far fa-laugh"></i></div>
+			<div id="emoticonIcon" class="col-6"><i class="far fa-laugh"></i></div>
 		</div>
-		<div class="sendMsg">
-			<input type="text" id="message">
-			<button id="send">Send</button>
+		<div class="row sendMsg">
+			<input type="text" id="message" class="col-10">
+			<button id="send" class="col-2">Send</button>
 		</div>
 	</div>
 	
