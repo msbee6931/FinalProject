@@ -58,7 +58,7 @@
         				"LoginInfo"
         				,"/reqLogigInfo.log"
         				,""
-        				,"ds_students=std_ds ds_professor=pro_ds ds_admin=amd_ds"
+        				,"ds_students=std_ds ds_professor=pro_ds ds_admin=adm_ds"
         				,""
         				,"fn_callback_login"
         			);
@@ -79,7 +79,7 @@
         		this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Professor::Form_Bottom.xfdl");
         		this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
         	}else if(this.ds_admin.getRowCount() > 0 ){
-        		this.objApp.gds_students.copyData(this.ds_admin);
+        		this.objApp.gds_admin.copyData(this.ds_admin);
         		this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Admin::Form_Top.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Admin::Form_Left.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Admin::Form_Mdi.xfdl");

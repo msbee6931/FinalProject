@@ -137,10 +137,10 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
 		model.addAttribute("dto",dto);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		model.addAttribute("semester",semester);
 		model.addAttribute("sysdate",sysdate);
 		model.addAttribute("s_id",s_id);
@@ -224,7 +224,7 @@ public class CertificationController {
 			}
 		}
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
 		//-오늘날짜 출력하기
 		SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월 dd일");
@@ -232,7 +232,7 @@ public class CertificationController {
 		String sysdate = format.format(time);
 
 		model.addAttribute("dto",dto);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
 		return "Certification/graduateCertification";
@@ -327,7 +327,7 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
 		//-- 납부관련 dto 불러오기
 		TuitionDTO dto2 = Tservice.selectByStd_code(s_seq);
@@ -355,7 +355,7 @@ public class CertificationController {
 		model.addAttribute("semester",semester);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		return "Certification/receipt";
 	}
 	@RequestMapping("transcript")
@@ -434,13 +434,13 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 	
 
 		model.addAttribute("s_id",s_id);
 		model.addAttribute("dto",dto);
 		model.addAttribute("part",part);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		
 		//------------성적관련--------------------
 

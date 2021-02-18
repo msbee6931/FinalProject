@@ -7,17 +7,17 @@ public class StudentsDTO {
 	private int s_seq;
 	private String pw;
 	private String name;
-	private int age;
+	private String secNumber;
 	private String email;
 	private String contact;
 	private String address;
 	private String scholarship;
 	private String rest;
 	private String grade;
-	private String birth;
 	private String gender;
 	private String deptCode;
 	private String colCode;
+	private String colGrade;
 	public int getChk() {
 		return chk;
 	}
@@ -42,11 +42,11 @@ public class StudentsDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
-		return age;
+	public String getSecNumber() {
+		return secNumber;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setSecNumber(String secNumber) {
+		this.secNumber = secNumber;
 	}
 	public String getEmail() {
 		return email;
@@ -84,12 +84,6 @@ public class StudentsDTO {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
 	public String getGender() {
 		return gender;
 	}
@@ -108,35 +102,35 @@ public class StudentsDTO {
 	public void setColCode(String colCode) {
 		this.colCode = colCode;
 	}
-	public StudentsDTO(int chk, int s_seq, String pw, String name, int age, String email, String contact,
-			String address, String scholarship, String rest, String grade, String birth, String gender, String deptCode,
-			String colCode) {
+	public String getColGrade() {
+		return colGrade;
+	}
+	public void setColGrade(String colGrade) {
+		this.colGrade = colGrade;
+	}
+	public StudentsDTO(int chk, int s_seq, String pw, String name, String secNumber, String email, String contact,
+			String address, String scholarship, String rest, String grade, String gender, String deptCode,
+			String colCode, String colGrade) {
 		super();
 		this.chk = chk;
 		this.s_seq = s_seq;
 		this.pw = pw;
 		this.name = name;
-		this.age = age;
+		this.secNumber = secNumber;
 		this.email = email;
 		this.contact = contact;
 		this.address = address;
 		this.scholarship = scholarship;
 		this.rest = rest;
 		this.grade = grade;
-		this.birth = birth;
 		this.gender = gender;
 		this.deptCode = deptCode;
 		this.colCode = colCode;
+		this.colGrade = colGrade;
 	}
 	public StudentsDTO() {
 		super();
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
