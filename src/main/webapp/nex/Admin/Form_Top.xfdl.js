@@ -25,6 +25,10 @@
             obj = new Dataset("session", this);
             obj._setContents("<ColumnInfo><Column id=\"a_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new FileUpTransfer("FileUpTransfer00", this);
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
@@ -103,10 +107,6 @@
         	}
         }
 
-
-
-
-
         this.btn_logout_onclick = function(obj,e)
         {
         	this.transaction(
@@ -152,13 +152,16 @@
         		);
 
         		this.transaction(
-        			"sessionA" //id
-        			,"/sessionA.nex"//url
+        			"garbageInsert" //id
+        			,"/reference/garbageInsert"//url
         			,""// inData
-        			,"session=out_ds"// outData
+        			,""// outData
         			,""//strArg
         			,"fn_callback"//callback
         		);
+
+        		this.FileUpTransfer00.upload("/reference/uploadFile");
+
         };
 
 

@@ -62,60 +62,60 @@ public class CertificationController {
 
 
 		String part = null;
-		if(dto.getColcode().contentEquals("10")) {
-			if(dto.getDeptcode().contentEquals("11")) {
+		if(dto.getColCode().contentEquals("10")) {
+			if(dto.getDeptCode().contentEquals("11")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptcode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("12")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptcode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("13")) {
 				part = "국사학과";
-			}else if(dto.getDeptcode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("14")) {
 				part = "철학과";
 			}
-		}else if(dto.getColcode().contentEquals("20")) {
-			if(dto.getDeptcode().contentEquals("21")) {
+		}else if(dto.getColCode().contentEquals("20")) {
+			if(dto.getDeptCode().contentEquals("21")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptcode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("22")) {
 				part = "경제학부";
-			}else if(dto.getDeptcode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("23")) {
 				part = "사회학과";
-			}else if(dto.getDeptcode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("24")) {
 				part = "심리학과";
 			}
-		}else if(dto.getColcode().contentEquals("30")) {
-			if(dto.getDeptcode().contentEquals("31")) {
+		}else if(dto.getColCode().contentEquals("30")) {
+			if(dto.getDeptCode().contentEquals("31")) {
 				part = "통계학과";
-			}else if(dto.getDeptcode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("32")) {
 				part = "화학부";
-			}else if(dto.getDeptcode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("33")) {
 				part = "생명과학부";
 			}
-		}else if(dto.getColcode().contentEquals("40")) {
-			if(dto.getDeptcode().contentEquals("41")) {
+		}else if(dto.getColCode().contentEquals("40")) {
+			if(dto.getDeptCode().contentEquals("41")) {
 				part = "간호학부";
 			}
-		}else if(dto.getColcode().contentEquals("50")) {
-			if(dto.getDeptcode().contentEquals("51")) {
+		}else if(dto.getColCode().contentEquals("50")) {
+			if(dto.getDeptCode().contentEquals("51")) {
 				part = "전기공학부";
-			}else if(dto.getDeptcode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("52")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptcode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("53")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptcode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("54")) {
 				part = "건축학과";
-			}else if(dto.getDeptcode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("55")) {
 				part = "산업공학과";
 			}
-		}else if(dto.getColcode().contentEquals("60")) {
-			if(dto.getDeptcode().contentEquals("61")) {
+		}else if(dto.getColCode().contentEquals("60")) {
+			if(dto.getDeptCode().contentEquals("61")) {
 				part = "교육학과";
-			}else if(dto.getDeptcode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("62")) {
 				part = "국어교육과";
-			}else if(dto.getDeptcode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("63")) {
 				part = "영어교육과";
-			}else if(dto.getDeptcode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("64")) {
 				part = "수학교육과";
-			}else if(dto.getDeptcode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("65")) {
 				part = "체육교육과";
 			}
 		}
@@ -137,10 +137,10 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
 		model.addAttribute("dto",dto);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		model.addAttribute("semester",semester);
 		model.addAttribute("sysdate",sysdate);
 		model.addAttribute("s_id",s_id);
@@ -166,65 +166,65 @@ public class CertificationController {
 
 
 		String part = null;
-		if(dto.getColcode().contentEquals("10")) {
-			if(dto.getDeptcode().contentEquals("11")) {
+		if(dto.getColCode().contentEquals("10")) {
+			if(dto.getDeptCode().contentEquals("11")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptcode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("12")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptcode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("13")) {
 				part = "국사학과";
-			}else if(dto.getDeptcode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("14")) {
 				part = "철학과";
 			}
-		}else if(dto.getColcode().contentEquals("20")) {
-			if(dto.getDeptcode().contentEquals("21")) {
+		}else if(dto.getColCode().contentEquals("20")) {
+			if(dto.getDeptCode().contentEquals("21")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptcode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("22")) {
 				part = "경제학부";
-			}else if(dto.getDeptcode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("23")) {
 				part = "사회학과";
-			}else if(dto.getDeptcode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("24")) {
 				part = "심리학과";
 			}
-		}else if(dto.getColcode().contentEquals("30")) {
-			if(dto.getDeptcode().contentEquals("31")) {
+		}else if(dto.getColCode().contentEquals("30")) {
+			if(dto.getDeptCode().contentEquals("31")) {
 				part = "통계학과";
-			}else if(dto.getDeptcode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("32")) {
 				part = "화학부";
-			}else if(dto.getDeptcode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("33")) {
 				part = "생명과학부";
 			}
-		}else if(dto.getColcode().contentEquals("40")) {
-			if(dto.getDeptcode().contentEquals("41")) {
+		}else if(dto.getColCode().contentEquals("40")) {
+			if(dto.getDeptCode().contentEquals("41")) {
 				part = "간호학부";
 			}
-		}else if(dto.getColcode().contentEquals("50")) {
-			if(dto.getDeptcode().contentEquals("51")) {
+		}else if(dto.getColCode().contentEquals("50")) {
+			if(dto.getDeptCode().contentEquals("51")) {
 				part = "전기공학부";
-			}else if(dto.getDeptcode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("52")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptcode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("53")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptcode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("54")) {
 				part = "건축학과";
-			}else if(dto.getDeptcode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("55")) {
 				part = "산업공학과";
 			}
-		}else if(dto.getColcode().contentEquals("60")) {
-			if(dto.getDeptcode().contentEquals("61")) {
+		}else if(dto.getColCode().contentEquals("60")) {
+			if(dto.getDeptCode().contentEquals("61")) {
 				part = "교육학과";
-			}else if(dto.getDeptcode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("62")) {
 				part = "국어교육과";
-			}else if(dto.getDeptcode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("63")) {
 				part = "영어교육과";
-			}else if(dto.getDeptcode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("64")) {
 				part = "수학교육과";
-			}else if(dto.getDeptcode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("65")) {
 				part = "체육교육과";
 			}
 		}
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
 		//-오늘날짜 출력하기
 		SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월 dd일");
@@ -232,7 +232,7 @@ public class CertificationController {
 		String sysdate = format.format(time);
 
 		model.addAttribute("dto",dto);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
 		return "Certification/graduateCertification";
@@ -252,60 +252,60 @@ public class CertificationController {
 		String s_num = seq.substring(4);
 
 		String part = null;
-		if(dto.getColcode().contentEquals("10")) {
-			if(dto.getDeptcode().contentEquals("11")) {
+		if(dto.getColCode().contentEquals("10")) {
+			if(dto.getDeptCode().contentEquals("11")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptcode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("12")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptcode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("13")) {
 				part = "국사학과";
-			}else if(dto.getDeptcode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("14")) {
 				part = "철학과";
 			}
-		}else if(dto.getColcode().contentEquals("20")) {
-			if(dto.getDeptcode().contentEquals("21")) {
+		}else if(dto.getColCode().contentEquals("20")) {
+			if(dto.getDeptCode().contentEquals("21")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptcode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("22")) {
 				part = "경제학부";
-			}else if(dto.getDeptcode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("23")) {
 				part = "사회학과";
-			}else if(dto.getDeptcode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("24")) {
 				part = "심리학과";
 			}
-		}else if(dto.getColcode().contentEquals("30")) {
-			if(dto.getDeptcode().contentEquals("31")) {
+		}else if(dto.getColCode().contentEquals("30")) {
+			if(dto.getDeptCode().contentEquals("31")) {
 				part = "통계학과";
-			}else if(dto.getDeptcode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("32")) {
 				part = "화학부";
-			}else if(dto.getDeptcode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("33")) {
 				part = "생명과학부";
 			}
-		}else if(dto.getColcode().contentEquals("40")) {
-			if(dto.getDeptcode().contentEquals("41")) {
+		}else if(dto.getColCode().contentEquals("40")) {
+			if(dto.getDeptCode().contentEquals("41")) {
 				part = "간호학부";
 			}
-		}else if(dto.getColcode().contentEquals("50")) {
-			if(dto.getDeptcode().contentEquals("51")) {
+		}else if(dto.getColCode().contentEquals("50")) {
+			if(dto.getDeptCode().contentEquals("51")) {
 				part = "전기공학부";
-			}else if(dto.getDeptcode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("52")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptcode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("53")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptcode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("54")) {
 				part = "건축학과";
-			}else if(dto.getDeptcode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("55")) {
 				part = "산업공학과";
 			}
-		}else if(dto.getColcode().contentEquals("60")) {
-			if(dto.getDeptcode().contentEquals("61")) {
+		}else if(dto.getColCode().contentEquals("60")) {
+			if(dto.getDeptCode().contentEquals("61")) {
 				part = "교육학과";
-			}else if(dto.getDeptcode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("62")) {
 				part = "국어교육과";
-			}else if(dto.getDeptcode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("63")) {
 				part = "영어교육과";
-			}else if(dto.getDeptcode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("64")) {
 				part = "수학교육과";
-			}else if(dto.getDeptcode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("65")) {
 				part = "체육교육과";
 			}
 		}
@@ -327,7 +327,7 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 
 		//-- 납부관련 dto 불러오기
 		TuitionDTO dto2 = Tservice.selectByStd_code(s_seq);
@@ -355,7 +355,7 @@ public class CertificationController {
 		model.addAttribute("semester",semester);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		return "Certification/receipt";
 	}
 	@RequestMapping("transcript")
@@ -375,72 +375,72 @@ public class CertificationController {
 
 
 		String part = null;
-		if(dto.getColcode().contentEquals("10")) {
-			if(dto.getDeptcode().contentEquals("11")) {
+		if(dto.getColCode().contentEquals("10")) {
+			if(dto.getDeptCode().contentEquals("11")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptcode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("12")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptcode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("13")) {
 				part = "국사학과";
-			}else if(dto.getDeptcode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("14")) {
 				part = "철학과";
 			}
-		}else if(dto.getColcode().contentEquals("20")) {
-			if(dto.getDeptcode().contentEquals("21")) {
+		}else if(dto.getColCode().contentEquals("20")) {
+			if(dto.getDeptCode().contentEquals("21")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptcode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("22")) {
 				part = "경제학부";
-			}else if(dto.getDeptcode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("23")) {
 				part = "사회학과";
-			}else if(dto.getDeptcode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("24")) {
 				part = "심리학과";
 			}
-		}else if(dto.getColcode().contentEquals("30")) {
-			if(dto.getDeptcode().contentEquals("31")) {
+		}else if(dto.getColCode().contentEquals("30")) {
+			if(dto.getDeptCode().contentEquals("31")) {
 				part = "통계학과";
-			}else if(dto.getDeptcode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("32")) {
 				part = "화학부";
-			}else if(dto.getDeptcode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("33")) {
 				part = "생명과학부";
 			}
-		}else if(dto.getColcode().contentEquals("40")) {
-			if(dto.getDeptcode().contentEquals("41")) {
+		}else if(dto.getColCode().contentEquals("40")) {
+			if(dto.getDeptCode().contentEquals("41")) {
 				part = "간호학부";
 			}
-		}else if(dto.getColcode().contentEquals("50")) {
-			if(dto.getDeptcode().contentEquals("51")) {
+		}else if(dto.getColCode().contentEquals("50")) {
+			if(dto.getDeptCode().contentEquals("51")) {
 				part = "전기공학부";
-			}else if(dto.getDeptcode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("52")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptcode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("53")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptcode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("54")) {
 				part = "건축학과";
-			}else if(dto.getDeptcode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("55")) {
 				part = "산업공학과";
 			}
-		}else if(dto.getColcode().contentEquals("60")) {
-			if(dto.getDeptcode().contentEquals("61")) {
+		}else if(dto.getColCode().contentEquals("60")) {
+			if(dto.getDeptCode().contentEquals("61")) {
 				part = "교육학과";
-			}else if(dto.getDeptcode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("62")) {
 				part = "국어교육과";
-			}else if(dto.getDeptcode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("63")) {
 				part = "영어교육과";
-			}else if(dto.getDeptcode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("64")) {
 				part = "수학교육과";
-			}else if(dto.getDeptcode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("65")) {
 				part = "체육교육과";
 			}
 		}
 
 		//-- 생년월일 포맷 맞추기
-		String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
 	
 
 		model.addAttribute("s_id",s_id);
 		model.addAttribute("dto",dto);
 		model.addAttribute("part",part);
-		model.addAttribute("birth",birth);
+		//model.addAttribute("birth",birth);
 		
 		//------------성적관련--------------------
 

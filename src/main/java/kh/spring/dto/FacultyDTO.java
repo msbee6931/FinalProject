@@ -4,28 +4,13 @@ public class FacultyDTO {
 	private int chk;
 	private int f_seq;
 	private String name;
-	private int age;
+	private String secNumber;
 	private String email;
 	private String contact;
 	private String address;
 	private String pw;
-	
-	
-	public FacultyDTO() {
-		super();
-	}
-	public FacultyDTO(int chk, int f_seq, String name, int age, String email, String contact, String address,
-			String pw) {
-		super();
-		this.chk = chk;
-		this.f_seq = f_seq;
-		this.name = name;
-		this.age = age;
-		this.email = email;
-		this.contact = contact;
-		this.address = address;
-		this.pw = pw;
-	}
+	private String colCode;
+	private String deptCode;
 	public int getChk() {
 		return chk;
 	}
@@ -44,11 +29,11 @@ public class FacultyDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
-		return age;
+	public String getSecNumber() {
+		return secNumber;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setSecNumber(String secNumber) {
+		this.secNumber = secNumber;
 	}
 	public String getEmail() {
 		return email;
@@ -74,6 +59,37 @@ public class FacultyDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	public String getColCode() {
+		return colCode;
+	}
+	public void setColCode(String colCode) {
+		this.colCode = colCode;
+	}
+	public String getDeptCode() {
+		return deptCode;
+	}
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
+	}
+	public FacultyDTO(int chk, int f_seq, String name, String secNumber, String email, String contact, String address,
+			String pw, String colCode, String deptCode) {
+		super();
+		this.chk = chk;
+		this.f_seq = f_seq;
+		this.name = name;
+		this.secNumber = secNumber;
+		this.email = email;
+		this.contact = contact;
+		this.address = address;
+		this.pw = pw;
+		this.colCode = colCode;
+		this.deptCode = deptCode;
+	}
+	public FacultyDTO() {
+		super();
+	}
+	
+	
 	
 	
 

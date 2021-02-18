@@ -4,30 +4,14 @@ public class ProfessorDTO {
 	private int chk;
 	private int p_seq;
 	private String name;
-	private int age;
+	private String secNumber;
 	private String email;
 	private String contact;
 	private String address;
 	private String lecture;
 	private String pw;
-		
-	
-	public ProfessorDTO() {
-		super();
-	}
-	public ProfessorDTO(int chk, int p_seq, String name, int age, String email, String contact, String address,
-			String lecture, String pw) {
-		super();
-		this.chk = chk;
-		this.p_seq = p_seq;
-		this.name = name;
-		this.age = age;
-		this.email = email;
-		this.contact = contact;
-		this.address = address;
-		this.lecture = lecture;
-		this.pw = pw;
-	}
+	private String colCode;
+	private String deptCode;
 	public int getChk() {
 		return chk;
 	}
@@ -46,11 +30,11 @@ public class ProfessorDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
-		return age;
+	public String getSecNumber() {
+		return secNumber;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setSecNumber(String secNumber) {
+		this.secNumber = secNumber;
 	}
 	public String getEmail() {
 		return email;
@@ -82,7 +66,37 @@ public class ProfessorDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	
+	public String getColCode() {
+		return colCode;
+	}
+	public void setColCode(String colCode) {
+		this.colCode = colCode;
+	}
+	public String getDeptCode() {
+		return deptCode;
+	}
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
+	}
+	public ProfessorDTO(int chk, int p_seq, String name, String secNumber, String email, String contact, String address,
+			String lecture, String pw, String colCode, String deptCode) {
+		super();
+		this.chk = chk;
+		this.p_seq = p_seq;
+		this.name = name;
+		this.secNumber = secNumber;
+		this.email = email;
+		this.contact = contact;
+		this.address = address;
+		this.lecture = lecture;
+		this.pw = pw;
+		this.colCode = colCode;
+		this.deptCode = deptCode;
+	}
+	public ProfessorDTO() {
+		super();
+	}
+		
 	
 	
 	

@@ -14,16 +14,16 @@
 </delete>
 <update id="updatestu">
 	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
-		update students set name = #{i.name}, age= #{i.age}, email= #{i.email},
+		update students set name = #{i.name}, email= #{i.email},
 		contact=#{i.contact}, address=#{i.address}, scholarship=#{i.scholarship}, rest=#{i.rest}, grade=#{i.grade}
-		,birth=TO_DATE(#{i.birth},'yyyyMMdd'),gender=#{i.gender},deptcode=#{i.deptcode},colcode=#{i.colcode}
+		,gender=#{i.gender},deptcode=#{i.deptCode},colcode=#{i.colCode},secNumber=#{i.secNumber}
 		where s_seq = #{i.s_seq}
 	</foreach>
 </update>
 <insert id="insertstu">
 	<foreach item="i" collection="list" separator=" " open="insert All" close="select * from dual">
-	into students(s_seq,name,age,email,contact,address,scholarship,rest,grade,birth,pw,gender,deptcode,colcode)
-	values(#{i.s_seq},#{i.name},#{i.age},#{i.email},#{i.contact},#{i.address},#{i.scholarship},#{i.rest},#{i.grade},#{i.birth},#{i.pw},#{i.gender},#{i.deptcode},#{i.colcode})
+	into students(s_seq,name,email,contact,address,scholarship,rest,grade,pw,gender,deptcode,colcode,colgrade,secnumber)
+	values(#{i.s_seq},#{i.name},#{i.email},#{i.contact},#{i.address},#{i.scholarship},#{i.rest},#{i.grade},#{i.pw},#{i.gender},#{i.deptCode},#{i.colCode},#{i.colGrade},#{i.secNumber})
 	</foreach>
 </insert>
 
@@ -39,14 +39,14 @@
 </delete>
 <insert id="insertPro">
 	<foreach item="i" collection="list" separator=" " open="insert All" close="select * from dual">
-	into professor(p_seq,name,age,email,contact,address,lecture,pw)
-	values(#{i.p_seq},#{i.name},#{i.age},#{i.email},#{i.contact},#{i.address},#{i.lecture},#{i.pw})
+	into professor(p_seq,name,email,contact,address,lecture,pw,secNumber,colCode,deptCode)
+	values(#{i.p_seq},#{i.name},#{i.email},#{i.contact},#{i.address},#{i.lecture},#{i.pw},#{i.secNumber},#{i.colCode},#{i.deptCode})
 	</foreach>
 </insert>
 <update id="updatePro">
 	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
-		update professor set name = #{i.name}, age= #{i.age}, email= #{i.email},
-		contact=#{i.contact}, address=#{i.address}, lecture=#{i.lecture}
+		update professor set name = #{i.name}, email= #{i.email},
+		contact=#{i.contact}, address=#{i.address}, lecture=#{i.lecture}, secNumber=#{i.secNumber}, colCode=#{i.colCode},deptCode=#{i.deptCode}
 		where p_seq = #{i.p_seq}
 	</foreach>
 </update>
@@ -63,14 +63,14 @@
 </delete>
 <update id="updateFac">
 	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
-		update faculty set name = #{i.name}, age= #{i.age}, email= #{i.email},
-		contact = #{i.contact}, address=#{i.address} where f_seq = #{i.f_seq}
+		update faculty set name = #{i.name}, email= #{i.email},
+		contact = #{i.contact}, address=#{i.address}, secNumber=#{i.secNumber}, colCode=#{i.colCode}, deptCode=#{i.deptCode} where f_seq = #{i.f_seq}
 	</foreach>
 </update>
 <insert id="insertFac">
 	<foreach collection="list" item="i" separator=" " open="insert All" close="select * from dual">
-	into faculty(f_seq,name,age,email,contact,address,pw)
-	values(#{i.f_seq},#{i.name},#{i.age},#{i.email},#{i.contact},#{i.address},#{i.pw})
+	into faculty(f_seq,name,email,contact,address,pw,secNumber,colCode,deptCode)
+	values(#{i.f_seq},#{i.name},#{i.email},#{i.contact},#{i.address},#{i.pw},#{i.secNumber},#{i.colCode},#{i.deptCode})
 	</foreach>
 </insert>
 
