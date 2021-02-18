@@ -76,7 +76,7 @@ body {
   }
 
   #calendar {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
   }
 
@@ -318,7 +318,6 @@ nav {
 			</div>
 			<div class="col-12 col-lg-6">
 				<div class="row">
-					<div class="col">일정</div>
 							 <div id='calendar'></div>
 				</div>
 			</div>
