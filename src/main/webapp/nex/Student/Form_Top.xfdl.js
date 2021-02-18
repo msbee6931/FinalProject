@@ -111,6 +111,7 @@
         		);
         };
         this.fn_callback_logout=function(){
+        	this.objApp.gds_students.clearData();
         	location.href="/";
         }
 

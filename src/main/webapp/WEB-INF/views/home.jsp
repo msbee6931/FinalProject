@@ -30,9 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks: true, // can click day/week names to navigate views
       businessHours: true, // display business hours
       editable: true,
-     
+      events: [
+         
+         
+        ]
     });
 
+	var ssize = document.getElementById("size").value;
+	var size = parseInt(ssize);
+    for(var j=0; j<size; j++){
+    	var sj=String(j);
+    	calendar.addEvent( {'title':document.getElementById(sj+"title").value, 'start':document.getElementById(sj+"sdate").value, 'end':document.getElementById(sj+"edate").value});
+        
+    }
+
+    
     calendar.render();
   });
 </script>
@@ -329,39 +341,27 @@ nav {
 			<jsp:include page="/WEB-INF/views/footer.jsp"/>
 		</footer>
 
-		<input type=button id=enroll value=재학증명서> <input type=button
-			id=graduate value=졸업증명서> <input type=button id=payment
-			value="납부 영수증"> <input type=button id=transcript value=성적증명서>
-		<input type=button id=free value=자유게시판>
 
 		<!-- 채팅을 위해 임시 아이디 생성 -->
 		<input id="userId" type="text" placeholder="채팅을 위한 임시아이디 입력하고 버튼클릭시 채팅으로 이동">
 		<input type="button" value="send" id="sendBtn">
 	</div>
+	
+	
+					<input type="hidden" id= size value=${size }><br>
+					<c:forEach var="i" items="${list }">
+						<input type=hidden id="${i.seq }seq" value=${i.seq }>
+						<input type=hidden id="${i.seq }title" value= "${i.title }">
+						<input type=hidden id="${i.seq }sdate" value= "${i.sdate }">
+						<input type=hidden id="${i.seq }edate" value= "${i.edate }">
+						<br>
+				</c:forEach>
+	
+	
+	
 </body>
 <script>
 
-
-	document.getElementById("enroll").onclick=function(){
-		location.href="/certification/enrollment";
-	}
-	document.getElementById("graduate").onclick=function(){
-		location.href="/certification/graduate";
-	}
-	document.getElementById("payment").onclick=function(){
-		location.href="/certification/payment";
-	}
-	document.getElementById("transcript").onclick=function(){
-		location.href="/certification/transcript";
-	}
-	document.getElementById("free").onclick=function(){
-		location.href="/free/boardList";
-	}
-
- 	document.getElementById("request").onclick=function(){
-
-		location.href="/request/boardList";
-	} 
 
 	
 

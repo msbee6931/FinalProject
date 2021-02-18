@@ -1,6 +1,7 @@
 package kh.spring.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
+import kh.spring.dto.ColScheduleDTO;
 import kh.spring.dto.LoginInfoDTO;
 import kh.spring.dto.NoticeDTO;
+import kh.spring.service.ColScheduleService;
 import kh.spring.service.LoginService;
 import kh.spring.service.NoticeService;
 
@@ -29,6 +32,8 @@ public class HomeController {
 	private LoginService lService;
 	@Autowired
 	private HttpSession session;
+	@Autowired
+	private ColScheduleService cService;
 	@RequestMapping("/")
 	public String home(HttpServletRequest request, HttpServletResponse response,Model model) throws Exception{
 		int page =1;
@@ -61,6 +66,23 @@ public class HomeController {
 				}
 			}
 		}
+		//-----------------------
+		List<ColScheduleDTO> list =cService.selectAll();
+		List<ColScheduleDTO> list2 = new ArrayList<ColScheduleDTO>();
+		for(int i = 0; i<list.size(); i++) {
+			String title =list.get(i).getTitle();
+			String sdate =list.get(i).getSdate().substring(0, 4)+"-"+list.get(i).getSdate().substring(4, 6)+"-"+list.get(i).getSdate().substring(6, 8);
+			String edate =list.get(i).getEdate().substring(0,4)+"-"+list.get(i).getEdate().substring(4,6)+"-"+list.get(i).getEdate().substring(6, 8);
+			ColScheduleDTO dto = new ColScheduleDTO();
+			dto.setTitle(title);
+			dto.setSdate(sdate);
+			dto.setEdate(edate);
+			dto.setSeq(i);
+			list2.add(dto);
+		}
+		int size = list2.size();
+		model.addAttribute("size",size);
+		model.addAttribute("list",list2);
 		return "home";
 	}
 
