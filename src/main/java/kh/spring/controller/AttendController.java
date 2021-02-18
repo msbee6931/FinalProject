@@ -80,5 +80,28 @@ public class AttendController {
 		service.attendDel(dto);
 		return nr;
 	}
+
+	@RequestMapping("/selectOneAttend.nex")
+	public NexacroResult selectOneAttend(@ParamVariable(name="cCode")int cCode, @ParamVariable(name="sCode")int sCode) {
+		System.out.println("학생 출결조회 들어오는지확인 ------ cCode>>"+cCode+"------sCode >> "+sCode);
+		AttendDTO dto = new AttendDTO();
+		dto.setClassCode(cCode);
+		dto.setsCode(sCode);
+		List<AttendDTO> list = service.selectOneAttend(dto);
+		
+		NexacroResult nr = new NexacroResult();
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
+	
+	@RequestMapping("/selectAttend.nex")
+	public NexacroResult selectAttend(@ParamVariable(name="cCode")int cCode) {
+		System.out.println("교수쪽 학생 출결조회 들어오는지확인 ------ cCode>>"+cCode);
+
+		List<AttendDTO> list = service.selectAttend(cCode);	
+		NexacroResult nr = new NexacroResult();
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
 	
 }

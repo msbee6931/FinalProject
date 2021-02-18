@@ -45,4 +45,8 @@ public class Reference_FileDAO {
 		return session.selectList("Reference.selectByParentSeq",parentSeq);
 
 	}
+	
+	public int deleteFile(List<Reference_FileDTO> list){
+		return session.delete("Reference.deleteFile2",list);
+	}
 }

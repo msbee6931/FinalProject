@@ -110,4 +110,8 @@ public class ReferenceService {
 	public int view_countUpd(ReferenceDTO dto) {
 		return dao.view_countUpd(dto);
 	}
+	
+	public int garbageDelete() {
+		return dao.garbageDelete();
+	}
 }
