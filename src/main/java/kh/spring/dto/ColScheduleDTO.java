@@ -3,24 +3,25 @@ package kh.spring.dto;
 import java.sql.Date;
 
 public class ColScheduleDTO {
+
 	private int seq;
 	private String title;
-	private String sDate;
-	private String eDate;
+	private String sdate;
+	private String edate;
 	private String contents;
-	private Date writeDate;
+	private String writedate;
 	
 	public ColScheduleDTO() {}
-	public ColScheduleDTO(int seq, String title, String sDate, String eDate, String contents, Date writeDate) {
+	public ColScheduleDTO(int seq, String title, String sdate, String edate, String contents, String writedate) {
 		super();
 		this.seq = seq;
 		this.title = title;
-		this.sDate = sDate;
-		this.eDate = eDate;
+		this.sdate = sdate;
+		this.edate = edate;
 		this.contents = contents;
-		this.writeDate = writeDate;
+		this.writedate = writedate;
 	}
-	
+
 	public int getSeq() {
 		return seq;
 	}
@@ -33,17 +34,17 @@ public class ColScheduleDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getsDate() {
-		return sDate;
+	public String getSdate() {
+		return sdate;
 	}
-	public void setsDate(String sDate) {
-		this.sDate = sDate;
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
 	}
-	public String geteDate() {
-		return eDate;
+	public String getEdate() {
+		return edate;
 	}
-	public void seteDate(String eDate) {
-		this.eDate = eDate;
+	public void setEdate(String edate) {
+		this.edate = edate;
 	}
 	public String getContents() {
 		return contents;
@@ -51,11 +52,11 @@ public class ColScheduleDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Date getWriteDate() {
-		return writeDate;
+	public String getWritedate() {
+		return writedate;
 	}
-	public void setWriteDate(Date writeDate) {
-		this.writeDate = writeDate;
+	public void setWritedate(String writedate) {
+		this.writedate = writedate;
 	}
 
 }

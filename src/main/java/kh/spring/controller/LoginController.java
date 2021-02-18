@@ -53,6 +53,7 @@ public class LoginController {
 		int sCode = Integer.parseInt(Id); 
 		String password = EncryptUtils.getSHA256(request.getParameter("password"));
 		String login = request.getParameter("login");
+		session.setAttribute("login", sCode);
 		System.out.println("user" +":" + user);
 		System.out.println("sCode" +":" + sCode);
 		System.out.println("password" +":" + password);
@@ -142,6 +143,7 @@ public class LoginController {
 			dto.setSessionLimit(date);
 			lService.updLoginInfo(dto);
 		}
+		session.removeAttribute("login");
 		return "home";
 	}
 

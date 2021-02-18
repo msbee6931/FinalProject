@@ -19,7 +19,11 @@
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_students_copy", this);
 <<<<<<< HEAD
+<<<<<<< HEAD
             obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+=======
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"deptcode\" type=\"STRING\" size=\"256\"/><Column id=\"colcode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
 =======
             obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"colGrade\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
@@ -144,7 +148,11 @@
             this.addChild(obj.name, obj);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             obj = new Button("btn_insert","85","455","50","30",null,null,null,null,null,null,this);
+=======
+            obj = new Button("btn_insert","95","515","50","30",null,null,null,null,null,null,this);
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
 =======
             obj = new Combo("com_colCode","85","405","175","30",null,null,null,null,null,null,this);
 >>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
@@ -155,7 +163,11 @@
             this.addChild(obj.name, obj);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             obj = new Button("btn_cancel","210","455","50","30",null,null,null,null,null,null,this);
+=======
+            obj = new Button("btn_cancel","210","515","50","30",null,null,null,null,null,null,this);
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
 =======
             obj = new Combo("com_deptCode","85","440","175","30",null,null,null,null,null,null,this);
 >>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
@@ -205,7 +217,28 @@
             obj.set_type("string");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
 >>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
+=======
+            obj = new Static("Static00_10_00","10","440","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("26");
+            obj.set_text("학과");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_10_01","10","475","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("27");
+            obj.set_text("colcode");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("edt_deptcode","85","440","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("28");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("edt_colcode","85","475","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("29");
+            this.addChild(obj.name, obj);
+
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",300,500,this,function(p){});
@@ -256,6 +289,11 @@
         	var pw = this.edt_pw.value;
 <<<<<<< HEAD
         	var gender = this.edt_gender.value;
+<<<<<<< HEAD
+=======
+        	var deptcode = this.edt_deptcode.value;
+        	var colcode = this.edt_colcode.value;
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
 =======
         	var gender = this.com_gender.value;
         	var deptCode = this.com_deptCode.value;
@@ -277,6 +315,11 @@
         	this.ds_students_copy.setColumn(addRow,"pw",pw);
         	this.ds_students_copy.setColumn(addRow,"gender",gender);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        	this.ds_students_copy.setColumn(addRow,"deptcode",deptcode);
+        	this.ds_students_copy.setColumn(addRow,"colcode",colcode);
+>>>>>>> 8b18df95b1e6c426104479a922c1cd1a44029522
 =======
         	this.ds_students_copy.setColumn(addRow,"deptCode",deptCode);
         	this.ds_students_copy.setColumn(addRow,"colCode",colCode);

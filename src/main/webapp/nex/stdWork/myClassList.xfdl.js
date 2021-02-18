@@ -74,8 +74,7 @@
         this.objApp = nexacro.getApplication();
         this.myClassList_onload = function(obj,e)
         {
-        	var sCode = this.objApp.gds_students.getColumn(0,"s_seq") // 학번
-        	alert(sCode);
+        	var sCode = this.objApp.gds_students.getColumn(0,"s_seq"); // 학번
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.co_year.set_text(objDate.getFullYear()+"년");
@@ -114,7 +113,7 @@
 
         this.btnSearch_onclick = function(obj,e)
         {
-        	var sCode ="12345"; //학번
+        	var sCode = this.objApp.gds_students.getColumn(0,"s_seq"); //학번
         	var year = this.co_year.text;
         	year = year.substring(0,year.length-1)
         	if(this.co_semester.text == "1학기"){

@@ -115,6 +115,7 @@
         		);
         };
         this.fn_callback_logout=function(){
+        this.objApp.gds_admin.clearData();
         	location.href="/";
         }
         this.alarm_btn_onclick = function(obj,e)
