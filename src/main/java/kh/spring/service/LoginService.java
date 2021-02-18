@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import kh.spring.dao.LoginDAO;
 import kh.spring.dto.AdminDTO;
+import kh.spring.dto.LoginInfoDTO;
 import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.StudentsDTO;
 
@@ -14,13 +15,13 @@ public class LoginService {
 	@Autowired
 	private LoginDAO lDAO;
 	
-	public StudentsDTO loginStu(StudentsDTO sdto) {
+	public int loginStu(StudentsDTO sdto) {
 		return lDAO.loginStu(sdto);
 	}
-	public ProfessorDTO loginPro(ProfessorDTO pdto) {
+	public int loginPro(ProfessorDTO pdto) {
 		return lDAO.loginPro(pdto);
 	}
-	public AdminDTO loginAdm(AdminDTO adto) {
+	public int loginAdm(AdminDTO adto) {
 		return lDAO.loginAdm(adto);
 	}
 
@@ -34,5 +35,14 @@ public class LoginService {
 	public AdminDTO selectAdm(int seq) {
 		return lDAO.selectAdm(seq);
 	}
-
+	
+	public int keepLogin(LoginInfoDTO dto) {
+		return lDAO.keepLogin(dto);
+	}
+	public LoginInfoDTO selectLoginInfo(LoginInfoDTO dto) {
+		return lDAO.selectLoginInfo(dto);
+	}
+	public int updLoginInfo(LoginInfoDTO dto) {
+		return lDAO.updLoginInfo(dto);
+	}
 }

@@ -53,6 +53,232 @@
 	select * from notice where deptcode = 'D'
 </select>
 
+	<select id="normalCount" resultType="int">
+		select count(*) from notice
+		where deptcode ='A'
+	</select>
+	<select id="selectNormalByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by
+		writedate desc)
+		rn from notice where deptcode ='A') where rn between
+		#{startRowNum}
+		and #{endRowNum}
+	</select>
+	<select id="searchNormalCount" resultType="int">
+		select count(*) from notice where deptcode ='A'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='A'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+	</select>
+	<select id="searchNormalByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by writedate
+		desc) rn from notice where deptcode ='A'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='A'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+		) where rn between #{startRowNum} and #{endRowNum}
+	</select>
+
+	<select id="selectAcademicNotice"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from notice where deptcode ='B' order by writedate
+	</select>
+	<select id="academicCount" resultType="int">
+		select count(*) from
+		notice where deptcode ='B'
+	</select>
+	<select id="selectAcademicByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by
+		writedate desc)
+		rn from notice where deptcode ='B') where rn between
+		#{startRowNum}
+		and #{endRowNum}
+	</select>
+	<select id="searchAcademicCount" resultType="int">
+		select count(*) from notice where deptcode ='B'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='B'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+	</select>
+	<select id="searchAcademicByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by writedate
+		desc) rn from notice where deptcode ='B'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='B'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+		) where rn between #{startRowNum} and #{endRowNum}
+	</select>
+
+	<select id="selectScholarNotice"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from notice where deptcode ='C' order by writedate
+	</select>
+	<select id="scholarCount" resultType="int">
+		select count(*) from notice
+		where deptcode ='C'
+	</select>
+	<select id="selectScholarByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by
+		writedate desc)
+		rn from notice where deptcode ='C') where rn between
+		#{startRowNum}
+		and #{endRowNum}
+	</select>
+	<select id="searchScholarCount" resultType="int">
+		select count(*) from notice where deptcode ='C'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='C'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+	</select>
+	<select id="searchScholarByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by writedate
+		desc) rn from notice where deptcode ='C'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='C'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+		) where rn between #{startRowNum} and #{endRowNum}
+	</select>
+
+	<select id="selectEmploymentNotice"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from notice where deptcode ='D' order by writedate
+	</select>
+	<select id="employmentCount" resultType="int">
+		select count(*) from
+		notice where deptcode ='D'
+	</select>
+	<select id="selectEmploymentByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by
+		writedate desc)
+		rn from notice where deptcode ='D') where rn between
+		#{startRowNum}
+		and #{endRowNum}
+	</select>
+	<select id="searchEmploymentCount" resultType="int">
+		select count(*) from notice where deptcode ='D'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='D'and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+	</select>
+	<select id="searchEmploymentByPage"
+		resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by writedate
+		desc) rn from notice where deptcode ='D'
+		<if test="content != ''">
+			<if test="category =='1'.toString()">
+				and title like '%'||#{content}||'%'
+			</if>
+			<if test="category =='2'.toString()">
+				and contents like '%'||#{content}||'%'
+			</if>
+			<if test="category =='3'.toString()">
+				and contents like '%'||#{content}||'%' or deptcode ='D' and title like
+				'%'||#{content}||'%'
+			</if>
+		</if>
+		) where rn between #{startRowNum} and #{endRowNum}
+	</select>
 
 
+	<select id="selectFileParentSeq"
+		resultType="kh.spring.dto.NoticeFileDTO">
+		select * from noticeFile where parentSeq = #{parentSeq}
+	</select>
+	<select id="selectFileSeq"
+		resultType="kh.spring.dto.NoticeFileDTO">
+		select * from noticeFile where f_seq = #{f_seq}
+	</select>
+	<select id="selectListSeq" resultType="kh.spring.dto.NoticeDTO">
+		select * from notice where
+		n_seq =#{n_seq}
+	</select>
+	<update id="view_countUpd">
+		update notice set view_count = view_count+1 where
+		n_seq =#{n_seq}
+	</update>
+	<select id="selectByParentSeq"
+		resultType="kh.spring.dto.NoticeFileDTO">
+		select * from noticeFile where parentseq=#{parentSeq}
+	</select>
+	<select id="selectFileAll"
+		resultType="kh.spring.dto.NoticeFileDTO">
+		select * from noticeFile
+	</select>
+	<select id="selectNoticeAll" resultType="kh.spring.dto.NoticeDTO">
+		select * from (select notice.*, row_number() over(order by
+		writedate desc)
+		rn from notice) where rn between
+		#{startRowNum}
+		and #{endRowNum}
+	</select>
 </mapper>

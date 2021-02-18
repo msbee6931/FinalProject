@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kh.spring.dto.AdminDTO;
+import kh.spring.dto.LoginInfoDTO;
 import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.StudentsDTO;
 
@@ -14,13 +15,13 @@ public class LoginDAO {
 	@Autowired
 	private SqlSession db;
 	
-	public StudentsDTO loginStu(StudentsDTO sdto) {
+	public int loginStu(StudentsDTO sdto) {
 		return db.selectOne("Login.loginStu", sdto);
 	}
-	public ProfessorDTO loginPro(ProfessorDTO pdto) {
+	public int loginPro(ProfessorDTO pdto) {
 		return db.selectOne("Login.loginPro", pdto);
 	}
-	public AdminDTO loginAdm(AdminDTO adto) {
+	public int loginAdm(AdminDTO adto) {
 		return db.selectOne("Login.loginAdm", adto);
 	}
 	
@@ -32,6 +33,15 @@ public class LoginDAO {
 	}
 	public AdminDTO selectAdm(int seq) {
 		return db.selectOne("Login.selectAdmin", seq);
+	}
+	public int keepLogin(LoginInfoDTO dto) {
+		return db.update("Login.keepLogin",dto);
+	}
+	public LoginInfoDTO selectLoginInfo(LoginInfoDTO dto) {
+		return db.selectOne("Login.selectLoginInfo",dto);
+	}
+	public int updLoginInfo(LoginInfoDTO dto) {
+		return db.delete("Login.updLoginInfo",dto);
 	}
 
 }
