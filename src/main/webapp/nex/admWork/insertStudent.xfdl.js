@@ -13,12 +13,22 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(300,500);
+                this._setFormPosition(300,550);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_students_copy", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("deptCode_copy", this);
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">11</Col><Col id=\"name\">국어국문학과</Col></Row><Row><Col id=\"code\">12</Col><Col id=\"name\">영어영문학과</Col></Row><Row><Col id=\"code\">13</Col><Col id=\"name\">국사학과</Col></Row><Row><Col id=\"code\">14</Col><Col id=\"name\">철학과</Col></Row><Row><Col id=\"code\">21</Col><Col id=\"name\">사회복지학과</Col></Row><Row><Col id=\"code\">22</Col><Col id=\"name\">경제학부</Col></Row><Row><Col id=\"code\">23</Col><Col id=\"name\">사회학과</Col></Row><Row><Col id=\"code\">24</Col><Col id=\"name\">심리학과</Col></Row><Row><Col id=\"code\">31</Col><Col id=\"name\">통계학과</Col></Row><Row><Col id=\"code\">32</Col><Col id=\"name\">화학부</Col></Row><Row><Col id=\"code\">33</Col><Col id=\"name\">생명과학부</Col></Row><Row><Col id=\"code\">41</Col><Col id=\"name\">간호학부</Col></Row><Row><Col id=\"code\">51</Col><Col id=\"name\">전기공학부</Col></Row><Row><Col id=\"code\">52</Col><Col id=\"name\">컴퓨터공학부</Col></Row><Row><Col id=\"code\">53</Col><Col id=\"name\">화학생물공학부</Col></Row><Row><Col id=\"code\">54</Col><Col id=\"name\">건축학과</Col></Row><Row><Col id=\"code\">55</Col><Col id=\"name\">산업공학과</Col></Row><Row><Col id=\"code\">61</Col><Col id=\"name\">교육학과</Col></Row><Row><Col id=\"code\">62</Col><Col id=\"name\">국어교육과</Col></Row><Row><Col id=\"code\">63</Col><Col id=\"name\">영어교육과</Col></Row><Row><Col id=\"code\">64</Col><Col id=\"name\">수학교육과</Col></Row><Row><Col id=\"code\">65</Col><Col id=\"name\">체육교육과</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("colCode_Copy", this);
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">10</Col><Col id=\"name\">인문대학</Col></Row><Row><Col id=\"code\">20</Col><Col id=\"name\">사회과학대학</Col></Row><Row><Col id=\"code\">30</Col><Col id=\"name\">자연과학대학</Col></Row><Row><Col id=\"code\">40</Col><Col id=\"name\">간호대학</Col></Row><Row><Col id=\"code\">50</Col><Col id=\"name\">공과대학</Col></Row><Row><Col id=\"code\">60</Col><Col id=\"name\">사범대학</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -110,40 +120,74 @@
             obj.set_taborder("18");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_rest","85","265","175","30",null,null,null,null,null,null,this);
+            obj = new Edit("edt_grade","85","300","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("19");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_grade","85","300","175","30",null,null,null,null,null,null,this);
+            obj = new Edit("edt_pw","85","370","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("20");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_pw","85","370","175","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_insert","95","515","50","30",null,null,null,null,null,null,this);
             obj.set_taborder("21");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_gender","85","405","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("22");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn_insert","85","455","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("23");
             obj.set_text("입력");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","210","455","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("24");
+            obj = new Button("btn_cancel","210","515","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("22");
             obj.set_text("취소");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_birth","85","335","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("25");
+            obj.set_taborder("23");
             obj.set_dateformat("yyyy-MM-dd");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_10_00","10","440","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("24");
+            obj.set_text("학과분류");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_10_01","10","475","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("25");
+            obj.set_text("학과");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("com_colCode","85","440","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("26");
+            obj.set_innerdataset("colCode_Copy");
+            obj.set_codecolumn("code");
+            obj.set_datacolumn("name");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("com_deptCode","85","475","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("27");
+            obj.set_innerdataset("deptCode_copy");
+            obj.set_codecolumn("code");
+            obj.set_datacolumn("name");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("com_rest","85","265","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("28");
+            obj.set_codecolumn("codecolumn");
+            obj.set_datacolumn("datacolumn");
+            var com_rest_innerdataset = new nexacro.NormalDataset("com_rest_innerdataset", obj);
+            com_rest_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">휴학</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">재학</Col></Row></Rows>");
+            obj.set_innerdataset(com_rest_innerdataset);
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("com_gender","85","405","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("29");
+            obj.set_codecolumn("codecolumn");
+            obj.set_datacolumn("datacolumn");
+            var com_gender_innerdataset = new nexacro.NormalDataset("com_gender_innerdataset", obj);
+            com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
+            obj.set_innerdataset(com_gender_innerdataset);
             this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",300,500,this,function(p){});
+            obj = new Layout("default","",300,550,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             
@@ -172,6 +216,7 @@
         	trace(id);
         	trace(ErrorMsg);
         	trace(ErrorCode);
+
         }
 
 
@@ -185,11 +230,13 @@
         	var contact = this.edt_contact.value;
         	var address = this.edt_address.value;
         	var scholarship = this.edt_scholarship.value;
-        	var rest = this.edt_rest.value;
+        	var rest = this.com_rest.value;
         	var grade = this.edt_grade.value;
         	var birth = this.cal_birth.value;
         	var pw = this.edt_pw.value;
-        	var gender = this.edt_gender.value;
+        	var gender = this.com_gender.value;
+        	var deptCode = this.com_deptCode.value;
+        	var colCode = this.com_colCode.value;
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);
@@ -204,6 +251,8 @@
         	this.ds_students_copy.setColumn(addRow,"birth",birth);
         	this.ds_students_copy.setColumn(addRow,"pw",pw);
         	this.ds_students_copy.setColumn(addRow,"gender",gender);
+        	this.ds_students_copy.setColumn(addRow,"deptCode",deptCode);
+        	this.ds_students_copy.setColumn(addRow,"colCode",colCode);
 
         	this.transaction(
 
