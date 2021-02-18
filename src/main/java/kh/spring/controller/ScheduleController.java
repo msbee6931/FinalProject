@@ -10,6 +10,7 @@ import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter17.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
 
+import kh.spring.dto.ColScheduleDTO;
 import kh.spring.dto.DeptScheduleDTO;
 import kh.spring.dto.IndScheduleDTO;
 import kh.spring.service.ScheduleService;
@@ -123,6 +124,48 @@ public class ScheduleController {
 
 				int result = sService.deleteIndSchedule(id);
 
+		NexacroResult nr = new NexacroResult();
+		return nr;
+	}
+	
+	@RequestMapping("insertColSchedule")
+	public NexacroResult insertColSchedule(@ParamDataSet(name="in_ds")ColScheduleDTO dto) {
+		System.out.println("--------학사 스케줄 추가 컨트롤러 확인");
+		System.out.println(dto.getTitle()+ "<<,,,,,,title" + dto.getsDate()+"<<sDate");
+		int result = sService.insertColSchedule(dto);
+		NexacroResult nr = new NexacroResult();
+		return nr;
+	}
+	@RequestMapping("selectColSchedule")
+	public NexacroResult selectColSchedule() {
+		System.out.println("--------학사스케줄 추가 컨트롤러 확인");
+		List<ColScheduleDTO> list = sService.selectColSchedule();
+		NexacroResult nr = new NexacroResult();
+		nr.addDataSet("out_ds", list);
+		return nr;
+	}
+	
+	@RequestMapping("selectOneColSchedule")
+	public NexacroResult selectOneColSchedule(@ParamVariable(name="seq")int seq) {
+		System.out.println("--------학사스케줄 하나 띄우기 컨트롤러 확인");
+		ColScheduleDTO dto = sService.selectOneColSchedule(seq);
+		NexacroResult nr = new NexacroResult();
+		nr.addDataSet("out_ds", dto);
+		return nr;
+	}
+	
+	@RequestMapping("updateColSchedule")
+	public NexacroResult updateColSchedule(@ParamDataSet(name="in_ds")ColScheduleDTO dto) {
+		System.out.println("--------학사 스케줄 추가 컨트롤러 확인");
+		int result = sService.updateColSchedule(dto);
+		NexacroResult nr = new NexacroResult();
+		return nr;
+	}
+	
+	@RequestMapping("deleteColSchedule")
+	public NexacroResult deleteColSchedule(@ParamVariable(name="seq")int seq) {
+		System.out.println("--------학사 스케줄 삭제 컨트롤러 확인");
+		int result = sService.deleteColSchedule(seq);
 		NexacroResult nr = new NexacroResult();
 		return nr;
 	}

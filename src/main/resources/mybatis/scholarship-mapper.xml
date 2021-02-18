@@ -4,10 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Scholarship">
 
-<insert id="insertScholarship" parameterType="java.util.List">
-<foreach item="i" collection="list" open="INSERT ALL"  close="SELECT * FROM DUAL" separator=" " >
-	into scholarship(std_code,s_kind,s_rec,s_smt,s_spt,s_etc,sSum,s_date) values (#{i.std_code},#{i.s_kind},#{i.s_rec},#{i.s_smt},#{i.s_spt},#{i.s_etc},#{i.sSum},sysdate)
-	</foreach>
+<insert id="insertScholarship" >
+	insert into scholarship values (scholarship_seq.nextval,#{std_code},#{s_kind},#{s_rec},#{s_smt},#{s_spt},#{s_etc},#{sSum},sysdate)
 </insert>
 
 <insert id="reqSchFile">
@@ -47,5 +45,26 @@ select * from scholarship where std_code=#{std_code}
 <update id="checkValueReqScholar">
 	update reqScholar set checkRead='읽음' where seq=#{seq}
 </update>
+<select id="selectAll" resultType="kh.spring.dto.ScholarshipDTO">
+	select * from scholarship
+</select>
+<select id="selectOne" resultType="kh.spring.dto.ScholarshipDTO">
+	select * from scholarship where seq=#{seq}
+</select>
+<update id="updateOne">
+	update scholarship set s_kind=#{s_kind}, s_rec=#{s_rec}, s_smt=#{s_smt}, s_spt=#{s_spt}, s_etc=#{s_etc}, sSum=#{sSum} where seq=#{seq} 
+</update>
+<delete id="deleteOne">
+	delete from scholarship where seq=#{seq}
+</delete>
+<delete id="deleteReqSch">
+	delete from reqScholar where seq in
+  	<foreach item="i" collection="list" open="(" close=")" separator=",">
+           #{i.seq}
+        </foreach>
+</delete>
+<delete id="deleteReqfile">
+	delete from reqSchFile where parentSeq =#{parentSeq}
+</delete>
 
 </mapper>

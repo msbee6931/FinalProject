@@ -43,8 +43,15 @@ public class AbsenceService {
 			return aDao.selectOneFile(seq);
 		}
 		
-		public AbsenceDTO selectStdOne(int sCode) {
+		public List<AbsenceDTO> selectStdOne(int sCode) {
 			return aDao.selectStdOne(sCode);
+		}
+		
+		public int deleteReqAbs(int seq) {
+			return aDao.deleteReqAbs(seq);
+		}
+		public int deleteReqAbsFile(int seq) {
+			return aDao.deleteReqAbsFile(seq);
 		}
 		
 		public int insertRest(RestDTO dto) {
@@ -54,6 +61,11 @@ public class AbsenceService {
 		public List<RestDTO> selectOneRest(int std_code) {
 			return aDao.selectOneRest(std_code);
 		}
+		
+		public List<RestDTO> selectAllRest() {
+			return aDao.selectAllRest();
+		}
+
 		
 		public File getCompressZipFile(ArrayList arrSaved, String filePath, String compressName) throws Exception {
 

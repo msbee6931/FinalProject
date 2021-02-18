@@ -74,7 +74,7 @@
             obj.set_text("작성하기");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","577","71","399","346",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","577","71","422","346",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
             obj.set_border("1px solid #c1c1c1");
@@ -86,15 +86,15 @@
             obj.set_background("#c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01_00","684","236","298","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title01_00","684","236","326","37",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01","862","164","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title01","862","164","150","37",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","684","128","120","36",null,null,null,null,null,null,this);
+            obj = new Combo("Combo00","684","128","150","36",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_readonly("true");
             obj.set_innerdataset("deptCode");
@@ -103,23 +103,23 @@
             obj.set_text("Combo00");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_01","684","200","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_01","684","200","150","37",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00","862","128","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00","862","128","150","37",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_00_00","862","200","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_00_00","862","200","150","37",null,null,null,null,null,null,this);
             obj.set_taborder("18");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_00","684","164","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_00","684","164","150","37",null,null,null,null,null,null,this);
             obj.set_taborder("19");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","625","272","357","150",null,null,null,null,null,null,this);
+            obj = new Static("Static02","625","272","385","150",null,null,null,null,null,null,this);
             obj.set_taborder("20");
             obj.set_text("");
             obj.set_border("1px solid #c1c1c1");
@@ -236,14 +236,17 @@
         this.std_code="215051001";
         this.Div00_btn_insert_onclick = function(obj,e)
         {
+
         	//복학신청서 입력을 위한 모달창
         	var objCF = new ChildFrame();
-        	objCF.init("stdRest_pop",200,100,900,600);
+        	var x = this.width/2-500;
+        	var y = this.height/2-300;
+        	objCF.init("stdRest_pop",x,y,900,600);
         	objCF.set_titletext("복학신청서 작성하기");
         	objCF.set_formurl("stdWork::stdRest_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
-        		{std_code:std_code}, // seq 넘기기
+        		{sCode:this.std_code}, // seq 넘기기
         		this,
         		"fn_callback_stdRest"
         	);

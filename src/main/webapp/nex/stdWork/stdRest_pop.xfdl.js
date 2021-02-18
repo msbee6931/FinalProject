@@ -190,7 +190,7 @@
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item9","Div00.form.edt_title01_00","value","students_ds","adress");
+            obj = new BindItem("item6","Div00.form.edt_title01_00","value","students_ds","adress");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -220,19 +220,24 @@
         this.Div00_btn_ok_onclick = function(obj,e)
         {
         	var nRow = this.rlist_ds.addRow();
-        	this.rlist_ds.setColumn(nRow,"std_code",this.code);
+        	this.rlist_ds.setColumn(nRow,"std_code",this.std_code);
         	this.rlist_ds.setColumn(nRow,"title","복학신청서");
 
         	this.transaction(
         		"insertRest.absence",//id
         		"/absence/insertRest.absence",//url (절대경로)
-        		"rlist_ds=in_ds:U",//in_ds:U
+        		"in_ds=rlist_ds:U",//in_ds:U
         		"",//()_out_ds
         		"",//argument
-        		"fn_callback"
+        		"fn_callback_insert"
         		)
 
         };
+
+        this.fn_callback_insert = function()
+        {
+        	this.close;
+        }
 
 
 

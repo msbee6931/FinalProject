@@ -225,7 +225,7 @@
             obj.set_rowcount("1");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_commit","469","514","80","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_commit","559","514","80","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("27");
             obj.set_text("승인");
             this.Div00.addChild(obj.name, obj);
@@ -281,7 +281,7 @@
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item10","Div00.form.edt_title01_00","value","students_ds","adress");
+            obj = new BindItem("item6","Div00.form.edt_title01_00","value","students_ds","adress");
             this.addChild(obj.name, obj);
             obj.bind();
         };

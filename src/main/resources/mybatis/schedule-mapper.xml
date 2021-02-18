@@ -30,4 +30,19 @@
 	<delete id="deleteIndSchedule">
 		delete indSchedule where id=#{id}
 	</delete>
+	<insert id="insertColSchedule">
+		insert into colSchedule values(colSchedule_seq.nextval,#{title},#{sDate},#{eDate},#{contents},sysdate)
+	</insert>
+	<select id="selectColSchedule" resultType="kh.spring.dto.ColScheduleDTO">
+		select * from colSchedule
+	</select>
+	<select id="selectOneColSchedule" resultType="kh.spring.dto.ColScheduleDTO">
+		select * from colSchedule where seq=#{seq}
+	</select>
+	<update id="updateColSchedule">
+		update colSchedule set title=#{title},sDate=#{sDate},eDate=#{eDate},contents=#{contents} where seq=#{seq}
+	</update>
+	<delete id="deleteColSchedule">
+		delete from colSchedule where seq=#{seq}
+	</delete>
 </mapper>

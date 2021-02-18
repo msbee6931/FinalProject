@@ -139,7 +139,7 @@
             calDate = fromDate.getTime() - toDate.getTime();
 
             var leng = Math.abs(calDate/day); // 실제 날짜 간 차이
-        	var seq  = nexacro.round(Math.random()*10000, 0); // 랜덤으로 seq 숫자 부여
+        	var seq  = nexacro.round(Math.random()*100000, 0); // 랜덤으로 seq 숫자 부여
 
 
         	for(var i=0; i<(leng+1);i++){

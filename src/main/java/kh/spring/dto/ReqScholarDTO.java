@@ -11,11 +11,11 @@ public class ReqScholarDTO {
 	private int std_code;
 	private String title;
 	private String contents;
-	private Date writeDate;
+	private String writeDate;
 	
 	public ReqScholarDTO() {}
 
-	public ReqScholarDTO(String chk, int seq, int std_code, String title, String contents, Date writeDate) {
+	public ReqScholarDTO(String chk, int seq, int std_code, String title, String contents, String writeDate) {
 		super();
 		this.chk = chk;
 		this.seq = seq;
@@ -65,13 +65,15 @@ public class ReqScholarDTO {
 		this.contents = contents;
 	}
 
-	public Date getWriteDate() {
+	public String getWriteDate() {
 		return writeDate;
 	}
 
-	public void setWriteDate(Date writeDate) {
+	public void setWriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
+
+
 
 	
 	
