@@ -20,17 +20,15 @@
 		padding: 0px;
 		margin: 0px;
 	}
-	div{
+/* 	div{
 		border: 1px solid black;
-	}
+	} */
 	.container{
 		padding: 50px;
 	}
 	.row{
 		--bs-gutter-x: 0rem;
 	}
-	/* ROOM MEMBER */
-	
 	/* CHAT */
 	.contents .me{
 		text-align: right;
@@ -38,13 +36,31 @@
 	.contents .others{
 		text-align: left;
 	}
-	.contents img{
+	.contents .sendImg{
 		width: 100px;
 		height: 100px;
 	}
-	.etc{
+	.etc div{
+		text-align: center;
+	}
+	#emoticons{
+		padding: 10px;
+	}
+	#emoticons img{
+		width: 50px;
+		height: 50px;
+	}
+	.others{
 		display: flex;
-		justify-content: space-around;
+		align-items: center;
+		padding: 5px;
+	}
+	.others .proImg{
+		width: 30px;
+		margin-right: 4px; 
+	}
+	.imgLink{
+		display: block;
 	}
 </style>
 </head>
@@ -54,19 +70,18 @@
 		<input type="hidden" id="roomNumber" value="${roomNumber }">
 		<input type="button" id="invite" value="초대하기">
 		<input type="button" id="leave" value="방 나가기">
-		<div class="row"> 
+		<div class="row" style="display:none;"> 
 			<div class="row">참가자</div>
 			<div class="row members">
 				<c:forEach var="jDto" items="${joinList}">
 					<c:forEach var="aDto" items="${allUser}">
 						<c:if test="${jDto.getUserId() == aDto.getUserId() }">
-							<div class="col member">
-								<div class="col">
+							<div class="col-12 member">
 									<c:choose>
 										<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="30px" class="joinUserImg"></c:when>
 										<c:otherwise><img src="/files/${aDto.getImg()}" width="30px" class="joinUserImg"></c:otherwise>
 									</c:choose>
-								</div>
+
 								<div class="joinUserId" style="display: none">${jDto.getUserId()}</div>
 								<div class="col joinUserName">${jDto.getUserName()}</div>
 							</div>
@@ -82,16 +97,27 @@
 						<c:when test="${dto.getUserId() == userId}">
 							<c:choose>
 								<c:when test="${dto.getOriName() == null }">
-									<div class="me">${dto.getMessage() }</div>
+									<div class="row">
+										<div class="col me">${dto.getMessage() }</div>
+									</div>
 								</c:when>
 								<c:when test="${dto.getOriName() != null and dto.getSavedName() == null}">
-									<div class="me"><img src="${dto.getOriName()}"></div>
+									<div class="row">
+										<div class="col me"><img src="${dto.getOriName()}" class="sendImg"></div>
+									</div>
 								</c:when>
 								<c:when test="${dto.getFormat()=='gif' or dto.getFormat()=='png' or dto.getFormat()=='jpg' or dto.getFormat()=='raw' or dto.getFormat()=='tif' or dto.getFormat()=='tiff' or dto.getFormat()=='bpm' or dto.getFormat()=='rle' or dto.getFormat()=='dib'}">
-									<div class="me"><img src='/files/${dto.getSavedName() }'><a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }'>${dto.getOriName() }</a></div>
+									<div class="row">
+										<div class="col me">
+											<img src='/files/${dto.getSavedName() }' class="sendImg">
+											<a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }' class='imgLink'>${dto.getOriName() }</a>
+										</div>
+									</div>
 								</c:when>
 								<c:otherwise>
-									<div class="me"><a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }">${dto.getOriName() }</a></div>
+									<div class="row me">
+										<a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }">${dto.getOriName() }</a>
+									</div>
 								</c:otherwise>
 							</c:choose>
 						</c:when>
@@ -101,45 +127,56 @@
 								<c:choose>
 									<c:when test="${dto.getOriName() == null }">
 										<div class="row others">	
-											<c:choose>
-												<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
-												<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
-											</c:choose>
-											${aDto.getUserName()}: ${dto.getMessage() }
+											<div class="col-1">
+												<c:choose>
+													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
+													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
+												</c:choose>
+											</div>
+											<div class="col-2">${aDto.getUserName()}: </div>
+											<div class="col-9">${dto.getMessage() }</div>
 										</div>
 									</c:when>
 
 									<c:when test="${dto.getOriName() != null and dto.getSavedName() == null}">
 										<div class="row others">	
-											<c:choose>
-												<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
-												<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
-											</c:choose>
-											${aDto.getUserName()}:
-											<img src="${dto.getOriName()}" class="col">
+											<div class="col-1">
+												<c:choose>
+													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
+													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
+												</c:choose>
+											</div>
+											<div class="col-2">${aDto.getUserName()}: </div>
+											<img src="${dto.getOriName()}" class="col-8 sendImg">
 										</div>
 									</c:when>
 
 									<c:when test="${dto.getFormat()=='gif' or dto.getFormat()=='png' or dto.getFormat()=='jpg' or dto.getFormat()=='raw' or dto.getFormat()=='tif' or dto.getFormat()=='tiff' or dto.getFormat()=='bpm' or dto.getFormat()=='rle' or dto.getFormat()=='dib'}">
 										<div class='row others'>
+											<div class="col-1">
 												<c:choose>
-													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
-													<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
+													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
+													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
-											${aDto.getUserName()}: 
-											<img src='/files/${dto.getSavedName() }'>
-											<a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }'>${dto.getOriName() }</a>
+											</div>
+											<div class="col-2">${aDto.getUserName()}: </div> 
+											<div class="col-8">
+												<img src='/files/${dto.getSavedName() }' class="sendImg">
+												<a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }' class='imgLink'>${dto.getOriName() }</a>
+											</div>
 										</div>
 									</c:when>
 									
 									<c:otherwise>
 										<div class="row others">
+											<div class="col-1">
 												<c:choose>
-													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="10px" class="col"></c:when>
-													<c:otherwise><img src="/files/${aDto.getImg()}" class="col"></c:otherwise>
+													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
+													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
-											${dto.getUserId()}: <br>
-											<a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }">${dto.getOriName() }</a>
+											</div>
+											<div class="col-2">${aDto.getUserName()}: </div>
+											<a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }" class="col-8">${dto.getOriName() }</a>
 										</div>
 									</c:otherwise>
 								</c:choose>
@@ -215,9 +252,9 @@
 				}
 			
 				if(result.userId == $("#userId").val()){
-					$(".contents").append("<div class='me'>"+result.message+"</div>");
+					$(".contents").append("<div class='row'><div class='col me'>"+result.message+"</div></div>");
 				}else{
-					$(".contents").append("<div class='others'><img src='"+userImg+"'>"+userName+" : "+result.message+"</div>");
+					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><div class='col-8'>"+result.message+"</div></div>");
 				}
 			});
 			client.subscribe("/topic/chat/emoticon/"+roomNumber,function(msg){ // 구독할 url 넣기
@@ -234,9 +271,9 @@
 				}
 				
 				if(result.userId == $("#userId").val()){
-					$(".contents").append("<div class='me'><img src='"+result.oriName+"'></div>");
+					$(".contents").append("<div class='row'><div class='col me'><img src='"+result.oriName+"' class='sendImg'></div></div>");
 				}else{
-					$(".contents").append("<div class='others'><img src='"+userImg+"'>"+userName+" : <img src='"+result.oriName+"'></div>");
+					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><img src='"+result.oriName+"' class='col-8 sendImg'></div>");
 				}
 			});
 			client.subscribe("/topic/file/"+roomNumber,function(msg){ // 구독할 url 넣기
@@ -253,9 +290,9 @@
 				}
 				
 				if(result.userId == $("#userId").val()){
-					$(".contents").append("<div class='me'><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
+					$(".contents").append("<div class='row me'><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
 				}else{
-					$(".contents").append("<div class='others'><img src='"+userImg+"'>"+userName+": <a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
+					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
 				}
 			});
 			client.subscribe("/topic/img/"+roomNumber,function(msg){ // 구독할 url 넣기
@@ -272,9 +309,9 @@
 				}
 				
 				if(result.userId == $("#userId").val()){
-					$(".contents").append("<div class='me'><img src='/files/"+result.savedName+"'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
+					$(".contents").append("<div class='row'><div class='col me'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
 				}else{
-					$(".contents").append("<div class='others'><img src='"+userImg+"'>"+userName+" : <img src='/files/"+result.savedName+"'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
+					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><div class='col-8'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
 				}
 			});
 		});

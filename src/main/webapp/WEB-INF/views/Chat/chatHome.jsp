@@ -17,9 +17,9 @@
 		padding: 0px;
 		margin: 0px;
 	}
-	div{
+/* 	div{
 		border: 1px solid black;
-	}
+	} */
 	.container{
 		padding: 50px;
 	}
@@ -85,6 +85,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 	<script>
 	$(document).on("click",".friend",function(){
