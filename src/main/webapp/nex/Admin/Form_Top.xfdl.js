@@ -38,7 +38,7 @@
             obj.set_background("#cfe1e0");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout","1197","17","69","20",null,null,null,null,null,null,this);
+            obj = new Button("btn_logout","1197","10","69","34",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("로그아웃");
             this.addChild(obj.name, obj);
@@ -103,25 +103,20 @@
         	}
         }
 
-
-
-
-
         this.btn_logout_onclick = function(obj,e)
         {
         	this.transaction(
         			"logout" //id
-        			,"/logout.nex"//url
+        			,"/logOut.log"//url
         			,""// inData
         			,""// outData
         			,""//strArg
-        			,"fn_callback"//callback
+        			,"fn_callback_logout"
         		);
-        	this.objApp.mainframe.VFrameSet00.set_separatesize("*,0,0,0");
-
-
         };
-
+        this.fn_callback_logout=function(){
+        	location.href="/";
+        }
         this.alarm_btn_onclick = function(obj,e)
         {
         	var ObjCF = new ChildFrame();
@@ -153,6 +148,7 @@
         		);
 
         		this.transaction(
+<<<<<<< HEAD
         			"sessionA" //id
         			,"/sessionA.nex"//url
         			,""// inData
@@ -160,6 +156,18 @@
         			,""//strArg
         			,"fn_callback"//callback
         		);
+=======
+        			"garbageInsert" //id
+        			,"/reference/garbageInsert"//url
+        			,""// inData
+        			,""// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
+
+        		this.FileUpTransfer00.upload("/reference/uploadFile");
+
+>>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
         };
 
 

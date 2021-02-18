@@ -28,8 +28,8 @@
 						<c:forEach var="list" items="${listMap }" varStatus="status">
 							<c:if test="${list.month == i }">
 								<div class="row work">
-									<div class="col-6 col-sm-12 day">${list.day }일</div>
-									<div class="col-6 col-sm-12 desc">${list.title }</div>
+									<div class="col-12 col-sm-6 day">${list.day }일</div>
+									<div class="col-12 col-sm-6 desc">${list.title }</div>
 								</div>
 							</c:if>
 						</c:forEach>

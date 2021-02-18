@@ -49,22 +49,25 @@ public class ChatController {
 	
 	@RequestMapping("chatHome")
 	public String chatHome(Model model,HttpServletRequest request) {
-		String userId = request.getParameter("userId");
 		// 로그인시 저장된 유저 아이디 불러오기
-		session.setAttribute("userId",userId);
+		String userId = (String) session.getAttribute("userId");
 		
-		// 로그인한 유저 정보
-		UserDTO user = service.getUserInfo(userId);
-		// 모든 유저 정보
-		List<UserDTO> allUser = service.getAllUserInfo();
-		// 친구리스트
-		List<FriendDTO> friendList = service.getFriendsList(userId); 
+		if(userId != null) {
+			// 로그인한 유저 정보
+			UserDTO user = service.getUserInfo(userId);
+			// 모든 유저 정보
+			List<UserDTO> allUser = service.getAllUserInfo();
+			// 친구리스트
+			List<FriendDTO> friendList = service.getFriendsList(userId); 
 
-		model.addAttribute("user", user);
-		model.addAttribute("allUser",allUser);
-		model.addAttribute("friendList",friendList);
-		
-		return "Chat/chatHome";
+			model.addAttribute("user", user);
+			model.addAttribute("allUser",allUser);
+			model.addAttribute("friendList",friendList);
+			
+			return "Chat/chatHome";
+		}else {
+			return "Chat/chatLoginFail";
+		}
 	}
 	
 	@RequestMapping("chatList")

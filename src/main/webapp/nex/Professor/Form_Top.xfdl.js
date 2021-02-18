@@ -56,6 +56,11 @@
             obj.set_text("알람");
             this.addChild(obj.name, obj);
 
+            obj = new Button("btn_logout00","1197","10","69","34",null,null,null,null,null,null,this);
+            obj.set_taborder("5");
+            obj.set_text("로그아웃");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1280,50,this,function(p){});
@@ -137,9 +142,18 @@
 
         this.btn_logout_onclick = function(obj,e)
         {
-        	this.objApp.mainframe.VFrameSet00.set_separatesize("*,0,0,0");
+        	this.transaction(
+        			"logout" //id
+        			,"/logOut.log"//url
+        			,""// inData
+        			,""// outData
+        			,""//strArg
+        			,"fn_callback_logout"
+        		);
         };
-
+        this.fn_callback_logout=function(){
+        	location.href="/";
+        }
         this.alarm_btn_onclick = function(obj,e)
         {
 
@@ -171,6 +185,7 @@
             this.Menu00.addEventHandler("onrbuttondown",this.Menu00_onrbuttondown,this);
             this.btn_logout.addEventHandler("onclick",this.btn_logout_onclick,this);
             this.alarm_btn.addEventHandler("onclick",this.alarm_btn_onclick,this);
+            this.btn_logout00.addEventHandler("onclick",this.btn_logout_onclick,this);
         };
 
         this.loadIncludeScript("Form_Top.xfdl");
