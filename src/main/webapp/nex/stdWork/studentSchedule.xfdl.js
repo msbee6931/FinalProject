@@ -88,7 +88,9 @@
         		,"fn_callback_TimeTable"
         	);
         };
+        this.format ="";
         this.fn_callback_TimeTable=function(){
+
         	var Time = new Array();
         	var Mon = new Array();
         	var Tue = new Array();

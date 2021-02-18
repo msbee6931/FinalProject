@@ -86,14 +86,9 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","950","470","110","40",null,null,null,null,null,null,this);
+            obj = new Button("Button00","930","480","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("삭제");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnExport","830","470","110","40",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_text("Export");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -309,45 +304,6 @@
         }
 
 
-        this.btnExport_onclick = function(obj,e)
-        {
-        	if(this.ds_class.getRowCount() > 0){
-        		var date = this.ds_class.getColumn(0,"reg_date");
-        		var year = date.substring(0,4);
-        		var month = date.substring(5,6);
-        		if(month < 8 ){
-        			var semester = year+"년" + " 1학기"
-        		}else{
-        			var semester = year+"년" + " 2학기"
-        		}
-        	}
-        		this.exportObj = new ExcelExportObject("Export00", this);
-
-        		this.exportObj.set_exportfilename(semester + " 개설과목");
-        		this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
-
-        		this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid00, "Sheet1!A1");
-
-        		this.addEventHandler("onsuccess", this.Export00_onsuccess, this);
-        		this.addEventHandler("onerror", this.Export00_onerror, this);
-
-        		var intExportedItem = this.exportObj.exportData();
-
-        		trace("Number of Exported Item: " + intExportedItem);
-        };
-        this.Export00_onsuccess = function(obj, e)
-        {
-        	trace("Export00_onsuccess");
-
-        }
-
-        this.Export00_onerror = function(obj, e)
-        {
-        	trace("Export00_onerror");
-        }
-
-
-
         });
         
         // Regist UI Components Event
@@ -361,7 +317,6 @@
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
-            this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
         };
 
         this.loadIncludeScript("classList.xfdl");

@@ -18,7 +18,8 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsSchedule", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"sdate\" type=\"STRING\" size=\"256\"/><Column id=\"edate\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj.set_useclientlayout("true");
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"sdate\" type=\"STRING\" size=\"256\"/><Column id=\"edate\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -41,7 +42,7 @@
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNew","971","35","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnNew","935","35","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("신규일정");
             this.addChild(obj.name, obj);
@@ -73,50 +74,6 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("나의 스케줄");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02","745","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
-            obj.set_text("");
-            obj.set_background("#78a2dd");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static03","756","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
-            obj.set_text("중간");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02_00","795","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
-            obj.set_text("");
-            obj.set_background("#ab9f1b");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static03_00","806","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
-            obj.set_text("낮음");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02_00_00","845","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
-            obj.set_text("");
-            obj.set_background("#6ebe8e");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static03_00_00","856","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
-            obj.set_text("높음");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02_00_00_00","895","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
-            obj.set_text("");
-            obj.set_background("#d23636");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static03_00_00_00","906","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
-            obj.set_text("긴급");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -162,18 +119,21 @@
         /**************************************************************************
          * FORM EVENT 영역(onload)
         **************************************************************************/
+
         this.scheduler_onload = function(obj,e)
         {
-        //디비 저장된 데이터 셋 호출
+
+        		//디비 저장된 데이터 셋 호출
         	this.transaction(
-        		"selectIndSchedule",//id
-        		"/schedule/selectIndSchedule",//url (절대경로)
+        		"selectDeptSchedule",//id
+        		"/schedule/selectDeptSchedule",//url (절대경로)
         		"",//in_ds:U
         		"dsSchedule=out_ds",//()_out_ds
         		"",//argument
         		"fn_callback_insert"
         		)
-        	//스케줄러 설정정보 만들기
+
+        		//스케줄러 설정정보 만들기
         	var objConfig = {
         						//오늘일자
         						"todate" : null,
@@ -190,7 +150,7 @@
         									"weekformat" : ["일", "월", "화", "수", "목", "금", "토"],
 
         									//요일 영역 높이
-        									"height" : 20,
+        									"height" : 18,
 
         									//요일 배경 속성
         									"graphicsrect" : {
@@ -247,23 +207,23 @@
         						"schedule" : {
         										//일정 타입별 배경색
         										"type" : {
-        													"01" : "#78a2dd",
-        													"02" : "#ab9f1b",
-        													"03" : "#6ebe8e",
-        													"04" : "#d23636"
+        													"01" : "#ff0000",
+        													"02" : "#00ff00",
+        													"03" : "#0000ff",
+        													"04" : "#000000"
         												 },
 
         										//일정 영역 높이
-        										"height" : 18,
+        										"height" : 15,
 
         										//일정 간 간격
-        										"gap" : 4,
+        										"gap" : 0,
 
         										//일정 배경 속성
         										"graphicsrect" : {
         															"x" : 0, "y" : 0, "width" : 0, "height" : 0,
         															"fillstyle" : "#ffffff",
-        															"strokepen" : "1px solid #000000"
+        															"strokepen" : "1px solid #c1c1c1"
         														 },
 
         										//일정 텍스트 속성
@@ -272,20 +232,20 @@
         													"text" : "",
         													"textAlign" : "left",
         													"verticalAlign" : "middle",
-        													"font" : 'bold 8pt arial',
+        													"font" : 'bold 8pt Magun Gothic',
         													"color" : "#ffffff"
         												 }
         									 },
         						//더보기 영역
         						"more" : {
         									//더보기 높이
-        									"height" : 18,
+        									"height" : 15,
 
         									//더보기 배경 속성
         									"graphicsrect" : {
         														"x" : 0, "y" : 0, "width" : 0, "height" : 0,
-        														"fillstyle" : "#888888",
-        														"strokepen" : "1px solid #000000"
+        														"fillstyle" : "#c1c1c1",
+        														"strokepen" : "none"
         													 },
 
         									//더보기 텍스트 속성
@@ -294,7 +254,7 @@
         														"text" : "More",
         														"textAlign" : "left",
         														"verticalAlign" : "middle",
-        														"font" : 'bold 8pt arial',
+        														"font" : 'bold 8pt Magun Gothic',
         														"color" : "#000000"
         													 }
         								}
@@ -308,16 +268,20 @@
 
         	//현재월 텍스트 설정
         	this.stYearMonth.set_text(sYearMonth);
+
+
         };
 
         /**************************************************************************
          * CALLBACK 콜백 처리부분(Transaction)
          **************************************************************************/
+
         this.fn_callback_insert = function() {
         	//데이터셋 정보로 일정 그리기
         	this.gfnLoadScheduler(this.grpScheduler);
         	alert("데이터셋 일정 불러오기 성공")
         }
+
         /**************************************************************************
          * CRUD 및 TRANSACTION 서비스 호출 처리
          **************************************************************************/
@@ -420,6 +384,7 @@
         {
         	var oArg;
         	var nRow;
+        	var sSeq;
         	var sId;
         	var sDate;
         	var sType;
@@ -445,8 +410,11 @@
         		//일정의 ID 가져오기
         		sId = objGraphic.id.split("_")[1];
 
+        		//seq 값 가져오기
+        		nRow = objDs.findRow("seq",sSeq);
+
         		//데이터셋에서 ID에 해당하는 일정 찾기
-        		nRow = objDs.findRow("id", sId);
+        		sId = objDs.getColumn(nRow, "id");
 
         		//일정 일자 가져오기
         		sSDate = objDs.getColumn(nRow, "sdate");
@@ -464,7 +432,7 @@
         		sContent = objDs.getColumn(nRow, "content");
 
         		//팝업오픈 함수 호출
-        		this.fnOpenSchedulePop("modify", sId, sSDate, sEDate, sType, sTitle, sContent);
+        		this.fnOpenSchedulePop("modify", sSeq, sId, sSDate, sEDate, sType, sTitle, sContent);
 
         		return;
         	}
@@ -505,10 +473,11 @@
         * @param sContent    	: 일정 내용
         * @return             	: 없음
         */
-        this.fnOpenSchedulePop = function(sPopupType, sId, sSDate, sEDate, sType, sTitle, sContent)
+        this.fnOpenSchedulePop = function(sPopupType, sSeq, sId, sSDate, sEDate, sType, sTitle, sContent)
         {
-        	var oArg = { "popuptype" : sPopupType, "scheduleid" : "", "sdate" : "", "edate" : "", "type" : "", "title" : "", "content" : "" };
+        	var oArg = { "popuptype" : sPopupType, "seq":sSeq, "scheduleid" : "", "sdate" : "", "edate" : "", "type" : "", "title" : "", "content" : "" };
 
+        	if(sSeq)oArg.seq = sSeq;
         	if(sId)oArg.scheduleid = sId;
         	if(sSDate)oArg.sdate = sSDate;
         	if(sEDate)oArg.edate = sEDate;
@@ -541,7 +510,7 @@
         			if(objRtn.popuptype=="modify")
         			{
         				//데이터셋에서 ID에 해당하는 일정 찾기
-        				nRow = this.dsSchedule.findRow("id", objRtn.id);
+        				nRow = this.dsSchedule.findRow("seq", objRtn.seq);
 
         				//일정 정보 변경
         				this.dsSchedule.setColumn(nRow, "title", objRtn.title);
@@ -550,14 +519,19 @@
         				this.dsSchedule.setColumn(nRow, "type", objRtn.type);
         				this.dsSchedule.setColumn(nRow, "content", objRtn.content);
 
+        				if(this.dsSchedule.getRowCount()>0){
         				this.transaction(
-        				"updateIndSchedule",//id
-        				"/schedule/updateIndSchedule",//url (절대경로)
-        				"in_ds=dsSchedule:U",//in_ds:U
-        				"",//()_out_ds
-        				"id='"+objRtn.id+"'",//argument
-        				"fn_callback"
-        				)
+        					"updateDeptScheule",//id
+        					"/schedule/updateDeptScheule",//url (절대경로)
+        					"in_ds=dsSchedule:U",//in_ds:U
+        					"",//()_out_ds
+        					"",//argument
+        					"fn_callback"
+        					)
+        					} else {
+        					this.alert("등록에 실패했습니다.");
+        					}
+
         			}
         			//신규일 경우
         			else if(objRtn.popuptype=="new")
@@ -566,41 +540,28 @@
         				nRow = this.dsSchedule.addRow();
 
         				//일정 정보 등록
-        				this.dsSchedule.setColumn(nRow, "id", nexacro.round(Math.random()*10000, 0));
+        				this.dsSchedule.setColumn(nRow, "id", "201102159");
         				this.dsSchedule.setColumn(nRow, "title", objRtn.title);
         				this.dsSchedule.setColumn(nRow, "sdate", objRtn.sdate);
         				this.dsSchedule.setColumn(nRow, "edate", objRtn.edate);
         				this.dsSchedule.setColumn(nRow, "type", objRtn.type);
         				this.dsSchedule.setColumn(nRow, "content", objRtn.content);
 
+        				//userClientLayout값 true로 바꿔줄 것.
+        				if(this.dsSchedule.getRowCount()>0){
         				this.transaction(
-        				"insertIndSchedule",//id
-        				"/schedule/insertIndSchedule",//url (절대경로)
-        				"in_ds=dsSchedule:U",//in_ds:U
-        				"",//()_out_ds
-        				"",//argument
-        				"fn_callback"
-        				)
-        							//----------------------------- 삭제 도전
-        			}
-        			else if(objRtn.popuptype=="delete")
-        			{
-        				nRow = this.dsSchedule.findRow("id", objRtn.id);
-        				this.dsSchedule.deleteRow(nRow);
-
-        				this.transaction(
-        				"deleteIndSchedule",//id
-        				"/schedule/deleteIndSchedule",//url (절대경로)
-        				"",//in_ds:U
-        				"",//()_out_ds
-        				"id='"+objRtn.id+"'",//argument
-        				"fn_callback"
-        				)
+        					"insertDeptScheule",//id
+        					"/schedule/insertDeptScheule",//url (절대경로)
+        					"in_ds=dsSchedule:U",//in_ds:U
+        					"",//()_out_ds
+        					"",//argument
+        					"fn_callback"
+        					)
+        					} else {
+        					this.alert("등록에 실패했습니다.");
+        					}
 
         			}
-
-
-
 
         			//스케줄 조회 함수 호출
         			this.gfnLoadScheduler(this.grpScheduler);
@@ -693,6 +654,10 @@
         	// 동적으로 생성한 ChildFrame을 Modal Dialog로 보여줌.
         	childFrame.showModal(parentFrame, arrArguments, obj, popupCallback, true);
         };
+
+
+
+
 
         });
         

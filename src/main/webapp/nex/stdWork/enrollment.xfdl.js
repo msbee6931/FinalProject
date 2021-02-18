@@ -101,12 +101,12 @@
 
         this.absence_onload = function(obj,e)
         {
-        	this.Div00.form.WebBrowser00.set_url("http://15.165.196.249/certification/enrollment")
+        	this.Div00.form.WebBrowser00.set_url("http://localhost/certification/enrollment")
         };
 
         this.Div00_Button00_onclick = function(obj,e)
         {
-        	location.href="https://pdfmyurl.com/api?license=eVNJ64pvSbol&url=http://15.165.196.249/certification/enrollment";
+        	location.href="https://pdfmyurl.com/api?license=eVNJ64pvSbol&url=http://localhost/certification/enrollment";
         };
 
         });

@@ -54,6 +54,11 @@
             obj.set_text("검색");
             this.addChild(obj.name, obj);
 
+            obj = new Button("btnTimeTable","900","15","110","35",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_text("시간표 조회");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,570,this,function(p){});
@@ -135,6 +140,32 @@
         	);
         };
 
+        this.btnTimeTable_onclick = function(obj,e)
+        {
+        	var date = this.ds_class.getColumn(0,"reg_date");
+        	if(this.ds_class.getRowCount() >0){
+        	var year = date.substring(0,4);
+        	var month = date.substring(5,7);
+        	if(nexacro.toNumber(month) >= 1 && nexacro.toNumber(month) <8){
+        		var startTime = year +"0101";
+        		var endTime = year + "0731";
+        	}else{
+        		var startTime = year +"0801";
+        		var endTime = year + "1231";
+        	}
+        	trace(startTime +":"+endTime);
+        	var sCode = "12345";//학번
+        	var x = this.width/2-410;
+        	var y = this.height/2-220;
+        	var objCF = new ChildFrame();
+        	objCF.init("popTimeTable",x,y,820,440,0,0,"stdWork::studentSchedule.xfdl");
+        	objCF.set_showtitlebar(false);
+
+        	objCF.showModal(this.getOwnerFrame(),{sCode:sCode,myClass:"Y",startTime : startTime, endTime:endTime},this,"fn_callback");
+        	}else{
+        		this.alert("수강내역이 존재하지 않습니다");
+        	}
+        };
 
         });
         
@@ -145,6 +176,7 @@
             this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
+            this.btnTimeTable.addEventHandler("onclick",this.btnTimeTable_onclick,this);
         };
 
         this.loadIncludeScript("myClassList.xfdl");

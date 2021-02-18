@@ -80,11 +80,6 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExport","940","480","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_text("Export");
-            this.addChild(obj.name, obj);
-
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,570,this,function(p){});
@@ -227,41 +222,7 @@
         };
 
 
-        this.btnExport_onclick = function(obj,e)
-        {
-        	if(this.ds_class.getRowCount() > 0){
-        		var date = this.ds_class.getColumn(0,"reg_date");
-        		var year = date.substring(0,4);
-        		var month = date.substring(5,6);
-        		if(month < 8 ){
-        			var semester = year+"년" + " 1학기"
-        		}else{
-        			var semester = year+"년" + " 2학기"
-        		}
-        	}
-        		this.exportObj = new ExcelExportObject("Export00", this);
 
-        		this.exportObj.set_exportfilename(semester + " 개설과목");
-        		this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
-
-        		this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid00, "Sheet1!A1");
-
-        		this.addEventHandler("onsuccess", this.Export00_onsuccess, this);
-        		this.addEventHandler("onerror", this.Export00_onerror, this);
-
-        		var intExportedItem = this.exportObj.exportData();
-
-        		trace("Number of Exported Item: " + intExportedItem);
-        };
-        this.Export00_onsuccess = function(obj, e)
-        {
-        	trace("Export00_onsuccess");
-        }
-
-        this.Export00_onerror = function(obj, e)
-        {
-        	trace("Export00_onerror");
-        }
 
 
 
@@ -275,7 +236,6 @@
             this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
             this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
-            this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
         };
 
         this.loadIncludeScript("classList.xfdl");

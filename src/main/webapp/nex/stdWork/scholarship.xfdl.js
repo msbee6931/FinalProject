@@ -17,9 +17,7 @@
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
-            obj = new Dataset("reqScholar_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/><Column id=\"checkRead\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-            this.addChild(obj.name, obj);
+
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
@@ -64,9 +62,7 @@
 
             obj = new Grid("Grid00","60","51","900","330",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
-            obj.set_binddataset("reqScholar_ds");
-            obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"49\"/><Column size=\"378\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"seq\"/><Cell col=\"2\" text=\"title\"/><Cell col=\"3\" text=\"writeDate\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:seq\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:writeDate\"/></Band></Format></Formats>");
+            obj._setContents("");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions

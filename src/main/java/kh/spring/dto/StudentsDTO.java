@@ -16,13 +16,16 @@ public class StudentsDTO {
 	private String grade;
 	private String birth;
 	private String gender;
+	private String deptcode;
+	private String colcode;
 	
 	
 	public StudentsDTO() {
 		super();
 	}
 	public StudentsDTO(int chk, int s_seq, String pw, String name, int age, String email, String contact,
-			String address, String scholarship, String rest, String grade, String birth, String gender) {
+			String address, String scholarship, String rest, String grade, String birth, String gender, String deptcode,
+			String colcode) {
 		super();
 		this.chk = chk;
 		this.s_seq = s_seq;
@@ -37,6 +40,8 @@ public class StudentsDTO {
 		this.grade = grade;
 		this.birth = birth;
 		this.gender = gender;
+		this.deptcode = deptcode;
+		this.colcode = colcode;
 	}
 	public int getChk() {
 		return chk;
@@ -116,10 +121,21 @@ public class StudentsDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getDeptcode() {
+		return deptcode;
+	}
+	public void setDeptcode(String deptcode) {
+		this.deptcode = deptcode;
+	}
+	public String getColcode() {
+		return colcode;
+	}
+	public void setColcode(String colcode) {
+		this.colcode = colcode;
+	}
 	
 	
-
-
+	
 	
 	
 	
