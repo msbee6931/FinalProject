@@ -374,6 +374,7 @@
         {
             this.addEventHandler("onload",this.nomalNotice_Info_onload,this);
             this.Static00.addEventHandler("onclick",this.Static00_onclick,this);
+            this.Tab00.addEventHandler("onchanged",this.Tab00_onchanged,this);
             this.Tab00.Tabpage1.form.cal_writedate.addEventHandler("onchanged",this.Tab00_Tabpage1_cal_writedate_onchanged,this);
             this.Tab00.Tabpage1.form.btn_cancel.addEventHandler("onclick",this.Tab00_Tabpage1_btn_cancel_onclick,this);
             this.Tab00.Tabpage1.form.btn_save.addEventHandler("onclick",this.Tab00_Tabpage1_btn_save_onclick,this);

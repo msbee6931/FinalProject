@@ -71,10 +71,11 @@
         
         // User Script
         this.registerScript("myClassList.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
         this.myClassList_onload = function(obj,e)
         {
-        	sCode = "12345"; // 학번
+        	var sCode = this.objApp.gds_students.getColumn(0,"s_seq") // 학번
+        	alert(sCode);
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.co_year.set_text(objDate.getFullYear()+"년");
@@ -96,9 +97,7 @@
         		,"fn_callback_myClass"
         	);
         };
-        this.fn_callback_myClass=function(){
-        	this.Grid00
-        }
+
         this.Grid00_oncellclick = function(obj,e)
         {
         	if(e.col == 2){

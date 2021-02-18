@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일반 공지</title>
+<title>취업 공지</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -15,7 +15,6 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-
 #subLabel{
 	width:fit-content;
 	color:white;
@@ -60,7 +59,7 @@
 				<div class="d-flex flex-row-reverse">
 					<div class="bd-highlight d-none d-lg-block">
 						<h5>
-							<a href="/">Home&gt;</a><a href="/normalList.notice?page=1">공지사항&gt;</a><a href="/normalList.notice?page=1">일반공지</a>
+							<a href="/">Home&gt;</a><a href="/normalList.notice?page=1">공지사항&gt;</a><a href="/employmentList.notice?page=1">취업공지</a>
 						</h5>
 					</div>
 				</div>
@@ -79,13 +78,13 @@
 					</div>
 						<div class="collapse navbar-collapse" id="listCollapse" >
 							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item" ><a class="nav-link active" href="/normalList.notice?page=1">일반공지</a>
+								<li class="nav-item" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="/academicList.notice?page=1">학사공지</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
 								</li>
-								<li class="nav-item "><a class="nav-link" href="/employmentList.notice?page=1">취업공지  </a>
+								<li class="nav-item "><a class="nav-link active" href="/employmentList.notice?page=1">취업공지  </a>
 								</li>
 							</ul>
 						</div>
@@ -95,7 +94,7 @@
 					<div class="row mx-2 ">
 						<div class="col-12 py-4" style="border-bottom: 2px solid black">
 							<H3>
-								<b>일반공지</b>
+								<b>취업공지</b>
 							</H3>
 						</div>
 					</div>
@@ -141,13 +140,13 @@
 					<c:if test="${!empty dto2}">
 					<div class="row  p-3" style="border-top:1px solid black">
 						<div class="col-4 col-md-2 text-center"><img src="/img/up.png">다음글</div>
-						<div class="col-8 -md-10"><a href="/normalView.notice?seq=${dto2.n_seq}">${dto2.title}</a></div>
+						<div class="col-8 -md-10"><a href="/employmentView.ref?seq=${dto2.n_seq}">${dto2.title}</a></div>
 					</div>
 					</c:if>
 					<c:if test="${!empty dto3}">
 					<div class="row  p-3" style="border-top:1px solid black">
 						<div class="col-4 col-md-2 text-center"><img src="/img/down.png">이전글</div>
-						<div class="col-8 col-md-10"><a href="/normavlView.notice?seq=${dto3.n_seq}">${dto3.title}</a></div>
+						<div class="col-8 col-md-10"><a href="/employmentView.ref?seq=${dto3.n_seq}">${dto3.title}</a></div>
 					</div>
 					</c:if>
 				</div>
@@ -165,7 +164,7 @@
 		location.href="/download.notice?seq="+seq;
 	})
 	$("#backBtn").on("click",function(){
-		location.href="/normalList.notice?page=1"
+		location.href="/employmentList.notice?page=1"
 	})
 </script>
 </html>

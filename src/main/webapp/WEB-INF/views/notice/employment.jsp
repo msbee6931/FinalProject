@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학사 자료실</title>
+<title>취업 공지</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -16,43 +16,71 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
+
+#box {
+	border: 1px solid black;
+	border-radius: 10px;
+}
+#nav-ul{
+	width:100%;
+}
 #subLabel{
 	width:fit-content;
 	color:white;
 }
-#box {
-	border: 1px solid black;
-	border-radius: 10px;
+
+#sideBox{
+	max-height:300px;
 }
 </style>
 </head>
 <body>
 	<div class="contatiner">
-	<jsp:include page="/WEB-INF/views/topHeader.jsp"/>
-	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
+    <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
+	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>p"/>
 		<div class="container">
 		<div class="row pt-3">
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
-						<a href="/">Home&gt;</a><a href="/reference/refList.ref?page=1">자료실</a>
+						<a href="/">Home&gt;</a><a href="/employmentList.notice?page=1">공지사항&gt;</a><a href="/employmentList.notice?page=1">취업공지</a>
 					</h5>
 				</div>
 			</div>
-		<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>자료실</b></h3>
+			<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
+			<h3><b>공지사항</b></h3>
 			</div>
 		</div>
 			<div class="row">
-			<div class="col-xl-12 d- pt-4" id="box">
+				<div class="col-lg-2 d-grid text-center" id="sideBox">
+					<!--collapse 추가  -->
+					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
+					<div class="col d-grid">
+						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" ><b>공지사항</b></button>
+					</div>
+						<div class="collapse navbar-collapse" id="listCollapse" >
+							<ul class="navbar-nav flex-column" id="nav-ul">
+								<li class="nav-item" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="/academicList.notice?page=1">학사공지</a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
+								</li>
+								<li class="nav-item "><a class="nav-link active" href="/employmentList.notice?page=1">취업공지  </a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				<div class="col-lg-10 d- pt-4" id="box">
 					<div class="row">
 						<div class="col-12">
 							<H3>
-								<b>자료실</b>
+								<b>취업공지</b>
 							</H3>
 						</div>
 						<div class="col-12">
-							<form action="/reference/search.ref?page=1" method="post" class="row">
+							<form action="/searchEmployment.notice?page=1" method="post" class="row">
 								<div class="col-md-6 order-md-2">
 									<div class="row p-4">
 										<div class="col-sm-12 col-md-3 p-0">
@@ -83,15 +111,15 @@
 					</div>
 					<c:forEach var="i" items="${list}">
 						<div class="row" style="border-bottom: 1px solid black">
-							<div class="col-md-2 d-none d-md-block text-center">${i.seq}</div>
-							<div class="col-md-4 col-12 text-left"><a href="/reference/view.ref?seq=${i.seq}">${i.title}</a></div>
+							<div class="col-md-2 d-none d-md-block text-center">${i.rn}</div>
+							<div class="col-md-4 col-12 text-left"><a href="/employmentView.notice?seq=${i.n_seq}">${i.title}</a></div>
 							<div class="col-md-2 col-3 text-center">
-							<fmt:parseDate var="Date" value="${i.write_date}" pattern="yyyy-MM-dd"/>
+							<fmt:parseDate var="Date" value="${i.writedate}" pattern="yyyy-MM-dd"/>
                             <fmt:formatDate value="${Date}" type="date" pattern="yyyy-MM-dd"/>
                             </div> 
                             <c:choose>
                            	<c:when test="${i.file == 'Y'}">
-								<div class="col-md-2 col-3 text-center"><a href="/reference/downloadAll.ref?seq=${i.seq}&title=${i.title}"><img src="/img/file.png"></a></div>
+								<div class="col-md-2 col-3 text-center"><a href="/downloadAll.notice?seq=${i.n_seq}&title=${i.title}"><img src="/img/file.png"></a></div>
 							</c:when>
 							<c:otherwise>
 								<div class="col-md-2 col-3 text-center"></div>
@@ -105,30 +133,30 @@
 					<c:when test="${type=='default'}">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center mt-3" >
-							<li class="page-item"><a class="page-link" href="/reference/refList.ref?page=1" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
-							<li class="page-item"><a class="page-link" href="/reference/refList.ref?page=${page-1}"><span aria-hidden="true">&lt;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/employmentList.notice?page=1" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/employmentList.notice?page=${page-1}"><span aria-hidden="true">&lt;</span></a></li>
 						<c:set var="nav" value="${fn:split(navi,'/')}"></c:set>
 						<c:forEach items="${nav}" var="i">
-							<li class="page-item d-none d-md-block"><a class="page-link " href="/reference/refList.ref?page=${i}">${i}</a></li>
+							<li class="page-item d-none d-md-block"><a class="page-link" href="/employmentList.notice?page=${i}">${i}</a></li>
 						</c:forEach>
 							<li class="page-item d-block d-md-none"><a class="page-link"><span>${page} / ${end}</span></a></li>
-							<li class="page-item"><a class="page-link" href="/reference/refList.ref?page=${page+1}"><span aria-hidden="true">&gt;</span></a></li>
-							<li class="page-item"><a class="page-link" href="/reference/refList.ref?page=${end}"aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/employmentList.notice?page=${page+1}"><span aria-hidden="true">&gt;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/employmentList.notice?page=${end}"aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 						</ul>
 					</nav>
 					</c:when>
 					<c:otherwise>
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center mt-3" >
-							<li class="page-item"><a class="page-link" href="/reference/search.ref?page=1&category=${category}&content=${content}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
-							<li class="page-item"><a class="page-link" href="/reference/search.ref?page=${page-1}&category=${category}&content=${content}"><span aria-hidden="true">&lt;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchEmployment.notice?page=1&category=${category}&content=${content}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchEmployment.notice?page=${page-1}&category=${category}&content=${content}"><span aria-hidden="true">&lt;</span></a></li>
 						<c:set var="nav" value="${fn:split(navi,'/')}"></c:set>
 						<c:forEach items="${nav}" var="i">
-							<li class="page-item d-none d-md-block"><a class="page-link" href="/reference/search.ref?page=${i}&category=${category}&content=${content}">${i}</a></li>
+							<li class="page-item d-none d-md-block"><a class="page-link" href="/searchEmployment.notice?page=${i}&category=${category}&content=${content}">${i}</a></li>
 						</c:forEach>
 							<li class="page-item d-block d-md-none"><a class="page-link"><span>${page} / ${end}</span></a></li>
-							<li class="page-item"><a class="page-link" href="/reference/search.ref?page=${page+1}&category=${category}&content=${content}"><span aria-hidden="true">&gt;</span></a></li>
-							<li class="page-item"><a class="page-link" href="/reference/search.ref?page=${end}&category=${category}&content=${content}"aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchEmployment.notice?page=${page+1}&category=${category}&content=${content}"><span aria-hidden="true">&gt;</span></a></li>
+							<li class="page-item"><a class="page-link" href="/searchEmployment.notice?page=${end}&category=${category}&content=${content}"aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 						</ul>
 					</nav>
 					</c:otherwise>
@@ -143,5 +171,4 @@
 		</footer>
 	</div>
 </body>
-
 </html>

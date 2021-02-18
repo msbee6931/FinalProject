@@ -7,17 +7,20 @@ public class NoticeDTO {
 	private String writedate;
 	private String contents;
 	private String file;
+	private String deptcode;
 	private int view_count;
 	
 	public NoticeDTO() {}
 
-	public NoticeDTO(int n_seq, int rn, String title, String writedate, String contents, String file, int view_count) {
+	public NoticeDTO(int n_seq, int rn, String title, String writedate, String contents, String file, String deptcode,
+			int view_count) {
 		this.n_seq = n_seq;
 		this.rn = rn;
 		this.title = title;
 		this.writedate = writedate;
 		this.contents = contents;
 		this.file = file;
+		this.deptcode = deptcode;
 		this.view_count = view_count;
 	}
 
@@ -69,6 +72,14 @@ public class NoticeDTO {
 		this.file = file;
 	}
 
+	public String getDeptcode() {
+		return deptcode;
+	}
+
+	public void setDeptcode(String deptcode) {
+		this.deptcode = deptcode;
+	}
+
 	public int getView_count() {
 		return view_count;
 	}
@@ -76,6 +87,7 @@ public class NoticeDTO {
 	public void setView_count(int view_count) {
 		this.view_count = view_count;
 	}
+
 
 	
 }

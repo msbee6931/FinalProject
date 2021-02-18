@@ -82,6 +82,98 @@ public class NoticeDAO {
 		return db.selectList("Notice.searchNormalByPage",param);
 	}
 	
+	public List<NoticeDTO> selectAcademicNotice(){
+		return db.selectList("Notice.selectAcademicNotice");
+	}
+	public int academicCount() {
+		return db.selectOne("Notice.academicCount");
+	}
+	public List<NoticeDTO> selectAcademicByPage(int page){
+		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", startRowNum);
+		param.put("endRowNum", endRowNum);
+		return db.selectList("Notice.selectAcademicByPage",param);
+	}
+	public int searchAcademicCount(String content,String category){
+		Map<String,Object> param = new HashMap<>();
+		param.put("content", content);
+		param.put("category", category);
+		return db.selectOne("Notice.searchAcademicCount",param);
+	}
+	public List<NoticeDTO> searchAcademicByPage(String content, String category,int page){
+		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", startRowNum);
+		param.put("endRowNum", endRowNum);
+		param.put("content", content);
+		param.put("category", category);
+		return db.selectList("Notice.searchAcademicByPage",param);
+	}
+	
+	public List<NoticeDTO> selectScholarNotice(){
+		return db.selectList("Notice.selectScholarNotice");
+	}
+	public int scholarCount() {
+		return db.selectOne("Notice.scholarCount");
+	}
+	public List<NoticeDTO> selectScholarByPage(int page){
+		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", startRowNum);
+		param.put("endRowNum", endRowNum);
+		return db.selectList("Notice.selectScholarByPage",param);
+	}
+	public int searchScholarCount(String content,String category){
+		Map<String,Object> param = new HashMap<>();
+		param.put("content", content);
+		param.put("category", category);
+		return db.selectOne("Notice.searchScholarCount",param);
+	}
+	public List<NoticeDTO> searchScholarByPage(String content, String category,int page){
+		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", startRowNum);
+		param.put("endRowNum", endRowNum);
+		param.put("content", content);
+		param.put("category", category);
+		return db.selectList("Notice.searchScholarByPage",param);
+	}
+	
+	public List<NoticeDTO> selectEmploymentNotice(){
+		return db.selectList("Notice.selectEmployementNotice");
+	}
+	public int employmentCount() {
+		return db.selectOne("Notice.employmentCount");
+	}
+	public List<NoticeDTO> selectEmploymentByPage(int page){
+		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", startRowNum);
+		param.put("endRowNum", endRowNum);
+		return db.selectList("Notice.selectEmploymentByPage",param);
+	}
+	public int searchEmploymentCount(String content,String category){
+		Map<String,Object> param = new HashMap<>();
+		param.put("content", content);
+		param.put("category", category);
+		return db.selectOne("Notice.searchEmploymentCount",param);
+	}
+	public List<NoticeDTO> searchEmploymentByPage(String content, String category,int page){
+		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", startRowNum);
+		param.put("endRowNum", endRowNum);
+		param.put("content", content);
+		param.put("category", category);
+		return db.selectList("Notice.searchEmploymentByPage",param);
+	}
 	
 	
 	public NoticeDTO selectListSeq(NoticeDTO dto) {
@@ -101,5 +193,11 @@ public class NoticeDAO {
 	}
 	public List<NoticeFileDTO> selectFileAll(){
 		return db.selectList("Notice.selectFileAll");
+	}
+	public List<NoticeDTO> selectNoticeAll(){
+		Map<String,Object> param = new HashMap<>();
+		param.put("startRowNum", 1);
+		param.put("endRowNum", 10);
+		return db.selectList("Notice.selectNoticeAll",param);
 	}
 }

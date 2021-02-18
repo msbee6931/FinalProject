@@ -201,7 +201,7 @@ public class NoticeController {
 		return "notice/normal";
 	}
 	@RequestMapping("searchNormal.notice")
-	public String search(Model model,HttpServletRequest request) throws Exception {
+	public String searchNormal(Model model,HttpServletRequest request) throws Exception {
 		int page = Integer.parseInt(request.getParameter("page"));
 		String content = request.getParameter("content");
 		String category = request.getParameter("category");
@@ -242,8 +242,398 @@ public class NoticeController {
 
 		return "notice/normal";
 	}
-	@RequestMapping("downloadNormalAll.notice")
-	public void downloadNormalAll(HttpServletRequest request,HttpServletResponse resp) throws Exception {
+	@RequestMapping("normalView.notice")
+	public String normalView(HttpServletRequest request,Model model) {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		List<NoticeDTO> list = nService.selectNomalNotice();
+		NoticeDTO dto1 = new NoticeDTO(); //현재
+		NoticeDTO dto2 = new NoticeDTO(); //다음
+		NoticeDTO dto3 = new NoticeDTO(); //이전
+		int next = 0;
+		int prev = 0;
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getN_seq() == seq) {
+				if(i+1 < list.size()) {
+					next = list.get(i+1).getN_seq();
+				}
+				if(i-1 >= 0) {
+					prev = list.get(i-1).getN_seq();
+				}
+				dto1.setN_seq(seq);
+				dto2.setN_seq(next);
+				dto3.setN_seq(prev);
+			}
+		}
+		dto1.setN_seq(seq);
+		nService.view_countUpd(dto1);
+		NoticeFileDTO fdto = new NoticeFileDTO();
+		fdto.setParentSeq(seq);
+		dto1 = nService.selectListSeq(dto1);
+		dto2 = nService.selectListSeq(dto2);
+		dto3 = nService.selectListSeq(dto3);
+		List<NoticeFileDTO> list2 = nService.selectFileParentSeq(fdto);
+		model.addAttribute("list",list2);
+		model.addAttribute("dto1",dto1);
+		model.addAttribute("dto2",dto2);
+		model.addAttribute("dto3",dto3);
+		return "notice/normalView";
+	}
+	
+	
+	@RequestMapping("academicList.notice")
+	public String goAcademic(Model model,HttpServletRequest request) throws Exception {
+		int page = Integer.parseInt(request.getParameter("page"));
+		if(page <= 0) {
+			page = 1;
+		}
+		int count = nService.academicCount();
+		int end = count/10;
+		if(count % 10 > 0) {
+			end += 1;
+		}
+		if(page >= end) {
+			page = end;
+		}
+		String navi = nService.academicNavi(page);
+		List<NoticeDTO> list = nService.selectAcademicByPage(page);
+		List<NoticeFileDTO> file = nService.selectFileAll();
+		if(list.size() > 0) {
+		for(int i=0; i<list.size(); i++) {
+			for(int j=0; j<file.size(); j++) {
+				if(list.get(i).getN_seq() == file.get(j).getParentSeq()) {
+					list.get(i).setFile("Y");
+				}
+			}
+		}
+		navi = navi.substring(0, navi.length()-1);
+		}
+		
+		model.addAttribute("select",1);
+		model.addAttribute("type","default");
+		model.addAttribute("list",list);
+		model.addAttribute("count",count);
+		model.addAttribute("navi",navi);
+		model.addAttribute("page",page);
+		model.addAttribute("end",end);
+		return "notice/academic";
+	}
+	@RequestMapping("searchAcademic.notice")
+	public String searchAcademic(Model model,HttpServletRequest request) throws Exception {
+		int page = Integer.parseInt(request.getParameter("page"));
+		String content = request.getParameter("content");
+		String category = request.getParameter("category");
+		System.out.println(content +":" +category );
+		if(page <= 0) {
+			page = 1;
+		}
+		int count = nService.searchAcademicCount(content,category);
+
+		int end = count/10;
+		if(count % 10 > 0) {
+			end += 1;
+		}
+		if(page >= end) {
+			page = end;
+		}
+		List<NoticeDTO> list = nService.searchAcademicByPage(content,category,page);
+		String navi = nService.searchAcademicNavi(page,content,category);
+		List<NoticeFileDTO> file = nService.selectFileAll();
+		if(list.size() > 0) {
+			for(int i=0; i<list.size(); i++) {
+				for(int j=0; j<file.size(); j++) {
+					if(list.get(i).getN_seq() == file.get(j).getParentSeq()) {
+						list.get(i).setFile("Y");
+					}
+				}
+			}
+			navi = navi.substring(0, navi.length()-1);
+		}
+		model.addAttribute("category",category);
+		model.addAttribute("content",content);
+		model.addAttribute("type","search");
+		model.addAttribute("list",list);
+		model.addAttribute("count",count);
+		model.addAttribute("navi",navi);
+		model.addAttribute("page",page);
+		model.addAttribute("end",end);
+
+		return "notice/academic";
+	}
+	@RequestMapping("academicView.notice")
+	public String academicView(HttpServletRequest request,Model model) {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		List<NoticeDTO> list = nService.selectAcademicNotice();
+		NoticeDTO dto1 = new NoticeDTO(); //현재
+		NoticeDTO dto2 = new NoticeDTO(); //다음
+		NoticeDTO dto3 = new NoticeDTO(); //이전
+		int next = 0;
+		int prev = 0;
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getN_seq() == seq) {
+				if(i+1 < list.size()) {
+					next = list.get(i+1).getN_seq();
+				}
+				if(i-1 >= 0) {
+					prev = list.get(i-1).getN_seq();
+				}
+				dto1.setN_seq(seq);
+				dto2.setN_seq(next);
+				dto3.setN_seq(prev);
+			}
+		}
+		dto1.setN_seq(seq);
+		nService.view_countUpd(dto1);
+		NoticeFileDTO fdto = new NoticeFileDTO();
+		fdto.setParentSeq(seq);
+		dto1 = nService.selectListSeq(dto1);
+		dto2 = nService.selectListSeq(dto2);
+		dto3 = nService.selectListSeq(dto3);
+		List<NoticeFileDTO> list2 = nService.selectFileParentSeq(fdto);
+		model.addAttribute("list",list2);
+		model.addAttribute("dto1",dto1);
+		model.addAttribute("dto2",dto2);
+		model.addAttribute("dto3",dto3);
+		return "notice/academicView";
+	}
+	
+	@RequestMapping("scholarList.notice")
+	public String goScholar(Model model,HttpServletRequest request) throws Exception {
+		int page = Integer.parseInt(request.getParameter("page"));
+		if(page <= 0) {
+			page = 1;
+		}
+		int count = nService.scholarCount();
+		int end = count/10;
+		if(count % 10 > 0) {
+			end += 1;
+		}
+		if(page >= end) {
+			page = end;
+		}
+		String navi = nService.scholarNavi(page);
+		List<NoticeDTO> list = nService.selectScholarByPage(page);
+		List<NoticeFileDTO> file = nService.selectFileAll();
+		if(list.size() > 0) {
+		for(int i=0; i<list.size(); i++) {
+			for(int j=0; j<file.size(); j++) {
+				if(list.get(i).getN_seq() == file.get(j).getParentSeq()) {
+					list.get(i).setFile("Y");
+				}
+			}
+		}
+		navi = navi.substring(0, navi.length()-1);
+		}
+		
+		model.addAttribute("select",1);
+		model.addAttribute("type","default");
+		model.addAttribute("list",list);
+		model.addAttribute("count",count);
+		model.addAttribute("navi",navi);
+		model.addAttribute("page",page);
+		model.addAttribute("end",end);
+		return "notice/scholar";
+	}
+	@RequestMapping("searchScholar.notice")
+	public String searchScholar(Model model,HttpServletRequest request) throws Exception {
+		int page = Integer.parseInt(request.getParameter("page"));
+		String content = request.getParameter("content");
+		String category = request.getParameter("category");
+		System.out.println(content +":" +category );
+		if(page <= 0) {
+			page = 1;
+		}
+		int count = nService.searchScholarCount(content,category);
+
+		int end = count/10;
+		if(count % 10 > 0) {
+			end += 1;
+		}
+		if(page >= end) {
+			page = end;
+		}
+		List<NoticeDTO> list = nService.searchScholarByPage(content,category,page);
+		String navi = nService.searchScholarNavi(page,content,category);
+		List<NoticeFileDTO> file = nService.selectFileAll();
+		if(list.size() > 0) {
+			for(int i=0; i<list.size(); i++) {
+				for(int j=0; j<file.size(); j++) {
+					if(list.get(i).getN_seq() == file.get(j).getParentSeq()) {
+						list.get(i).setFile("Y");
+					}
+				}
+			}
+			navi = navi.substring(0, navi.length()-1);
+		}
+		model.addAttribute("category",category);
+		model.addAttribute("content",content);
+		model.addAttribute("type","search");
+		model.addAttribute("list",list);
+		model.addAttribute("count",count);
+		model.addAttribute("navi",navi);
+		model.addAttribute("page",page);
+		model.addAttribute("end",end);
+
+		return "notice/scholar";
+	}
+	@RequestMapping("scholarView.notice")
+	public String scholarView(HttpServletRequest request,Model model) {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		List<NoticeDTO> list = nService.selectScholarNotice();
+		NoticeDTO dto1 = new NoticeDTO(); //현재
+		NoticeDTO dto2 = new NoticeDTO(); //다음
+		NoticeDTO dto3 = new NoticeDTO(); //이전
+		int next = 0;
+		int prev = 0;
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getN_seq() == seq) {
+				if(i+1 < list.size()) {
+					next = list.get(i+1).getN_seq();
+				}
+				if(i-1 >= 0) {
+					prev = list.get(i-1).getN_seq();
+				}
+				dto1.setN_seq(seq);
+				dto2.setN_seq(next);
+				dto3.setN_seq(prev);
+			}
+		}
+		dto1.setN_seq(seq);
+		nService.view_countUpd(dto1);
+		NoticeFileDTO fdto = new NoticeFileDTO();
+		fdto.setParentSeq(seq);
+		dto1 = nService.selectListSeq(dto1);
+		dto2 = nService.selectListSeq(dto2);
+		dto3 = nService.selectListSeq(dto3);
+		List<NoticeFileDTO> list2 = nService.selectFileParentSeq(fdto);
+		model.addAttribute("list",list2);
+		model.addAttribute("dto1",dto1);
+		model.addAttribute("dto2",dto2);
+		model.addAttribute("dto3",dto3);
+		return "notice/scholarView";
+	}
+	
+	@RequestMapping("employmentList.notice")
+	public String goEmployment(Model model,HttpServletRequest request) throws Exception {
+		int page = Integer.parseInt(request.getParameter("page"));
+		if(page <= 0) {
+			page = 1;
+		}
+		int count = nService.employmentCount();
+		int end = count/10;
+		if(count % 10 > 0) {
+			end += 1;
+		}
+		if(page >= end) {
+			page = end;
+		}
+		String navi = nService.employmentNavi(page);
+		List<NoticeDTO> list = nService.selectEmploymentByPage(page);
+		List<NoticeFileDTO> file = nService.selectFileAll();
+		if(list.size() > 0) {
+		for(int i=0; i<list.size(); i++) {
+			for(int j=0; j<file.size(); j++) {
+				if(list.get(i).getN_seq() == file.get(j).getParentSeq()) {
+					list.get(i).setFile("Y");
+				}
+			}
+		}
+		navi = navi.substring(0, navi.length()-1);
+		}
+		
+		model.addAttribute("select",1);
+		model.addAttribute("type","default");
+		model.addAttribute("list",list);
+		model.addAttribute("count",count);
+		model.addAttribute("navi",navi);
+		model.addAttribute("page",page);
+		model.addAttribute("end",end);
+		return "notice/employment";
+	}
+	@RequestMapping("searchEmployment.notice")
+	public String searchEmployment(Model model,HttpServletRequest request) throws Exception {
+		int page = Integer.parseInt(request.getParameter("page"));
+		String content = request.getParameter("content");
+		String category = request.getParameter("category");
+		System.out.println(content +":" +category );
+		if(page <= 0) {
+			page = 1;
+		}
+		int count = nService.searchEmploymentCount(content,category);
+
+		int end = count/10;
+		if(count % 10 > 0) {
+			end += 1;
+		}
+		if(page >= end) {
+			page = end;
+		}
+		List<NoticeDTO> list = nService.searchEmploymentByPage(content,category,page);
+		String navi = nService.searchEmploymentNavi(page,content,category);
+		List<NoticeFileDTO> file = nService.selectFileAll();
+		if(list.size() > 0) {
+			for(int i=0; i<list.size(); i++) {
+				for(int j=0; j<file.size(); j++) {
+					if(list.get(i).getN_seq() == file.get(j).getParentSeq()) {
+						list.get(i).setFile("Y");
+					}
+				}
+			}
+			navi = navi.substring(0, navi.length()-1);
+		}
+		model.addAttribute("category",category);
+		model.addAttribute("content",content);
+		model.addAttribute("type","search");
+		model.addAttribute("list",list);
+		model.addAttribute("count",count);
+		model.addAttribute("navi",navi);
+		model.addAttribute("page",page);
+		model.addAttribute("end",end);
+
+		return "notice/employment";
+	}
+	@RequestMapping("employmentView.notice")
+	public String employmentView(HttpServletRequest request,Model model) {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		List<NoticeDTO> list = nService.selectScholarNotice();
+		NoticeDTO dto1 = new NoticeDTO(); //현재
+		NoticeDTO dto2 = new NoticeDTO(); //다음
+		NoticeDTO dto3 = new NoticeDTO(); //이전
+		int next = 0;
+		int prev = 0;
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getN_seq() == seq) {
+				if(i+1 < list.size()) {
+					next = list.get(i+1).getN_seq();
+				}
+				if(i-1 >= 0) {
+					prev = list.get(i-1).getN_seq();
+				}
+				dto1.setN_seq(seq);
+				dto2.setN_seq(next);
+				dto3.setN_seq(prev);
+			}
+		}
+		dto1.setN_seq(seq);
+		nService.view_countUpd(dto1);
+		NoticeFileDTO fdto = new NoticeFileDTO();
+		fdto.setParentSeq(seq);
+		dto1 = nService.selectListSeq(dto1);
+		dto2 = nService.selectListSeq(dto2);
+		dto3 = nService.selectListSeq(dto3);
+		List<NoticeFileDTO> list2 = nService.selectFileParentSeq(fdto);
+		model.addAttribute("list",list2);
+		model.addAttribute("dto1",dto1);
+		model.addAttribute("dto2",dto2);
+		model.addAttribute("dto3",dto3);
+		return "notice/employmentView";
+	}
+	
+	@RequestMapping("downloadAll.notice")
+	public void downloadAll(HttpServletRequest request,HttpServletResponse resp) throws Exception {
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		String title = request.getParameter("title");
 		NoticeFileDTO dto = new NoticeFileDTO();
@@ -324,45 +714,9 @@ public class NoticeController {
 		}
 
 	}
-	@RequestMapping("normalView.notice")
-	public String normalView(HttpServletRequest request,Model model) {
-		int seq = Integer.parseInt(request.getParameter("seq"));
-		
-		List<NoticeDTO> list = nService.selectNomalNotice();
-		NoticeDTO dto1 = new NoticeDTO(); //현재
-		NoticeDTO dto2 = new NoticeDTO(); //다음
-		NoticeDTO dto3 = new NoticeDTO(); //이전
-		int next = 0;
-		int prev = 0;
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getN_seq() == seq) {
-				if(i+1 < list.size()) {
-					next = list.get(i+1).getN_seq();
-				}
-				if(i-1 >= 0) {
-					prev = list.get(i-1).getN_seq();
-				}
-				dto1.setN_seq(seq);
-				dto2.setN_seq(next);
-				dto3.setN_seq(prev);
-			}
-		}
-		dto1.setN_seq(seq);
-//		nService.view_countUpd(dto1);
-		NoticeFileDTO fdto = new NoticeFileDTO();
-		fdto.setParentSeq(seq);
-		dto1 = nService.selectListSeq(dto1);
-		dto2 = nService.selectListSeq(dto2);
-		dto3 = nService.selectListSeq(dto3);
-		List<NoticeFileDTO> list2 = nService.selectFileParentSeq(fdto);
-		model.addAttribute("list",list2);
-		model.addAttribute("dto1",dto1);
-		model.addAttribute("dto2",dto2);
-		model.addAttribute("dto3",dto3);
-		return "notice/normalView";
-	}
-	@RequestMapping("downloadNormal.notice")
-	public void downloadNormal(HttpServletRequest request,HttpServletResponse resp)throws Exception {
+
+	@RequestMapping("download.notice")
+	public void download(HttpServletRequest request,HttpServletResponse resp)throws Exception {
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		NoticeFileDTO fdto = new NoticeFileDTO();
 		fdto.setF_seq(seq);
@@ -408,6 +762,8 @@ public class NoticeController {
 			sos.close();
 		}
 	}
+	
+	
 	public String getBrowser(HttpServletRequest request) {
 		String header = request.getHeader("User-Agent");
 		if (header.indexOf("MSIE") > -1) {
