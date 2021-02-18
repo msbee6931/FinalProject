@@ -33,12 +33,7 @@ public class MyPageController {
 	}
 	@RequestMapping("updateMyInfoStu.nex")
 	public NexacroResult updateMyInfoStu(@ParamDataSet(name="in_ds")StudentsDTO dto) {
-		System.out.println("도착");
-		if(dto.getBirth().length()>9) {
-		String birth = dto.getBirth().substring(0, 10);
-		String rbirth = birth.replace("-", "");
-		dto.setBirth(rbirth);
-		}
+		
 		NexacroResult nr = new NexacroResult();
 		int result = mService.updateMyInfoStu(dto);
 		return nr;

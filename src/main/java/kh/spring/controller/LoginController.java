@@ -163,6 +163,7 @@ public class LoginController {
 	public NexacroResult reqLoginInfo() {
 		System.out.println("도착");
 		NexacroResult nr = new NexacroResult();
+		System.out.println("관리자 : " + session.getAttribute("adm"));
 		if(session.getAttribute("std") != null) {
 			int seq = (int)(session.getAttribute("std"));
 			StudentsDTO dto = lService.selectStd(seq);	
