@@ -23,7 +23,7 @@ div
   -webkit-touch-callout:none;
   -webkit-appearance:none;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
-  outline:none;  
+  outline:none;
 }
 
 table
@@ -49,7 +49,7 @@ img
 textarea::-webkit-scrollbar { display: none; }
 
 
-div.nexacontainer
+.nexacontainer
 {
   position:absolute;
   left:0px;
@@ -57,34 +57,21 @@ div.nexacontainer
   width:100%;
   height:100%;
 }
-.nexacontainer.nexartl
-{ 
-  right:0px;
+.nexacontainer.withvscroll
+{
+  right:14px;
+}
+.nexacontainer.withhscroll
+{
+  bottom:14px;
+}
+.nexacontainer.withbothscroll
+{
+  right:14px;
+  bottom:14px;
 }
 
-div.nexacontainer.withvscroll
-{
-  right:14px;
-}
-.nexacontainer.nexartl.withvscroll
-{
-  left:14px;
-}
-div.nexacontainer.withhscroll
-{
-  bottom:14px;
-}
-div.nexacontainer.withbothscroll
-{
-  right:14px;
-  bottom:14px;
-}
-.nexacontainer.nexartl.withbothscroll
-{
-  left:14px;
-  bottom:14px;
-}
-div.nexalefttop
+.nexalefttop
 {
   left:0px;
   top:0px;
@@ -92,11 +79,7 @@ div.nexalefttop
   background-position:left top;
   font-size:1px;
 }
-.nexalefttop.nexartl
-{
-  background-position:right top;
-}
-div.nexaleftbottom
+.nexaleftbottom
 {
   left:0px;
   bottom:0px;
@@ -104,11 +87,7 @@ div.nexaleftbottom
   background-position:left bottom;
   font-size:1px;
 }
-.nexaleftbottom.nexartl
-{
-  background-position:right bottom;
-}
-div.nexarightbottom
+.nexarightbottom
 {
   right:0px;
   bottom:0px;
@@ -116,50 +95,40 @@ div.nexarightbottom
   background-position:right bottom;
   font-size:1px;
 }
-.nexarightbottom.nexartl
-{
-  background-position:left bottom;
-}
-div.nexarighttop
+.nexarighttop
 {
   right:0px;
   top:0px;
   background-repeat:no-repeat;
   background-position:right top;
 }
-.nexarighttop.nexartl
-{
-  background-position:left top;
-}
-div.nexaedge
+.nexaedge
 {
   width:100%;
   height:100%;
 }
-div.nexamodaloverlay
+.nexamodaloverlay
 {
   width:100%;
   height:100%;
 }
-div.nexainnercontainer
+.nexainnercontainer
 {
   
 }
-div.nexatransform
+
+.nexatransform
 {
   
 }
-div.nexacontentsbox
+
+.nexacontentsbox
 {
   position:relative;
   display:table-cell;
   background-position:left center;
   background-repeat:no-repeat;
   vertical-align:middle;
-}
-.nexacontentsbox.nexartl
-{
-  background-position:right center;
 }
 .nexatextitem
 {
@@ -177,6 +146,7 @@ div.nexacontentsbox
   background-position:center center;
   background-repeat:no-repeat;
 }
+
 .nexainput
 {
   font:inherit;
@@ -187,8 +157,9 @@ div.nexacontentsbox
   border:none;
   outline:none;
   background:transparent;
-  padding : 0px;
+  padding : 0px;  
 }
+
 .nexatextarea
 {
   font:inherit;
@@ -205,161 +176,90 @@ div.nexacontentsbox
   background:transparent;
   padding : 0px;
 }
-div.nexaleftalign, input.nexaleftalign
+
+.nexaleftalign
 {
   text-align:left;
 }
-.nexaleftalign.nexartl
+
+.nexarightalign
 {
   text-align:right;
 }
-div.nexarightalign, input.nexarightalign
-{
-  text-align:right;
-}
-.nexarightalign.nexartl
-{
-  text-align:left;
-}
-div.nexacenteralign,input.nexacenteralign
+
+.nexacenteralign
 {
   text-align:center;
 }
-div.nexamap div *
+
+.nexamap div *
 {
   overflow:visible;
 }
 
-div.ProgressBar, div.ProgressBarControl
+.ProgressBar,.ProgressBarControl
 {
 
 }
 
-div.celltreeline
+.celltreeline
 {
   border : 1px dotted #999999;
 }
 
-div.Edit, div.MaskEdit, div.TextArea, div.EditControl, div.MaskEditControl, div.TextAreaControl
+.Edit, .MaskEdit, .TextArea, .EditControl, .MaskEditControl, .TextAreaControl
 {
   cursor:text;
 }
-div.Button .nexacontentsbox, div.ButtonControl .nexacontentsbox
+.Button .nexacontentsbox, .ButtonControl .nexacontentsbox
 {
   text-align:center;
   background-position:center center;
 }
-div.FileDownload  .nexacontentsbox, div.FileDownloadControl .nexacontentsbox
+
+.FileDownload  .nexacontentsbox, .FileDownloadControl .nexacontentsbox
 {
   text-align:center;
   background-position:center center;
 }
-div.IconTextControl .nexacontentsbox, div.IconControl .nexacontentsbox
+
+.IconTextControl .nexacontentsbox, .IconControl .nexacontentsbox
 {
   text-align:center;
   background-position:center center;
 }
-div.DatePickerDayItemControl .nexacontentsbox, div.DatePickerWeekItemControl .nexacontentsbox, div.TitleBarButtonControl .nexacontentsbox
+
+.DatePickerDayItemControl .nexacontentsbox, .DatePickerWeekItemControl .nexacontentsbox, .TitleBarButtonControl .nexacontentsbox
 {
   text-align:center;
   background-position:center center;
 }
-div.Sketch .nexacontentsbox
+
+.Sketch .nexacontentsbox
 {
-  text-align:center;
+   text-align:center;
 }
-div.MainFrame, div.VScrollBarControl, div.HScrollBarControl
+
+.MainFrame, .VScrollBarControl, .HScrollBarControl
 {
   cursor:default;
 }
 
-div.Grid .body .row .cell.Expr_red.dummy.dummy.dummy
+.Grid .body .row .cell.Expr_red.dummy.dummy.dummy
 {
-	background : #d23636;
-	color : #ffffff;
+	background : #e82639;
+	color : whitesmoke;
 }
-div.Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell
+.Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell
 {
-	background : #d23636;
+	background : #e82639;
 }
-.Grid.nexartl .body .row .cell.Expr_red
+.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy
 {
-	background : #d23636;
+	background : #3c76e0;
+	color : whitesmoke;
 }
-.Grid.nexartl .body .row .cell.Expr_red.oddcell
+.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell
 {
-	background : #d23636;
-}
-div.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy
-{
-	background : #78a2dd;
-	color : #ffffff;
-}
-div.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell
-{
-	background : #78a2dd;
-}
-.Grid.nexartl .body .row .cell.Expr_blue
-{
-	background : #78a2dd;
-}
-.Grid.nexartl .body .row .cell.Expr_blue.oddcell
-{
-	background : #78a2dd;
-}
-div.Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy
-{
-	background : #ab9f1b;
-	color : #ffffff;
-}
-div.Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy.oddcell
-{
-	color : #ab9f1b;
-}
-.Grid.nexartl .body .row .cell.Expr_yellow
-{
-	background : #ab9f1b;
-}
-div#nexacontainer .Grid .body .row .cell.Expr_red.dummy.dummy.dummy[status=mouseover]
-{
-	color : #d23636;
-	background : #ffffff;
-}
-div#nexacontainer .Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell[status=mouseover]
-{
-	background : #ffffff;
-}
-.Grid.nexartl .body .row .cell.Expr_red[status=mouseover]
-{
-	background : #ffffff;
-}
-.Grid.nexartl .body .row .cell.Expr_red.oddcell[status=mouseover]
-{
-	background : #ffffff;
-}
-div#nexacontainer .Grid .body .row .cell.Expr_blue.dummy.dummy.dummy[status=mouseover]
-{
-	color : #78a2dd;
-	background : #ffffff;
-}
-div#nexacontainer .Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell[status=mouseover]
-{
-	color : #ffffff;
-}
-.Grid.nexartl .body .row .cell.Expr_blue[status=mouseover]
-{
-	background : #ffffff;
-}
-div#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy.oddcell[status=mouseover]
-{
-	color : #ffffff;
-}
-div#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy[status=mouseover]
-{
-	color : #ab9f1b;
-	background : #ffffff;
-}
-.Grid.nexartl .body .row .cell.Expr_yellow[status=mouseover]
-{
-	background : #ffffff;
+	background : #3c76e0;
 }

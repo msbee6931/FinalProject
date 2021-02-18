@@ -158,8 +158,11 @@ public class ChatController {
 		String userId = (String) session.getAttribute("userId");
 		List<MultipartFile> fileList = request.getFiles("file");
 		
+		String testPath = session.getServletContext().getRealPath("resources");
 		String realPath = session.getServletContext().getRealPath("resources/files");
+		File filesTestPath = new File(testPath);
 		File filesPath = new File(realPath);
+		if(!filesTestPath.exists()) {filesTestPath.mkdir();}
 		if(!filesPath.exists()) {filesPath.mkdir();}
 		
 		PrintWriter pw = response.getWriter();
@@ -302,8 +305,11 @@ public class ChatController {
 	public void upload(MultipartHttpServletRequest request,String roomNumber,String userId) throws Exception{
 		List<MultipartFile> fileList = request.getFiles("file");
 		
+		String testPath = session.getServletContext().getRealPath("resources");
 		String realPath = session.getServletContext().getRealPath("resources/files");
+		File filesTestPath = new File(testPath);
 		File filesPath = new File(realPath);
+		if(!filesTestPath.exists()) {filesTestPath.mkdir();}
 		if(!filesPath.exists()) {filesPath.mkdir();}
 		
 		for(MultipartFile mf : fileList) {

@@ -332,6 +332,7 @@
         	var writedate = this.Tab00.Tabpage1.form.cal_writedate.value;
         	var contents = this.Tab00.Tabpage1.form.text_contents.value;
         	var nRow = this.ds_Notice.addRow();
+        	var rtitle = su
         	trace(title);
         	trace(writedate)
         	trace(contents);

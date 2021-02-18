@@ -40,6 +40,25 @@
  	<update id="friendNameUpdateF">
 		update friend set friendName = #{userName} where friendId=#{userId}
  	</update>
+ 	
+ 	<insert id="insertChatUser">
+		insert into chatUser(userId,userName) values(#{userId},#{userName});
+	</insert>
+	
+	<delete id="deleteChatUserStu">
+		delete from chatUser where userId in
+		<foreach item="i" collection="list" open="(" close=")" separator=",">#{i.s_seq}</foreach>
+	</delete>
+	
+	<delete id="deleteChatUserPro">
+		delete from chatUser where userId in
+		<foreach item="i" collection="list" open="(" close=")" separator=",">#{i.p_seq}</foreach>
+	</delete>
+	
+	<delete id="deleteChatUserFac">
+		delete from chatUser where userId in
+		<foreach item="i" collection="list" open="(" close=")" separator=",">#{i.f_seq}</foreach>
+	</delete>
 	
 	<!-- FRIEND -->
 	<select id="searchFriend" resultType="kh.spring.dto.UserDTO">

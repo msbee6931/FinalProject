@@ -16,6 +16,7 @@ import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.RequestBoardDTO;
 import kh.spring.dto.StudentsDTO;
 import kh.spring.service.AdminService;
+import kh.spring.service.ChattingService;
 import kh.spring.service.FreeBoardService;
 import kh.spring.service.RequestBoardService;
 import kh.spring.util.EncryptUtils;
@@ -31,6 +32,10 @@ public class AdminController {
 	
 	@Autowired
 	private FreeBoardService FBservice;
+	
+	@Autowired
+	private ChattingService cService;
+	
 	//students
 	@RequestMapping("studentslist.nex")
 	public NexacroResult studentsList() {
@@ -44,6 +49,8 @@ public class AdminController {
 		System.out.println("도착여부");
 		NexacroResult nr = new NexacroResult();
 		int result = aService.deletestu(list);
+		// 채팅 아이디 삭제
+		cService.deleteChatUserStu(list);
 		return nr;
 	}
 	@RequestMapping("updateStudent.nex")
@@ -57,17 +64,25 @@ public class AdminController {
 	@RequestMapping("insertStudent.nex")
 	public NexacroResult insertStudent(@ParamDataSet(name="in_ds")List<StudentsDTO> list) {
 		System.out.println("도착");
-		String pw; String Spw = null;
+		String pw; 
+		String Spw = null;
+		int s_seq = 0;
+		String userName = null;
 		for(int i =0; i < list.size(); i++) {
 			pw = list.get(i).getPw();
 			Spw = EncryptUtils.getSHA256(pw);
 			list.get(i).setPw(Spw);
+			s_seq = list.get(i).getS_seq();
+			userName = list.get(i).getName();
 		}
 		NexacroResult nr = new NexacroResult();
 		int result = aService.insertstu(list);
-		return nr;
 		
-		//professor
+		// 채팅 아이디 생성
+		String userId = Integer.toString(s_seq);		
+		cService.insertChatUser(userId,userName);
+		
+		return nr;
 	}
 	@RequestMapping("professorList.nex")
 	public NexacroResult professorList() {
@@ -88,19 +103,28 @@ public class AdminController {
 		System.out.println("도착");
 		NexacroResult nr = new NexacroResult();
 		int result = aService.deletePro(list);
+		// 채팅 아이디 삭제
+		cService.deleteChatUserPro(list);
 		return nr;
 	}
 	@RequestMapping("insertProfessor.nex")
 	public NexacroResult insertProfessor(@ParamDataSet(name="in_ds")List<ProfessorDTO> list) {
 		System.out.println("도착");
 		String pw; String Spw = null;
+		int p_seq = 0;
+		String userName = null;
 		for(int i =0; i < list.size(); i++) {
 			pw = list.get(i).getPw();
 			Spw = EncryptUtils.getSHA256(pw);
 			list.get(i).setPw(Spw);
+			p_seq = list.get(i).getP_seq();
+			userName = list.get(i).getName();
 		}
 		NexacroResult nr = new NexacroResult();
 		int result = aService.insertPro(list);
+		// 채팅 아이디 생성
+		String userId = Integer.toString(p_seq);		
+		cService.insertChatUser(userId,userName);
 		return nr;
 	}
 	//faculty
@@ -118,6 +142,8 @@ public class AdminController {
 		System.out.println("도착");
 		NexacroResult nr = new NexacroResult();
 		int result = aService.deleteFac(list);
+		// 채팅 아이디 삭제
+		cService.deleteChatUserFac(list);
 		return nr;
 	}
 	@RequestMapping("updateFaculty.nex")
@@ -129,8 +155,17 @@ public class AdminController {
 	}
 	@RequestMapping("insertFaculty.nex")
 	public NexacroResult insertFaculty(@ParamDataSet(name="in_ds") List<FacultyDTO> list) {
+		int f_seq = 0;
+		String userName = null;
+		for(int i =0; i < list.size(); i++) {
+			f_seq = list.get(i).getF_seq();
+			userName = list.get(i).getName();
+		}
 		NexacroResult nr = new NexacroResult();
 		int result = aService.insertFac(list);
+		// 채팅 아이디 생성
+		String userId = Integer.toString(f_seq);		
+		cService.insertChatUser(userId,userName);
 		return nr;
 	}
 

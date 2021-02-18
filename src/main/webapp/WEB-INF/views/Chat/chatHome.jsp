@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
@@ -15,23 +17,7 @@
 		padding: 0px;
 		margin: 0px;
 	}
-	/* CONTAINER */
-	#container{
-		display: flex;
-	}
-	/* Profile */
-	.profile{
-		padding: 10px;	
-	}
-	.friend,
-	.myProfile {
-		display: flex;
-		margin: 6px 0px;
-		align-items: center;
-	}
-	.profileImg{
-		padding-right: 6px;
-	}
+	/* PROFILE */
 	.friendName {
 		cursor: pointer;
 	}
@@ -39,23 +25,23 @@
 </head>
 <body>
 	<div class="container" id="container">
-		<div class="profile">
-			<div class="myProfile">
-				<div class="profileImg user">
+		<div class="row m-5 profile">
+			<div class="row p-3 d-flex align-items-center myProfile">
+				<div class="col-6 profileImg user">
 					<c:choose>
 						<c:when test="${user.getImg() == null }"><img src="/img/deepblue.png" width="30px"></c:when>
 						<c:otherwise><img src="/files/${user.getImg()}" width="30px"></c:otherwise>
 					</c:choose>
 				</div>
+				<div class="col-6" id="userName">${user.getUserName() }</div>
 				<input type="hidden" id="userId" value=${user.getUserId() }>
-				<div id="userName">${user.getUserName() }</div>
 			</div>
-			<div class="otherProfile">
+			<div class="row otherProfile">
 				<c:choose>
 					<c:when test="${friendList != null }">
 						<c:forEach var="dto" items="${friendList }">
-							<div class="friend">
-								<div class="profileImg other">
+							<div class="row p-3 d-flex align-items-center friend">
+								<div class="col-6 profileImg other">
 									<c:forEach var="aDto" items="#{allUser}">
 										<c:if test="${dto.getFriendId() == aDto.getUserId() }">
 											<c:choose>
@@ -65,26 +51,27 @@
 										</c:if>
 									</c:forEach>
 								</div>
-								<div class="friendName">${dto.getFriendName() }</div>
+								<div class="col-6 friendName">${dto.getFriendName() }</div>
 								<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
 							</div>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
-						<div>친구가 없습니다!</div>
+						<div class="col-12">친구가 없습니다!</div>
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<div class="btn">
-				<div class="searchInput">
-					<input type="text" id="inputTxt" placeholder="검색할 친구의 학번 혹은 이름을 입력해주세요.">
-					<input type="button" id="inputBtn" value="검색">
+			<div class="row etc">
+				<div class="row p-3 searchInput">
+					<input type="text" id="inputTxt" class="col-6" placeholder="검색할 친구를 입력해주세요.">
+					<input type="button" id="inputBtn" class="col-6" value="검색">
 				</div>
-				<div id="goChatList">chatList</div>
-				<div id="goProfile">profile update</div>
+				<div class="row btns">
+					<div id="goChatList" class="col-6">chatList</div>
+					<div id="goProfile" class="col-6">profile update</div>
+				</div>
 			</div>
 		</div>
-		<!-- <div id="main"></div> -->
 	</div>
 	
 	<script>
