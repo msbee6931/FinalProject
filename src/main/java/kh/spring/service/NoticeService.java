@@ -19,11 +19,26 @@ public class NoticeService {
 	public int insertNomalNotice(NoticeDTO dto) {
 		return nDAO.insertNomalNotice(dto);
 	}
+	public int deleteNotice(int n_seq) {
+		return nDAO.deleteNotice(n_seq);
+	}
+	public int deleteNoticeFile(int n_seq) {
+		return nDAO.deleteNoticeFile(n_seq);
+	}
 	public int selectLastSeq() {
 		return nDAO.selectLastSeq();
 	}
+	public int selectseq() {
+		return nDAO.selectseq();
+	}
+	public int selectn_seq() {
+		return nDAO.selectn_seq();
+	}
 	public int insertNoticeFile(NoticeFileDTO dto) {
 		return nDAO.insertNoticeFile(dto);
+	}
+	public int updateNoticeFile(NoticeFileDTO dto) {
+		return nDAO.updateNoticeFile(dto);
 	}
 	public List<NoticeDTO> selectNomalNotice(){
 		return nDAO.selectNomalNotice();
@@ -230,6 +245,14 @@ public class NoticeService {
 	      }
 	      return sb.toString();
 	   }
+		//Bachelor
+		public List<NoticeDTO> selectBachelorNotice(){
+			return nDAO.selectBachelorNotice();
+		}
+		//Employee
+		public List<NoticeDTO> selectEmployNotice(){
+			return nDAO.selectEmployNotice();
+		}
 	 public String searchScholarNavi(int currentPage,String content,String category) throws Exception {
 	      int recordTotalCount = searchScholarCount(content,category);
 	      int pageTotalCount;

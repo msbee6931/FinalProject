@@ -28,4 +28,10 @@ public class AttendDAO {
 	public int attendDel(AttendDTO dto) {
 		return session.delete("Attend.attendDel",dto);
 	}
+	public List <AttendDTO> selectOneAttend(AttendDTO dto) {
+		return session.selectList("Attend.selectOneAttend", dto);
+	}
+	public List <AttendDTO> selectAttend(int cCode) {
+		return session.selectList("Attend.selectAttend", cCode);
+	}
 }

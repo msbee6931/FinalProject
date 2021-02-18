@@ -1,6 +1,7 @@
 package kh.spring.dto;
 
 public class NoticeDTO {
+	private int chk;
 	private int n_seq;
 	private int rn;
 	private String title;
@@ -12,8 +13,10 @@ public class NoticeDTO {
 	
 	public NoticeDTO() {}
 
-	public NoticeDTO(int n_seq, int rn, String title, String writedate, String contents, String file, String deptcode,
-			int view_count) {
+	public NoticeDTO(int chk, int n_seq, int rn, String title, String writedate, String contents, String file,
+			String deptcode, int view_count) {
+		super();
+		this.chk = chk;
 		this.n_seq = n_seq;
 		this.rn = rn;
 		this.title = title;
@@ -22,6 +25,14 @@ public class NoticeDTO {
 		this.file = file;
 		this.deptcode = deptcode;
 		this.view_count = view_count;
+	}
+
+	public int getChk() {
+		return chk;
+	}
+
+	public void setChk(int chk) {
+		this.chk = chk;
 	}
 
 	public int getN_seq() {

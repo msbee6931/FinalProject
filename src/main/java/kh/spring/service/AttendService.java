@@ -28,4 +28,10 @@ public class AttendService {
 	public int attendDel(AttendDTO dto) {
 		return dao.attendDel(dto);
 	}
+	public List<AttendDTO> selectOneAttend(AttendDTO dto) {
+		return dao.selectOneAttend(dto);
+	}
+	public List<AttendDTO> selectAttend(int cCode) {
+		return dao.selectAttend(cCode);
+	}
 }

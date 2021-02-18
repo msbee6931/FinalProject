@@ -111,4 +111,8 @@ public class ReferenceService {
 		return dao.view_countUpd(dto);
 	}
 	
+	public int garbageDelete() {
+		return dao.garbageDelete();
+	}
+
 }
