@@ -13,11 +13,24 @@ public class TuitionService {
 	@Autowired
 	private TuitionDAO tDao;
 	
-	public int insertTuition(List<TuitionDTO> list) {
-		return tDao.insertTuition(list);
+	public int insertTuition(TuitionDTO dto) {
+		return tDao.insertTuition(dto);
 	}
 	
 	public TuitionDTO selectByStd_code(String std_code) {
 		return tDao.selectByStd_code(std_code);
+	}
+	
+	public List<TuitionDTO> selectAll() {
+		return tDao.selectAll();
+	}
+	public TuitionDTO selectOne(int seq) {
+		return tDao.selectOne(seq);
+	}
+	public int updateOne(TuitionDTO dto) {
+		return tDao.updateOne(dto);
+	}
+	public int deleteOne(int seq) {
+		return tDao.deleteOne(seq);
 	}
 }

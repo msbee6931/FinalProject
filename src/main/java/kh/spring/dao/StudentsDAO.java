@@ -1,9 +1,12 @@
 package kh.spring.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kh.spring.dto.ChartDTO;
 import kh.spring.dto.StudentsDTO;
 
 @Repository
@@ -25,4 +28,18 @@ public class StudentsDAO {
 	public int updateStdRest(int sCode) {
 		return session.update("Students.updateStdRest", sCode);
 	}
+	public List<ChartDTO> selectColCount() {
+		return session.selectList("Students.selectColCount");
+	}
+	public List<ChartDTO> selectDeptCount() {
+		return session.selectList("Students.selectDeptCount");
+	}
+	public List<ChartDTO> selectGenderCount() {
+		return session.selectList("Students.selectGenderCount");
+	}
+	public List<StudentsDTO> selectAllStd() {
+		return session.selectList("Students.selectAllStd");
+	}
+	
+	
 }

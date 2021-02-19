@@ -81,9 +81,6 @@
 
         	var nRow = objApp.std_openForm.findRow("form_id", sFormId);
         	this.objApp.std_openForm.deleteRow(nRow);
-        	if(this.objApp.std_openForm.getRowCount() == 0){
-        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("0,*,0");
-        	}
 
         //	trace(objApp.std_openForm.saveXML());
         };

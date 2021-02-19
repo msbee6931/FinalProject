@@ -267,12 +267,12 @@
         {
         	var sCode = this.objApp.gds_students.getColumn(0,"s_seq");
         	var sName = this.objApp.gds_students.getColumn(0,"name");
-        	var deptCode = this.objApp.gds_students.getColumn(0,"deptCode");
+        	var deptCode = this.objApp.gds_students.getColumn(0,"deptcode");
         	var grade = this.objApp.gds_students.getColumn(0,"grade");
         	this.Div00.form.sta_sSeq.set_text(sCode);
         	this.Div00.form.sta_name.set_text(sName);
-        	this.Div00.form.sta_dept.set_value(deptCode);
-        	this.Div00.form.sta_grade.set_text(grade+"학년");
+        	this.Div00.form.sta_dept.set_value(deptCode)
+        	this.Div00.form.sta_grade.set_text(grade);
 
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
@@ -328,7 +328,7 @@
         		nPoint += parseInt(point);
         	}
         	this.Div00.form.sta_point.set_text(20-nPoint);
-        	trace(this.ds_class.saveXML());
+         	trace(this.ds_myClass.saveXML());
         }
         this.fn_callback_TimeTable=function(){
         	var Time = new Array();
@@ -409,123 +409,108 @@
         		var person =limit.split("/");
         		var myPoint = this.Div00.form.sta_point.text;
         		var point = this.ds_class.getColumn(nRow,"classPoint").replace("학점","");
-        		var grade = this.ds_class.getColumn(nRow,"grade")
-        		var myGrade = this.Div00.form.sta_grade.text;
-        		var part = this.ds_class.getColumn(nRow,"classPart");
-        		var dept = this.ds_class.getColumn(nRow,"dept");
-        		var myDept = this.Div00.form.sta_dept.text;
         		var type ="";
+        		trace(person[0]);
+        		trace(person[1]);
         		if(person[0] < person[1]){
         			if(nexacro.toNumber(myPoint)-nexacro.toNumber(point) < 0){
         				alert("학점이 부족합니다");
         				return;
         			}else{
-        				if(grade != myGrade){
-        					alert("수강 가능한 학년이 아닙니다");
-        					return;
-        				}else{
-        					if(dept != myDept){
-        						if(part == "전공필수" || "전공선택"){
-        							alert("다른 학과 전공은 신청이 불가능합니다");
-        							return;
-        						}
-        					}else{
-        						var classTime = this.ds_class.getColumn(nRow,"classTime");
-        						var className = this.ds_class.getColumn(nRow,"className");
-        						var classCode = this.ds_class.getColumn(nRow,"classSeq");
-        						var sCode = this.Div00.form.sta_sSeq.text;
-        						classTime = nexacro.replaceAll(classTime,"교시","");
-        						var time = classTime.split(")"); //요일(교시
-        						this.ds_stdTimeTableCopy.clearData();
-        						for(var i=0; i<time.length-1; i++){
-        							var weeks = time[i].split("("); //요일
-        							var week = weeks[1].split(" "); //교시
-        							var col ="";
-        							var name ="";
-        							var code ="";
-        							if(weeks[0] =="월"){col="mon"}
-        							else if(weeks[0] =="화"){col="tue"}
-        							else if(weeks[0] =="수"){col="wed"}
-        							else if(weeks[0] =="목"){col="thu"}
-        							else if(weeks[0] =="금"){col="fri"}
-        							else if(weeks[0] =="토"){col="sat"}
-        							else if(weeks[0] =="일"){col="sun"}
-        							for(var j=0; j<week.length; j++){
-        								var cName = this.ds_stdTimeTable.getColumn(week[j]-1,col);
-        								if(cName=="" || cName == null){
-        									this.ds_stdTimeTable.setColumn(week[j]-1,col,className);
-        									this.ds_stdTimeTable.setColumn(week[j]-1,"classCode",classCode);
-        									this.ds_stdTimeTable.setColumn(week[j]-1,"sCode",sCode);
-        									var addRow = this.ds_stdTimeTableCopy.addRow(); //삭제 시 row가 변경되어 삭제한 내용도 추가되서 DsCopy본 이용
-        									this.ds_stdTimeTableCopy.setColumn(addRow,col,className);
-        									this.ds_stdTimeTableCopy.setColumn(addRow,"time",week[j]+"교시");
-        									this.ds_stdTimeTableCopy.setColumn(addRow,"classCode",classCode);
-        									this.ds_stdTimeTableCopy.setColumn(addRow,"sCode",sCode);
-        									type = "insert";
-        								}else{
-        									if(cName.substring(cName.length-1,cName.length)=="*"){
-        										//장바구니에 넣은것과 다른 과목 같은 시간대에 수강하는 경우(해당 과목 장바구니에서 삭제 + 새로운 과목 입력)
-        										var stdRow = this.ds_class.findRowNF("className",cName.substring(0,cName.length-6));
-        										var classSeq = this.ds_class.getColumnNF(stdRow,"classSeq");
-        										code +=classSeq +",";
-        										name += cName +"/";
-        										//새로운 과목 추가
-        										this.ds_stdTimeTable.setColumn(week[j]-1,col,className);
-        										this.ds_stdTimeTable.setColumn(week[j]-1,"classCode",classCode);
-        										this.ds_stdTimeTable.setColumn(week[j]-1,"sCode",sCode);
-        										var addRow = this.ds_stdTimeTableCopy.addRow(); //삭제 시 row가 변경되어 삭제한 내용도 추가되서 DsCopy본 이용
-        										this.ds_stdTimeTableCopy.setColumn(addRow,col,className);
-        										this.ds_stdTimeTableCopy.setColumn(addRow,"time",week[j]+"교시");
-        										this.ds_stdTimeTableCopy.setColumn(addRow,"classCode",classCode);
-        										this.ds_stdTimeTableCopy.setColumn(addRow,"sCode",sCode);
-        										type = "change"
-        									}else{
-        										alert("해당 시간에 이미 수강중인 과목이 있습니다");
-        										return; //함수 탈출
-        									}
-        								}
+        				var classTime = this.ds_class.getColumn(nRow,"classTime");
+        				var className = this.ds_class.getColumn(nRow,"className");
+        				var classCode = this.ds_class.getColumn(nRow,"classSeq");
+        				var sCode = this.Div00.form.sta_sSeq.text;
+        				classTime = nexacro.replaceAll(classTime,"교시","");
+        				var time = classTime.split(")"); //요일(교시
+        				this.ds_stdTimeTableCopy.clearData();
+        				for(var i=0; i<time.length-1; i++){
+        					var weeks = time[i].split("("); //요일
+        					var week = weeks[1].split(" "); //교시
+        					var col ="";
+        					var name ="";
+        					var code ="";
+        					if(weeks[0] =="월"){col="mon"}
+        					else if(weeks[0] =="화"){col="tue"}
+        					else if(weeks[0] =="수"){col="wed"}
+        					else if(weeks[0] =="목"){col="thu"}
+        					else if(weeks[0] =="금"){col="fri"}
+        					else if(weeks[0] =="토"){col="sat"}
+        					else if(weeks[0] =="일"){col="sun"}
+        					for(var j=0; j<week.length; j++){
+        						var cName = this.ds_stdTimeTable.getColumn(week[j]-1,col);
+        						if(cName=="" || cName == null){
+        							this.ds_stdTimeTable.setColumn(week[j]-1,col,className);
+        							this.ds_stdTimeTable.setColumn(week[j]-1,"classCode",classCode);
+        							this.ds_stdTimeTable.setColumn(week[j]-1,"sCode",sCode);
+        							var addRow = this.ds_stdTimeTableCopy.addRow(); //삭제 시 row가 변경되어 삭제한 내용도 추가되서 DsCopy본 이용
+        							this.ds_stdTimeTableCopy.setColumn(addRow,col,className);
+        							this.ds_stdTimeTableCopy.setColumn(addRow,"time",week[j]+"교시");
+        							this.ds_stdTimeTableCopy.setColumn(addRow,"classCode",classCode);
+        							this.ds_stdTimeTableCopy.setColumn(addRow,"sCode",sCode);
+        							type = "insert";
+        						}else{
+        							if(cName.substring(cName.length-1,cName.length)=="*"){
+        								//장바구니에 넣은것과 다른 과목 같은 시간대에 수강하는 경우(해당 과목 장바구니에서 삭제 + 새로운 과목 입력)
+        								var stdRow = this.ds_class.findRowNF("className",cName.substring(0,cName.length-6));
+        								var classSeq = this.ds_class.getColumnNF(stdRow,"classSeq");
+        								code +=classSeq +",";
+        								name += cName +"/";
+        								//새로운 과목 추가
+        								this.ds_stdTimeTable.setColumn(week[j]-1,col,className);
+        								this.ds_stdTimeTable.setColumn(week[j]-1,"classCode",classCode);
+        								this.ds_stdTimeTable.setColumn(week[j]-1,"sCode",sCode);
+        								var addRow = this.ds_stdTimeTableCopy.addRow(); //삭제 시 row가 변경되어 삭제한 내용도 추가되서 DsCopy본 이용
+        								this.ds_stdTimeTableCopy.setColumn(addRow,col,className);
+        								this.ds_stdTimeTableCopy.setColumn(addRow,"time",week[j]+"교시");
+        								this.ds_stdTimeTableCopy.setColumn(addRow,"classCode",classCode);
+        								this.ds_stdTimeTableCopy.setColumn(addRow,"sCode",sCode);
+        								type = "change"
+        							}else{
+        								alert("해당 시간에 이미 수강중인 과목이 있습니다");
+        								return; //함수 탈출
         							}
         						}
-        						//학점 갱신
-        						this.Div00.form.sta_point.set_text(nexacro.toNumber(myPoint)-nexacro.toNumber(point));
-        						var addRow = this.ds_myClass.addRow();
-        						this.ds_myClass.copyRow(addRow,this.ds_class,nRow);
-        						//insert studentClass 추가
-        						var sName = this.Div00.form.sta_name.text;
-        						var addRow2 = this.ds_stdClass.addRow();
-        						this.ds_stdClass.setColumn(addRow2,"sCode",sCode);
-        						this.ds_stdClass.setColumn(addRow2,"sName",sName);
-        						this.ds_stdClass.setColumn(addRow2,"classCode",classCode);
-        						this.ds_stdClass.setColumn(addRow2,"basket",'N');
-        						trace( "type :"+type);
-        						if(type =="insert"){
-        							//insert 시간표
-        							this.transaction(
-        								"stdClassInsert"
-        								,"/stdClassInsert.nex"
-        								,"in_ds1=ds_stdClass:U in_ds2=ds_stdTimeTableCopy:U"
-        								,""
-        								,"row="+nRow
-        								,"fn_callback_stdClass"
-        							);
-        						}else if(type="change"){
-        							code = code.substring(0,code.length-1)
-        							this.transaction(
-        								"stdClassInsert"
-        								,"/stdBasketDelete.nex"
-        								,"in_ds1=ds_stdTimeTableCopy:U in_ds2=ds_stdClass:U"
-        								,""
-        								,"classCode="+code + " sCode="+sCode +" row="+nRow
-        								,"fn_callback_stdClass"
-        							);
-        							cName = name.split("/");
-        							for(var m=0; m< cName.length; m++){ //보이지않는 내부적 로직으로 DB적용값과 맞춰주기 위해 dataSet에서 장바구니 내용 삭제
-        								for(var a=0; a<this.ds_stdTimeTable.getRowCount();a++){ //전체와 넣으려는 자리에 있던 과목의 이름과 비교
-        									for(var b=0; b<this.ds_stdTimeTable.getColCount(); b++){
-        										if(this.ds_stdTimeTable.getColumn(a,b)==cName[m]){
-        											this.ds_stdTimeTable.setColumn(a,b,"");
-        										}
-        									}
+        					}
+        				}
+        				//학점 갱신
+        				this.Div00.form.sta_point.set_text(nexacro.toNumber(myPoint)-nexacro.toNumber(point));
+        				var addRow = this.ds_myClass.addRow();
+        				this.ds_myClass.copyRow(addRow,this.ds_class,nRow);
+        				//insert studentClass 추가
+        				var sName = this.Div00.form.sta_name.text;
+        				var addRow2 = this.ds_stdClass.addRow();
+        				this.ds_stdClass.setColumn(addRow2,"sCode",sCode);
+        				this.ds_stdClass.setColumn(addRow2,"sName",sName);
+        				this.ds_stdClass.setColumn(addRow2,"classCode",classCode);
+        				this.ds_stdClass.setColumn(addRow2,"basket",'N');
+        				trace( "type :"+type);
+        				if(type =="insert"){
+        					//insert 시간표
+        					this.transaction(
+        						"stdClassInsert"
+        						,"/stdClassInsert.nex"
+        						,"in_ds1=ds_stdClass:U in_ds2=ds_stdTimeTableCopy:U"
+        						,""
+        						,"row="+nRow
+        						,"fn_callback_stdClass"
+        					);
+        				}else if(type="change"){
+        					code = code.substring(0,code.length-1)
+        					this.transaction(
+        						"stdClassInsert"
+        						,"/stdBasketDelete.nex"
+        						,"in_ds1=ds_stdTimeTableCopy:U in_ds2=ds_stdClass:U"
+        						,""
+        						,"classCode="+code + " sCode="+sCode +" row="+nRow
+        						,"fn_callback_stdClass"
+        					);
+        					cName = name.split("/");
+        					for(var m=0; m< cName.length; m++){ //보이지않는 내부적 로직으로 DB적용값과 맞춰주기 위해 dataSet에서 장바구니 내용 삭제
+        						for(var a=0; a<this.ds_stdTimeTable.getRowCount();a++){ //전체와 넣으려는 자리에 있던 과목의 이름과 비교
+        							for(var b=0; b<this.ds_stdTimeTable.getColCount(); b++){
+        								if(this.ds_stdTimeTable.getColumn(a,b)==cName[m]){
+        									this.ds_stdTimeTable.setColumn(a,b,"");
         								}
         							}
         						}
@@ -545,30 +530,30 @@
         	trace(sId);
         	if(sId == "stdClassInsert"){
         		if(this.msg == "Y"){
-        			var limit = this.ds_class.getColumn(this.row,"limit").split("/");
-        			this.ds_class.setColumn(this.row,"limit",this.count+"/"+limit[1]);
-        			limit = this.ds_class.getColumn(this.row,"limit")
-        			var classSeq = this.ds_class.getColumn(this.row,"classSeq");
-        			this.transaction(
-        				"/limitUpd"
-        				,"/limitUpd.nex"
-        				,""
-        				,""
-        				,"limit="+limit +" classSeq="+classSeq
-        				,"fn_callback"
-        			);
-        			this.ds_class.deleteRow(this.row);
+        		var limit = this.ds_class.getColumn(this.row,"limit").split("/");
+        		this.ds_class.setColumn(this.row,"limit",this.count+"/"+limit[1]);
+        		limit = this.ds_class.getColumn(this.row,"limit")
+        		var classSeq = this.ds_class.getColumn(this.row,"classSeq");
+        		this.transaction(
+        			"/limitUpd"
+        			,"/limitUpd.nex"
+        			,""
+        			,""
+        			,"limit="+limit +" classSeq="+classSeq
+        			,"fn_callback"
+        		);
+        		this.ds_class.deleteRow(this.row);
         		}else{
         			alert("인원수를 초과했습니다");
         			this.ds_myClass.deleteRow(this.ds_myClass.getRowCount()-1);
         			var className= this.ds_class.getColumn(this.row,"className");
         			for(var i=0; i<this.ds_stdTimeTable.getRowCount();i++){
-        				for(var j=0; j<this.ds_stdTimeTable.getColCount(); j++){
-        					if(this.ds_stdTimeTable.getColumn(i,j)==className){
-        						this.ds_stdTimeTable.setColumn(i,j,"");
-        					};
-        				}
+        			for(var j=0; j<this.ds_stdTimeTable.getColCount(); j++){
+        				if(this.ds_stdTimeTable.getColumn(i,j)==className){
+        					this.ds_stdTimeTable.setColumn(i,j,"");
+        				};
         			}
+        		}
         		}
         	}else if(sId == "stdTimeTableDelete"){
         		var limit = this.ds_myClass.getColumn(this.row,"limit").split("/");

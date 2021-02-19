@@ -1,9 +1,12 @@
 package kh.spring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kh.spring.dao.StudentsDAO;
+import kh.spring.dto.ChartDTO;
 import kh.spring.dto.StudentsDTO;
 
 @Service
@@ -26,4 +29,21 @@ public class StudentsService {
 	public int updateStdRest(int sCode) {
 		return dao.updateStdRest(sCode);
 	}
+	public List<ChartDTO> selectColCount() {
+		return dao.selectColCount();
+	}
+	public List<ChartDTO> selectDeptCount() {
+		return dao.selectDeptCount();
+	}
+	public List<ChartDTO> selectGenderCount() {
+		return dao.selectGenderCount();
+	}
+	
+	public List<StudentsDTO> selectAllStd() {
+		return dao.selectAllStd();
+	}
+
+	
+	
+	
 }

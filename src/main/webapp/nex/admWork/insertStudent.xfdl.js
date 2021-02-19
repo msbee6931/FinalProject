@@ -246,53 +246,10 @@
         	var grade = this.edt_grade.value;
         	var pw = this.edt_pw.value;
         	var gender = this.com_gender.value;
-        	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;
+        	var colCode = this.com_colCode.value;
         	var colGrade = this.com_colGrade.value;
-
-        	if(s_seq == null || s_seq == "undefined"){
-        		this.alert("학번 입력해주세요");
-        		return;
-        	}else if(name == null || name == "undefined"){
-        		this.alert("이름 입력해주세요");
-        		return;
-        	}else if(secNumber == null || secNumber == "undefined"){
-        		this.alert("주민번호 입력해주세요.");
-        		return;
-        	}else if(email == null || email == "undefined"){
-        		this.alert("이메일 입력해주세요");
-        		return;
-        	}else if(contact == null || contact == "undefined"){
-        		this.alert("전화번호 입력해주세요");
-        		return;
-        	}else if(address == null || address == "undefined"){
-        		this.alert("주소 입력해주세요");
-        		return;
-        	}else if(scholarship == null || scholarship == "undefined"){
-        		this.alert("장학금 입력해주세요");
-        		return;
-        	}else if(rest == null || rest == "undefined"){
-        		this.alert("휴학여부 입력해주세요");
-        		return;
-        	}else if(grade == null || grade == "undefined"){
-        		this.alert("성적 입력해주세요");
-        		return;
-        	}else if(pw == null || pw == "undefined"){
-        		this.alert("비밀번호 입력해주세요");
-        		return;
-        	}else if(gender == null || gender == "undefined"){
-        		this.alert("성별 입력해주세요");
-        		return;
-        	}else if(colCode == null || colCode == "undefined"){
-        		this.alert("학과분류 입력해주세요");
-        		return;
-        	}else if(deptCode == null || deptCode == "undefined"){
-        		this.alert("학과 입력해주세요");
-        		return;
-        	}else if(colGrade == null || colGrade == "undefined"){
-        		this.alert("학년 입력해주세요");
-        		return;
-        	}
+        	trace(secNumber);
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);

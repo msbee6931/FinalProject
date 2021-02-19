@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_students_copy", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -57,80 +57,88 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_s_seq","415","40","150","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_s_seq","417","42","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_name","415","75","150","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_name","417","77","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_email","415","145","150","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_age","417","112","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_contact","415","180","150","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_email","417","147","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_address","415","215","150","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_contact","417","182","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_pw","415","250","150","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_address","417","217","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_modify","394","351","50","40",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_pw","417","287","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_modify","394","351","50","40",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("7");
             obj.set_text("수정");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_cancel","544","351","50","40",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("7");
+            obj.set_taborder("8");
             obj.set_text("취소");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mas_secNumber","415","110","150","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("8");
-            obj.set_format("###### - #{######}");
-            obj.set_type("string");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static01_00","350","80","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00","348","81","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("학번");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00","350","115","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_00","348","116","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("이름");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_01","350","150","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_01","348","151","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
-            obj.set_text("주민번호");
+            obj.set_text("나이");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_02","350","185","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_02","348","186","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("이메일");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_03","350","220","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_03","348","221","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("전화번호");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_04","350","255","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_04","348","256","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("주소");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_06","350","290","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_05","348","291","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("12");
+            obj.set_text("생일");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_06","348","326","100","30",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
             obj.set_text("수정할비밀번호");
+            this.addChild(obj.name, obj);
+
+            obj = new Calendar("cal_birth","449","291","150","30",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
+            obj.set_dateformat("yyyy-MM-dd");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -148,6 +156,10 @@
             this.addChild(obj.name, obj);
             obj.bind();
 
+            obj = new BindItem("item2","Div00.form.edt_age","value","ds_students_copy","age");
+            this.addChild(obj.name, obj);
+            obj.bind();
+
             obj = new BindItem("item3","Div00.form.edt_email","value","ds_students_copy","email");
             this.addChild(obj.name, obj);
             obj.bind();
@@ -160,7 +172,7 @@
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item2","Div00.form.mas_secNumber","value","ds_students_copy","secNumber");
+            obj = new BindItem("item6","cal_birth","value","ds_students_copy","birth");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -208,43 +220,28 @@
 
         	var s_seq = this.Div00.form.edt_s_seq.value;
         	var name = this.Div00.form.edt_name.value;
-        	var secNumber = this.Div00.form.mas_secNumber.value;
+        	trace(name);
+        	var age = this.Div00.form.edt_age.value;
         	var email = this.Div00.form.edt_email.value;
         	var contact = this.Div00.form.edt_contact.value;
         	var address = this.Div00.form.edt_address.value;
+        	var birth = this.cal_birth.value;
         	var pw = this.Div00.form.edt_pw.value;
-        	if(s_seq == null || s_seq == "undefined"){
-        		this.alert("학번 입력해주세요");
-        		return;
-        	}else if(name == null || name == "undefined"){
-        		alert("이름 입력해주세요");
-        		return;
-        	}else if(secNumber == null || secNumber == "undefined"){
-        		alert("주민번호 입력해주세요");
-        		return;
-        	}else if(email == null || email == "undefined"){
-        		alert("이메일 입력해주세요");
-        		return;
-        	}else if(contact == null || contact == "undefined"){
-        		alert("전화번호 입력해주세요");
-        		return;
-        	}else if(address == null || address == "undefined"){
-        		alert("주소 입력해주세요");
-        		return;
-        	}
 
         	var shaObj = new jsSHA("SHA-256","TEXT");
         	shaObj.update(pw);
         	var hash = shaObj.getHash("HEX");
 
+        	trace(birth);
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);
         	this.ds_students_copy.setColumn(addRow,"name",name);
-        	this.ds_students_copy.setColumn(addRow,"secNumber",secNumber);
+        	this.ds_students_copy.setColumn(addRow,"age",age);
         	this.ds_students_copy.setColumn(addRow,"email",email);
         	this.ds_students_copy.setColumn(addRow,"contact",contact);
         	this.ds_students_copy.setColumn(addRow,"address",address);
+        	this.ds_students_copy.setColumn(addRow,"birth",birth)
         	this.ds_students_copy.setColumn(addRow,"pw",hash);
 
         	this.transaction(
@@ -282,6 +279,7 @@
             this.addEventHandler("onload",this.myInfoModify_onload,this);
             this.Div00.form.btn_modify.addEventHandler("onclick",this.Div00_btn_modify_onclick,this);
             this.Div00.form.btn_cancel.addEventHandler("onclick",this.Div00_btn_cancel_onclick,this);
+            this.cal_birth.addEventHandler("onchanged",this.cal_birth_onchanged,this);
         };
 
         this.loadIncludeScript("myInfoModify.xfdl");

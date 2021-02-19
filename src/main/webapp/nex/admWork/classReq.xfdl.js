@@ -102,6 +102,7 @@
         this.classReq_onload = function(obj,e)
         {
         		this.Grid00.setCellProperty("Head",0,"text",0);
+        		var proCode = "91515073"; // 로그인 되는 교수 번호
         		this.transaction(
         			"classReqListA"
         			,"/classReqListA.nex"

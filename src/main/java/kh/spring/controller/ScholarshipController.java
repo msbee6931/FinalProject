@@ -55,10 +55,20 @@ public class ScholarshipController {
 
 	//관리자_장학금 입력
 	@RequestMapping("insert.scholarship")
-	public NexacroResult insert(@ParamDataSet(name="in_ds")List<ScholarshipDTO> list) {
+	public NexacroResult insert(@ParamDataSet(name="in_ds")ScholarshipDTO dto) {
 		System.out.println("장학금 입력 컨트롤러 확인");
 		NexacroResult nr = new NexacroResult();
-		int result = sService.insertScholar(list);
+		int result = sService.insertScholar(dto);
+		return nr;
+	}
+	
+	//장학금 전체 조회
+	@RequestMapping("selectAll.scholarship")
+	public NexacroResult selectAll() {
+		System.out.println("장학금 전체 조회");
+		NexacroResult nr = new NexacroResult();
+		List<ScholarshipDTO> list = sService.selectAll();
+		nr.addDataSet("out_ds", list);
 		return nr;
 	}
 
@@ -230,7 +240,57 @@ public class ScholarshipController {
 	}
 	
 
+	
+	@RequestMapping("selectOne.scholarship")
+	public NexacroResult selectOne(@ParamVariable(name="seq")int seq) {
+		System.out.println("장학금 개인 확인" + "------>seq확인 "+seq);
+		NexacroResult nr = new NexacroResult();
+		ScholarshipDTO dto = sService.selectOne(seq);
+		nr.addDataSet("out_ds",dto);
+		return nr;
+	}
+	
+	@RequestMapping("updateOne.scholarship")
+	public NexacroResult updateOne( @ParamDataSet(name="in_ds")ScholarshipDTO dto) {
+		System.out.println("장학금 개인 수정확인");
+		System.out.println("날짜 출력하기,,>" + dto.getS_date());
+		NexacroResult nr = new NexacroResult();
 
+		int result = sService.updateOne(dto);
+		
+		return nr;
+	}
+	
+	@RequestMapping("deleteOne.scholarship")
+	public NexacroResult deleteOne( @ParamVariable(name="seq")int seq) {
+		System.out.println("등록금 삭제 확인");
+		NexacroResult nr = new NexacroResult();
+
+		int result = sService.deleteOne(seq);
+		
+		return nr;
+	}
+
+	@RequestMapping("deleteReqSch.scholarship")
+	public NexacroResult deleteReqSch(@ParamDataSet(name="in_ds")List<ReqScholarDTO> list) {
+		System.out.println("등록금 삭제 확인");
+		int[] arr = new int[list.size()];
+		for(int i=0; i<list.size();i++) {
+			arr[i]=list.get(i).getSeq();
+			System.out.println("arr값 출력하기,,>"+arr[i]);
+		}
+		
+		for(int j=0; j<arr.length;j++) {
+			sService.deleteReqfile(arr[j]);
+		}
+		
+		NexacroResult nr = new NexacroResult();
+
+		int result = sService.deleteReqSch(list);
+
+	
+		return nr;
+	}
 
 
 }

@@ -80,12 +80,12 @@ public class HomeController {
 		List<ColScheduleDTO> list2 = new ArrayList<ColScheduleDTO>();
 		for(int i = 0; i<list.size(); i++) {
 			String title =list.get(i).getTitle();
-			String sdate =list.get(i).getSdate().substring(0, 4)+"-"+list.get(i).getSdate().substring(4, 6)+"-"+list.get(i).getSdate().substring(6, 8);
-			String edate =list.get(i).getEdate().substring(0,4)+"-"+list.get(i).getEdate().substring(4,6)+"-"+list.get(i).getEdate().substring(6, 8);
+			String sdate =list.get(i).getsDate().substring(0, 4)+"-"+list.get(i).getsDate().substring(4, 6)+"-"+list.get(i).getsDate().substring(6, 8);
+			String edate =list.get(i).geteDate().substring(0,4)+"-"+list.get(i).geteDate().substring(4,6)+"-"+list.get(i).geteDate().substring(6, 8);
 			ColScheduleDTO dto = new ColScheduleDTO();
 			dto.setTitle(title);
-			dto.setSdate(sdate);
-			dto.setEdate(edate);
+			dto.setsDate(sdate);
+			dto.seteDate(edate);
 			dto.setSeq(i);
 			list2.add(dto);
 		}
@@ -141,8 +141,8 @@ public class HomeController {
 		for(ColScheduleDTO dto : list) {
 			Map<String,String> map = new HashMap<String,String>();
 			 
-			String sDate = dto.getSdate();
-			String eDate = dto.getEdate();
+			String sDate = dto.getsDate();
+			String eDate = dto.geteDate();
 			String title = dto.getTitle();
 			
 			String sYear = sDate.substring(0,4);
