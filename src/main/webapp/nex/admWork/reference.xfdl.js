@@ -48,9 +48,10 @@
             obj.set_verticalAlign("middle");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","783","85","92","31",null,null,null,null,null,null,this);
+            obj = new Button("Button00","760","85","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("파일찾기");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","90","115","875","150",null,null,null,null,null,null,this);
@@ -60,35 +61,32 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"57\"/><Column size=\"318\"/><Column size=\"108\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:name\"/><Cell col=\"2\" text=\"bind:size\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button02","875","85","90","30",null,null,null,null,null,null,this);
+            obj = new Button("Button02","865","85","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
-            obj.set_text("제거");
+            obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button03","887","676","87","48",null,null,null,null,null,null,this);
+            obj = new Button("Button03","874","676","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("글쓰기");
+            obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01","88","28","72","36",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("Title : ");
-            obj.set_font("italic 18pt \"Arial\"");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("title","168","30","522","33",null,null,null,null,null,null,this);
+            obj = new Edit("title","168","30","400","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_border("0px none, 0px none, 1px solid");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static01_00","90","80","72","36",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_text("File :");
-            obj.set_font("italic 18pt \"Arial\"");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new TextArea("contents","92","284","882","380",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
+            obj.set_taborder("7");
             this.addChild(obj.name, obj);
 
             // Layout Functions

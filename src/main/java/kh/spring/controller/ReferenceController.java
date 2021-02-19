@@ -99,7 +99,6 @@ public class ReferenceController {
 		System.out.println("파일 업로드");
 		int parentSeq = (Integer)session.getAttribute("fseq");
 
-		
 				parentSeq+=1;
 				System.out.println("*----");
 				System.out.println("*---");

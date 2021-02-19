@@ -434,7 +434,7 @@
 
             obj = new Combo("co_dept","469","88","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("12");
-            obj.set_innerdataset("ds_dept");
+            obj.set_innerdataset("deptCode");
             obj.set_codecolumn("id");
             obj.set_datacolumn("name");
             obj.set_text("");
@@ -885,7 +885,7 @@
         
         // User Script
         this.registerScript("detail.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
         var classForm = this.Div00.form.classPlanTab.classPlan.form;
         var planForm = this.Div00.form.classPlanTab.classSchedule.form;
         //-------------------------------------------수업계획서 작성-------------------------------------------
@@ -1035,6 +1035,7 @@
         	var classSeq = this.parent.classSeq;
         	var proCode = this.parent.proCode;
         	var view = this.parent.view;
+        	var proName = this.objApp.gds_professor.getColumn(0,"name")
         	if(classSeq != ""){
         		//수업 정보 넣기 / 수업 일정 가져오기
         		this.transaction(
@@ -1050,17 +1051,7 @@
         			classForm.btnSave.set_visible( false );
         		}
         	}else{
-        		//proCode로 proInfo가져옴
-        		// 		this.transaction(
-        		// 				"str_save"
-        		// 				,"getProInfo.nex"
-        		// 				,""
-        		// 				,""
-        		// 				,"proCode="+nexacro.wrapQuote(proCode)
-        		// 				,"fn_callback" // 6.strCallbackFunc
-        		// 			);
-        		//proInfo에서 proName을 가져와서 입력 예정
-        		classForm.sta_proName.set_text("박종혁");
+        		classForm.sta_proName.set_text(proName);
         		classForm.sta_proCode.set_text(proCode);
         	}
         };

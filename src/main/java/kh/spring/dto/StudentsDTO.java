@@ -16,9 +16,28 @@ public class StudentsDTO {
 	private String grade;
 	private String birth;
 	private String gender;
-	private String deptcode;
-	private String colcode;
-	
+	private String deptCode;
+	private String colCode;
+	public StudentsDTO() {}
+	public StudentsDTO(int chk, int s_seq, String pw, String name, int age, String email, String contact,
+			String address, String scholarship, String rest, String grade, String birth, String gender, String deptCode,
+			String colCode) {
+		this.chk = chk;
+		this.s_seq = s_seq;
+		this.pw = pw;
+		this.name = name;
+		this.age = age;
+		this.email = email;
+		this.contact = contact;
+		this.address = address;
+		this.scholarship = scholarship;
+		this.rest = rest;
+		this.grade = grade;
+		this.birth = birth;
+		this.gender = gender;
+		this.deptCode = deptCode;
+		this.colCode = colCode;
+	}
 	public int getChk() {
 		return chk;
 	}
@@ -97,47 +116,18 @@ public class StudentsDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getDeptcode() {
-		return deptcode;
+	public String getDeptCode() {
+		return deptCode;
 	}
-	public void setDeptcode(String deptcode) {
-		this.deptcode = deptcode;
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
 	}
-	public String getColcode() {
-		return colcode;
+	public String getColCode() {
+		return colCode;
 	}
-	public void setColcode(String colcode) {
-		this.colcode = colcode;
+	public void setColCode(String colCode) {
+		this.colCode = colCode;
 	}
-	public StudentsDTO(int chk, int s_seq, String pw, String name, int age, String email, String contact,
-			String address, String scholarship, String rest, String grade, String birth, String gender, String deptcode,
-			String colcode) {
-		super();
-		this.chk = chk;
-		this.s_seq = s_seq;
-		this.pw = pw;
-		this.name = name;
-		this.age = age;
-		this.email = email;
-		this.contact = contact;
-		this.address = address;
-		this.scholarship = scholarship;
-		this.rest = rest;
-		this.grade = grade;
-		this.birth = birth;
-		this.gender = gender;
-		this.deptcode = deptcode;
-		this.colcode = colcode;
-	}
-	public StudentsDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	
-	
 	
 	
 }

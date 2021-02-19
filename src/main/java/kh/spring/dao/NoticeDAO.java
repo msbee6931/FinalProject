@@ -223,5 +223,8 @@ public class NoticeDAO {
 	public List<NoticeDTO> selectEmployNotice(){
 		return db.selectList("Notice.selectEmployNotice");
 	}
+	public List<NoticeDTO> selectNoticeList(){
+		return db.selectList("Notice.selectNoticeList");
+	}
 
 }

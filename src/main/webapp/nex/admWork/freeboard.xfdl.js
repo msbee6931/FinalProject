@@ -51,13 +51,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","49","35","1021","451",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","44","1020","446",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","24","45","376","359",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","24","55","376","349",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("free");
             obj.set_autofittype("col");
@@ -67,53 +67,54 @@
             obj = new Div("Div00","414","13","568","391",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00","15","7","542","28",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             obj.set_text("Contents");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
-            obj.set_font("bold 14px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new WebBrowser("WebBrowser00","14","45","543","335",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","32","8","348","33",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","32","15","87","33",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("FreeBoard");
-            obj.set_font("bold italic 16px/normal \"Arial\",\"-윤고딕320\"");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","885","408","97","32",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn","885","408","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","150","16","86","24",null,null,null,null,null,null,this.Div00.form);
+            obj = new Combo("Combo00","129","26","107","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_innerdataset("search");
             obj.set_codecolumn("id");
             obj.set_datacolumn("column");
+            obj.set_cssclass("cmb_default");
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","248","16","83","22",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit00","246","26","115","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","342","16","44","21",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00","370","26","25","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
-            obj.set_text("검색");
+            obj.set_cssclass("btn_search");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text(" 자유 게시판 관리");
-            obj.set_background("#c1c1c1");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions

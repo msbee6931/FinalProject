@@ -17,18 +17,23 @@
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
-            obj = new Dataset("dept_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">00</Col><Col id=\"name\">전체</Col></Row><Row><Col id=\"code\">01</Col><Col id=\"name\">인문대학</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">자연과학대학</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">공과대학</Col></Row><Row><Col id=\"code\">04</Col><Col id=\"name\">예술대학</Col></Row><Row><Col id=\"code\">05</Col><Col id=\"name\">보건대학</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("tuit_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"checkbox\" type=\"STRING\" size=\"256\"/><Column id=\"dept_code\" type=\"STRING\" size=\"256\"/><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"std_name\" type=\"STRING\" size=\"256\"/><Column id=\"tuit_price\" type=\"INT\" size=\"256\"/><Column id=\"tuit_check\" type=\"STRING\" size=\"256\"/><Column id=\"scholar_price\" type=\"INT\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"dept_code\">03</Col><Col id=\"std_name\">박현</Col><Col id=\"tuit_price\">0</Col><Col id=\"tuit_check\">N</Col><Col id=\"scholar_price\">00</Col><Col id=\"checkbox\"/><Col id=\"std_code\">201102159</Col></Row><Row><Col id=\"dept_code\">02</Col><Col id=\"std_code\">201301236</Col><Col id=\"std_name\">홍길동</Col><Col id=\"tuit_price\">0</Col><Col id=\"tuit_check\">N</Col><Col id=\"scholar_price\">00</Col></Row></Rows>");
+            obj = new Dataset("tuition_ds", this);
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("scholar_ds", this);
             obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"percentage\" type=\"INT\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">00</Col><Col id=\"name\">일반</Col><Col id=\"percentage\">0</Col></Row><Row><Col id=\"code\">01</Col><Col id=\"name\">선행</Col><Col id=\"percentage\">0.3</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">추천장학</Col><Col id=\"percentage\">0.5</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">재정지원</Col><Col id=\"percentage\">0.8</Col></Row><Row><Col id=\"code\">04</Col><Col id=\"name\">성적우수</Col><Col id=\"percentage\">1.0</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("students_ds", this);
+            obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("scholorship_ds", this);
+            obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"STRING\" size=\"256\"/><Column id=\"s_rec\" type=\"STRING\" size=\"256\"/><Column id=\"s_smt\" type=\"STRING\" size=\"256\"/><Column id=\"s_spt\" type=\"STRING\" size=\"256\"/><Column id=\"s_etc\" type=\"STRING\" size=\"256\"/><Column id=\"sSum\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -50,45 +55,53 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_searchEtc","336","21","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_searchEtc","258","36","25","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_background("");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","30","21","120","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_etcSearch","120","36","130","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
-            obj.set_innerdataset("dept_ds");
-            obj.set_codecolumn("code");
-            obj.set_datacolumn("name");
-            obj.set_displaynulltext("학과 선택");
-            obj.set_text("Combo00");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Edit("edt_etcSearch","198","21","130","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("2");
             obj.set_displaynulltext("학번 또는 이름 검색");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","32","68","957","351",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
-            obj.set_binddataset("tuit_ds");
+            obj = new Grid("grd_std","32","71","377","330",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("2");
+            obj.set_binddataset("students_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"27\"/><Column size=\"80\"/><Column size=\"70\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"학과\" displaytype=\"normal\" combodataset=\"dept_ds\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"2\" text=\"학번\"/><Cell col=\"3\" text=\"이름\"/><Cell col=\"4\" text=\"등록금\"/><Cell col=\"5\" text=\"등록금 납부 여부\"/><Cell col=\"6\" text=\"장학금\"/></Band><Band id=\"body\"><Cell text=\"bind:checkbox\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:dept_code\" displaytype=\"combotext\" combodataset=\"dept_ds\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:std_code\"/><Cell col=\"3\" text=\"bind:std_name\"/><Cell col=\"4\" text=\"bind:tuit_price\"/><Cell col=\"5\" text=\"bind:tuit_check\"/><Cell col=\"6\" text=\"bind:scholar_price\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"이름\"/><Cell col=\"2\" text=\"학과\"/></Band><Band id=\"body\"><Cell text=\"bind:s_seq\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:deptCode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_searchDept","154","21","25","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("4");
-            obj.set_background("");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Button("btn_tuit","819","21","80","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("5");
+            obj = new Button("btn_tuit","329","36","80","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("3");
             obj.set_text("등록금 입력");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_scholar","909","21","80","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("grd_tuition","439","71","550","330",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("4");
+            obj.set_binddataset("tuition_ds");
+            obj.set_autofittype("col");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"입학금\"/><Cell col=\"2\" text=\"수업료\"/><Cell col=\"3\" text=\"학생회비\"/><Cell col=\"4\" text=\"졸업앨범비\"/><Cell col=\"5\" text=\"오리엔테이션비\"/><Cell col=\"6\" text=\"합계\"/><Cell col=\"7\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:t_enter\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:t_class\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:t_std\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:t_grd\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:t_ore\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:tSum\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:t_date\" displaytype=\"date\" textAlign=\"center\"/></Band></Format></Formats>");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_del","909","411","80","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("5");
+            obj.set_text("삭제");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_entire","909","36","80","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
-            obj.set_text("장학금 입력");
+            obj.set_text("전체 보기");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Combo("cmb_cate","30","36","80","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("7");
+            obj.set_codecolumn("codecolumn");
+            obj.set_datacolumn("datacolumn");
+            var Div00_form_cmb_cate_innerdataset = new nexacro.NormalDataset("Div00_form_cmb_cate_innerdataset", obj);
+            Div00_form_cmb_cate_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">01</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">02</Col><Col id=\"datacolumn\">학번</Col></Row><Row><Col id=\"codecolumn\">03</Col><Col id=\"datacolumn\">이름</Col></Row></Rows>");
+            obj.set_innerdataset(Div00_form_cmb_cate_innerdataset);
+            obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
@@ -125,196 +138,156 @@
         
         // User Script
         this.registerScript("tuition.xfdl", function() {
+        this.tuition_onload = function(obj,e)
+        {
+
+        	this.transaction(
+        		"selectAllStd.students",//id
+        		"/students/selectAllStd.students",//url (절대경로)
+        		"",//in_ds:U
+        		"students_ds=out_ds",//()_out_ds
+        		"",//argument
+        		"fn_callback_std"
+        		)
+
+        		this.transaction(
+        		"selectAll.tuition",//id
+        		"/tuition/selectAll.tuition",//url (절대경로)
+        		"",//in_ds:U
+        		"tuition_ds=out_ds",//()_out_ds
+        		"",//argument
+        		"fn_callback"
+        		)
+
+        };
+
+
+        this.std_code="";
+        this.Div00_grd_std_oncellclick = function(obj,e)
+        {
+        	this.std_code = this.students_ds.getColumn(e.row,"s_seq");
+        	this.tuition_ds.filter("std_code=='"+this.std_code+"'");
+        };
 
         this.Div00_btn_tuit_onclick = function(obj,e)
         {
-        	//체크박스 유효성 검사
-        	let check = this.tuit_ds.extractRows("checkbox == 1");
-        	if(check.length==0 || check == -1){
-        		alert("선택된항목이없습니다.");
-        		return;
-        	};
-
-        	//체크된 항목의 학번 배열값
-        	var arrCode = new Array();
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			arrCode.push(this.tuit_ds.getColumn(i,"std_code"));
-        		}
-        	}
-
 
         	//등록금 입력을 위한 모달창
         	var objCF = new ChildFrame();
         	objCF.init("tuition_insert_pop",400,100,400,400);
-        	objCF.set_titletext("등록금 입력");
+        	objCF.set_titletext(this.std_code+"등록금 입력");
         	objCF.set_formurl("admWork::tuition_insert_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
-        		{code:arrCode}, // 배열값 넘기기
+        		{std_code:this.std_code}, // 학번
         		this,
-        		"fn_callback_pop_t"
+        		"fn_callback_insertTuition"
         	);
         };
 
-        //등록금 입력 콜백 함수
-        this.fn_callback_pop_t = function(id,sReturn)
+        this.fn_callback_insertTuition = function()
         {
-        	let tSum = sReturn;
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			this.tuit_ds.setColumn(i,"tuit_price",tSum);
-        		}
-        	}
 
-        	//콜백 후 지정 체크박스 해제
-        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			this.tuit_ds.setColumn(i,"checkbox",0);
-        		}
-        	}
+        		this.transaction(
+        		"selectAll.tuition",//id
+        		"/tuition/selectAll.tuition",//url (절대경로)
+        		"",//in_ds:U
+        		"tuition_ds=out_ds",//()_out_ds
+        		"",//argument
+        		"fn_callback"
+        		)
         }
 
-        this.Div00_btn_scholar_onclick = function(obj,e)
+
+
+        this.Div00_grd_tuition_oncelldblclick = function(obj,e)
         {
-        	//체크박스 유효성 검사
-        	let check = this.tuit_ds.extractRows("checkbox == 1");
-        	if(check.length==0||check == -1){
-        		alert("선택된항목이없습니다.");
-        		return;
-        	};
-
-        	//체크된 항목의 학번 배열값
-        	var arrCode = new Array();
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			arrCode.push(this.tuit_ds.getColumn(i,"std_code"));
-        		}
-        	}
-
-        	let sCode = this.tuit_ds.getColumn(check,"std_code")
-        	//장학금 등록을 위한 모달 창
+        	var seq = this.tuition_ds.getColumn(e.row,"seq");
+        	//등록금 수정을 위한 모달창
         	var objCF = new ChildFrame();
-        	objCF.init("scholar_insert_pop",400,100,400,200);
-        	objCF.set_titletext("장학금 입력");
-        	objCF.set_formurl("admWork::scholar_insert_pop.xfdl");
+        	objCF.init("tuition_read_pop",400,100,400,400);
+        	objCF.set_titletext("등록금 확인하기");
+        	objCF.set_formurl("admWork::tuition_read_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
-        		{code:arrCode},
+        		{seq:seq}, // 학번+작성날짜
         		this,
-        		"fn_callback_pop_s"
+        		"fn_callback_updateTuition"
         	);
         };
 
-        //장학금 입력 콜백 함수
-        this.fn_callback_pop_s = function(id,sReturn)
+        this.fn_callback_updateTuition=function()
         {
-        	var sCode = sReturn;
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			this.tuit_ds.setColumn(i,"scholar_price",sReturn);
-        		}
-        	}
-        	//콜백 후 지정 체크박스 해제
-        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			this.tuit_ds.setColumn(i,"checkbox",0);
-        		}
-        	}
-
-        }
-
-        //헤더 전체  클릭 적용
-        this.Div00_Grid00_onheadclick = function(obj,e)
-        {
-        	if(e.cell == 0)
-            {
-                this.gf_setCheckAll(obj, e);
-            }
-
-        };
-        this.gv_isCheckAll = 0;
-        this.gf_setCheckAll = function(obj, e)
-        {
-            var sColID = obj.getCellProperty("body", e.cell, "text").replace("bind:", "");
-
-        	var sheadValue = obj.getCellProperty("head",e.cell,"text");
-
-            if(sColID == "checkbox")
-            {
-        		sheadValue = (sheadValue =="1"? "0":"1");
-        		obj.setCellProperty("head",e.cell,"text",sheadValue);
-
-        		this.tuit_ds.set_enableevent(false);
-        		for(var i=0; i< this.tuit_ds.getRowCount(); i++)
-        		{
-        			this.tuit_ds.setColumn(i, "checkbox",sheadValue);
-        		}
-        		this.tuit_ds.set_enableevent(true);
-            }
-
+        	this.transaction(
+        		"selectAll.tuition",//id
+        		"/tuition/selectAll.tuition",//url (절대경로)
+        		"",//in_ds:U
+        		"tuition_ds=out_ds",//()_out_ds
+        		"",//argument
+        		"fn_callback"
+        		)
         }
 
 
-        //학과 검색
-        this.Div00_btn_searchDept_onclick = function(obj,e)
+        this.seq="";
+        this.Div00_grd_tuition_oncellclick = function(obj,e)
         {
-        	let oValue = this.Div00.form.Combo00.value;
-        	if (oValue == 00 || oValue == null)
-        	{
-        		this.tuit_ds.filter("");
-        	} else {
-        		this.tuit_ds.filter("dept_code == '"+oValue+"'");
-        	}
-
-        	//검색 후 지정 체크박스 해제
-        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			this.tuit_ds.setColumn(i,"checkbox",0);
-        		}
-        	}
-
-
-
+        	this.seq=this.tuition_ds.getColumn(e.row,"seq");
         };
 
-        //학번 또는 이름 검색
+        this.Div00_btn_del_onclick = function(obj,e)
+        {
+        	alert(this.seq)
+        	var nRow = this.tuition_ds.findRow("seq",this.seq);
+        	this.tuition_ds.deleteRow(nRow);
+        	this.transaction(
+        		"deleteOne.tuition",//id
+        		"/tuition/deleteOne.tuition",//url (절대경로)
+        		"",//in_ds:U
+        		"out_ds=tuition_ds",//()_out_ds
+        		"seq="+this.seq,//argument
+        		"fn_callback"
+        		)
+        };
+
         this.Div00_btn_searchEtc_onclick = function(obj,e)
         {
-        	let sValue = this.Div00.form.edt_etcSearch.value;
-        	if (sValue == null || sValue == "")
+        	var cate = this.Div00.form.cmb_cate.value;
+        	var value = this.Div00.form.edt_etcSearch.value;
+        	if(cate == '01')
         	{
-        		this.tuit_ds.filter("");
-        	} else {
-        		this.tuit_ds.filter("std_code == '"+sValue+"' || std_name == '"+sValue+"'" );
+        		this.students_ds.filter("");
+        	}
+        	else if(cate == '02')
+        	{
+        		this.students_ds.filter("s_seq=='"+value+"'");
+        	}
+        	else if(cate == '03')
+        	{
+        		this.students_ds.filter("name=='"+value+"'");
         	}
 
-        	//검색 후 지정 체크박스 해제
-        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
-        	for(let i =0; i<this.tuit_ds.getRowCount();i++){
-        		if(this.tuit_ds.getColumn(i,"checkbox") == 1){
-        			this.tuit_ds.setColumn(i,"checkbox",0);
-        		}
-        	}
-        	this.Div00.form.edt_etcSearch.set_value(""); // 검색후 edit창 초기화
+        	cate="";
         };
 
-
+        this.Div00_btn_entire_onclick = function(obj,e)
+        {
+        	this.tuition_ds.filter("");
+        };
 
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.addEventHandler("onload",this.tuition_onload,this);
             this.Div00.form.btn_searchEtc.addEventHandler("onclick",this.Div00_btn_searchEtc_onclick,this);
-            this.Div00.form.Combo00.addEventHandler("canitemchange",this.Div00_Combo00_canitemchange,this);
-            this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
-            this.Div00.form.btn_searchDept.addEventHandler("onclick",this.Div00_btn_searchDept_onclick,this);
+            this.Div00.form.grd_std.addEventHandler("oncellclick",this.Div00_grd_std_oncellclick,this);
             this.Div00.form.btn_tuit.addEventHandler("onclick",this.Div00_btn_tuit_onclick,this);
-            this.Div00.form.btn_scholar.addEventHandler("onclick",this.Div00_btn_scholar_onclick,this);
+            this.Div00.form.grd_tuition.addEventHandler("oncelldblclick",this.Div00_grd_tuition_oncelldblclick,this);
+            this.Div00.form.grd_tuition.addEventHandler("oncellclick",this.Div00_grd_tuition_oncellclick,this);
+            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
+            this.Div00.form.btn_entire.addEventHandler("onclick",this.Div00_btn_entire_onclick,this);
         };
 
         this.loadIncludeScript("tuition.xfdl");

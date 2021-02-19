@@ -58,22 +58,26 @@
 
             obj = new Static("Static01_00_00","20","15","140","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
-            obj.set_text("▷ 장바구니 리스트");
+            obj.set_text("장바구니 리스트");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","770","425","100","40",null,null,null,null,null,null,this);
+            obj = new Button("Button00","130","423","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button01","650","425","100","40",null,null,null,null,null,null,this);
+            obj = new Button("Button01","20","423","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("신청");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button02","800","10","70","25",null,null,null,null,null,null,this);
+            obj = new Button("Button02","780","423","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","630","10","30","30",null,null,null,null,null,null,this);
@@ -84,6 +88,12 @@
             obj = new Static("sta_point","670","10","40","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00","1051","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             // Layout Functions

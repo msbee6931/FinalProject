@@ -25,42 +25,49 @@
             obj = new Dataset("session", this);
             obj._setContents("<ColumnInfo><Column id=\"a_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new FileUpTransfer("FileUpTransfer00", this);
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
-            obj.set_text("로고위치");
-            obj.set_background("#c1c1c1");
+            obj.set_background("url(\'theme::default/images/khLogo.png\')");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","200","0","1080","50",null,null,null,null,null,null,this);
+            obj = new Static("Static01","200","0",null,"50","0",null,null,null,null,null,this);
             obj.set_taborder("1");
-            obj.set_background("#cfe1e0");
+            obj.set_background("##06efd");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout","1197","10","69","34",null,null,null,null,null,null,this);
+            obj = new Button("btn_logout",null,"10","100","30","13",null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("로그아웃");
+            obj.set_cssclass("btn_logout");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_home","212","13","25","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_home","212","13","30","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
-            obj.set_text("홈");
+            obj.set_cssclass("btn_home");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_name","244","13","60","25",null,null,null,null,null,null,this);
+            obj = new Static("sta_name","264","13","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Static02");
+            obj.set_color("#ffffff");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00","314","13","100","25",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00","324","13","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("님 환영합니다.");
+            obj.set_color("#ffffff");
             this.addChild(obj.name, obj);
 
-            obj = new Button("alarm_btn","1128","10","64","34",null,null,null,null,null,null,this);
+            obj = new Button("alarm_btn",null,"10","80","30","122",null,null,null,null,null,this);
             obj.set_taborder("6");
-            obj.set_text("알람");
+            obj.set_cssclass("btn_message");
+            obj.set_text("쪽지");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -103,10 +110,6 @@
         	}
         }
 
-
-
-
-
         this.btn_logout_onclick = function(obj,e)
         {
         	this.transaction(
@@ -119,6 +122,7 @@
         		);
         };
         this.fn_callback_logout=function(){
+        this.objApp.gds_admin.clearData();
         	location.href="/";
         }
         this.alarm_btn_onclick = function(obj,e)
@@ -152,13 +156,16 @@
         		);
 
         		this.transaction(
-        			"sessionA" //id
-        			,"/sessionA.nex"//url
+        			"garbageInsert" //id
+        			,"/reference/garbageInsert"//url
         			,""// inData
-        			,"session=out_ds"// outData
+        			,""// outData
         			,""//strArg
         			,"fn_callback"//callback
         		);
+
+        		this.FileUpTransfer00.upload("/reference/uploadFile");
+
         };
 
 

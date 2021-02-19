@@ -26,24 +26,25 @@
             obj.set_taborder("0");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnPrev","386","40","20","20",null,null,null,null,null,null,this);
+            obj = new Button("btnPrev","386","30","20","20",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("<");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNext","656","40","20","20",null,null,null,null,null,null,this);
+            obj = new Button("btnNext","656","30","20","20",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text(">");
             this.addChild(obj.name, obj);
 
-            obj = new Static("stYearMonth","442","31","178","39",null,null,null,null,null,null,this);
+            obj = new Static("stYearMonth","442","21","178","39",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNew","971","35","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnNew","931","31","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("신규일정");
+            obj.set_text("일정등록");
+            obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
@@ -75,46 +76,46 @@
             obj.set_text("나의 스케줄");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","745","41","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02","715","41","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("");
             obj.set_background("#78a2dd");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03","756","39","38","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03","726","39","38","15",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("중간");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00","795","41","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00","765","41","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("");
             obj.set_background("#ab9f1b");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00","806","39","38","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03_00","776","39","38","15",null,null,null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("낮음");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00","845","41","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00_00","815","41","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("");
             obj.set_background("#6ebe8e");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00_00","856","39","38","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03_00_00","826","39","38","15",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("높음");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00_00","895","41","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00_00_00","865","41","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("");
             obj.set_background("#d23636");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00_00_00","906","39","38","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03_00_00_00","876","39","38","15",null,null,null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_text("긴급");
             this.addChild(obj.name, obj);

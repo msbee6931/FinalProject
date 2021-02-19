@@ -71,7 +71,7 @@
         
         // User Script
         this.registerScript("classReq.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
         this.classReq_onload = function(obj,e)
         {
         	var objDate= new Date();
@@ -83,7 +83,7 @@
         		var endTime = objDate.getFullYear()+"1231";
         	}
         	this.Grid00.setCellProperty("Head",0,"text",0);
-        	var proCode = "91515073"; // 로그인 되는 교수 번호
+        	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq");// 로그인 되는 교수 번호
         	this.transaction(
         		"classReqList"
         		,"/classListProCode.nex"
@@ -98,7 +98,7 @@
         //작성
         this.btnWrite_onclick = function(obj,e)
         {
-        	var proCode = "91515073"; //로그인 되는 교수 번호
+        	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq"); //로그인 되는 교수 번호
         	let x = this.width/2-500;
         	let y = this.height/2-340;
         	let objCF = new ChildFrame();
@@ -111,7 +111,7 @@
 
         //작성 popup창 닫았을 때
         this.fn_pop_callback=function(sId){
-        	this.classReq_onload();
+        	this.reload();
         }
 
         //전체선택

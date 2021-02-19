@@ -248,8 +248,7 @@
 }
 .GridCellControl .celltreeitem .treeitemtext
 {
-	font : 12px Gulim;
-	color : #666666;
+	color : #ffffff;
 }
 .GridCellControl .celltreeline
 {
@@ -305,7 +304,7 @@
 }
 .Menu
 {
-	background : linear-gradient(to top, #1059a8, #125dae);
+	font : 13px/normal "-윤고딕340";
 }
 .Menu .prevbutton
 {
@@ -317,7 +316,7 @@
 }
 .Menu .menuitem
 {
-	font : bold 13px Gulim;
+	font : 13px/normal "-윤고딕340";
 	color : #ffffff;
 	cursor : pointer;
 }
@@ -465,11 +464,11 @@
 }
 .Static
 {
-	font : 12px "Arial","-윤고딕320";
+	font : 12px "-윤고딕330";
 }
 .StaticControl
 {
-	font : 12px "Arial","-윤고딕320";
+	font : 12px "-윤고딕330";
 }
 .TextArea
 {
@@ -498,7 +497,7 @@
 .Tab .tabbuttonitemTab
 {
 	color : #333333;
-	background : linear-gradient(to top, #fcfcfc, #fafafa);
+	background : #435a7c;
 	border : 1px solid #c7c7c7;
 }
 .DatePickerControl
@@ -549,8 +548,8 @@
 }
 .VScrollBarControl
 {
-	background : linear-gradient(to left,#ffffff,#f7f7f7);
 	border : 1px solid #b1b1b1;
+	background : #0d6efd;
 }
 .HScrollBarControl
 {
@@ -559,12 +558,12 @@
 }
 .VScrollBarControl .trackbar
 {
-	background : #dddddd;
+	background : #0d6efd;
 	border : 1px solid #c8c8c8;
 }
 .HScrollBarControl .trackbar
 {
-	background : #dddddd;
+	background : #0d6efd;
 	border : 1px solid #c8c8c8;
 }
 .VScrollIndicatorControl
@@ -694,6 +693,142 @@
 {
 	background : linear-gradient(to top,#eaeaea,#ffffff);
 	border : 1px solid #c2c2c2;
+}
+.GridCellControl
+{
+	background : #0d6efd;
+}
+.Button.btn_home
+{
+	background : url('./images/btn_home_30_30.png') no-repeat;
+	border-radius : 4px;
+}
+.Button.btn_search
+{
+	border-radius : 2px;
+	background : url('./images/btn_search.png') no-repeat #0d6efd;
+}
+.Button.btn_message
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
+}
+.Button.btn_insert
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
+	border-radius : 8px;
+}
+.Button.btn_insert .nexacontentsbox
+{
+	vertical-align : middle;
+	text-align : center;
+}
+.Button.btn_del
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
+	border-radius : 8px;
+}
+.Button.btn_del .nexacontentsbox
+{
+	vertical-align : middle;
+	text-align : center;
+}
+.Button.btn_default
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
+	border-radius : 8px;
+}
+.Button.btn_default .nexacontentsbox
+{
+	vertical-align : middle;
+	text-align : center;
+}
+.Edit.edt_default
+{
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+	color : #0d6efd;
+	font : 12px "-윤고딕330";
+}
+.Static.sta_default
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
+}
+.Static.sta_default .nexacontentsbox
+{
+	text-align : center;
+}
+.Combo.cmb_dept
+{
+	border : 1px solid #0d6efd;
+	color : #0d6efd;
+	font : 12px "-윤고딕330";
+}
+.Button.btn_small
+{
+	background : #0d6efd;
+	border-radius : 2px;
+	color : #ffffff;
+}
+.Combo.cmb_default .comboedit
+{
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+	color : #0d6efd;
+	font : 12px "-윤고딕330";
+}
+.Combo.cmb_default .dropbutton
+{
+	background : #0d6efd;
+}
+.ListBoxControl.popupCombocmb_defaultcombolist.dummy.dummy .listboxitem
+{
+	color : #1c0c7c;
+	font : 12px "-윤고딕330";
+}
+.Static.sta_title
+{
+	color : #0d6efd;
+	font : 16px "-윤고딕350";
+}
+.Static.sta_line
+{
+	border : 1px solid #0d6efd;
+	border-radius : 2px;
+}
+.Div.div_line
+{
+	border : 1px solid #0d6efd;
+	border-radius : 2px;
+}
+.Button.btn_can
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
+	border-radius : 8px;
+}
+.Button.btn_can .nexacontentsbox
+{
+	vertical-align : middle;
+	text-align : center;
+}
+.Button.btn_logout
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
 }
 .Button[status=mouseover]
 {
@@ -869,7 +1004,9 @@
 }
 .Menu .menuitem[status=mouseover]
 {
-	background : #00438b;
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
 }
 .PopupMenuControl.popupMenumenupopupmenu.dummy .popupmenuitem[status=mouseover]
 {
@@ -954,7 +1091,8 @@
 .Tab .tabbuttonitemTab[status=mouseover]
 {
 	border : 1px solid #b1b1b1;
-	background : linear-gradient(to top, #dddcdc, #fefefe);
+	background : #c1c049;
+	color : #7f7f7f;
 }
 .Tab .tabbuttonitemTab[status=focused]
 {
@@ -1141,6 +1279,35 @@
 {
 	background : linear-gradient(to top,#e7e7e7,#fefefe);
 	border : 1px solid #a0a0a0;
+}
+.ListBoxControl.popupCombocmb_defaultcombolist.dummy.dummy .listboxitem[status=mouseover]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
+}
+.Button.btn_home[status=mouseover]
+{
+	border-radius : 4px;
+	background : url('./images/btn_home_wh_30_30.png') no-repeat #0d6efd;
+}
+.Button.btn_logout[status=mouseover]
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #1c0c7c;
+}
+.Button.btn_logout[status=focused]
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
+}
+.GridCellControl[status=mouseover]
+{
+	background : #1c0c7c;
 }
 .Form[userstatus=contents]
 {
@@ -1349,6 +1516,20 @@
 {
 	background : linear-gradient(to top,#fefefe,#e9e9e9);
 }
+.Button.btn_logout[userstatus=pushed]
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
+}
+.Button.btn_logout[userstatus=selected]
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
+}
 .Form[status=disabled]
 {
 	color : #999999;
@@ -1451,7 +1632,8 @@
 }
 .GridCellControl .celltreeitem .treeitemtext[status=disabled]
 {
-	color : #999999;
+	color : #ffffff;
+	font : 12px "-윤고딕330";
 }
 .GroupBox .groupboxcontents[status=disabled]
 {
@@ -1493,7 +1675,7 @@
 }
 .Menu[status=disabled]
 {
-	background : #94a9bf;
+	font : 13px/normal "-윤고딕340";
 }
 .Menu .menuitem[status=disabled]
 {
@@ -1581,7 +1763,8 @@
 }
 .Tab .tabbuttonitemTab .tabbuttonitemtext[status=disabled]
 {
-	color : #c8c8c8;
+	color : #ffffff;
+	font : 11px "-윤고딕330";
 }
 .DatePickerControl .head[status=disabled]
 {
@@ -1673,6 +1856,25 @@
 	background : #f5f5f5;
 	border : 1px solid #d9d9d9;
 	opacity : 0.50;
+}
+.Button.btn_home[status=disabled]
+{
+	background : url('./images/btn_home_30_30.png') no-repeat;
+	border-radius : 4px;
+}
+.Button.btn_message[status=disabled]
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
+}
+.Button.btn_logout[status=disabled]
+{
+	border-radius : 6px;
+	color : #ffffff;
+	font : 12px/normal "-윤고딕330";
+	background : #0d6efd;
 }
 .CheckBox[status=disabled][userstatus=selected]
 {
