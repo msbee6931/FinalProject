@@ -54,12 +54,13 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("휴학신청서 관리");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","25","51",null,null,"24","59",null,null,null,null,this.Div00.form);
@@ -67,6 +68,12 @@
             obj.set_binddataset("absence_ds");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"예정날짜\"/><Cell col=\"3\" text=\"마감날짜\"/><Cell col=\"4\" text=\"휴학사유\"/><Cell col=\"5\" text=\"작성날짜\"/><Cell col=\"6\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\"/><Cell col=\"1\" text=\"bind:std_code\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:sDate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:eDate\" displaytype=\"date\"/><Cell col=\"4\" text=\"bind:code\" displaytype=\"combotext\" combodataset=\"absenceCode_ds\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:writeDate\" displaytype=\"date\"/><Cell col=\"6\" text=\"bind:checkValue\"/></Band></Format></Formats>");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_del",null,null,"100","30","23","12",null,null,null,null,this.Div00.form);
+            obj.set_taborder("1");
+            obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -121,6 +128,26 @@
 
 
 
+        this.seq="";
+
+        this.Div00_Grid00_oncellclick = function(obj,e)
+        {
+        		this.seq = this.absence_ds.getColumn(e.row,"seq");
+        };
+
+        this.Div00_btn_del_onclick = function(obj,e)
+        {
+        	var nRow = this.absence_ds.findRow("seq",this.seq);
+        	this.absence_ds.deleteRow(nRow);
+        	this.transaction(
+        		"deleteReqAbs.absence",//id
+        		"/absence/deleteReqAbs.absence",//url (절대경로)
+        		"",//in_ds:U
+        		"",//()_out_ds
+        		"seq="+this.seq,//argument
+        		"fn_callback"
+        		)
+        };
 
         });
         
@@ -129,6 +156,8 @@
         {
             this.addEventHandler("onload",this.reqAbsence_onload,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
+            this.Div00.form.Grid00.addEventHandler("oncellclick",this.Div00_Grid00_oncellclick,this);
+            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
         };
 
         this.loadIncludeScript("reqAbsence.xfdl");

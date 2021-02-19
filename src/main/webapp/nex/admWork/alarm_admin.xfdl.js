@@ -25,7 +25,7 @@
             obj = new Static("Static00","26","18","218","46",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("Post Message");
-            obj.set_font("18pt \"Arial\"");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","10","80","230","450",null,null,null,null,null,null,this);
@@ -35,55 +35,58 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"42\"/><Column size=\"68\"/><Column size=\"77\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\"/><Cell col=\"3\" text=\"bind:receiver\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","135","542","102","36",null,null,null,null,null,null,this);
+            obj = new Button("del_btn","135","542","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("check_btn","8","542","102","36",null,null,null,null,null,null,this);
+            obj = new Button("check_btn","8","542","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","283","14","474","266",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","18","7","425","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("내용");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
-            obj.set_font("16px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("Edit00","20","45","424","201",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00_00","283","290","474","258",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","23","14","425","25",null,null,null,null,null,null,this.Div00_00.form);
             obj.set_taborder("0");
             obj.set_text("답장");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
-            obj.set_font("16px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00_00.addChild(obj.name, obj);
 
             obj = new Edit("Edit00","26","49","424","201",null,null,null,null,null,null,this.Div00_00.form);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.Div00_00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","650","558","104","36",null,null,null,null,null,null,this);
+            obj = new Button("Button00","650","558","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("전송");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions

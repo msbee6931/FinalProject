@@ -6,36 +6,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Search Friend</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-	.searchOutput .profile{
-		display: flex;
-	}
+/* COMMON */
+* {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+}
+.container{
+		padding: 50px;
+}
+.row{
+	--bs-gutter-x: 0rem;
+}
+
+.searchOutput .profile{
+	display: flex;
+}
 </style>
 </head>
 <body>
 	<div class="container">
-		<input type="text" value="${user.getUserName()}" id="userName">
-		<div class="searchOutput">
+		<input type="hidden" value="${user.getUserName()}" id="userName">
+		<div class="row p-2">친구 검색</div>
+		<div class="row searchOutput">
 			<c:choose>
 				<c:when test="${list!=null}">
 					<c:forEach var="dto" items="${list }">
 						<c:if test="${dto.getUserId() != userId }">
-							<div class="profile">
-							<div>
-								<c:forEach var="aDto" items="#{allUser}">
-									<c:if test="${dto.getUserId() == aDto.getUserId() }">
-										<c:choose>
-											<c:when test="${aDto.getImg() == null }"><img src="/img/blue.png" width="30px"></c:when>
-											<c:otherwise><img src="/files/${aDto.getImg()}" width="30px"></c:otherwise>
-										</c:choose>
-									</c:if>
-								</c:forEach>
-							</div>
-							<div class="friendId">${dto.getUserId() }</div>
-							<div class="friendName">${dto.getUserName() }</div>
-							<input type="button" class="add" value="+">
+							<div class="row p-2 d-flex align-items-center profile">
+								<div class="col-1">
+									<c:forEach var="aDto" items="#{allUser}">
+										<c:if test="${dto.getUserId() == aDto.getUserId() }">
+											<c:choose>
+												<c:when test="${aDto.getImg() == null }"><img src="/img/blue.png" width="30px"></c:when>
+												<c:otherwise><img src="/files/${aDto.getImg()}" width="30px"></c:otherwise>
+											</c:choose>
+										</c:if>
+									</c:forEach>
+								</div>
+								<div class="col-2 friendId">${dto.getUserId() }</div>
+								<div class="col-8 friendName">${dto.getUserName() }</div>
+								<input type="button" class="col-1 add" value="+">
 							</div>
 						</c:if>
 					</c:forEach>

@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kh.spring.dao.ChattingDAO;
+import kh.spring.dto.FacultyDTO;
 import kh.spring.dto.FriendDTO;
 import kh.spring.dto.MessageDTO;
+import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
+import kh.spring.dto.StudentsDTO;
 import kh.spring.dto.UserDTO;
 
 @Service
@@ -58,6 +61,25 @@ public class ChattingService {
 	
 	public int friendNameUpdateF(String userName, String userId) {
 		return dao.friendNameUpdateF(userName,userId);
+	}
+	
+	public int insertChatUser(String userId,String userName) {
+		return dao.insertChatUser(userId,userName);
+	}
+	
+	// 채팅 아이디 삭제(학생)
+	public int deleteChatUserStu(List<StudentsDTO> list) {
+		return dao.deleteChatUserStu(list);
+	}
+	
+	// 채팅 아이디 삭제(교수)
+	public int deleteChatUserPro(List<ProfessorDTO> list) {
+		return dao.deleteChatUserPro(list);
+	}
+	
+	// 채팅 아이디 삭제(교직원)
+	public int deleteChatUserFac(List<FacultyDTO> list) {
+		return dao.deleteChatUserFac(list);
 	}
 	
 	/* Friend */

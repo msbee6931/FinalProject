@@ -38,17 +38,18 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","20","41","1040","425",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","30","60","1021","390",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"41\"/><Column size=\"73\"/><Column size=\"193\"/><Column size=\"48\"/><Column size=\"103\"/><Column size=\"57\"/><Column size=\"85\"/><Column size=\"248\"/><Column size=\"94\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학년\"/><Cell col=\"5\" text=\"과목코드\"/><Cell col=\"6\" text=\"학점\"/><Cell col=\"7\" text=\"담당교수\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"인원수\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:className\" displaytype=\"normal\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"########\"/><Cell col=\"6\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_search","670","6","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_search","720","24","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_search_innerdataset = new nexacro.NormalDataset("co_search_innerdataset", obj);
             co_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">All</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">className</Col><Col id=\"datacolumn\">과목명</Col></Row><Row><Col id=\"codecolumn\">proName</Col><Col id=\"datacolumn\">담당교수</Col></Row><Row><Col id=\"codecolumn\">classTime</Col><Col id=\"datacolumn\">강의시간</Col></Row><Row><Col id=\"codecolumn\">classRoom</Col><Col id=\"datacolumn\">강의실</Col></Row></Rows>");
             obj.set_innerdataset(co_search_innerdataset);
@@ -57,43 +58,72 @@
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search","795","6","170","28",null,null,null,null,null,null,this);
+            obj = new Edit("edt_search","845","24","170","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","970","4","90","33",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch","1025","24","25","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
-            obj.set_text("검색");
+            obj.set_cssclass("btn_search");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","410","7","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_year","450","24","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_year_innerdataset = new nexacro.NormalDataset("co_year_innerdataset", obj);
             co_year_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">2020</Col><Col id=\"datacolumn\">2020년</Col></Row><Row><Col id=\"codecolumn\">2021</Col><Col id=\"datacolumn\">2021년</Col></Row></Rows>");
             obj.set_innerdataset(co_year_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","540","7","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester","580","24","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_semester_innerdataset = new nexacro.NormalDataset("co_semester_innerdataset", obj);
             co_semester_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학기</Col></Row></Rows>");
             obj.set_innerdataset(co_semester_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","950","470","110","40",null,null,null,null,null,null,this);
+            obj = new Button("Button00","950","460","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExport","830","470","110","40",null,null,null,null,null,null,this);
+            obj = new Button("btnExport","830","460","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("Export");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00","0","0","29",null,null,"0",null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","140","490",null,null,"140","0",null,null,null,null,this);
+            obj.set_taborder("9");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00","1051","0",null,null,"0","0",null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             // Layout Functions

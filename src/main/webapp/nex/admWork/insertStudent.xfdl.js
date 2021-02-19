@@ -198,7 +198,13 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
+            obj = new BindItem("item0","cmb_colCode","value","ds_students_copy","colcode");
+            this.addChild(obj.name, obj);
+            obj.bind();
 
+            obj = new BindItem("item1","cmb_deptCode","value","ds_students_copy","deptcode");
+            this.addChild(obj.name, obj);
+            obj.bind();
         };
         
         this.loadPreloadList = function()

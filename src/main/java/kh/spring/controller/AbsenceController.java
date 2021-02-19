@@ -171,10 +171,20 @@ public class AbsenceController {
 	public NexacroResult selectStdOne(@ParamVariable(name="sCode")int sCode) throws Exception {
 		System.out.println("휴학신청서 수신 컨트롤러 확인----->");
 		NexacroResult nr = new NexacroResult();
-		AbsenceDTO dto = aService.selectStdOne(sCode);
+		List<AbsenceDTO> dto = aService.selectStdOne(sCode);
 		nr.addDataSet("out_ds", dto);
 		return nr;
 	}
+	
+	@RequestMapping("deleteReqAbs.absence")
+	public NexacroResult deleteReqAbs(@ParamVariable(name="seq")int seq) throws Exception {
+		System.out.println("휴학신청서 삭제 컨트롤러 확인----->");
+		NexacroResult nr = new NexacroResult();
+		int resultFile=aService.deleteReqAbsFile(seq);
+		int result = aService.deleteReqAbs(seq);
+		return nr;
+	}
+	
 	
 	//------------------------------------------------------>> 복학 따로 안만들고 휴학과 같이 쓰는중
 	
@@ -191,11 +201,23 @@ public class AbsenceController {
 		@RequestMapping("selectOneRest.absence")
 		public NexacroResult selectOneRest(@ParamVariable(name="std_code")int std_code) throws Exception {
 			System.out.println("복학신청서 입력 컨트롤러 확인");
+			System.out.println("stdCode 확인하기,,,,,,>");
 			NexacroResult nr = new NexacroResult();
 			List<RestDTO> list = aService.selectOneRest(std_code);
 			nr.addDataSet("out_ds", list);
 			return nr;
 		}
+		
+		//복학신청서 전체 조회
+		@RequestMapping("selectAllRest.absence")
+		public NexacroResult selectAllRest() throws Exception {
+			System.out.println("복학신청서 입력 컨트롤러 확인");
+			NexacroResult nr = new NexacroResult();
+			List<RestDTO> list = aService.selectAllRest();
+			nr.addDataSet("out_ds", list);
+			return nr;
+		}
+		
 	
 	
 	

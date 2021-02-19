@@ -140,11 +140,6 @@
         		"fn_callback"
         	)
 
-        	var cnt= this.deptSchedule_ds.getRowCount();
-        	for(var i=0; i<cnt; i++){
-        	if(this.deptSchedule_ds.getColumn(i,"code") == 01)
-        	this.Div00.form.Grid00.setCellProperty("body",0,"background","blue"); // 색 바뀌는지 확인
-        	}
 
         	//오늘 날짜 계산하기
         	var currDate = new Date();

@@ -39,6 +39,7 @@
 
             obj = new Edit("edt_p_seq","85","20","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","10","55","50","30",null,null,null,null,null,null,this);

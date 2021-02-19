@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kh.spring.dao.ScheduleDAO;
+import kh.spring.dto.ColScheduleDTO;
 import kh.spring.dto.DeptScheduleDTO;
 import kh.spring.dto.IndScheduleDTO;
 
@@ -44,7 +45,7 @@ public class ScheduleService {
 	}
 	
 	public IndScheduleDTO  selectOneIndSchedule(String id) {
-		return sDao. selectOneIndSchedule(id);
+		return sDao.selectOneIndSchedule(id);
 	}
 	
 	public int updateIndSchedule (IndScheduleDTO dto) {
@@ -53,5 +54,21 @@ public class ScheduleService {
 	
 	public int deleteIndSchedule (String id) {
 		return sDao.deleteIndSchedule(id);
+	}
+	
+	public int insertColSchedule(ColScheduleDTO dto) {
+		return sDao.insertColSchedule(dto);
+	}
+	public List<ColScheduleDTO> selectColSchedule() {
+		return sDao.selectColSchedule();
+	}
+	public ColScheduleDTO selectOneColSchedule(int seq) {
+		return sDao.selectOneColSchedule(seq);
+	}
+	public int updateColSchedule(ColScheduleDTO dto) {
+		return sDao.updateColSchedule(dto);
+	}
+	public int deleteColSchedule(int seq) {
+		return sDao.deleteColSchedule(seq);
 	}
 }

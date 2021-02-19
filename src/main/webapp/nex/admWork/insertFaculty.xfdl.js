@@ -39,6 +39,7 @@
 
             obj = new Edit("edt_f_seq","85","20","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","10","55","50","30",null,null,null,null,null,null,this);
@@ -165,9 +166,11 @@
         	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;
 
+
         	var addRow = this.ds_faculty_copy.addRow();
         	this.ds_faculty_copy.setColumn(addRow,"f_seq",f_seq);
         	this.ds_faculty_copy.setColumn(addRow,"name",name);
+
         	this.ds_faculty_copy.setColumn(addRow,"secNumber",secNumber);
         	this.ds_faculty_copy.setColumn(addRow,"email",email);
         	this.ds_faculty_copy.setColumn(addRow,"contact",contact);
@@ -175,6 +178,7 @@
         	this.ds_faculty_copy.setColumn(addRow,"pw",pw);
         	this.ds_faculty_copy.setColumn(addRow,"colCode",colCode);
         	this.ds_faculty_copy.setColumn(addRow,"deptCode",deptCode);
+
 
         	this.transaction(
 

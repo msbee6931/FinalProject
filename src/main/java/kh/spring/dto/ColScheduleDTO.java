@@ -1,62 +1,76 @@
 package kh.spring.dto;
 
-public class ColScheduleDTO {
 
+public class ColScheduleDTO {
 	private int seq;
 	private String title;
-	private String sdate;
-	private String edate;
+	private String sDate;
+	private String eDate;
 	private String contents;
-	private String writedate;
+	private String writeDate;
+	
+	public ColScheduleDTO() {}
+	
+	public ColScheduleDTO(int seq, String title, String sDate, String eDate, String contents, String writeDate) {
+		super();
+		this.seq = seq;
+		this.title = title;
+		this.sDate = sDate;
+		this.eDate = eDate;
+		this.contents = contents;
+		this.writeDate = writeDate;
+	}
+
 	public int getSeq() {
 		return seq;
 	}
+
 	public void setSeq(int seq) {
 		this.seq = seq;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getSdate() {
-		return sdate;
+
+	public String getsDate() {
+		return sDate;
 	}
-	public void setSdate(String sdate) {
-		this.sdate = sdate;
+
+	public void setsDate(String sDate) {
+		this.sDate = sDate;
 	}
-	public String getEdate() {
-		return edate;
+
+	public String geteDate() {
+		return eDate;
 	}
-	public void setEdate(String edate) {
-		this.edate = edate;
+
+	public void seteDate(String eDate) {
+		this.eDate = eDate;
 	}
+
 	public String getContents() {
 		return contents;
 	}
+
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getWritedate() {
-		return writedate;
+
+	public String getWriteDate() {
+		return writeDate;
 	}
-	public void setWritedate(String writedate) {
-		this.writedate = writedate;
+
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
 	}
-	public ColScheduleDTO(int seq, String title, String sdate, String edate, String contents, String writedate) {
-		super();
-		this.seq = seq;
-		this.title = title;
-		this.sdate = sdate;
-		this.edate = edate;
-		this.contents = contents;
-		this.writedate = writedate;
-	}
-	public ColScheduleDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+	
 	
 	
 }
+

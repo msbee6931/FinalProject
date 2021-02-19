@@ -2,6 +2,8 @@ package kh.spring.controller;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -23,9 +25,15 @@ import kh.spring.service.ColScheduleService;
 import kh.spring.service.LoginService;
 import kh.spring.service.NoticeService;
 
+import kh.spring.dto.ColScheduleDTO;
+import kh.spring.service.SchoolScheduleService;
+import kh.spring.util.EncryptUtils;
+
 
 @Controller
 public class HomeController {
+	@Autowired
+	private SchoolScheduleService sService;
 	@Autowired
 	private NoticeService nService;
 	@Autowired
@@ -34,6 +42,7 @@ public class HomeController {
 	private HttpSession session;
 	@Autowired
 	private ColScheduleService cService;
+
 	@RequestMapping("/")
 	public String home(HttpServletRequest request, HttpServletResponse response,Model model) throws Exception{
 		int page =1;
@@ -71,12 +80,12 @@ public class HomeController {
 		List<ColScheduleDTO> list2 = new ArrayList<ColScheduleDTO>();
 		for(int i = 0; i<list.size(); i++) {
 			String title =list.get(i).getTitle();
-			String sdate =list.get(i).getSdate().substring(0, 4)+"-"+list.get(i).getSdate().substring(4, 6)+"-"+list.get(i).getSdate().substring(6, 8);
-			String edate =list.get(i).getEdate().substring(0,4)+"-"+list.get(i).getEdate().substring(4,6)+"-"+list.get(i).getEdate().substring(6, 8);
+			String sdate =list.get(i).getsDate().substring(0, 4)+"-"+list.get(i).getsDate().substring(4, 6)+"-"+list.get(i).getsDate().substring(6, 8);
+			String edate =list.get(i).geteDate().substring(0,4)+"-"+list.get(i).geteDate().substring(4,6)+"-"+list.get(i).geteDate().substring(6, 8);
 			ColScheduleDTO dto = new ColScheduleDTO();
 			dto.setTitle(title);
-			dto.setSdate(sdate);
-			dto.setEdate(edate);
+			dto.setsDate(sdate);
+			dto.seteDate(edate);
 			dto.setSeq(i);
 			list2.add(dto);
 		}
@@ -123,13 +132,55 @@ public class HomeController {
 	public String LawOfOffical() {
 		return "LawOfOffical";
 	}
+	@RequestMapping("schoolSchedule")
+	public String schoolSchedule(Model model) {
+		List<ColScheduleDTO> list = sService.getSchoolSchedule();
+		
+		List<Map<String,String>> listMap = new ArrayList<Map<String,String>>();
+		
+		for(ColScheduleDTO dto : list) {
+			Map<String,String> map = new HashMap<String,String>();
+			 
+			String sDate = dto.getsDate();
+			String eDate = dto.geteDate();
+			String title = dto.getTitle();
+			
+			String sYear = sDate.substring(0,4);
+			String sMonth = sDate.substring(4,6);
+			String sDay = sDate.substring(6);
+			
+			String eYear = eDate.substring(0,4);
+			String eMonth = eDate.substring(4,6);
+			String eDay = eDate.substring(6);
+			
+			if(sYear.contentEquals(eYear) && sMonth.contentEquals(eMonth) && sDay.contentEquals(eDay)) {
+				map.put("year", sYear);
+				map.put("month", sMonth);
+				map.put("day", sDay);
+			}else if(sYear.contentEquals(eYear) && sMonth.contentEquals(eMonth) && !(sDay.contentEquals(eDay))) {
+				map.put("year", sYear);
+				map.put("month", sMonth);
+				map.put("day", sDay+"일 ~ "+eDay);
+			}else if(sYear.contentEquals(eYear) && !(sMonth.contentEquals(eMonth))) {
+				map.put("year", sYear);
+				map.put("month", sMonth);
+				map.put("day", sDay+"일 ~ "+eMonth+"월 "+eDay);
+			}else if(!(sYear.contentEquals(eYear))) {
+				map.put("year", sYear);
+				map.put("month", sMonth);
+				map.put("day", sDay+"일 ~ "+eYear+"년"+eMonth+"월 "+eDay);
+			}		
+			map.put("title", title);
+			listMap.add(map);
+		}
+		model.addAttribute("listMap",listMap);
+		return "schoolSchedule";
+	}
 
 	@ExceptionHandler
 	public String ExceptionHandler(Exception e) {
 		e.printStackTrace();
 		return "error";
 	}
-
-
 
 }

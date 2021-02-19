@@ -6,21 +6,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Profile</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style>
+/* COMMON */
+* {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+}
+.container{
+	padding: 50px;
+}
+.row{
+	--bs-gutter-x: 0rem;
+}
+#img{
+	width: 70px;
+	margin: auto;
+}
+#pickBtn{
+	width: 100px;
+	margin: 15px auto;
+	text-align: center;
+}
+#name{
+	width: 100%;
+	margin: 15px 0px;
+}
+</style>
 </head>
 <body>
 	<div class="container">
-		<div>프로필 편집</div>
-		<div id="img">
+		<div class="row">프로필 편집</div>
+		<div id="img" class="row">
 			<c:choose>
 				<c:when test="${user.getImg() != null }">
 					<img src="/files/${user.getImg() }" width="30px">
-					<input value="Y" id="coment">
+					<input type="hidden" value="Y" id="coment">
 				</c:when>
 				<c:otherwise>
 					<img src="/img/deepblue.png" width="30px">
-					<input value="N" id="coment">
+					<input type="hidden" value="N" id="coment">
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -28,15 +57,14 @@
 		<form name="profileForm" id="profileForm" method="POST" ENCTYPE="multipart/form-data">
     		<input type="file" id="file" name="file" style="display:none;" onchange="setThumbnail(event)">
 		</form>
-		<input type="button" value="사진 선택" onclick="pick()">
+		<input type="button" id="pickBtn" class="row" value="사진 선택" onclick="pick()">
 		
-		<input type="text" value="${user.getUserName() }" id="name">
+		<input type="text" value="${user.getUserName() }" id="name" class="row">
 		<input type="hidden" value="${user.getUserName() }" id="oriName">
 		
-		
-		<div class="btns">
-			<input type="button" value="완료" id="complete">
-			<input type="button" value="취소" id="close">
+		<div class="row btns">
+			<input type="button" value="완료" id="complete" class="col-12 col-sm-6">
+			<input type="button" value="취소" id="close" class="col-12 col-sm-6">
 		</div>
 	</div>
 	

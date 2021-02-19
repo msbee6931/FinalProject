@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class ScholarshipDTO {
 
+	private int seq;
 	private int std_code;
 	private int s_kind;
 	private int s_rec;
@@ -11,12 +12,14 @@ public class ScholarshipDTO {
 	private int s_spt;
 	private int s_etc;
 	private int sSum;
-	private Date s_date;
+	private String s_date;
 	
 	public ScholarshipDTO() {}
 
-	public ScholarshipDTO(int std_code, int s_kind, int s_rec, int s_smt, int s_spt, int s_etc, int sSum, Date s_date) {
+	public ScholarshipDTO(int seq, int std_code, int s_kind, int s_rec, int s_smt, int s_spt, int s_etc, int sSum,
+			String s_date) {
 		super();
+		this.seq = seq;
 		this.std_code = std_code;
 		this.s_kind = s_kind;
 		this.s_rec = s_rec;
@@ -25,6 +28,14 @@ public class ScholarshipDTO {
 		this.s_etc = s_etc;
 		this.sSum = sSum;
 		this.s_date = s_date;
+	}
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 
 	public int getStd_code() {
@@ -83,13 +94,14 @@ public class ScholarshipDTO {
 		this.sSum = sSum;
 	}
 
-	public Date getS_date() {
+	public String getS_date() {
 		return s_date;
 	}
 
-	public void setS_date(Date s_date) {
+	public void setS_date(String s_date) {
 		this.s_date = s_date;
 	}
+
 	
 		
 	

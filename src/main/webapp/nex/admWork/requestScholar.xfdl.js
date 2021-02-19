@@ -57,7 +57,7 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","25","51",null,null,"24","59",null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","24","81",null,null,"25","59",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("reqScholar_ds");
             obj.set_autofittype("col");
@@ -72,6 +72,11 @@
             obj = new Button("btn_search","187","10","25","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_del",null,null,"103","25","25","20",null,null,null,null,this.Div00.form);
+            obj.set_taborder("3");
+            obj.set_text("삭제");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -111,8 +116,8 @@
 
         this.Div00_Grid00_oncelldblclick = function(obj,e)
         {
-        		var seq = this.reqScholar_ds.getColumn(e.row, "seq");
-        		var std_code = this.reqScholar_ds.getColumn(e.row, "std_code");
+        	var seq = this.reqScholar_ds.getColumn(e.row, "seq");
+        	var std_code = this.reqScholar_ds.getColumn(e.row, "std_code");
 
 
         	//내용 확인을 위한 모달 창
@@ -140,7 +145,7 @@
         		"reqScholar_ds=out_ds",//()_out_ds
         		"seq="+seq,//argument
         		"fn_callback"
-        		)
+        	)
 
         }
 
@@ -189,6 +194,36 @@
 
 
 
+        this.Div00_btn_del_onclick = function(obj,e)
+        {
+        	var arr = this.reqScholar_ds.extractRows("chk==1");
+        	if(arr.length==0||arr==-1)
+        	{
+        		alert("선택된항목이없습니다.");
+        		return;
+        	} else
+        	{
+        		var delCheck=this.confirm("정말로 삭제하시겠습니까?");
+        		if(delCheck)
+        		{
+        			this.reqScholar_ds.deleteMultiRows(arr);
+        			this.transaction(
+        				"deleteReqSch.scholarship",//id
+        				"/scholarship/deleteReqSch.scholarship",//url (절대경로)
+        				"in_ds=reqScholar_ds:U",//in_ds:U
+        				"",//()_out_ds
+        				"",//argument
+        				"fn_callback"
+        				)
+        		}
+        		else
+        		{
+        			return;
+        		}
+        	}
+
+        };
+
         });
         
         // Regist UI Components Event
@@ -198,6 +233,7 @@
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
             this.Div00.form.btn_search.addEventHandler("onclick",this.Div00_btn_search_onclick,this);
+            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
         };
 
         this.loadIncludeScript("requestScholar.xfdl");

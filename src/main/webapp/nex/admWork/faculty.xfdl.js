@@ -13,7 +13,7 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1080,570);
+                this._setFormPosition(1080,520);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -22,37 +22,42 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","20","40","1040","425",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","29","80","1021","360",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_faculty");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"f_seq\"/><Cell col=\"2\" text=\"name\"/><Cell col=\"3\" text=\"secNumber\"/><Cell col=\"4\" text=\"email\"/><Cell col=\"5\" text=\"contact\"/><Cell col=\"6\" text=\"address\"/><Cell col=\"7\" text=\"colCode\"/><Cell col=\"8\" text=\"deptCode\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:f_seq\"/><Cell col=\"2\" text=\"bind:name\"/><Cell col=\"3\" text=\"bind:secNumber\"/><Cell col=\"4\" text=\"bind:email\"/><Cell col=\"5\" text=\"bind:contact\"/><Cell col=\"6\" text=\"bind:address\"/><Cell col=\"7\" text=\"bind:colCode\"/><Cell col=\"8\" text=\"bind:deptCode\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_retrive","1020","10","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_retrive","950","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
-            obj.set_text("조회");
+            obj.set_cssclass("btn_default");
+            obj.set_text("전체조회");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_save","1020","465","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_save","840","450","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("저장");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","960","465","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_del","950","450","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_add","20","10","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_add","840","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("입력");
+            obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("cb_search","100","10","100","30",null,null,null,null,null,null,this);
+            obj = new Combo("cb_search","30","40","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var cb_search_innerdataset = new nexacro.NormalDataset("cb_search_innerdataset", obj);
             cb_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">All</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">f_seq</Col><Col id=\"datacolumn\">교직원번호</Col></Row></Rows>");
             obj.set_innerdataset(cb_search_innerdataset);
@@ -61,18 +66,43 @@
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search","220","10","100","30",null,null,null,null,null,null,this);
+            obj = new Edit("edt_search","140","40","150","25",null,null,null,null,null,null,this);
             obj.set_taborder("6");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_search","330","10","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_search","295","40","25","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_text("검색");
+            obj.set_cssclass("btn_search");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00","0","0","29",null,null,"0",null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
+            obj.set_taborder("9");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00","1051","0",null,null,"0","0",null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","140","490",null,null,"140","0",null,null,null,null,this);
+            obj.set_taborder("11");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1080,570,this,function(p){});
+            obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             

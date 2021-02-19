@@ -120,6 +120,7 @@
         	var eDate = this.cal_eDate.value;
         	var code = this.cmb_code.value;
         	var content = this.tea_content.value;
+
         	var diff = eDate -sDate;
         	if(diff < 0 ){
         		alert("일자를 확인해주세요");
@@ -160,7 +161,6 @@
         		}
 
 
-
         		this.transaction(
         			"insertDeptScheule",//id
         			"/schedule/insertDeptScheule",//url (절대경로)
@@ -170,9 +170,8 @@
         			"fn_callback"
         		)
 
-        		var suc = "succes!";
 
-        		this.close(suc);
+        		this.close();
         	}
         };
 
