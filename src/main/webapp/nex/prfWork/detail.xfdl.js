@@ -1036,7 +1036,6 @@
         	var proCode = this.parent.proCode;
         	var view = this.parent.view;
         	var proName = this.objApp.gds_professor.getColumn(0,"name")
-        	alert(proCode +":"+ proName);
         	if(classSeq != ""){
         		//수업 정보 넣기 / 수업 일정 가져오기
         		this.transaction(

@@ -72,9 +72,7 @@
         //화면을 띄우는 함수
         this.fn_openForm = function(menuId, menuName, formUrl)
         {
-
         	if(formUrl.length <=0) return; // formUrl이 없으면 리턴시킨다.
-
         	//화면 띄울 프레임 지정
         	av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
 

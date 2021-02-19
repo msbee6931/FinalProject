@@ -38,8 +38,8 @@
 	font-size: 13px;
 	text-align: right;
 	/* background-color: #435a7c; */
-	background-color: #0044c9;
-	padding: 25px 0px;
+	background-color: #0d6efd;
+	padding: 15px 0px;
 }
 .txt{
 	color: #ffffff;

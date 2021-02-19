@@ -42,7 +42,7 @@
 		});
 
 		var ssize = document.getElementById("size").value;
-		var size = parseInt(ssize);
+		var size = Integet.parseInt(ssize);
 		for (var j = 0; j < size; j++) {
 			var sj = String(j);
 			calendar.addEvent({
@@ -155,7 +155,7 @@ li {
 	font-family: 'GmarketSansLight';
 	font-size: 13px;
 	text-align: right;
-	background-color: #0044c9;
+	background-color: #0d6efd;
 	color: #ffffff;
 	/* background-color: #435a7c; */
 	padding: 15px 0px;
@@ -190,9 +190,9 @@ nav {
 }
 .news .newsBoard,
 .news .newsCalendar{
-	padding: 0px 30px;
+/* 	padding: 0px 30px;
 	height: 400px;
-	overflow: scroll;
+	overflow: scroll; */
 }
 </style>
 </head>
@@ -249,8 +249,8 @@ nav {
 					<p>KH정보교육원의 다양한 소식을 전해드립니다.</p>
 				</div>
 			</div>
-			<div class="row mb-5 news">
-				<div class="col-12 col-lg-6 newsBoard">
+			<div class="row mb-5">
+				<div class="col-12 col-lg-6">
 					<nav>
 						<div class="row" style="border-bottom: 2px solid black">
 							<div class="col-10">
@@ -433,7 +433,7 @@ nav {
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-lg-6 newsCalendar">
+				<div class="col-12 col-lg-6">
 					<div class="row">
 						<div id='calendar'></div>
 					</div>
@@ -446,7 +446,7 @@ nav {
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
 		</footer>
 	</div>
-	<div class="row" style="display:none;">
+	<div class="row">
 		<input type="hidden" id=size value=${size }><br>
 	<c:forEach var="i" items="${list }">
 		<input type=hidden id="${i.seq }seq" value=${i.seq }>
