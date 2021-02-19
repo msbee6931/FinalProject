@@ -281,4 +281,7 @@
 		#{startRowNum}
 		and #{endRowNum}
 	</select>
+	<select id="selectNoticeList" resultType="kh.spring.dto.NoticeDTO">
+		select * from notice order by writedate desc
+	</select>
 </mapper>
