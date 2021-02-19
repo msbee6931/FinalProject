@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kh.spring.dto.ColScheduleDTO;
 import kh.spring.dto.DeptScheduleDTO;
 import kh.spring.dto.IndScheduleDTO;
 
@@ -59,5 +60,19 @@ public class ScheduleDAO {
 	public int deleteIndSchedule(String id) {
 		return session.delete("Schedule.deleteIndSchedule", id);
 	}
-
+	public int insertColSchedule(ColScheduleDTO dto) {
+		return session.insert("Schedule.insertColSchedule", dto);
+	}
+	public List<ColScheduleDTO> selectColSchedule() {
+		return session.selectList("Schedule.selectColSchedule");
+	}
+	public ColScheduleDTO selectOneColSchedule(int seq) {
+		return session.selectOne("Schedule.selectOneColSchedule", seq);
+	}
+	public int updateColSchedule(ColScheduleDTO dto) {
+		return session.update("Schedule.updateColSchedule", dto);
+	}
+	public int deleteColSchedule(int seq) {
+		return session.delete("Schedule.deleteColSchedule", seq);
+	}
 }

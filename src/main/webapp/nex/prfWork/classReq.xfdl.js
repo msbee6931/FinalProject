@@ -111,7 +111,7 @@
 
         //작성 popup창 닫았을 때
         this.fn_pop_callback=function(sId){
-        	this.reload();
+        	this.classReq_onload();
         }
 
         //전체선택

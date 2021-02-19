@@ -47,8 +47,8 @@
 			var sj = String(j);
 			calendar.addEvent({
 				'title' : document.getElementById(sj + "title").value,
-				'start' : document.getElementById(sj + "sdate").value,
-				'end' : document.getElementById(sj + "edate").value
+				'start' : document.getElementById(sj + "sDate").value,
+				'end' : document.getElementById(sj + "eDate").value
 			});
 
 		}
@@ -424,8 +424,8 @@ nav {
 	<c:forEach var="i" items="${list }">
 		<input type=hidden id="${i.seq }seq" value=${i.seq }>
 		<input type=hidden id="${i.seq }title" value="${i.title }">
-		<input type=hidden id="${i.seq }sdate" value="${i.sdate }">
-		<input type=hidden id="${i.seq }edate" value="${i.edate }">
+		<input type=hidden id="${i.seq }sdate" value="${i.sDate }">
+		<input type=hidden id="${i.seq }edate" value="${i.eDate }">
 		<br>
 	</c:forEach>
 </body>

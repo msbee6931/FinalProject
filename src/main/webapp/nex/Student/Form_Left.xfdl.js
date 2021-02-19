@@ -66,13 +66,6 @@
         	var sTrPath  = obj.getTreePath(e.row); 	//풀 메뉴 트리구조 가져올 때 쓸것
         	sTrPath = nexacro.replaceAll(sTrPath, ".", ">");
 
-        	var rest = this.objApp.gds_students.getColumn(0,"rest");
-        	if(sMenuId == '2020' || sMenuId == '2010'){
-        		if(rest == 'Y'){
-        			alert("휴학 중인 상태입니다.\n수강신청이 불가능합니다");
-        			return;
-        		}
-        	}
         	//화면 오픈 스크립트
         	if(sFormUrl.length <= 0)	return;
         	var av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
