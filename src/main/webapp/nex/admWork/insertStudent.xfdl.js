@@ -18,9 +18,6 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_students_copy", this);
-<<<<<<< HEAD
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"DATE\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"deptcode\" type=\"STRING\" size=\"256\"/><Column id=\"colcode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-=======
             obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"colGrade\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
@@ -32,7 +29,6 @@
 
             obj = new Dataset("colCode_Copy", this);
             obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">10</Col><Col id=\"name\">인문대학</Col></Row><Row><Col id=\"code\">20</Col><Col id=\"name\">사회과학대학</Col></Row><Row><Col id=\"code\">30</Col><Col id=\"name\">자연과학대학</Col></Row><Row><Col id=\"code\">40</Col><Col id=\"name\">간호대학</Col></Row><Row><Col id=\"code\">50</Col><Col id=\"name\">공과대학</Col></Row><Row><Col id=\"code\">60</Col><Col id=\"name\">사범대학</Col></Row></Rows>");
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -143,22 +139,14 @@
             obj.set_text("학과");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Button("btn_insert","95","515","50","30",null,null,null,null,null,null,this);
-=======
             obj = new Combo("com_colCode","85","405","175","30",null,null,null,null,null,null,this);
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
             obj.set_taborder("23");
             obj.set_innerdataset("colCode_Copy");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Button("btn_cancel","210","515","50","30",null,null,null,null,null,null,this);
-=======
             obj = new Combo("com_deptCode","85","440","175","30",null,null,null,null,null,null,this);
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
             obj.set_taborder("24");
             obj.set_innerdataset("deptCode_copy");
             obj.set_codecolumn("code");
@@ -201,24 +189,6 @@
             obj.set_taborder("29");
             obj.set_format("###### - #{######}");
             obj.set_type("string");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_10_00","10","440","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("26");
-            obj.set_text("학과");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_10_01","10","475","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("27");
-            obj.set_text("colcode");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_deptcode","85","440","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("28");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_colcode","85","475","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("29");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -269,17 +239,11 @@
         	var rest = this.com_rest.value;
         	var grade = this.edt_grade.value;
         	var pw = this.edt_pw.value;
-<<<<<<< HEAD
-        	var gender = this.edt_gender.value;
-        	var deptcode = this.edt_deptcode.value;
-        	var colcode = this.edt_colcode.value;
-=======
         	var gender = this.com_gender.value;
         	var deptCode = this.com_deptCode.value;
         	var colCode = this.com_colCode.value;
         	var colGrade = this.com_colGrade.value;
         	trace(secNumber);
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);
@@ -293,14 +257,9 @@
         	this.ds_students_copy.setColumn(addRow,"grade",grade);
         	this.ds_students_copy.setColumn(addRow,"pw",pw);
         	this.ds_students_copy.setColumn(addRow,"gender",gender);
-<<<<<<< HEAD
-        	this.ds_students_copy.setColumn(addRow,"deptcode",deptcode);
-        	this.ds_students_copy.setColumn(addRow,"colcode",colcode);
-=======
         	this.ds_students_copy.setColumn(addRow,"deptCode",deptCode);
         	this.ds_students_copy.setColumn(addRow,"colCode",colCode);
         	this.ds_students_copy.setColumn(addRow,"colGrade",colGrade);
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
 
         	this.transaction(
 

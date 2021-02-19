@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학사 자료실</title>
+<title>자유 게시판</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -92,9 +92,32 @@ nav {
 	height:800px;
 	border : 1px solid black;
 }
+
+.choose{
+	border:3px solid #330099;
+	border-radius:10px;
+	width:10%;
+	height : 200px;
+	float:left;
+	line-height: 45px;
+	text-align:center;
+	font-size:20px;
+	text-decoration-line: underline;
+}
+.blank{
+	border:1px solid white;
+	float:left;
+	width:10%;
+}
+
+#write{
+	position:relative;
+	left:1050px;
+}
 </style>
 </head>
 <body>
+	
 	<div class="contatiner">
 		<div class="row">
 			<div class="col">
@@ -136,19 +159,27 @@ nav {
 				</div>
 			</nav>
 		</div>
-		<div class = main>
+		<div class = "container-fluid">
 			<div class="row pt-3">
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
-						<a href="/">Home&gt;</a><a href="/free/goBoard">자유게시판</a>
+						<a href="/">Home&gt;</a><a href="/free/goBoard">자유 게시판</a>
 					</h5>
 				</div>
 			</div>
 		<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>자유게시판</b></h3>
+			<h3><b>자유 게시판</b></h3>
 			</div>
 		</div>
+			<div class = "choose">
+				<br>
+				<a href ="/free/boardList">자유게시판</a>
+				<br>
+				<a href ="/request/boardList">건의게시판</a>
+			</div>
+			
+			<div class="blank"></div>
 			<div class="row">
 			<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
 			<div class="col-xl-12 d- pt-4" id="box">
@@ -159,18 +190,19 @@ nav {
 							</H3>
 						</div>
 						<div class="col-12">
-							 <form action = /free/search method="post">
+							 <form action = /free/search method="post" class="row">
 								<div class="col-md-6 order-md-2">
 									<div class="row p-4">
-
+									<div class="col-sm-12 col-md-3 p-0"></div>
 										<div class="col-sm-12 col-md-6 p-0">
-											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요">
+											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요" required>
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
 											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
+								<div class="col-md-6  align-self-center"></div>
 							</form>
 						</div>
 					</div>
@@ -190,7 +222,8 @@ nav {
 							<div class="col-md-2 d-none d-md-block text-center">${i.view_count}</div>
 						</div>
 					</c:forEach>
-					<button class="btn btn-primary d-md-block" id="write">글쓰기</button>
+
+						<div class= "write"><button class="btn btn-primary d-md-block" id="write">글쓰기</button></div>
 				</div>
 			</div>
 		</div>

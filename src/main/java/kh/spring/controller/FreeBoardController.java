@@ -36,6 +36,14 @@ public class FreeBoardController {
 	
 	@RequestMapping("boardList")
 	public String toBoard(HttpServletRequest request,Model model) throws Exception{
+		try {
+			int fid = (Integer)session.getAttribute("login");
+			System.out.println("fid : "+fid);
+		}catch(Exception e) {
+			model.addAttribute("error","Login이 필요한 페이지입니다.");
+			return "home";
+		}
+		
 		String cpage = null;
 		int currentPage = 0;
 		if(request.getParameter("cpage")==null) {
@@ -231,9 +239,6 @@ public class FreeBoardController {
 		return "Board/FreeList";
 	}
 	
-	@RequestMapping("goBoard")
-	public String goBoard() {
-		return "Board/BoardList";
-	}
+
 	
 }

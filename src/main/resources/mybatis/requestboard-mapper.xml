@@ -43,4 +43,8 @@ select count(reply) from requestboard where seq=#{seq}
    <select id="selectBySeq" resultType="kh.spring.dto.RequestBoardDTO">
    select * from requestboard where seq=#{seq}
    </select>
+   
+      <select resultType="kh.spring.dto.RequestBoardDTO" id="searchByTitle">
+   	select * from requestboard where title=#{title}
+   </select>
 </mapper>

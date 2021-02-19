@@ -357,11 +357,14 @@ nav {
 						<br>
 				</c:forEach>
 	
-	
+	<input type="hidden" id = error value="${error }">
 	
 </body>
 <script>
-
+	var error =document.getElementById("error").value;
+	if(error=='Login이 필요한 페이지입니다.'){
+		alert(error);
+	}
 
 	
 
