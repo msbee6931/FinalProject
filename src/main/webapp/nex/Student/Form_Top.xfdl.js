@@ -24,16 +24,16 @@
             // UI Components Initialize
             obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
-            obj.set_text("로고위치");
-            obj.set_background("#c1c1c1");
+            obj.set_background("url(\'theme::default/images/khLogo.png\')");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","210","10","30","30",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("홈");
+            obj = new Static("Static01","200","0",null,"50","0",null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_background("#0d6efd");
+            obj.set_color("whitesmoke");
             this.addChild(obj.name, obj);
 
-            obj = new Menu("Menu00","240","10","730","30",null,null,null,null,null,null,this);
+            obj = new Menu("Menu00","250","10","870","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_innerdataset("ds_menu");
             obj.set_captioncolumn("menu_name");
@@ -41,9 +41,15 @@
             obj.set_levelcolumn("menu_level");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout","1197","10","69","34",null,null,null,null,null,null,this);
+            obj = new Button("Button00","210","10","30","30",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_cssclass("btn_home");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_logout",null,"10","100","30","30",null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("로그아웃");
+            obj.set_cssclass("btn_logout");
             this.addChild(obj.name, obj);
 
             // Layout Functions

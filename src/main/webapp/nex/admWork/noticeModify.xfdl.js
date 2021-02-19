@@ -64,11 +64,7 @@
             obj.set_taborder("0");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
-<<<<<<< HEAD
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일시\"/><Cell col=\"4\" text=\"내용\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:writedate\" displaytype=\"calendarcontrol\" calendardateformat=\"yyyy-MM-dd\" calendareditformat=\"yyyy-MM-dd\" calendarautoselect=\"true\" calendardisplayinvalidtype=\"invalidtext\" calendardisplayinvalidtext=\"yyyy-MM-dd\"/><Cell col=\"4\" text=\"bind:contents\"/></Band></Format></Formats>");
-=======
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"n_seq\"/><Cell col=\"1\" text=\"title\"/><Cell col=\"2\" text=\"writedate\"/><Cell col=\"3\" text=\"contents\"/><Cell col=\"4\" text=\"deptcode\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:writedate\"/><Cell col=\"3\" text=\"bind:contents\"/><Cell col=\"4\" text=\"bind:deptcode\"/></Band></Format></Formats>");
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage2",this.Tab00);
@@ -84,11 +80,7 @@
             obj.set_taborder("1");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
-<<<<<<< HEAD
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"n_seq\"/><Cell col=\"2\" text=\"title\"/><Cell col=\"3\" text=\"writedate\"/><Cell col=\"4\" text=\"contents\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:writedate\" displaytype=\"calendarcontrol\" calendardateformat=\"yyyy-MM-dd\" calendarautoselect=\"true\"/><Cell col=\"4\" text=\"bind:contents\"/></Band></Format></Formats>");
-=======
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"n_seq\"/><Cell col=\"1\" text=\"title\"/><Cell col=\"2\" text=\"writedate\"/><Cell col=\"3\" text=\"contents\"/><Cell col=\"4\" text=\"deptcode\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:writedate\"/><Cell col=\"3\" text=\"bind:contents\"/><Cell col=\"4\" text=\"bind:deptcode\"/></Band></Format></Formats>");
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
             this.Tab00.Tabpage2.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage3",this.Tab00);

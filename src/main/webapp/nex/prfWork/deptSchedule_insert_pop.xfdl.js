@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("ScheduleCode_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">공지사항</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">단체일정</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">개인일정</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">[공지]</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">[학과]</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">[개인]</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -120,6 +120,7 @@
         	var eDate = this.cal_eDate.value;
         	var code = this.cmb_code.value;
         	var content = this.tea_content.value;
+
         	var diff = eDate -sDate;
         	if(diff < 0 ){
         		alert("일자를 확인해주세요");
@@ -160,7 +161,6 @@
         		}
 
 
-
         		this.transaction(
         			"insertDeptScheule",//id
         			"/schedule/insertDeptScheule",//url (절대경로)
@@ -170,9 +170,8 @@
         			"fn_callback"
         		)
 
-        		var suc = "succes!";
 
-        		this.close(suc);
+        		this.close();
         	}
         };
 

@@ -838,7 +838,13 @@ public class NoticeController {
 		return "Firefox";
 	}
 	
-
+	@RequestMapping("/noticeList.notice")
+	public NexacroResult noticeList() {
+		NexacroResult nr = new NexacroResult();
+		List<NoticeDTO> list = nService.selectNoticeList();
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
 	
 	@ExceptionHandler
 	public String exceptionhandler(Exception e){

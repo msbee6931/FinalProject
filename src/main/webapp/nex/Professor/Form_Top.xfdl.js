@@ -29,13 +29,17 @@
             // UI Components Initialize
             obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
-            obj.set_text("로고위치");
-            obj.set_background("#c1c1c1");
+            obj.set_background("url(\'theme::default/images/khLogo.png\')");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","210","10","30","30",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("홈");
+            obj = new Button("btn_logout","1197","17","69","20",null,null,null,null,null,null,this);
+            obj.set_taborder("3");
+            obj.set_text("로그아웃");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static01","200","0",null,"50","0",null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_background("#0d6efd");
             this.addChild(obj.name, obj);
 
             obj = new Menu("Menu00","241","10","849","30",null,null,null,null,null,null,this);
@@ -46,19 +50,21 @@
             obj.set_levelcolumn("menu_level");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout","1197","17","69","20",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_text("로그아웃");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("alarm_btn","1126","14","61","27",null,null,null,null,null,null,this);
+            obj = new Button("alarm_btn",null,"10","80","30","120",null,null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("알람");
+            obj.set_text("쪽지");
+            obj.set_cssclass("btn_message");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout00","1197","10","69","34",null,null,null,null,null,null,this);
+            obj = new Button("btn_logout00",null,"10","100","30","13",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("로그아웃");
+            obj.set_cssclass("btn_logout");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00","210","10","30","30",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_cssclass("btn_home");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -182,9 +188,9 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.Form_Top_onload,this);
+            this.btn_logout.addEventHandler("onclick",this.btn_logout_onclick,this);
             this.Menu00.addEventHandler("onmenuclick",this.Menu00_onmenuclick,this);
             this.Menu00.addEventHandler("onrbuttondown",this.Menu00_onrbuttondown,this);
-            this.btn_logout.addEventHandler("onclick",this.btn_logout_onclick,this);
             this.alarm_btn.addEventHandler("onclick",this.alarm_btn_onclick,this);
             this.btn_logout00.addEventHandler("onclick",this.btn_logout_onclick,this);
         };

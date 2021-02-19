@@ -66,7 +66,15 @@ if (nexacro.Environment)
         		{"id":"FileDownTransfer", "classname":"nexacro.FileDownTransfer", "type":"JavaScript"},
         		{"id":"FileUpTransfer", "classname":"nexacro.FileUpTransfer", "type":"JavaScript"},
         		{"id":"ExcelImportObject", "classname":"nexacro.ExcelImportObject", "type":"JavaScript"},
-        		{"id":"ExcelExportObject", "classname":"nexacro.ExcelExportObject", "type":"JavaScript"}
+        		{"id":"ExcelExportObject", "classname":"nexacro.ExcelExportObject", "type":"JavaScript"},
+        		{"id":"BasicChart", "classname":"nexacro.BasicChart", "type":"JavaScript"},
+        		{"id":"PyramidChart", "classname":"nexacro.PyramidChart", "type":"JavaScript"},
+        		{"id":"FloatChart", "classname":"nexacro.FloatChart", "type":"JavaScript"},
+        		{"id":"RoseChart", "classname":"nexacro.RoseChart", "type":"JavaScript"},
+        		{"id":"RadarChart", "classname":"nexacro.RadarChart", "type":"JavaScript"},
+        		{"id":"GaugeChart", "classname":"nexacro.GaugeChart", "type":"JavaScript"},
+        		{"id":"PieChart", "classname":"nexacro.PieChart", "type":"JavaScript"},
+        		{"id":"BubbleChart", "classname":"nexacro.BubbleChart", "type":"JavaScript"}
         ];
     	nexacro._addClasses(registerclass);
     };

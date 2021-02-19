@@ -83,7 +83,174 @@
 						"color" : nexacro.ColorObject("#bbbbbb"),
 						"border" : nexacro.BorderObject("1px solid #d9d9d9")
 					}
-				}
+				},
+				"class" :
+				[
+					{
+						"btn_message" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_message.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("2px"),
+									"padding" : nexacro.PaddingObject("1px")
+								},
+								"disabled" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_message.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("2px"),
+									"padding" : nexacro.PaddingObject("1px")
+								}
+							}
+						}
+					},
+					{
+						"btn_insert" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_insert.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+								}
+							}
+						}
+					},
+					{
+						"btn_del" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\""),
+									"icon" : nexacro.UrlObject("url('theme://images/btn_delete.png')")
+								}
+							}
+						}
+					},
+					{
+						"btn_default" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+								}
+							}
+						}
+					},
+					{
+						"btn_small" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#ffffff")
+								}
+							}
+						}
+					},
+					{
+						"btn_can" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+								}
+							}
+						}
+					},
+					{
+						"btn_home" :
+						{
+							"self" :
+							{
+								"disabled" :
+								{
+								},
+								"mouseover" :
+								{
+								}
+							}
+						}
+					},
+					{
+						"btn_logout" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("5px"),
+									"padding" : nexacro.PaddingObject("1px")
+								},
+								"disabled" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("5px"),
+									"padding" : nexacro.PaddingObject("1px")
+								},
+								"mouseover" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("5px"),
+									"padding" : nexacro.PaddingObject("1px")
+								},
+								"focused" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("5px"),
+									"padding" : nexacro.PaddingObject("1px")
+								},
+								"pushed" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("5px"),
+									"padding" : nexacro.PaddingObject("1px")
+								},
+								"selected" :
+								{
+									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
+									"textPadding" : nexacro.PaddingObject("5px"),
+									"padding" : nexacro.PaddingObject("1px")
+								}
+							}
+						}
+					}
+				]
 			},
 			"FileDownload" :
 			{
@@ -520,7 +687,24 @@
 					{
 						"color" : nexacro.ColorObject("#999999")
 					}
-				}
+				},
+				"class" :
+				[
+					{
+						"cmb_dept" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+								}
+							}
+						}
+					}
+				]
 			},
 			"ComboControl" :
 			{
@@ -633,7 +817,24 @@
 					{
 						"color" : nexacro.ColorObject("#999999")
 					}
-				}
+				},
+				"class" :
+				[
+					{
+						"edt_default" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+								}
+							}
+						}
+					}
+				]
 			},
 			"fileuploaditemedit" :
 			{
@@ -1303,6 +1504,30 @@
 										}
 									}
 								}
+							},
+							"Combo" :
+							{
+								"class" :
+								[
+									{
+										"cmb_default" :
+										{
+											"self" :
+											{
+												"mouseover" :
+												{
+													"color" : nexacro.ColorObject("#ffffff"),
+													"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+												},
+												"enabled" :
+												{
+													"color" : nexacro.ColorObject("#1c0c7c"),
+													"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+												}
+											}
+										}
+									}
+								]
 							}
 						}
 					},
@@ -1550,12 +1775,12 @@
 								{
 									"enabled" :
 									{
-										"font" : nexacro.FontObject("12px Gulim"),
-										"color" : nexacro.ColorObject("#666666")
+										"color" : nexacro.ColorObject("#ffffff")
 									},
 									"disabled" :
 									{
-										"color" : nexacro.ColorObject("#999999")
+										"color" : nexacro.ColorObject("#ffffff"),
+										"font" : nexacro.FontObject("12px \"-윤고딕330\"")
 									}
 								}
 							}
@@ -1577,11 +1802,11 @@
 								{
 									"expand" :
 									{
-										"icon" : nexacro.UrlObject("URL('theme://images/btn_WF_Treeexpand.png')")
+										"icon" : nexacro.UrlObject("url('theme://images/btn_tree_col.png')")
 									},
 									"collapse" :
 									{
-										"icon" : nexacro.UrlObject("URL('theme://images/btn_WF_Treecollapse.png')")
+										"icon" : nexacro.UrlObject("url('theme://images/btn_tree_ce.png')")
 									}
 								}
 							}
@@ -1749,8 +1974,13 @@
 			{
 				"self" :
 				{
+					"enabled" :
+					{
+						"font" : nexacro.FontObject("13px/normal \"-윤고딕340\"")
+					},
 					"disabled" :
 					{
+						"font" : nexacro.FontObject("13px/normal \"-윤고딕340\"")
 					}
 				}
 			},
@@ -2038,9 +2268,9 @@
 						{
 							"enabled" :
 							{
-								"font" : nexacro.FontObject("bold 13px Gulim"),
+								"font" : nexacro.FontObject("13px/normal \"-윤고딕340\""),
 								"color" : nexacro.ColorObject("#ffffff"),
-								"padding" : nexacro.PaddingObject("0px 30px 0px 30px")
+								"padding" : nexacro.PaddingObject("0px 15px 0px 15px")
 							},
 							"disabled" :
 							{
@@ -2048,6 +2278,8 @@
 							},
 							"mouseover" :
 							{
+								"color" : nexacro.ColorObject("#ffffff"),
+								"font" : nexacro.FontObject("12px \"-윤고딕330\"")
 							},
 							"selected" :
 							{
@@ -2823,13 +3055,54 @@
 				{
 					"enabled" :
 					{
-						"font" : nexacro.FontObject("12px \"Arial\",\"-윤고딕320\"")
+						"font" : nexacro.FontObject("12px \"-윤고딕330\"")
 					},
 					"disabled" :
 					{
 						"color" : nexacro.ColorObject("#999999")
 					}
-				}
+				},
+				"class" :
+				[
+					{
+						"sta_default" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+								}
+							}
+						}
+					},
+					{
+						"sta_title" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("16px \"-윤고딕350\"")
+								}
+							}
+						}
+					},
+					{
+						"sta_line" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								}
+							}
+						}
+					}
+				]
 			},
 			"StaticControl" :
 			{
@@ -2837,7 +3110,7 @@
 				{
 					"enabled" :
 					{
-						"font" : nexacro.FontObject("12px \"Arial\",\"-윤고딕320\"")
+						"font" : nexacro.FontObject("12px \"-윤고딕330\"")
 					},
 					"disabled" :
 					{
@@ -2897,7 +3170,8 @@
 							},
 							"mouseover" :
 							{
-								"border" : nexacro.BorderObject("1px solid #b1b1b1")
+								"border" : nexacro.BorderObject("1px solid #b1b1b1"),
+								"color" : nexacro.ColorObject("#7f7f7f")
 							},
 							"focused" :
 							{
@@ -2939,7 +3213,8 @@
 								{
 									"disabled" :
 									{
-										"color" : nexacro.ColorObject("#c8c8c8")
+										"color" : nexacro.ColorObject("#ffffff"),
+										"font" : nexacro.FontObject("11px \"-윤고딕330\"")
 									}
 								}
 							}
@@ -3717,6 +3992,59 @@
 						}
 					}
 				}
+			},
+			"comboedit" :
+			{
+				"parent" :
+				{
+					"Combo" :
+					{
+						"class" :
+						[
+							{
+								"cmb_default" :
+								{
+									"self" :
+									{
+										"enabled" :
+										{
+											"border" : nexacro.BorderObject("1px solid #0d6efd"),
+											"color" : nexacro.ColorObject("#0d6efd"),
+											"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+										}
+									}
+								}
+							}
+						]
+					}
+				}
+			},
+			"Div" :
+			{
+				"class" :
+				[
+					{
+						"div_line" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								}
+							}
+						}
+					}
+				]
+			},
+			"GridCellControl" :
+			{
+				"self" :
+				{
+					"mouseover" :
+					{
+					}
+				}
 			}
 		},
 		{
@@ -3746,8 +4074,8 @@
 		imgcache[nexacro._getImageLocation("theme://images/cmb_WF_Drop_O.png")] = { width:9, height:6 };
 		imgcache[nexacro._getImageLocation("theme://images/cmb_WF_Drop_P.png")] = { width:9, height:6 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Grdexpand.png")] = { width:13, height:13 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Treeexpand.png")] = { width:9, height:9 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Treecollapse.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tree_col.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tree_ce.png")] = { width:9, height:9 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Treeitem.png")] = { width:13, height:13 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Treeexpand.png")] = { width:14, height:9 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Treecollapse.png")] = { width:14, height:11 };
@@ -3824,9 +4152,116 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Stepitem.png")] = { width:13, height:13 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Stepitem_S.png")] = { width:13, height:13 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_expand.png")] = { width:9, height:6 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_home_30_30.png")] = { width:30, height:30 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_search.png")] = { width:25, height:25 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_message.png")] = { width:15, height:11 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_insert.png")] = { width:20, height:20 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_delete.png")] = { width:20, height:20 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_home_wh_30_30.png")] = { width:30, height:30 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_logout.png")] = { width:15, height:11 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_D.png")] = { width:15, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_N.png")] = { width:15, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_P.png")] = { width:15, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalHeadSpinDown_N.png")] = { width:6, height:4 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalHeadSpinDown_P.png")] = { width:6, height:4 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalHeadSpinUp_N.png")] = { width:6, height:4 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_CalHeadSpinUp_P.png")] = { width:6, height:4 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_close_D.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_close_N.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_close_O.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_drop_D.png")] = { width:14, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_drop_N.png")] = { width:14, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_drop_P.png")] = { width:14, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_GridExpand_N.png")] = { width:13, height:13 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_GridExpand_P.png")] = { width:13, height:13 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_hdec_D.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_hdec_N.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_hdec_P.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_hinc_D.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_hinc_N.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_hinc_P.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_max_D.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_max_N.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_menunext_D.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_menunext_N.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_menunext_P.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_menuprev_D.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_menuprev_N.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_menuprev_P.png")] = { width:8, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_min_D.png")] = { width:14, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_min_N.png")] = { width:14, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_next_N.png")] = { width:11, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_next_P.png")] = { width:11, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_normal_D.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_normal_N.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenunext_D.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenunext_N.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenunext_P.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenuprev_D.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenuprev_N.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenuprev_P.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_prev_N.png")] = { width:11, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_prev_P.png")] = { width:11, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_SpinDown_D.png")] = { width:8, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_SpinDown_N.png")] = { width:8, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_SpinDown_P.png")] = { width:8, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_SpinUp_D.png")] = { width:8, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_SpinUp_N.png")] = { width:8, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_SpinUp_P.png")] = { width:8, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabExtra_D.png")] = { width:10, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabExtra_N.png")] = { width:10, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabExtra_O.png")] = { width:10, height:10 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabnext_N.png")] = { width:5, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabnext_P.png")] = { width:5, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabprev_N.png")] = { width:5, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_tabprev_P.png")] = { width:5, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_vdec_D.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_vdec_N.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_vdec_P.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_vinc_D.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_vinc_N.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_vinc_P.png")] = { width:10, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_LtrLogout.png")] = { width:41, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Popupexpand.png")] = { width:3, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_RtlLogout.png")] = { width:41, height:30 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_SaveP.png")] = { width:10, height:10 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Tabextra_S.png")] = { width:8, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Treecollapse.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Treeexpand.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_whLogout.png")] = { width:41, height:30 };
+		imgcache[nexacro._getImageLocation("theme://images/btn_WF_wh_Logout.png")] = { width:41, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/chk_WF_Popupmenu.png")] = { width:13, height:13 };
+		imgcache[nexacro._getImageLocation("theme://images/ico_check.png")] = { width:12, height:11 };
+		imgcache[nexacro._getImageLocation("theme://images/ico_expand.png")] = { width:9, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/ico_title.png")] = { width:14, height:14 };
+		imgcache[nexacro._getImageLocation("theme://images/ico_zoom.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_DN.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_DS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_NN.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_NS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_nv_NN.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_nv_NS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_ON.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_OS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_yl_NN.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_check_yl_NS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_groupboxtit.png")] = { width:8, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/img_groupboxtit_D.png")] = { width:8, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Radio_DN.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Radio_DS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Radio_NN.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Radio_NS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Radio_ON.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Radio_OS.png")] = { width:18, height:18 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Step_NN.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/img_Step_NS.png")] = { width:12, height:12 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeCheck_N.png")] = { width:14, height:14 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeCheck_S.png")] = { width:14, height:14 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeClose.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeCollapse.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeExpand.png")] = { width:9, height:9 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeItem.png")] = { width:9, height:11 };
+		imgcache[nexacro._getImageLocation("theme://images/img_TreeOpen.png")] = { width:9, height:9 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Grdimg.png")] = { width:12, height:14 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Htrackbar.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Htrackbar_D.png")] = { width:8, height:5 };
@@ -3837,7 +4272,13 @@
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Popupcheck2.png")] = { width:7, height:7 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Vtrackbar.png")] = { width:5, height:8 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Vtrackbar_D.png")] = { width:5, height:8 };
+		imgcache[nexacro._getImageLocation("theme://images/khLogo.png")] = { width:200, height:50 };
 		imgcache[nexacro._getImageLocation("theme://images/mnu_WF_PopItemImg.png")] = { width:8, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/pop_menu_icon.png")] = { width:14, height:14 };
+		imgcache[nexacro._getImageLocation("theme://images/tab_MDI_ExtraBtn.png")] = { width:7, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/tab_MDI_nv_ExtraBtn.png")] = { width:7, height:7 };
+		imgcache[nexacro._getImageLocation("theme://images/test01.png")] = { width:7, height:5 };
+		imgcache[nexacro._getImageLocation("theme://images/test02.png")] = { width:7, height:5 };
 	};
 }
 )();

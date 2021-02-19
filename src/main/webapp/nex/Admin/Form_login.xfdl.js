@@ -81,10 +81,7 @@
         		this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Professor::Form_Bottom.xfdl");
         		this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
         	}else if(this.ds_admin.getRowCount() > 0 ){
-<<<<<<< HEAD
         		this.objApp.gds_admin.clearData();
-=======
->>>>>>> 71d706ee529c657b1053be2fa03cb7259ac57a05
         		this.objApp.gds_admin.copyData(this.ds_admin);
         		this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Admin::Form_Top.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Admin::Form_Left.xfdl");

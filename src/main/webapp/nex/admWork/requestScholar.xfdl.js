@@ -57,11 +57,26 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","25","51",null,null,"24","59",null,null,null,null,this.Div00.form);
-            obj.set_taborder("1");
+            obj = new Grid("Grid00","24","81",null,null,"25","59",null,null,null,null,this.Div00.form);
+            obj.set_taborder("0");
             obj.set_binddataset("reqScholar_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"31\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"seq\"/><Cell col=\"2\" text=\"std_code\"/><Cell col=\"3\" text=\"title\"/><Cell col=\"4\" text=\"contents\"/><Cell col=\"5\" text=\"writeDate\"/><Cell col=\"6\" text=\"checkRead\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:seq\"/><Cell col=\"2\" text=\"bind:std_code\"/><Cell col=\"3\" text=\"bind:title\"/><Cell col=\"4\" text=\"bind:contents\"/><Cell col=\"5\" text=\"bind:writeDate\"/><Cell col=\"6\" text=\"bind:checkRead\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"49\"/><Column size=\"80\"/><Column size=\"397\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"학번\"/><Cell col=\"3\" text=\"제목\"/><Cell col=\"4\" text=\"작성날짜\" displaytype=\"normal\"/><Cell col=\"5\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:writeDate\" displaytype=\"date\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:checkRead\" textAlign=\"center\"/></Band></Format></Formats>");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt_stdCode","27","10","150","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("1");
+            obj.set_displaynulltext("학번을 입력하세요");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_search","187","10","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("2");
+            obj.set_text("");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_del",null,null,"103","25","25","20",null,null,null,null,this.Div00.form);
+            obj.set_taborder("3");
+            obj.set_text("삭제");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -90,19 +105,20 @@
         		"", // 3. strInDatasets - Sds=Fds:U, :A, :N
         		"reqScholar_ds=out_ds", // 4. strOutDatasets - select Fds = Sds
         		"", // 5. strArgument
-        		"fn_callback" // 6. strCallbackFunc
+        		"fn_callback_selectReq" // 6. strCallbackFunc
         	);
         };
 
-        this.fn_callback = function(id,ErrorCode,ErrorMsg){
-        	trace(id);
-        	trace(ErrorCode);
-        	trace(ErrorMsg);
+        this.fn_callback_selectReq = function(id,ErrorCode,ErrorMsg){
+
+
         };
 
         this.Div00_Grid00_oncelldblclick = function(obj,e)
         {
-        		var seq = this.reqScholar_ds.getColumn(e.row, "seq");
+        	var seq = this.reqScholar_ds.getColumn(e.row, "seq");
+        	var std_code = this.reqScholar_ds.getColumn(e.row, "std_code");
+
 
         	//내용 확인을 위한 모달 창
         	var objCF = new ChildFrame();
@@ -111,17 +127,25 @@
         	objCF.set_formurl("admWork::requestScholar_read_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
-        		{seq:seq}, // 모달창에 seq 값 넘기기
+        		{seq:seq, std_code:std_code}, // 모달창에 seq 값 넘기기
         		this,
         		"fn_callback_pop_s"
         	);
         };
 
         this.fn_callback_pop_s = function(seq){
-        	this.alert(seq);
+
         	var nRow = this.reqScholar_ds.findRow( "seq", seq );
-        	this.alert(nRow);
-        	this.reqScholar_ds.setColumn(nRow,"checkRead","확인완료");
+        	this.reqScholar_ds.setColumn(nRow,"checkRead","읽음");
+
+        	this.transaction(
+        		"checkValue",//id
+        		"/scholarship/checkValueReqScholar.scholarship",//url (절대경로)
+        		"",//in_ds:U
+        		"reqScholar_ds=out_ds",//()_out_ds
+        		"seq="+seq,//argument
+        		"fn_callback"
+        	)
 
         }
 
@@ -159,6 +183,47 @@
 
 
 
+
+
+
+        this.Div00_btn_search_onclick = function(obj,e)
+        {
+        	var stdCodeValue = this.Div00.form.edt_stdCode.value;
+        	this.reqScholar_ds.filter("std_code=='"+stdCodeValue+"'");
+        };
+
+
+
+        this.Div00_btn_del_onclick = function(obj,e)
+        {
+        	var arr = this.reqScholar_ds.extractRows("chk==1");
+        	if(arr.length==0||arr==-1)
+        	{
+        		alert("선택된항목이없습니다.");
+        		return;
+        	} else
+        	{
+        		var delCheck=this.confirm("정말로 삭제하시겠습니까?");
+        		if(delCheck)
+        		{
+        			this.reqScholar_ds.deleteMultiRows(arr);
+        			this.transaction(
+        				"deleteReqSch.scholarship",//id
+        				"/scholarship/deleteReqSch.scholarship",//url (절대경로)
+        				"in_ds=reqScholar_ds:U",//in_ds:U
+        				"",//()_out_ds
+        				"",//argument
+        				"fn_callback"
+        				)
+        		}
+        		else
+        		{
+        			return;
+        		}
+        	}
+
+        };
+
         });
         
         // Regist UI Components Event
@@ -167,6 +232,8 @@
             this.addEventHandler("onload",this.requestScholar_onload,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
+            this.Div00.form.btn_search.addEventHandler("onclick",this.Div00_btn_search_onclick,this);
+            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
         };
 
         this.loadIncludeScript("requestScholar.xfdl");

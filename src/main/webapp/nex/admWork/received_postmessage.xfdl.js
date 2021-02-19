@@ -49,7 +49,7 @@
             obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","0","25","296","391",null,null,null,null,null,null,this.Div00.form);
@@ -62,58 +62,61 @@
             obj = new Div("Div00","320","240","679","172",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("Edit00","8","10","665","152",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
+            obj.set_cssclass("edt_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00_00","320","40","679","163",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("Edit00","6","8","668","147",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
+            obj.set_cssclass("edt_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
 
             obj = new Static("Static00","320","8","152","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("contents");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
-            obj.set_font("bold italic 20px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","319","209","152","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_text("reply");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
-            obj.set_font("bold italic 20px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("confirm_btn","83","420","96","28",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("confirm_btn","93","418","100","28",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","200","420","96","28",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn","198","418","100","28",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("send_btn","889","417","109","31",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("send_btn","889","417","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_text("전송");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("받은 쪽지함");
-            obj.set_background("#c1c1c1");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions

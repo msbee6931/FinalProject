@@ -15,12 +15,12 @@
             this.set_background("");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1024,768);
+                this._setFormPosition(1080,520);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("Dataset00", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"fileName\" type=\"STRING\" size=\"256\"/><Column id=\"fileSize\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"parentSeq\" type=\"INT\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -48,50 +48,54 @@
             obj.set_verticalAlign("middle");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","795","85","92","31",null,null,null,null,null,null,this);
+            obj = new Button("Button00","815","85","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("파일찾기");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","600","115","376","150",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","600","115","430","125",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"201\"/><Column size=\"95\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"214\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button02","887","85","90","30",null,null,null,null,null,null,this);
+            obj = new Button("Button02","930","85","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("제거");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("update","887","676","87","48",null,null,null,null,null,null,this);
+            obj = new Button("update","930","480","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("수정");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01","600","36","72","36",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("Title : ");
-            obj.set_font("italic 18pt \"Arial\"");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("title","660","37","316","33",null,null,null,null,null,null,this);
+            obj = new Edit("title","660","42","360","28",null,null,null,null,null,null,this);
             obj.set_taborder("6");
-            obj.set_border("0px none, 0px none, 1px solid");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","600","72","72","36",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("File :");
-            obj.set_font("italic 18pt \"Arial\"");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("contents","600","284","376","374",null,null,null,null,null,null,this);
+            obj = new Edit("contents","602","260","428","210",null,null,null,null,null,null,this);
             obj.set_taborder("8");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid01","32","80","536","581",null,null,null,null,null,null,this);
+            obj = new Grid("Grid01","32","80","536","390",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_binddataset("reference");
             obj.set_autofittype("col");
@@ -101,17 +105,24 @@
             obj = new Static("Static01_01","37","26","186","36",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("자료실 수정");
-            obj.set_font("24pt/normal \"Arial\"");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button03_00","481","676","87","48",null,null,null,null,null,null,this);
+            obj = new Button("Button03_00","468","480","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button01","468","46","100","30",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_text("갱신");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1024,768,this,function(p){});
+            obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_stepcount("0");
             this.addLayout(obj.name, obj);
             
@@ -132,10 +143,12 @@
         
         // User Script
         this.registerScript("reference_controller.xfdl", function() {
+        this.parentSeq=0;
 
         this.Button00_onclick = function(obj,e)
         {
         	this.FileDialog00.open('파일선택', FileDialog.MULTILOAD);
+
         };
 
         this.FileDialog00_onclose = function(obj,e)
@@ -272,11 +285,23 @@
         }
         this.Button02_onclick = function(obj,e)
         {
+
         	let arr = this.Dataset00.extractRows("chk==1");
 
         	if(arr.length==0 || arr.length== -1){alert("선택된 항목이 없습니다.");return;}
 
         	this.Dataset00.deleteMultiRows(arr);
+
+
+        	 this.transaction(
+                    "ReferenceFileDel"
+                    ,"/reference/deleteFile"
+                    ,"in_ds=Dataset00:U"
+                    ,""
+                    ,""
+                    ,"fn_callback"
+                 )
+        		 this.alert("파일이 제거 되었습니다.");
         };
 
 
@@ -307,7 +332,7 @@
 
         this.update_onclick = function(obj,e)
         {
-
+        	this.contents.set_value(this.contents.value+" ");
         	this.transaction(
                     "ReferenceUpd"
                     ,"/reference/update"
@@ -322,10 +347,20 @@
 
 
 
+
         };
 
         this.sample_fileuptransfer_01_onload = function(obj,e)
         {
+        		this.transaction(
+        			"garbageDelte" //id
+        			,"/reference/garbageDelete"//url
+        			,""// inData
+        			,""// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
+
         		this.transaction(
         			"ReferenceLoad" //id
         			,"/reference/load"//url
@@ -334,6 +369,7 @@
         			,""//strArg
         			,"fn_callback"//callback
         		);
+
 
         };
 
@@ -350,6 +386,20 @@
         			,"seq="+seq//strArg
         			,"fn_callback"//callback
         		);
+
+        };
+
+        this.Button01_onclick = function(obj,e)
+        {
+        			this.transaction(
+        			"ReferenceLoad" //id
+        			,"/reference/load"//url
+        			,""// inData
+        			,"reference=out_ds"// outData
+        			,""//strArg
+        			,"fn_callback"//callback
+        		);
+
         };
 
         });
@@ -369,6 +419,7 @@
             this.Grid01.addEventHandler("oncellposchanged",this.Grid01_oncellposchanged,this);
             this.Static01_01.addEventHandler("onclick",this.Static01_01_onclick,this);
             this.Button03_00.addEventHandler("onclick",this.Button03_onclick,this);
+            this.Button01.addEventHandler("onclick",this.Button01_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);
             this.FileUpTransfer00.addEventHandler("onsuccess",this.FileUpTransfer00_onsuccess,this);

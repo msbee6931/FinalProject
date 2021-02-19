@@ -20,7 +20,7 @@
 
             
             // UI Components Initialize
-            obj = new Static("Static00","6","20","49","40",null,null,null,null,null,null,this);
+            obj = new Static("Static00","20","20","49","40",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("과목코드");
             obj.set_textAlign("center");
@@ -33,25 +33,26 @@
             obj = new Static("Static00_00","20","70","60","20",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("거절 사유");
-            obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_classSeq","55","10","235","55",null,null,null,null,null,null,this);
+            obj = new Static("sta_classSeq","79","28","201","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("");
-            obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_wordWrap("char");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_send","35","358","90","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_send","45","358","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("보내기");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","175","358","90","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_cancel","155","358","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("취소");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions

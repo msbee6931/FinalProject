@@ -82,9 +82,10 @@
             obj.set_text("*지각·조퇴 3회는 결석 1회로 산정");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","234","556","132","30",null,null,null,null,null,null,this);
+            obj = new Button("Button00","234","556","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","30","10","30","30",null,null,null,null,null,null,this);
