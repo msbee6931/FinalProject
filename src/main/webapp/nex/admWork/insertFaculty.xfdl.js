@@ -29,6 +29,7 @@
 
             obj = new Edit("edt_f_seq","85","20","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","10","55","50","30",null,null,null,null,null,null,this);
@@ -63,36 +64,44 @@
 
             obj = new Edit("edt_name","85","55","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_age","85","90","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","85","125","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("10");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","85","160","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","85","195","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("12");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_pw","85","230","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("13");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","85","265","50","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_insert","40","270","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("입력");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","210","265","50","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_cancel","155","270","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("취소");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions

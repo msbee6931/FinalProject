@@ -65,29 +65,31 @@
             obj.set_text("학생 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","650","27","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_year","715","27","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_year_innerdataset = new nexacro.NormalDataset("co_year_innerdataset", obj);
             co_year_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">2020</Col><Col id=\"datacolumn\">2020년</Col></Row><Row><Col id=\"codecolumn\">2021</Col><Col id=\"datacolumn\">2021년</Col></Row></Rows>");
             obj.set_innerdataset(co_year_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","780","27","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester","845","27","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_semester_innerdataset = new nexacro.NormalDataset("co_semester_innerdataset", obj);
             co_semester_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학기</Col></Row></Rows>");
             obj.set_innerdataset(co_semester_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","910","24","90","33",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch","975","27","25","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
-            obj.set_text("검색");
+            obj.set_cssclass("btn_search");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid02","455","260","535","260",null,null,null,null,null,null,this);
@@ -108,9 +110,10 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave","890","525","100","35",null,null,null,null,null,null,this);
+            obj = new Button("btnSave","890","525","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("저장");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new PopupDiv("PopupDiv00","910","310","200","120",null,null,null,null,null,null,this);
@@ -122,9 +125,10 @@
             obj.set_taborder("0");
             this.PopupDiv00.addChild(obj.name, obj);
 
-            obj = new Button("btnDel","780","525","100","35",null,null,null,null,null,null,this);
+            obj = new Button("btnDel","780","525","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
             // Layout Functions

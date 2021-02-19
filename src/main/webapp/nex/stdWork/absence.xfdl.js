@@ -68,12 +68,13 @@
             obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","867","20","135","28",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_insert","897","20","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("작성하기");
+            obj.set_cssclass("btn_insert");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","30","61","369","360",null,null,null,null,null,null,this.Div00.form);
@@ -86,7 +87,7 @@
             obj = new Static("Static00","424","64","573","357",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","444","75","136","32",null,null,null,null,null,null,this.Div00.form);
@@ -94,20 +95,27 @@
             obj.set_text("휴학신청서 보기");
             this.Div00.addChild(obj.name, obj);
 
+            obj = new Static("Static02","440","282","550","135",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("4");
+            obj.set_cssclass("sta_line");
+            this.Div00.addChild(obj.name, obj);
+
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("휴학 신청");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","469","319","551","122",null,null,null,null,null,null,this);
+            obj = new Static("Static02","510","350","490","70",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_down","950","219","70","101",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("파일\r\n다운로드");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","568","220","382","100",null,null,null,null,null,null,this);
@@ -120,15 +128,13 @@
             obj = new Static("Static00_00_02","469","219","100","101",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("첨부파일");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00_00_00","469","187","101","30",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("사 유");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Radio("Radio00","579","189","440","28",null,null,null,null,null,null,this);
@@ -150,8 +156,7 @@
             obj = new Static("Static00_01_00_00","469","157","101","30",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("기 간");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions

@@ -30,6 +30,7 @@
 
             obj = new Edit("edt_title","70","10","320","20",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","10","40","40","20",null,null,null,null,null,null,this);
@@ -59,14 +60,16 @@
             obj.set_text("~");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_ok","113","259","80","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok","100","259","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancle","203","259","80","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_cancle","203","259","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("취소");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions

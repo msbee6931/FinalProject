@@ -80,7 +80,7 @@
             obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new BasicChart("BasicChart00","19","20","490","250",null,null,null,null,null,null,this.Div00.form);
@@ -298,6 +298,7 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("통계 관리");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions

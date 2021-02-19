@@ -49,34 +49,37 @@
             obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_dept","29","46","350","350",null,null,null,null,null,null,this.Div00.form);
+            obj = new Calendar("cal_dept","29","56","350","350",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_type("monthonly");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","889","16","90","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_insert","889","16","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
+            obj.set_cssclass("btn_insert");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","429","46","550","350",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","429","56","550","350",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_binddataset("colSchedule_ds");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"291\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"시작날짜\"/><Cell col=\"2\" text=\"종료날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","889","406","90","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_del","889","416","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
-            obj.set_text("일정삭제");
+            obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("학사 스케줄");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions

@@ -433,7 +433,7 @@
         		var startTime = objDate.getFullYear()+"0801";
         		var endTime = objDate.getFullYear()+"1231";
         	}
-        	var proCode ="91515073" // 교수코드(로그인)
+        	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq"); // 교수코드(로그인)
         	this.transaction(
         		"proClassList"
         		,"/proClassList.nex"
@@ -455,7 +455,7 @@
         		var startTime = year+"0801";
         		var endTime = year+"1231";
         	}
-        	var proCode ="91515073" // 교수코드(로그인)
+        	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq"); // 교수코드(로그인)
         	this.transaction(
         		"proClassList"
         		,"/proClassList.nex"

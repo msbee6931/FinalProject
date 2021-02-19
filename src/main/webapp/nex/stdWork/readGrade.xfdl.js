@@ -106,10 +106,12 @@
 
             obj = new Button("btn_grade","247","32","25","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
+            obj.set_cssclass("btn_search");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_part","519","32","25","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
+            obj.set_cssclass("btn_search");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);

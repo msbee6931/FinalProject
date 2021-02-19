@@ -64,155 +64,161 @@
             obj = new Static("Static00","9","69","80","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("학과");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("sta_dept","89","69","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("1");
-            obj.set_text("");
-            obj.set_border("1px solid black");
-            obj.set_padding("0px 0px 0px 5px");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","9","99","80","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("2");
+            obj.set_taborder("1");
             obj.set_text("학번");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_02","9","129","80","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
+            obj.set_taborder("2");
             obj.set_text("성명");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_03","9","159","80","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("4");
+            obj.set_taborder("3");
             obj.set_text("수강학년");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_00","9","189","80","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("5");
+            obj.set_taborder("4");
             obj.set_text("신청가능학점");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","9","239","120","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("6");
+            obj.set_taborder("5");
             obj.set_text("● 개설강좌 조회");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_04","9","269","60","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("7");
+            obj.set_taborder("6");
             obj.set_text("학과");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_00","9","299","60","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("8");
+            obj.set_taborder("7");
             obj.set_text("이수구분");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_00_00","9","329","60","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("9");
+            obj.set_taborder("8");
             obj.set_text("과목명");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_name","89","129","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
             obj.set_text("");
-            obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_grade","89","159","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("11");
+            obj.set_taborder("10");
             obj.set_text("");
-            obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_point","89","189","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("12");
+            obj.set_taborder("11");
             obj.set_text("");
-            obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_sSeq","89","99","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("13");
+            obj = new Static("sta_sSeq","89","100","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("12");
             obj.set_text("");
-            obj.set_border("1px solid black");
             obj.set_padding("0px 0px 0px 5px");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Combo("co_dept","69","269","120","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("14");
-            obj.set_innerdataset("ds_dept");
+            obj.set_taborder("13");
+            obj.set_innerdataset("deptCode");
             obj.set_codecolumn("id");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             obj.set_text("전체");
             obj.set_value("");
             obj.set_index("-1");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Combo("co_part","69","299","120","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("15");
+            obj.set_taborder("14");
             obj.set_innerdataset("ds_part");
             obj.set_codecolumn("id");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             obj.set_text("전체");
             obj.set_value("All");
             obj.set_index("0");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_className","69","329","120","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("16");
+            obj.set_taborder("15");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btnClassSearch","129","364","60","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("17");
-            obj.set_text("조회");
+            obj = new Button("btnClassSearch","164","364","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("16");
+            obj.set_cssclass("btn_search");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_basket","9","434","110","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("18");
+            obj.set_taborder("17");
             obj.set_text("장바구니");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_timeTable","9","469","110","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("19");
+            obj.set_taborder("18");
             obj.set_text("시간표 조회");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("basket","129","434","60","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("20");
+            obj.set_taborder("19");
             obj.set_text("조회");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("classTime","129","469","60","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("21");
+            obj.set_taborder("20");
             obj.set_text("조회");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("sta_semester","9","19","180","40",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("22");
+            obj.set_taborder("21");
             obj.set_text("");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Combo("sta_dept","89","70","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("22");
+            obj.set_innerdataset("deptCode");
+            obj.set_codecolumn("code");
+            obj.set_datacolumn("name");
+            obj.set_readonly("true");
+            obj.set_cssclass("cmb_dept");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","210","10","120","30",null,null,null,null,null,null,this);
@@ -256,9 +262,18 @@
         
         // User Script
         this.registerScript("regist.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
         this.ClassRegist_onload = function(obj,e)
         {
+        	var sCode = this.objApp.gds_students.getColumn(0,"s_seq");
+        	var sName = this.objApp.gds_students.getColumn(0,"name");
+        	var deptCode = this.objApp.gds_students.getColumn(0,"deptcode");
+        	var grade = this.objApp.gds_students.getColumn(0,"grade");
+        	this.Div00.form.sta_sSeq.set_text(sCode);
+        	this.Div00.form.sta_name.set_text(sName);
+        	this.Div00.form.sta_dept.set_value(deptCode)
+        	this.Div00.form.sta_grade.set_text(grade);
+
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.Div00.form.sta_semester.set_text(objDate.getFullYear()+"년 1학기");
@@ -701,6 +716,7 @@
             this.Div00.form.btnClassSearch.addEventHandler("onclick",this.Div00_btnClassSearch_onclick,this);
             this.Div00.form.basket.addEventHandler("onclick",this.Div00_basket_onclick,this);
             this.Div00.form.classTime.addEventHandler("onclick",this.Div00_classTime_onclick,this);
+            this.Div00.form.sta_dept.addEventHandler("onitemchanged",this.Div00_sta_dept_onitemchanged,this);
             this.Static01_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
             this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
             this.Static01_00_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
