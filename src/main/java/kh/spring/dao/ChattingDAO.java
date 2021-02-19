@@ -8,10 +8,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kh.spring.dto.FacultyDTO;
 import kh.spring.dto.FriendDTO;
 import kh.spring.dto.MessageDTO;
+import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
+import kh.spring.dto.StudentsDTO;
 import kh.spring.dto.UserDTO;
 
 @Repository
@@ -79,6 +82,28 @@ public class ChattingDAO {
 		param.put("userName", userName);
 		param.put("userId", userId);
 		return session.update("chatting.friendNameUpdateF",param);
+	}
+	
+	public int insertChatUser(String userId,String userName) {
+		Map<String,String> param = new HashMap<>();
+		param.put("userId", userId);
+		param.put("userName", userName);
+		return session.insert("chatting.insertChatUser",param);
+	}
+	
+	// 채팅 아이디 삭제(학생)
+	public int deleteChatUserStu(List<StudentsDTO> list) {
+		return session.delete("chatting.deleteChatUserStu",list);
+	}
+	
+	// 채팅 아이디 삭제(교수)
+	public int deleteChatUserPro(List<ProfessorDTO> list) {
+		return session.delete("chatting.deleteChatUserPro",list);
+	}
+	
+	// 채팅 아이디 삭제(교직원)
+	public int deleteChatUserFac(List<FacultyDTO> list) {
+		return session.delete("chatting.deleteChatUserFac",list);
 	}
 	
 	/* Friend */

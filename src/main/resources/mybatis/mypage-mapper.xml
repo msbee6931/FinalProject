@@ -6,8 +6,8 @@
 	select * from students where s_seq=#{id}
 </select>
 <update id="updateMyInfoStu">
-		update students set name = #{name}, age= #{age}, email= #{email},
-		contact=#{contact}, address=#{address}, birth=TO_DATE(#{birth},'yyyyMMdd'), pw=#{pw}
+		update students set name = #{name}, email= #{email}, secNumber = #{secNumber},
+		contact=#{contact}, address=#{address}, pw=#{pw}
 		where s_seq = #{s_seq}
 	
 </update>
@@ -16,7 +16,7 @@
 </select>
 <update id="updateMyInfoPro">
 	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
-		update professor set name = #{i.name}, age= #{i.age}, email= #{i.email},
+		update professor set name = #{i.name}, secNumber = #{i.secNumber}, email= #{i.email},
 		contact=#{i.contact}, address=#{i.address}, pw=#{i.pw}
 		where p_seq = #{i.p_seq}
 	</foreach>

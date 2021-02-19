@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Room Create</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 /* COMMON */
@@ -16,25 +17,19 @@
 	padding: 0px;
 	margin: 0px;
 }
-/* CONTAINER */
-#container {
-	display: flex;
+.container{
+	padding: 50px;
 }
 /* Profile */
-.profile {
-	padding: 10px;
+#roomName{
+	width: 100%;
+	margin: 10px 0px;
 }
-
-.friend, .myProfile {
+.friend{
 	display: flex;
-	margin: 6px 0px;
 	align-items: center;
+	margin: 10px 0px;
 }
-
-.profileImg {
-	padding-right: 6px;
-}
-
 .friendName {
 	cursor: pointer;
 }
@@ -42,13 +37,14 @@
 </head>
 <body>
 	<div class="container">
-		<input id="roomName" placeholder="방 제목을 입력해주세요.">
-		<div class="profile">
+		<div class="row">채팅방 생성</div>
+		<input id="roomName" class="row" placeholder="방 제목을 입력해주세요.">
+		<div class="row profile">
 			<c:choose>
 				<c:when test="${friendList != null }">
 					<c:forEach var="dto" items="${friendList }">
-						<div class="friend">
-							<div class="profileImg other">
+						<div class="row p-0 friend">
+							<div class="col-2 profileImg other">
 								<c:forEach var="aDto" items="${allUser}">
 									<c:if test="${dto.getFriendId() == aDto.getUserId() }">
 										<c:choose>
@@ -58,9 +54,9 @@
 									</c:if>
 								</c:forEach>
 							</div>
-							<div class="friendName">${dto.getFriendName() }</div>
+							<div class="col-8 friendName">${dto.getFriendName() }</div>
 							<input type="hidden" value="${dto.getFriendId() }" class="friendId">
-							<input type="checkbox" class="select" value1="${dto.getFriendId() }" value2="${dto.getFriendName() }">
+							<input type="checkbox" class="col-2 select" value1="${dto.getFriendId() }" value2="${dto.getFriendName() }">
 						</div>
 					</c:forEach>
 				</c:when>
@@ -69,9 +65,9 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="btns">
-			<input type="button" id="complete" value="완료">
-			<input type="button" id="close" value="취소">
+		<div class="row btns">
+			<input type="button" id="complete" class="col-12 col-sm-6" value="완료">
+			<input type="button" id="close" class="col-12 col-sm-6" value="취소">
 		</div>
 	</div>
 
