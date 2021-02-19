@@ -45,4 +45,7 @@
 	<delete id="deleteColSchedule">
 		delete from colSchedule where seq=#{seq}
 	</delete>
+	<select id="selectAll" resultType="kh.spring.dto.ColScheduleDTO">
+	select * from colSchedule order by 3
+	</select>
 </mapper>

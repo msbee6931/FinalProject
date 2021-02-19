@@ -53,6 +53,7 @@ public class LoginController {
 		int sCode = Integer.parseInt(Id); 
 		String password = EncryptUtils.getSHA256(request.getParameter("password"));
 		String login = request.getParameter("login");
+		session.setAttribute("login", sCode);
 		System.out.println("user" +":" + user);
 		System.out.println("sCode" +":" + sCode);
 		System.out.println("password" +":" + password);
@@ -65,6 +66,7 @@ public class LoginController {
 			int result = lService.loginStu(sdto);
 			if(result > 0) {
 				session.setAttribute("std",sCode);
+				session.setAttribute("userId", Integer.toString(sCode));
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
@@ -80,6 +82,7 @@ public class LoginController {
 			int result = lService.loginPro(pdto);
 			if(result > 0) {
 				session.setAttribute("pro",sCode);
+				session.setAttribute("userId", Integer.toString(sCode));
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
@@ -114,12 +117,14 @@ public class LoginController {
 			dto.setUserId(Integer.parseInt(std));
 			dto.setUserType("std");
 			session.removeAttribute("std");
+			session.removeAttribute("userId");
 		}else if(session.getAttribute("pro") != null) {
 			System.out.println("B");
 			String pro = session.getAttribute("pro").toString();
 			dto.setUserId(Integer.parseInt(pro));
 			dto.setUserType("pro");
 			session.removeAttribute("pro");
+			session.removeAttribute("userId");
 		}else if(session.getAttribute("adm") !=null) {
 			System.out.println("C");
 			String adm = session.getAttribute("adm").toString();
@@ -138,6 +143,7 @@ public class LoginController {
 			dto.setSessionLimit(date);
 			lService.updLoginInfo(dto);
 		}
+		session.removeAttribute("login");
 		return "home";
 	}
 
@@ -161,6 +167,7 @@ public class LoginController {
 	public NexacroResult reqLoginInfo() {
 		System.out.println("도착");
 		NexacroResult nr = new NexacroResult();
+		System.out.println("관리자 : " + session.getAttribute("adm"));
 		if(session.getAttribute("std") != null) {
 			int seq = (int)(session.getAttribute("std"));
 			StudentsDTO dto = lService.selectStd(seq);	
