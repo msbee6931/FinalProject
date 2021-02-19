@@ -4,14 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Tuition">
 
-<insert id="insertTuition" parameterType="java.util.List">
-<foreach item="i" collection="list" open="INSERT ALL"  close="SELECT * FROM DUAL" separator=" " >
-	into tuition(std_code,t_enter,t_class,t_std,t_grd,t_ore,tSum,t_date) values (#{i.std_code},#{i.t_enter},#{i.t_class},#{i.t_std},#{i.t_grd},#{i.t_ore},#{i.tSum},sysdate)
-	</foreach>
+<insert id="insertTuition">
+	insert into tuition values (tuition_seq.nextval,#{std_code},#{t_enter},#{t_class},#{t_std},#{t_grd},#{t_ore},#{tSum},sysdate)
 </insert>
 
 <select id="selectByStd_code" resultType="kh.spring.dto.TuitionDTO">
 select * from tuition where std_code=#{std_code}
 </select>
-
+<select id="selectAll" resultType="kh.spring.dto.TuitionDTO">
+	select * from tuition
+</select>
+<select id="selectOne" resultType="kh.spring.dto.TuitionDTO">
+	select * from tuition where seq=#{seq}
+</select>
+<update id="updateOne">
+	update tuition set t_enter=#{t_enter}, t_class=#{t_class}, t_std=#{t_std}, t_grd=#{t_grd}, t_ore=#{t_ore}, tSum=#{tSum} where seq=#{seq}
+</update>
+<delete id="deleteOne">
+	delete from tuition where seq=#{seq}
+</delete>
 </mapper>

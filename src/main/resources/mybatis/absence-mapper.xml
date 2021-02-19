@@ -28,12 +28,20 @@
 <select id="selectStdOne" resultType="kh.spring.dto.AbsenceDTO">
 	select * from absence where std_code=#{sCode}
 </select>
+<delete id="deleteReqAbs">
+	delete from absence where seq=#{seq}
+</delete>
+<delete id="deleteReqAbsFile">
+	delete from absenceFile where parentSeq=#{seq}
+</delete>
 
 <insert id="insertRest">
 	insert into rest values (rest_seq.nextval,#{std_code},#{title},sysdate)
 </insert>
-<select id="selectOneRest">
+<select id="selectOneRest" resultType="kh.spring.dto.RestDTO">
 	select * from rest where std_code=#{std_code}
 </select>
-
+<select id="selectAllRest" resultType="kh.spring.dto.RestDTO">
+	select * from rest
+</select>
 </mapper>

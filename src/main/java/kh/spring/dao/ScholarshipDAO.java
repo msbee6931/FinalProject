@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import kh.spring.dto.ReqSchFileDTO;
 import kh.spring.dto.ReqScholarDTO;
 import kh.spring.dto.ScholarshipDTO;
+import kh.spring.dto.TuitionDTO;
 
 @Repository
 public class ScholarshipDAO {
@@ -18,11 +19,8 @@ public class ScholarshipDAO {
 	SqlSession session;
 	
 	//관리자_장학금 등록
-	public int insertScholar(List<ScholarshipDTO> list) {
-		for(int i =0; i<list.size();i++) {
-			System.out.println(list.get(i).getStd_code());
-		}
-		return session.insert("Scholarship.insertScholarship", list);
+	public int insertScholar(ScholarshipDTO dto) {
+		return session.insert("Scholarship.insertScholarship", dto);
 	}
 	
 	//학생_장학금 요청서 파일 업로드
@@ -67,5 +65,22 @@ public class ScholarshipDAO {
 	public int checkValueReqScholar(int seq) {
 		return session.update("Scholarship.checkValueReqScholar", seq);
 	}
-
+	public List<ScholarshipDTO> selectAll() {
+		return session.selectList("Scholarship.selectAll");
+	}
+	public ScholarshipDTO selectOne(int seq) {
+		return session.selectOne("Scholarship.selectOne", seq);
+	}
+	public int updateOne(ScholarshipDTO dto) {
+		return session.update("Scholarship.updateOne", dto);
+	}
+	public int deleteOne(int seq) {
+		return session.delete("Scholarship.deleteOne", seq);
+	}
+	public int deleteReqSch(List<ReqScholarDTO> list) {
+		return session.delete("Scholarship.deleteReqSch", list);
+	}
+	public int deleteReqfile(int parentSeq) {
+		return session.delete("Scholarship.deleteReqfile", parentSeq);
+	}
 }

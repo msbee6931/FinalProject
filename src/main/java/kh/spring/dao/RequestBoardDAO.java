@@ -69,4 +69,7 @@ public class RequestBoardDAO {
 		 return session.selectOne("Request.selectBySeq",seq);
 	 }
 	 
+	   public List<RequestBoardDTO> searchByTitle(String title) {
+		   return session.selectList("Request.searchByTitle",title);
+	   }
 }

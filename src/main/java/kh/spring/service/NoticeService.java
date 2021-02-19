@@ -388,4 +388,7 @@ public class NoticeService {
 	public List<NoticeDTO> selectNoticeAll(){
 		return nDAO.selectNoticeAll();
 	}
+	public List<NoticeDTO> selectNoticeList(){
+		return nDAO.selectNoticeList();
+	}
 }

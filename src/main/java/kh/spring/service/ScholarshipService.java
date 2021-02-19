@@ -20,6 +20,7 @@ import kh.spring.dao.ScholarshipDAO;
 import kh.spring.dto.ReqSchFileDTO;
 import kh.spring.dto.ReqScholarDTO;
 import kh.spring.dto.ScholarshipDTO;
+import kh.spring.dto.TuitionDTO;
 
 @Service
 public class ScholarshipService {
@@ -28,8 +29,8 @@ public class ScholarshipService {
 	ScholarshipDAO sDao;
 	
 	//장학금 입력 
-	public int insertScholar(List<ScholarshipDTO> list) {
-		return sDao.insertScholar(list);
+	public int insertScholar(ScholarshipDTO dto) {
+		return sDao.insertScholar(dto);
 	}
 	
 	//장학금 요청 파일 업로드
@@ -133,4 +134,24 @@ public class ScholarshipService {
 	public int checkValueReqScholar(int seq) {
 		return sDao.checkValueReqScholar(seq);
 	}
+	public List<ScholarshipDTO> selectAll(){
+		return sDao.selectAll();
+	}
+	
+	public ScholarshipDTO selectOne(int seq) {
+		return sDao.selectOne(seq);
+	}
+	public int updateOne(ScholarshipDTO dto) {
+		return sDao.updateOne(dto);
+	}
+	public int deleteOne(int seq) {
+		return sDao.deleteOne(seq);
+	}
+	public int deleteReqSch(List<ReqScholarDTO> list) {
+		return sDao.deleteReqSch(list);
+	}
+	public int deleteReqfile(int parentSeq) {
+		return sDao.deleteReqfile(parentSeq);
+	}
 }
+

@@ -35,8 +35,15 @@ public class AbsenceDAO {
 			return session.selectList("Absence.selectOneFile", seq);
 		}
 		
-		public AbsenceDTO selectStdOne(int sCode) {
-			return session.selectOne("Absence.selectStdOne", sCode);
+		public List<AbsenceDTO> selectStdOne(int sCode) {
+			return session.selectList("Absence.selectStdOne", sCode);
+		}
+		
+		public int deleteReqAbs(int seq) {
+			return session.delete("Absence.deleteReqAbs", seq);
+		}
+		public int deleteReqAbsFile(int seq) {
+			return session.delete("Absence.deleteReqAbsFile",seq);
 		}
 		
 		public int insertRest(RestDTO dto) {
@@ -46,4 +53,8 @@ public class AbsenceDAO {
 		public List<RestDTO> selectOneRest(int std_code) {
 			return session.selectList("Absence.selectOneRest", std_code);
 		}
+		public List<RestDTO> selectAllRest() {
+			return session.selectList("Absence.selectAllRest");
+		}
+		
 }

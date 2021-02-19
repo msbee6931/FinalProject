@@ -15,4 +15,18 @@
 <update id="updateStdRest">
 	update students set rest='N' where s_seq=#{sCode}
 </update>
+<select id="selectColCount" resultType="kh.spring.dto.ChartDTO">
+	select colCode as "category", count(colCode) as "count" from students group by colCode
+</select>
+<select id="selectDeptCount" resultType="kh.spring.dto.ChartDTO">
+	select deptCode as "category", count(deptCode) as "count" from students group by deptCode
+</select>
+<select id="selectGenderCount" resultType="kh.spring.dto.ChartDTO">
+	select gender as "category", count(gender) as "count" from students group by gender
+</select>
+<select id="selectAllStd" resultType="kh.spring.dto.StudentsDTO">
+	select * from students
+</select>
+
+
 </mapper>
