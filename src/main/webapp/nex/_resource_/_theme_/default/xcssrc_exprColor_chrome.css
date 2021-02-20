@@ -24,7 +24,7 @@ div
   -webkit-touch-callout:none;
   -webkit-appearance:none;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
-  outline:none;
+  outline:none;  
 }
 
 table
@@ -50,7 +50,7 @@ img
 textarea::-webkit-scrollbar { display: none; }
 
 
-.nexacontainer
+div.nexacontainer
 {
   position:absolute;
   left:0px;
@@ -58,21 +58,35 @@ textarea::-webkit-scrollbar { display: none; }
   width:100%;
   height:100%;
 }
-.nexacontainer.withvscroll
-{
-  right:14px;
-}
-.nexacontainer.withhscroll
-{
-  bottom:14px;
-}
-.nexacontainer.withbothscroll
-{
-  right:14px;
-  bottom:14px;
+
+.nexacontainer.nexartl
+{ 
+  right:0px;
 }
 
-.nexalefttop
+div.nexacontainer.withvscroll
+{
+  right:14px;
+}
+.nexacontainer.nexartl.withvscroll
+{
+  left:14px;
+}
+div.nexacontainer.withhscroll
+{
+  bottom:14px;
+}
+div.nexacontainer.withbothscroll
+{
+  right:14px;
+  bottom:14px;
+}
+.nexacontainer.nexartl.withbothscroll
+{
+  left:14px;
+  bottom:14px;
+}
+div.nexalefttop
 {
   left:0px;
   top:0px;
@@ -80,7 +94,11 @@ textarea::-webkit-scrollbar { display: none; }
   background-position:left top;
   font-size:1px;
 }
-.nexaleftbottom
+.nexalefttop.nexartl
+{
+  background-position:right top;
+}
+div.nexaleftbottom
 {
   left:0px;
   bottom:0px;
@@ -88,7 +106,11 @@ textarea::-webkit-scrollbar { display: none; }
   background-position:left bottom;
   font-size:1px;
 }
-.nexarightbottom
+.nexaleftbottom.nexartl
+{
+  background-position:right bottom;
+}
+div.nexarightbottom
 {
   right:0px;
   bottom:0px;
@@ -96,40 +118,50 @@ textarea::-webkit-scrollbar { display: none; }
   background-position:right bottom;
   font-size:1px;
 }
-.nexarighttop
+.nexarightbottom.nexartl
+{
+  background-position:left bottom;
+}
+div.nexarighttop
 {
   right:0px;
   top:0px;
   background-repeat:no-repeat;
   background-position:right top;
 }
-.nexaedge
+.nexarighttop.nexartl
+{
+  background-position:left top;
+}
+div.nexaedge
 {
   width:100%;
   height:100%;
 }
-.nexamodaloverlay
+div.nexamodaloverlay
 {
   width:100%;
   height:100%;
 }
-.nexainnercontainer
+div.nexainnercontainer
 {
 
 }
-
-.nexatransform
+div.nexatransform
 {
 
 }
-
-.nexacontentsbox
+div.nexacontentsbox
 {
   position:relative;
   display:table-cell;
   background-position:left center;
   background-repeat:no-repeat;
   vertical-align:middle;
+}
+.nexacontentsbox.nexartl
+{
+  background-position:right center;
 }
 .nexatextitem
 {
@@ -147,7 +179,6 @@ textarea::-webkit-scrollbar { display: none; }
   background-position:center center;
   background-repeat:no-repeat;
 }
-
 .nexainput
 {
   font:inherit;
@@ -160,21 +191,6 @@ textarea::-webkit-scrollbar { display: none; }
   background:transparent;
   padding : 0px;  
 }
-
-.nexainput:-webkit-autofill 
-{
-	animation-name: nexainput_autofill;
-}
-
-.nexainput:not(:-webkit-autofill) 
-{
-	animation-name: nexainput_notautofill;
-}
-
-@keyframes nexainput_autofill { }
-
-@keyframes nexainput_notautofill { }
-
 .nexatextarea
 {
   font:inherit;
@@ -192,79 +208,84 @@ textarea::-webkit-scrollbar { display: none; }
   padding : 0px;
   box-sizing:border-box;		
 }
-
-.nexaleftalign
+div.nexaleftalign, input.nexaleftalign
 {
   text-align:left;
 }
-
-.nexarightalign
+.nexaleftalign.nexartl
 {
   text-align:right;
 }
-
-.nexacenteralign
+div.nexarightalign, input.nexarightalign
+{
+  text-align:right;
+}
+.nexarightalign.nexartl
+{
+  text-align:left;
+}
+div.nexacenteralign,input.nexacenteralign
 {
   text-align:center;
 }
-
-.nexamap div *
+div.nexamap div *
 {
   overflow:visible;
 }
 
-.ProgressBar,.ProgressBarControl
+div.ProgressBar, div.ProgressBarControl
 {
-
+  
 }
 
-.celltreeline
+div.celltreeline
 {
   border : 1px dotted #999999;
 }
 
-.Edit, .MaskEdit, .TextArea, .EditControl, .MaskEditControl, .TextAreaControl
+div.Edit, div.MaskEdit, div.TextArea, div.EditControl, div.MaskEditControl, div.TextAreaControl
 {
   cursor:text;
 }
-.Button .nexacontentsbox, .ButtonControl .nexacontentsbox
+div.Button .nexacontentsbox, div.ButtonControl .nexacontentsbox
+{
+  text-align:center;
+  background-position:center center;
+}
+div.FileDownload  .nexacontentsbox, div.FileDownloadControl .nexacontentsbox
+{
+  text-align:center;
+  background-position:center center;
+}
+div.IconTextControl .nexacontentsbox, div.IconControl .nexacontentsbox
+{
+  text-align:center;
+  background-position:center center;
+}
+div.DatePickerDayItemControl .nexacontentsbox, div.DatePickerWeekItemControl .nexacontentsbox, div.TitleBarButtonControl .nexacontentsbox
 {
   text-align:center;
   background-position:center center;
 }
 
-.FileDownload  .nexacontentsbox, .FileDownloadControl .nexacontentsbox
+div.Sketch .nexacontentsbox
 {
   text-align:center;
-  background-position:center center;
 }
 
-.IconTextControl .nexacontentsbox, .IconControl .nexacontentsbox
-{
-  text-align:center;
-  background-position:center center;
-}
-
-.DatePickerDayItemControl .nexacontentsbox, .DatePickerWeekItemControl .nexacontentsbox, .TitleBarButtonControl .nexacontentsbox
-{
-  text-align:center;
-  background-position:center center;
-}
-
-.Sketch .nexacontentsbox
-{
-   text-align:center;
-}
-
-.MainFrame, .VScrollBarControl, .HScrollBarControl
+div.MainFrame, div.VScrollBarControl, div.HScrollBarControl
 {
   cursor:default;
 }
 
-.Grid .body .row .cell.Expr_red.dummy.dummy.dummy
+div.Grid .body .row .cell.Expr_red.dummy.dummy.dummy
 {
 	background : #d23636;
-<<<<<<< HEAD
+	color : #ffffff;
+}
+div.Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell
+{
+	background : #d23636;
 }
 .Grid.nexartl .body .row .cell.Expr_red
 {
@@ -333,68 +354,17 @@ div#nexacontainer .Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell[sta
 .Grid.nexartl .body .row .cell.Expr_blue[status=mouseover]
 {
 	background : #ffffff;
-=======
-	color : #ffffff;
->>>>>>> 62f71c91ca4c9bb05c706aa9b70672fff3aa9b42
 }
-.Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell
+div#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy.oddcell[status=mouseover]
 {
-<<<<<<< HEAD
 	color : #ffffff;
-=======
-	background : #d23636;
->>>>>>> 62f71c91ca4c9bb05c706aa9b70672fff3aa9b42
 }
-.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy
+div#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy[status=mouseover]
 {
-<<<<<<< HEAD
 	color : #ab9f1b;
 	background : #ffffff;
-=======
-	background : #78a2dd;
-	color : #ffffff;
->>>>>>> 62f71c91ca4c9bb05c706aa9b70672fff3aa9b42
 }
-.Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell
+.Grid.nexartl .body .row .cell.Expr_yellow[status=mouseover]
 {
-<<<<<<< HEAD
-=======
-	background : #78a2dd;
-}
-.Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy
-{
-	background : #ab9f1b;
-	color : #ffffff;
-}
-.Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy.oddcell
-{
-	color : #ab9f1b;
-}
-#nexacontainer .Grid .body .row .cell.Expr_red.dummy.dummy.dummy[status=mouseover]
-{
-	color : #d23636;
-	background : #ffffff;
-}
-#nexacontainer .Grid .body .row .cell.Expr_red.dummy.dummy.dummy.oddcell[status=mouseover]
-{
-	background : #ffffff;
-}
-#nexacontainer .Grid .body .row .cell.Expr_blue.dummy.dummy.dummy[status=mouseover]
-{
-	color : #78a2dd;
-	background : #ffffff;
-}
-#nexacontainer .Grid .body .row .cell.Expr_blue.dummy.dummy.dummy.oddcell[status=mouseover]
-{
-	color : #ffffff;
-}
-#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy.oddcell[status=mouseover]
-{
-	color : #ffffff;
-}
-#nexacontainer .Grid .body .row .cell.Expr_yellow.dummy.dummy.dummy[status=mouseover]
-{
-	color : #ab9f1b;
->>>>>>> 62f71c91ca4c9bb05c706aa9b70672fff3aa9b42
 	background : #ffffff;
 }

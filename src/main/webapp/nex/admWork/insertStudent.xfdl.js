@@ -167,7 +167,7 @@
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             var com_gender_innerdataset = new nexacro.NormalDataset("com_gender_innerdataset", obj);
-            com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
+            com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">M</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">W</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
             obj.set_innerdataset(com_gender_innerdataset);
             this.addChild(obj.name, obj);
 
@@ -246,10 +246,53 @@
         	var grade = this.edt_grade.value;
         	var pw = this.edt_pw.value;
         	var gender = this.com_gender.value;
-        	var deptCode = this.com_deptCode.value;
         	var colCode = this.com_colCode.value;
-        	var colGrade = this.com_colGrade.value;
-        	trace(secNumber);
+        	var deptCode = this.com_deptCode.value;
+        	var colGrade = this.com_colGrade.text;
+
+        	if(s_seq == null || s_seq == "undefined"){
+        		this.alert("학번 입력해주세요");
+        		return;
+        	}else if(name == null || name == "undefined"){
+        		this.alert("이름 입력해주세요");
+        		return;
+        	}else if(secNumber == null || secNumber == "undefined"){
+        		this.alert("주민번호 입력해주세요.");
+        		return;
+        	}else if(email == null || email == "undefined"){
+        		this.alert("이메일 입력해주세요");
+        		return;
+        	}else if(contact == null || contact == "undefined"){
+        		this.alert("전화번호 입력해주세요");
+        		return;
+        	}else if(address == null || address == "undefined"){
+        		this.alert("주소 입력해주세요");
+        		return;
+        	}else if(scholarship == null || scholarship == "undefined"){
+        		this.alert("장학금 입력해주세요");
+        		return;
+        	}else if(rest == null || rest == "undefined"){
+        		this.alert("휴학여부 입력해주세요");
+        		return;
+        	}else if(grade == null || grade == "undefined"){
+        		this.alert("성적 입력해주세요");
+        		return;
+        	}else if(pw == null || pw == "undefined"){
+        		this.alert("비밀번호 입력해주세요");
+        		return;
+        	}else if(gender == null || gender == "undefined"){
+        		this.alert("성별 입력해주세요");
+        		return;
+        	}else if(colCode == null || colCode == "undefined"){
+        		this.alert("학과분류 입력해주세요");
+        		return;
+        	}else if(deptCode == null || deptCode == "undefined"){
+        		this.alert("학과 입력해주세요");
+        		return;
+        	}else if(colGrade == null || colGrade == "undefined"){
+        		this.alert("학년 입력해주세요");
+        		return;
+        	}
 
         	var addRow = this.ds_students_copy.addRow();
         	this.ds_students_copy.setColumn(addRow,"s_seq",s_seq);
@@ -284,6 +327,7 @@
         {
         	this.close("");
         };
+
         });
         
         // Regist UI Components Event
@@ -292,6 +336,7 @@
             this.Static00_09.addEventHandler("onclick",this.Static00_09_onclick,this);
             this.btn_insert.addEventHandler("onclick",this.btn_insert_onclick,this);
             this.btn_cancel.addEventHandler("onclick",this.btn_cancel_onclick,this);
+            this.com_gender.addEventHandler("onitemchanged",this.com_gender_onitemchanged,this);
         };
 
         this.loadIncludeScript("insertStudent.xfdl");
