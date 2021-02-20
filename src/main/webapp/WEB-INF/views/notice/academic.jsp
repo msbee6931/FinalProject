@@ -43,7 +43,7 @@
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
-						<a href="/">Home&gt;</a><a href="/academicList.notice?page=1">공지사항&gt;</a><a href="/academicList.notice?page=1">학사공지</a>
+						<a href="/">Home&gt;</a><a href="/normalList.notice?page=1">공지사항&gt;</a><a href="/academicList.notice?page=1">학사공지</a>
 					</h5>
 				</div>
 			</div>

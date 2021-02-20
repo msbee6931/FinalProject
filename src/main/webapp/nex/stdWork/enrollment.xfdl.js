@@ -17,9 +17,7 @@
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
-            obj = new Dataset("enrollment", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">name</Col><Col id=\"code\">name</Col></Row><Row><Col id=\"id\">birth</Col><Col id=\"code\">birth</Col></Row><Row/><Row><Col id=\"id\">s_seq</Col><Col id=\"code\">s_seq</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
+
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
@@ -98,15 +96,20 @@
         
         // User Script
         this.registerScript("enrollment.xfdl", function() {
+        	this.objApp = nexacro.getApplication();
+        	var s =this.objApp.gds_students.getColumn(0,'s_seq');
+
 
         this.absence_onload = function(obj,e)
         {
-        	this.Div00.form.WebBrowser00.set_url("http://15.165.196.249/certification/enrollment")
+        	this.Div00.form.WebBrowser00.set_url("http://15.165.196.249/certification/enrollment");
         };
 
         this.Div00_Button00_onclick = function(obj,e)
         {
-        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/enrollment";
+        	this.objApp = nexacro.getApplication();
+        	var s =this.objApp.gds_students.getColumn(0,'s_seq');
+        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/enrollmentp?seq="+s;
         };
 
         });
