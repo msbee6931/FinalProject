@@ -55,11 +55,6 @@ public class CertificationController {
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);
 		String seq =Integer.toString(dto.getS_seq());
 
-		//--s_seq 분해
-		String s_id = seq.substring(0,2);
-		String s_part = seq.substring(2,4);
-		String s_num = seq.substring(4);
-
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
@@ -137,15 +132,14 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		String birth = dto.getSecNumber().substring(0,6);
 
 		model.addAttribute("dto",dto);
-		//model.addAttribute("birth",birth);
+		model.addAttribute("birth",birth);
 		model.addAttribute("semester",semester);
 		model.addAttribute("sysdate",sysdate);
-		model.addAttribute("s_id",s_id);
 		model.addAttribute("part",part);
-		model.addAttribute("s_num",s_num);
+
 
 
 		return "Certification/enrollmentCertification";
@@ -159,11 +153,6 @@ public class CertificationController {
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);
 		String seq =Integer.toString(dto.getS_seq());
 
-		//--s_seq 분해
-		String s_id = seq.substring(0,2);
-		String s_part = seq.substring(2,4);
-		String s_num = seq.substring(4);
-
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
@@ -224,7 +213,7 @@ public class CertificationController {
 			}
 		}
 		//-- 생년월일 포맷 맞추기
-		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		String birth = dto.getSecNumber().substring(0,6);
 
 		//-오늘날짜 출력하기
 		SimpleDateFormat format = new SimpleDateFormat ( "yyyy년 MM월 dd일");
@@ -232,7 +221,7 @@ public class CertificationController {
 		String sysdate = format.format(time);
 
 		model.addAttribute("dto",dto);
-		//model.addAttribute("birth",birth);
+		model.addAttribute("birth",birth);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
 		return "Certification/graduateCertification";
@@ -245,11 +234,6 @@ public class CertificationController {
 
 		StudentsDTO dto = Sservice.selectStudentsByS_Seq(s_seq);
 		String seq =Integer.toString(dto.getS_seq());
-
-		//--s_seq 분해
-		String s_id = seq.substring(0,2);
-		String s_part = seq.substring(2,4);
-		String s_num = seq.substring(4);
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
@@ -327,7 +311,7 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		String birth = dto.getSecNumber().substring(0,6);
 
 		//-- 납부관련 dto 불러오기
 		TuitionDTO dto2 = Tservice.selectByStd_code(s_seq);
@@ -355,7 +339,7 @@ public class CertificationController {
 		model.addAttribute("semester",semester);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
-		//model.addAttribute("birth",birth);
+		model.addAttribute("birth",birth);
 		return "Certification/receipt";
 	}
 	@RequestMapping("transcript")
@@ -369,8 +353,6 @@ public class CertificationController {
 
 		//--s_seq 분해
 		String s_id = seq.substring(0,2);
-		String s_part = seq.substring(2,4);
-		String s_num = seq.substring(4);
 
 
 
@@ -434,17 +416,17 @@ public class CertificationController {
 		}
 
 		//-- 생년월일 포맷 맞추기
-		//String birth = dto.getBirth().substring(2,4)+dto.getBirth().substring(5,7)+dto.getBirth().substring(8,10);
+		String birth = dto.getSecNumber().substring(0,6);
 	
 
 		model.addAttribute("s_id",s_id);
 		model.addAttribute("dto",dto);
 		model.addAttribute("part",part);
-		//model.addAttribute("birth",birth);
+		model.addAttribute("birth",birth);
 		
 		//------------성적관련--------------------
 
-		int scode=12345;
+		int scode=(Integer)session.getAttribute("login");
 		List<Std_TranscriptDTO> list = STservice.selectByScode(scode);
 
 		List<Std_TranscriptDTO> f_f = new ArrayList<Std_TranscriptDTO>();

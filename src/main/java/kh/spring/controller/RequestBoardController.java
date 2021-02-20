@@ -204,5 +204,27 @@ public class RequestBoardController {
 	}
 	
 
+	@RequestMapping("search")
+	public String Go(HttpServletRequest request,Model model) throws Exception {
+		String title = request.getParameter("title");
+		List<RequestBoardDTO> list = RBservice.searchByTitle(title);
+		model.addAttribute("list",list);
+		
+		//-----------------------------------
+		String cpage = null;
+		int currentPage = 0;
+		if(request.getParameter("cpage")==null) {
+			currentPage= 1;
+		}else {
+			cpage = request.getParameter("cpage");
+			currentPage = Integer.parseInt(cpage);
+		}
+
+		String navi = RBservice.getNavi(currentPage);
+		model.addAttribute("navi", navi);
+		
+
+		return "Board/RequestList";
+	}
 
 }

@@ -42,13 +42,13 @@
 		});
 
 		var ssize = document.getElementById("size").value;
-		var size = Integet.parseInt(ssize);
+		var size = parseInt(ssize);
 		for (var j = 0; j < size; j++) {
 			var sj = String(j);
 			calendar.addEvent({
-				'title' : document.getElementById(sj + "title").value,
-				'start' : document.getElementById(sj + "sDate").value,
-				'end' : document.getElementById(sj + "eDate").value
+				'title' : document.getElementById(sj+"title").value,
+				'start' : document.getElementById(sj+"sDate").value,
+				'end' : document.getElementById(sj+"eDate").value
 			});
 
 		}
@@ -446,19 +446,28 @@ nav {
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
 		</footer>
 	</div>
-	<div class="row">
-		<input type="hidden" id=size value=${size }><br>
-	<c:forEach var="i" items="${list }">
-		<input type=hidden id="${i.seq }seq" value=${i.seq }>
-		<input type=hidden id="${i.seq }title" value="${i.title }">
-		<input type=hidden id="${i.seq }sdate" value="${i.sDate }">
-		<input type=hidden id="${i.seq }edate" value="${i.eDate }">
-		<br>
-	</c:forEach>
-	</div>
-</body>
 
+	
+	
+					<input type="hidden" id= size value=${size }><br>
+					<c:forEach var="i" items="${list }">
+						<input type=hidden id="${i.seq }seq" value=${i.seq }>
+						<input type=hidden id="${i.seq }title" value= "${i.title }">
+						<input type=hidden id="${i.seq }sDate" value= "${i.sDate }">
+						<input type=hidden id="${i.seq }eDate" value= "${i.eDate }">
+						<br>
+				</c:forEach>
+	
+	<input type="hidden" id = error value="${error }">
+	
+</body>
 <script>
+
+	var error =document.getElementById("error").value;
+	if(error=='Login이 필요한 페이지입니다.'){
+		alert(error);
+	}
+	
 	document.getElementById('pop').onclick = function() {
 		window.open('pop.home', '', 'width=500,height=500,left=0,top=0');
 		//        openPopup('quiz03.html')

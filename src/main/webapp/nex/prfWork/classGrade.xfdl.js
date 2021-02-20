@@ -913,7 +913,7 @@
         	this.exportObj = new ExcelExportObject("Export00", this);
 
         	this.exportObj.set_exportfilename(className + " 성적 집계");
-        	this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
+        	this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
 
         	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid03, "Sheet1!A1");
 

@@ -91,13 +91,36 @@ nav {
 	height:800px;
 	border : 1px solid black;
 }
+
+.choose{
+	border:3px solid #330099;
+	border-radius:10px;
+	width:10%;
+	height : 200px;
+	float:left;
+	line-height: 45px;
+	text-align:center;
+	font-size:20px;
+	text-decoration-line: underline;
+}
+.blank{
+	border:1px solid white;
+	float:left;
+	width:10%;
+}
+
+#write{
+	position:relative;
+	left:1050px;
+}
 </style>
 </head>
 <body>
+	
 	<div class="contatiner">
 		<jsp:include page="/WEB-INF/views/topHeader.jsp" />
 		<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
-		<div class="container">
+
 			<div class="row">
 			<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
 			<div class="col-xl-12 d- pt-4" id="box">
@@ -108,17 +131,19 @@ nav {
 							</H3>
 						</div>
 						<div class="col-12">
-							 <form action = /free/search method="post">
+							 <form action = /free/search method="post" class="row">
 								<div class="col-md-6 order-md-2">
 									<div class="row p-4">
+
 										<div class="col-sm-12 col-md-6 p-0">
-											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요">
+											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요" required>
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
 											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
+								<div class="col-md-6  align-self-center"></div>
 							</form>
 						</div>
 					</div>
@@ -138,7 +163,8 @@ nav {
 							<div class="col-md-2 d-none d-md-block text-center">${i.view_count}</div>
 						</div>
 					</c:forEach>
-					<button class="btn btn-primary d-md-block" id="write">글쓰기</button>
+
+						<div class= "write"><button class="btn btn-primary d-md-block" id="write">글쓰기</button></div>
 				</div>
 			</div>
 

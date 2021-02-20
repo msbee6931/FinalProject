@@ -162,7 +162,6 @@
         	var email = this.edt_email.value;
         	var contact = this.edt_contact.value;
         	var address = this.edt_address.value;
-
         	var pw = this.edt_pw.value;
         	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;

@@ -242,7 +242,7 @@
         		this.exportObj = new ExcelExportObject("Export00", this);
 
         		this.exportObj.set_exportfilename(semester + " 개설과목");
-        		this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
+        		this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
 
         		this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid00, "Sheet1!A1");
 
