@@ -12,11 +12,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-	<!-- HEADER -->
-	<header>
-		헤더
-	</header>
-	<!-- MAIN -->
+	<jsp:include page="/WEB-INF/views/topHeader.jsp" />
+	<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
 	<div class="container">
 		<div class="row title">학사일정</div>
 		<div class="row year">2021학년도</div>
