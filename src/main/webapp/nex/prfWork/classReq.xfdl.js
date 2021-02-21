@@ -32,11 +32,11 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","20","6","1040","425",null,null,null,null,null,null,this);
+            obj = new Grid("gr_classList","20","6","1040","425",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"64\"/><Column size=\"152\"/><Column size=\"76\"/><Column size=\"55\"/><Column size=\"74\"/><Column size=\"88\"/><Column size=\"189\"/><Column size=\"61\"/><Column size=\"57\"/><Column size=\"50\"/><Column size=\"131\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"교수이름\"/><Cell col=\"6\" text=\"학과\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"인원수\"/><Cell col=\"10\" text=\"학년\"/><Cell col=\"11\" text=\"요청사항\" displaytype=\"normal\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" cursor=\"pointer\" textDecoration=\"underline\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"#######\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:dept\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"11\" text=\"bind:reqState\" displaytype=\"combotext\" textAlign=\"center\" expandshow=\"show\" wordWrap=\"english\" combodataset=\"ds_req\" combocodecol=\"id\" combodatacol=\"name\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"64\"/><Column size=\"152\"/><Column size=\"76\"/><Column size=\"55\"/><Column size=\"74\"/><Column size=\"88\"/><Column size=\"189\"/><Column size=\"61\"/><Column size=\"57\"/><Column size=\"50\"/><Column size=\"131\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"교수이름\"/><Cell col=\"6\" text=\"학과\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"인원수\"/><Cell col=\"10\" text=\"학년\"/><Cell col=\"11\" text=\"요청사항\" displaytype=\"normal\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" cursor=\"pointer\" textDecoration=\"underline\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"#######\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"11\" text=\"bind:reqState\" displaytype=\"combotext\" textAlign=\"center\" expandshow=\"show\" wordWrap=\"english\" combodataset=\"ds_req\" combocodecol=\"id\" combodatacol=\"name\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnWrite","670","441","120","50",null,null,null,null,null,null,this);
@@ -82,7 +82,7 @@
         		var startTime = objDate.getFullYear()+"0801";
         		var endTime = objDate.getFullYear()+"1231";
         	}
-        	this.Grid00.setCellProperty("Head",0,"text",0);
+        	this.gr_classList.setCellProperty("Head",0,"text",0);
         	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq");// 로그인 되는 교수 번호
         	this.transaction(
         		"classReqList"
@@ -94,7 +94,11 @@
         	);
         };
 
-
+        this.fn_callback = function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        }
         //작성
         this.btnWrite_onclick = function(obj,e)
         {
@@ -111,11 +115,11 @@
 
         //작성 popup창 닫았을 때
         this.fn_pop_callback=function(sId){
-        	this.classReq_onload();
+        	this.reload();
         }
 
         //전체선택
-        this.Grid00_onheadclick = function(obj,e)
+        this.gr_classList_onheadclick = function(obj,e)
         {
         	let flag = obj.getCellProperty("Head",0,"text");
         	let check = flag==0?1:0;
@@ -196,7 +200,7 @@
         };
 
         //수업개설요청 상세보기
-        this.Grid00_oncellclick = function(obj,e)
+        this.gr_classList_oncellclick = function(obj,e)
         {
         	if(e.col == 0){
         		if(this.ds_class.getColumn(e.row,"chk")==0){
@@ -211,7 +215,7 @@
         		let objCF = new ChildFrame();
         		objCF.init("popAdd",x,y,1000,680,0,0,"prfWork::detail.xfdl");
         		objCF.set_showtitlebar(false);
-        		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_callback");
+        		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_popView_callback");
          	}
         };
         //수정
@@ -256,7 +260,7 @@
         };
 
         //메시지 보기
-        this.Grid00_onexpanddown = function(obj,e)
+        this.gr_classList_onexpanddown = function(obj,e)
         {
         	var msg = this.ds_class.getColumn(e.row,"rejectMsg");
         	var classSeq = this.ds_class.getColumn(e.row,"classSeq");
@@ -273,15 +277,16 @@
         };
 
 
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.classReq_onload,this);
-            this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
-            this.Grid00.addEventHandler("onexpanddown",this.Grid00_onexpanddown,this);
-            this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
+            this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
+            this.gr_classList.addEventHandler("onexpanddown",this.gr_classList_onexpanddown,this);
+            this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.btnWrite.addEventHandler("onclick",this.btnWrite_onclick,this);
             this.btnUpd.addEventHandler("onclick",this.classTab_classReq_btnUpd_onclick,this);
             this.btnDel.addEventHandler("onclick",this.btnDel_onclick,this);

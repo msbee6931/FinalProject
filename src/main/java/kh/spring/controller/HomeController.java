@@ -96,8 +96,9 @@ public class HomeController {
 	}
 
 	@RequestMapping("/nex")
-	public String Nex() {
+	public String Nex(Model model) {
 		if(session.getAttribute("std") == null && session.getAttribute("pro") == null && session.getAttribute("adm") == null) {
+			model.addAttribute("logReq","nex");
 			return "loginPage";
 		}else {
 			return "redirect:/nex/index.html";

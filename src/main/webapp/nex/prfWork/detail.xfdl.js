@@ -37,18 +37,8 @@
             this.addChild(obj.name, obj);
 
 
-            obj = new Dataset("ds_part", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">A</Col><Col id=\"name\">전공필수</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">전공선택</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">교양필수</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">교양선택</Col></Row><Row><Col id=\"id\">E</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">계열기초</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
             obj = new Dataset("ds_classTimeList", this);
             obj._setContents("<ColumnInfo><Column id=\"Time\" type=\"STRING\" size=\"256\"/><Column id=\"Mon\" type=\"STRING\" size=\"256\"/><Column id=\"Tue\" type=\"STRING\" size=\"256\"/><Column id=\"Wed\" type=\"STRING\" size=\"256\"/><Column id=\"Thu\" type=\"STRING\" size=\"256\"/><Column id=\"Fri\" type=\"STRING\" size=\"256\"/><Column id=\"Sat\" type=\"STRING\" size=\"256\"/><Column id=\"Sun\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"Time\">1교시</Col></Row><Row><Col id=\"Time\">2교시</Col></Row><Row><Col id=\"Time\">3교시</Col></Row><Row><Col id=\"Time\">4교시</Col></Row><Row><Col id=\"Time\">5교시</Col></Row><Row><Col id=\"Time\">6교시</Col></Row><Row><Col id=\"Time\">7교시</Col></Row><Row><Col id=\"Time\">8교시</Col></Row><Row><Col id=\"Time\">9교시</Col></Row><Row><Col id=\"Time\">10교시</Col></Row><Row><Col id=\"Time\">11교시</Col></Row><Row><Col id=\"Time\">12교시</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("ds_dept", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">01</Col><Col id=\"name\">정보통신학과</Col></Row><Row><Col id=\"id\">02</Col><Col id=\"name\">간호학과</Col></Row><Row><Col id=\"id\">03</Col><Col id=\"name\">경찰경호학과</Col></Row><Row><Col id=\"id\">04</Col><Col id=\"name\">산업디자인과</Col></Row><Row><Col id=\"id\">05</Col><Col id=\"name\">교양학부</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -149,9 +139,9 @@
 
             obj = new Combo("co_part","139","10","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("1");
-            obj.set_innerdataset("ds_part");
             obj.set_codecolumn("id");
             obj.set_datacolumn("name");
+            obj.set_innerdataset("gds_part");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Edit("edt_className","139","49","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
@@ -435,7 +425,7 @@
             obj = new Combo("co_dept","469","88","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("12");
             obj.set_innerdataset("deptCode");
-            obj.set_codecolumn("id");
+            obj.set_codecolumn("code");
             obj.set_datacolumn("name");
             obj.set_text("");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
@@ -891,10 +881,9 @@
         //-------------------------------------------수업계획서 작성-------------------------------------------
         this.classPlanTab_classPlan_btnSave_onclick = function(obj,e)
         {
-
         	var sum = classForm.sta_sum.text;
         	var sum2 = classForm.sta_sum2.text
-        	var part = classForm.co_part.text;
+        	var part = classForm.co_part.value;
         	var limit = "0/"+classForm.mask_limit.text;
         	var className = classForm.edt_className.text;
         	var classSeq = classForm.edt_classSeq.text;
@@ -902,7 +891,7 @@
         	var passFail = classForm.chk_pf.value;
         	var proCode = classForm.sta_proCode.text;
         	var proName = classForm.sta_proName.text;
-        	var dept =classForm.co_dept.text;
+        	var dept = classForm.co_dept.value;
         	var grade = classForm.co_grade.text;
         	var classTime = classForm.edt_classTime.text;
         	var classRoom = classForm.edt_classRoom.text;
@@ -1036,7 +1025,6 @@
         	var proCode = this.parent.proCode;
         	var view = this.parent.view;
         	var proName = this.objApp.gds_professor.getColumn(0,"name")
-        	alert(proCode +":"+ proName);
         	if(classSeq != ""){
         		//수업 정보 넣기 / 수업 일정 가져오기
         		this.transaction(
@@ -1045,7 +1033,7 @@
         			,""
         			,"ds_class=out_ds ds_classSchedule=out_ds2"
         			,"classSeq="+nexacro.wrapQuote(classSeq)
-        			,"fn_class_callback"
+        			,"fn_callback"
         		);
         			classForm.edt_classSeq.set_readonly(true);
         		if(view == 'Y'){
@@ -1100,16 +1088,20 @@
         	this.close(proCode)
         };
 
-        this.fn_class_callback=function(id,ErrorCode,ErrorMsg){
+        this.fn_callback=function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        	if(sId == "classListSeq"){
         	//수업 정보 가져와서 띄우기
-        	classForm.co_part.set_text(this.ds_class.getColumn(0,"classPart"));
+        	classForm.co_part.set_value(this.ds_class.getColumn(0,"classPart"));
         	classForm.edt_className.set_value(this.ds_class.getColumn(0,"className"));
         	classForm.edt_classSeq.set_value(this.ds_class.getColumn(0,"classSeq"));
         	classForm.co_point.set_text(this.ds_class.getColumn(0,"classPoint"));
         	classForm.chk_pf.set_value(this.ds_class.getColumn(0,"passFail"));
         	classForm.sta_proCode.set_text(this.ds_class.getColumn(0,"proCode"));
         	classForm.sta_proName.set_text(this.ds_class.getColumn(0,"proName"));
-        	classForm.co_dept.set_text(this.ds_class.getColumn(0,"dept"));
+        	classForm.co_dept.set_value(this.ds_class.getColumn(0,"dept"));
         	classForm.co_grade.set_text(this.ds_class.getColumn(0,"grade"));
         	classForm.edt_classTime.set_value(this.ds_class.getColumn(0,"classTime"));
         	classForm.edt_classRoom.set_value(this.ds_class.getColumn(0,"classRoom"));
@@ -1164,6 +1156,7 @@
         	planForm.edt_subject14.set_value(week14[0]);planForm.ta_content14.set_value(week14[1]);planForm.edt_notice14.set_value(week14[2]);planForm.edt_prepare14.set_value(week14[3]);
         	var week15 = this.ds_classSchedule.getColumn(0,"week15").split("|");
         	planForm.edt_subject15.set_value(week15[0]);planForm.ta_content15.set_value(week15[1]);planForm.edt_notice15.set_value(week15[2]);planForm.edt_prepare15.set_value(week15[3]);
+        	}
         }
 
 

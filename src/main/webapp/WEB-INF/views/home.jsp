@@ -177,7 +177,7 @@ nav {
 			<a href="/nex" class="p-4">종합정보</a>
 			<c:choose>
 				<c:when test="${std == null && pro == null && adm == null}">
-					<a href="/loginPage.log" class="p-4">로그인</a>
+					<a href="/loginPage.log?logReq" class="p-4">로그인</a>
 				</c:when>
 				<c:otherwise>
 					<a href="/logOut.log" class="p-4">로그아웃</a>

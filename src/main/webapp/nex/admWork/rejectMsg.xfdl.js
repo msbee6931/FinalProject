@@ -20,7 +20,7 @@
 
             
             // UI Components Initialize
-            obj = new Static("Static00","20","20","49","40",null,null,null,null,null,null,this);
+            obj = new Static("sta_code","20","20","49","40",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("과목코드");
             obj.set_textAlign("center");
@@ -30,7 +30,7 @@
             obj.set_taborder("1");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","20","70","60","20",null,null,null,null,null,null,this);
+            obj = new Static("sta_rejectReason","20","70","60","20",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("거절 사유");
             this.addChild(obj.name, obj);

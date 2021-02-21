@@ -58,35 +58,32 @@
         				"LoginInfo"
         				,"/reqLogigInfo.log"
         				,""
-        				,"ds_students=std_ds ds_professor=pro_ds ds_admin=adm_ds"
+        				,"gds_students=std_ds gds_professor=pro_ds gds_admin=adm_ds"
         				,""
         				,"fn_callback_login"
         			);
         };
-        this.fn_callback_login=function(sId){
-        	if(this.ds_students.getRowCount() > 0 ){
-        		this.objApp.gds_students.clearData();
-        		this.objApp.gds_students.copyData(this.ds_students);
+        this.fn_callback_login=function(sId,errCd,errMsg){
+        	 if (errCd < 0) {
+        		trace("Error["+errCd+"]:"+errMsg);
+             }
+        	if(sId == "LoginInfo"){
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Student::Form_Mdi.xfdl");
+        	this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Student::Form_Bottom.xfdl");
+        	if(this.objApp.gds_students.getRowCount() > 0 ){
         		this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Student::Form_Top.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Student::Form_Left.xfdl");
-        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Student::Form_Mdi.xfdl");
-        		this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Student::Form_Bottom.xfdl");
-        		this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
-        	}else if(this.ds_professor.getRowCount() >0 ){
-        		this.objApp.gds_professor.clearData();
-        		this.objApp.gds_professor.copyData(this.ds_professor);
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.Mainform.set_formurl("Student::Form_Main.xfdl");
+        	}else if(this.objApp.gds_professor.getRowCount() >0 ){
         		this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Professor::Form_Top.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Professor::Form_Left.xfdl");
-        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Professor::Form_Mdi.xfdl");
-        		this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Professor::Form_Bottom.xfdl");
-        		this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
-        	}else if(this.ds_admin.getRowCount() > 0 ){
-        		this.objApp.gds_admin.clearData();
-        		this.objApp.gds_admin.copyData(this.ds_admin);
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.Mainform.set_formurl("Professor::Form_Main.xfdl");
+        	}else if(this.objApp.gds_admin.getRowCount() > 0 ){
         		this.objApp.mainframe.VFrameSet00.TopFrame.set_formurl("Admin::Form_Top.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.set_formurl("Admin::Form_Left.xfdl");
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.set_formurl("Admin::Form_Mdi.xfdl");
-        		this.objApp.mainframe.VFrameSet00.BottomFrame.set_formurl("Admin::Form_Bottom.xfdl");
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.Mainform.set_formurl("Admin::Form_Main.xfdl");
+        	}
         		this.objApp.mainframe.VFrameSet00.set_separatesize("0,50,*,60");
         	}
         }

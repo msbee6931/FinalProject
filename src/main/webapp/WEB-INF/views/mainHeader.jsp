@@ -110,10 +110,5 @@ nav {
 			</nav>
 		</div>
 </body>
-<script>
-document.getElementById('pop').onclick = function() {
-		window.open('/pop.home','', 'width=500,height=500,left=0,top=0');
-//        openPopup('quiz03.html')
-}
-</script>
+
 </html>

@@ -134,7 +134,7 @@
         	this.cCode = this.parent.cCode;
         	var sName = this.parent.sName;
 
-
+        	trace(this.sCode + ":"+ this.cCode +":"+ sName);
         	this.sta_sCode.set_text(this.sCode);
         	this.sta_sName.set_text(sName);
 
