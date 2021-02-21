@@ -46,11 +46,12 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(HttpServletRequest request, HttpServletResponse response,Model model) throws Exception{
 		int page =1;
+		String type = "home";
 		List<NoticeDTO> all = nService.selectNoticeAll();
-		List<NoticeDTO> normal = nService.selectNormalByPage(page);
-		List<NoticeDTO> academic = nService.selectAcademicByPage(page);
-		List<NoticeDTO> scholar = nService.selectScholarByPage(page);
-		List<NoticeDTO> employment = nService.selectEmploymentByPage(page);
+		List<NoticeDTO> normal = nService.selectNormalByPage(page,type);
+		List<NoticeDTO> academic = nService.selectAcademicByPage(page,type);
+		List<NoticeDTO> scholar = nService.selectScholarByPage(page,type);
+		List<NoticeDTO> employment = nService.selectEmploymentByPage(page,type);
 		model.addAttribute("all",all);
 		model.addAttribute("normal",normal);
 		model.addAttribute("academic",academic);

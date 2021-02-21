@@ -255,7 +255,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.normalNavi(page);
-		List<NoticeDTO> list = nService.selectNormalByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectNormalByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -373,7 +374,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.academicNavi(page);
-		List<NoticeDTO> list = nService.selectAcademicByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectAcademicByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -490,7 +492,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.scholarNavi(page);
-		List<NoticeDTO> list = nService.selectScholarByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectScholarByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -607,7 +610,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.employmentNavi(page);
-		List<NoticeDTO> list = nService.selectEmploymentByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectEmploymentByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {

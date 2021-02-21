@@ -528,7 +528,7 @@
             this.btnEmployment.addEventHandler("onclick",this.btnEmployment_onclick,this);
             this.btnMore.addEventHandler("onclick",this.btnMore_onclick,this);
             this.co_month.addEventHandler("canitemchange",this.co_month_canitemchange,this);
-            this.div_Info.form.sta_alarm.addEventHandler("onclick",this.div_Info_sta_alarm_onclick,this);
+            this.div_Info.form.sta_alarm.addEventHandler("onclick",this.sta_alarm_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };

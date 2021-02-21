@@ -25,7 +25,8 @@ public class MyPageController {
 	@RequestMapping("myInfoStu.nex")
 	public NexacroResult myInfoStu() {
 //		int id =(int) session.getAttribute("id");
-		int id = 1;
+		int id = (int) session.getAttribute("std");
+		System.out.println("세션 아이디 : " + id);
 		NexacroResult nr = new NexacroResult();
 		StudentsDTO dto = mService.myInfoStu(id);
 		nr.addDataSet("out_ds",dto);
@@ -41,7 +42,8 @@ public class MyPageController {
 	@RequestMapping("myInfoPro.nex")
 	public NexacroResult myInfoPro() {
 //		int id = (int) session.getAttribute("id");
-		int id = 1;
+		int id = (int) session.getAttribute("pro");
+		System.out.println("세션 아이디 : " + id);
 		NexacroResult nr = new NexacroResult();
 		List<ProfessorDTO> list = mService.myInfoPro(id);
 		nr.addDataSet("out_ds", list);

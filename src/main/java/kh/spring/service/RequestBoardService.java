@@ -105,4 +105,8 @@ public class RequestBoardService {
 	 public int deleteList(List<RequestBoardDTO> list) {
 		 return dao.deleteList(list);
 	 }
+	 
+	 public List<RequestBoardDTO> searchByTitle(String title) {
+		 return dao.searchByTitle(title);
+	 }
 }
