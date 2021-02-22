@@ -27,6 +27,8 @@
 <select id="selectAllStd" resultType="kh.spring.dto.StudentsDTO">
 	select * from students
 </select>
-
+<select id="deptStudentList" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where deptCode =#{deptCode} order by rest desc, s_seq
+</select>
 
 </mapper>
