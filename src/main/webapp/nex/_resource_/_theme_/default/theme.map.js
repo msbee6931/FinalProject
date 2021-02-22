@@ -4231,7 +4231,6 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_whLogout.png")] = { width:41, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_wh_Logout.png")] = { width:41, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/chk_WF_Popupmenu.png")] = { width:13, height:13 };
-		imgcache[nexacro._getImageLocation("theme://images/file.png")] = { width:25, height:25 };
 		imgcache[nexacro._getImageLocation("theme://images/ico_check.png")] = { width:12, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/ico_expand.png")] = { width:9, height:12 };
 		imgcache[nexacro._getImageLocation("theme://images/ico_title.png")] = { width:14, height:14 };

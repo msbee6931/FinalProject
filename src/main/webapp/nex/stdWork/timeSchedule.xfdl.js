@@ -80,10 +80,10 @@
         
         // User Script
         this.registerScript("timeSchedule.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
+        this.sCode=this.objApp.gds_students.getColumn(0,'s_seq');
         this.timeSchule_onload = function(obj,e)
         {
-        	var sCode = "12345"; // 로그인시 학번 받아와야 함 ------강제로 끼워넣기
 
         	//1~8월까지 나누고 8~12월 나누기
         	var objDate= new Date();
@@ -100,7 +100,7 @@
         		,"/stdTimeTableList.nex"
         		,""
         		,"ds_stdTimeTableCopy=out_ds"
-        		,"sCode="+sCode + " startTime="+startTime+" endTime="+endTime
+        		,"sCode="+this.sCode + " startTime="+startTime+" endTime="+endTime
         		,"fn_callback_TimeTable"
         	);
         };

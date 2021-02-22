@@ -129,6 +129,9 @@
         
         // User Script
         this.registerScript("deptSchedule.xfdl", function() {
+        this.objApp = nexacro.getApplication();
+        this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
+        this.writer=this.objApp.gds_professor.getColumn(0,'name');
         this.deptSchedule_onload = function(obj,e)
         {
         	this.transaction(
@@ -137,7 +140,7 @@
         		"",//in_ds:U
         		"deptSchedule_ds=out_ds",//()_out_ds
         		"",//argument
-        		"fn_callback"
+        		"fn_callback_on"
         	)
 
 
@@ -149,9 +152,14 @@
 
             currDate = year+month+day; // 오늘 날짜
 
-        	//오늘 날짜 데이터셋 세팅
-        	this.deptSchedule_ds.filter("schDate=='"+currDate+"'");
+
         };
+
+        this.fn_callback_on=function()
+        {
+        //오늘 날짜 데이터셋 세팅
+        	this.deptSchedule_ds.filter("schDate=='"+currDate+"'");
+        }
 
         //클릭 시 Grid 에 일정 띄우기
         this.Div00_cal_dept_ondayclick = function(obj,e)
@@ -194,14 +202,14 @@
         //일정 상세보기 모달창 띄우기
         this.Div00_Grid00_oncelldblclick = function(obj,e)
         {
-        	/*	var login = "user"; // session.login 받아올 아이디*/
+
         	var seq = this.deptSchedule_ds.getColumn(e.row,"seq");
         	var schDate = this.deptSchedule_ds.getColumn(e.row,"schDate");
-        	/*	var id = this.deptSchedule_ds.getColumn(e.row,"id"); // 등록한 id*/
+        	var id = this.deptSchedule_ds.getColumn(e.row,"id"); // 등록한 id
 
         	// 	id 일치하면
-        	// 	if(id == login)
-        	// 	{
+        		if(id == this.code)
+        		{
         	var objCF = new ChildFrame();
         	objCF.init("deptSchedule_update_pop",200,100,400,350);
         	objCF.set_titletext("일정 상세보기");
@@ -212,19 +220,19 @@
         		this,
         		"fn_callback_deptSchedule"
         	);
-        	//
-        	//  	} else {
-        	// 		var objCF = new ChildFrame();
-        	// 		objCF.init("deptSchedule_read_pop",200,100,400,350);
-        	// 		objCF.set_titletext("일정 상세보기");
-        	// 		objCF.set_formurl("prfWork::deptSchedule_read_pop.xfdl");
-        	// 		objCF.showModal(
-        	// 			this.getOwnerFrame(),
-        	// 			{seq:seq,schDate:schDate},
-        	// 			this,
-        	// 			"fn_callback_deptSchedule"
-        	// 		);
-        	//  	}
+
+        	 	} else {
+        			var objCF = new ChildFrame();
+        			objCF.init("deptSchedule_read_pop",200,100,400,350);
+        			objCF.set_titletext("일정 상세보기");
+        			objCF.set_formurl("prfWork::deptSchedule_read_pop.xfdl");
+        			objCF.showModal(
+        				this.getOwnerFrame(),
+        				{seq:seq,schDate:schDate},
+        				this,
+        				"fn_callback_deptSchedule"
+        			);
+        	 	}
 
 
         };
