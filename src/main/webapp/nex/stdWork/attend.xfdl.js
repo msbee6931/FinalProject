@@ -81,10 +81,10 @@
         
         // User Script
         this.registerScript("attend.xfdl", function() {
-        this.sCode="";
+        this.objApp = nexacro.getApplication();
+        this.std_code=this.objApp.gds_students.getColumn(0,'s_seq');
         this.attend_onload = function(obj,e)
         {
-        	this.sCode = "12345"; // 학번 로그인 후 받아올 예정
 
         	var objDate = new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
@@ -100,7 +100,7 @@
         		,"/myClassList.nex"
         		,""
         		,"ds_class=out_ds"
-        		,"sCode="+this.sCode + " startTime="+startTime+" endTime="+endTime
+        		,"sCode="+this.std_code + " startTime="+startTime+" endTime="+endTime
         		,"fn_callback_myClass"
         	);
         };
@@ -124,7 +124,7 @@
         	objCF.set_formurl("stdWork::attend_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
-        		{sCode:this.sCode, cSeq:cSeq, cName:cName}, // 모달창에 수업번호 값 넘기기
+        		{sCode:this.std_code, cSeq:cSeq, cName:cName}, // 모달창에 수업번호 값 넘기기
         		this,
         		"fn_callback_attendP"
         	);

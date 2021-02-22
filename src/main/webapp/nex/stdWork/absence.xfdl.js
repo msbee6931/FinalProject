@@ -186,8 +186,8 @@
         
         // User Script
         this.registerScript("absence.xfdl", function() {
-        this.std_code="215051001";
-
+        this.objApp = nexacro.getApplication();
+        this.std_code=this.objApp.gds_students.getColumn(0,'s_seq');
         this.absence_onload = function(obj,e)
         {
         	this.transaction(
@@ -209,7 +209,7 @@
         	objCF.set_formurl("stdWork::absence_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
-        		{code:this.code}, // 학번 넘기기
+        		{code:this.std_code}, // 학번 넘기기
         		this,
         		"fn_callback_pop_abs"
         	);

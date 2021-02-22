@@ -105,7 +105,9 @@
         
         // User Script
         this.registerScript("deptSchedule_insert_pop.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
+        this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
+        this.writer=this.objApp.gds_professor.getColumn(0,'name');
         this.btn_cancle_onclick = function(obj,e)
         {
         	this.close();
@@ -142,7 +144,7 @@
         		calDate = fromDate.getTime() - toDate.getTime();
 
         		var leng = Math.abs(calDate/day); // 실제 날짜 간 차이
-        		var seq  = nexacro.round(Math.random()*10000, 0); // 랜덤으로 seq 숫자 부여
+        		var seq  = nexacro.round(Math.random()*100000, 0); // 랜덤으로 seq 숫자 부여
 
 
         		for(var i=0; i<(leng+1);i++){
@@ -151,6 +153,8 @@
 
         			//나중에 로그인 처리시 아이디 값도 넣어줘야 함.
         			this.deptSchedule_ds.setColumn(nRow,"seq",seq);
+        			this.deptSchedule_ds.setColumn(nRow,"id",this.code);
+        			this.deptSchedule_ds.setColumn(nRow,"writer",this.writer);
         			this.deptSchedule_ds.setColumn(nRow,"title",title);
         			this.deptSchedule_ds.setColumn(nRow,"sDate",sDate);
         			this.deptSchedule_ds.setColumn(nRow,"eDate",eDate);
