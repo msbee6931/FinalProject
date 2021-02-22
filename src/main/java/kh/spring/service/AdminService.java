@@ -25,8 +25,8 @@ public class AdminService {
 	public int updatestu(List<StudentsDTO> list) {
 		return aDAO.updatestu(list);
 	}
-	public int insertstu(List<StudentsDTO> list) {
-		return aDAO.insertstu(list);
+	public int insertstu(StudentsDTO dto) {
+		return aDAO.insertstu(dto);
 	}
 	//professor
 	public List<ProfessorDTO> getlistPro(){
