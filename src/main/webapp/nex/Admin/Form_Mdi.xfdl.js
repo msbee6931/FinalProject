@@ -110,7 +110,9 @@
         	this.adm_form.deleteRow(nRow);
         	/*trace(this.adm_form.saveXML());*/
         	// Left에서 추가시켰던 row를 다시 지워주는 행위
-
+        	if(this.adm_form.getRowCount() == 0){
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("0,*,0");
+        	}
         };
 
 

@@ -221,7 +221,6 @@
         {
             this.btn_insert.addEventHandler("onclick",this.btn_insert_onclick,this);
             this.btn_cancel.addEventHandler("onclick",this.btn_cancel_onclick,this);
-            this.com_lecture.addEventHandler("onitemchanged",this.com_lecture_onitemchanged,this);
         };
 
         this.loadIncludeScript("insertProfessor.xfdl");

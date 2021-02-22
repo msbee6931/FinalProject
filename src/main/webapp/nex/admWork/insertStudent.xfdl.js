@@ -167,7 +167,7 @@
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             var com_gender_innerdataset = new nexacro.NormalDataset("com_gender_innerdataset", obj);
-            com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">M</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">W</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
+            com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
             obj.set_innerdataset(com_gender_innerdataset);
             this.addChild(obj.name, obj);
 
@@ -248,7 +248,7 @@
         	var gender = this.com_gender.value;
         	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;
-        	var colGrade = this.com_colGrade.text;
+        	var colGrade = this.com_colGrade.value;
 
         	if(s_seq == null || s_seq == "undefined"){
         		this.alert("학번 입력해주세요");
@@ -327,7 +327,6 @@
         {
         	this.close("");
         };
-
         });
         
         // Regist UI Components Event
@@ -336,7 +335,6 @@
             this.Static00_09.addEventHandler("onclick",this.Static00_09_onclick,this);
             this.btn_insert.addEventHandler("onclick",this.btn_insert_onclick,this);
             this.btn_cancel.addEventHandler("onclick",this.btn_cancel_onclick,this);
-            this.com_gender.addEventHandler("onitemchanged",this.com_gender_onitemchanged,this);
         };
 
         this.loadIncludeScript("insertStudent.xfdl");

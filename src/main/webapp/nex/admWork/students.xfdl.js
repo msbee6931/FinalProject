@@ -18,22 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_students", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"colGrade\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("ds_gender", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">M</Col><Col id=\"name\">남자</Col></Row><Row><Col id=\"code\">W</Col><Col id=\"name\">여자</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("ds_rest", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">Y</Col><Col id=\"name\">휴학</Col></Row><Row><Col id=\"code\">N</Col><Col id=\"name\">재학</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("ds_colGrade", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">1</Col><Col id=\"name\">1학년</Col></Row><Row><Col id=\"code\">2</Col><Col id=\"name\">2학년</Col></Row><Row><Col id=\"code\">3</Col><Col id=\"name\">3학년</Col></Row><Row><Col id=\"code\">4</Col><Col id=\"name\">4학년</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -41,7 +26,7 @@
             obj.set_taborder("0");
             obj.set_binddataset("ds_students");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"77\"/><Column size=\"84\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"성별\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"학과분류\"/><Cell col=\"5\" text=\"학과\"/><Cell col=\"6\" text=\"이름\"/><Cell col=\"7\" text=\"주민번호\"/><Cell col=\"8\" text=\"email\"/><Cell col=\"9\" text=\"전화번호\"/><Cell col=\"10\" text=\"주소\"/><Cell col=\"11\" text=\"장학금\"/><Cell col=\"12\" text=\"휴학여부\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:s_seq\"/><Cell col=\"2\" text=\"bind:gender\" edittype=\"combo\" combodataset=\"ds_gender\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"3\" text=\"bind:colGrade\" edittype=\"combo\" combodataset=\"ds_colGrade\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"4\" text=\"bind:colCode\" edittype=\"combo\" combodataset=\"colCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:deptCode\" edittype=\"combo\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"6\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"7\" text=\"bind:secNumber\" displaytype=\"mask\" edittype=\"mask\" maskedittype=\"string\" maskeditformat=\"###### - #######\"/><Cell col=\"8\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"9\" text=\"bind:contact\" edittype=\"normal\"/><Cell col=\"10\" text=\"bind:address\" edittype=\"normal\"/><Cell col=\"11\" text=\"bind:scholarship\" edittype=\"normal\"/><Cell col=\"12\" text=\"bind:rest\" edittype=\"combo\" combodataset=\"ds_rest\" combocodecol=\"code\" combodatacol=\"name\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"s_seq\"/><Cell col=\"2\" text=\"gender\"/><Cell col=\"3\" text=\"deptCode\"/><Cell col=\"4\" text=\"name\"/><Cell col=\"5\" text=\"secNumber\"/><Cell col=\"6\" text=\"email\"/><Cell col=\"7\" text=\"contact\"/><Cell col=\"8\" text=\"address\"/><Cell col=\"9\" text=\"scholarship\"/><Cell col=\"10\" text=\"rest\"/><Cell col=\"11\" text=\"colCode\"/><Cell col=\"12\" text=\"grade\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:s_seq\"/><Cell col=\"2\" text=\"bind:gender\"/><Cell col=\"3\" text=\"bind:deptCode\"/><Cell col=\"4\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"5\" text=\"bind:secNumber\"/><Cell col=\"6\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"7\" text=\"bind:contact\"/><Cell col=\"8\" text=\"bind:address\"/><Cell col=\"9\" text=\"bind:scholarship\"/><Cell col=\"10\" text=\"bind:rest\"/><Cell col=\"11\" text=\"bind:colCode\"/><Cell col=\"12\" text=\"bind:grade\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_retrive","1020","10","40","30",null,null,null,null,null,null,this);
@@ -226,7 +211,6 @@
         		this.ds_students.filter("");
         	}
         };
-
         });
         
         // Regist UI Components Event
@@ -237,7 +221,6 @@
             this.btn_save.addEventHandler("onclick",this.btn_save_onclick,this);
             this.btn_del.addEventHandler("onclick",this.btn_del_onclick,this);
             this.btn_add.addEventHandler("onclick",this.btn_add_onclick,this);
-            this.cb_search.addEventHandler("onitemchanged",this.cb_search_onitemchanged,this);
             this.btn_search.addEventHandler("onclick",this.btn_search_onclick,this);
         };
 
