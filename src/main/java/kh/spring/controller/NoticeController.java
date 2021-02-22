@@ -921,11 +921,11 @@ public class NoticeController {
 	public NexacroResult noticeOnload(@ParamVariable(name="nCode")int nCode) {
 		NexacroResult nr = new NexacroResult();
 		NoticeDTO dto  = nService.selectNomalNotice_Info(nCode);
-		
+		nService.view_countUpd(dto);
 		NoticeFileDTO fdto = new NoticeFileDTO();
 		fdto.setParentSeq(nCode);
 		List<NoticeFileDTO> list = nService.selectFileParentSeq(fdto);
-
+		
 		nr.addDataSet("out_ds",dto);
 		nr.addDataSet("out_ds2",list);
 		return nr;

@@ -90,7 +90,7 @@
             obj.set_taborder("7");
             obj.set_autofittype("col");
             obj.set_binddataset("ds_Schedule");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\" cssclass=\"expr:type=='01'?'Expr_yellow':type=='02'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"1\" text=\"bind:sdate\" displaytype=\"date\" cssclass=\"expr:type=='01'?'Expr_yellow':type=='02'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"2\" text=\"bind:edate\" displaytype=\"date\" cssclass=\"expr:type=='01'?'Expr_yellow':type=='02'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"1\" text=\"bind:sdate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"2\" text=\"bind:edate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_bookmark","50","276","100","44",null,null,null,null,null,null,this);
@@ -184,6 +184,11 @@
             obj.set_text("읽지 않은 메일");
             this.div_Info.addChild(obj.name, obj);
 
+            obj = new Button("Button00","640","3","90","38",null,null,null,null,null,null,this);
+            obj.set_taborder("20");
+            obj.set_text("Button00");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,520,this,function(p){});
@@ -254,7 +259,9 @@
         }
         this.btnMypage_onclick = function(obj,e)
         {
-
+        	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 50 + "'");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        	this.fn_openForm("5010","내 정보 보기","stdWork::studentInfo.xfdl"); //form 오픈 함수
         };
 
         this.btnDeptSchedule_onclick = function(obj,e)
@@ -315,7 +322,7 @@
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
         	}
         	if(sId == "main"){
-        	this.div_Info.form.sta_alarm.set_text(this.count + "건");
+        		this.div_Info.form.sta_alarm.set_text(this.count + "건");
         		//공지사항 정보
         		for(var j=0; j<this.ds_Notice.getRowCount(); j++){
         			var seq = this.ds_Notice.getColumn(j,"n_seq");
@@ -334,26 +341,67 @@
         			var eDate = this.ds_Schedule.getColumn(i,"edate");
         			var type = this.ds_Schedule.getColumn(i,"type");
         			for(var j=0; j<=parseInt(eDate)-parseInt(sDate); j++){
-        					var nRow = this.ds_cal.addRow();
-        					this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
-        					if(type == "01"){
-        						this.ds_cal.setColumn(nRow,"backgroundcolumn","#ab9f1b");
-        						this.ds_cal.setColumn(nRow,"bordercolumn","1px solid yellow");
-        						this.ds_cal.setColumn(nRow,"type","01");
-        					}else if(type == "02"){
-        						this.ds_cal.setColumn(nRow,"backgroundcolumn","#78a2dd");
-        						this.ds_cal.setColumn(nRow,"bordercolumn","1px solid blue");
-        						this.ds_cal.setColumn(nRow,"type","02");
-        					}else if(type == "03"){
-        						this.ds_cal.setColumn(nRow,"backgroundcolumn","#6ebe8e");
-        						this.ds_cal.setColumn(nRow,"bordercolumn","1px solid green");
-        						this.ds_cal.setColumn(nRow,"type","03");
-        					}else if(type =="04"){
-        						this.ds_cal.setColumn(nRow,"backgroundcolumn","#d23636");
-        						this.ds_cal.setColumn(nRow,"bordercolumn","1px solid red");
-        						this.ds_cal.setColumn(nRow,"type","04");
+        				if(type == "01"){
+        					var nRow = this.ds_cal.findRow("datecolumn",parseInt(sDate)+j);
+        					if(nRow == -1|| this.ds_cal.getRowCount()==0){
+        						var addRow = this.ds_cal.addRow();
+        						this.ds_cal.setColumn(addRow,"datecolumn",parseInt(sDate)+j);
+        						this.ds_cal.setColumn(addRow,"backgroundcolumn","#78a2dd");
+        						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid blue");
+        						this.ds_cal.setColumn(addRow,"type","01");
         					}
-
+        				}else if(type == "02"){
+        					var nRow = this.ds_cal.findRow("datecolumn",parseInt(sDate)+j);
+        					if(nRow == -1 || this.ds_cal.getRowCount()==0){
+        						var addRow = this.ds_cal.addRow();
+        						this.ds_cal.setColumn(addRow,"datecolumn",parseInt(sDate)+j);
+        						this.ds_cal.setColumn(addRow,"backgroundcolumn","#ab9f1b");
+        						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid yellow");
+        						this.ds_cal.setColumn(addRow,"type","02");
+        					}else{
+        						var sType = this.ds_cal.getColumn("datecolumn",parseInt(sDate)+j);
+        						if(parseInt(type) >= parseInt(sType)){
+        							this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
+        							this.ds_cal.setColumn(nRow,"backgroundcolumn","#ab9f1b");
+        							this.ds_cal.setColumn(nRow,"bordercolumn","1px solid yellow");
+        							this.ds_cal.setColumn(nRow,"type","02");
+        						}
+        					}
+        				}else if(type == "03"){
+        					var nRow = this.ds_cal.findRow("datecolumn",parseInt(sDate)+j);
+        					if(nRow == -1 || this.ds_cal.getRowCount()==0){
+        						var addRow = this.ds_cal.addRow();
+        						this.ds_cal.setColumn(addRow,"datecolumn",parseInt(sDate)+j);
+        						this.ds_cal.setColumn(addRow,"backgroundcolumn","#6ebe8e");
+        						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid green");
+        						this.ds_cal.setColumn(addRow,"type","03");
+        					}else{
+        						var sType = this.ds_cal.getColumn("datecolumn",parseInt(sDate)+j);
+        						if(parseInt(type) >= parseInt(sType)){
+        							this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
+        							this.ds_cal.setColumn(nRow,"backgroundcolumn","#6ebe8e");
+        							this.ds_cal.setColumn(nRow,"bordercolumn","1px solid green");
+        							this.ds_cal.setColumn(nRow,"type","03");
+        						}
+        					}
+        				}else if(type =="04"){
+        					var nRow = this.ds_cal.findRow("datecolumn",parseInt(sDate)+j);
+        					if(nRow == -1 || this.ds_cal.getRowCount()==0){
+        						var nRow = this.ds_cal.addRow();
+        						this.ds_cal.setColumn(addRow,"datecolumn",parseInt(sDate)+j);
+        						this.ds_cal.setColumn(addRow,"backgroundcolumn","#d23636");
+        						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid red");
+        						this.ds_cal.setColumn(addRow,"type","04");
+        					}else{
+        						var sType = this.ds_cal.getColumn("datecolumn",parseInt(sDate)+j);
+        						if(parseInt(type) >= parseInt(sType)){
+        							this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
+        							this.ds_cal.setColumn(nRow,"backgroundcolumn","#d23636");
+        							this.ds_cal.setColumn(nRow,"bordercolumn","1px solid red");
+        							this.ds_cal.setColumn(nRow,"type","04");
+        						}
+        					}
+        				}
         			}
         		}
         		var objDate = new Date();
@@ -506,6 +554,7 @@
         	this.fn_openForm("4020","받은 쪽지함","admWork::received_postmessage.xfdl"); //form 오픈 함수
         };
 
+
         });
         
         // Regist UI Components Event
@@ -528,7 +577,8 @@
             this.btnEmployment.addEventHandler("onclick",this.btnEmployment_onclick,this);
             this.btnMore.addEventHandler("onclick",this.btnMore_onclick,this);
             this.co_month.addEventHandler("canitemchange",this.co_month_canitemchange,this);
-            this.div_Info.form.sta_alarm.addEventHandler("onclick",this.sta_alarm_onclick,this);
+            this.div_Info.form.sta_alarm.addEventHandler("onclick",this.div_Info_sta_alarm_onclick,this);
+            this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };
