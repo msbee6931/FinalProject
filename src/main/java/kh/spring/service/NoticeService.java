@@ -126,8 +126,8 @@ public class NoticeService {
 	      }
 	      return sb.toString();
 	   }
-	public List<NoticeDTO> selectNormalByPage(int page){
-		return nDAO.selectNormalByPage(page);
+	public List<NoticeDTO> selectNormalByPage(int page,String type){
+		return nDAO.selectNormalByPage(page,type);
 	}
 	public int searchNormalCount(String content,String category){
 		return nDAO.searchNormalCount(content,category);
@@ -200,8 +200,8 @@ public class NoticeService {
 	      }
 	      return sb.toString();
 	   }
-	public List<NoticeDTO> selectAcademicByPage(int page){
-		return nDAO.selectAcademicByPage(page);
+	public List<NoticeDTO> selectAcademicByPage(int page,String type){
+		return nDAO.selectAcademicByPage(page,type);
 	}
 	public int searchAcademicCount(String content,String category){
 		return nDAO.searchAcademicCount(content,category);
@@ -282,8 +282,8 @@ public class NoticeService {
 	      }
 	      return sb.toString();
 	   }
-	public List<NoticeDTO> selectScholarByPage(int page){
-		return nDAO.selectScholarByPage(page);
+	public List<NoticeDTO> selectScholarByPage(int page,String type){
+		return nDAO.selectScholarByPage(page,type);
 	}
 	public int searchScholarCount(String content,String category){
 		return nDAO.searchScholarCount(content,category);
@@ -356,8 +356,8 @@ public class NoticeService {
 	      }
 	      return sb.toString();
 	   }
-	public List<NoticeDTO> selectEmploymentByPage(int page){
-		return nDAO.selectEmploymentByPage(page);
+	public List<NoticeDTO> selectEmploymentByPage(int page,String type){
+		return nDAO.selectEmploymentByPage(page,type);
 	}
 	public int searchEmploymentCount(String content,String category){
 		return nDAO.searchEmploymentCount(content,category);

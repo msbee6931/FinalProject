@@ -3,6 +3,7 @@ package kh.spring.controller;
 
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +22,12 @@ import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
 
 import kh.spring.dto.AdminDTO;
 import kh.spring.dto.LoginInfoDTO;
+import kh.spring.dto.NoticeDTO;
 import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.StudentsDTO;
 
 import kh.spring.service.LoginService;
+import kh.spring.service.NoticeService;
 import kh.spring.util.EncryptUtils;
 
 @Controller
@@ -34,17 +37,22 @@ public class LoginController {
 	private LoginService lService;
 	
 	@Autowired
+	private NoticeService nService;
+	
+	@Autowired
 	private HttpSession session;
 	
-
 	@RequestMapping("loginPage.log")
-	public String loginPage() {
+	public String loginPage(Model model) {
+		model.addAttribute("logReq","home");
 		return "loginPage";
 	}
 	@RequestMapping("login.log")
 	public String login(HttpServletRequest request,HttpServletResponse response, Model model){
 		String user = request.getParameter("user");
 		String Id = request.getParameter("sCode");
+		String logReq = request.getParameter("logReq");
+
 		for(int i=0; i<Id.length(); i++) {	
 			if(48 > (int)Id.charAt(i) || (int)Id.charAt(i) > 57) {	
 				return "loginFail";
@@ -70,7 +78,13 @@ public class LoginController {
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
-				return "home";
+				if(logReq.contentEquals("home")) {
+					notice(model);
+					return "home";
+				}else {
+					return "redirect:/nex/index.html";
+				}
+				
 			}else {
 				return "loginFail";
 			}
@@ -86,11 +100,16 @@ public class LoginController {
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
-				return "home";
+				if(logReq.contentEquals("home")) {
+					notice(model);
+					return "home";
+				}else {
+					return "redirect:/nex/index.html";
+				}
 			}else {
 				return "loginFail";
 			}
-		}else {
+		}else if(user.contentEquals("adm")){
 			//관리자
 			AdminDTO adto = new AdminDTO();
 			adto.setA_seq(sCode);
@@ -101,15 +120,22 @@ public class LoginController {
 				if(login != null) {
 					LoginInfo(sCode, user, response);
 				}
-				return "home";
+				if(logReq.contentEquals("home")) {
+					notice(model);
+					return "home";
+				}else {
+					return "redirect:/nex/index.html";
+				}
 			}else {
 				return "loginFail";
 			}
+		}else {
+			return "home";
 		}
 		
 	}
 	@RequestMapping("logOut.log")
-	public String logOut(HttpServletRequest request,HttpServletResponse response) {
+	public String logOut(HttpServletRequest request,HttpServletResponse response,Model model) {
 		LoginInfoDTO dto = new LoginInfoDTO();
 		if(session.getAttribute("std") != null) {
 			System.out.println("A");
@@ -132,7 +158,6 @@ public class LoginController {
 			dto.setUserType("adm");
 			session.removeAttribute("adm");
 		}	
-		System.out.println("USERTYPE : " +dto.getUserType());
 		Cookie loginCookie = WebUtils.getCookie(request,"loginCookie");
 		if(loginCookie != null) {
 			 loginCookie.setPath("/");
@@ -144,6 +169,7 @@ public class LoginController {
 			lService.updLoginInfo(dto);
 		}
 		session.removeAttribute("login");
+		notice(model);
 		return "home";
 	}
 
@@ -183,6 +209,20 @@ public class LoginController {
 			nr.addDataSet("adm_ds",dto);
 		}
 		return nr;
+	}
+	public void notice(Model model) {
+		int page =1;
+		String type = "home";
+		List<NoticeDTO> all = nService.selectNoticeAll();
+		List<NoticeDTO> normal = nService.selectNormalByPage(page,type);
+		List<NoticeDTO> academic = nService.selectAcademicByPage(page,type);
+		List<NoticeDTO> scholar = nService.selectScholarByPage(page,type);
+		List<NoticeDTO> employment = nService.selectEmploymentByPage(page,type);
+		model.addAttribute("all",all);
+		model.addAttribute("normal",normal);
+		model.addAttribute("academic",academic);
+		model.addAttribute("scholar",scholar);
+		model.addAttribute("employment",employment);
 	}
 	@ExceptionHandler
 	public String exceptionhandler(Exception e) {

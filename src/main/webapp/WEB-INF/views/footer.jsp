@@ -7,15 +7,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
+*{
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+}
 footer {
-	font-family: 'GmarketSansMedium';
+	font-family: 'GmarketSansLight';
 }
 
 footer ul {
 	display: flex;
 	justify-content: space-around;
-	padding: 10px 0;
+	padding: 15px 0;
+	background-color: #efefef;
+	margin: 0px;
 }
 
 .co {
@@ -34,11 +40,11 @@ footer ul {
 }
 
 footer .co_info {
-	border-top: 1px solid whitesmoke;
+	margin: 20px;
 }
-footer .policy{
+/* footer .policy{
 	border-top: 1px solid whitesmoke;
-}
+} */
 
 a {
 	text-decoration: none;
@@ -97,6 +103,5 @@ li {
 		<p class="copy">Copyright © 2021 KHFinalProject All rights
 			reserved.</p>
 	</div>
-
 </body>
 </html>

@@ -40,8 +40,8 @@ public class ScheduleService {
 		return sDao.insertIndSchedule(dto);
 	}
 	
-	public List<IndScheduleDTO> selectIndSchedule(){
-		return sDao.selectIndSchedule();
+	public List<IndScheduleDTO> selectIndSchedule(int writer){
+		return sDao.selectIndSchedule(writer);
 	}
 	
 	public IndScheduleDTO  selectOneIndSchedule(String id) {

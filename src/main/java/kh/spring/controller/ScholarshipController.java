@@ -205,7 +205,7 @@ public class ScholarshipController {
 		for(int i=0; i<arrSaved.size();i++) {
 			//파일이 2개 이상이면 압축파일로 저장한다.
 			if(arrSaved.size()>1) {
-    
+
 				String uid = UUID.randomUUID().toString().replaceAll("-", "");
 			    targetFile = sService.getCompressZipFile(arrSaved, filePath, "compressZip_"+uid);	    
 			    tranName = seq+"번_장학금_요청글_첨부파일.zip";

@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-	<form action="login.log" method="post" id="loginBox" onsubmit="return InputChk()">
+	<form action="login.log?logReq=${logReq}" method="post" id="loginBox" onsubmit="return InputChk()">
 		<div class="container">
 			<div class="row text-center" onclick="location.href='/'" style="cursor: pointer">
 				<div class="col p-3">

@@ -45,8 +45,8 @@ public class ScheduleDAO {
 		return session.insert("Schedule.insertIndSchedule", dto);
 	}
 	
-	public List<IndScheduleDTO> selectIndSchedule(){
-		return session.selectList("Schedule.selectIndSchedule");
+	public List<IndScheduleDTO> selectIndSchedule(int writer){
+		return session.selectList("Schedule.selectIndSchedule",writer);
 	}
 	
 	public IndScheduleDTO selectOneIndSchedule(String id) {

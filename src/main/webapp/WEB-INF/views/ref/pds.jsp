@@ -32,17 +32,6 @@
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
 		<div class="row pt-3">
-			<div class="d-flex flex-row-reverse">
-				<div class="bd-highlight d-none d-lg-block">
-					<h5>
-						<a href="/">Home&gt;</a><a href="/reference/refList.ref?page=1">자료실</a>
-					</h5>
-				</div>
-			</div>
-		<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>자료실</b></h3>
-			</div>
-		</div>
 			<div class="row">
 			<div class="col-xl-12 d- pt-4" id="box">
 					<div class="row">
