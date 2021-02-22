@@ -233,7 +233,8 @@
         
         // User Script
         this.registerScript("stdRest.xfdl", function() {
-        this.std_code="215051001";
+        this.objApp = nexacro.getApplication();
+        this.std_code=this.objApp.gds_students.getColumn(0,'s_seq');
         this.Div00_btn_insert_onclick = function(obj,e)
         {
 

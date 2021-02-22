@@ -2,6 +2,8 @@ package kh.spring.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +21,11 @@ import kh.spring.service.ScheduleService;
 @RequestMapping("/schedule")
 public class ScheduleController {
 	
+	
 	@Autowired
 	ScheduleService sService;
+	@Autowired
+	private HttpSession session;
 	
 	//학과 스케줄 입력
 	@RequestMapping("insertDeptScheule")
@@ -91,8 +96,10 @@ public class ScheduleController {
 	// 개인 스케줄 입력
 	@RequestMapping("insertIndSchedule")
 	public NexacroResult insertIndSchedule(@ParamDataSet(name="in_ds")IndScheduleDTO dto) {
-		System.out.println("--------개인 스케줄 추가 컨트롤러 확인");
+		int writer = (int)session.getAttribute("pro");
+		System.out.println("--------개인 스케줄 추가 컨트롤러 확인" + "작성자확인 ,,>"+writer);
 		System.out.println(dto.getId() + "---------------"+dto.getTitle() + "-----------"+dto.getType());
+		dto.setWriter(writer);
 		int result = sService.insertIndSchedule(dto);
 		NexacroResult nr = new NexacroResult();
 		return nr;
@@ -100,8 +107,10 @@ public class ScheduleController {
 	
 	@RequestMapping("selectIndSchedule")
 	public NexacroResult selectIndSchedule() {
-		System.out.println("--------학과 스케줄 추가 컨트롤러 확인");
-		List<IndScheduleDTO> list = sService.selectIndSchedule();
+		int writer = (int)session.getAttribute("pro");
+
+		System.out.println("--------개인 스케줄 확인 컨트롤러 확인 작성자 >>>>" );
+		List<IndScheduleDTO> list = sService.selectIndSchedule(writer);
 		NexacroResult nr = new NexacroResult();
 		nr.addDataSet("out_ds", list);
 		return nr;
@@ -111,8 +120,10 @@ public class ScheduleController {
 	@RequestMapping("updateIndSchedule")
 	public NexacroResult updateIndSchedule(@ParamDataSet(name="in_ds")IndScheduleDTO dto) {
 		System.out.println("-------------개인 스케줄 수정 컨트롤러 확인");
+		int writer = (int)session.getAttribute("pro");
+		dto.setWriter(writer);
 
-				int result = sService.updateIndSchedule(dto);
+		int result = sService.updateIndSchedule(dto);
 
 		NexacroResult nr = new NexacroResult();
 		return nr;
@@ -122,7 +133,7 @@ public class ScheduleController {
 	public NexacroResult deleteIndSchedule(@ParamVariable(name="id")String id) {
 		System.out.println("-------------개인 스케줄 삭제 컨트롤러 확인");
 
-				int result = sService.deleteIndSchedule(id);
+		int result = sService.deleteIndSchedule(id);
 
 		NexacroResult nr = new NexacroResult();
 		return nr;

@@ -359,7 +359,7 @@
         						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid yellow");
         						this.ds_cal.setColumn(addRow,"type","02");
         					}else{
-        						var sType = this.ds_cal.getColumn("datecolumn",parseInt(sDate)+j);
+        						var sType = this.ds_cal.getColumn(nRow,"type");
         						if(parseInt(type) >= parseInt(sType)){
         							this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
         							this.ds_cal.setColumn(nRow,"backgroundcolumn","#ab9f1b");
@@ -376,7 +376,7 @@
         						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid green");
         						this.ds_cal.setColumn(addRow,"type","03");
         					}else{
-        						var sType = this.ds_cal.getColumn("datecolumn",parseInt(sDate)+j);
+        						var sType = this.ds_cal.getColumn(nRow,"type");
         						if(parseInt(type) >= parseInt(sType)){
         							this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
         							this.ds_cal.setColumn(nRow,"backgroundcolumn","#6ebe8e");
@@ -393,7 +393,7 @@
         						this.ds_cal.setColumn(addRow,"bordercolumn","1px solid red");
         						this.ds_cal.setColumn(addRow,"type","04");
         					}else{
-        						var sType = this.ds_cal.getColumn("datecolumn",parseInt(sDate)+j);
+        						var sType = this.ds_cal.getColumn(nRow,"type");
         						if(parseInt(type) >= parseInt(sType)){
         							this.ds_cal.setColumn(nRow,"datecolumn",parseInt(sDate)+j);
         							this.ds_cal.setColumn(nRow,"backgroundcolumn","#d23636");

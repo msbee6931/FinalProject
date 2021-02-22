@@ -88,7 +88,7 @@
         {
         	this.objApp = nexacro.getApplication();
         	var s =this.objApp.gds_students.getColumn(0,'s_seq');
-        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/transcript?seq="+s;
+        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/transcriptp?seq="+s;
         };
 
 

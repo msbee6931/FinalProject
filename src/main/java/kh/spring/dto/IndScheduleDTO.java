@@ -2,6 +2,7 @@ package kh.spring.dto;
 
 public class IndScheduleDTO {
 	String id;
+	int writer;
 	String sdate;
 	String edate;
 	String title;
@@ -10,9 +11,11 @@ public class IndScheduleDTO {
 	
 	public IndScheduleDTO() {}
 
-	public IndScheduleDTO(String id, String sdate, String edate, String title, String content, String type) {
+	public IndScheduleDTO(String id, int writer, String sdate, String edate, String title, String content,
+			String type) {
 		super();
 		this.id = id;
+		this.writer = writer;
 		this.sdate = sdate;
 		this.edate = edate;
 		this.title = title;
@@ -26,6 +29,14 @@ public class IndScheduleDTO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public int getWriter() {
+		return writer;
+	}
+
+	public void setWriter(int writer) {
+		this.writer = writer;
 	}
 
 	public String getSdate() {
@@ -67,6 +78,8 @@ public class IndScheduleDTO {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	
 
 	
 	

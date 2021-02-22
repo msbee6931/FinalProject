@@ -102,10 +102,11 @@
 
         this.tab_menu_onextrabuttonclick = function(obj,e)
         {
-        	var formId = obj.tabpages[e.index].name;
         	this.av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
+        	var formId = obj.tabpages[e.index].name;
         	this.av_FrameSet[formId].form.close();
         	this.tab_menu.removeTabpage(e.index);
+
         	//index 는 정해진 값이라서 index 사용
 
         	var nRow = this.adm_form.findRow("form_id",formId);

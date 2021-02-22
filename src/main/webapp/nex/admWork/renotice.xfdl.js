@@ -169,7 +169,10 @@
 
         this.btn_cancel_onclick = function(obj,e)
         {
-        	this.close();
+        	this.edt_title.set_value("");
+        	this.com_list.set_value("");
+        	this.text_contents.set_value("");
+        	this.fn_FileClear();
         };
         this.fn_callback = function(id,ErrorCode,ErrorMsg){
         	trace(id);
@@ -352,10 +355,17 @@
         		"",//()_out_ds
         		"",//argument
         		"fn_callback"
-        	)
+        	);
         	//this.FileUpTransfer00.upload("/uploadNoticeFile.notice");
-        	this.close();
         };
+
+
+        this.fn_FileClear = function (){
+        	//FileUpTransfer 파일 모두삭제
+        	this.FileUpTransfer00.clearFileList();
+        	//파일정보 모두삭제
+        	this.ds_NoticeFiles.clearData();
+        }
 
         });
         

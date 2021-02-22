@@ -16,10 +16,10 @@
 	delete from deptSchedule where seq=#{oriSeq}
 	</delete>
 	<insert id="insertIndSchedule">
-		insert into indSchedule values (#{id},#{sdate},#{edate},#{title},#{content},#{type})
+		insert into indSchedule values (#{id},#{writer},#{sdate},#{edate},#{title},#{content},#{type})
 	</insert>
 	<select id="selectIndSchedule" resultType="kh.spring.dto.IndScheduleDTO">
-		select * from indSchedule
+		select * from indSchedule where writer=#{writer}
 	</select>
 	<select id=" selectOneIndSchedule" resultType="kh.spring.dto.IndScheduleDTO">
 		select * from indSchedule where id=#{id}
