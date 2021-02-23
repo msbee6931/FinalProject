@@ -98,6 +98,7 @@ public class ChatController {
 		model.addAttribute("user", user);
 		model.addAttribute("friendList",friendList);
 		model.addAttribute("allUser",allUser);
+		model.addAttribute("friendList",friendList);
 		
 		return "Chat/roomCreate";
 	}
@@ -112,6 +113,8 @@ public class ChatController {
 		
 		// 모든 유저 정보
 		List<UserDTO> allUser = service.getAllUserInfo();
+		// 친구리스트
+		List<FriendDTO> friendList = service.getFriendsList(userId); 
 		
 		model.addAttribute("list",list);
 		model.addAttribute("userId", userId);
@@ -237,6 +240,21 @@ public class ChatController {
 		pw.append(obj.toString());
 	}
 	
+	@RequestMapping("profileView")
+	public String profileView(HttpServletRequest request,Model model) {
+		String userId = (String) session.getAttribute("userId");
+		String joinMemberId = request.getParameter("joinUserId");
+		
+		FriendDTO friend = service.isFriendExist(userId,joinMemberId);
+		UserDTO user = service.getUserInfo(userId);
+		UserDTO friendInfo = service.getUserInfo(joinMemberId);
+		
+		model.addAttribute("friend",friend);
+		model.addAttribute("user",user);		
+		model.addAttribute("friendInfo",friendInfo);
+		return "Chat/profileView";
+	}
+	
 	// ----------------------------------------------------------------------- friend	
 	@RequestMapping("searchFriend")
 	public String searchFriend(String searchTxt,Model model) {
@@ -272,6 +290,24 @@ public class ChatController {
 		}
 		pw.append(obj.toString());
 	}
+	
+	@RequestMapping("deleteFriend")
+	public void deleteFriend(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		String userId = request.getParameter("userId");
+		String friendId = request.getParameter("friendId");
+		System.out.println("요기는 controller userId는 "+userId+" friendId는 "+friendId);
+		int result = service.deleteFriend(userId,friendId);
+		
+		PrintWriter pw = response.getWriter();
+		JsonObject obj = new JsonObject();
+		
+		if(result>0) {
+			obj.addProperty("msg", "친구가 삭제되었습니다.");
+		}else {
+			obj.addProperty("msg", "친구가 삭제되었습니다.");
+		}
+		pw.append(obj.toString());
+	}
 
 	// ----------------------------------------------------------------------- chat
 	
@@ -290,6 +326,7 @@ public class ChatController {
 		
 		if(result>0) {
 			template.convertAndSend("/topic/chat/"+dto.getRoomNumber(),dto);
+			template.convertAndSend("/topic/chatList",dto);
 		}
 	}
 	

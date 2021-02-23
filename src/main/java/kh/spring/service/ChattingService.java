@@ -100,6 +100,11 @@ public class ChattingService {
 		return dao.getInviteList(joinList,userId);
 	}
 	
+	// 친구 삭제하기
+	public int deleteFriend(String userId,String friendId) {
+		return dao.deleteFriend(userId,friendId);
+	}
+	
 	/* Chat */
 	public int insertMessage(String userId, String message, String roomNumber) {
 		return  dao.insertMessage(userId,message,roomNumber);

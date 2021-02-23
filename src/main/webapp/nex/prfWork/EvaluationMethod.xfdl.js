@@ -206,10 +206,14 @@
         				,""
         				,"ds_class=out_ds"
         				,"classSeq="+this.parent.classCode
-        				,"fn_callback_classInfo"
+        				,"fn_callback"
         			);
         };
-        this.fn_callback_classInfo=function(){
+        this.fn_callback=function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        	if(sId == "classListSeq"){
         	var eval = this.ds_class.getColumn(0,"classEvaluation").split("|");
         	this.sta_attend.set_text(eval[0]);
         	this.sta_mid.set_text(eval[1]);
@@ -217,6 +221,7 @@
         	this.sta_task.set_text(eval[3]);
         	this.sta_fin.set_text(eval[4]);
         	this.sta_sum.set_text(parseInt(eval[0])+parseInt(eval[1])+parseInt(eval[2])+parseInt(eval[3])+parseInt(eval[4])+"%");
+        	}
         }
         this.btnClose_onclick = function(obj,e)
         {

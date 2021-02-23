@@ -77,6 +77,10 @@
 		select * from friend where friendId not in (<foreach collection="joinList" item="item" separator=",">#{item.userId}</foreach>) and userId = #{userId}
 	</select>
 	
+	<delete id="deleteFriend">
+		delete from friend where userId=#{userId} and friendId=#{friendId}
+	</delete>
+	
 	<!-- Chat -->
  	<insert id="insertMessage">
  		insert into chatMessage(seq,userId,message,roomNumber) values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber})

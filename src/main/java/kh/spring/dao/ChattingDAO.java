@@ -133,6 +133,14 @@ public class ChattingDAO {
 		param.put("joinList", joinList);
 		return session.selectList("chatting.getInviteList", param);
 	}
+	
+	// 친구 삭제하기
+	public int deleteFriend(String userId,String friendId) {
+		Map<String,String> param = new HashMap<>();
+		param.put("userId", userId);
+		param.put("friendId", friendId);
+		return session.delete("chatting.deleteFriend",param);
+	}
 
 	/* Chat */
 	public int insertMessage(String userId, String message, String roomNumber) {

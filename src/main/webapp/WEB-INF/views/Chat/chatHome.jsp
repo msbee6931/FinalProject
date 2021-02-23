@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://kit.fontawesome.com/a24c081181.js" crossorigin="anonymous"></script>
 <style>
 	/* COMMON */
 	*{
@@ -27,7 +28,8 @@
 		--bs-gutter-x: 0rem;
 	}
 	/* PROFILE */
-	.friendName {
+	.chatIcon,
+	.deleteFriend {
 		cursor: pointer;
 	}
 	/* ETC */
@@ -40,13 +42,13 @@
 	<div class="container" id="container">
 		<div>친구</div>
 		<div class="row p-3 d-flex align-items-center myProfile">
-			<div class="col-6 p-0 profileImg user">
+			<div class="col-2 p-0 profileImg user">
 				<c:choose>
 					<c:when test="${user.getImg() == null }"><img src="/img/deepblue.png" width="50px"></c:when>
 					<c:otherwise><img src="/files/${user.getImg()}" width="50px"></c:otherwise>
 				</c:choose>
 			</div>
-			<div class="col-6" id="userName">${user.getUserName() }</div>
+			<div class="col-10" id="userName">${user.getUserName() }</div>
 			<input type="hidden" id="userId" value=${user.getUserId() }>
 		</div>
 		<div class="row p-0 otherProfile">
@@ -54,7 +56,7 @@
 				<c:when test="${friendList != null }">
 					<c:forEach var="dto" items="${friendList }">
 						<div class="row p-3 d-flex align-items-center friend">
-							<div class="col-6 profileImg other">
+							<div class="col-2 profileImg other">
 								<c:forEach var="aDto" items="#{allUser}">
 									<c:if test="${dto.getFriendId() == aDto.getUserId() }">
 										<c:choose>
@@ -64,7 +66,9 @@
 									</c:if>
 								</c:forEach>
 							</div>
-							<div class="col-6 friendName">${dto.getFriendName() }</div>
+							<div class="col-8 friendName">${dto.getFriendName() }</div>
+							<div class="col-1 chatIcon"><i class="far fa-comment-dots"></i></div>
+							<div class="col-1 deleteFriend"><i class="fas fa-minus"></i></div>
 							<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
 						</div>
 					</c:forEach>
@@ -88,15 +92,28 @@
 	
 
 	<script>
-	$(document).on("click",".friend",function(){
+	$(document).on("click",".chatIcon",function(){
 		var userId = $("#userId").val();
-		var friendId = $(this).children(".friendId").val();
+		var friendId = $(this).siblings(".friendId").val();
 		var userName = $("#userName").text();
-		var friendName = $(this).children(".friendName").text();
-		// console.log(userId + ":" + userName + ":" + friendId + ":" + friendName);
+		var friendName = $(this).siblings(".friendName").text();
 		location.href="/chatting/roomCheck?userId="+userId+"&friendId="+friendId+"&userName="+userName+"&friendName="+friendName;
 		//$("#main").load("roomCheck?userId="+userId+"&friendId="+friendId+"&userName="+userName+"&friendName="+friendName);
 	 });
+	
+	$(document).on("click",".deleteFriend",function(){
+		var userId = $("#userId").val();
+		var friendId = $(this).siblings(".friendId").val();
+		$.ajax({
+			type: 'POST',
+			url: '/chatting/deleteFriend',
+			data: {userId:userId,friendId:friendId},
+			dataType: 'json'
+		}).done(function(resp){
+			alert(resp.msg);
+			location.reload();
+		});
+	});
 	
 	$("#inputBtn").on("click",function(){
 		var searchTxt = $("#inputTxt").val();
@@ -104,9 +121,27 @@
 		if(searchTxt == '' || searchTxt == null){
 			alert("검색할 아이디 혹은 이름을 입력해주세요!");
 		}else{
-			location.href="searchFriend?searchTxt="+searchTxt;
+			var url = "/chatting/searchFriend?searchTxt="+searchTxt;
+			var name = "searchFriend";
+	        var option = "width = 500, height = 500, top = 100, left = 200";
+			window.open(url,name,option);
 		}
 		//$("#main").load("searchFriend?searchId="+searchId);
+	});
+	
+	$("#inputTxt").on("keydown",function(e){
+		if(e.keyCode==13){
+			var searchTxt = $("#inputTxt").val();
+			console.log(searchTxt.length);
+			if(searchTxt == '' || searchTxt == null){
+				alert("검색할 아이디 혹은 이름을 입력해주세요!");
+			}else{
+				var url = "/chatting/searchFriend?searchTxt="+searchTxt;
+				var name = "searchFriend";
+		        var option = "width = 500, height = 500, top = 100, left = 200";
+				window.open(url,name,option);
+			}
+		}
 	});
 	
 	$("#goChatList").on("click",function(){
@@ -120,7 +155,6 @@
         var option = "width = 500, height = 500, top = 100, left = 200";
 		window.open(url,name,option);
 	});
-	
 	</script>
 </body>
 </html>

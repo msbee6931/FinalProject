@@ -48,11 +48,11 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","75","67","930","143",null,null,null,null,null,null,this);
+            obj = new Grid("gr_classList","75","67","930","143",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"83\"/><Column size=\"108\"/><Column size=\"254\"/><Column size=\"67\"/><Column size=\"119\"/><Column size=\"207\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학과코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"학과\"/><Cell col=\"5\" text=\"강의시간\"/><Cell col=\"6\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"########\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:dept\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classTime\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"83\"/><Column size=\"108\"/><Column size=\"254\"/><Column size=\"67\"/><Column size=\"119\"/><Column size=\"207\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학과코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"학과\"/><Cell col=\"5\" text=\"강의시간\"/><Cell col=\"6\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"########\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:classTime\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","80","20","120","50",null,null,null,null,null,null,this);
@@ -92,7 +92,7 @@
             obj.set_cssclass("btn_search");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid02","455","260","535","260",null,null,null,null,null,null,this);
+            obj = new Grid("gr_stdList","455","260","535","260",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_binddataset("ds_attend");
             obj.set_autofittype("col");
@@ -116,14 +116,14 @@
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new PopupDiv("PopupDiv00","910","310","200","120",null,null,null,null,null,null,this);
+            obj = new PopupDiv("pop_reason","910","310","200","120",null,null,null,null,null,null,this);
             obj.set_text("PopupDiv00");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new TextArea("TextArea00","0","0","200","120",null,null,null,null,null,null,this.PopupDiv00.form);
+            obj = new TextArea("ta_reason","0","0","200","120",null,null,null,null,null,null,this.pop_reason.form);
             obj.set_taborder("0");
-            this.PopupDiv00.addChild(obj.name, obj);
+            this.pop_reason.addChild(obj.name, obj);
 
             obj = new Button("btnDel","780","525","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
@@ -149,10 +149,9 @@
         
         // User Script
         this.registerScript("attendManage.xfdl", function() {
-
+        this.objApp = nexacro.getApplication();
         this.attendManage_onload = function(obj,e)
         {
-
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.co_year.set_text(objDate.getFullYear()+"년");
@@ -165,7 +164,7 @@
         		var startTime = objDate.getFullYear()+"0801";
         		var endTime = objDate.getFullYear()+"1231";
         	}
-        	var proCode ="91515073" // 교수코드(로그인)
+        	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq"); // 교수코드(로그인)
         	this.transaction(
         		"proClassList"
         		,"/proClassList.nex"
@@ -175,7 +174,7 @@
         		,"fn_callback"
         	);
         };
-        this.Grid00_oncellclick = function(obj,e)
+        this.gr_classList_oncellclick = function(obj,e)
         {
         	var classCode = this.ds_class.getColumn(e.row,"classSeq");
         	var className = this.ds_class.getColumn(e.row,"className");
@@ -198,7 +197,15 @@
         	);
 
         };
-        this.fn_callback_stdList=function(sId){
+        this.fn_callback = function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        }
+        this.fn_callback_stdList=function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
         	if(sId == "stdListSeq"){
         		var nRow = this.ds_class.rowposition
         		var classTime = this.ds_class.getColumn(nRow,"classTime");
@@ -251,7 +258,7 @@
         			this.ds_attend.setColumn(addRow,"attendDay",this.cal.value);
         		}
         		this.transaction(
-        			"attendInsert"
+        			"attendInsertUpdate"
         			,"/attendInsert.nex"
         			,"in_ds=ds_attend:U"
         			,"ds_attend=out_ds"
@@ -269,7 +276,10 @@
         	}
         }
 
-        this.fn_callback_attend=function(sId){
+        this.fn_callback_attend=function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
         	if(sId == "attendDayList"){
         		this.ds_cal.clearData();
         		if(this.ds_attendDayList.getRowCount() > 0 ){
@@ -285,6 +295,9 @@
         		}
         	}else if(sId == "attendInsert"){
         		this.ds_attend.set_keystring("S:+sName");
+        	}else if(sId == "attendDel"){
+        		var nRow= this.ds_cal.findRow("datecolumn",this.cal.value);
+        		this.ds_cal.deleteRow(nRow);
         	}
         }
 
@@ -300,18 +313,18 @@
         	);
         };
 
-        this.Grid02_oncellclick = function(obj,e)
+        this.gr_stdList_oncellclick = function(obj,e)
         {
         	if(e.col == 4){
         		var attendState = this.ds_attend.getColumn(e.row,"attendState");
         		if(attendState == 03){
         			var reason = this.ds_attend.getColumn(e.row,"absenceReason");
-        			this.PopupDiv00.form.TextArea00.set_value(reason);
+        			this.pop_reason.form.ta_reason.set_value(reason);
         			this.col = e.cell;
         			this.row = e.row;
         			var nX = system.screenToClientX(this, e.screenx);
         			var nY = system.screenToClientY(this, e.screeny);
-        			this.PopupDiv00.trackPopupByComponent(this, nX, nY, null, null, "call_back");  //grid 클릭한 col, cell 에 popup창 띄우기
+        			this.pop_reason.trackPopupByComponent(this, nX, nY, null, null, "fn_pop_callback");  //grid 클릭한 col, cell 에 popup창 띄우기
         		}else{
         			alert("출석 상태를 확인해주세요");
         		}
@@ -319,12 +332,12 @@
         };
 
 
-        this.PopupDiv00_oncloseup = function(obj,e)
+        this.pop_reason_oncloseup = function(obj,e)
         {
         	var nRow = this.ds_attend.rowposition;
-        	var reason = this.PopupDiv00.form.TextArea00.text;
+        	var reason = this.pop_reason.form.ta_reason.text;
         	this.ds_attend.setColumn(nRow,"absenceReason",reason);
-        	this.PopupDiv00.form.TextArea00.set_value("");
+        	this.pop_reason.form.ta_reason.set_value("");
         };
 
         this.cal_onchanged = function(obj,e)
@@ -343,13 +356,16 @@
         		var weeks = time[i].split("(");
         		weekTime += weeks[0];
         	}
-        	if(this.ds_attend.getRowCount() > 0 ){
+        	var label = this.sta_label.text;
+        	if(label.length == 6){ //수업선택안했을 경우
+        		alert("수업을 선택해주세요");
+        	}else{
         		var arr = this.ds_cal.extractRows("datecolumn=="+this.cal.value);
         		if(weekTime.length <= vArr.length && arr.length == 0){ //이미 등록한 요일 제외하고 요일 개수만큼만 한 주에 등록 가능
         			alert("이번주차 수업을 더이상 등록할 수 없습니다");
         		}else{
-        			if(weekTime.indexOf(week) < 0){ // 수업하는 요일 체크
-        				if(arr.length == 0){
+        			if(weekTime.indexOf(week) < 0){ // 수업하는 요일이 아닐 경우
+        				if(arr.length == 0){ //수업이 없을 경우
         					if(this.confirm("수업이 없습니다.\n수업을 추가하시겠습니까?")){
         						this.transaction(
         							"stdList"
@@ -359,10 +375,8 @@
         							,"classCode="+classCode
         							,"fn_callback_stdList"
         						);
-        					}else{
-        						this.ds_attend.deleteAll();
         					}
-        				}else{
+        				}else{ //이미 수업이 있을경우
         					this.transaction(
         						"stdList"
         						,"/stdListSeq.nex"
@@ -372,7 +386,7 @@
         						,"fn_callback_stdList"
         					);
         				}
-        			}else{
+        			}else{ //수업하는 요일 경우
         				this.transaction(
         					"stdList"
         					,"/stdListSeq.nex"
@@ -383,8 +397,6 @@
         				);
         			}
         		}
-        	}else{
-        		alert("수업을 선택해주세요");
         	}
         };
 
@@ -399,7 +411,7 @@
         				,"in_ds=ds_attend:A"
         				,""
         				,""
-        				,"fn_callback_del"
+        				,"fn_callback_attend"
         			);
         		}else{
         			alert("수업이 없습니다");
@@ -407,10 +419,7 @@
         		this.ds_attend.deleteAll();
         	}
         };
-        this.fn_callback_del=function(){
-        	var nRow= this.ds_cal.findRow("datecolumn",this.cal.value);
-        	this.ds_cal.deleteRow(nRow);
-        }
+
         this.btnSearch_onclick = function(obj,e)
         {
         	var year = this.co_year.text;
@@ -422,7 +431,7 @@
         		var startTime = year+"0801";
         		var endTime = year+"1231";
         	}
-        	var proCode ="91515073" // 교수코드(로그인)
+        	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq"); // 교수코드(로그인)
         	this.transaction(
         		"proClassList"
         		,"/proClassList.nex"
@@ -434,19 +443,22 @@
         };
 
 
+
+
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.attendManage_onload,this);
-            this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
+            this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
-            this.Grid02.addEventHandler("oncellclick",this.Grid02_oncellclick,this);
+            this.gr_stdList.addEventHandler("oncellclick",this.gr_stdList_oncellclick,this);
             this.cal.addEventHandler("onchanged",this.cal_onchanged,this);
             this.btnSave.addEventHandler("onclick",this.btnSave_onclick,this);
-            this.PopupDiv00.addEventHandler("oncloseup",this.PopupDiv00_oncloseup,this);
+            this.pop_reason.addEventHandler("oncloseup",this.pop_reason_oncloseup,this);
             this.btnDel.addEventHandler("onclick",this.btnDel_onclick,this);
             this.ds_attend.addEventHandler("oncolumnchanged",this.ds_attend_oncolumnchanged,this);
             this.ds_attendDayList.addEventHandler("oncolumnchanged",this.ds_attend_oncolumnchanged,this);
