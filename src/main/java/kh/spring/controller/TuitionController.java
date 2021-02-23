@@ -2,6 +2,8 @@ package kh.spring.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter17.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
 
+import kh.spring.dto.ScholarshipDTO;
 import kh.spring.dto.TuitionDTO;
 import kh.spring.service.TuitionService;
 
@@ -19,12 +22,14 @@ public class TuitionController {
 	
 	@Autowired
 	TuitionService tService;
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping("insert.tuition")
 	public NexacroResult insert(@ParamDataSet(name="in_ds")TuitionDTO dto) {
 		System.out.println("컨트롤러 확인");
 		NexacroResult nr = new NexacroResult();
-		System.out.println(",,,,,,,,,,,,,>" + dto.getStd_code());
+		System.out.println("학년확인,,,,,,,,,,,,,>" + dto.getStd_grade());
 		int result = tService.insertTuition(dto);
 		return nr;
 	}
@@ -65,6 +70,16 @@ public class TuitionController {
 
 		int result = tService.deleteOne(seq);
 		
+		return nr;
+	}
+	
+	@RequestMapping("stdSelectOne.tuition")
+	public NexacroResult stdSelectOne() {
+		int user = (int)session.getAttribute("std");
+		System.out.println("등록금 조회띄우기,,,,,,,,,,,,,,,,>> "+user);
+		NexacroResult nr = new NexacroResult();
+		List<TuitionDTO> list = tService.stdSelectOne(user);
+		nr.addDataSet("out_ds",list);
 		return nr;
 	}
 	
