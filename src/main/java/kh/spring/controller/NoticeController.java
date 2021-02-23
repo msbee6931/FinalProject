@@ -878,9 +878,10 @@ public class NoticeController {
 		NexacroResult nr = new NexacroResult();
 		PlatformData out_pData = new PlatformData();
 		VariableList varList = out_pData.getVariableList();
+		int writer = (int)session.getAttribute("pro");
 		List<NoticeDTO> list = nService.selectNoticeList();
 		List<NoticeFileDTO> list2 = nService.selectFileAll();
-		List<IndScheduleDTO> list3 = scService.selectIndSchedule();
+		List<IndScheduleDTO> list3 = scService.selectIndSchedule(writer);
 		int count = pService.alarm(proCode);
 		varList.add("count",count);
 		HttpPlatformResponse pRes = new HttpPlatformResponse(response, PlatformType.CONTENT_TYPE_XML, "utf-8");
@@ -921,11 +922,11 @@ public class NoticeController {
 	public NexacroResult noticeOnload(@ParamVariable(name="nCode")int nCode) {
 		NexacroResult nr = new NexacroResult();
 		NoticeDTO dto  = nService.selectNomalNotice_Info(nCode);
-		
+		nService.view_countUpd(dto);
 		NoticeFileDTO fdto = new NoticeFileDTO();
 		fdto.setParentSeq(nCode);
 		List<NoticeFileDTO> list = nService.selectFileParentSeq(fdto);
-
+		
 		nr.addDataSet("out_ds",dto);
 		nr.addDataSet("out_ds2",list);
 		return nr;

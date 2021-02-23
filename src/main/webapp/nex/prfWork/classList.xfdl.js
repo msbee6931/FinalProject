@@ -224,7 +224,7 @@
         		if(semester == "1"){
         			this.ds_class.filter("reg_date >='"+startDate+"'&& reg_date <= '"+mDate+"'");
         		}else{
-        			this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"''")
+        			this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
         		}
         	}
         };

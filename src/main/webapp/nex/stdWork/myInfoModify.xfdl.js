@@ -46,7 +46,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_title","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("나의 정보 수정");
             this.addChild(obj.name, obj);
@@ -89,7 +89,7 @@
 
             obj = new Button("btn_cancel","544","351","50","40",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
-            obj.set_text("취소");
+            obj.set_text("다시입력");
             this.Div00.addChild(obj.name, obj);
 
             obj = new MaskEdit("mas_secNumber","415","110","150","30",null,null,null,null,null,null,this.Div00.form);
@@ -172,6 +172,8 @@
         
         // User Script
         this.registerScript("myInfoModify.xfdl", function() {
+        this.objApp = nexacro.getApplication();
+
         this.fn_callback = function(id,ErrorCode,ErrorMsg){	//콜백함수
         	trace(id);
         	trace(ErrorMsg);
@@ -181,7 +183,10 @@
 
         this.Div00_btn_cancel_onclick = function(obj,e)
         {
-        	this.close("");
+        	this.Div00.form.edt_pw.set_value("");
+        	this.myInfoModify_onload();
+
+
         };
 
         this.Div00_btn_modify_onclick = function(obj,e)
@@ -270,7 +275,7 @@
         				,"" //5.strArgument text값
         				,"fn_callback" //6.strCallbackFunc
         			);
-        			//this.ds_students_copy.filter("");
+        			this.ds_students_copy.filter("");
         };
 
 

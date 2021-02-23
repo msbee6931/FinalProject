@@ -64,14 +64,14 @@
             obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_file","30","460","120","60",null,null,null,null,null,null,this);
+            obj = new Static("sta_file","30","460","120","75",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("첨부파일");
             obj.set_border("1px solid black");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_close","670","535","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_close","670","545","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("닫기");
             this.addChild(obj.name, obj);
@@ -82,14 +82,14 @@
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_fileList","150","460","520","60",null,null,null,null,null,null,this);
+            obj = new Grid("gr_fileList","150","460","520","75",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_binddataset("ds_NoticeFiles");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"360\"/><Column size=\"127\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"파일 이름\"/><Cell col=\"2\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDownload","670","460","100","60",null,null,null,null,null,null,this);
+            obj = new Button("btnDownload","670","460","100","75",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("다운로드");
             this.addChild(obj.name, obj);

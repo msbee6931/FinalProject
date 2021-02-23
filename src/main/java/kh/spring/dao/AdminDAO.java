@@ -25,8 +25,8 @@ public class AdminDAO {
 	public int updatestu(List<StudentsDTO> list) {
 		return db.update("Admin.updatestu", list);
 	}
-	public int insertstu(List<StudentsDTO> list) {
-		return db.insert("Admin.insertstu", list);
+	public int insertstu(StudentsDTO dto) {
+		return db.insert("Admin.insertstu", dto);
 	}
 	//professor
 	public List<ProfessorDTO> getlistPro(){

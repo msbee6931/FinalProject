@@ -23,19 +23,19 @@ import kh.spring.util.EncryptUtils;
 
 @Controller
 public class AdminController {
-	
+
 	@Autowired
 	private AdminService aService;
-	
+
 	@Autowired
 	private RequestBoardService RBservice;
-	
+
 	@Autowired
 	private FreeBoardService FBservice;
-	
+
 	@Autowired
 	private ChattingService cService;
-	
+
 	//students
 	@RequestMapping("studentslist.nex")
 	public NexacroResult studentsList() {
@@ -57,31 +57,30 @@ public class AdminController {
 	public NexacroResult updateStudent(@ParamDataSet(name="in_ds")List<StudentsDTO> list) {
 		System.out.println("도착");
 		NexacroResult nr = new NexacroResult();
-		
+
 		int result = aService.updatestu(list);
 		return nr;
 	}
 	@RequestMapping("insertStudent.nex")
-	public NexacroResult insertStudent(@ParamDataSet(name="in_ds")List<StudentsDTO> list) {
+	public NexacroResult insertStudent(@ParamDataSet(name="in_ds")StudentsDTO dto) {
 		System.out.println("도착");
 		String pw; 
 		String Spw = null;
 		int s_seq = 0;
 		String userName = null;
-		for(int i =0; i < list.size(); i++) {
-			pw = list.get(i).getPw();
-			Spw = EncryptUtils.getSHA256(pw);
-			list.get(i).setPw(Spw);
-			s_seq = list.get(i).getS_seq();
-			userName = list.get(i).getName();
-		}
+		pw= dto.getPw();
+		Spw = EncryptUtils.getSHA256(pw);
+		dto.setPw(Spw); 
+		s_seq = dto.getS_seq();
+		System.out.println(s_seq);
+		userName = dto.getName();
 		NexacroResult nr = new NexacroResult();
-		int result = aService.insertstu(list);
-		
+		int result = aService.insertstu(dto);
+
 		// 채팅 아이디 생성
 		String userId = Integer.toString(s_seq);		
 		cService.insertChatUser(userId,userName);
-		
+
 		return nr;
 	}
 	@RequestMapping("professorList.nex")
@@ -128,7 +127,7 @@ public class AdminController {
 		return nr;
 	}
 	//faculty
-	
+
 	@RequestMapping("facultylist.nex")
 	public NexacroResult facultylist() {
 		System.out.println("도착");
@@ -175,22 +174,22 @@ public class AdminController {
 		return nr;
 	}
 
-	
-	
+
+
 	@RequestMapping("ReplyUpd.nex")
 	public NexacroResult updReply(@ParamDataSet(name="in_ds")RequestBoardDTO dto) {
 		//-- login session update 이후 바꿔 줘야함
 		String id= "0101005";
-		
+
 		NexacroResult nr = new NexacroResult();
 		RBservice.updateReply(dto);
 		List<RequestBoardDTO> list = RBservice.selectAll();
 		nr.addDataSet("out_ds",list);		
-		
+
 		return nr;
 
 	}
-	
+
 	@RequestMapping("RBLoad.nex")
 	public NexacroResult RBNexLoad() {
 		//-- login session update 이후 바꿔 줘야함
@@ -201,14 +200,14 @@ public class AdminController {
 		return nr;
 
 	}	
-	
+
 	@RequestMapping("RBDel.nex")
 	public NexacroResult RBNexDel(@ParamDataSet(name="in_ds")List<RequestBoardDTO> list) {
 		NexacroResult nr = new NexacroResult();
 		RBservice.deleteList(list);
 		return nr;
 	}
-	
+
 	@RequestMapping("FBLoad.nex")
 	public NexacroResult FBNexLoad() throws Exception {
 		//-- login session update 이후 바꿔 줘야함
@@ -220,22 +219,22 @@ public class AdminController {
 		return nr;
 
 	}
-	
+
 	@RequestMapping("FBDel.nex")
 	public NexacroResult FBNexDel(@ParamDataSet(name="in_ds")List<FreeBoardDTO> list) {
 		NexacroResult nr = new NexacroResult();
 		FBservice.deleteList(list);
 		return nr;
 	}
-	
+
 	@ExceptionHandler
 	public String exceptionhandler(Exception e){
 		e.printStackTrace();
 		return "error";
 	}
 
-	
-	
-	
+
+
+
 
 }
