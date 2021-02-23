@@ -127,22 +127,24 @@
         	if (errCd < 0) {
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
         	}
-        	var date = new Array();
-        	for(var i=0; i<this.ds_class.getRowCount(); i++){
-        		date[i] = this.ds_class.getColumn(i,"reg_date")
-        		date[i] = nexacro.replaceAll(date[i],"-","");
-        		date[i] = date[i].substring(0,8);
-        		this.ds_class.setColumn(i,"reg_date",date[i]);
-        	}
-        	var year = this.co_year.value
-        	var startDate =  year+ "0101";
-        	var semester = this.co_semester.value;
-        	var mDate = year+ "0801";
-        	var endDate = year+ "1231";
-        	if(semester == "1"){
-        		this.ds_class.filter("reg_date >='"+startDate+"'&& reg_date < '"+mDate+"'");
-        	}else{
-        		this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
+        	if(sId=="classList"){
+        		var date = new Array();
+        		for(var i=0; i<this.ds_class.getRowCount(); i++){
+        			date[i] = this.ds_class.getColumn(i,"reg_date")
+        			date[i] = nexacro.replaceAll(date[i],"-","");
+        			date[i] = date[i].substring(0,8);
+        			this.ds_class.setColumn(i,"reg_date",date[i]);
+        		}
+        		var year = this.co_year.value
+        		var startDate =  year+ "0101";
+        		var semester = this.co_semester.value;
+        		var mDate = year+ "0801";
+        		var endDate = year+ "1231";
+        		if(semester == "1"){
+        			this.ds_class.filter("reg_date >='"+startDate+"'&& reg_date < '"+mDate+"'");
+        		}else{
+        			this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
+        		}
         	}
         }
 

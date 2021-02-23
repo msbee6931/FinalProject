@@ -427,6 +427,7 @@
             obj.set_innerdataset("deptCode");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_displayrowcount("5");
             obj.set_text("");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
@@ -1203,6 +1204,7 @@
             this.Div00.form.classPlanTab.classPlan.form.mask_course.addEventHandler("onchanged",this.Div00_classPlanTab_classPlan_mask_course_onchanged,this);
             this.Div00.form.classPlanTab.classPlan.form.mask_attend.addEventHandler("canchange",this.evaluation_canchange,this);
             this.Div00.form.classPlanTab.classPlan.form.mask_mid.addEventHandler("canchange",this.evaluation_canchange,this);
+            this.Div00.form.classPlanTab.classPlan.form.co_dept.addEventHandler("ondropdown",this.Div00_classPlanTab_classPlan_co_dept_ondropdown,this);
         };
 
         this.loadIncludeScript("detail.xfdl");

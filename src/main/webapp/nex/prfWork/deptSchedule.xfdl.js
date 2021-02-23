@@ -154,16 +154,16 @@
         	)
 
 
-        // 	//오늘 날짜 계산하기
-        // 	var currDate = new Date();
-        //     var year = currDate.getFullYear().toString().padLeft(4, "0");
-        //     var month = (currDate.getMonth()+1).toString().padLeft(2, "0");
-        //     var day = currDate.getDate().toString().padLeft(2, "0");
-        //
-        //     currDate = year+month+day; // 오늘 날짜
-        //
-        // 	//오늘 날짜 데이터셋 세팅
-        // 	this.deptSchedule_ds.filter("schDate=='"+currDate+"'");
+        	//오늘 날짜 계산하기
+        	var currDate = new Date();
+            var year = currDate.getFullYear().toString().padLeft(4, "0");
+            var month = (currDate.getMonth()+1).toString().padLeft(2, "0");
+            var day = currDate.getDate().toString().padLeft(2, "0");
+
+            currDate = year+month+day; // 오늘 날짜
+
+        	//오늘 날짜 데이터셋 세팅
+        	this.deptSchedule_ds.filter("schDate=='"+currDate+"'");
         };
 
         this.fn_callback = function(sId, errCd,errMsg){

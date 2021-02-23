@@ -114,7 +114,7 @@
 
 
         //작성 popup창 닫았을 때
-        this.fn_pop_callback=function(sId){
+        this.fn_pop_callback=function(){
         	this.reload();
         }
 
@@ -215,7 +215,7 @@
         		let objCF = new ChildFrame();
         		objCF.init("popAdd",x,y,1000,680,0,0,"prfWork::detail.xfdl");
         		objCF.set_showtitlebar(false);
-        		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_popView_callback");
+        		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_pop_callback");
          	}
         };
         //수정

@@ -338,8 +338,12 @@
         this.btnMore_onclick = function(obj,e)
         {
         	/*nexacro.open( strID, strFormURL, objParentFrame, {objArguList}, strOpenStyle, nLeft, nTop [, nWidth, nHeight [, objOpener [, strExtOpenStyle ]]])*/
+        	if(this.ds_Notice.getRowCount() > 0 ){
         	var part = this.ds_Notice.getColumn(0,"deptcode")
         	nexacro.open("normal","Student::NoticeLocation.xfdl",this.getOwnerFrame(),{part : part},"showtitlebar=true resizable=true",0, 0, 800, 600, this);
+        	}else{
+        		alert("공지사항이 없습니다");
+        	}
         };
 
 
