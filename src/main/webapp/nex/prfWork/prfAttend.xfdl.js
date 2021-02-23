@@ -115,16 +115,10 @@
         // User Script
         this.registerScript("prfAttend.xfdl", function() {
         this.classSeq="";
-<<<<<<< HEAD
-        this.prfAttend_onload = function(obj,e)
-        {
-        	var proCode = "91515073"; // 교수 코드 로그인 후 받아올 예정
-=======
         this.objApp = nexacro.getApplication();
         this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
         this.prfAttend_onload = function(obj,e)
         {
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
         	var objDate = new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
@@ -140,11 +134,7 @@
         		,"/proClassList.nex"
         		,""
         		,"ds_class=out_ds"
-<<<<<<< HEAD
-        		,"proCode="+proCode +" startTime="+startTime + " endTime="+endTime
-=======
         		,"proCode="+this.code +" startTime="+startTime + " endTime="+endTime
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		,"fn_callback_proClass"
         	);
         };

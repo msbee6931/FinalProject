@@ -38,22 +38,14 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-<<<<<<< HEAD
-            obj = new Grid("Grid00","30","60","1021","390",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_binddataset("ds_class");
-            obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"41\"/><Column size=\"73\"/><Column size=\"193\"/><Column size=\"48\"/><Column size=\"103\"/><Column size=\"57\"/><Column size=\"85\"/><Column size=\"248\"/><Column size=\"94\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학년\"/><Cell col=\"5\" text=\"과목코드\"/><Cell col=\"6\" text=\"학점\"/><Cell col=\"7\" text=\"담당교수\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"인원수\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:className\" displaytype=\"normal\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"########\"/><Cell col=\"6\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
-=======
             obj = new Grid("gr_classList","30","60","1021","390",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"41\"/><Column size=\"73\"/><Column size=\"193\"/><Column size=\"48\"/><Column size=\"103\"/><Column size=\"57\"/><Column size=\"85\"/><Column size=\"248\"/><Column size=\"94\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학년\"/><Cell col=\"5\" text=\"과목코드\"/><Cell col=\"6\" text=\"학점\"/><Cell col=\"7\" text=\"담당교수\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"인원수\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"3\" text=\"bind:className\" displaytype=\"normal\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"########\"/><Cell col=\"6\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_search","720","24","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_search","690","24","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -66,17 +58,18 @@
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search","845","24","170","25",null,null,null,null,null,null,this);
+            obj = new Edit("edt_search","815","24","170","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","1025","24","25","25",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch","995","24","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","450","24","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_year","420","24","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -87,7 +80,7 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","580","24","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester","550","24","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -98,20 +91,16 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Button("Button00","950","460","100","30",null,null,null,null,null,null,this);
-=======
-            obj = new Button("btnDel","950","460","100","30",null,null,null,null,null,null,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
+            obj = new Button("btnDel","940","460","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExport","830","460","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btnExport","830","460","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_text("Export");
-            obj.set_cssclass("btn_default");
+            obj.set_text("엑셀");
+            obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","0","0","29",null,null,"0",null,null,null,null,this);
@@ -172,28 +161,6 @@
         		,""
         		,"ds_class=out_ds"
         		,""
-<<<<<<< HEAD
-        		,"fn_callback_fliter"
-        	);
-        };
-        this.fn_callback_fliter=function(){
-        	var date = new Array();
-        	for(var i=0; i<this.ds_class.getRowCount(); i++){
-        		date[i] = this.ds_class.getColumn(i,"reg_date")
-        		date[i] = nexacro.replaceAll(date[i],"-","");
-        		date[i] = date[i].substring(0,8);
-        		this.ds_class.setColumn(i,"reg_date",date[i]);
-        	}
-        	var year = this.co_year.value
-        	var startDate =  year+ "0101";
-        	var semester = this.co_semester.value;
-        	var mDate = year+ "0801";
-        	var endDate = year+ "1231";
-        	if(semester == "1"){
-        		this.ds_class.filter("reg_date >='"+startDate+"'&& reg_date < '"+mDate+"'");
-        	}else{
-        		this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
-=======
         		,"fn_callback"
         	);
         };
@@ -219,27 +186,18 @@
         		}else{
         			this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
         		}
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	}
         }
 
         //개설강좌 상세보기
-<<<<<<< HEAD
-        this.Grid00_oncellclick = function(obj,e)
-=======
         this.gr_classList_oncellclick = function(obj,e)
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         {
         	if(e.col == 0){
         		if(this.ds_class.getColumn(e.row,"chk")==0){
         			obj.setCellProperty("Head",0,"text",0);
         		}
         	}
-<<<<<<< HEAD
-        	if(e.col == 2){
-=======
         	if(e.col == 3){
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		var classSeq = this.ds_class.getColumn(e.row,"classSeq");
         		var proCode = this.ds_class.getColumn(e.row,"proCode");
         		let x = this.width/2-500;
@@ -247,18 +205,11 @@
         		let objCF = new ChildFrame();
         		objCF.init("popAdd",x,y,1000,680,0,0,"prfWork::detail.xfdl");
         		objCF.set_showtitlebar(false);
-<<<<<<< HEAD
-        		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_callback");
-         	}
-        };
-
-=======
         		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_pop_callback");
          	}
         };
 
 
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         //검색
         this.btnSearch_onclick = function(obj,e)
         {
@@ -286,11 +237,7 @@
         };
 
         //개설강좌 정렬
-<<<<<<< HEAD
-        this.Grid00_onheadclick = function(obj,e)
-=======
         this.gr_classList_onheadclick = function(obj,e)
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         {
         	let flag = obj.getCellProperty("Head",0,"text");
         	let check = flag==0?1:0;
@@ -335,14 +282,8 @@
         };
 
 
-<<<<<<< HEAD
-        this.Button00_onclick = function(obj,e)
-        {
-
-=======
         this.btnDel_onclick = function(obj,e)
         {
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	var arr = this.ds_class.extractRows("chk==1");
         	var code ="";
         	if(arr.length == 0 || arr==-1){
@@ -352,15 +293,6 @@
         			var classSeq = this.ds_class.getColumn(arr[i],"classSeq");
         			code += classSeq+","
         		}
-<<<<<<< HEAD
-        			code=code.substring(0,code.length-1);
-        			let x = this.width/2-150;
-        			let y = this.height/2-200;
-        			let objCF = new ChildFrame();
-        			objCF.init("popMsg",x,y,300,400,0,0,"admWork::rejectMsg.xfdl");
-        			objCF.set_showtitlebar(false);
-        			objCF.showModal(this.getOwnerFrame(),{classSeq:code},this,"fn_msg_callback");
-=======
         		code=code.substring(0,code.length-1);
         		let x = this.width/2-150;
         		let y = this.height/2-200;
@@ -368,7 +300,6 @@
         		objCF.init("popMsg",x,y,300,400,0,0,"admWork::rejectMsg.xfdl");
         		objCF.set_showtitlebar(false);
         		objCF.showModal(this.getOwnerFrame(),{classSeq:code},this,"fn_msg_callback");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	}
         	//pop 후 삭제 rejectMsg에 입력 후 reqState = 거절로 변경
         	//관련 학생 table에서 삭제 stdTimeTable stdClass
@@ -377,32 +308,6 @@
         {
         	if(send == ""){return;}
         	else{
-<<<<<<< HEAD
-        	var arr = send.split("|")
-        	var classSeqs = arr[0];
-        	var reason = arr[1];
-
-        	var classSeq = classSeqs.split(",");
-        	this.ds_class_copy.clearData();
-        	for(var i=0; i<classSeq.length; i++){
-        		var nRow = this.ds_class.findRow("classSeq",classSeq[i]);
-        		this.ds_class.setColumn(nRow,"rejectMsg",reason);
-        		this.ds_class.setColumn(nRow,"reqState","C");
-        		var addRow = this.ds_class_copy.addRow();
-        		this.ds_class_copy.setColumn(addRow,"classSeq",classSeq[i]);
-        		var stdRow = this.ds_stdClass.addRow();
-        		this.ds_stdClass.setColumn(stdRow,"classCode",classSeq[i])
-        		this.ds_class.deleteRow(nRow)
-        	}
-        		this.transaction(
-        					"rejectMsgInset"
-        					,"/rejectMsgInsert.nex"
-        					,"in_ds=ds_class_copy:U"
-        					,""
-        					,"msg="+nexacro.wrapQuote(reason)
-        					,"fn_callback"
-        				);
-=======
         		var arr = send.split("|")
         		var classSeqs = arr[0];
         		var reason = arr[1];
@@ -427,7 +332,6 @@
         			,"msg="+nexacro.wrapQuote(reason)
         			,"fn_callback"
         		);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		//해당 학과코드로 관련 table에서 삭제 stdTimeTable stdClass
         		this.transaction(
         			"deleteStdClass"
@@ -453,21 +357,6 @@
         			var semester = year+"년" + " 2학기"
         		}
         	}
-<<<<<<< HEAD
-        		this.exportObj = new ExcelExportObject("Export00", this);
-
-        		this.exportObj.set_exportfilename(semester + " 개설과목");
-        		this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
-
-        		this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid00, "Sheet1!A1");
-
-        		this.addEventHandler("onsuccess", this.Export00_onsuccess, this);
-        		this.addEventHandler("onerror", this.Export00_onerror, this);
-
-        		var intExportedItem = this.exportObj.exportData();
-
-        		trace("Number of Exported Item: " + intExportedItem);
-=======
         	this.exportObj = new ExcelExportObject("Export00", this);
 
         	this.exportObj.set_exportfilename(semester + " 개설과목");
@@ -481,15 +370,10 @@
         	var intExportedItem = this.exportObj.exportData();
 
         	trace("Number of Exported Item: " + intExportedItem);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
         this.Export00_onsuccess = function(obj, e)
         {
         	trace("Export00_onsuccess");
-<<<<<<< HEAD
-
-=======
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         }
 
         this.Export00_onerror = function(obj, e)
@@ -505,22 +389,13 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.classList_onload,this);
-<<<<<<< HEAD
-            this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
-            this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
-=======
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
             this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.co_search.addEventHandler("onitemchanged",this.classTab_classList_co_search_onitemchanged,this);
             this.edt_search.addEventHandler("onchanged",this.edt_search_onchanged,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
-<<<<<<< HEAD
-            this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
-=======
             this.btnDel.addEventHandler("onclick",this.btnDel_onclick,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
         };
 

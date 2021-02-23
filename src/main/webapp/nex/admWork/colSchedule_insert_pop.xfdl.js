@@ -40,10 +40,7 @@
 
             obj = new Calendar("cal_sDate","70","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("3");
-<<<<<<< HEAD
-=======
             obj.set_cssclass("cal_default");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","10","70","40","20",null,null,null,null,null,null,this);
@@ -57,10 +54,7 @@
 
             obj = new Calendar("cal_eDate","260","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("6");
-<<<<<<< HEAD
-=======
             obj.set_cssclass("cal_default");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_01","225","40","10","20",null,null,null,null,null,null,this);

@@ -20,14 +20,11 @@
             obj = new Dataset("colSchedule_ds", this);
             obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
-<<<<<<< HEAD
-=======
 
 
             obj = new Dataset("ds_cal", this);
             obj._setContents("<ColumnInfo><Column id=\"backgroundcolumn\" type=\"STRING\" size=\"256\"/><Column id=\"bordercolumn\" type=\"STRING\" size=\"256\"/><Column id=\"datecolumn\" type=\"STRING\" size=\"256\"/><Column id=\"textcolorcolumn\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
@@ -54,30 +51,12 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
-=======
             obj = new Div("div_schedule","30","38","1021","452",null,null,null,null,null,null,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Calendar("cal_dept","29","56","350","350",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("0");
-            obj.set_type("monthonly");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Button("btn_insert","889","16","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("1");
-            obj.set_text("일정 등록");
-            obj.set_cssclass("btn_insert");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","429","56","550","350",null,null,null,null,null,null,this.Div00.form);
-=======
             obj = new Calendar("cal_dept","29","56","350","350",null,null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("0");
             obj.set_type("monthonly");
@@ -95,20 +74,10 @@
             this.div_schedule.addChild(obj.name, obj);
 
             obj = new Grid("gr_colSchedule","429","56","550","350",null,null,null,null,null,null,this.div_schedule.form);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             obj.set_taborder("2");
             obj.set_binddataset("colSchedule_ds");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"291\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"시작날짜\"/><Cell col=\"2\" text=\"종료날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\" textAlign=\"center\"/></Band></Format></Formats>");
-<<<<<<< HEAD
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Button("btn_del","889","416","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
-            obj.set_text("삭제");
-            obj.set_cssclass("btn_del");
-            this.Div00.addChild(obj.name, obj);
-=======
             this.div_schedule.addChild(obj.name, obj);
 
             obj = new Button("btn_del","889","416","100","30",null,null,null,null,null,null,this.div_schedule.form);
@@ -126,7 +95,6 @@
             obj.set_taborder("5");
             obj.set_text("남은 일정");
             this.div_schedule.addChild(obj.name, obj);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
@@ -150,10 +118,6 @@
         
         // User Script
         this.registerScript("colSchedule.xfdl", function() {
-<<<<<<< HEAD
-        this.colSchedule_onload = function(obj,e)
-        {
-=======
         this.objApp = nexacro.getApplication();
         this.colSchedule_onload = function(obj,e)
         {
@@ -161,7 +125,6 @@
         		this.div_schedule.form.btn_del.set_visible(false);
         		this.div_schedule.form.btn_insert.set_visible(false);
         	}
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.transaction(
         		"selectColSchedule",//id
         		"/schedule/selectColSchedule",//url (절대경로)
@@ -171,11 +134,6 @@
         		"fn_callback"
         	)
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	//오늘 날짜 계산하기
         	var currDate = new Date();
             var year = currDate.getFullYear().toString().padLeft(4, "0");
@@ -184,54 +142,6 @@
 
             currDate = year+month+day; // 오늘 날짜
         };
-<<<<<<< HEAD
-
-
-        //클릭 시 Grid 에 일정 띄우기
-        this.Div00_cal_dept_ondayclick = function(obj,e)
-        {
-        	var clickedDate = e.date; // 클릭한 날짜
-
-        	for(var i=0; i<this.colSchedule_ds.getRowCount();i++)
-        	{
-        		var fromDate = this.colSchedule_ds.getColumn(i,"sDate");
-        		var toDate = this.colSchedule_ds.getColumn(i,"eDate");
-        		var seq = this.colSchedule_ds.getColumn(i,"seq");
-
-        		// 날짜간 차이 계산하기하기
-        		fromDate = new Date();
-        		toDate = new Date();
-        		var calDate;
-        		var day = 1000*60*60*24;
-
-        		fromDate.setFullYear(this.cal_sDate.getYear());
-        		fromDate.setMonth(this.cal_sDate.getMonth()-1);
-        		fromDate.setDate(this.cal_sDate.getDay());
-
-        		toDate.setFullYear(this.cal_eDate.getYear());
-        		toDate.setMonth(this.cal_eDate.getMonth()-1);
-        		toDate.setDate(this.cal_eDate.getDay());
-
-        		calDate = fromDate.getTime() - toDate.getTime();
-
-        		var leng = Math.abs(calDate/day); // 실제 날짜 간 차이
-
-
-        	}
-
-
-        	for(var i=0; i<(leng+1);i++){
-
-        		var schDate = (sDate+i);
-
-        		if(clickedDate==schDate)
-        		{
-        			this.colSchedule_ds.filter("seq=='"+clickedDate+"'");
-        		}
-
-        	}
-
-=======
         this.fn_callback = function(sId,errCd,errMsg){
         	if (errCd < 0) {
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
@@ -259,7 +169,6 @@
         this.Div00_cal_dept_ondayclick = function(obj,e)
         {
         	this.colSchedule_ds.filter("sDate<='"+e.date+"'&& eDate>='"+e.date+"'");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
 
@@ -356,8 +265,6 @@
         };
 
 
-<<<<<<< HEAD
-=======
         this.div_schedule_btnAll_onclick = function(obj,e)
         {
         	this.colSchedule_ds.filter("");
@@ -370,7 +277,6 @@
         	var date= this.div_schedule.form.cal_dept.value;
         	this.colSchedule_ds.filter("eDate>='"+date+"'");
         };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
         });
         
@@ -378,13 +284,6 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.colSchedule_onload,this);
-<<<<<<< HEAD
-            this.Div00.form.cal_dept.addEventHandler("ondayclick",this.Div00_cal_dept_ondayclick,this);
-            this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
-            this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
-            this.Div00.form.Grid00.addEventHandler("oncellclick",this.Div00_Grid00_oncellclick,this);
-            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
-=======
             this.div_schedule.form.cal_dept.addEventHandler("ondayclick",this.Div00_cal_dept_ondayclick,this);
             this.div_schedule.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
             this.div_schedule.form.gr_colSchedule.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
@@ -392,7 +291,6 @@
             this.div_schedule.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.div_schedule.form.btnAll.addEventHandler("onclick",this.div_schedule_btnAll_onclick,this);
             this.div_schedule.form.btnAfter.addEventHandler("onclick",this.div_schedule_btnAfter_onclick,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
         this.loadIncludeScript("colSchedule.xfdl");

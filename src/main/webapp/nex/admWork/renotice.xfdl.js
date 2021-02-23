@@ -169,14 +169,10 @@
 
         this.btn_cancel_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-        	this.close();
-=======
         	this.edt_title.set_value("");
         	this.com_list.set_value("");
         	this.text_contents.set_value("");
         	this.fn_FileClear();
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
         this.fn_callback = function(id,ErrorCode,ErrorMsg){
         	trace(id);
@@ -359,13 +355,6 @@
         		"",//()_out_ds
         		"",//argument
         		"fn_callback"
-<<<<<<< HEAD
-        	)
-        	//this.FileUpTransfer00.upload("/uploadNoticeFile.notice");
-        	this.close();
-        };
-
-=======
         	);
         	//this.FileUpTransfer00.upload("/uploadNoticeFile.notice");
         };
@@ -378,7 +367,6 @@
         	this.ds_NoticeFiles.clearData();
         }
 
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         });
         
         // Regist UI Components Event

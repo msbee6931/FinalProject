@@ -18,20 +18,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("scholar_ds", this);
-<<<<<<< HEAD
-            obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"INT\" size=\"256\"/><Column id=\"s_rec\" type=\"INT\" size=\"256\"/><Column id=\"s_smt\" type=\"INT\" size=\"256\"/><Column id=\"s_spt\" type=\"INT\" size=\"256\"/><Column id=\"s_etc\" type=\"INT\" size=\"256\"/><Column id=\"sSum\" type=\"INT\" size=\"256\"/><Column id=\"s_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-=======
             obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"INT\" size=\"256\"/><Column id=\"s_rec\" type=\"INT\" size=\"256\"/><Column id=\"s_smt\" type=\"INT\" size=\"256\"/><Column id=\"s_spt\" type=\"INT\" size=\"256\"/><Column id=\"s_etc\" type=\"INT\" size=\"256\"/><Column id=\"sSum\" type=\"INT\" size=\"256\"/><Column id=\"s_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("students_ds", this);
-<<<<<<< HEAD
-            obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-=======
             obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"colGrade\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -214,14 +206,11 @@
         };
 
 
-<<<<<<< HEAD
-=======
         this.fn_callback_stdInfo = function ()
         {
 
         }
 
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         //확인버튼
         this.btn_ok_onclick = function(obj,e)
         {
@@ -236,12 +225,9 @@
 
         		var nRow = this.scholar_ds.addRow();
         		this.scholar_ds.setColumn(nRow,"std_code",this.std_code);
-<<<<<<< HEAD
-=======
         		var grade = this.students_ds.getColumn(0,"colGrade");
         		this.scholar_ds.setColumn(nRow,"std_grade",grade);
         		this.scholar_ds.setColumn(nRow,"s_kind",inputa);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		this.scholar_ds.setColumn(nRow,"s_kind",inputa);
         		this.scholar_ds.setColumn(nRow,"s_rec",inputb);
         		this.scholar_ds.setColumn(nRow,"s_smt",inputc);

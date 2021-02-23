@@ -18,19 +18,13 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_Notice", this);
-<<<<<<< HEAD
-            obj._setContents("<ColumnInfo><Column id=\"n_seq\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"writedate\" type=\"DATE\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"deptcode\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-=======
             obj._setContents("<ColumnInfo><Column id=\"n_seq\" type=\"INT\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"writedate\" type=\"DATE\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"deptcode\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/><Column id=\"file\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_deptcode", this);
             obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">A</Col><Col id=\"name\">일반</Col></Row><Row><Col id=\"code\">B</Col><Col id=\"name\">장학</Col></Row><Row><Col id=\"code\">C</Col><Col id=\"name\">학사</Col></Row><Row><Col id=\"code\">D</Col><Col id=\"name\">취업</Col></Row></Rows>");
             this.addChild(obj.name, obj);
-<<<<<<< HEAD
-=======
 
 
             obj = new Dataset("ds_NoticeFiles", this);
@@ -50,7 +44,6 @@
 
             obj = new FileDownTransfer("FileDownTransfer00", this);
             this.addChild(obj.name, obj);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             
             // UI Components Initialize
             obj = new Button("btnGrade","50","370","120","50",null,null,null,null,null,null,this);
@@ -68,11 +61,7 @@
             obj.set_text("개설강좌 조회");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Button("Button03","170","420","120","50",null,null,null,null,null,null,this);
-=======
             obj = new Button("btnScholarMg","170","420","120","50",null,null,null,null,null,null,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             obj.set_taborder("3");
             obj.set_text("장학금 관리");
             this.addChild(obj.name, obj);
@@ -87,19 +76,6 @@
             obj.set_text("시간표 조회");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Calendar("Calendar00","765","30","270","209",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_type("monthonly");
-            this.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","760","255","290","235",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj._setContents("");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00","50","276","100","44",null,null,null,null,null,null,this);
-=======
             obj = new Calendar("cal_schedule","750","36","290","224",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_type("monthonly");
@@ -118,7 +94,6 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_bookmark","50","276","100","44",null,null,null,null,null,null,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             obj.set_taborder("8");
             obj.set_text("즐겨찾기");
             this.addChild(obj.name, obj);
@@ -128,19 +103,11 @@
             obj.set_text("공지사항");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Grid("Grid00_00","310","80","420","306",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
-            obj.set_binddataset("ds_Notice");
-            obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"227\"/><Column size=\"112\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:deptcode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ds_deptcode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"2\" text=\"bind:writedate\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd \" displaytype=\"calendarcontrol\"/></Band></Format></Formats>");
-=======
             obj = new Grid("gr_notice","310","80","420","306",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"46\"/><Column size=\"196\"/><Column size=\"64\"/><Column size=\"112\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:deptcode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ds_deptcode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"2\" displaytype=\"imagecontrol\" imagestretch=\"fixaspectratio\" background=\"transparent\" text=\"expr:file==&quot;Y&quot;?&quot;theme://images/file.png&quot;:&quot;&quot;\" cursor=\"pointer\"/><Cell col=\"3\" text=\"bind:writedate\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd \" displaytype=\"calendarcontrol\"/></Band></Format></Formats>");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAll","310","51","60","30",null,null,null,null,null,null,this);
@@ -168,8 +135,6 @@
             obj.set_text("취업");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-=======
             obj = new Button("btnMore","670","50","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("more+");
@@ -207,7 +172,6 @@
             obj.set_text("");
             this.div_Info.addChild(obj.name, obj);
 
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,520,this,function(p){});
@@ -228,11 +192,6 @@
 
         this.fn_openForm = function(sMenuId,sMenuNm,sFormUrl)
         {
-<<<<<<< HEAD
-        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.form.fn_setFrameSize("Form");
-
-=======
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	//화면 오픈 스크립트
         	if(sFormUrl.length <= 0)	return;
         	var av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
@@ -262,15 +221,9 @@
         	objChildFrame.set_titletext(sMenuNm);
 
         	var oParam = {form_id : sFormId,
-<<<<<<< HEAD
-        				  menu_id : sMenuId,
-        				  menu_name : sMenuNm,
-        				  form_url : sFormUrl}
-=======
         		menu_id : sMenuId,
         		menu_name : sMenuNm,
         		form_url : sFormUrl}
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
         	objChildFrame.khParam = oParam;
         	objChildFrame.set_formurl(sFormUrl);
@@ -283,21 +236,13 @@
         	this.objApp.std_openForm.setColumn(nRow, "menu_name", sMenuNm);
         	this.objApp.std_openForm.setColumn(nRow, "form_url" , sFormUrl);
         	trace(this.objApp.std_openForm.saveXML());
-<<<<<<< HEAD
-
-=======
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.form.fn_addTab(sFormId, sMenuNm);
         }
         this.btnMypage_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-
-=======
         	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 40 + "'");
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
         	this.fn_openForm("4010","내 정보 보기","stdWork::studentInfo.xfdl"); //form 오픈 함수
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
         this.btnClassTime_onclick = function(obj,e)
@@ -328,28 +273,6 @@
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
         	this.fn_openForm("3010","재학 증명서","stdWork::enrollment.xfdl"); //form 오픈 함수
         };
-<<<<<<< HEAD
-
-
-
-
-
-
-        this.Form_Work_onload = function(obj,e)
-        {
-        	this.transaction(
-        				"notice"
-        				,"/noticeList.notice"
-        				,""
-        				,"ds_Notice=out_ds"
-        				,""
-        				,"fn_callback_notice"
-        			);
-        };
-        this.fn_callback_notice=function(){
-        	this.ds_Notice.filter("currow < 10");
-        }
-=======
         this.btnScholarMg_onclick = function(obj,e)
         {
 
@@ -418,52 +341,34 @@
         	var part = this.ds_Notice.getColumn(0,"deptcode")
         	nexacro.open("normal","Student::NoticeLocation.xfdl",this.getOwnerFrame(),{part : part},"showtitlebar=true resizable=true",0, 0, 800, 600, this);
         };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
 
         this.btnAll_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-=======
         	this.btnMore.set_visible(false);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.ds_Notice.filter("currow < 10");
         };
 
         this.btnNormal_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-=======
         	this.btnMore.set_visible(true);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.ds_Notice.filter("deptcode == 'A'&&currow < 10");
         };
 
         this.btnAcademic_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-=======
         	this.btnMore.set_visible(true);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.ds_Notice.filter("deptcode == 'B'&&currow < 10");
         };
 
         this.btnScholar_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-=======
         	this.btnMore.set_visible(true);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.ds_Notice.filter("deptcode == 'C'&&currow < 10");
         };
 
         this.btnEmployment_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-        	this.ds_Notice.filter("deptcode == 'D'&&currow < 10");
-        };
-
-=======
         	this.btnMore.set_visible(true);
         	this.ds_Notice.filter("deptcode == 'D'&&currow < 10");
         };
@@ -553,7 +458,6 @@
 
 
 
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         });
         
         // Regist UI Components Event
@@ -563,29 +467,21 @@
             this.btnGrade.addEventHandler("onclick",this.btnGrade_onclick,this);
             this.btnCertification.addEventHandler("onclick",this.btnCertification_onclick,this);
             this.btnClassList.addEventHandler("onclick",this.btnClassList_onclick,this);
-<<<<<<< HEAD
-            this.btnMypage.addEventHandler("onclick",this.btnMypage_onclick,this);
-            this.btnClassTime.addEventHandler("onclick",this.btnClassTime_onclick,this);
-=======
             this.btnScholarMg.addEventHandler("onclick",this.btnScholarMg_onclick,this);
             this.btnMypage.addEventHandler("onclick",this.btnMypage_onclick,this);
             this.btnClassTime.addEventHandler("onclick",this.btnClassTime_onclick,this);
             this.cal_schedule.addEventHandler("onspin",this.cal_schedule_onspin,this);
             this.gr_schedule.addEventHandler("oncellclick",this.gr_schedule_oncellclick,this);
             this.gr_notice.addEventHandler("oncellclick",this.gr_notice_oncellclick,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.btnAll.addEventHandler("onclick",this.btnAll_onclick,this);
             this.btnNormal.addEventHandler("onclick",this.btnNormal_onclick,this);
             this.btnAcademic.addEventHandler("onclick",this.btnAcademic_onclick,this);
             this.btnScholar.addEventHandler("onclick",this.btnScholar_onclick,this);
             this.btnEmployment.addEventHandler("onclick",this.btnEmployment_onclick,this);
-<<<<<<< HEAD
-=======
             this.btnMore.addEventHandler("onclick",this.btnMore_onclick,this);
             this.co_month.addEventHandler("canitemchange",this.co_month_canitemchange,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
         this.loadIncludeScript("Form_Main.xfdl");

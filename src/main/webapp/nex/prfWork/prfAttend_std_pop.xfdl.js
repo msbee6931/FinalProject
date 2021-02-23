@@ -134,11 +134,7 @@
         	this.cCode = this.parent.cCode;
         	var sName = this.parent.sName;
 
-<<<<<<< HEAD
-
-=======
         	trace(this.sCode + ":"+ this.cCode +":"+ sName);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	this.sta_sCode.set_text(this.sCode);
         	this.sta_sName.set_text(sName);
 

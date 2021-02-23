@@ -157,13 +157,9 @@
         
         // User Script
         this.registerScript("scholarship.xfdl", function() {
-<<<<<<< HEAD
-        this.code="201102159";
-=======
         this.objApp = nexacro.getApplication();
         this.code=this.objApp.gds_students.getColumn(0,'s_seq');
 
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         this.scholarship_onload = function(obj,e)
         {
         	this.transaction(

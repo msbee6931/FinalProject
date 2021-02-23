@@ -292,11 +292,7 @@
         this.registerScript("absence_pop.xfdl", function() {
         //1.Environment filesecurelevel property all로 변경하기
         this.parentSeq="";
-<<<<<<< HEAD
-        this.std_code="215051001"; // 로그인 정보
-=======
         this.std_code=this.parent.std_code; // 로그인 정보
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         this.nMaxFileSize = 2000000;  //각 파일 최대사이즈 (2 Mbyte)
 
         this.fileName = "";

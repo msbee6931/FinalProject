@@ -87,31 +87,12 @@
 				"class" :
 				[
 					{
-<<<<<<< HEAD
-						"btn_message" :
-=======
 						"btn_default" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"icon" : nexacro.UrlObject("url('theme://images/btn_message.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("2px"),
-									"padding" : nexacro.PaddingObject("1px")
-								},
-								"disabled" :
-								{
-									"icon" : nexacro.UrlObject("url('theme://images/btn_message.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("2px"),
-									"padding" : nexacro.PaddingObject("1px")
-=======
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
 								},
@@ -144,28 +125,17 @@
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("bold 12px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_insert" :
-=======
 						"btn_exel" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"icon" : nexacro.UrlObject("url('theme://images/btn_insert.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 									"color" : nexacro.ColorObject("#0d6efd"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"border" : nexacro.BorderObject("1px solid #0d6efd"),
@@ -211,28 +181,17 @@
 									"border" : nexacro.BorderObject("1px solid #0d6efd"),
 									"icon" : nexacro.UrlObject("url('theme://images/Excel-Logo_15_15.png')"),
 									"textPadding" : nexacro.PaddingObject("4px")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_del" :
-=======
 						"btn_home" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"-윤고딕330\""),
-									"icon" : nexacro.UrlObject("url('theme://images/btn_delete.png')")
-=======
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
@@ -278,27 +237,17 @@
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
 									"textPadding" : nexacro.PaddingObject("4px"),
 									"border" : nexacro.BorderObject("1px solid #0d6efd")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_default" :
-=======
 						"btn_search" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_WF_search.png')"),
@@ -344,25 +293,17 @@
 									"icon" : nexacro.UrlObject("url('theme://images/btn_WF_search.png')"),
 									"textPadding" : nexacro.PaddingObject("4px"),
 									"border" : nexacro.BorderObject("1px solid #0d6efd")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_small" :
-=======
 						"btn_del" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"color" : nexacro.ColorObject("#ffffff")
-=======
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_delete_15_15.png')"),
@@ -408,27 +349,17 @@
 									"icon" : nexacro.UrlObject("url('theme://images/btn_delete_15_15.png')"),
 									"textPadding" : nexacro.PaddingObject("4px"),
 									"border" : nexacro.BorderObject("1px solid #1c0c7c")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_can" :
-=======
 						"btn_insert" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_write_15_15.png')"),
@@ -474,23 +405,11 @@
 									"icon" : nexacro.UrlObject("url('theme://images/btn_write_15_15.png')"),
 									"textPadding" : nexacro.PaddingObject("4px"),
 									"border" : nexacro.BorderObject("1px solid #0d6efd")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_home" :
-						{
-							"self" :
-							{
-								"disabled" :
-								{
-								},
-								"mouseover" :
-								{
-=======
 						"btn_logout" :
 						{
 							"self" :
@@ -536,69 +455,17 @@
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
 									"textPadding" : nexacro.PaddingObject("4px")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
 					},
 					{
-<<<<<<< HEAD
-						"btn_logout" :
-=======
 						"btn_message" :
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 						{
 							"self" :
 							{
 								"enabled" :
 								{
-<<<<<<< HEAD
-									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("5px"),
-									"padding" : nexacro.PaddingObject("1px")
-								},
-								"disabled" :
-								{
-									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("5px"),
-									"padding" : nexacro.PaddingObject("1px")
-								},
-								"mouseover" :
-								{
-									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("5px"),
-									"padding" : nexacro.PaddingObject("1px")
-								},
-								"focused" :
-								{
-									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("5px"),
-									"padding" : nexacro.PaddingObject("1px")
-								},
-								"pushed" :
-								{
-									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("5px"),
-									"padding" : nexacro.PaddingObject("1px")
-								},
-								"selected" :
-								{
-									"icon" : nexacro.UrlObject("url('theme://images/btn_logout.png')"),
-									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px/normal \"-윤고딕330\""),
-									"textPadding" : nexacro.PaddingObject("5px"),
-									"padding" : nexacro.PaddingObject("1px")
-=======
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_message.png')"),
@@ -638,7 +505,6 @@
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_message.png')"),
 									"textPadding" : nexacro.PaddingObject("4px")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
@@ -766,9 +632,6 @@
 					{
 						"color" : nexacro.ColorObject("#999999")
 					}
-<<<<<<< HEAD
-				}
-=======
 				},
 				"class" :
 				[
@@ -805,7 +668,6 @@
 						}
 					}
 				]
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 			},
 			"CalendarControl" :
 			{
@@ -852,9 +714,6 @@
 							{
 								"icon" : nexacro.UrlObject("URL('theme://images/btn_WF_Calendar_D.png')")
 							}
-<<<<<<< HEAD
-						}
-=======
 						},
 						"class" :
 						[
@@ -879,7 +738,6 @@
 								}
 							}
 						]
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 					},
 					"CalendarControl" :
 					{
@@ -1536,9 +1394,6 @@
 											{
 												"color" : nexacro.ColorObject("#999999")
 											}
-<<<<<<< HEAD
-										}
-=======
 										},
 										"class" :
 										[
@@ -1576,7 +1431,6 @@
 												}
 											}
 										]
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 									}
 								}
 							},
@@ -1611,9 +1465,6 @@
 											{
 												"color" : nexacro.ColorObject("#ffffff")
 											}
-<<<<<<< HEAD
-										}
-=======
 										},
 										"class" :
 										[
@@ -1651,7 +1502,6 @@
 												}
 											}
 										]
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 									}
 								}
 							},
@@ -1879,11 +1729,7 @@
 						{
 							"enabled" :
 							{
-<<<<<<< HEAD
-								"font" : nexacro.FontObject("12px Gulim"),
-=======
 								"font" : nexacro.FontObject("12px/normal \"Malgun Gothic\""),
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								"color" : nexacro.ColorObject("#555555"),
 								"border" : nexacro.BorderObject("1px solid #c2c2c2")
 							},
@@ -2318,14 +2164,6 @@
 								{
 									"enabled" :
 									{
-<<<<<<< HEAD
-										"color" : nexacro.ColorObject("#ffffff")
-									},
-									"disabled" :
-									{
-										"color" : nexacro.ColorObject("#ffffff"),
-										"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 										"color" : nexacro.ColorObject("#3d3d3d"),
 										"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
 									},
@@ -2333,7 +2171,6 @@
 									{
 										"color" : nexacro.ColorObject("#3d3d3d"),
 										"font" : nexacro.FontObject("12px/normal Malgun Gothic")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 									}
 								}
 							}
@@ -2529,19 +2366,11 @@
 				{
 					"enabled" :
 					{
-<<<<<<< HEAD
-						"font" : nexacro.FontObject("13px/normal \"-윤고딕340\"")
-					},
-					"disabled" :
-					{
-						"font" : nexacro.FontObject("13px/normal \"-윤고딕340\"")
-=======
 						"font" : nexacro.FontObject("14px/normal \"Malgun Gothic\"")
 					},
 					"disabled" :
 					{
 						"font" : nexacro.FontObject("14px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 					}
 				}
 			},
@@ -2829,30 +2658,19 @@
 						{
 							"enabled" :
 							{
-<<<<<<< HEAD
-								"font" : nexacro.FontObject("13px/normal \"-윤고딕340\""),
-=======
 								"font" : nexacro.FontObject("14px/normal \"Malgun Gothic\""),
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								"color" : nexacro.ColorObject("#ffffff"),
 								"padding" : nexacro.PaddingObject("0px 15px 0px 15px")
 							},
 							"disabled" :
 							{
-<<<<<<< HEAD
-=======
 								"font" : nexacro.FontObject("14px/normal \"Malgun Gothic\""),
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								"color" : nexacro.ColorObject("#c7d4e2")
 							},
 							"mouseover" :
 							{
 								"color" : nexacro.ColorObject("#ffffff"),
-<<<<<<< HEAD
-								"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 								"font" : nexacro.FontObject("bold 14px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 							},
 							"selected" :
 							{
@@ -3628,11 +3446,7 @@
 				{
 					"enabled" :
 					{
-<<<<<<< HEAD
-						"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 						"font" : nexacro.FontObject("12px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 					},
 					"disabled" :
 					{
@@ -3649,11 +3463,7 @@
 								"enabled" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
-<<<<<<< HEAD
-									"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 									"font" : nexacro.FontObject("12px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
@@ -3666,11 +3476,7 @@
 								"enabled" :
 								{
 									"color" : nexacro.ColorObject("#0d6efd"),
-<<<<<<< HEAD
-									"font" : nexacro.FontObject("16px \"-윤고딕350\"")
-=======
 									"font" : nexacro.FontObject("bold 14px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 								}
 							}
 						}
@@ -3695,11 +3501,7 @@
 				{
 					"enabled" :
 					{
-<<<<<<< HEAD
-						"font" : nexacro.FontObject("12px \"-윤고딕330\"")
-=======
 						"font" : nexacro.FontObject("12px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 					},
 					"disabled" :
 					{
@@ -3753,38 +3555,6 @@
 						{
 							"enabled" :
 							{
-<<<<<<< HEAD
-								"color" : nexacro.ColorObject("#333333"),
-								"border" : nexacro.BorderObject("1px solid #c7c7c7"),
-								"padding" : nexacro.PaddingObject("6px 10px 6px 10px")
-							},
-							"mouseover" :
-							{
-								"border" : nexacro.BorderObject("1px solid #b1b1b1"),
-								"color" : nexacro.ColorObject("#7f7f7f")
-							},
-							"focused" :
-							{
-								"color" : nexacro.ColorObject("#dee4ef")
-							},
-							"selected" :
-							{
-								"color" : nexacro.ColorObject("#dee4ef"),
-								"border" : nexacro.BorderObject("1px solid #1055a1")
-							},
-							"focused_selected" :
-							{
-								"color" : nexacro.ColorObject("#dee4ef"),
-								"border" : nexacro.BorderObject("1px solid #1055a1")
-							},
-							"disabled" :
-							{
-								"color" : nexacro.ColorObject("#ababab")
-							},
-							"disabled_selected" :
-							{
-								"border" : nexacro.BorderObject("1px solid #c7d4e2")
-=======
 								"color" : nexacro.ColorObject("#ffffff"),
 								"border" : nexacro.BorderObject("1px solid #c7c7c7"),
 								"padding" : nexacro.PaddingObject("6px 10px 6px 10px"),
@@ -3831,7 +3601,6 @@
 								"border" : nexacro.BorderObject("1px solid #c7c7c7"),
 								"padding" : nexacro.PaddingObject("6px 10px 6px 10px"),
 								"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 							}
 						}
 					}
@@ -3852,11 +3621,7 @@
 									"disabled" :
 									{
 										"color" : nexacro.ColorObject("#ffffff"),
-<<<<<<< HEAD
-										"font" : nexacro.FontObject("11px \"-윤고딕330\"")
-=======
 										"font" : nexacro.FontObject("12px/normal \"Malgun Gothic\"")
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 									}
 								}
 							}
@@ -4687,8 +4452,6 @@
 					{
 					}
 				}
-<<<<<<< HEAD
-=======
 			},
 			"calendaredit" :
 			{
@@ -4714,7 +4477,6 @@
 						]
 					}
 				}
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 			}
 		},
 		{
@@ -4822,15 +4584,6 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Stepitem.png")] = { width:13, height:13 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Stepitem_S.png")] = { width:13, height:13 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_expand.png")] = { width:9, height:6 };
-<<<<<<< HEAD
-		imgcache[nexacro._getImageLocation("theme://images/btn_home_30_30.png")] = { width:30, height:30 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_search.png")] = { width:25, height:25 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_message.png")] = { width:15, height:11 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_insert.png")] = { width:20, height:20 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_delete.png")] = { width:20, height:20 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_home_wh_30_30.png")] = { width:30, height:30 };
-		imgcache[nexacro._getImageLocation("theme://images/btn_logout.png")] = { width:15, height:11 };
-=======
 		imgcache[nexacro._getImageLocation("theme://images/Excel-Logo_15_15.png")] = { width:15, height:14 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_home_15_15_wh.png")] = { width:15, height:15 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_search.png")] = { width:13, height:13 };
@@ -4839,7 +4592,6 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_logout.png")] = { width:15, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_message.png")] = { width:15, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_Cal_N.png")] = { width:15, height:16 };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_D.png")] = { width:15, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_N.png")] = { width:15, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_P.png")] = { width:15, height:16 };
@@ -4850,10 +4602,7 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_close_D.png")] = { width:12, height:12 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_close_N.png")] = { width:12, height:12 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_close_O.png")] = { width:12, height:12 };
-<<<<<<< HEAD
-=======
 		imgcache[nexacro._getImageLocation("theme://images/btn_delete.png")] = { width:20, height:20 };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 		imgcache[nexacro._getImageLocation("theme://images/btn_drop_D.png")] = { width:14, height:10 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_drop_N.png")] = { width:14, height:10 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_drop_P.png")] = { width:14, height:10 };
@@ -4865,12 +4614,9 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_hinc_D.png")] = { width:8, height:10 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_hinc_N.png")] = { width:8, height:10 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_hinc_P.png")] = { width:8, height:10 };
-<<<<<<< HEAD
-=======
 		imgcache[nexacro._getImageLocation("theme://images/btn_home_30_30.png")] = { width:30, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_home_wh_30_30.png")] = { width:30, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_insert.png")] = { width:20, height:20 };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 		imgcache[nexacro._getImageLocation("theme://images/btn_max_D.png")] = { width:12, height:12 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_max_N.png")] = { width:12, height:12 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_menunext_D.png")] = { width:8, height:10 };
@@ -4893,10 +4639,7 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_Pmenuprev_P.png")] = { width:10, height:8 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_prev_N.png")] = { width:11, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_prev_P.png")] = { width:11, height:16 };
-<<<<<<< HEAD
-=======
 		imgcache[nexacro._getImageLocation("theme://images/btn_search.png")] = { width:25, height:25 };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 		imgcache[nexacro._getImageLocation("theme://images/btn_SpinDown_D.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_SpinDown_N.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_SpinDown_P.png")] = { width:8, height:5 };
@@ -4926,10 +4669,7 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_whLogout.png")] = { width:41, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_WF_wh_Logout.png")] = { width:41, height:30 };
 		imgcache[nexacro._getImageLocation("theme://images/chk_WF_Popupmenu.png")] = { width:13, height:13 };
-<<<<<<< HEAD
-=======
 		imgcache[nexacro._getImageLocation("theme://images/file.png")] = { width:25, height:25 };
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 		imgcache[nexacro._getImageLocation("theme://images/ico_check.png")] = { width:12, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/ico_expand.png")] = { width:9, height:12 };
 		imgcache[nexacro._getImageLocation("theme://images/ico_title.png")] = { width:14, height:14 };

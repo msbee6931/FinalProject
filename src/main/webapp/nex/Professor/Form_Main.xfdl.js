@@ -13,18 +13,6 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-<<<<<<< HEAD
-                this._setFormPosition(1280,720);
-            }
-            
-            // Object(Dataset, ExcelExportObject) Initialize
-
-            
-            // UI Components Initialize
-            obj = new Button("Button00","479","226","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_text("Professor");
-=======
                 this._setFormPosition(1080,520);
             }
             
@@ -199,16 +187,11 @@
             obj = new Button("Button00","640","3","90","38",null,null,null,null,null,null,this);
             obj.set_taborder("20");
             obj.set_text("Button00");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-<<<<<<< HEAD
-            obj = new Layout("default","",1280,720,this,function(p){});
-=======
             obj = new Layout("default","",1080,520,this,function(p){});
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -221,9 +204,6 @@
         };
         
         // User Script
-<<<<<<< HEAD
-
-=======
         this.registerScript("Form_Main.xfdl", function() {
         this.objApp = nexacro.getApplication();
 
@@ -576,14 +556,10 @@
 
 
         });
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-<<<<<<< HEAD
-
-=======
             this.addEventHandler("onload",this.Form_Main_onload,this);
             this.btnGrade.addEventHandler("onclick",this.btnGrade_onclick,this);
             this.btnAttend.addEventHandler("onclick",this.btnAttend_onclick,this);
@@ -605,7 +581,6 @@
             this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
         this.loadIncludeScript("Form_Main.xfdl");

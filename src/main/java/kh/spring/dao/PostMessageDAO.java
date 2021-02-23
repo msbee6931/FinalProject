@@ -40,4 +40,12 @@ public class PostMessageDAO {
 	public int updateConfirm(List<PostMessageDTO> list) {
 		return session.update("PostMessage.updateConfirm",list);
 	}
+	
+	public int alarmAdmin(String sender) {
+		return session.selectOne("PostMessage.alarmAdmin",sender);
+	}
+	
+	public List<PostMessageDTO> received(String sender){
+		return session.selectList("PostMessage.received",sender);
+	}
 }

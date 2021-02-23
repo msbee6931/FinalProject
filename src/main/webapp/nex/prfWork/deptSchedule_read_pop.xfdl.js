@@ -95,10 +95,7 @@
 
             obj = new Edit("edt_title00","70","16","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("12");
-<<<<<<< HEAD
-=======
             obj.set_readonly("true");
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
 
             // Layout Functions

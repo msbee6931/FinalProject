@@ -17,12 +17,6 @@
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
-<<<<<<< HEAD
-
-            
-            // UI Components Initialize
-
-=======
             obj = new Dataset("ds_Notice", this);
             obj._setContents("<ColumnInfo><Column id=\"n_seq\" type=\"INT\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"writedate\" type=\"DATE\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"deptcode\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/><Column id=\"file\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
@@ -196,7 +190,6 @@
             obj.set_textDecoration("underline");
             obj.set_color("cornflowerblue");
             this.div_Info.addChild(obj.name, obj);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
             // Layout Functions
             //-- Default Layout : this
@@ -214,9 +207,6 @@
         };
         
         // User Script
-<<<<<<< HEAD
-
-=======
         this.registerScript("Form_Main.xfdl", function() {
         this.objApp = nexacro.getApplication();
 
@@ -496,14 +486,10 @@
 
 
         });
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-<<<<<<< HEAD
-
-=======
             this.addEventHandler("onload",this.Form_Work_onload,this);
             this.btnBoard.addEventHandler("onclick",this.btnBoard_onclick,this);
             this.btnReference.addEventHandler("onclick",this.btnReference_onclick,this);
@@ -524,7 +510,6 @@
             this.div_Info.form.sta_alarm.addEventHandler("onclick",this.div_Info_sta_alarm_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
->>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
         this.loadIncludeScript("Form_Main.xfdl");
