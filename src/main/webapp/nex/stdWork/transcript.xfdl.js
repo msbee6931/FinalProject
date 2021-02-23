@@ -52,11 +52,11 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","8","5","1241","440",null,null,null,null,null,null,this.Div00.form);
+            obj = new WebBrowser("WebBrowser00","79","1","1241","440",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","9","4","75","35",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00","2","1","75","35",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("pdf 저장");
             this.Div00.addChild(obj.name, obj);
@@ -88,7 +88,7 @@
         {
         	this.objApp = nexacro.getApplication();
         	var s =this.objApp.gds_students.getColumn(0,'s_seq');
-        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/transcript";
+        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/transcriptp?seq=212022001";
         };
 
 

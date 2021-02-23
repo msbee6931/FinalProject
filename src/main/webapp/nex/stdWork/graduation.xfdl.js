@@ -50,12 +50,27 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","147","10","721","436",null,null,null,null,null,null,this.Div00.form);
+            obj = new MaskEdit("MaskEdit00_01","379","223","150","37",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
+            obj.set_border("1px solid white");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","62","24","73","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new MaskEdit("MaskEdit00_02","379","181","150","37",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
+            obj.set_border("1px solid white");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("MaskEdit00_03","393","256","150","37",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("2");
+            obj.set_border("1px solid white");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new WebBrowser("WebBrowser00","112","1","736","440",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("3");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("Button00","24","19","71","31",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("4");
             obj.set_text("pdf 저장");
             this.Div00.addChild(obj.name, obj);
 
@@ -86,7 +101,7 @@
         {
         	this.objApp = nexacro.getApplication();
         	var s =this.objApp.gds_students.getColumn(0,'s_seq');
-        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/graduate";
+        	location.href="https://pdfmyurl.com/api?license=pYboxEqG18O3&url=http://15.165.196.249/certification/graduatep?seq="+s;
         };
 
 
