@@ -126,6 +126,18 @@
         			this.calSDate.set_value(objFrame.sdate);
         			this.calEDate.set_value(objFrame.sdate);
         		}
+<<<<<<< HEAD
+=======
+        	}else{
+        		this.btnOk.set_left(160)
+        		this.btnDel.set_visible(false);
+        		this.scheduleId = objFrame.scheduleid;
+        		this.edtTitle.set_value(objFrame.title);
+        		this.calSDate.set_value(objFrame.sdate);
+        		this.calEDate.set_value(objFrame.edate);
+        		this.cmbType.set_value(objFrame.type);
+        		this.teaContent.set_value(objFrame.content);
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	}
         };
 

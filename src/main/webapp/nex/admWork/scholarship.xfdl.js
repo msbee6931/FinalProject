@@ -28,7 +28,11 @@
 
 
             obj = new Dataset("scholorship_ds", this);
+<<<<<<< HEAD
             obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"s_kind\" type=\"INT\" size=\"256\"/><Column id=\"s_rec\" type=\"INT\" size=\"256\"/><Column id=\"s_smt\" type=\"INT\" size=\"256\"/><Column id=\"s_spt\" type=\"INT\" size=\"256\"/><Column id=\"s_etc\" type=\"INT\" size=\"256\"/><Column id=\"sSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+=======
+            obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"INT\" size=\"256\"/><Column id=\"s_rec\" type=\"INT\" size=\"256\"/><Column id=\"s_smt\" type=\"INT\" size=\"256\"/><Column id=\"s_spt\" type=\"INT\" size=\"256\"/><Column id=\"s_etc\" type=\"INT\" size=\"256\"/><Column id=\"sSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -76,7 +80,11 @@
             obj.set_taborder("4");
             obj.set_autofittype("col");
             obj.set_binddataset("scholorship_ds");
+<<<<<<< HEAD
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"선행\"/><Cell col=\"2\" text=\"추천\"/><Cell col=\"3\" text=\"성적우수\"/><Cell col=\"4\" text=\"생활지원\"/><Cell col=\"5\" text=\"기타\"/><Cell col=\"6\" text=\"합계\"/><Cell col=\"7\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:s_kind\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:s_rec\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:s_smt\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:s_spt\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:s_etc\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:sSum\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:t_date\" textAlign=\"center\" displaytype=\"date\"/></Band></Format></Formats>");
+=======
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"169\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\" displaytype=\"text\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"학기구분\"/><Cell col=\"3\" text=\"장학금 총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" textAlign=\"center\" suppress=\"1\"/><Cell col=\"1\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:sSum\" textAlign=\"center\"/></Band></Format></Formats>");
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_del","909","411","80","25",null,null,null,null,null,null,this.Div00.form);
@@ -142,21 +150,67 @@
         		"students_ds=out_ds",//()_out_ds
         		"",//argument
         		"fn_callback_std"
+<<<<<<< HEAD
         		)
 
         		this.transaction(
+=======
+        	)
+
+        	this.transaction(
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		"selectAll.scholarship",//id
         		"/scholarship/selectAll.scholarship",//url (절대경로)
         		"",//in_ds:U
         		"scholorship_ds=out_ds",//()_out_ds
         		"",//argument
+<<<<<<< HEAD
         		"fn_callback"
         		)
 
+=======
+        		"fn_callback_schola"
+        	)
+        	for(var i=0;i<this.scholorship_ds.getRowCount();i++)
+        	{
+        		var sDate =this.scholorship_ds.getColumn(i,"s_date");
+        		var mon = sDate.substr(5,2);
+        		var sMonth = nexacro.toNumber(mon)
+        		if(sMonth<8)
+        		{
+        			alert(sMonth)
+        			this.scholorship_ds.setColumn(i,"type","1학기");
+        		}
+        		else
+        		{
+        			this.scholorship_ds.setColumn(i,"type","2학기");
+        		}
+        	}
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
 
         };
 
+<<<<<<< HEAD
+=======
+        this.fn_callback_schola = function()
+        {
+        	for(var i=0;i<this.scholorship_ds.getRowCount();i++)
+        	{
+        		var sDate =this.scholorship_ds.getColumn(i,"s_date");
+        		var mon = sDate.substr(5,2);
+        		var sMonth = nexacro.toNumber(mon)
+        		if(sMonth<8)
+        		{
+        			this.scholorship_ds.setColumn(i,"type","1학기");
+        		}
+        		else
+        		{
+        			this.scholorship_ds.setColumn(i,"type","2학기");
+        		}
+        	}
+        }
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
         this.std_code="";
         this.Div00_grd_std_oncellclick = function(obj,e)
@@ -183,15 +237,24 @@
 
         this.fn_callback_insertScholar = function()
         {
+<<<<<<< HEAD
         		this.transaction(
+=======
+        	this.transaction(
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		"selectAll.scholarship",//id
         		"/scholarship/selectAll.scholarship",//url (절대경로)
         		"",//in_ds:U
         		"scholorship_ds=out_ds",//()_out_ds
         		"",//argument
         		"fn_callback"
+<<<<<<< HEAD
         		)
         }
+=======
+        	)
+        };
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
         this.Div00_grd_scholar_oncelldblclick = function(obj,e)
         {
@@ -214,15 +277,24 @@
 
         this.fn_callback_updateScholar=function()
         {
+<<<<<<< HEAD
         		this.transaction(
+=======
+        	this.transaction(
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         		"selectAll.scholarship",//id
         		"/scholarship/selectAll.scholarship",//url (절대경로)
         		"",//in_ds:U
         		"scholorship_ds=out_ds",//()_out_ds
         		"",//argument
         		"fn_callback"
+<<<<<<< HEAD
         		)
         }
+=======
+        	)
+        };
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 
 
         this.seq="";
@@ -244,7 +316,11 @@
         		"out_ds=scholorship_ds",//()_out_ds
         		"seq="+this.seq,//argument
         		"fn_callback"
+<<<<<<< HEAD
         		)
+=======
+        	)
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
         this.Div00_btn_searchEtc_onclick = function(obj,e)

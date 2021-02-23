@@ -202,7 +202,11 @@
 }
 .GridCellControl .cellbutton
 {
+<<<<<<< HEAD
 	font : 12px Gulim;
+=======
+	font : 12px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 	color : #555555;
 	background : linear-gradient(to top,#eaeaea,#ffffff);
 	border : 1px solid #c2c2c2;
@@ -248,7 +252,12 @@
 }
 .GridCellControl .celltreeitem .treeitemtext
 {
+<<<<<<< HEAD
 	color : #ffffff;
+=======
+	color : #3d3d3d;
+	font : 12px "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .GridCellControl .celltreeline
 {
@@ -304,7 +313,11 @@
 }
 .Menu
 {
+<<<<<<< HEAD
 	font : 13px/normal "-윤고딕340";
+=======
+	font : 14px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .Menu .prevbutton
 {
@@ -316,7 +329,11 @@
 }
 .Menu .menuitem
 {
+<<<<<<< HEAD
 	font : 13px/normal "-윤고딕340";
+=======
+	font : 14px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 	color : #ffffff;
 	cursor : pointer;
 }
@@ -464,11 +481,19 @@
 }
 .Static
 {
+<<<<<<< HEAD
 	font : 12px "-윤고딕330";
 }
 .StaticControl
 {
 	font : 12px "-윤고딕330";
+=======
+	font : 12px/normal "Malgun Gothic";
+}
+.StaticControl
+{
+	font : 12px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .TextArea
 {
@@ -496,9 +521,16 @@
 }
 .Tab .tabbuttonitemTab
 {
+<<<<<<< HEAD
 	color : #333333;
 	background : #435a7c;
 	border : 1px solid #c7c7c7;
+=======
+	color : #ffffff;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : 12px "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .DatePickerControl
 {
@@ -694,6 +726,7 @@
 	background : linear-gradient(to top,#eaeaea,#ffffff);
 	border : 1px solid #c2c2c2;
 }
+<<<<<<< HEAD
 .GridCellControl
 {
 	background : #0d6efd;
@@ -751,6 +784,8 @@
 	vertical-align : middle;
 	text-align : center;
 }
+=======
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 .Edit.edt_default
 {
 	background : #ffffff;
@@ -762,7 +797,11 @@
 {
 	background : #0d6efd;
 	color : #ffffff;
+<<<<<<< HEAD
 	font : 12px "-윤고딕330";
+=======
+	font : 12px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .Static.sta_default .nexacontentsbox
 {
@@ -774,12 +813,15 @@
 	color : #0d6efd;
 	font : 12px "-윤고딕330";
 }
+<<<<<<< HEAD
 .Button.btn_small
 {
 	background : #0d6efd;
 	border-radius : 2px;
 	color : #ffffff;
 }
+=======
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 .Combo.cmb_default .comboedit
 {
 	border : 1px solid #0d6efd;
@@ -799,7 +841,11 @@
 .Static.sta_title
 {
 	color : #0d6efd;
+<<<<<<< HEAD
 	font : 16px "-윤고딕350";
+=======
+	font : bold 14px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .Static.sta_line
 {
@@ -811,6 +857,7 @@
 	border : 1px solid #0d6efd;
 	border-radius : 2px;
 }
+<<<<<<< HEAD
 .Button.btn_can
 {
 	background : #1c0c7c;
@@ -821,15 +868,113 @@
 .Button.btn_can .nexacontentsbox
 {
 	vertical-align : middle;
+=======
+.Grid.grd_default .head .row .cell
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+.Button.btn_default
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_exel
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+}
+.Button.btn_exel .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_home
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_home .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_search
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_search .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_del
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #1c0c7c;
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_del .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_insert
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_insert .nexacontentsbox
+{
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 	text-align : center;
 }
 .Button.btn_logout
 {
+<<<<<<< HEAD
 	border-radius : 6px;
 	color : #ffffff;
 	font : 12px/normal "-윤고딕330";
 	background : #0d6efd;
 }
+=======
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_logout .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_message
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_message .nexacontentsbox
+{
+	text-align : center;
+}
+.Calendar.cal_default
+{
+	border : 1px solid #0d6efd;
+}
+.Calendar.cal_default .calendaredit
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+}
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 .Button[status=mouseover]
 {
 	background : linear-gradient(to top,#e7e7e7,#fefefe);
@@ -1006,7 +1151,11 @@
 {
 	background : #1c0c7c;
 	color : #ffffff;
+<<<<<<< HEAD
 	font : 12px "-윤고딕330";
+=======
+	font : bold 14px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .PopupMenuControl.popupMenumenupopupmenu.dummy .popupmenuitem[status=mouseover]
 {
@@ -1090,6 +1239,7 @@
 }
 .Tab .tabbuttonitemTab[status=mouseover]
 {
+<<<<<<< HEAD
 	border : 1px solid #b1b1b1;
 	background : #c1c049;
 	color : #7f7f7f;
@@ -1097,6 +1247,19 @@
 .Tab .tabbuttonitemTab[status=focused]
 {
 	color : #dee4ef;
+=======
+	color : #282828;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : bold 12px/normal "Malgun Gothic";
+}
+.Tab .tabbuttonitemTab[status=focused]
+{
+	color : #ffffff;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : 12px "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .DatePickerControl .body .dayitem[status=mouseover]
 {
@@ -1286,6 +1449,7 @@
 	color : #ffffff;
 	font : 12px "-윤고딕330";
 }
+<<<<<<< HEAD
 .Button.btn_home[status=mouseover]
 {
 	border-radius : 4px;
@@ -1308,6 +1472,202 @@
 .GridCellControl[status=mouseover]
 {
 	background : #1c0c7c;
+=======
+.GridCellControl[status=mouseover]
+{
+	background : #1c0c7c;
+}
+.Grid.grd_default .head .row .cell[status=focused]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+.Grid.grd_default .body .row .cell[status=focused]
+{
+	font : 12px/normal "Malgun Gothic";
+	background : #ffffff;
+	color : #444444;
+}
+.Grid.grd_default .body .row .cell[status=readonly]
+{
+	font : 12px/normal "Malgun Gothic";
+	background : #ffffff;
+	color : #444444;
+}
+.Grid.grd_default .body .row .cell[status=mouseover]
+{
+	font : bold 12px "Malgun Gothic";
+	color : #1c0c7c;
+}
+.Button.btn_default[status=focused]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_exel[status=mouseover]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+}
+.Button.btn_exel[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_exel[status=focused]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+}
+.Button.btn_exel[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_home[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_home[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_home[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_home[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_search[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_search[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_search[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_search[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_del[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #1c0c7c;
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_del[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_del[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #1c0c7c;
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_del[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_insert[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_insert[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_insert[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_insert[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_logout[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_logout[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_logout[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_logout[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_message[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_message[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_message[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_message[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+.Calendar.cal_default[status=mouseover]
+{
+	border : 1px solid #0d6efd;
+}
+.Calendar.cal_default[status=focused]
+{
+	border : 1px solid #0d6efd;
+}
+.Calendar.cal_default[status=readonly]
+{
+	border : 1px solid #0d6efd;
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .Form[userstatus=contents]
 {
@@ -1438,9 +1798,16 @@
 }
 .Tab .tabbuttonitemTab[userstatus=selected]
 {
+<<<<<<< HEAD
 	color : #dee4ef;
 	background : #1055a1;
 	border : 1px solid #1055a1;
+=======
+	color : #282828;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : bold 12px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .DatePickerControl .body .weekitem[userstatus=saturday]
 {
@@ -1516,6 +1883,7 @@
 {
 	background : linear-gradient(to top,#fefefe,#e9e9e9);
 }
+<<<<<<< HEAD
 .Button.btn_logout[userstatus=pushed]
 {
 	border-radius : 6px;
@@ -1530,6 +1898,180 @@
 	font : 12px/normal "-윤고딕330";
 	background : #0d6efd;
 }
+=======
+.Grid.grd_default .head .row .cell[userstatus=selected]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+.Button.btn_default[userstatus=pushed]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_default[userstatus=selected]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_exel[userstatus=pushed]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+}
+.Button.btn_exel[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_exel[userstatus=selected]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+}
+.Button.btn_exel[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_home[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_home[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_home[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_home[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_search[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_search[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_search[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_search[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_del[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #1c0c7c;
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_del[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_del[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #1c0c7c;
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_del[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_insert[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_insert[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_insert[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_insert[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_logout[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_logout[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_logout[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_logout[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_message[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_message[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_message[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_message[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+.Calendar.cal_default[userstatus=invalidtext]
+{
+	border : 1px solid #0d6efd;
+}
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 .Form[status=disabled]
 {
 	color : #999999;
@@ -1632,8 +2174,13 @@
 }
 .GridCellControl .celltreeitem .treeitemtext[status=disabled]
 {
+<<<<<<< HEAD
 	color : #ffffff;
 	font : 12px "-윤고딕330";
+=======
+	color : #3d3d3d;
+	font : 12px/normal Malgun Gothic;
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .GroupBox .groupboxcontents[status=disabled]
 {
@@ -1675,10 +2222,18 @@
 }
 .Menu[status=disabled]
 {
+<<<<<<< HEAD
 	font : 13px/normal "-윤고딕340";
 }
 .Menu .menuitem[status=disabled]
 {
+=======
+	font : 14px/normal "Malgun Gothic";
+}
+.Menu .menuitem[status=disabled]
+{
+	font : 14px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 	color : #c7d4e2;
 }
 .PopupMenuControl.popupMenumenupopupmenu.dummy .popupmenuitem[status=disabled]
@@ -1758,13 +2313,24 @@
 }
 .Tab .tabbuttonitemTab[status=disabled]
 {
+<<<<<<< HEAD
 	color : #ababab;
 	background : #e7e7e7;
+=======
+	color : #ffffff;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : 12px "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .Tab .tabbuttonitemTab .tabbuttonitemtext[status=disabled]
 {
 	color : #ffffff;
+<<<<<<< HEAD
 	font : 11px "-윤고딕330";
+=======
+	font : 12px/normal "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .DatePickerControl .head[status=disabled]
 {
@@ -1857,6 +2423,7 @@
 	border : 1px solid #d9d9d9;
 	opacity : 0.50;
 }
+<<<<<<< HEAD
 .Button.btn_home[status=disabled]
 {
 	background : url('./images/btn_home_30_30.png') no-repeat;
@@ -1876,6 +2443,105 @@
 	font : 12px/normal "-윤고딕330";
 	background : #0d6efd;
 }
+=======
+.Grid.grd_default .head .row .cell[status=disabled]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+.Grid.grd_default .body .row .cell[status=disabled]
+{
+	font : 12px/normal "Malgun Gothic";
+	background : #ffffff;
+	color : #444444;
+}
+.Button.btn_default[status=disabled]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_exel[status=disabled]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	background : #ffffff;
+}
+.Button.btn_exel[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_home[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_home[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_search[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_search[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_del[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #1c0c7c;
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_del[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_insert[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_insert[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_logout[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_logout[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_message[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+}
+.Button.btn_message[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+.Calendar.cal_default[status=disabled]
+{
+	border : 1px solid #0d6efd;
+}
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 .CheckBox[status=disabled][userstatus=selected]
 {
 	color : #999999;
@@ -1890,6 +2556,7 @@
 }
 .Tab .tabbuttonitemTab[status=focused][userstatus=selected]
 {
+<<<<<<< HEAD
 	color : #dee4ef;
 	background : #1055a1;
 	border : 1px solid #1055a1;
@@ -1898,6 +2565,19 @@
 {
 	border : 1px solid #c7d4e2;
 	background : #94a9bf;
+=======
+	color : #282828;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : bold 12px/normal "Malgun Gothic";
+}
+.Tab .tabbuttonitemTab[status=disabled][userstatus=selected]
+{
+	color : #ffffff;
+	background : #6c9cff;
+	border : 1px solid #c7c7c7;
+	font : 12px "Malgun Gothic";
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
 }
 .DatePickerControl .body .dayitem[status=mouseover][userstatus=saturday]
 {
@@ -1915,3 +2595,37 @@
 {
 	background : #f0f0f0;
 }
+<<<<<<< HEAD
+=======
+.Grid.grd_default .head .row .cell[status=mouseover][userstatus=selected]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+.Grid.grd_default .body .row .cell[userstatus=selected][status=mouseover]
+{
+	font : bold 12px "Malgun Gothic";
+	color : #1c0c7c;
+}
+.Button.btn_default[status=mouseover][userstatus=pushed]
+{
+	background : #6c9cff;
+	color : #ffffff;
+	font : bold 12px/normal "Malgun Gothic";
+}
+.Button.btn_default[status=mouseover][userstatus=selected]
+{
+	background : #6c9cff;
+	color : #ffffff;
+	font : bold 12px/normal "Malgun Gothic";
+}
+.Calendar.cal_default .dropbutton[status=disabled][userstatus=pushed]
+{
+	background : url('./images/btn_Cal_N.png');
+}
+.Calendar.cal_default .dropbutton[status=disabled][userstatus=selected]
+{
+	background : url('./images/btn_Cal_N.png');
+}
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf

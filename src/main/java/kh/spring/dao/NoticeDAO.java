@@ -72,9 +72,16 @@ public class NoticeDAO {
 	public int normalCount() {
 		return db.selectOne("Notice.normalCount");
 	}
-	public List<NoticeDTO> selectNormalByPage(int page){
-		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
-		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+	public List<NoticeDTO> selectNormalByPage(int page,String type){
+		int startRowNum = 0;
+		int endRowNum = 0;
+		if(type.contentEquals("home")) {
+			startRowNum = 1;
+			endRowNum = 5;
+		}else {
+			startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+			 endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		}
 		Map<String,Object> param = new HashMap<>();
 		param.put("startRowNum", startRowNum);
 		param.put("endRowNum", endRowNum);
@@ -103,9 +110,16 @@ public class NoticeDAO {
 	public int academicCount() {
 		return db.selectOne("Notice.academicCount");
 	}
-	public List<NoticeDTO> selectAcademicByPage(int page){
-		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
-		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+	public List<NoticeDTO> selectAcademicByPage(int page,String type){
+		int startRowNum = 0;
+		int endRowNum = 0;
+		if(type.contentEquals("home")) {
+			startRowNum = 1;
+			endRowNum = 5;
+		}else {
+			startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+			 endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		}
 		Map<String,Object> param = new HashMap<>();
 		param.put("startRowNum", startRowNum);
 		param.put("endRowNum", endRowNum);
@@ -134,9 +148,16 @@ public class NoticeDAO {
 	public int scholarCount() {
 		return db.selectOne("Notice.scholarCount");
 	}
-	public List<NoticeDTO> selectScholarByPage(int page){
-		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
-		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+	public List<NoticeDTO> selectScholarByPage(int page,String type){
+		int startRowNum = 0;
+		int endRowNum = 0;
+		if(type.contentEquals("home")) {
+			startRowNum = 1;
+			endRowNum = 5;
+		}else {
+			startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+			 endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		}
 		Map<String,Object> param = new HashMap<>();
 		param.put("startRowNum", startRowNum);
 		param.put("endRowNum", endRowNum);
@@ -165,9 +186,16 @@ public class NoticeDAO {
 	public int employmentCount() {
 		return db.selectOne("Notice.employmentCount");
 	}
-	public List<NoticeDTO> selectEmploymentByPage(int page){
-		int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
-		int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+	public List<NoticeDTO> selectEmploymentByPage(int page,String type){
+		int startRowNum = 0;
+		int endRowNum = 0;
+		if(type.contentEquals("home")) {
+			startRowNum = 1;
+			endRowNum = 5;
+		}else {
+			startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+			 endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+		}
 		Map<String,Object> param = new HashMap<>();
 		param.put("startRowNum", startRowNum);
 		param.put("endRowNum", endRowNum);

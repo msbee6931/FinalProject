@@ -29,11 +29,23 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter17.spring.core.annotation.ParamVariable;
+import com.nexacro.uiadapter17.spring.core.data.NexacroFileResult;
 import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
+import com.nexacro17.xapi.data.PlatformData;
+import com.nexacro17.xapi.data.VariableList;
+import com.nexacro17.xapi.tx.HttpPlatformResponse;
+import com.nexacro17.xapi.tx.PlatformException;
+import com.nexacro17.xapi.tx.PlatformType;
 
+import kh.spring.dto.ColScheduleDTO;
+import kh.spring.dto.IndScheduleDTO;
 import kh.spring.dto.NoticeDTO;
 import kh.spring.dto.NoticeFileDTO;
+import kh.spring.dto.PostMessageDTO;
+import kh.spring.service.ColScheduleService;
 import kh.spring.service.NoticeService;
+import kh.spring.service.PostMessageService;
+import kh.spring.service.ScheduleService;
 import kh.spring.service.ScholarshipService;
 
 @Controller
@@ -47,6 +59,12 @@ public class NoticeController {
 	private NoticeService nService;
 	@Autowired
 	private ScholarshipService sService;
+	@Autowired
+	private ColScheduleService cService;
+	@Autowired
+	private ScheduleService scService;
+	@Autowired
+	private PostMessageService pService; 
 	
 	@RequestMapping("deleteNotice.notice")
 	public NexacroResult deleteNotice(@ParamVariable(name="n_seq")int n_seq) {
@@ -222,8 +240,9 @@ public class NoticeController {
 	
 	
 	@RequestMapping("normalList.notice")
-	public String goNormal(Model model,HttpServletRequest request) throws Exception {
+	public String goNormal(Model model,HttpServletRequest request) throws Exception {		
 		int page = Integer.parseInt(request.getParameter("page"));
+		System.out.println("PAGE : " + page);
 		if(page <= 0) {
 			page = 1;
 		}
@@ -236,7 +255,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.normalNavi(page);
-		List<NoticeDTO> list = nService.selectNormalByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectNormalByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -354,7 +374,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.academicNavi(page);
-		List<NoticeDTO> list = nService.selectAcademicByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectAcademicByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -471,7 +492,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.scholarNavi(page);
-		List<NoticeDTO> list = nService.selectScholarByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectScholarByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -588,7 +610,8 @@ public class NoticeController {
 			page = end;
 		}
 		String navi = nService.employmentNavi(page);
-		List<NoticeDTO> list = nService.selectEmploymentByPage(page);
+		String type = "notice";
+		List<NoticeDTO> list = nService.selectEmploymentByPage(page,type);
 		List<NoticeFileDTO> file = nService.selectFileAll();
 		if(list.size() > 0) {
 		for(int i=0; i<list.size(); i++) {
@@ -770,7 +793,6 @@ public class NoticeController {
 				}
 			}
 		}
-
 	}
 
 	@RequestMapping("download.notice")
@@ -838,14 +860,123 @@ public class NoticeController {
 		return "Firefox";
 	}
 	
-	@RequestMapping("/noticeList.notice")
-	public NexacroResult noticeList() {
+	@RequestMapping("/main.notice")
+	public NexacroResult mainStd() {
 		NexacroResult nr = new NexacroResult();
 		List<NoticeDTO> list = nService.selectNoticeList();
+		List<NoticeFileDTO> list2 = nService.selectFileAll();
+		List<ColScheduleDTO> list3 = cService.selectAll();
 		nr.addDataSet("out_ds",list);
+		nr.addDataSet("out_ds2",list2);
+		nr.addDataSet("out_ds3",list3);
 		return nr;
 	}
-	
+	@RequestMapping("/mainPro.notice")
+	public NexacroResult mainPro(HttpServletResponse response) {
+		String proCode = session.getAttribute("pro").toString();
+		
+		NexacroResult nr = new NexacroResult();
+		PlatformData out_pData = new PlatformData();
+		VariableList varList = out_pData.getVariableList();
+		int writer = (int)session.getAttribute("pro");
+		List<NoticeDTO> list = nService.selectNoticeList();
+		List<NoticeFileDTO> list2 = nService.selectFileAll();
+		List<IndScheduleDTO> list3 = scService.selectIndSchedule(writer);
+		int count = pService.alarm(proCode);
+		varList.add("count",count);
+		HttpPlatformResponse pRes = new HttpPlatformResponse(response, PlatformType.CONTENT_TYPE_XML, "utf-8");
+		pRes.setData(out_pData);
+		// Send data
+		try {pRes.sendData();}
+		catch(PlatformException e) {e.printStackTrace();}
+		
+		nr.addDataSet("out_ds",list);
+		nr.addDataSet("out_ds2",list2);
+		nr.addDataSet("out_ds3",list3);
+		return nr;
+	}
+	@RequestMapping("/mainAdm.notice")
+	public NexacroResult mainAdm(HttpServletResponse response) {
+		String AdmCode = session.getAttribute("adm").toString();
+		
+		NexacroResult nr = new NexacroResult();
+		PlatformData out_pData = new PlatformData();
+		VariableList varList = out_pData.getVariableList();
+		List<NoticeDTO> list = nService.selectNoticeList();
+		List<NoticeFileDTO> list2 = nService.selectFileAll();
+		List<ColScheduleDTO> list3 = cService.selectAll();
+		int count = pService.alarm(AdmCode);
+		varList.add("count",count);
+		HttpPlatformResponse pRes = new HttpPlatformResponse(response, PlatformType.CONTENT_TYPE_XML, "utf-8");
+		pRes.setData(out_pData);
+		// Send data
+		try {pRes.sendData();}
+		catch(PlatformException e) {e.printStackTrace();}
+		
+		nr.addDataSet("out_ds",list);
+		nr.addDataSet("out_ds2",list2);
+		nr.addDataSet("out_ds3",list3);
+		return nr;
+	}
+	@RequestMapping("/noticeOnload.notice")
+	public NexacroResult noticeOnload(@ParamVariable(name="nCode")int nCode) {
+		NexacroResult nr = new NexacroResult();
+		NoticeDTO dto  = nService.selectNomalNotice_Info(nCode);
+		nService.view_countUpd(dto);
+		NoticeFileDTO fdto = new NoticeFileDTO();
+		fdto.setParentSeq(nCode);
+		List<NoticeFileDTO> list = nService.selectFileParentSeq(fdto);
+		
+		nr.addDataSet("out_ds",dto);
+		nr.addDataSet("out_ds2",list);
+		return nr;
+	}
+	@RequestMapping("/downloadNotice.notice")
+	public NexacroFileResult downNoticeFile(HttpServletRequest request) throws Exception {
+		System.out.println("다운로드 확인");
+		String filePath = session.getServletContext().getRealPath("NoticeFiles"); //현재 파일이 존재하는 폴더 경로 가져오기
+		File targetFile = null; //실제 파일 취급
+		String tranName =""; //다운받을 파일에 입힐 이름
+
+
+		int seq = Integer.parseInt(request.getParameter("seq")); // 부모 고유 번호 받아오기
+		String fileTitle = request.getParameter("title");
+		System.out.println("SEQ : " + seq);
+		System.out.println("TITLE : " + fileTitle);
+		
+		NoticeFileDTO fdto = new NoticeFileDTO();
+		fdto.setParentSeq(seq);
+		List<NoticeFileDTO> list = nService.selectFileParentSeq(fdto);
+		int countFile = list.size(); // 해당 게시물에 총 첨부된 파일 갯수
+
+		ArrayList arrSaved = new ArrayList(); //저장된 이름
+		ArrayList arrOrg = new ArrayList(); // 원래 이름
+		//그중 다운로드 될 파일 갯수 및 이름 조회
+		for(int i=0;i<countFile;i++) {
+			String downSFile  = request.getParameter("savedFileName'"+i+"'"); // 넥사에서 setPostData로 보낸 데이터		
+			arrSaved.add(i, downSFile);
+			String downOFile  = request.getParameter("fileName'"+i+"'"); // 넥사에서 setPostData로 보낸 데이터
+			System.out.println("downOFILE : " + downOFile);
+			arrOrg.add(i, downOFile);
+		}
+
+
+		for(int i=0; i<arrSaved.size();i++) {
+			//파일이 2개 이상이면 압축파일로 저장한다.
+			if(arrSaved.size()>1) {
+				String uid = UUID.randomUUID().toString().replaceAll("-", "");
+			    targetFile = sService.getCompressZipFile(arrSaved, filePath, "compressZip_"+uid);	    
+			    tranName = fileTitle+".zip";
+			} else {
+				targetFile = new File(filePath+"/"+arrSaved.get(i));
+				tranName =(String)arrOrg.get(i);
+			}
+		}
+
+		NexacroFileResult nfr = new NexacroFileResult(targetFile);
+		nfr.setOriginalName(tranName);
+		return nfr;
+	}    
 	@ExceptionHandler
 	public String exceptionhandler(Exception e){
 		e.printStackTrace();

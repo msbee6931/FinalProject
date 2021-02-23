@@ -57,16 +57,13 @@ li {
 	box-sizing: border-box;
 	
 }
-
-
-
 .headt2 {
-font-family: 'GmarketSansLight';
+	font-family: 'GmarketSansLight';
 	background-color: white;
 }
 
 nav {
-	background-color: white;
+	background-color: #ffffff;
 }
 
 .nav-item {
@@ -94,12 +91,10 @@ nav {
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item p-3"><a class="nav-link active"
 								aria-current="page" href="introduce.home"><b>학교소개</b></a></li>
-							<li class="nav-item p-3"><a class="nav-link active" href="/normalList.notice?page=1"
+							<li class="nav-item p-3"><a class="nav-link active" href="normalList.notice?page=1"
 								tabindex="-1"><b>공지사항</b></a></li>
-							
-							<li class="nav-item p-3"><a class="nav-link active" href="schoolSchedule"
+							<li class="nav-item p-3"><a class="nav-link active" href="/schoolSchedule"
 								tabindex="-1"><b>학사스케쥴</b></a></li>
-
 							<li class="nav-item p-3"><a class="nav-link active" href="/free/boardList"
 								tabindex="-1"><b>게시판</b></a></li>
 							
@@ -114,10 +109,5 @@ nav {
 			</nav>
 		</div>
 </body>
-<script>
-document.getElementById('pop').onclick = function() {
-		window.open('/pop.home','', 'width=500,height=500,left=0,top=0');
-//        openPopup('quiz03.html')
-}
-</script>
+
 </html>

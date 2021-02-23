@@ -87,8 +87,13 @@
 	}
 </script>
 
-
 <style>
+@font-face {
+    font-family: 'HangultuelGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.10/HangultuelGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 @font-face {
 	font-family: 'GmarketSansBold';
 	src:
@@ -116,6 +121,13 @@
 	font-style: normal;
 }
 
+*{
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	-ms-overflow-style: none;
+}
+::-webkit-scrollbar { display: none; }
 a {
 	text-decoration: none;
 }
@@ -129,7 +141,6 @@ li {
 }
 
 .container {
-	margin: 40px 10px;
 	padding: 0;
 	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 	font-size: 14px;
@@ -141,11 +152,13 @@ li {
 }
 
 .headt1 {
-	font-family: 'GmarketSansMedium';
+	font-family: 'GmarketSansLight';
 	font-size: 13px;
-	text-align: center;
-	color: white;
-	background-color: #435a7c;
+	text-align: right;
+	background-color: #0d6efd;
+	color: #ffffff;
+	/* background-color: #435a7c; */
+	padding: 15px 0px;
 }
 
 .headt2 {
@@ -168,33 +181,49 @@ nav {
 .normal, .academic, .scholar, .employment {
 	display: none;
 }
+.txt{
+	color: #ffffff;
+}
+.news{
+	display: flex;
+	justify-content: space-around;
+}
+.news .newsBoard,
+.news .newsCalendar{
+/* 	padding: 0px 30px;
+	height: 400px;
+	overflow: scroll; */
+}
 </style>
 </head>
 
 <body onload="javascript:openPopup('pop.home')">
-	<div class="contatiner">
-		<div class="d-flex flex-row-reverse headt1 ">
-			<a href="/nex" class="p-4">종합정보</a>
-			<c:choose>
-				<c:when test="${std == null && pro == null && adm == null}">
-					<a href="/loginPage.log" class="p-4">로그인</a>
-				</c:when>
-				<c:otherwise>
-					<a href="/logOut.log" class="p-4">로그아웃</a>
-				</c:otherwise>
-			</c:choose>
-			<a class="p-4" id="pop">팝업창</a>
+	<div class="container-fluid p-0">
+		<div class="row headt1">
+			<div class="col">
+				<a class="p-4 txt" id="pop">팝업창</a>
+				<c:choose>
+					<c:when test="${std == null && pro == null && adm == null}">
+						<a href="/loginPage.log" class="p-4 txt">로그인</a>
+					</c:when>
+					<c:otherwise>
+						<a href="/logOut.log" class="p-4 txt">로그아웃</a>
+					</c:otherwise>
+				</c:choose>
+				<a href="/nex" class="p-4 txt">종합정보</a>
+			</div>
+
 		</div>
 		<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
 		<div class="row body">
-			<div class="col">
+				<div class="col p-0">
 				<div id="carouselExampleInterval" class="carousel slide"
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-bs-interval="10000">
 							<img src="/img/carousel1.jpg" class="d-block w-100" alt="...">
 						</div>
-						<div class="carousel-item active" data-bs-interval="5000">
+						<div class="carousel-item" data-bs-interval="5000">
 							<img src="/img/carousel2.jpg" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
@@ -217,11 +246,9 @@ nav {
 		<div class="container">
 			<div class="row text-center py-5">
 				<div class="col">
-					<h2>
-						<b>새로운 소식</b>
-					</h2>
+					<h2><b>새로운 소식</b></h2>
+					<p>KH정보교육원의 다양한 소식을 전해드립니다.</p>
 				</div>
-				'
 			</div>
 			<div class="row mb-5">
 				<div class="col-12 col-lg-6">
@@ -420,6 +447,7 @@ nav {
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
 		</footer>
 	</div>
+
 	
 	
 					<input type="hidden" id= size value=${size }><br>
@@ -435,12 +463,12 @@ nav {
 	
 </body>
 <script>
+
 	var error =document.getElementById("error").value;
 	if(error=='Login이 필요한 페이지입니다.'){
 		alert(error);
 	}
 	
-
 	document.getElementById('pop').onclick = function() {
 		window.open('pop.home', '', 'width=500,height=500,left=0,top=0');
 		//        openPopup('quiz03.html')

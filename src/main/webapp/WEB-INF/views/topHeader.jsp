@@ -6,10 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Top Header</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <style>
 @font-face {
 	font-family: 'GmarketSansMedium';
@@ -19,25 +25,40 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'GmarketSansLight';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 .headt1 {
-font-family: 'GmarketSansMedium';
+	font-family: 'GmarketSansLight';
 	font-size: 13px;
-	color: white;
-	background-color: #435a7c;
+	text-align: right;
+	/* background-color: #435a7c; */
+	background-color: #0d6efd;
+	padding: 15px 0px;
+}
+.txt{
+	color: #ffffff;
 }
 </style>
 </head>
 <body>
-		<div class="d-flex flex-row-reverse headt1 ">
-			<a href="/nex" class="p-4">종합정보</a> 
-				<c:choose>
+	<div class="row headt1 ">
+		<div class="col">
+			<c:choose>
 				<c:when test="${std == null && pro == null && adm == null}">
-					<a href="/loginPage.log" class="p-4">로그인</a>
+					<a href="/loginPage.log" class="p-4 txt">로그인</a>
 				</c:when>
 				<c:otherwise>
-					<a href="/logOut.log" class="p-4">로그아웃</a>
+					<a href="/logOut.log" class="p-4 txt">로그아웃</a>
 				</c:otherwise>
 			</c:choose>
+			<a href="/nex" class="p-4 txt">종합정보</a> 
 		</div>
+	</div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <mapper namespace="Scholarship">
 
 <insert id="insertScholarship" >
-	insert into scholarship values (scholarship_seq.nextval,#{std_code},#{s_kind},#{s_rec},#{s_smt},#{s_spt},#{s_etc},#{sSum},sysdate)
+	insert into scholarship values (scholarship_seq.nextval,#{std_code},#{std_grade},#{s_kind},#{s_rec},#{s_smt},#{s_spt},#{s_etc},#{sSum},sysdate)
 </insert>
 
 <insert id="reqSchFile">
@@ -46,7 +46,7 @@ select * from scholarship where std_code=#{std_code}
 	update reqScholar set checkRead='읽음' where seq=#{seq}
 </update>
 <select id="selectAll" resultType="kh.spring.dto.ScholarshipDTO">
-	select * from scholarship
+	select * from scholarship order by 2
 </select>
 <select id="selectOne" resultType="kh.spring.dto.ScholarshipDTO">
 	select * from scholarship where seq=#{seq}
@@ -66,5 +66,8 @@ select * from scholarship where std_code=#{std_code}
 <delete id="deleteReqfile">
 	delete from reqSchFile where parentSeq =#{parentSeq}
 </delete>
+<select id="stdSelectOne" resultType="kh.spring.dto.ScholarshipDTO">
+	select * from scholarship where std_code=#{std_code} 
+</select>
 
 </mapper>

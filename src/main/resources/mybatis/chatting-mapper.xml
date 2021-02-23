@@ -42,7 +42,7 @@
  	</update>
  	
  	<insert id="insertChatUser">
-		insert into chatUser(userId,userName) values(#{userId},#{userName});
+		insert into chatUser(userId,userName) values(#{userId},#{userName})
 	</insert>
 	
 	<delete id="deleteChatUserStu">

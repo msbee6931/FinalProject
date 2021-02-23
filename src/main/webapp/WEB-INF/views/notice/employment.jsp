@@ -37,7 +37,7 @@
 <body>
 	<div class="contatiner">
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
-	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>p"/>
+	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
 		<div class="row pt-3">
 			<div class="d-flex flex-row-reverse">

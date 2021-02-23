@@ -5,7 +5,7 @@
 <mapper namespace="Tuition">
 
 <insert id="insertTuition">
-	insert into tuition values (tuition_seq.nextval,#{std_code},#{t_enter},#{t_class},#{t_std},#{t_grd},#{t_ore},#{tSum},sysdate)
+	insert into tuition values (tuition_seq.nextval,#{std_code},#{std_grade},#{t_enter},#{t_class},#{t_std},#{t_grd},#{t_ore},#{tSum},sysdate)
 </insert>
 
 <select id="selectByStd_code" resultType="kh.spring.dto.TuitionDTO">
@@ -23,4 +23,7 @@ select * from tuition where std_code=#{std_code}
 <delete id="deleteOne">
 	delete from tuition where seq=#{seq}
 </delete>
+<select id="stdSelectOne" resultType="kh.spring.dto.TuitionDTO">
+	select * from tuition where std_code=#{std_code} order by 2
+</select>
 </mapper>

@@ -61,6 +61,11 @@
         this.fn_addTab = function(formId, menuName)
         {
         	this.tab_menu.insertTabpage(formId, -1,"",menuName);
+<<<<<<< HEAD
+=======
+        	var addRow = this.adm_form.addRow()
+        	this.adm_form.setColumn(addRow,"form_id",formId);
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         }
 
 
@@ -100,17 +105,32 @@
 
         this.tab_menu_onextrabuttonclick = function(obj,e)
         {
+<<<<<<< HEAD
         	var formId = obj.tabpages[e.index].name;
         	this.av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
         	this.av_FrameSet[formId].form.close();
         	this.tab_menu.removeTabpage(e.index);
+=======
+        	this.av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
+        	var formId = obj.tabpages[e.index].name;
+        	this.av_FrameSet[formId].form.close();
+        	this.tab_menu.removeTabpage(e.index);
+
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         	//index 는 정해진 값이라서 index 사용
 
         	var nRow = this.adm_form.findRow("form_id",formId);
         	this.adm_form.deleteRow(nRow);
         	/*trace(this.adm_form.saveXML());*/
         	// Left에서 추가시켰던 row를 다시 지워주는 행위
+<<<<<<< HEAD
 
+=======
+        	trace("개수 : " + this.adm_form.getRowCount());
+        	if(this.adm_form.getRowCount() == 0){
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("0,*,0");
+        	}
+>>>>>>> 16033e5541c84931c834d0d198cd703946ae2ecf
         };
 
 
