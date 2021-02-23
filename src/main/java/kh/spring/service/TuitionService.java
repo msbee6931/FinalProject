@@ -33,4 +33,7 @@ public class TuitionService {
 	public int deleteOne(int seq) {
 		return tDao.deleteOne(seq);
 	}
+	public List<TuitionDTO> stdSelectOne(int user) {
+		return tDao.stdSelectOne(user);
+	}
 }

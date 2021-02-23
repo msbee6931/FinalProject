@@ -153,5 +153,8 @@ public class ScholarshipService {
 	public int deleteReqfile(int parentSeq) {
 		return sDao.deleteReqfile(parentSeq);
 	}
+	public List<ScholarshipDTO> stdSelectOne(int std_code){
+		return sDao.stdSelectOne(std_code);
+	}
 }
 
