@@ -53,7 +53,9 @@
             obj.set_taborder("0");
             obj.set_binddataset("ds_myClass");
             obj.set_autofittype("col");
+
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"31\"/><Column size=\"63\"/><Column size=\"43\"/><Column size=\"158\"/><Column size=\"81\"/><Column size=\"45\"/><Column size=\"59\"/><Column size=\"84\"/><Column size=\"152\"/><Column size=\"50\"/><Column size=\"90\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"과목코드\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"담당교수\" textAlign=\"center\"/><Cell col=\"7\" text=\"학과\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"신청/제한인원\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:className\" textAlign=\"center\" wordWrap=\"english\" tooltiptext=\"상세보기\" textDecoration=\"underline\" cursor=\"pointer\"/><Cell col=\"4\" text=\"bind:classSeq\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:dept\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
+
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00","20","15","140","30",null,null,null,null,null,null,this);
@@ -88,12 +90,6 @@
             obj = new Static("sta_point","670","10","40","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00_00","1051","0","29","520",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_visible("false");
-            obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             // Layout Functions

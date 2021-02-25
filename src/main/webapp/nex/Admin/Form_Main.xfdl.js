@@ -92,7 +92,7 @@
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_schedule","750","36","290","224",null,null,null,null,null,null,this);
+            obj = new Calendar("cal_schedule","790","36","290","224",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_type("monthonly");
             obj.set_innerdataset("ds_cal");
@@ -102,7 +102,7 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_schedule","750","280","290","210",null,null,null,null,null,null,this);
+            obj = new Grid("gr_schedule","790","280","290","210",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_binddataset("ds_colSchedule");
             obj.set_autofittype("col");
@@ -115,12 +115,12 @@
             obj.set_text("즐겨찾기");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","318","10","92","44",null,null,null,null,null,null,this);
+            obj = new Static("Static01","348","10","92","44",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("공지사항");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_notice","310","80","420","306",null,null,null,null,null,null,this);
+            obj = new Grid("gr_notice","340","80","420","306",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
@@ -128,44 +128,44 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"46\"/><Column size=\"196\"/><Column size=\"64\"/><Column size=\"112\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:deptcode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ds_deptcode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"2\" displaytype=\"imagecontrol\" imagestretch=\"fixaspectratio\" background=\"transparent\" text=\"expr:file==&quot;Y&quot;?&quot;theme://images/file.png&quot;:&quot;&quot;\" cursor=\"pointer\"/><Cell col=\"3\" text=\"bind:writedate\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd \" displaytype=\"calendarcontrol\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAll","310","51","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnAll","340","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("전체");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNormal","370","51","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnNormal","400","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("일반");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAcademic","430","51","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnAcademic","460","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("학사");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnScholar","490","51","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnScholar","520","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("장학");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnEmployment","550","51","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnEmployment","580","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("취업");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnMore","670","50","60","30",null,null,null,null,null,null,this);
+            obj = new Button("btnMore","700","50","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("more+");
             obj.set_visible("false");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_month","910","260","130","20",null,null,null,null,null,null,this);
+            obj = new Combo("co_month","950","260","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -175,7 +175,7 @@
             obj.set_innerdataset(co_month_innerdataset);
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_schedule","750","260","91","20",null,null,null,null,null,null,this);
+            obj = new Static("sta_schedule","790","260","91","20",null,null,null,null,null,null,this);
             obj.set_taborder("18");
             obj.set_text("남은 일정");
             this.addChild(obj.name, obj);

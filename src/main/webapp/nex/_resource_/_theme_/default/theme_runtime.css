@@ -873,7 +873,6 @@
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 * .Button.btn_home .nexacontentsbox
 {
@@ -1525,7 +1524,6 @@
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 * .Button.btn_home[status=mouseover] .nexacontentsbox
 {
@@ -1536,7 +1534,6 @@
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 * .Button.btn_home[status=focused] .nexacontentsbox
 {
@@ -1997,7 +1994,6 @@
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 * .Button.btn_home[userstatus=pushed] .nexacontentsbox
 {
@@ -2008,7 +2004,6 @@
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 * .Button.btn_home[userstatus=selected] .nexacontentsbox
 {
@@ -2555,7 +2550,6 @@
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 * .Button.btn_home[status=disabled] .nexacontentsbox
 {

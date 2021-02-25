@@ -1126,7 +1126,6 @@ div.Button.btn_home
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 div.Button.btn_home .nexacontentsbox
 {
@@ -1814,7 +1813,6 @@ div#nexacontainer .Button.btn_home[status=mouseover]
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 div#nexacontainer .Button.btn_home[status=mouseover] .nexacontentsbox
 {
@@ -1826,7 +1824,6 @@ div#nexacontainer .Button.btn_home[status=focused]
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 div#nexacontainer .Button.btn_home[status=focused] .nexacontentsbox
 {
@@ -2318,7 +2315,6 @@ div#nexacontainer .Button.btn_home[userstatus=pushed]
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 div#nexacontainer .Button.btn_home[userstatus=pushed] .nexacontentsbox
 {
@@ -2330,7 +2326,6 @@ div#nexacontainer .Button.btn_home[userstatus=selected]
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 div#nexacontainer .Button.btn_home[userstatus=selected] .nexacontentsbox
 {
@@ -2891,7 +2886,6 @@ div#nexacontainer .Button.btn_home[status=disabled]
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
-	border : 1px solid #0d6efd;
 }
 div#nexacontainer .Button.btn_home[status=disabled] .nexacontentsbox
 {

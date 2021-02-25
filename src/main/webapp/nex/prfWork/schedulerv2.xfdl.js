@@ -23,26 +23,29 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Graphics("grpScheduler","50","75","981","415",null,null,"100",null,"100",null,this);
+            obj = new Graphics("grpScheduler","50","75",null,null,"49","30","100",null,"100",null,this);
             obj.set_taborder("0");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnPrev","386","30","20","20",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("<");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnNext","656","30","20","20",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
-            obj.set_text(">");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("stYearMonth","442","21","178","39",null,null,null,null,null,null,this);
+            obj = new Static("stYearMonth","442","21","178",null,null,"grpScheduler:15",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNew","931","31","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btnPrev","386","30","20",null,null,"grpScheduler:25",null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_text("<");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnNext","656","30","20",null,null,"grpScheduler:25",null,null,null,null,this);
+            obj.set_taborder("2");
+            obj.set_text(">");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnNew","grpScheduler:-100","31","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("일정등록");
             obj.set_cssclass("btn_insert");
@@ -72,52 +75,47 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Static("Static02","50","41","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("9");
-            obj.set_text("나의 스케줄");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02","715","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
             obj.set_text("");
             obj.set_background("#78a2dd");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03","726","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj = new Static("Static03","61","39","38","15",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
             obj.set_text("중간");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00","765","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj = new Static("Static02_00","100","41","10","10",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
             obj.set_text("");
             obj.set_background("#ab9f1b");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00","776","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
+            obj = new Static("Static03_00","111","39","38","15",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
             obj.set_text("낮음");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00","815","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
+            obj = new Static("Static02_00_00","150","41","10","10",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
             obj.set_text("");
             obj.set_background("#6ebe8e");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00_00","826","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
+            obj = new Static("Static03_00_00","161","39","38","15",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
             obj.set_text("높음");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00_00","865","41","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
+            obj = new Static("Static02_00_00_00","200","41","10","10",null,null,null,null,null,null,this);
+            obj.set_taborder("15");
             obj.set_text("");
             obj.set_background("#d23636");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00_00_00","876","39","38","15",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
+            obj = new Static("Static03_00_00_00","211","39","38","15",null,null,null,null,null,null,this);
+            obj.set_taborder("16");
             obj.set_text("긴급");
             this.addChild(obj.name, obj);
 
