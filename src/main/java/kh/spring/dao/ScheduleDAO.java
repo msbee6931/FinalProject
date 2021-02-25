@@ -21,6 +21,9 @@ public class ScheduleDAO {
 	public int insertDeptSchedule(DeptScheduleDTO dto) {
 		return session.insert("Schedule.insertDeptSchedule", dto);
 	}
+	public int updateDeptSchedule(DeptScheduleDTO dto) {
+		return session.update("Schedule.updateDeptSchedule", dto);
+	}
 	
 	public List<DeptScheduleDTO> selectDeptSchedule() {
 		return session.selectList("Schedule.selectDeptSchedule");
@@ -30,11 +33,8 @@ public class ScheduleDAO {
 		return session.update("Schedule.updateDeptScheule", dto);
 	}
 	
-	public DeptScheduleDTO selectOneDeptSchedule(String seq, String schDate) {
-		   Map<String,String> param = new HashMap<>();
-		   param.put("seq", seq);
-		   param.put("schDate", schDate);
-		return session.selectOne("Schedule.selectOneDeptSchedule", param);
+	public DeptScheduleDTO selectOneDeptSchedule(String seq) {
+		return session.selectOne("Schedule.selectOneDeptSchedule", seq);
 	}
 	
 	public int deleteDeptSchedule(String oriSeq) {

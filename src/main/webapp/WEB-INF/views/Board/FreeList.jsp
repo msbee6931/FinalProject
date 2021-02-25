@@ -121,6 +121,12 @@ nav {
 		<jsp:include page="/WEB-INF/views/topHeader.jsp" />
 		<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
 
+									<div class="choose">
+				<br> <a href="/free/boardList">자유게시판</a> <br> <a
+					href="/request/boardList">건의게시판</a>
+			</div>
+
+			<div class="blank"></div>
 			<div class="row">
 			<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
 			<div class="col-xl-12 d- pt-4" id="box">
@@ -130,6 +136,7 @@ nav {
 								<b>자유게시판</b>
 							</H3>
 						</div>
+
 						<div class="col-12">
 							 <form action = /free/search method="post" class="row">
 								<div class="col-md-6 order-md-2">

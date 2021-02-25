@@ -6,16 +6,16 @@ public class RestDTO {
 	private int seq;
 	private int std_code;
 	private String title;
-	private Date wirteDate;
+	private Date writeDate;
 	
 	public RestDTO() {}
 
-	public RestDTO(int seq, int std_code, String title, Date wirteDate) {
+	public RestDTO(int seq, int std_code, String title, Date writeDate) {
 		super();
 		this.seq = seq;
 		this.std_code = std_code;
 		this.title = title;
-		this.wirteDate = wirteDate;
+		this.writeDate = writeDate;
 	}
 
 	public int getSeq() {
@@ -42,14 +42,14 @@ public class RestDTO {
 		this.title = title;
 	}
 
-	public Date getWirteDate() {
-		return wirteDate;
+	public Date getWriteDate() {
+		return writeDate;
 	}
 
-	public void setWirteDate(Date wirteDate) {
-		this.wirteDate = wirteDate;
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
 	}
-	
+
 	
 	
 	

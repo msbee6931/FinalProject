@@ -78,6 +78,7 @@ public class FreeCommentController {
 	         
 	 		FreeBoardDTO dto2 = FBservice.selectBySeq(Integer.toString(dto.getMain_seq()));
 			model.addAttribute("dto",dto2);
+			model.addAttribute("id",seq);
 	         return "Board/FreeView";
 	      }
 	      return "false" ;
