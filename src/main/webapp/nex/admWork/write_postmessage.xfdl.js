@@ -95,7 +95,8 @@
             obj.set_taborder("3");
             obj.set_binddataset("professor");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"132\"/><Column size=\"96\"/><Column size=\"132\"/><Column size=\"140\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"p_seq\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"email\"/><Cell col=\"3\" text=\"contact\"/></Band><Band id=\"body\"><Cell text=\"bind:p_seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:email\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:contact\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"132\"/><Column size=\"96\"/><Column size=\"132\"/><Column size=\"140\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"id\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"email\"/><Cell col=\"3\" text=\"contact\"/></Band><Band id=\"body\"><Cell text=\"bind:p_seq\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:email\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:contact\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00","519","90","100","29",null,null,null,null,null,null,this.Div00.form);

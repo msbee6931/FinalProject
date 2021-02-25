@@ -53,11 +53,7 @@
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Grid("Grid00","9","68","1000","322",null,null,null,null,null,null,this.Div00.form);
-=======
             obj = new Grid("Grid00","9","68",null,null,"10","59",null,null,null,null,this.Div00.form);
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("0");
             obj.set_autofittype("col");
             obj.set_binddataset("rlist_ds");

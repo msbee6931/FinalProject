@@ -189,11 +189,6 @@ div {
 		<div class= mainReply>${dto.reply }</div>
 	</div>
 
-				<!-- footer -->
-		<footer>
-			<jsp:include page="/WEB-INF/views/footer.jsp" />
-		</footer>
-	
 
 	<script>      
       

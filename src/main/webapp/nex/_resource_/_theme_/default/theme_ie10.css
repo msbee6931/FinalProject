@@ -685,20 +685,12 @@ input::-ms-clear,input::-ms-reveal
 	text-align : center;
 	background-position-x : center;
 }
-<<<<<<< HEAD
 .Radio .radioitem
-=======
-div.Radio .radioitem
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	font : 12px "Malgun Gothic";
 	color : #0d6efd;
 }
-<<<<<<< HEAD
 .Sketch
-=======
-div.Sketch
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #ffffff;
 	border : 1px solid #d5d5d5;
@@ -1009,19 +1001,11 @@ div.Sketch
 	color : #0d6efd;
 	font : 12px "-윤고딕330";
 }
-<<<<<<< HEAD
 .Combo.cmb_default
 {
 	border : 1px solid #0d6efd;
 }
 .Combo.cmb_default .comboedit
-=======
-div.Combo.cmb_default
-{
-	border : 1px solid #0d6efd;
-}
-div.Combo.cmb_default .comboedit
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #ffffff;
 	color : #0d6efd;
@@ -1152,54 +1136,38 @@ div.Combo.cmb_default .comboedit
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 }
-<<<<<<< HEAD
 .Button.btn_can
-=======
-div.Button.btn_can
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
-<<<<<<< HEAD
 .TextArea.txt_default
-=======
-div.TextArea.txt_default
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
-<<<<<<< HEAD
 .MaskEdit.med_default
-=======
-div.MaskEdit.med_default
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
-#nexacontainer .Button[status=mouseover]
-=======
-div.Button.btn_pdf
+.Button.btn_pdf
 {
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
 }
-div.Button.btn_pdf .nexacontentsbox
+.Button.btn_pdf .nexacontentsbox
 {
 	text-align : center;
 	background-position-x : center;
 }
-div#nexacontainer .Button[status=mouseover]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
+#nexacontainer .Button[status=mouseover]
 {
 	background : #e7e7e7;
 	background : linear-gradient(to top,#e7e7e7,#fefefe);
@@ -1928,115 +1896,67 @@ div#nexacontainer .Button[status=mouseover]
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
-<<<<<<< HEAD
 #nexacontainer .TextArea.txt_default[status=focused]
-=======
-div#nexacontainer .Button.btn_can[status=mouseover]
-{
-	background : #1c0c7c;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #1c0c7c;
-}
-div#nexacontainer .Button.btn_can[status=focused]
-{
-	background : #1c0c7c;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #1c0c7c;
-}
-div#nexacontainer .TextArea.txt_default[status=mouseover]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
-<<<<<<< HEAD
 #nexacontainer .TextArea.txt_default[status=readonly]
-=======
-div#nexacontainer .TextArea.txt_default[status=focused]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
-<<<<<<< HEAD
 #nexacontainer .MaskEdit.med_default[status=mouseover]
-=======
-div#nexacontainer .TextArea.txt_default[status=readonly]
-{
-	border : 1px solid #0d6efd;
-	font : 12px "Malgun Gothic";
-	color : #383838;
-}
-div#nexacontainer .MaskEdit.med_default[status=mouseover]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
 #nexacontainer .MaskEdit.med_default[status=focused]
-=======
-div#nexacontainer .MaskEdit.med_default[status=focused]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
 #nexacontainer .MaskEdit.med_default[status=readonly]
-=======
-div#nexacontainer .MaskEdit.med_default[status=readonly]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
 #nexacontainer .Combo.cmb_default[status=readonly]
-=======
-div#nexacontainer .Combo.cmb_default[status=readonly]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #0d6efd;
 }
-<<<<<<< HEAD
+#nexacontainer .Button.btn_pdf[status=mouseover]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+#nexacontainer .Button.btn_pdf[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_pdf[status=focused]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+#nexacontainer .Button.btn_pdf[status=focused] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
 #nexacontainer .Form[userstatus=contents]
-=======
-div#nexacontainer .Button.btn_pdf[status=mouseover]
-{
-	color : #0d6efd;
-	font : 12px "Malgun Gothic";
-	background : #ffffff;
-	border : 1px solid #0d6efd;
-}
-div#nexacontainer .Button.btn_pdf[status=mouseover] .nexacontentsbox
-{
-	text-align : center;
-	background-position-x : center;
-}
-div#nexacontainer .Button.btn_pdf[status=focused]
-{
-	color : #0d6efd;
-	font : 12px "Malgun Gothic";
-	background : #ffffff;
-	border : 1px solid #0d6efd;
-}
-div#nexacontainer .Button.btn_pdf[status=focused] .nexacontentsbox
-{
-	text-align : center;
-	background-position-x : center;
-}
-div#nexacontainer .Form[userstatus=contents]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : transparent;
 }
@@ -2440,87 +2360,63 @@ div#nexacontainer .Form[userstatus=contents]
 {
 	border : 1px solid #0d6efd;
 }
-<<<<<<< HEAD
 #nexacontainer .Button.btn_can[userstatus=pushed]
-=======
-div#nexacontainer .Button.btn_can[userstatus=pushed]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
-<<<<<<< HEAD
 #nexacontainer .Button.btn_can[userstatus=selected]
-=======
-div#nexacontainer .Button.btn_can[userstatus=selected]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
-<<<<<<< HEAD
 #nexacontainer .TextArea.txt_default[userstatus=nulltext]
-=======
-div#nexacontainer .TextArea.txt_default[userstatus=nulltext]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
-<<<<<<< HEAD
 #nexacontainer .MaskEdit.med_default[userstatus=nulltext]
-=======
-div#nexacontainer .MaskEdit.med_default[userstatus=nulltext]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
 #nexacontainer .MaskEdit.med_default[userstatus=invalidtext]
-=======
-div#nexacontainer .MaskEdit.med_default[userstatus=invalidtext]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
+#nexacontainer .Button.btn_pdf[userstatus=pushed]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+#nexacontainer .Button.btn_pdf[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_pdf[userstatus=selected]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+#nexacontainer .Button.btn_pdf[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
 #nexacontainer .Form[status=disabled]
-=======
-div#nexacontainer .Button.btn_pdf[userstatus=pushed]
-{
-	color : #0d6efd;
-	font : 12px "Malgun Gothic";
-	background : #ffffff;
-	border : 1px solid #0d6efd;
-}
-div#nexacontainer .Button.btn_pdf[userstatus=pushed] .nexacontentsbox
-{
-	text-align : center;
-	background-position-x : center;
-}
-div#nexacontainer .Button.btn_pdf[userstatus=selected]
-{
-	color : #0d6efd;
-	font : 12px "Malgun Gothic";
-	background : #ffffff;
-	border : 1px solid #0d6efd;
-}
-div#nexacontainer .Button.btn_pdf[userstatus=selected] .nexacontentsbox
-{
-	text-align : center;
-	background-position-x : center;
-}
-div#nexacontainer .Form[status=disabled]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #999999;
 }
@@ -2974,42 +2870,19 @@ div#nexacontainer .Form[status=disabled]
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
-<<<<<<< HEAD
-#nexacontainer .CheckBox[status=disabled][userstatus=selected]
-=======
-div#nexacontainer .Button.btn_can[status=disabled]
-{
-	background : #1c0c7c;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #1c0c7c;
-}
-div#nexacontainer .TextArea.txt_default[status=disabled]
-{
-	border : 1px solid #0d6efd;
-	font : 12px "Malgun Gothic";
-	color : #383838;
-}
-div#nexacontainer .MaskEdit.med_default[status=disabled]
-{
-	color : #0d6efd;
-	border : 1px solid #0d6efd;
-	font : 12px "Malgun Gothic";
-}
-div#nexacontainer .Button.btn_pdf[status=disabled]
+#nexacontainer .Button.btn_pdf[status=disabled]
 {
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
 }
-div#nexacontainer .Button.btn_pdf[status=disabled] .nexacontentsbox
+#nexacontainer .Button.btn_pdf[status=disabled] .nexacontentsbox
 {
 	text-align : center;
 	background-position-x : center;
 }
-div#nexacontainer .CheckBox[status=disabled][userstatus=selected]
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
+#nexacontainer .CheckBox[status=disabled][userstatus=selected]
 {
 	color : #999999;
 }

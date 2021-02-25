@@ -56,7 +56,8 @@
             obj.set_taborder("0");
             obj.set_binddataset("pst");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"71\"/><Column size=\"154\"/><Column size=\"154\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"confirm\"/><Cell col=\"2\" text=\"sender\"/><Cell col=\"3\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:confirm\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:sender\" edittype=\"mask\" maskedittype=\"number\" maskeditformat=\"#########\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:receiver\" maskedittype=\"number\" edittype=\"mask\" maskeditformat=\"#########\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"71\"/><Column size=\"154\"/><Column size=\"154\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"confirm\"/><Cell col=\"2\" text=\"sender\"/><Cell col=\"3\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:confirm\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:sender\" maskedittype=\"number\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:receiver\" maskedittype=\"number\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00","509","26","498","395",null,null,null,null,null,null,this.Div00.form);

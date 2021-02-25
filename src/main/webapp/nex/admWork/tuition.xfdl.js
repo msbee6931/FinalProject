@@ -71,7 +71,6 @@
             obj.set_taborder("3");
             obj.set_text("전체 보기");
             obj.set_cssclass("btn_default");
-<<<<<<< HEAD
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00","8","21","420","40",null,null,null,null,null,null,this.Div00.form);
@@ -79,15 +78,6 @@
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-=======
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Div("Div00","8","21","420","40",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("4");
-            obj.set_cssclass("div_line");
-            this.Div00.addChild(obj.name, obj);
-
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj = new Combo("cmb_cate","15","7","80","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             obj.set_codecolumn("codecolumn");
@@ -295,13 +285,6 @@
         	this.tuition_ds.filter("");
         };
 
-<<<<<<< HEAD
-        this.Static01_onclick = function(obj,e)
-        {
-
-        };
-=======
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 
         });
         

@@ -32,7 +32,8 @@
             obj.set_taborder("1");
             obj.set_binddataset("admin_alarm");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"42\"/><Column size=\"68\"/><Column size=\"77\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\"/><Cell col=\"3\" text=\"bind:receiver\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"42\"/><Column size=\"68\"/><Column size=\"77\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:receiver\" displaytype=\"text\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("del_btn","135","542","102","36",null,null,null,null,null,null,this);
@@ -137,6 +138,7 @@
                     ,"reply="+reply
                     ,"fn_callback"
                  )
+        		 alert("등록되었습니다.");
         };
 
         this.del_btn_onclick = function(obj,e)

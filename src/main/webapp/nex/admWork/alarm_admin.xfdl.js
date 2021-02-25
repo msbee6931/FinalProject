@@ -32,7 +32,8 @@
             obj.set_taborder("1");
             obj.set_binddataset("admin_alarm");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"92\"/><Column size=\"99\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"보낸이\"/><Cell col=\"2\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:sender\" edittype=\"mask\" maskeditformat=\"#########\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:receiver\" edittype=\"mask\" maskeditformat=\"#########\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"92\"/><Column size=\"99\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"보낸이\"/><Cell col=\"2\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:sender\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:receiver\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("del_btn","135","542","100","30",null,null,null,null,null,null,this);

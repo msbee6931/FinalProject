@@ -57,7 +57,7 @@
             obj.set_binddataset("pst");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"121\"/><Column size=\"127\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"sender\"/><Cell col=\"2\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:sender\" textAlign=\"center\" edittype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"2\" text=\"bind:receiver\" textAlign=\"center\" edittype=\"mask\" maskeditformat=\"#########\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"121\"/><Column size=\"127\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"sender\"/><Cell col=\"2\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:sender\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:receiver\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00","320","240","679","172",null,null,null,null,null,null,this.Div00.form);

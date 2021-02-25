@@ -113,11 +113,7 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","127","205","575","70",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("18");
-=======
             obj.set_taborder("17");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_binddataset("absFileList_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
@@ -161,11 +157,7 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","28","89","70","30",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("5");
-=======
             obj.set_taborder("4");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_text("학 년");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
@@ -177,31 +169,19 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00_00_00","28","176","70","30",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("14");
-=======
             obj.set_taborder("13");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_text("사 유");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00_00","28","147","70","30",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("13");
-=======
             obj.set_taborder("12");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_text("기 간");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00","28","118","70","30",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("11");
-=======
             obj.set_taborder("10");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_text("주 소");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
@@ -213,11 +193,7 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_02","28","205","100","70",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("15");
-=======
             obj.set_taborder("14");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_text("첨부파일");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
@@ -229,15 +205,6 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Calendar("cal_sDate","107","153","150","20",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("23");
-            obj.set_cssclass("cal_default");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Calendar("cal_eDate","299","153","150","20",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("24");
-            obj.set_cssclass("cal_default");
-=======
             obj.set_taborder("22");
             obj.set_cssclass("cal_default");
             obj.set_readonly("true");
@@ -247,7 +214,6 @@
             obj.set_taborder("23");
             obj.set_cssclass("cal_default");
             obj.set_readonly("true");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static05","277","154","19","19",null,null,null,null,null,null,this.Div00.form);
@@ -271,11 +237,7 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Combo("Combo00","97","61","192","31",null,null,null,null,null,null,this.Div00.form);
-<<<<<<< HEAD
-            obj.set_taborder("28");
-=======
             obj.set_taborder("27");
->>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_innerdataset("deptCode");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
