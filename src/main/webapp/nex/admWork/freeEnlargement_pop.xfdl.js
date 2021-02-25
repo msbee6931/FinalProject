@@ -13,20 +13,20 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1000,600);
+                this._setFormPosition(1200,600);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
 
             
             // UI Components Initialize
-            obj = new WebBrowser("WebBrowser00","20","20","960","560",null,null,null,null,null,null,this);
+            obj = new WebBrowser("WebBrowser00","20","20","1160","560",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1000,600,this,function(p){});
+            obj = new Layout("default","",1200,600,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             
@@ -46,7 +46,7 @@
         {
         	var seq = this.parent.param1;
         	var login= this.parent.param2;
-        	this.WebBrowser00.set_url("http://http://15.165.196.249/free/viewp?seq="+seq+"&login="+login);
+        	this.WebBrowser00.set_url("http://15.165.196.249/free/viewp?seq="+seq+"&login="+login);
         };
 
         });

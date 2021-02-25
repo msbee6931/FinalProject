@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>자유 게시판 글</title>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- include libraries(jQuery, bootstrap) -->
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"

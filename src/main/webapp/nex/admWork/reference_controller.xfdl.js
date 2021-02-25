@@ -90,34 +90,34 @@
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("contents","602","260","428","210",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
             obj = new Grid("Grid01","32","80","536","390",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
+            obj.set_taborder("8");
             obj.set_binddataset("reference");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"65\"/><Column size=\"220\"/><Column size=\"191\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"seq\"/><Cell col=\"2\" text=\"title\"/><Cell col=\"3\" text=\"write_date\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:seq\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:write_date\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_01","37","26","186","36",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
             obj.set_text("자료실 수정");
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button03_00","468","480","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj.set_taborder("10");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button01","468","46","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj.set_taborder("11");
             obj.set_text("갱신");
             obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new TextArea("contents","600","264","432","201",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -332,7 +332,7 @@
 
         this.update_onclick = function(obj,e)
         {
-        	this.contents.set_value(this.contents.value+" ");
+        	this.contents.set_value(nexacro.wrapQuote(this.contents.value+" "));
         	this.transaction(
                     "ReferenceUpd"
                     ,"/reference/update"
