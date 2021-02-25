@@ -56,11 +56,17 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","140","60","800","400",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","140","40","800","400",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_autofittype("col");
             obj.set_binddataset("ds_stdTimeTable");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"60\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"31\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"월요일\"/><Cell col=\"2\" text=\"화요일\"/><Cell col=\"3\" text=\"수요일\"/><Cell col=\"4\" text=\"목요일\"/><Cell col=\"5\" text=\"금요일\"/><Cell col=\"6\" text=\"토요일\"/><Cell col=\"7\" text=\"일요일\" wordWrap=\"english\"/></Band><Band id=\"body\"><Cell text=\"bind:time\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:mon\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"2\" text=\"bind:tue\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:wed\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:thu\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"5\" text=\"bind:fri\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"6\" text=\"bind:sat\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:sun\" textAlign=\"center\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_exel","830","448","100","25",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_text("Exel");
+            obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -196,6 +202,43 @@
         };
 
 
+        this.Export00_onsuccess = function(obj, e)
+        {
+        	trace("Export00_onsuccess");
+        }
+
+        this.Export00_onerror = function(obj, e)
+        {
+        	trace("Export00_onerror");
+        }
+
+
+        this.btn_exel_onclick = function(obj,e)
+        {
+        	if(this.ds_class.getRowCount() > 0){
+        		var date = this.ds_class.getColumn(0,"reg_date");
+        		var year = date.substring(0,4);
+        		var month = date.substring(5,6);
+        		if(month < 8 ){
+        			var semester = year+"년" + " 1학기"
+        		}else{
+        			var semester = year+"년" + " 2학기"
+        		}
+        	}
+        		this.exportObj = new ExcelExportObject("Export00", this);
+
+        		this.exportObj.set_exportfilename(semester + " 수업 시간표");
+        		this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
+
+        		this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.gr_classList, "Sheet1!A1");
+
+        		this.addEventHandler("onsuccess", this.Export00_onsuccess, this);
+        		this.addEventHandler("onerror", this.Export00_onerror, this);
+
+        		var intExportedItem = this.exportObj.exportData();
+
+        		trace("Number of Exported Item: " + intExportedItem);
+        };
 
         });
         

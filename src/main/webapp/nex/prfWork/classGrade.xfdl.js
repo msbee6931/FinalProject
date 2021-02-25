@@ -370,7 +370,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"52\"/><Column size=\"68\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"순위\"/><Cell col=\"9\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:rank\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_rank\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format><Format id=\"PassFail\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"92\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_passFail\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave2","940","500","90","40",null,null,null,null,null,null,this);
+            obj = new Button("btnSave2","930","500","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("47");
             obj.set_text("저장");
             obj.set_positionstep("1");
@@ -383,10 +383,11 @@
             obj.set_url("prfWork::rankStandard.xfdl");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExport","830","500","90","40",null,null,null,null,null,null,this);
+            obj = new Button("btn_exel","820","500","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("49");
-            obj.set_text("Export");
+            obj.set_text("Exel");
             obj.set_positionstep("1");
+            obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -938,15 +939,14 @@
         }
 
 
-
-        this.btnExport_onclick = function(obj,e)
+        this.btn_exel_onclick = function(obj,e)
         {
         	var nRow = this.ds_class.rowposition;
         	var className = this.ds_class.getColumn(nRow,"className");
         	this.exportObj = new ExcelExportObject("Export00", this);
 
         	this.exportObj.set_exportfilename(className + " 성적 집계");
-        	this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
+        	this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
 
         	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.gr_rank, "Sheet1!A1");
 
@@ -957,6 +957,7 @@
 
         	trace("Number of Exported Item: " + intExportedItem);
         };
+
         this.Export00_onsuccess = function(obj, e)
         {
         	trace("Export00_onsuccess");
@@ -994,6 +995,8 @@
         		alert("수업을 선택해주세요");
         	}
         };
+
+
 
         });
         
@@ -1033,7 +1036,7 @@
             this.label_caution.addEventHandler("onclick",this.Static01_onclick,this);
             this.gr_rank.addEventHandler("onheadclick",this.gr_rank_onheadclick,this);
             this.btnSave2.addEventHandler("onclick",this.btnSave2_onclick,this);
-            this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
+            this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
         };
 
         this.loadIncludeScript("classGrade.xfdl");

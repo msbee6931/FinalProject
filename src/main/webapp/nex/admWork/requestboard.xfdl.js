@@ -197,9 +197,10 @@
                     ,"/ReplyUpd.nex"
                     ,"in_ds=reply:U"
                     ,""
-                    ,"reply"+reply
+                    ,"reply="+reply
                     ,"fn_callback"
                  )
+        	alert("등록되었습니다");
         };
 
         this.rest_onload = function(obj,e)
