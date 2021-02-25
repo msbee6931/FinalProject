@@ -37,56 +37,56 @@ div {
 	height: 600px;
 	position: relative;
 	text-align: center;
-	background-color: #3333CC;
+	background-color: #CCFFCC;
 }
 
 .title {
 	width: 100%;
 	hight: 30px;
 	float: left;
-	background-color:white;
+	background-color: white;
 }
 
 .bar1 {
 	float: left;
 	width: 5%;
-	background-color:white;
+		background-color: white;
 }
 
 .bar2 {
 	float: left;
 	width: 50%;
-	background-color:white;
+		background-color: white;
 }
 
 .bar3 {
 	float: left;
 	width: 20%;
-	background-color:white;
+		background-color: white;
 }
 
 .bar4 {
 	float: left;
 	width: 20%;
-	background-color:white;
+		background-color: white;
 }
 
 .bar5 {
 	float: left;
 	width: 5%;
-	background-color:white;
+		background-color: white;
 }
 
 .main {
 	float: left;
 	width: 100%;
 	height: 500px;
-	background-color:white;
+	background-color: white;
 }
 
 .rev {
 	width: 1000px;
-	height: 300px;
+	height: 150px;
 	position: relative;
 	left: 17%;
 }
@@ -96,7 +96,7 @@ div {
 	height: 300px;
 	position: relative;
 	left: 17%;
-	text-align: right
+	text-align: right;
 }
 
 .revlist {
@@ -104,6 +104,7 @@ div {
 	height: 800px;
 	position: relative;
 	left: 17%;
+	border:1px solid white;
 }
 
 .rUpdModal {
@@ -111,23 +112,6 @@ div {
 	height: 200px;
 	position: relative;
 	left: 17%;
-}
-
-.reply{
-	position: relative;
-	left:17%;
-	width:1000px;
-	height:200px;
-	background-color: #435a7c;
-}
-
-.mainReply{
-	position: relative;
-	top:3%;
-	left:5%;
-	width:900px;
-	height:180px;
-	background-color: white;
 }
 
 #btn2,#btn,#upt{
@@ -138,8 +122,16 @@ div {
 	background-color: #435a7c;
 	border: 1px solid white;
 }
+#write{
+	border-radius : 10px;
+	width:100px;
+	height:30px;
+	color: black;
+	background-color: #CCFFCC;
+	border: 1px solid white;
+}
 .replyLine{
-	background-color: #6666FF;
+	background-color: green;
 	width: 1000px;
 	height: 30px;
 	position: relative;
@@ -148,11 +140,34 @@ div {
 	color: white;
 	line-height:30px;
 }
+
+.replyLine2{
+	background-color: green;
+	width: 1000px;
+	height: 50px;
+	position: relative;
+	left: 17%;
+	text-align: right;
+	color: white;
+}
+
+.replyLine3{
+	background-color: #66CC66;
+	width: 1000px;
+	height: 50px;
+	position: relative;
+	left: 17%;
+	text-align: center;
+	color: white;
+	line-height:50px;
+	font-size:20px;
+}
 </style>
 </head>
 <body>
 	<div class="container">
 
+	
 		<div class=title>자유게시판</div>
 
 		<div class=bar1>${dto.seq }</div>
@@ -166,7 +181,7 @@ div {
 
 
 		<div class=title>
-			<form action="/request/delete" method="post">
+			<form action="/free/delete" method="post">
 				<input type=hidden id=seq name=seq value=${dto.seq }> <input
 					type=hidden id=cpage name=cpage value=1>
 				<c:if test="${id == i.writer}">
@@ -174,7 +189,7 @@ div {
 					<input type=button id=upt value="수정하기">
 					<script>
 						document.getElementById("upt").onclick=function(){
-						  	location.href="/request/updatePage?seq="+seq.value;
+						  	location.href="/free/updatePage?seq="+seq.value;
 					  	 }
 					</script>
 				</c:if>
@@ -182,26 +197,12 @@ div {
 			</form>
 		</div>
 	</div>
-		<div class= replyLine>
-		관리자의 답변
-	</div>
-	<div class = reply>
-		<div class= mainReply>${dto.reply }</div>
-	</div>
-
-				<!-- footer -->
-		<footer>
-			<jsp:include page="/WEB-INF/views/footer.jsp" />
-		</footer>
-	
-
-	<script>      
-      
+   
+ <script>
 	document.getElementById("btn2").onclick=function(){
-           location.href="/request/boardList?cpage=1"
+           location.href="/free/boardList?cpage=1"
        }
    
-          
    </script>
 
 </body>

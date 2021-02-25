@@ -37,48 +37,56 @@ div {
 	height: 600px;
 	position: relative;
 	text-align: center;
+	background-color: #CCFFCC;
 }
 
 .title {
 	width: 100%;
 	hight: 30px;
 	float: left;
+	background-color: white;
 }
 
 .bar1 {
 	float: left;
-	width: 5%
+	width: 5%;
+		background-color: white;
 }
 
 .bar2 {
 	float: left;
-	width: 50%
+	width: 50%;
+		background-color: white;
 }
 
 .bar3 {
 	float: left;
-	width: 20%
+	width: 20%;
+		background-color: white;
 }
 
 .bar4 {
 	float: left;
-	width: 20%
+	width: 20%;
+		background-color: white;
 }
 
 .bar5 {
 	float: left;
-	width: 5%
+	width: 5%;
+		background-color: white;
 }
 
 .main {
 	float: left;
 	width: 100%;
 	height: 500px;
+	background-color: white;
 }
 
 .rev {
 	width: 1000px;
-	height: 300px;
+	height: 150px;
 	position: relative;
 	left: 17%;
 }
@@ -88,7 +96,7 @@ div {
 	height: 300px;
 	position: relative;
 	left: 17%;
-	text-align: right
+	text-align: right;
 }
 
 .revlist {
@@ -96,6 +104,7 @@ div {
 	height: 800px;
 	position: relative;
 	left: 17%;
+	border:1px solid white;
 }
 
 .rUpdModal {
@@ -104,11 +113,61 @@ div {
 	position: relative;
 	left: 17%;
 }
+
+#btn2,#btn,#upt{
+	border-radius : 10px;
+	width:100px;
+	height:30px;
+	color: white;
+	background-color: #435a7c;
+	border: 1px solid white;
+}
+#write{
+	border-radius : 10px;
+	width:100px;
+	height:30px;
+	color: black;
+	background-color: #CCFFCC;
+	border: 1px solid white;
+}
+.replyLine{
+	background-color: green;
+	width: 1000px;
+	height: 30px;
+	position: relative;
+	left: 17%;
+	text-align: center;
+	color: white;
+	line-height:30px;
+}
+
+.replyLine2{
+	background-color: green;
+	width: 1000px;
+	height: 50px;
+	position: relative;
+	left: 17%;
+	text-align: right;
+	color: white;
+}
+
+.replyLine3{
+	background-color: #66CC66;
+	width: 1000px;
+	height: 50px;
+	position: relative;
+	left: 17%;
+	text-align: center;
+	color: white;
+	line-height:50px;
+	font-size:20px;
+}
 </style>
 </head>
 <body>
 	<div class="container">
 
+	
 		<div class=title>자유게시판</div>
 
 		<div class=bar1>${dto.seq }</div>
@@ -139,19 +198,24 @@ div {
 		</div>
 	</div>
 
-
+	<div class= replyLine>
+		댓글 등록 하기
+	</div>
+	
 	<form action=/fcomment/insert method="post"
 		enctype="multipart/form-data">
 		<div class=rev>
 			<textarea id=description name=rev_contents></textarea>
 		</div>
-		<div class=revBTN>
+		<div class= replyLine2>
 			<input type="hidden" id=main_seq name=main_seq value=${dto.seq }>
 			<input type="submit" id=write value="글 쓰기">
-
 		</div>
 	</form>
 
+	<div class= replyLine3>
+		댓글
+	</div>
 
 	<div class="revlist" id=revList>
 		<input type=hidden id=mSeq value=${dto.seq }>
@@ -189,7 +253,7 @@ div {
 	$(function(){
 	    //id가 description인 태그에 summernote 적용
 	    $("#description").summernote({
-	        height : 300,
+	        height : 100,
 	        width : 1000
 	    });
 	    $("#uptContents").summernote({
