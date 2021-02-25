@@ -54,6 +54,10 @@ public class AbsenceService {
 			return aDao.deleteReqAbsFile(seq);
 		}
 		
+		public int updateReadAbs(int seq) {
+			return aDao.updateReadAbs(seq);
+		}
+		
 		public int insertRest(RestDTO dto) {
 			return aDao.insertRest(dto);
 		}

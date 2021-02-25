@@ -36,6 +36,7 @@
             obj.set_taborder("0");
             obj.set_binddataset("ds_attend");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"63\"/><Column size=\"55\"/><Column size=\"19\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"날짜\"/><Cell col=\"1\" text=\"출석 여부\"/><Cell col=\"2\" text=\"비고\"/></Band><Band id=\"body\"><Cell text=\"bind:attendDay\" displaytype=\"date\" edittype=\"none\"/><Cell col=\"1\" text=\"bind:attendState\" displaytype=\"combotext\" edittype=\"none\" combodatacol=\"name\" combodataset=\"ds_attendState\" combocodecol=\"id\"/><Cell col=\"2\" edittype=\"none\" expandshow=\"expr:attendState == &quot;04&quot; ? &quot;show&quot;  : &quot;hide&quot;\" textAlign=\"center\" text=\"expr:attendState == &quot;04&quot; ? &quot;기타 &quot;  : &quot;&quot;\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -92,9 +93,10 @@
             obj.set_text("과목명 :");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","234","556","132","30",null,null,null,null,null,null,this);
+            obj = new Button("Button00","234","556","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions

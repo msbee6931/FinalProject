@@ -44,10 +44,10 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("MaskEdit00_01","379","223","150","37",null,null,null,null,null,null,this.Div00.form);
@@ -65,13 +65,14 @@
             obj.set_border("1px solid white");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","112","1","736","440",null,null,null,null,null,null,this.Div00.form);
+            obj = new WebBrowser("WebBrowser00","162","1","736","440",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","24","19","71","31",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00","24","19","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_text("pdf 저장");
+            obj.set_cssclass("btn_pdf");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);

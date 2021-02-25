@@ -44,9 +44,10 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_Info","29","10","1021","480",null,null,null,null,null,null,this);
+            obj = new Div("div_Info","29","10",null,null,"30","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("학생 정보");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_name","0","60","120","40",null,null,null,null,null,null,this.div_Info.form);
@@ -87,31 +88,37 @@
             obj = new Edit("edt_name","121","68","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("7");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_enroll","121","108","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("8");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_colGrade","421","68","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("9");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","421","238","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("10");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","120","238","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("11");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","121","278","450","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("12");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Radio("rd_gender","421","95","190","50",null,null,null,null,null,null,this.div_Info.form);
@@ -132,6 +139,7 @@
             obj = new Edit("edt_dept","722","68","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("15");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("sta_code","0","20","120","40",null,null,null,null,null,null,this.div_Info.form);
@@ -142,6 +150,7 @@
             obj = new Edit("edt_code","121","28","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("17");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("sta_col","602","20","120","40",null,null,null,null,null,null,this.div_Info.form);
@@ -152,6 +161,7 @@
             obj = new Edit("edt_col","723","28","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("19");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("sta_birth","301","20","120","40",null,null,null,null,null,null,this.div_Info.form);
@@ -162,6 +172,7 @@
             obj = new Edit("edt_birth","421","28","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("21");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             // Layout Functions

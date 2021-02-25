@@ -12,10 +12,12 @@ public class ReqScholarDTO {
 	private String title;
 	private String contents;
 	private String writeDate;
+	private String checkRead;
 	
 	public ReqScholarDTO() {}
 
-	public ReqScholarDTO(String chk, int seq, int std_code, String title, String contents, String writeDate) {
+	public ReqScholarDTO(String chk, int seq, int std_code, String title, String contents, String writeDate,
+			String checkRead) {
 		super();
 		this.chk = chk;
 		this.seq = seq;
@@ -23,6 +25,7 @@ public class ReqScholarDTO {
 		this.title = title;
 		this.contents = contents;
 		this.writeDate = writeDate;
+		this.checkRead = checkRead;
 	}
 
 	public String getChk() {
@@ -73,7 +76,13 @@ public class ReqScholarDTO {
 		this.writeDate = writeDate;
 	}
 
+	public String getCheckRead() {
+		return checkRead;
+	}
 
+	public void setCheckRead(String checkRead) {
+		this.checkRead = checkRead;
+	}
 
 	
 	

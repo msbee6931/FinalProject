@@ -54,7 +54,7 @@
             obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","511","11","388","60",null,null,null,null,null,null,this.Div00.form);

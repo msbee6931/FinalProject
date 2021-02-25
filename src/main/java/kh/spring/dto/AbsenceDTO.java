@@ -10,10 +10,12 @@ public class AbsenceDTO {
 	private String eDate;
 	private String code;
 	private Date writeDate;
+	private String checkValue;
 	
 	public AbsenceDTO() {}
 
-	public AbsenceDTO(int seq, int std_code, String sDate, String eDate, String code, Date writeDate) {
+	public AbsenceDTO(int seq, int std_code, String sDate, String eDate, String code, Date writeDate,
+			String checkValue) {
 		super();
 		this.seq = seq;
 		this.std_code = std_code;
@@ -21,6 +23,7 @@ public class AbsenceDTO {
 		this.eDate = eDate;
 		this.code = code;
 		this.writeDate = writeDate;
+		this.checkValue = checkValue;
 	}
 
 	public int getSeq() {
@@ -71,7 +74,14 @@ public class AbsenceDTO {
 		this.writeDate = writeDate;
 	}
 
-	
+	public String getCheckValue() {
+		return checkValue;
+	}
+
+	public void setCheckValue(String checkValue) {
+		this.checkValue = checkValue;
+	}
+
 	
 	
 }

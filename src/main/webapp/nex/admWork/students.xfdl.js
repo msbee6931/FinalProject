@@ -13,7 +13,7 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1080,570);
+                this._setFormPosition(1080,520);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -44,25 +44,25 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"77\"/><Column size=\"84\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"성별\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"학과분류\"/><Cell col=\"5\" text=\"학과\"/><Cell col=\"6\" text=\"이름\"/><Cell col=\"7\" text=\"주민번호\"/><Cell col=\"8\" text=\"email\"/><Cell col=\"9\" text=\"전화번호\"/><Cell col=\"10\" text=\"주소\"/><Cell col=\"11\" text=\"장학금\"/><Cell col=\"12\" text=\"휴학여부\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:s_seq\"/><Cell col=\"2\" text=\"bind:gender\" edittype=\"combo\" combodataset=\"ds_gender\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"3\" text=\"bind:colGrade\" edittype=\"combo\" combodataset=\"ds_colGrade\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"4\" text=\"bind:colCode\" edittype=\"combo\" combodataset=\"colCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:deptCode\" edittype=\"combo\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"6\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"7\" text=\"bind:secNumber\" displaytype=\"mask\" edittype=\"mask\" maskedittype=\"string\" maskeditformat=\"###### - #######\"/><Cell col=\"8\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"9\" text=\"bind:contact\" edittype=\"normal\"/><Cell col=\"10\" text=\"bind:address\" edittype=\"normal\"/><Cell col=\"11\" text=\"bind:scholarship\" edittype=\"normal\"/><Cell col=\"12\" text=\"bind:rest\" edittype=\"combo\" combodataset=\"ds_rest\" combocodecol=\"code\" combodatacol=\"name\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_retrive","950","25","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_retrive","950","28","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("조회");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_save","950","460","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_save","950","460","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("저장");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","840","460","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_del","840","460","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_add","840","25","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_add","840","28","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("입력");
             obj.set_cssclass("btn_insert");
@@ -86,9 +86,10 @@
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_search","250","28","25","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_search","250","28","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","0","0","29",null,null,"50",null,null,null,null,this);
@@ -97,19 +98,19 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00","140","490",null,null,"140","50",null,null,null,null,this);
+            obj = new Static("Static00_00","1051","0",null,null,"0","50",null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","1051","0",null,null,"0","50",null,null,null,null,this);
+            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
+            obj = new Static("Static00_01_00","140","490",null,null,"140","0",null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
@@ -117,7 +118,7 @@
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1080,570,this,function(p){});
+            obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             

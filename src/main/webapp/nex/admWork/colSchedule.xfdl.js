@@ -67,7 +67,7 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","889","16","100","30",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_insert","879","16","100","25",null,null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
             obj.set_cssclass("btn_insert");
@@ -77,23 +77,26 @@
             obj.set_taborder("2");
             obj.set_binddataset("colSchedule_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"291\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"시작날짜\"/><Cell col=\"2\" text=\"종료날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\" textAlign=\"center\"/></Band></Format></Formats>");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","889","416","100","30",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_del","879","416","100","25",null,null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btnAll","429","16","100","30",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btnAll","429","16","100","25",null,null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("4");
             obj.set_text("전체 일정");
+            obj.set_cssclass("btn_default");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btnAfter","549","16","100","30",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btnAfter","549","16","100","25",null,null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("5");
             obj.set_text("남은 일정");
+            obj.set_cssclass("btn_default");
             this.div_schedule.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
