@@ -90,7 +90,7 @@
             	"title": {
             		"id": "title",
             		"text": "단과대 학생 수",
-            		"textfont": "16pt/normal '맑은 고딕'",
+            		"textfont": "bold 14px/normal \"맑은 고딕\"",
             		"padding": "0px 0px 5px"
             	},
             	"legend": {
@@ -184,7 +184,7 @@
             	"title": {
             		"id": "title",
             		"text": "학생 성(姓) 수",
-            		"textfont": "14pt/normal '맑은 고딕'",
+            		"textfont": "bold 14px/normal \"맑은 고딕\"",
             		"padding": "0px 0px 5px"
             	},
             	"legend": {
@@ -281,8 +281,8 @@
             	],
             	"title": {
             		"id": "title",
-            		"text": "Float Chart",
-            		"textfont": "20pt/normal \"맑은 고딕\"",
+            		"text": "학과 학생 수",
+            		"textfont": "bold 14px/normal \"맑은 고딕\"",
             		"padding": "0px 0px 5px",
             		"linestyle": "0px none"
             	}

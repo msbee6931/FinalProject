@@ -104,6 +104,7 @@
 
             obj = new TextArea("TextArea00","12","39","541","106",null,null,null,null,null,null,this.Div00.form.Div01.form);
             obj.set_taborder("1");
+            obj.set_cssclass("txt_default");
             this.Div00.form.Div01.addChild(obj.name, obj);
 
             obj = new Static("Static00","32","8","348","33",null,null,null,null,null,null,this.Div00.form);
@@ -188,12 +189,14 @@
 
         this.Div00_Button00_onclick = function(obj,e)
         {
+        	var reply = nexacro.wrapQuote(this.Div00.form.Div01.form.TextArea00.value);
+
         	 this.transaction(
                     "ReplyUpd"
                     ,"/ReplyUpd.nex"
                     ,"in_ds=reply:U"
                     ,""
-                    ,""
+                    ,"reply"+reply
                     ,"fn_callback"
                  )
         };

@@ -112,10 +112,11 @@
             obj.set_text("※유의사항\r\n1. 입대휴학 신청자는 입대 사실을 확인할 수 있는 증명서 1통을 첨부해야 함.\r\n2. 군입대 후 귀향조취 된 경우에는 즉시 행정팀으로 통보해야함.\r\n3. 일반휴학기간 중 입대할 경우에는 입대 전에 입영통지서 사본 1통을 첨부하여 휴학연기 신청서를 제출해야 함.\r\n4. 질병으로 휴학하는 경우에는 종합병원장이 발행하는 4주 이상의 진단서를 첨부해야함.\r\n5. 휴학기간 만료 후 해당 학기 등록기간 내에 복학하지 않을 경우에는  퇴학처리 됨.");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","129","210","575","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","127","205","575","70",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("18");
             obj.set_binddataset("absFileList_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"32\"/><Column size=\"419\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"0\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
@@ -137,7 +138,7 @@
             obj.set_cssclass("sta_title");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","29","60","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","28","60","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("학 과");
             obj.set_cssclass("sta_default");
@@ -155,7 +156,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","29","90","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_01","28","89","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("학 년");
             obj.set_cssclass("sta_default");
@@ -167,19 +168,19 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00_00_00","29","180","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_01_00_00_00","28","176","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("14");
             obj.set_text("사 유");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00_00","29","150","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_01_00_00","28","147","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("13");
             obj.set_text("기 간");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00","29","120","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_01_00","28","118","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("11");
             obj.set_text("주 소");
             obj.set_cssclass("sta_default");
@@ -191,7 +192,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_02","28","209","100","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_02","28","205","100","70",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("15");
             obj.set_text("첨부파일");
             obj.set_cssclass("sta_default");
@@ -200,15 +201,17 @@
             obj = new Static("Static04","98","149","710","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("22");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Calendar("cal_sDate","107","153","150","20",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("23");
+            obj.set_cssclass("cal_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Calendar("cal_eDate","299","153","150","20",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("24");
+            obj.set_cssclass("cal_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static05","277","154","19","19",null,null,null,null,null,null,this.Div00.form);
@@ -230,7 +233,7 @@
             obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","102","61","184","31",null,null,null,null,null,null,this.Div00.form);
+            obj = new Combo("Combo00","97","61","192","31",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("28");
             obj.set_innerdataset("deptCode");
             obj.set_codecolumn("code");

@@ -63,14 +63,15 @@
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","25","51",null,null,"24","59",null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","-1","51",null,null,"0","59",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("absence_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"예정날짜\"/><Cell col=\"3\" text=\"마감날짜\"/><Cell col=\"4\" text=\"휴학사유\"/><Cell col=\"5\" text=\"작성날짜\"/><Cell col=\"6\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\"/><Cell col=\"1\" text=\"bind:std_code\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:sDate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:eDate\" displaytype=\"date\"/><Cell col=\"4\" text=\"bind:code\" displaytype=\"combotext\" combodataset=\"absenceCode_ds\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:writeDate\" displaytype=\"date\"/><Cell col=\"6\" text=\"bind:checkValue\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_del",null,null,"100","30","23","12",null,null,null,null,this.Div00.form);
+            obj = new Button("btn_del",null,null,"100","25","23","12",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");

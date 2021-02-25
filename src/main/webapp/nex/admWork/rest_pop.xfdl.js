@@ -22,107 +22,115 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00_02","20","57","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_02","20","57","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("학 과");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","79","57","120","36",null,null,null,null,null,null,this);
+            obj = new Combo("Combo00","79","57","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_readonly("true");
             obj.set_innerdataset("deptCode");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             obj.set_text("Combo00");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","198","57","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00","198","57","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("학 번");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00","257","57","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00","257","57","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","20","93","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_00","20","81","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("생년월일");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_00","79","93","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_00","79","81","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_01","198","93","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_01_01","198","81","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("학 년");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01","257","93","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title01","257","81","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_01","20","129","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_01","20","105","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("연락처");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_01","79","129","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_01","79","129","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("9");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00_00","198","129","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_00_00","198","129","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("성 명");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_00_00","257","129","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_00_00","257","129","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("11");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00_00","20","165","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_01_00_00","20","129","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("주 소");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01_00","79","165","298","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title01_00","79","105","298","25",null,null,null,null,null,null,this);
             obj.set_taborder("13");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","20","201","357","93",null,null,null,null,null,null,this);
+            obj = new Static("Static02","30","230","357","34",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text(" 본인은 본교에 복학하고자 하오니 허가하여 주시기 바랍니다.");
-            obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_commit","157","310","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_commit","157","350","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("승인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_ok","277","310","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok","277","350","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","23","10","120","30",null,null,null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_text("복학 신청서");
+            obj.set_cssclass("sta_title");
+            this.addChild(obj.name, obj);
+
+            obj = new Div("Div00","20","153","356","177",null,null,null,null,null,null,this);
+            obj.set_taborder("18");
+            obj.set_cssclass("div_line");
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
             // Layout Functions

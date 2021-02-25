@@ -54,7 +54,7 @@
             obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","511","11","388","60",null,null,null,null,null,null,this.Div00.form);
@@ -82,6 +82,7 @@
 
             obj = new TextArea("TextArea00","12","9","480","252",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
+            obj.set_cssclass("txt_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
 
             obj = new Button("Button00","925","410","92","31",null,null,null,null,null,null,this.Div00.form);
@@ -138,7 +139,7 @@
         this.Div00_Button00_onclick = function(obj,e)
         {
         		var receiver = this.Div00.form.Div00.form.Edit00.value;
-        		var contents=this.Div00.form.Div00_00.form.TextArea00.value;
+        		var contents=nexacro.wrapQuote(this.Div00.form.Div00_00.form.TextArea00.value);
 
         		 this.transaction(
                     "PMInsert"

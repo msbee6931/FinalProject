@@ -50,6 +50,7 @@
 
             obj = new TextArea("tea_content","10","100","380","150",null,null,null,null,null,null,this);
             obj.set_taborder("5");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_eDate","260","40","130","20",null,null,null,null,null,null,this);

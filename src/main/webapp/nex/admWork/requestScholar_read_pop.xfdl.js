@@ -61,52 +61,54 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","168","39","600","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit00","179","39","650","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","69","39","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","0","39","179","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("제목");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit01","170","150","600","160",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit01","179","192","650","210",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","69","69","100","80",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00","0","63","179","130",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("첨부파일");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_down","668","69","100","80",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_down","689","62","140","130",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("파일 다운로드");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","170","70","498","80",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","179","63","509","130",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_binddataset("schFileList_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"31\"/><Column size=\"239\"/><Column size=\"59\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancle","669","354","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_cancle","699","444","100","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","69","149","100","161",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_00","0","192","179","211",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_text("신청사유");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions

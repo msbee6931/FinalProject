@@ -47,18 +47,19 @@
             obj.set_cssclass("btn_logout");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_home","212","13","30","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_home","212","13","80","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_cssclass("btn_home");
+            obj.set_text("HOME");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_name","264","13","60","25",null,null,null,null,null,null,this);
+            obj = new Static("sta_name","314","13","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Static02");
             obj.set_color("#ffffff");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00","324","13","100","25",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00","374","13","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("님 환영합니다.");
             obj.set_color("#ffffff");

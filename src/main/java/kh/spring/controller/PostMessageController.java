@@ -42,9 +42,10 @@ public class PostMessageController {
 	private PostMessageService PMservice;
 	
 	@RequestMapping("PMUpd.nex")
-	public NexacroResult alarmUpd(@ParamDataSet(name="in_ds")PostMessageDTO dto) {
+	public NexacroResult alarmUpd(@ParamDataSet(name="in_ds")PostMessageDTO dto,@ParamVariable(name="reply")String reply) {
 	
 		NexacroResult nr = new NexacroResult();
+		dto.setReply(reply);
 		PMservice.update(dto);
 		return nr;
 	}
@@ -77,6 +78,16 @@ public class PostMessageController {
 		String id = Integer.toString(seq);
 		NexacroResult nr = new NexacroResult();
 		List<PostMessageDTO> list = PMservice.listBySender(id);
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
+	
+	@RequestMapping("PMReceivedP.nex")
+	public NexacroResult receivedMessageP() {
+		int seq = (Integer)session.getAttribute("login");
+		String id = Integer.toString(seq);
+		NexacroResult nr = new NexacroResult();
+		List<PostMessageDTO> list = PMservice.listByReceiver(id);
 		nr.addDataSet("out_ds",list);
 		return nr;
 	}
