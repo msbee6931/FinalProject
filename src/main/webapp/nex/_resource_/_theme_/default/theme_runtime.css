@@ -441,12 +441,20 @@
 {
 	text-align : center;
 }
+<<<<<<< HEAD
 .Radio .radioitem
+=======
+* .Radio .radioitem
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	font : 12px "Malgun Gothic";
 	color : #0d6efd;
 }
+<<<<<<< HEAD
 .Sketch
+=======
+* .Sketch
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #ffffff;
 	border : 1px solid #d5d5d5;
@@ -724,11 +732,19 @@
 	color : #0d6efd;
 	font : 12px "-윤고딕330";
 }
+<<<<<<< HEAD
 .Combo.cmb_default
 {
 	border : 1px solid #0d6efd;
 }
 .Combo.cmb_default .comboedit
+=======
+* .Combo.cmb_default
+{
+	border : 1px solid #0d6efd;
+}
+* .Combo.cmb_default .comboedit
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #ffffff;
 	color : #0d6efd;
@@ -852,26 +868,53 @@
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 }
+<<<<<<< HEAD
 .Button.btn_can
+=======
+* .Button.btn_can
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
+<<<<<<< HEAD
 .TextArea.txt_default
+=======
+* .TextArea.txt_default
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
+<<<<<<< HEAD
 .MaskEdit.med_default
+=======
+* .MaskEdit.med_default
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .Button[status=mouseover]
+=======
+* .Button.btn_pdf
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+* .Button.btn_pdf .nexacontentsbox
+{
+	text-align : center;
+}
+* .Button[status=mouseover]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : linear-gradient(to top,#e7e7e7,#fefefe);
 	border : 1px solid #a0a0a0;
@@ -1527,63 +1570,125 @@
 {
 	border : 1px solid #0d6efd;
 }
+<<<<<<< HEAD
 .Button.btn_can[status=mouseover]
+=======
+* .Button.btn_can[status=mouseover]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
+<<<<<<< HEAD
 .Button.btn_can[status=focused]
+=======
+* .Button.btn_can[status=focused]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
+<<<<<<< HEAD
 .TextArea.txt_default[status=mouseover]
+=======
+* .TextArea.txt_default[status=mouseover]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
+<<<<<<< HEAD
 .TextArea.txt_default[status=focused]
+=======
+* .TextArea.txt_default[status=focused]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
+<<<<<<< HEAD
 .TextArea.txt_default[status=readonly]
+=======
+* .TextArea.txt_default[status=readonly]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
+<<<<<<< HEAD
 .MaskEdit.med_default[status=mouseover]
+=======
+* .MaskEdit.med_default[status=mouseover]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .MaskEdit.med_default[status=focused]
+=======
+* .MaskEdit.med_default[status=focused]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .MaskEdit.med_default[status=readonly]
+=======
+* .MaskEdit.med_default[status=readonly]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .Combo.cmb_default[status=readonly]
+=======
+* .Combo.cmb_default[status=readonly]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #0d6efd;
 }
+<<<<<<< HEAD
 .Form[userstatus=contents]
+=======
+* .Button.btn_pdf[status=mouseover]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+* .Button.btn_pdf[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+* .Button.btn_pdf[status=focused]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+* .Button.btn_pdf[status=focused] .nexacontentsbox
+{
+	text-align : center;
+}
+* .Form[userstatus=contents]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : transparent;
 }
@@ -1965,39 +2070,85 @@
 {
 	border : 1px solid #0d6efd;
 }
+<<<<<<< HEAD
 .Button.btn_can[userstatus=pushed]
+=======
+* .Button.btn_can[userstatus=pushed]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
+<<<<<<< HEAD
 .Button.btn_can[userstatus=selected]
+=======
+* .Button.btn_can[userstatus=selected]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	background : #1c0c7c;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
 }
+<<<<<<< HEAD
 .TextArea.txt_default[userstatus=nulltext]
+=======
+* .TextArea.txt_default[userstatus=nulltext]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 	color : #383838;
 }
+<<<<<<< HEAD
 .MaskEdit.med_default[userstatus=nulltext]
+=======
+* .MaskEdit.med_default[userstatus=nulltext]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .MaskEdit.med_default[userstatus=invalidtext]
+=======
+* .MaskEdit.med_default[userstatus=invalidtext]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #0d6efd;
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .Form[status=disabled]
+=======
+* .Button.btn_pdf[userstatus=pushed]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+* .Button.btn_pdf[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+* .Button.btn_pdf[userstatus=selected]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+* .Button.btn_pdf[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+}
+* .Form[status=disabled]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #999999;
 }
@@ -2444,7 +2595,41 @@
 	border : 1px solid #0d6efd;
 	font : 12px "Malgun Gothic";
 }
+<<<<<<< HEAD
 .CheckBox[status=disabled][userstatus=selected]
+=======
+* .Button.btn_can[status=disabled]
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+* .TextArea.txt_default[status=disabled]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+* .MaskEdit.med_default[status=disabled]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+* .Button.btn_pdf[status=disabled]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+* .Button.btn_pdf[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+}
+* .CheckBox[status=disabled][userstatus=selected]
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 {
 	color : #999999;
 }

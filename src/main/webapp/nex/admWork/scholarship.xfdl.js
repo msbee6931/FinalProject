@@ -63,7 +63,11 @@
             obj.set_autofittype("col");
             obj.set_binddataset("scholorship_ds");
             obj.set_cssclass("grd_default");
+<<<<<<< HEAD
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"169\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\" displaytype=\"text\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"학기구분\"/><Cell col=\"3\" text=\"장학금 총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" textAlign=\"center\" suppress=\"1\"/><Cell col=\"1\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:sSum\" textAlign=\"center\"/></Band></Format></Formats>");
+=======
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"169\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\" displaytype=\"text\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"학기구분\"/><Cell col=\"3\" text=\"장학금 총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" textAlign=\"center\" suppress=\"1\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:sSum\" textAlign=\"center\"/></Band></Format></Formats>");
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_del","909","411","100","25",null,null,null,null,null,null,this.Div00.form);
@@ -230,14 +234,7 @@
 
         this.fn_callback_insertScholar = function()
         {
-        	this.transaction(
-        		"selectAll.scholarship",//id
-        		"/scholarship/selectAll.scholarship",//url (절대경로)
-        		"",//in_ds:U
-        		"scholorship_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
+        	this.reload();
         };
 
         this.Div00_grd_scholar_oncelldblclick = function(obj,e)
@@ -261,14 +258,7 @@
 
         this.fn_callback_updateScholar=function()
         {
-        	this.transaction(
-        		"selectAll.scholarship",//id
-        		"/scholarship/selectAll.scholarship",//url (절대경로)
-        		"",//in_ds:U
-        		"scholorship_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
+        	this.reload();
         };
 
 

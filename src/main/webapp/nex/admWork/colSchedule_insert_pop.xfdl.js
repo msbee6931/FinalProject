@@ -103,12 +103,19 @@
         this.btn_ok_onclick = function(obj,e)
         {
         	var title = this.edt_title.value;
-        	var sDate = nexacro.toNumber(this.cal_sDate.value);
+        	var sDate = this.cal_sDate.value;
         	var eDate = this.cal_eDate.value;
         	var contents = this.tea_content.value;
-        	alert(title+sDate+eDate+contents)
 
-
+        	if(title == null || title == ""){
+        		alert("일정 제목을 입력해주세요");
+        	}else if(sDate == null || sDate =="" || eDate == null || eDate == ""){
+        		alert("일정을 선택해주세요");
+        	}else if(contents == null || contents == ""){
+        		alert("일정 내용을 입력해주세요");
+        	}else if(parseInt(eDate) < parseInt(sDate)){
+        		alert("시작일과 종료일을 확인해주세요");
+        	}else{
         	var nRow = this.colSchedule_ds.addRow();
         	this.colSchedule_ds.setColumn(nRow,"title",title);
         	this.colSchedule_ds.setColumn(nRow,"sDate",sDate);
@@ -124,8 +131,9 @@
         		"fn_callback"
         		)
 
+        		this.close();
+        	}
 
-        	this.close();
         };
 
         });

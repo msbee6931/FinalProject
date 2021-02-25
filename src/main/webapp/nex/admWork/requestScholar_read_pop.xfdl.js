@@ -61,37 +61,61 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Edit("Edit00","179","39","650","25",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Edit("edt_title","119","78","709","25",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("1");
             obj.set_readonly("true");
             obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Static("Static00","0","39","179","25",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Static("Static00","0","78","120","25",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("0");
             obj.set_text("제목");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Edit("Edit01","179","192","650","210",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Edit("Edit01","120","232","709","210",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("4");
             obj.set_readonly("true");
             obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Static("Static00_00","0","63","179","130",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Static("Static00_00","0","103","120","130",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("2");
             obj.set_text("첨부파일");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Button("btn_down","689","62","140","130",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Button("btn_down","689","102","140","130",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("3");
             obj.set_text("파일 다운로드");
             obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Grid("Grid00","179","63","509","130",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Grid("Grid00","120","103","569","130",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("5");
             obj.set_binddataset("schFileList_ds");
             obj.set_autofittype("col");
@@ -99,16 +123,39 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"31\"/><Column size=\"239\"/><Column size=\"59\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Button("btn_cancle","699","444","100","30",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Button("btn_cancle","729","499","100","30",null,null,null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("6");
             obj.set_text("닫기");
             obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Static("Static00_00_00","0","192","179","211",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_text("신청사유");
             obj.set_cssclass("sta_default");
+=======
+            obj = new Static("Static00_00_00","0","232","120","211",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("7");
+            obj.set_text("신청사유");
+            obj.set_cssclass("sta_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("sta_seq","0","54","120","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("8");
+            obj.set_text("학번");
+            obj.set_cssclass("sta_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt_seq","119","54","709","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("9");
+            obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -118,11 +165,15 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-            obj = new BindItem("item0","Div00.form.Edit00","value","reqScholar_ds","title");
+            obj = new BindItem("item0","Div00.form.edt_title","value","reqScholar_ds","title");
             this.addChild(obj.name, obj);
             obj.bind();
 
             obj = new BindItem("item1","Div00.form.Edit01","value","reqScholar_ds","contents");
+            this.addChild(obj.name, obj);
+            obj.bind();
+
+            obj = new BindItem("item2","Div00.form.edt_seq","value","reqScholar_ds","std_code");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -134,14 +185,13 @@
         
         // User Script
         this.registerScript("requestScholar_read_pop.xfdl", function() {
-        this.seq="";
 
+        this.seq=this.parent.seq;
+        this.sCode=this.parent.std_code;
         //----------------------  온로드
         this.requestScholar_read_pop_onload = function(obj,e)
         {
-        	//부모창에서 받아온 seq 값 - 해당 seq의 내용 가져오기
-        	this.seq = this.parent.seq;
-        	var std_code = this.parent.std_code; // 학번
+        	this.Div00.form.edt_seq.set_value(this.sCode);
 
         	this.transaction(
         		"selectSeqReqScholar.", // 1. strSvcID
@@ -217,8 +267,21 @@
         // 닫기 버튼
         this.Div00_btn_cancle_onclick = function(obj,e)
         {
-        		this.close(this.seq);
+        		this.transaction(
+        			"checkValueReqScholar.scholarship",//id
+        			"/scholarship/checkValueReqScholar.scholarship",//url (절대경로)
+        			"",//in_ds:U
+        			"",//()_out_ds
+        			"seq="+this.seq,//argument
+        			"fn_callback_check"
+        			)
+
         };
+
+        this.fn_callback_check = function()
+        {
+        		this.close(this.seq);
+        }
 
         //헤더 전체  클릭 적용
         this.Div00_Grid00_onheadclick = function(obj,e)

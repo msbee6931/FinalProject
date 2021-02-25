@@ -557,6 +557,65 @@
 								}
 							}
 						}
+<<<<<<< HEAD
+=======
+					},
+					{
+						"btn_pdf" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"disabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"mouseover" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"focused" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"pushed" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"selected" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								}
+							}
+						}
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
 					}
 				]
 			},
@@ -4775,6 +4834,7 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_logout.png")] = { width:15, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_message.png")] = { width:15, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_Cal_N.png")] = { width:15, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/img_WF_Grdimg.png")] = { width:12, height:14 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_D.png")] = { width:15, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_N.png")] = { width:15, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_P.png")] = { width:15, height:16 };
@@ -4884,7 +4944,6 @@
 		imgcache[nexacro._getImageLocation("theme://images/img_TreeExpand.png")] = { width:9, height:9 };
 		imgcache[nexacro._getImageLocation("theme://images/img_TreeItem.png")] = { width:9, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/img_TreeOpen.png")] = { width:9, height:9 };
-		imgcache[nexacro._getImageLocation("theme://images/img_WF_Grdimg.png")] = { width:12, height:14 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Htrackbar.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Htrackbar_D.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Menuimage.png")] = { width:210, height:50 };

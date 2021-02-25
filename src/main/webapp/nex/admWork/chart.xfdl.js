@@ -539,14 +539,14 @@
         	{
         		var category = this.genderChartCopy_ds.getColumn(i,"category");
         		var count = this.genderChartCopy_ds.getColumn(i,"count");
-        		if(category == '남')
+        		if(category == 'M')
         		{
         			this.genderChart_ds.addRow();
         			this.genderChart_ds.setColumn(i,"category","남학생");
         			this.genderChart_ds.setColumn(i,"value",count);
 
         		}
-        		else if (category == '여')
+        		else if (category == 'W')
         		{
         			this.genderChart_ds.addRow();
         			this.genderChart_ds.setColumn(i,"category","여학생");

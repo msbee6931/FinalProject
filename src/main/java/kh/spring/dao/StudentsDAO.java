@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kh.spring.dto.ChartDTO;
+import kh.spring.dto.StudentClassDTO;
 import kh.spring.dto.StudentsDTO;
 
 @Repository
@@ -42,6 +43,9 @@ public class StudentsDAO {
 	}
 	public List<StudentsDTO> deptStudentList(StudentsDTO dto){
 		return session.selectList("Students.deptStudentList",dto);
+	}
+	public List<StudentsDTO> classStudents(List<StudentClassDTO>list){
+		return session.selectList("Students.classStudents",list);
 	}
 	
 	

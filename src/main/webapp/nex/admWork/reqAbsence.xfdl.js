@@ -68,7 +68,11 @@
             obj.set_binddataset("absence_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
+<<<<<<< HEAD
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"예정날짜\"/><Cell col=\"3\" text=\"마감날짜\"/><Cell col=\"4\" text=\"휴학사유\"/><Cell col=\"5\" text=\"작성날짜\"/><Cell col=\"6\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\"/><Cell col=\"1\" text=\"bind:std_code\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:sDate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:eDate\" displaytype=\"date\"/><Cell col=\"4\" text=\"bind:code\" displaytype=\"combotext\" combodataset=\"absenceCode_ds\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:writeDate\" displaytype=\"date\"/><Cell col=\"6\" text=\"bind:checkValue\"/></Band></Format></Formats>");
+=======
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"20\"/><Column size=\"100\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"작성날짜\"/><Cell col=\"3\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writeDate\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:checkValue\" textAlign=\"center\"/></Band></Format></Formats>");
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_del",null,null,"100","25","23","12",null,null,null,null,this.Div00.form);
@@ -120,14 +124,14 @@
         		this.getOwnerFrame(),
         		{seq:seq, std_code:std_code}, // seq 넘기기
         		this,
-        		"fn_callback_pop_t"
+        		"fn_callback_pop_read"
         	);
         };
 
-
-
-
-
+        this.fn_callback_pop_read =function()
+        {
+        	this.reload();
+        }
 
         this.seq="";
 

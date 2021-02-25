@@ -54,48 +54,57 @@
             obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_s_seq","415","40","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_name","415","75","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","415","145","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","415","180","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","415","215","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_pw","415","250","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_modify","394","351","50","40",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_modify","394","351","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("수정");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","544","351","50","40",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_cancel","519","351","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_text("다시입력");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new MaskEdit("mas_secNumber","415","110","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("8");
             obj.set_format("###### - #{######}");
             obj.set_type("string");
+            obj.set_cssclass("med_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","350","80","100","30",null,null,null,null,null,null,this);

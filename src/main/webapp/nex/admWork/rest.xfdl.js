@@ -46,13 +46,18 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","39",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Grid("Grid00","9","68","1000","322",null,null,null,null,null,null,this.Div00.form);
+=======
+            obj = new Grid("Grid00","9","68",null,null,"10","59",null,null,null,null,this.Div00.form);
+>>>>>>> 8f5af974195c2ae46f84e2a8e006a0a0a22f93e8
             obj.set_taborder("0");
             obj.set_autofittype("col");
             obj.set_binddataset("rlist_ds");

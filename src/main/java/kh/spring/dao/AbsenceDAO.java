@@ -45,6 +45,9 @@ public class AbsenceDAO {
 		public int deleteReqAbsFile(int seq) {
 			return session.delete("Absence.deleteReqAbsFile",seq);
 		}
+		public int updateReadAbs(int seq) {
+			return session.update("Absence.updateReadAbs", seq);
+		}
 		
 		public int insertRest(RestDTO dto) {
 			return session.insert("Absence.insertRest",dto);
