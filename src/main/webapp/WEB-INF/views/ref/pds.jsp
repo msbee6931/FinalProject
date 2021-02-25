@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div class="contatiner">
-	<jsp:include page="/WEB-INF/views/topHeader.jsp"/>
+    <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
 		<div class="row pt-3">
@@ -126,6 +126,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<!-- footer -->
 		<footer>
 			<jsp:include page="/WEB-INF/views/footer.jsp" />

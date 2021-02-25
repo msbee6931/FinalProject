@@ -289,11 +289,11 @@
         	var sCode = this.objApp.gds_students.getColumn(0,"s_seq");
         	var sName = this.objApp.gds_students.getColumn(0,"name");
         	var deptCode = this.objApp.gds_students.getColumn(0,"deptCode");
-        	var grade = this.objApp.gds_students.getColumn(0,"grade");
+        	var grade = this.objApp.gds_students.getColumn(0,"colGrade");
         	this.div_Info.form.sta_sSeq.set_text(sCode);
         	this.div_Info.form.sta_name.set_text(sName);
         	this.div_Info.form.co_myDept.set_value(deptCode);
-        	this.div_Info.form.sta_grade.set_text(grade+"학년");
+        	this.div_Info.form.sta_grade.set_text(grade);
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.div_Info.form.sta_semester.set_text(objDate.getFullYear()+"년 1학기");
