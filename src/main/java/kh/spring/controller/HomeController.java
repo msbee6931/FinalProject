@@ -102,6 +102,7 @@ public class HomeController {
 			model.addAttribute("logReq","nex");
 			return "loginPage";
 		}else {
+				
 			return "redirect:/nex/index.html";
 		}
 	}

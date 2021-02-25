@@ -52,45 +52,47 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","28","26","580","364",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","28","26","461","364",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("pst");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"57\"/><Column size=\"66\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"296\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"confirm\"/><Cell col=\"2\" text=\"sender\"/><Cell col=\"3\" text=\"receiver\"/><Cell col=\"4\" text=\"contents\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\"/><Cell col=\"3\" text=\"bind:receiver\"/><Cell col=\"4\" text=\"bind:contents\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"71\"/><Column size=\"154\"/><Column size=\"154\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"confirm\"/><Cell col=\"2\" text=\"sender\"/><Cell col=\"3\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:confirm\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:sender\" edittype=\"mask\" maskedittype=\"number\" maskeditformat=\"#########\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:receiver\" maskedittype=\"number\" edittype=\"mask\" maskeditformat=\"#########\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00","621","30","386","391",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","509","26","498","395",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","23","90","353","279",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new TextArea("TextArea00","9","77","479","307",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00_00","666","39","310","61",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00_00","517","35","482","51",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","31","9","253","43",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
+            obj = new Static("Static00","31","9","431","31",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
             obj.set_text("Contents");
             obj.set_textAlign("center");
             obj.set_font("bold 26px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","499","392","109","33",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn","380","400","109","33",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("내가쓴 쪽지함");
-            obj.set_background("#c1c1c1");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -100,7 +102,7 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-            obj = new BindItem("item0","Div00.form.Div00.form.Edit00","value","pst","contents");
+            obj = new BindItem("item0","Div00.form.Div00.form.TextArea00","value","pst","contents");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -146,6 +148,7 @@
                     ,""
                     ,"fn_callback"
                  )
+        	alert("삭제되었습니다");
         };
 
         });

@@ -61,9 +61,9 @@
             obj.set_text("개설강좌 조회");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnProInfo","170","420","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnDeptStdList","170","420","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("3");
-            obj.set_text("교직원 조회");
+            obj.set_text("학과 학생 조회");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnMypage","50","320","120","50",null,null,null,null,null,null,this);
@@ -278,21 +278,21 @@
         {
         	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("203010","학생 성적 관리","prfWork::classGrade.xfdl"); //form 오픈 함수
+        	this.fn_openForm("203020","학생 성적 관리","prfWork::classGrade.xfdl"); //form 오픈 함수
         };
 
         this.btnAttend_onclick = function(obj,e)
         {
         	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("20302010","학생 출석 입력","prfWork::attendManage.xfdl"); //form 오픈 함수
+        	this.fn_openForm("20303010","학생 출석 입력","prfWork::attendManage.xfdl"); //form 오픈 함수
         };
-        this.btnProInfo_onclick = function(obj,e)
-        {
+        this.btnDeptStdList_onclick = function(obj,e){
         	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 10 + "'");
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("1010","교직원 조회","admWork::faculty.xfdl"); //form 오픈 함수
+        	this.fn_openForm("1020","학생 조회","prfWork::deptStudent.xfdl"); //form 오픈 함수
         };
+
 
         this.Form_Main_onload = function(obj,e)
         {
@@ -554,6 +554,9 @@
         };
 
 
+
+
+
         });
         
         // Regist UI Components Event
@@ -563,7 +566,7 @@
             this.btnGrade.addEventHandler("onclick",this.btnGrade_onclick,this);
             this.btnAttend.addEventHandler("onclick",this.btnAttend_onclick,this);
             this.btnClassList.addEventHandler("onclick",this.btnClassList_onclick,this);
-            this.btnProInfo.addEventHandler("onclick",this.btnProInfo_onclick,this);
+            this.btnDeptStdList.addEventHandler("onclick",this.btnDeptStdList_onclick,this);
             this.btnMypage.addEventHandler("onclick",this.btnMypage_onclick,this);
             this.btnDeptSchedule.addEventHandler("onclick",this.btnDeptSchedule_onclick,this);
             this.cal_schedule.addEventHandler("onspin",this.cal_schedule_onspin,this);

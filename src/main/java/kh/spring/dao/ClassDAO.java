@@ -32,10 +32,13 @@ public class ClassDAO {
 	public int classScheduleUpdate(ClassScheduleDTO dto) {
 		return session.update("Class.classScheduleUpdate",dto);
 	}
+	public List<ClassDTO> proMyClassList(int proCode){
+		return session.selectList("Class.proMyClassList",proCode);
+	}
 	public List<ClassDTO> classReqList(){
 		return session.selectList("Class.classReqList");
 	}
-	public List<ClassDTO> classListProCode(String proCode,String startTime,String endTime){
+	public List<ClassDTO> classListProCode(int proCode,String startTime,String endTime){
 		Map<String, Object> param = new HashMap<>();
 		param.put("proCode", proCode);
 		param.put("startTime", startTime);
@@ -149,8 +152,8 @@ public class ClassDAO {
 	public int stdTimeTableSeqDel(List<StudentClassDTO> list) {
 		return session.delete("Class.stdTimeTableSeqDel",list);
 	}
-	public List<ClassDTO> proClassList(String proCode, String startTime, String endTime){
-		Map<String, String> param = new HashMap<>();
+	public List<ClassDTO> proClassList(int proCode, String startTime, String endTime){
+		Map<String, Object> param = new HashMap<>();
 		param.put("proCode", proCode);
 		param.put("startTime", startTime);
 		param.put("endTime",endTime);

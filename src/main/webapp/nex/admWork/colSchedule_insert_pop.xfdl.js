@@ -40,6 +40,7 @@
 
             obj = new Calendar("cal_sDate","70","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+            obj.set_cssclass("cal_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","10","70","40","20",null,null,null,null,null,null,this);
@@ -49,10 +50,12 @@
 
             obj = new TextArea("tea_content","10","100","380","150",null,null,null,null,null,null,this);
             obj.set_taborder("5");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_eDate","260","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("6");
+            obj.set_cssclass("cal_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_01","225","40","10","20",null,null,null,null,null,null,this);
@@ -100,12 +103,19 @@
         this.btn_ok_onclick = function(obj,e)
         {
         	var title = this.edt_title.value;
-        	var sDate = nexacro.toNumber(this.cal_sDate.value);
+        	var sDate = this.cal_sDate.value;
         	var eDate = this.cal_eDate.value;
         	var contents = this.tea_content.value;
-        	alert(title+sDate+eDate+contents)
 
-
+        	if(title == null || title == ""){
+        		alert("일정 제목을 입력해주세요");
+        	}else if(sDate == null || sDate =="" || eDate == null || eDate == ""){
+        		alert("일정을 선택해주세요");
+        	}else if(contents == null || contents == ""){
+        		alert("일정 내용을 입력해주세요");
+        	}else if(parseInt(eDate) < parseInt(sDate)){
+        		alert("시작일과 종료일을 확인해주세요");
+        	}else{
         	var nRow = this.colSchedule_ds.addRow();
         	this.colSchedule_ds.setColumn(nRow,"title",title);
         	this.colSchedule_ds.setColumn(nRow,"sDate",sDate);
@@ -121,8 +131,9 @@
         		"fn_callback"
         		)
 
+        		this.close();
+        	}
 
-        	this.close();
         };
 
         });

@@ -28,6 +28,7 @@
 
             obj = new TextArea("reason","20","90","260","258",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_rejectReason","20","70","60","20",null,null,null,null,null,null,this);
@@ -43,13 +44,13 @@
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_send","45","358","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_send","45","358","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("보내기");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","155","358","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_cancel","155","358","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("취소");
             obj.set_cssclass("btn_can");

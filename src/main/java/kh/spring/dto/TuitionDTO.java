@@ -5,6 +5,8 @@ import java.sql.Date;
 public class TuitionDTO {
 	private int seq;
 	private int std_code;
+	private String std_grade;
+	private String type;
 	private int t_enter;
 	private int t_class;
 	private int t_std;
@@ -15,11 +17,13 @@ public class TuitionDTO {
 	
 	public TuitionDTO() {}
 
-	public TuitionDTO(int seq, int std_code, int t_enter, int t_class, int t_std, int t_grd, int t_ore, int tSum,
-			String t_date) {
+	public TuitionDTO(int seq, int std_code, String std_grade, String type, int t_enter, int t_class, int t_std,
+			int t_grd, int t_ore, int tSum, String t_date) {
 		super();
 		this.seq = seq;
 		this.std_code = std_code;
+		this.std_grade = std_grade;
+		this.type = type;
 		this.t_enter = t_enter;
 		this.t_class = t_class;
 		this.t_std = t_std;
@@ -43,6 +47,22 @@ public class TuitionDTO {
 
 	public void setStd_code(int std_code) {
 		this.std_code = std_code;
+	}
+
+	public String getStd_grade() {
+		return std_grade;
+	}
+
+	public void setStd_grade(String std_grade) {
+		this.std_grade = std_grade;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public int getT_enter() {
@@ -101,6 +121,7 @@ public class TuitionDTO {
 		this.t_date = t_date;
 	}
 
+	
 	
 		
 	

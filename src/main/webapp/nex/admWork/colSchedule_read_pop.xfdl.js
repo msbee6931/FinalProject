@@ -40,6 +40,7 @@
 
             obj = new Calendar("cal_sDate","70","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+            obj.set_cssclass("cal_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","10","70","40","20",null,null,null,null,null,null,this);
@@ -49,10 +50,12 @@
 
             obj = new TextArea("tea_content","10","100","380","150",null,null,null,null,null,null,this);
             obj.set_taborder("5");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_eDate","260","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("6");
+            obj.set_cssclass("cal_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_01","225","40","10","20",null,null,null,null,null,null,this);
@@ -60,7 +63,7 @@
             obj.set_text("~");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_ok","160","259","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok","150","259","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("확인");
             obj.set_cssclass("btn_default");

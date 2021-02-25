@@ -35,4 +35,7 @@ public class TuitionDAO {
 	public int deleteOne(int seq) {
 		return session.delete("Tuition.deleteOne", seq);
 	}
+	public List<TuitionDTO> stdSelectOne(int std_code){
+		return session.selectList("Tuition.stdSelectOne", std_code);
+	}
 }

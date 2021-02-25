@@ -447,9 +447,6 @@ nav {
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
 		</footer>
 	</div>
-
-	
-	
 					<input type="hidden" id= size value=${size }><br>
 					<c:forEach var="i" items="${list }">
 						<input type=hidden id="${i.seq }seq" value=${i.seq }>

@@ -18,6 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsSchedule", this);
+            obj.set_useclientlayout("true");
             obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"sdate\" type=\"STRING\" size=\"256\"/><Column id=\"edate\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
@@ -317,7 +318,6 @@
         this.fn_callback_insert = function() {
         	//데이터셋 정보로 일정 그리기
         	this.gfnLoadScheduler(this.grpScheduler);
-        	alert("데이터셋 일정 불러오기 성공")
         }
         /**************************************************************************
          * CRUD 및 TRANSACTION 서비스 호출 처리
@@ -573,15 +573,16 @@
         				this.dsSchedule.setColumn(nRow, "edate", objRtn.edate);
         				this.dsSchedule.setColumn(nRow, "type", objRtn.type);
         				this.dsSchedule.setColumn(nRow, "content", objRtn.content);
+        				trace(this.dsSchedule.saveXML())
 
         				this.transaction(
-        				"insertIndSchedule",//id
-        				"/schedule/insertIndSchedule",//url (절대경로)
-        				"in_ds=dsSchedule:U",//in_ds:U
-        				"",//()_out_ds
-        				"",//argument
-        				"fn_callback"
-        				)
+        					"insertIndSchedule",//id
+        					"/schedule/insertIndSchedule",//url (절대경로)
+        					"in_ds=dsSchedule:U",//in_ds:U
+        					"",//()_out_ds
+        					"",//argument
+        					"fn_callback"
+        					)
         							//----------------------------- 삭제 도전
         			}
         			else if(objRtn.popuptype=="delete")

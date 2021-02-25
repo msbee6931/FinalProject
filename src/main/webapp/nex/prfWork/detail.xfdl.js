@@ -40,6 +40,11 @@
             obj = new Dataset("ds_classTimeList", this);
             obj._setContents("<ColumnInfo><Column id=\"Time\" type=\"STRING\" size=\"256\"/><Column id=\"Mon\" type=\"STRING\" size=\"256\"/><Column id=\"Tue\" type=\"STRING\" size=\"256\"/><Column id=\"Wed\" type=\"STRING\" size=\"256\"/><Column id=\"Thu\" type=\"STRING\" size=\"256\"/><Column id=\"Fri\" type=\"STRING\" size=\"256\"/><Column id=\"Sat\" type=\"STRING\" size=\"256\"/><Column id=\"Sun\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"Time\">1교시</Col></Row><Row><Col id=\"Time\">2교시</Col></Row><Row><Col id=\"Time\">3교시</Col></Row><Row><Col id=\"Time\">4교시</Col></Row><Row><Col id=\"Time\">5교시</Col></Row><Row><Col id=\"Time\">6교시</Col></Row><Row><Col id=\"Time\">7교시</Col></Row><Row><Col id=\"Time\">8교시</Col></Row><Row><Col id=\"Time\">9교시</Col></Row><Row><Col id=\"Time\">10교시</Col></Row><Row><Col id=\"Time\">11교시</Col></Row><Row><Col id=\"Time\">12교시</Col></Row></Rows>");
             this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("ds_count", this);
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"classPart\" type=\"STRING\" size=\"256\"/><Column id=\"className\" type=\"STRING\" size=\"256\"/><Column id=\"classSeq\" type=\"INT\" size=\"256\"/><Column id=\"classPoint\" type=\"STRING\" size=\"256\"/><Column id=\"passFail\" type=\"STRING\" size=\"256\"/><Column id=\"proCode\" type=\"STRING\" size=\"256\"/><Column id=\"proName\" type=\"STRING\" size=\"256\"/><Column id=\"dept\" type=\"STRING\" size=\"256\"/><Column id=\"classTime\" type=\"STRING\" size=\"256\"/><Column id=\"classRoom\" type=\"STRING\" size=\"256\"/><Column id=\"limit\" type=\"STRING\" size=\"256\"/><Column id=\"basketLimit\" type=\"STRING\" size=\"256\"/><Column id=\"classGoal\" type=\"STRING\" size=\"256\"/><Column id=\"classReferences\" type=\"STRING\" size=\"256\"/><Column id=\"classMethod\" type=\"STRING\" size=\"256\"/><Column id=\"classEvaluation\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"reqState\" type=\"STRING\" size=\"256\"/><Column id=\"reg_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Div("Div00","0","0","1000","680",null,null,null,null,null,null,this);
@@ -58,32 +63,32 @@
             this.Div00.form.classPlanTab.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_fin","641","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("43");
+            obj.set_taborder("40");
             obj.set_textAlign("center");
             obj.set_format("+0");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_task","486","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("41");
+            obj.set_taborder("39");
             obj.set_textAlign("center");
             obj.set_format("+0");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_otest","331","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("40");
+            obj.set_taborder("38");
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_argue","491","365","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("32");
+            obj.set_taborder("30");
             obj.set_format("+990");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_test","256","365","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("30");
+            obj.set_taborder("29");
             obj.set_format("+990");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
@@ -124,7 +129,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_01","351","127","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("17");
+            obj.set_taborder("16");
             obj.set_text(" ▣ 강의 시간");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
@@ -157,76 +162,76 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_03","681","88","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("13");
+            obj.set_taborder("12");
             obj.set_text(" ▣ 학년");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Combo("co_grade","799","88","150","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("14");
+            obj.set_taborder("13");
             obj.set_innerdataset("ds_grade");
             obj.set_codecolumn("id");
             obj.set_datacolumn("name");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00","21","176","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("20");
+            obj.set_taborder("19");
             obj.set_text(" ▣ 교과목 및 목표");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00_00","21","296","138","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("22");
+            obj.set_taborder("21");
             obj.set_text(" ▣ 수업운영 방법(비율)");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00_00_00","22","511","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("23");
+            obj.set_taborder("22");
             obj.set_text(" ▣ 교재 및 참고자료");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new TextArea("ta_goal","21","215","930","75",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("21");
+            obj.set_taborder("20");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Button("btnSave","759","5","90","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("24");
+            obj.set_taborder("23");
             obj.set_text("저장");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00_00_00_00","21","403","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("25");
+            obj.set_taborder("24");
             obj.set_text(" ▣ 평가방법(비율)");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static03","21","550","118","43",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("46");
+            obj.set_taborder("42");
             obj.set_text("주교재");
             obj.set_border("1px solid");
             obj.set_background("silver");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static03_00","21","593","118","43",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("48");
+            obj.set_taborder("44");
             obj.set_text("참고 자료");
             obj.set_border("1px solid");
             obj.set_background("silver");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Edit("edt_mainBook","139","550","812","43",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("47");
+            obj.set_taborder("43");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_course","21","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("26");
+            obj.set_taborder("25");
             obj.set_text("강의");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -234,7 +239,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_test","256","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("27");
+            obj.set_taborder("26");
             obj.set_text("실험/실습");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -242,7 +247,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_argue","491","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("28");
+            obj.set_taborder("27");
             obj.set_text("발표/토의/토론");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -250,7 +255,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sum","726","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("29");
+            obj.set_taborder("28");
             obj.set_text("합계");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -258,7 +263,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_attend","21","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("34");
+            obj.set_taborder("32");
             obj.set_text("출석");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -266,7 +271,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_mid","176","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("35");
+            obj.set_taborder("33");
             obj.set_text("중간고사");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -274,7 +279,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_fin","641","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("38");
+            obj.set_taborder("36");
             obj.set_text("기말고사");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -282,7 +287,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_task","486","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("37");
+            obj.set_taborder("35");
             obj.set_text("과제");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -290,7 +295,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_otest","331","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("36");
+            obj.set_taborder("34");
             obj.set_text("수시");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -298,7 +303,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sum2","796","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("39");
+            obj.set_taborder("37");
             obj.set_text("합계");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -306,14 +311,14 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_sum2","796","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("45");
+            obj.set_taborder("41");
             obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0%");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_sum","726","365","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("33");
+            obj.set_taborder("31");
             obj.set_textAlign("center");
             obj.set_border("1px solid gray");
             obj.set_text("0%");
@@ -341,24 +346,24 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Edit("edt_classTime","469","127","455","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("18");
+            obj.set_taborder("17");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02","21","127","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("15");
+            obj.set_taborder("14");
             obj.set_text(" ▣ 강의실");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Edit("edt_classRoom","139","127","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("16");
+            obj.set_taborder("15");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Button("dropBtn","924","127","25","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("19");
+            obj.set_taborder("18");
             obj.set_text("");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
@@ -406,6 +411,7 @@
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+##########");
+            obj.set_readonly("true");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_attend","21","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
@@ -885,9 +891,10 @@
         	var sum = classForm.sta_sum.text;
         	var sum2 = classForm.sta_sum2.text
         	var part = classForm.co_part.value;
-        	var limit = "0/"+classForm.mask_limit.text;
-        	var className = classForm.edt_className.text;
+        	var person = classForm.mask_limit.text;
+        	var limit = "0/"+ person;
         	var classSeq = classForm.edt_classSeq.text;
+        	var className = classForm.edt_className.text;
         	var point = classForm.co_point.text;
         	var passFail = classForm.chk_pf.value;
         	var proCode = classForm.sta_proCode.text;
@@ -896,26 +903,32 @@
         	var grade = classForm.co_grade.text;
         	var classTime = classForm.edt_classTime.text;
         	var classRoom = classForm.edt_classRoom.text;
-        // 	if(sum != "100%" || sum2 != "100%"){alert("합계가 100%가 아닙니다")}
-        // 	else if(part ==""){alert("이수구분을 선택해주세요");}
-        // 	else if(limit==""){alert("인원을 입력해주세요");}
-        // 	else if(className==""){alert("교과명을 입력해주세요");}
-        // 	else if(classSeq==""){alert("과목코드를 입력해주세요");}//과목 코드는 조합으로만들 예정
-        // 	else if(point==""){alert("학점을 선택해주세요");}
-        // 	else if(dept==""){alert("학과를 선택해주세요");}
-        // 	else if(grade==""){alert("학년을 선택해주세요");}
-        // 	else if(classTime==""){alert("강의시간을 선택해주세요");}
-        // 	else if(classRoom==""){alert("강의실을 입력해주세요");}
-        // 	else{
+
+        	if(sum != "100%" || sum2 != "100%"){alert("합계가 100%가 아닙니다")}
+        	else if(part =="" || part == null){alert("이수구분을 선택해주세요");}
+        	else if(person =="" || person == null){alert("인원을 입력해주세요");}
+        	else if(className=="" || className == null){alert("교과명을 입력해주세요");}
+        	else if(point=="" || point == null){alert("학점을 선택해주세요");}
+        	else if(dept=="" || dept == null){alert("학과를 선택해주세요");}
+        	else if(grade=="" || grade == null){alert("학년을 선택해주세요");}
+        	else if(classTime=="" || classTime == null){alert("강의시간을 선택해주세요");}
+        	else if(classRoom=="" ||classRoom == null){alert("강의실을 입력해주세요");}
+        	else{
         		//ds_class에 값 넣기
         		var goal = classForm.ta_goal.text;
         		var method = classForm.mask_course.text +"|"+classForm.mask_test.text+"|"+classForm.mask_argue.text;
         		var evaluation = classForm.mask_attend.text +"|"+classForm.mask_mid.text+"|"+classForm.mask_fin.text+"|"+classForm.mask_task.text+"|"+classForm.mask_otest.text;
         		var references = classForm.edt_mainBook.text +"|" + classForm.edt_subBook.text;
-        		var reqState = classForm.sta_reqState.text;
+        		reqState = classForm.sta_reqState.text;
         		if(reqState == ""){
         			var nRow = this.ds_class.addRow();
         			var nRow2 = this.ds_classSchedule.addRow();
+        			//학번 조합
+        			var col = Math.floor(dept/10,0)+"0"; //대분류
+        			var pro = proCode.substring(7,9) //교번 뒤에 2자리
+        			var ran = Math.floor(Math.random()*100,2);
+        			classSeq = col+dept+pro+ran;
+        			classForm.edt_classSeq.set_text(classSeq);
         		}else{
         			var Row = 0;
         			var Row2 = 0;
@@ -971,17 +984,16 @@
         		this.ds_classSchedule.setColumn(nRow2,"week12",week12);
         		this.ds_classSchedule.setColumn(nRow2,"week13",week13);
         		this.ds_classSchedule.setColumn(nRow2,"week14",week14);
-        		this.ds_classSchedule.setColumn(nRow,"week15",week15);
+        		this.ds_classSchedule.setColumn(nRow2,"week15",week15);
 
-        		//reqState(요청사항이 없으면) insert
+
         		if(reqState == ""){
-        			//ds_class db에 저장
         			this.transaction(
-        				"classInfo_Save"
-        				,"/classInfo.nex"
-        				,"in_ds1=ds_class:U in_ds2=ds_classSchedule:U"
+        				"classSeqCheck"
+        				,"/classSeqCheck.nex"
         				,""
-        				,""
+        				,"ds_count=out_ds"
+        				,"classSeq="+nexacro.wrapQuote(classSeq)
         				,"fn_callback"
         			);
         		}else{
@@ -993,9 +1005,10 @@
         				,""
         				,"fn_callback"
         			);
+        			this.close()
         		}
-        		this.close(proCode);
-        /*	}*/
+
+        	}
         };
         this.method_canchange = function(obj,e)
         {
@@ -1036,7 +1049,7 @@
         			,"classSeq="+nexacro.wrapQuote(classSeq)
         			,"fn_callback"
         		);
-        			classForm.edt_classSeq.set_readonly(true);
+        		classForm.edt_classSeq.set_readonly(true);
         		if(view == 'Y'){
         			classForm.btnSave.set_visible( false );
         		}
@@ -1094,69 +1107,103 @@
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
         	}
         	if(sId == "classListSeq"){
-        	//수업 정보 가져와서 띄우기
-        	classForm.co_part.set_value(this.ds_class.getColumn(0,"classPart"));
-        	classForm.edt_className.set_value(this.ds_class.getColumn(0,"className"));
-        	classForm.edt_classSeq.set_value(this.ds_class.getColumn(0,"classSeq"));
-        	classForm.co_point.set_text(this.ds_class.getColumn(0,"classPoint"));
-        	classForm.chk_pf.set_value(this.ds_class.getColumn(0,"passFail"));
-        	classForm.sta_proCode.set_text(this.ds_class.getColumn(0,"proCode"));
-        	classForm.sta_proName.set_text(this.ds_class.getColumn(0,"proName"));
-        	classForm.co_dept.set_value(this.ds_class.getColumn(0,"dept"));
-        	classForm.co_grade.set_text(this.ds_class.getColumn(0,"grade"));
-        	classForm.edt_classTime.set_value(this.ds_class.getColumn(0,"classTime"));
-        	classForm.edt_classRoom.set_value(this.ds_class.getColumn(0,"classRoom"));
-        	classForm.ta_goal.set_value(this.ds_class.getColumn(0,"classGoal"));
-        	var limit = this.ds_class.getColumn(0,"limit").split("/");
-        	classForm.mask_limit.set_value(limit[1]);
-        	var classMethod = this.ds_class.getColumn(0,"classMethod").split("|");
-        	classForm.mask_course.set_value(classMethod[0]);
-        	classForm.mask_test.set_value(classMethod[1]);
-        	classForm.mask_argue.set_value(classMethod[2]);
-        	classForm.sta_sum.set_text(nexacro.toNumber(classMethod[0])+nexacro.toNumber(classMethod[1])+nexacro.toNumber(classMethod[2])+"%");
-        	var classEv = this.ds_class.getColumn(0,"classEvaluation").split("|");
-        	classForm.mask_attend.set_value(classEv[0]);
-        	classForm.mask_mid.set_value(classEv[1]);
-        	classForm.mask_fin.set_value(classEv[2]);
-        	classForm.mask_task.set_value(classEv[3]);
-        	classForm.mask_otest.set_value(classEv[4]);
-        	classForm.sta_sum2.set_text(nexacro.toNumber(classEv[0])+nexacro.toNumber(classEv[1])+nexacro.toNumber(classEv[2])+nexacro.toNumber(classEv[3])+nexacro.toNumber(classEv[4])+"%");
-        	var classRefer = this.ds_class.getColumn(0,"classReferences").split("|");
-        	classForm.edt_mainBook.set_value(classRefer[0]);
-        	classForm.edt_subBook.set_value(classRefer[1]);
-        	classForm.sta_reqState.set_text(this.ds_class.getColumn(0,"reqState"));
-        	//수업 일정 가져와서 띄우기
-
-        	var week1 = this.ds_classSchedule.getColumn(0,"week1").split("|");
-        	planForm.edt_subject1.set_value(week1[0]);planForm.ta_content1.set_value(week1[1]);planForm.edt_notice1.set_value(week1[2]);planForm.edt_prepare1.set_value(week1[3]);
-        	var week2 = this.ds_classSchedule.getColumn(0,"week2").split("|");
-        	planForm.edt_subject2.set_value(week2[0]);planForm.ta_content2.set_value(week2[1]);planForm.edt_notice2.set_value(week2[2]);planForm.edt_prepare2.set_value(week2[3]);
-        	var week3 = this.ds_classSchedule.getColumn(0,"week3").split("|");
-        	planForm.edt_subject3.set_value(week3[0]);planForm.ta_content3.set_value(week3[1]);planForm.edt_notice3.set_value(week3[2]);planForm.edt_prepare3.set_value(week3[3]);
-        	var week4 = this.ds_classSchedule.getColumn(0,"week4").split("|");
-        	planForm.edt_subject4.set_value(week4[0]);planForm.ta_content4.set_value(week4[1]);planForm.edt_notice4.set_value(week4[2]);planForm.edt_prepare4.set_value(week4[3]);
-        	var week5 = this.ds_classSchedule.getColumn(0,"week5").split("|");
-        	planForm.edt_subject5.set_value(week5[0]);planForm.ta_content5.set_value(week5[1]);planForm.edt_notice5.set_value(week5[2]);planForm.edt_prepare5.set_value(week5[3]);
-        	var week6 = this.ds_classSchedule.getColumn(0,"week6").split("|");
-        	planForm.edt_subject6.set_value(week6[0]);planForm.ta_content6.set_value(week6[1]);planForm.edt_notice6.set_value(week6[2]);planForm.edt_prepare6.set_value(week6[3]);
-        	var week7 = this.ds_classSchedule.getColumn(0,"week7").split("|");
-        	planForm.edt_subject7.set_value(week7[0]);planForm.ta_content7.set_value(week7[1]);planForm.edt_notice7.set_value(week7[2]);planForm.edt_prepare7.set_value(week7[3]);
-        	var week8 = this.ds_classSchedule.getColumn(0,"week8").split("|");
-        	planForm.edt_subject8.set_value(week8[0]);planForm.ta_content8.set_value(week8[1]);planForm.edt_notice8.set_value(week8[2]);planForm.edt_prepare8.set_value(week8[3]);
-        	var week9 = this.ds_classSchedule.getColumn(0,"week9").split("|");
-        	planForm.edt_subject9.set_value(week9[0]);planForm.ta_content9.set_value(week9[1]);planForm.edt_notice9.set_value(week9[2]);planForm.edt_prepare9.set_value(week9[3]);
-        	var week10 = this.ds_classSchedule.getColumn(0,"week10").split("|");
-        	planForm.edt_subject10.set_value(week10[0]);planForm.ta_content10.set_value(week10[1]);planForm.edt_notice10.set_value(week10[2]);planForm.edt_prepare10.set_value(week10[3]);
-        	var week11 = this.ds_classSchedule.getColumn(0,"week11").split("|");
-        	planForm.edt_subject11.set_value(week11[0]);planForm.ta_content11.set_value(week11[1]);planForm.edt_notice11.set_value(week11[2]);planForm.edt_prepare11.set_value(week11[3]);
-        	var week12 = this.ds_classSchedule.getColumn(0,"week12").split("|");
-        	planForm.edt_subject12.set_value(week12[0]);planForm.ta_content12.set_value(week12[1]);planForm.edt_notice12.set_value(week12[2]);planForm.edt_prepare12.set_value(week12[3]);
-        	var week13 = this.ds_classSchedule.getColumn(0,"week13").split("|");
-        	planForm.edt_subject13.set_value(week13[0]);planForm.ta_content13.set_value(week13[1]);planForm.edt_notice13.set_value(week13[2]);planForm.edt_prepare13.set_value(week13[3]);
-        	var week14 = this.ds_classSchedule.getColumn(0,"week14").split("|");
-        	planForm.edt_subject14.set_value(week14[0]);planForm.ta_content14.set_value(week14[1]);planForm.edt_notice14.set_value(week14[2]);planForm.edt_prepare14.set_value(week14[3]);
-        	var week15 = this.ds_classSchedule.getColumn(0,"week15").split("|");
-        	planForm.edt_subject15.set_value(week15[0]);planForm.ta_content15.set_value(week15[1]);planForm.edt_notice15.set_value(week15[2]);planForm.edt_prepare15.set_value(week15[3]);
+        		//수업 정보 가져와서 띄우기
+        		classForm.co_part.set_value(this.ds_class.getColumn(0,"classPart"));
+        		classForm.edt_className.set_value(this.ds_class.getColumn(0,"className"));
+        		classForm.edt_classSeq.set_value(this.ds_class.getColumn(0,"classSeq"));
+        		classForm.co_point.set_text(this.ds_class.getColumn(0,"classPoint"));
+        		classForm.chk_pf.set_value(this.ds_class.getColumn(0,"passFail"));
+        		classForm.sta_proCode.set_text(this.ds_class.getColumn(0,"proCode"));
+        		classForm.sta_proName.set_text(this.ds_class.getColumn(0,"proName"));
+        		classForm.co_dept.set_value(this.ds_class.getColumn(0,"dept"));
+        		classForm.co_grade.set_text(this.ds_class.getColumn(0,"grade"));
+        		classForm.edt_classTime.set_value(this.ds_class.getColumn(0,"classTime"));
+        		classForm.edt_classRoom.set_value(this.ds_class.getColumn(0,"classRoom"));
+        		classForm.ta_goal.set_value(this.ds_class.getColumn(0,"classGoal"));
+        		var limit = this.ds_class.getColumn(0,"limit").split("/");
+        		classForm.mask_limit.set_value(limit[1]);
+        		var classMethod = this.ds_class.getColumn(0,"classMethod").split("|");
+        		classForm.mask_course.set_value(classMethod[0]);
+        		classForm.mask_test.set_value(classMethod[1]);
+        		classForm.mask_argue.set_value(classMethod[2]);
+        		classForm.sta_sum.set_text(nexacro.toNumber(classMethod[0])+nexacro.toNumber(classMethod[1])+nexacro.toNumber(classMethod[2])+"%");
+        		var classEv = this.ds_class.getColumn(0,"classEvaluation").split("|");
+        		classForm.mask_attend.set_value(classEv[0]);
+        		classForm.mask_mid.set_value(classEv[1]);
+        		classForm.mask_fin.set_value(classEv[2]);
+        		classForm.mask_task.set_value(classEv[3]);
+        		classForm.mask_otest.set_value(classEv[4]);
+        		classForm.sta_sum2.set_text(nexacro.toNumber(classEv[0])+nexacro.toNumber(classEv[1])+nexacro.toNumber(classEv[2])+nexacro.toNumber(classEv[3])+nexacro.toNumber(classEv[4])+"%");
+        		var classRefer = this.ds_class.getColumn(0,"classReferences").split("|");
+        		classForm.edt_mainBook.set_value(classRefer[0]);
+        		classForm.edt_subBook.set_value(classRefer[1]);
+        		classForm.sta_reqState.set_text(this.ds_class.getColumn(0,"reqState"));
+        		//수업 일정 가져와서 띄우기
+        		trace("week1 : " + this.ds_classSchedule.getColumn(0,"week1"));
+        		var week1 = this.ds_classSchedule.getColumn(0,"week1").split("|");
+        		planForm.edt_subject1.set_value(week1[0]);planForm.ta_content1.set_value(week1[1]);planForm.edt_notice1.set_value(week1[2]);planForm.edt_prepare1.set_value(week1[3]);
+        		var week2 = this.ds_classSchedule.getColumn(0,"week2").split("|");
+        		planForm.edt_subject2.set_value(week2[0]);planForm.ta_content2.set_value(week2[1]);planForm.edt_notice2.set_value(week2[2]);planForm.edt_prepare2.set_value(week2[3]);
+        		var week3 = this.ds_classSchedule.getColumn(0,"week3").split("|");
+        		planForm.edt_subject3.set_value(week3[0]);planForm.ta_content3.set_value(week3[1]);planForm.edt_notice3.set_value(week3[2]);planForm.edt_prepare3.set_value(week3[3]);
+        		var week4 = this.ds_classSchedule.getColumn(0,"week4").split("|");
+        		planForm.edt_subject4.set_value(week4[0]);planForm.ta_content4.set_value(week4[1]);planForm.edt_notice4.set_value(week4[2]);planForm.edt_prepare4.set_value(week4[3]);
+        		var week5 = this.ds_classSchedule.getColumn(0,"week5").split("|");
+        		planForm.edt_subject5.set_value(week5[0]);planForm.ta_content5.set_value(week5[1]);planForm.edt_notice5.set_value(week5[2]);planForm.edt_prepare5.set_value(week5[3]);
+        		var week6 = this.ds_classSchedule.getColumn(0,"week6").split("|");
+        		planForm.edt_subject6.set_value(week6[0]);planForm.ta_content6.set_value(week6[1]);planForm.edt_notice6.set_value(week6[2]);planForm.edt_prepare6.set_value(week6[3]);
+        		var week7 = this.ds_classSchedule.getColumn(0,"week7").split("|");
+        		planForm.edt_subject7.set_value(week7[0]);planForm.ta_content7.set_value(week7[1]);planForm.edt_notice7.set_value(week7[2]);planForm.edt_prepare7.set_value(week7[3]);
+        		var week8 = this.ds_classSchedule.getColumn(0,"week8").split("|");
+        		planForm.edt_subject8.set_value(week8[0]);planForm.ta_content8.set_value(week8[1]);planForm.edt_notice8.set_value(week8[2]);planForm.edt_prepare8.set_value(week8[3]);
+        		var week9 = this.ds_classSchedule.getColumn(0,"week9").split("|");
+        		planForm.edt_subject9.set_value(week9[0]);planForm.ta_content9.set_value(week9[1]);planForm.edt_notice9.set_value(week9[2]);planForm.edt_prepare9.set_value(week9[3]);
+        		var week10 = this.ds_classSchedule.getColumn(0,"week10").split("|");
+        		planForm.edt_subject10.set_value(week10[0]);planForm.ta_content10.set_value(week10[1]);planForm.edt_notice10.set_value(week10[2]);planForm.edt_prepare10.set_value(week10[3]);
+        		var week11 = this.ds_classSchedule.getColumn(0,"week11").split("|");
+        		planForm.edt_subject11.set_value(week11[0]);planForm.ta_content11.set_value(week11[1]);planForm.edt_notice11.set_value(week11[2]);planForm.edt_prepare11.set_value(week11[3]);
+        		var week12 = this.ds_classSchedule.getColumn(0,"week12").split("|");
+        		planForm.edt_subject12.set_value(week12[0]);planForm.ta_content12.set_value(week12[1]);planForm.edt_notice12.set_value(week12[2]);planForm.edt_prepare12.set_value(week12[3]);
+        		var week13 = this.ds_classSchedule.getColumn(0,"week13").split("|");
+        		planForm.edt_subject13.set_value(week13[0]);planForm.ta_content13.set_value(week13[1]);planForm.edt_notice13.set_value(week13[2]);planForm.edt_prepare13.set_value(week13[3]);
+        		var week14 = this.ds_classSchedule.getColumn(0,"week14").split("|");
+        		planForm.edt_subject14.set_value(week14[0]);planForm.ta_content14.set_value(week14[1]);planForm.edt_notice14.set_value(week14[2]);planForm.edt_prepare14.set_value(week14[3]);
+        		var week15 = this.ds_classSchedule.getColumn(0,"week15").split("|");
+        		planForm.edt_subject15.set_value(week15[0]);planForm.ta_content15.set_value(week15[1]);planForm.edt_notice15.set_value(week15[2]);planForm.edt_prepare15.set_value(week15[3]);
+        	}else if(sId == "classSeqCheck"){
+        		if(this.ds_count.getRowCount() == 0){
+        			//ds_class db에 저장
+        			this.transaction(
+        				"classInfo_Save"
+        				,"/classInfo.nex"
+        				,"in_ds1=ds_class:U in_ds2=ds_classSchedule:U"
+        				,""
+        				,""
+        				,"fn_callback"
+        			);
+        		}
+        		this.close();
+        	}else{
+        		var classSeq = classForm.edt_classSeq.text;
+        		var nRow = this.ds_class.findRow("classSeq",classSeq);
+        		var nRow2 = this.ds_classSchedule.findRow("classSeq",classSeq);
+        		var proCode = classForm.sta_proCode.text;
+        		var dept = classForm.co_dept.value;
+        		col = Math.floor(dept/10,0)+"0"; //대분류
+        		pro = proCode.substring(7,9) //교번 뒤에 2자리
+        		var ran = Math.floor(Math.random()*100,2);
+        		classSeq = col+dept+pro+ran;
+        		classForm.edt_classSeq.set_text(classSeq);
+        		this.ds_class.setColumn(nRow,"classSeq",classSeq);
+        		this.ds_class.setColumn(nRow2,"classSeq",classSeq);
+        		this.transaction(
+        			"classSeqCheck"
+        			,"/classSeqCheck.nex"
+        			,""
+        			,"ds_count=out_ds"
+        			,"classSeq="+nexacro.wrapQuote(classSeq)
+        			,"fn_callback"
+        		);
         	}
         }
 

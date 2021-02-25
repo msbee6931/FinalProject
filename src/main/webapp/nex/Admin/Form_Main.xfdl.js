@@ -56,34 +56,40 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btnBoard","50","370","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnBoard","50","369","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("건의게시판 관리");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnReference","170","370","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnReference","170","369","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("자료실 관리");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnClassList","50","420","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnClassList","50","418","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("개설강좌 조회");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnScholarMg","170","420","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnScholarMg","170","418","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("장학금 신청 관리");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnStudentMg","50","320","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("학생 관리");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNotice","170","320","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnNotice","169","320","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("공지사항 관리");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_schedule","750","36","290","224",null,null,null,null,null,null,this);
@@ -100,6 +106,7 @@
             obj.set_taborder("7");
             obj.set_binddataset("ds_colSchedule");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -117,44 +124,52 @@
             obj.set_taborder("10");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"46\"/><Column size=\"196\"/><Column size=\"64\"/><Column size=\"112\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:deptcode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ds_deptcode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"2\" displaytype=\"imagecontrol\" imagestretch=\"fixaspectratio\" background=\"transparent\" text=\"expr:file==&quot;Y&quot;?&quot;theme://images/file.png&quot;:&quot;&quot;\" cursor=\"pointer\"/><Cell col=\"3\" text=\"bind:writedate\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd \" displaytype=\"calendarcontrol\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAll","310","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("전체");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnNormal","370","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("일반");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAcademic","430","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("학사");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnScholar","490","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("장학");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnEmployment","550","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("취업");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnMore","670","50","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("more+");
             obj.set_visible("false");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_month","910","260","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_month_innerdataset = new nexacro.NormalDataset("co_month_innerdataset", obj);
             co_month_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1월</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2월</Col></Row><Row><Col id=\"codecolumn\">3</Col><Col id=\"datacolumn\">3월</Col></Row><Row><Col id=\"codecolumn\">4</Col><Col id=\"datacolumn\">4월</Col></Row><Row><Col id=\"codecolumn\">5</Col><Col id=\"datacolumn\">5월</Col></Row><Row><Col id=\"codecolumn\">6</Col><Col id=\"datacolumn\">6월</Col></Row><Row><Col id=\"codecolumn\">7</Col><Col id=\"datacolumn\">7월</Col></Row><Row><Col id=\"codecolumn\">8</Col><Col id=\"datacolumn\">8월</Col></Row><Row><Col id=\"codecolumn\">9</Col><Col id=\"datacolumn\">9월</Col></Row><Row><Col id=\"codecolumn\">10</Col><Col id=\"datacolumn\">10월</Col></Row><Row><Col id=\"codecolumn\">11</Col><Col id=\"datacolumn\">11월</Col></Row><Row><Col id=\"codecolumn\">12</Col><Col id=\"datacolumn\">12월</Col></Row></Rows>");
             obj.set_innerdataset(co_month_innerdataset);
@@ -168,7 +183,7 @@
             obj = new Div("div_Info","50","51","250","229",null,null,null,null,null,null,this);
             obj.set_taborder("19");
             obj.set_text("Div00");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_name","5","14","230","46",null,null,null,null,null,null,this.div_Info.form);
@@ -360,6 +375,7 @@
         	}else{
         		alert("공지사항이 없습니다");
         	}
+
         };
 
 

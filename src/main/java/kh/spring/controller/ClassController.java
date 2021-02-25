@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
@@ -27,13 +28,18 @@ import kh.spring.dto.ClassDTO;
 import kh.spring.dto.ClassScheduleDTO;
 import kh.spring.dto.StdTimeTableDTO;
 import kh.spring.dto.StudentClassDTO;
+import kh.spring.dto.StudentsDTO;
 import kh.spring.service.ClassService;
+import kh.spring.service.StudentsService;
 
 @Controller
 public class ClassController {
 
 	@Autowired
 	private ClassService service;
+	@Autowired
+	private StudentsService sService;
+	
 	@RequestMapping("/classInfo.nex")
 	public NexacroResult classInfo(@ParamDataSet(name="in_ds1", required=false)ClassDTO dto, @ParamDataSet(name="in_ds2", required=false)ClassScheduleDTO dto2) {
 		NexacroResult nr = new NexacroResult();
@@ -41,24 +47,37 @@ public class ClassController {
 		service.classScheduleInsert(dto2);
 		return nr;
 	}
+	@RequestMapping("/classSeqCheck.nex")
+	public NexacroResult classSeqCheck(@ParamDataSet(name="classSeq") int classSeq) {
+		NexacroResult nr = new NexacroResult();
+		ClassDTO dto = service.classListSeq(classSeq);
+		nr.addDataSet("out_ds",dto);
+		return nr;
+	}
 
 	@RequestMapping("/classInfoUpd.nex")
 	public NexacroResult classInfoUpd(@ParamDataSet(name="in_ds1", required=false)ClassDTO dto,@ParamDataSet(name="in_ds2", required=false)ClassScheduleDTO dto2) {
+		System.out.println("수업 계획서 수정");
 		NexacroResult nr = new NexacroResult();
 		service.classUpdate(dto);
 		service.classScheduleUpdate(dto2);
 		System.out.println(dto2.getWeek1());
 		return nr;
 	}
-
-	@RequestMapping("classList.nex")
+	@RequestMapping("/proMyClassList.nex")
+	public NexacroResult myClassList(@ParamVariable(name="proCode")int proCode) {
+		NexacroResult nr = new NexacroResult();
+		List<ClassDTO> list = service.proMyClassList(proCode);
+		nr.addDataSet("out_ds",list);
+		return nr;
+	}
+	@RequestMapping("/classList.nex")
 	public NexacroResult classList() {
 		NexacroResult nr = new NexacroResult();
 		List<ClassDTO> list = service.classList();
 		nr.addDataSet("out_ds",list);
 		return nr;
 	}
-	
 	@RequestMapping("/classReqList.nex")
 	public NexacroResult classReqList() {
 		NexacroResult nr = new NexacroResult();
@@ -67,7 +86,7 @@ public class ClassController {
 		return nr;
 	}
 	@RequestMapping("/classListProCode.nex")
-	public NexacroResult classListProCode(@ParamVariable(name="proCode")String proCode,@ParamVariable(name="startTime")String startTime,@ParamVariable(name="endTime")String endTime) {
+	public NexacroResult classListProCode(@ParamVariable(name="proCode")int proCode,@ParamVariable(name="startTime")String startTime,@ParamVariable(name="endTime")String endTime) {
 		NexacroResult nr = new NexacroResult();
 		List<ClassDTO> list = service.classListProCode(proCode,startTime,endTime);
 		nr.addDataSet("out_ds",list);
@@ -372,7 +391,7 @@ public class ClassController {
 		return nr;
 	}
 	@RequestMapping("/proClassList.nex")
-	public NexacroResult proClassList(@ParamVariable(name="proCode")String proCode,@ParamVariable(name="startTime")String startTime,@ParamVariable(name="endTime")String endTime) {
+	public NexacroResult proClassList(@ParamVariable(name="proCode")int proCode,@ParamVariable(name="startTime")String startTime,@ParamVariable(name="endTime")String endTime) {
 		NexacroResult nr = new NexacroResult();
 		 List<ClassDTO> list = service.proClassList(proCode,startTime,endTime);
 		 nr.addDataSet("out_ds",list);
@@ -391,5 +410,27 @@ public class ClassController {
 			nr.addDataSet("out_ds",list2);
 		}
 		return nr;
+	}
+	@RequestMapping("/classStudents.nex")
+	public NexacroResult classStudents(@ParamVariable(name="classCode")int classCode) {
+		NexacroResult nr = new NexacroResult();
+		StudentClassDTO dto = new StudentClassDTO();
+		dto.setClassCode(classCode);
+		List<StudentClassDTO> list = service.stdListSeq(dto);
+		System.out.println("LIST : " +list.size());
+		if(list.size() > 0) {
+			List<StudentsDTO> list2 = sService.classStudents(list);
+			System.out.println("LIST2 : " +list2.size());
+			nr.addDataSet("out_ds",list2);
+		}else {
+			List<StudentsDTO> list2 = new ArrayList<>();
+			nr.addDataSet("out_ds",list2);
+		}
+		return nr;
+	}
+	@ExceptionHandler
+	public String exceptionhandler(Exception e){
+		e.printStackTrace();
+		return "error";
 	}
 }
