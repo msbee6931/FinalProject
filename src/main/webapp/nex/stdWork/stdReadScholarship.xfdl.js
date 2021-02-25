@@ -46,7 +46,7 @@
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","36","28",null,null,"35","356",null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","36","28",null,"66","35",null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -112,6 +112,7 @@
             obj.set_taborder("6");
             obj.set_binddataset("scholorship_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"60\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"95\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학년\"/><Cell col=\"1\" text=\"학기\"/><Cell col=\"2\" text=\"선행장학금\"/><Cell col=\"3\" text=\"추천장학금\"/><Cell col=\"4\" text=\"성적우수장학금\"/><Cell col=\"5\" text=\"생활지원장학금\"/><Cell col=\"6\" text=\"기타장학금\"/><Cell col=\"7\" text=\"총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_grade\" textAlign=\"center\" suppress=\"1\"/><Cell col=\"1\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:s_kind\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:s_rec\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:s_smt\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:s_spt\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:s_etc\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:sSum\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 

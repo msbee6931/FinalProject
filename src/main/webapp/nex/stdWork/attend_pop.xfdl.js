@@ -93,7 +93,7 @@
             obj.set_text("과목명 :");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","234","556","100","25",null,null,null,null,null,null,this);
+            obj = new Button("Button00","250","556","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("닫기");
             obj.set_cssclass("btn_can");

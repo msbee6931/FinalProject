@@ -73,6 +73,7 @@
             obj = new Edit("edt_title","168","83","600","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_cssclass("edt_default");
+            obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00","70","83","100","30",null,null,null,null,null,null,this.Div00.form);
@@ -155,7 +156,7 @@
             obj.set_text("※ 작성 후, 수정·삭제는 관리자로 문의 부탁드립니다.");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new TextArea("TextArea00","171","181","600","138",null,null,null,null,null,null,this.Div00.form);
+            obj = new TextArea("txt_contents","171","181","600","138",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("14");
             obj.set_cssclass("txt_default");
             this.Div00.addChild(obj.name, obj);
@@ -331,8 +332,17 @@
         //파일전송 버튼클릭
         this.Div00_btn_save_onclick = function(obj,e)
         {
+        		var nRow = this.reqScholar_ds.addRow();
+        		var title = this.Div00.form.edt_title.value;
+        		var contents = this.Div00.form.txt_contents.value;
+
         	if(this.FileUpTransfer00.filelist.length == 0) {
         		alert("첨부한 파일이 없습니다.");
+        		return;
+        	}
+        	else if(contents == null || contents == "")
+        	{
+        		alert("신청 사유를 입력해 주세요");
         		return;
         	}
 
@@ -340,10 +350,6 @@
 
         	if(conValue)
         	{
-
-        		var nRow = this.reqScholar_ds.addRow();
-        		var title = this.Div00.form.edt_title.value;
-        		var contents = this.Div00.form.edt_contents.value;
 
         		this.reqScholar_ds.setColumn(nRow,"title",title);
         		this.reqScholar_ds.setColumn(nRow,"contents",contents);

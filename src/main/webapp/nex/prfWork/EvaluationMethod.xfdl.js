@@ -25,56 +25,50 @@
             // UI Components Initialize
             obj = new Static("sta_sum","575","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("0");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sum2","575","10","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("합계");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("label_fin","475","10","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("기말고사");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("label_task","375","10","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("과제");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("label_otest","275","10","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("수시");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("label_mid","175","10","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("중간고사");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("label_attend","75","10","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("출석");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_attend","75","70","100","30",null,null,null,null,null,null,this);
@@ -82,6 +76,7 @@
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_mid","175","70","100","30",null,null,null,null,null,null,this);
@@ -89,6 +84,7 @@
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_otest","275","70","100","30",null,null,null,null,null,null,this);
@@ -96,89 +92,94 @@
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_task","375","70","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_fin","475","70","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_sumAll","575","70","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("12");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static02_02","5","40","70","30",null,null,null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("기존 방식");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static02_02_00","5","70","70","30",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("변경 방식");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static02_02_01","5","10","70","30",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_fin","475","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("16");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_task","375","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("17");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_otest","275","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("18");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_mid","175","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("19");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_attend","75","40","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("20");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave","485","115","90","35",null,null,null,null,null,null,this);
+            obj = new Button("btnSave","465","115","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("21");
             obj.set_text("저장");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnClose","580","115","90","35",null,null,null,null,null,null,this);
+            obj = new Button("btnClose","575","115","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("22");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions

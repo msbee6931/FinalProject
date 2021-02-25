@@ -20,7 +20,7 @@
 
             
             // UI Components Initialize
-            obj = new Grid("Grid00","0","30","200",null,null,"0",null,null,null,null,this);
+            obj = new Grid("Grid00","0","15","200",null,null,"0",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("prf_menu");
             obj.set_autofittype("col");
@@ -29,6 +29,11 @@
             obj.set_treeuseimage("false");
             obj.set_treeuseline("false");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:menu_name\" displaytype=\"treeitemcontrol\" treelevel=\"bind:menu_level\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00","0","0","200","15",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_background("#0044c9");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -113,6 +118,8 @@
 
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.form.fn_addTab(sFormId, sMenuNm);
         }
+
+
 
 
         });

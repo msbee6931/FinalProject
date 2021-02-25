@@ -200,48 +200,42 @@
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"border" : nexacro.BorderObject("1px solid #0d6efd")
+									"textPadding" : nexacro.PaddingObject("4px")
 								},
 								"disabled" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"border" : nexacro.BorderObject("1px solid #0d6efd")
+									"textPadding" : nexacro.PaddingObject("4px")
 								},
 								"mouseover" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"border" : nexacro.BorderObject("1px solid #0d6efd")
+									"textPadding" : nexacro.PaddingObject("4px")
 								},
 								"focused" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"border" : nexacro.BorderObject("1px solid #0d6efd")
+									"textPadding" : nexacro.PaddingObject("4px")
 								},
 								"pushed" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"border" : nexacro.BorderObject("1px solid #0d6efd")
+									"textPadding" : nexacro.PaddingObject("4px")
 								},
 								"selected" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
 									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
 									"icon" : nexacro.UrlObject("url('theme://images/btn_home_15_15_wh.png')"),
-									"textPadding" : nexacro.PaddingObject("4px"),
-									"border" : nexacro.BorderObject("1px solid #0d6efd")
+									"textPadding" : nexacro.PaddingObject("4px")
 								}
 							}
 						}
