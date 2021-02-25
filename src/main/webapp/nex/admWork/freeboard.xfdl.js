@@ -51,20 +51,21 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","44","1020","446",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","44",null,null,"30","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","24","55","376","349",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","24","55",null,null,"618","40",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("free");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"72\"/><Column size=\"111\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"확인\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:write_date\"/><Cell col=\"4\" text=\"bind:view_count\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00","414","13","568","391",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","414","13",null,null,"36","40",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("");
             obj.set_cssclass("div_line");
@@ -86,13 +87,13 @@
             obj.set_text("FreeBoard");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","885","408","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn",null,null,"100","25","33","11",null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","129","26","107","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Combo("Combo00","99","26","107","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_innerdataset("search");
             obj.set_codecolumn("id");
@@ -101,14 +102,15 @@
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","246","26","115","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit00","216","26","115","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","370","26","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00","340","26","60","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);

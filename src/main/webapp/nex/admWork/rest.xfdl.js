@@ -46,28 +46,31 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","39",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","32","68","927","322",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","9","68",null,null,"10","59",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_autofittype("col");
             obj.set_binddataset("rlist_ds");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"55\"/><Column size=\"80\"/><Column size=\"146\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:writeDate\" textAlign=\"center\" displaytype=\"date\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text(" 복학 신청서 관리");
-            obj.set_background("#c1c1c1");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_del",null,null,"100","25","90","55",null,null,null,null,this);
+            obj = new Button("btn_del",null,null,"100","25","71","55",null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
             // Layout Functions

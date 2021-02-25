@@ -40,6 +40,9 @@ public class StudentsDAO {
 	public List<StudentsDTO> selectAllStd() {
 		return session.selectList("Students.selectAllStd");
 	}
+	public List<StudentsDTO> deptStudentList(StudentsDTO dto){
+		return session.selectList("Students.deptStudentList",dto);
+	}
 	
 	
 }

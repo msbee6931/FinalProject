@@ -441,6 +441,11 @@
 {
 	text-align : center;
 }
+.Radio .radioitem
+{
+	font : 12px "Malgun Gothic";
+	color : #0d6efd;
+}
 .Sketch
 {
 	background : #ffffff;
@@ -719,16 +724,15 @@
 	color : #0d6efd;
 	font : 12px "-윤고딕330";
 }
-.Combo.cmb_default .comboedit
+.Combo.cmb_default
 {
 	border : 1px solid #0d6efd;
+}
+.Combo.cmb_default .comboedit
+{
 	background : #ffffff;
 	color : #0d6efd;
-	font : 12px "-윤고딕330";
-}
-.Combo.cmb_default .dropbutton
-{
-	background : #0d6efd;
+	font : 12px/normal "Malgun Gothic";
 }
 .ListBoxControl.popupCombocmb_defaultcombolist.dummy.dummy .listboxitem
 {
@@ -761,6 +765,7 @@
 	background : #0d6efd;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
 }
 .Button.btn_exel
 {
@@ -846,6 +851,36 @@
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
+}
+.Button.btn_can
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+.TextArea.txt_default
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+.MaskEdit.med_default
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_pdf
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_pdf .nexacontentsbox
+{
+	text-align : center;
 }
 .Button[status=mouseover]
 {
@@ -1339,6 +1374,7 @@
 	background : #0d6efd;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
 }
 .Button.btn_exel[status=mouseover]
 {
@@ -1501,6 +1537,84 @@
 .Calendar.cal_default[status=readonly]
 {
 	border : 1px solid #0d6efd;
+}
+.Button.btn_can[status=mouseover]
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_can[status=focused]
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+.TextArea.txt_default[status=mouseover]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+.TextArea.txt_default[status=focused]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+.TextArea.txt_default[status=readonly]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+.MaskEdit.med_default[status=mouseover]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.MaskEdit.med_default[status=focused]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.MaskEdit.med_default[status=readonly]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.Combo.cmb_default[status=readonly]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #0d6efd;
+}
+.Button.btn_pdf[status=mouseover]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_pdf[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_pdf[status=focused]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_pdf[status=focused] .nexacontentsbox
+{
+	text-align : center;
 }
 .Form[userstatus=contents]
 {
@@ -1721,12 +1835,14 @@
 	background : #0d6efd;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
 }
 .Button.btn_default[userstatus=selected]
 {
 	background : #0d6efd;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
 }
 .Button.btn_exel[userstatus=pushed]
 {
@@ -1881,6 +1997,60 @@
 .Calendar.cal_default[userstatus=invalidtext]
 {
 	border : 1px solid #0d6efd;
+}
+.Button.btn_can[userstatus=pushed]
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+.Button.btn_can[userstatus=selected]
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+.TextArea.txt_default[userstatus=nulltext]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+.MaskEdit.med_default[userstatus=nulltext]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.MaskEdit.med_default[userstatus=invalidtext]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_pdf[userstatus=pushed]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_pdf[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+}
+.Button.btn_pdf[userstatus=selected]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_pdf[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
 }
 .Form[status=disabled]
 {
@@ -2229,6 +2399,7 @@
 	background : #0d6efd;
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
 }
 .Button.btn_exel[status=disabled]
 {
@@ -2308,6 +2479,36 @@
 .Calendar.cal_default[status=disabled]
 {
 	border : 1px solid #0d6efd;
+}
+.Button.btn_can[status=disabled]
+{
+	background : #1c0c7c;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #1c0c7c;
+}
+.TextArea.txt_default[status=disabled]
+{
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+	color : #383838;
+}
+.MaskEdit.med_default[status=disabled]
+{
+	color : #0d6efd;
+	border : 1px solid #0d6efd;
+	font : 12px "Malgun Gothic";
+}
+.Button.btn_pdf[status=disabled]
+{
+	color : #0d6efd;
+	font : 12px "Malgun Gothic";
+	background : #ffffff;
+	border : 1px solid #0d6efd;
+}
+.Button.btn_pdf[status=disabled] .nexacontentsbox
+{
+	text-align : center;
 }
 .CheckBox[status=disabled][userstatus=selected]
 {

@@ -52,10 +52,11 @@
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","0","25","296","391",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","0","25","319","391",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_binddataset("pst");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"56\"/><Column size=\"90\"/><Column size=\"97\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"confirm\"/><Cell col=\"2\" text=\"sender\"/><Cell col=\"3\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\"/><Cell col=\"3\" text=\"bind:receiver\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 

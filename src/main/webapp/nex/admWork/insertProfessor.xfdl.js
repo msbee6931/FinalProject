@@ -37,113 +37,126 @@
             obj.set_text("교수번호");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_p_seq","85","20","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static00_00","10","55","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
+            obj.set_taborder("1");
             obj.set_text("이름");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","10","90","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
+            obj.set_taborder("2");
             obj.set_text("주민번호");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_02","10","125","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
+            obj.set_taborder("3");
             obj.set_text("이메일");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_03","10","160","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj.set_taborder("4");
             obj.set_text("전화번호");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04","10","195","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
+            obj.set_taborder("5");
             obj.set_text("주소");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_05","10","230","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj.set_taborder("6");
             obj.set_text("강사");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_06","10","265","75","30",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
+            obj.set_taborder("7");
             obj.set_text("초기비밀번호");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_name","85","55","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
+            obj.set_taborder("8");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","85","125","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","85","160","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj.set_taborder("10");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","85","195","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj.set_taborder("11");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_pw","85","265","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("edt_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_insert","35","390","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("13");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn_insert","85","390","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
             obj.set_text("입력");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","210","390","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
+            obj = new Button("btn_cancel","160","390","100","25",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
             obj.set_text("취소");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_06_00","10","300","75","30",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
+            obj.set_taborder("15");
             obj.set_text("학과분류");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_06_00_00","10","335","75","30",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
+            obj.set_taborder("16");
             obj.set_text("학과");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_colCode","85","300","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("18");
+            obj.set_taborder("17");
             obj.set_innerdataset("colCode_Copy");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_deptCode","85","335","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("19");
+            obj.set_taborder("18");
             obj.set_innerdataset("deptCode_copy");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mas_secNumber","85","90","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("20");
+            obj.set_taborder("19");
             obj.set_type("string");
             obj.set_format("###### - #{######}");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_lecture","85","230","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("21");
+            obj.set_taborder("20");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var com_lecture_innerdataset = new nexacro.NormalDataset("com_lecture_innerdataset", obj);
             com_lecture_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">Y</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">N</Col></Row></Rows>");
             obj.set_innerdataset(com_lecture_innerdataset);
+            this.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mas_p_seq","85","20","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("21");
+            obj.set_type("string");
+            obj.set_format("#########");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -172,7 +185,7 @@
 
         this.btn_insert_onclick = function(obj,e)
         {
-        	var p_seq = this.edt_p_seq.value;
+        	var p_seq = this.mas_p_seq.value;
         	var name = this.edt_name.value;
         	var secNumber = this.mas_secNumber.value;
         	var email = this.edt_email.value;
@@ -182,6 +195,44 @@
         	var pw = this.edt_pw.value;
         	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;
+
+        	var rp_seq = this.mas_p_seq.text.length;
+
+        	var test = this.mas_p_seq.text.substring(rp_seq,rp_seq-1);
+        	trace(test);
+
+
+        	if(p_seq == null || p_seq == "undefined" || test == '_'){
+        		this.alert("교수번호 입력해주세요(9자리)");
+        		return;
+        	}else if(name == null || name == "undefined"){
+        		this.alert("이름 입력해주세요");
+        		return;
+        	}else if(secNumber == null || secNumber == "undefined"){
+        		this.alert("주민번호 입력해주세요.");
+        		return;
+        	}else if(email == null || email == "undefined"){
+        		this.alert("이메일 입력해주세요");
+        		return;
+        	}else if(contact == null || contact == "undefined"){
+        		this.alert("전화번호 입력해주세요");
+        		return;
+        	}else if(address == null || address == "undefined"){
+        		this.alert("주소 입력해주세요");
+        		return;
+        	}else if(pw == null || pw == "undefined"){
+        		this.alert("비밀번호 입력해주세요");
+        		return;
+        	}else if(lecture == null || lecture == "undefined"){
+        		this.alert("강사여부 입력해주세요");
+        		return;
+        	}else if(colCode == null || colCode == "undefined"){
+        		this.alert("학과분류 입력해주세요");
+        		return;
+        	}else if(deptCode == null || deptCode == "undefined"){
+        		this.alert("학과 입력해주세요");
+        		return;
+        	}
 
         	var addRow = this.ds_professor_copy.addRow();
         	this.ds_professor_copy.setColumn(addRow,"p_seq",p_seq);

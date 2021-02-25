@@ -45,58 +45,73 @@
             obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_searchEtc","258","36","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("grd_std","9","71","420","330",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
-            obj.set_background("");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Edit("edt_etcSearch","120","36","130","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("1");
-            obj.set_displaynulltext("학번 또는 이름 검색");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Grid("grd_std","32","71","377","330",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("2");
             obj.set_binddataset("students_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"이름\"/><Cell col=\"2\" text=\"학과\"/></Band><Band id=\"body\"><Cell text=\"bind:s_seq\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:deptCode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_tuit","329","36","80","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
-            obj.set_text("등록금 입력");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Grid("grd_tuition","439","71","550","330",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("4");
+            obj = new Grid("grd_tuition","439","71","570","330",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("1");
             obj.set_binddataset("tuition_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"100\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"학기\"/><Cell col=\"3\" text=\"등록금 총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:tSum\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","909","411","80","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("5");
+            obj = new Button("btn_del","909","411","100","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("2");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_entire","909","36","80","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("6");
+            obj = new Button("btn_entire","909","29","100","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("3");
             obj.set_text("전체 보기");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("cmb_cate","30","36","80","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("7");
+            obj = new Div("Div00","8","21","420","40",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("4");
+            obj.set_cssclass("div_line");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Combo("cmb_cate","15","7","80","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("0");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
-            var Div00_form_cmb_cate_innerdataset = new nexacro.NormalDataset("Div00_form_cmb_cate_innerdataset", obj);
-            Div00_form_cmb_cate_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">01</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">02</Col><Col id=\"datacolumn\">학번</Col></Row><Row><Col id=\"codecolumn\">03</Col><Col id=\"datacolumn\">이름</Col></Row></Rows>");
-            obj.set_innerdataset(Div00_form_cmb_cate_innerdataset);
+            obj.set_cssclass("cmb_default");
+            var Div00_form_Div00_form_cmb_cate_innerdataset = new nexacro.NormalDataset("Div00_form_Div00_form_cmb_cate_innerdataset", obj);
+            Div00_form_Div00_form_cmb_cate_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">01</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">02</Col><Col id=\"datacolumn\">학번</Col></Row><Row><Col id=\"codecolumn\">03</Col><Col id=\"datacolumn\">이름</Col></Row></Rows>");
+            obj.set_innerdataset(Div00_form_Div00_form_cmb_cate_innerdataset);
             obj.set_text("Combo00");
-            this.Div00.addChild(obj.name, obj);
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt_etcSearch","105","7","130","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("1");
+            obj.set_displaynulltext("학번 또는 이름 검색");
+            obj.set_cssclass("edt_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_searchEtc","243","7","60","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("2");
+            obj.set_background("");
+            obj.set_cssclass("btn_search");
+            obj.set_text("조회");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_tuit","314","7","80","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("3");
+            obj.set_text("입력");
+            obj.set_cssclass("btn_insert");
+            this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text(" 등록금  관리");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","1050","0","30",null,null,"0",null,null,null,null,this);
@@ -197,15 +212,7 @@
 
         this.fn_callback_insertTuition = function()
         {
-
-        		this.transaction(
-        		"selectAll.tuition",//id
-        		"/tuition/selectAll.tuition",//url (절대경로)
-        		"",//in_ds:U
-        		"tuition_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        		)
+        	this.reload();
         }
 
 
@@ -228,14 +235,7 @@
 
         this.fn_callback_updateTuition=function()
         {
-        	this.transaction(
-        		"selectAll.tuition",//id
-        		"/tuition/selectAll.tuition",//url (절대경로)
-        		"",//in_ds:U
-        		"tuition_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        		)
+        	this.reload();
         }
 
 
@@ -285,19 +285,21 @@
         	this.tuition_ds.filter("");
         };
 
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.tuition_onload,this);
-            this.Div00.form.btn_searchEtc.addEventHandler("onclick",this.Div00_btn_searchEtc_onclick,this);
             this.Div00.form.grd_std.addEventHandler("oncellclick",this.Div00_grd_std_oncellclick,this);
-            this.Div00.form.btn_tuit.addEventHandler("onclick",this.Div00_btn_tuit_onclick,this);
             this.Div00.form.grd_tuition.addEventHandler("oncelldblclick",this.Div00_grd_tuition_oncelldblclick,this);
             this.Div00.form.grd_tuition.addEventHandler("oncellclick",this.Div00_grd_tuition_oncellclick,this);
             this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.Div00.form.btn_entire.addEventHandler("onclick",this.Div00_btn_entire_onclick,this);
+            this.Div00.form.Div00.form.btn_searchEtc.addEventHandler("onclick",this.Div00_btn_searchEtc_onclick,this);
+            this.Div00.form.Div00.form.btn_tuit.addEventHandler("onclick",this.Div00_btn_tuit_onclick,this);
+            this.Static01.addEventHandler("onclick",this.Static01_onclick,this);
         };
 
         this.loadIncludeScript("tuition.xfdl");

@@ -240,7 +240,9 @@
         }
         this.btnMypage_onclick = function(obj,e)
         {
-
+        	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 40 + "'");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        	this.fn_openForm("4010","내 정보 보기","stdWork::studentInfo.xfdl"); //form 오픈 함수
         };
 
         this.btnClassTime_onclick = function(obj,e)

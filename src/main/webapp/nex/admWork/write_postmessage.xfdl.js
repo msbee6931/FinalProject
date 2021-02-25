@@ -49,33 +49,35 @@
             obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","231","20","388","60",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","15","20","990","40",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","8","7","118","45",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("Static00","8","7","118","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             obj.set_text("receiver : ");
-            obj.set_font("italic 20px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","112","7","265","44",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Edit("Edit00","112","7","865","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00_00","232","100","575","301",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00_00","15","59","990","301",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","6","12","560","278",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
+            obj = new Edit("Edit00","6","12","971","278",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
+            obj.set_cssclass("edt_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
 
             obj = new Button("Button00","713","411","92","31",null,null,null,null,null,null,this.Div00.form);
@@ -86,7 +88,7 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("쪽지  쓰기");
-            obj.set_background("#c1c1c1");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions

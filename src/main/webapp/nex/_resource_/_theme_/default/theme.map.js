@@ -94,27 +94,32 @@
 								"enabled" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
 								},
 								"disabled" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
 								},
 								"focused" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
 								},
 								"pushed" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
 								},
 								"selected" :
 								{
 									"color" : nexacro.ColorObject("#ffffff"),
-									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
 								},
 								"mouseover_pushed" :
 								{
@@ -508,6 +513,106 @@
 								}
 							}
 						}
+					},
+					{
+						"btn_can" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #1c0c7c")
+								},
+								"disabled" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #1c0c7c")
+								},
+								"mouseover" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #1c0c7c")
+								},
+								"focused" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #1c0c7c")
+								},
+								"pushed" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #1c0c7c")
+								},
+								"selected" :
+								{
+									"color" : nexacro.ColorObject("#ffffff"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"border" : nexacro.BorderObject("1px solid #1c0c7c")
+								}
+							}
+						}
+					},
+					{
+						"btn_pdf" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"disabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"mouseover" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"focused" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"pushed" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"selected" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"icon" : nexacro.UrlObject("url('theme://images/img_WF_Grdimg.png')"),
+									"textPadding" : nexacro.PaddingObject("4px"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								}
+							}
+						}
 					}
 				]
 			},
@@ -781,7 +886,22 @@
 							"disabled" :
 							{
 							}
-						}
+						},
+						"class" :
+						[
+							{
+								"cmb_default" :
+								{
+									"self" :
+									{
+										"enabled" :
+										{
+											"icon" : nexacro.UrlObject("url('theme://images/cmb_WF_Drop_O.png')")
+										}
+									}
+								}
+							}
+						]
 					},
 					"ComboControl" :
 					{
@@ -1020,6 +1140,24 @@
 								}
 							}
 						}
+					},
+					{
+						"cmb_default" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd")
+								},
+								"readonly" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#0d6efd")
+								}
+							}
+						}
 					}
 				]
 			},
@@ -1235,7 +1373,60 @@
 					{
 						"color" : nexacro.ColorObject("#999999")
 					}
-				}
+				},
+				"class" :
+				[
+					{
+						"med_default" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								},
+								"disabled" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								},
+								"mouseover" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								},
+								"focused" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								},
+								"readonly" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								},
+								"nulltext" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								},
+								"invalidtext" :
+								{
+									"color" : nexacro.ColorObject("#0d6efd"),
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\"")
+								}
+							}
+						}
+					}
+				]
 			},
 			"MaskEditControl" :
 			{
@@ -1285,7 +1476,54 @@
 					{
 						"color" : nexacro.ColorObject("#999999")
 					}
-				}
+				},
+				"class" :
+				[
+					{
+						"txt_default" :
+						{
+							"self" :
+							{
+								"enabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#383838")
+								},
+								"disabled" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#383838")
+								},
+								"mouseover" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#383838")
+								},
+								"focused" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#383838")
+								},
+								"readonly" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#383838")
+								},
+								"nulltext" :
+								{
+									"border" : nexacro.BorderObject("1px solid #0d6efd"),
+									"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+									"color" : nexacro.ColorObject("#383838")
+								}
+							}
+						}
+					}
+				]
 			},
 			"TextAreaControl" :
 			{
@@ -3141,7 +3379,9 @@
 							"enabled" :
 							{
 								"icon" : nexacro.UrlObject("URL('theme://images/rdo_WF_Radio.png')"),
-								"textPadding" : nexacro.PaddingObject("0px 0px 0px 5px")
+								"textPadding" : nexacro.PaddingObject("0px 0px 0px 5px"),
+								"font" : nexacro.FontObject("12px \"Malgun Gothic\""),
+								"color" : nexacro.ColorObject("#0d6efd")
 							},
 							"selected" :
 							{
@@ -4415,9 +4655,8 @@
 									{
 										"enabled" :
 										{
-											"border" : nexacro.BorderObject("1px solid #0d6efd"),
 											"color" : nexacro.ColorObject("#0d6efd"),
-											"font" : nexacro.FontObject("12px \"-윤고딕330\"")
+											"font" : nexacro.FontObject("12px/normal \"Malgun Gothic\"")
 										}
 									}
 								}
@@ -4592,6 +4831,7 @@
 		imgcache[nexacro._getImageLocation("theme://images/btn_logout.png")] = { width:15, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_message.png")] = { width:15, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_Cal_N.png")] = { width:15, height:16 };
+		imgcache[nexacro._getImageLocation("theme://images/img_WF_Grdimg.png")] = { width:12, height:14 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_D.png")] = { width:15, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_N.png")] = { width:15, height:16 };
 		imgcache[nexacro._getImageLocation("theme://images/btn_CalDrop_P.png")] = { width:15, height:16 };
@@ -4701,7 +4941,6 @@
 		imgcache[nexacro._getImageLocation("theme://images/img_TreeExpand.png")] = { width:9, height:9 };
 		imgcache[nexacro._getImageLocation("theme://images/img_TreeItem.png")] = { width:9, height:11 };
 		imgcache[nexacro._getImageLocation("theme://images/img_TreeOpen.png")] = { width:9, height:9 };
-		imgcache[nexacro._getImageLocation("theme://images/img_WF_Grdimg.png")] = { width:12, height:14 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Htrackbar.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Htrackbar_D.png")] = { width:8, height:5 };
 		imgcache[nexacro._getImageLocation("theme://images/img_WF_Menuimage.png")] = { width:210, height:50 };

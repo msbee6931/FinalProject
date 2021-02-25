@@ -49,35 +49,46 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("장학금 신청 관리");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","24","81",null,null,"25","59",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("reqScholar_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"49\"/><Column size=\"80\"/><Column size=\"397\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"학번\"/><Cell col=\"3\" text=\"제목\"/><Cell col=\"4\" text=\"작성날짜\" displaytype=\"normal\"/><Cell col=\"5\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:writeDate\" displaytype=\"date\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:checkRead\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"30\"/><Column size=\"80\"/><Column size=\"140\"/><Column size=\"80\"/><Column size=\"70\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"학번\"/><Cell col=\"3\" text=\"제목\"/><Cell col=\"4\" text=\"작성날짜\"/><Cell col=\"5\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:seq\" edittype=\"none\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:writeDate\" textAlign=\"center\" edittype=\"date\"/><Cell col=\"5\" text=\"bind:checkRead\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_stdCode","27","10","150","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_del",null,null,"100","25","25","20",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
-            obj.set_displaynulltext("학번을 입력하세요");
+            obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_search","187","10","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","24","26","420","40",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
+            obj.set_cssclass("div_line");
             obj.set_text("");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_del",null,null,"103","25","25","20",null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
-            obj.set_text("삭제");
-            this.Div00.addChild(obj.name, obj);
+            obj = new Edit("edt_stdCode","9","7","150","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("0");
+            obj.set_displaynulltext("학번을 입력하세요");
+            obj.set_cssclass("edt_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_search","169","7","60","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("1");
+            obj.set_text("조회");
+            obj.set_cssclass("btn_search");
+            this.Div00.form.Div00.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -109,10 +120,6 @@
         	);
         };
 
-        this.fn_callback_selectReq = function(id,ErrorCode,ErrorMsg){
-
-
-        };
 
         this.Div00_Grid00_oncelldblclick = function(obj,e)
         {
@@ -134,19 +141,7 @@
         };
 
         this.fn_callback_pop_s = function(seq){
-
-        	var nRow = this.reqScholar_ds.findRow( "seq", seq );
-        	this.reqScholar_ds.setColumn(nRow,"checkRead","읽음");
-
-        	this.transaction(
-        		"checkValue",//id
-        		"/scholarship/checkValueReqScholar.scholarship",//url (절대경로)
-        		"",//in_ds:U
-        		"reqScholar_ds=out_ds",//()_out_ds
-        		"seq="+seq,//argument
-        		"fn_callback"
-        	)
-
+        	this.reload();
         }
 
         //헤더 전체  클릭 적용
@@ -232,8 +227,8 @@
             this.addEventHandler("onload",this.requestScholar_onload,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
-            this.Div00.form.btn_search.addEventHandler("onclick",this.Div00_btn_search_onclick,this);
             this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
+            this.Div00.form.Div00.form.btn_search.addEventHandler("onclick",this.Div00_btn_search_onclick,this);
         };
 
         this.loadIncludeScript("requestScholar.xfdl");

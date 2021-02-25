@@ -22,16 +22,17 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","24","51","945","360",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","13","21",null,null,"11","39",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"104\"/><Column size=\"233\"/><Column size=\"90\"/><Column size=\"151\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"과목코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"담당교수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classSeq\" displaytype=\"mask\" maskeditformat=\"########\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:proName\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
@@ -44,6 +45,7 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("출결조회");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
