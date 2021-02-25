@@ -57,18 +57,17 @@
             obj.set_binddataset("pst");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"56\"/><Column size=\"90\"/><Column size=\"97\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"confirm\"/><Cell col=\"2\" text=\"sender\"/><Cell col=\"3\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\"/><Cell col=\"3\" text=\"bind:receiver\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"121\"/><Column size=\"127\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"sender\"/><Cell col=\"2\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:sender\" textAlign=\"center\" edittype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"2\" text=\"bind:receiver\" textAlign=\"center\" edittype=\"mask\" maskeditformat=\"#########\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00","320","240","679","172",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("1");
+            obj.set_taborder("0");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","8","10","665","152",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new TextArea("TextArea00","8","10","665","154",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
-            obj.set_cssclass("edt_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00_00","320","40","679","163",null,null,null,null,null,null,this.Div00.form);
@@ -84,7 +83,7 @@
 
             obj = new Static("Static00","320","8","152","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
-            obj.set_text("contents");
+            obj.set_text("My contents");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
@@ -96,20 +95,14 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("confirm_btn","93","418","100","28",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("5");
-            obj.set_text("확인");
-            obj.set_cssclass("btn_default");
-            this.Div00.addChild(obj.name, obj);
-
             obj = new Button("del_btn","198","418","100","28",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("6");
+            obj.set_taborder("5");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("send_btn","889","417","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("7");
+            obj.set_taborder("6");
             obj.set_text("전송");
             obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
@@ -131,7 +124,7 @@
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item1","Div00.form.Div00.form.Edit00","value","pst","reply");
+            obj = new BindItem("item1","Div00.form.Div00.form.TextArea00","value","pst","reply");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -148,24 +141,7 @@
         	trace(ErrorMsg);
         	trace(ErrorCode);
         }
-        this.Div00_confirm_btn_onclick = function(obj,e)
-        {
-        	let arr = this.pst.extractRows("chk==1");
 
-        	if(arr.length==0 || arr.length== -1){alert("선택된 항목이 없습니다.");return;}
-
-
-
-        		   this.transaction(
-                    "PMConfirm"
-                    ,"/PMConfirm.nex"
-                    ,"in_ds=pst:U"
-                    ,"pst=out_ds"
-                    ,""
-                    ,"fn_callback"
-                 )
-
-        };
 
         this.Div00_del_btn_onclick = function(obj,e)
         {
@@ -183,6 +159,8 @@
                     ,""
                     ,"fn_callback"
                  )
+
+        		 alert("삭제되었습니다.");
         };
 
         this.Div00_send_btn_onclick = function(obj,e)
@@ -195,13 +173,15 @@
                     ,""
                     ,"fn_callback"
                  )
+
+        		 alert("전송되었습니다");
         };
 
         this.rest_onload = function(obj,e)
         {
-        		this.transaction(
-        			"PMLoad" //id
-        			,"/PMLoad.nex"//url
+        			this.transaction(
+        			"PMReceived" //id
+        			,"/PMReceived.nex"//url
         			,""// inData
         			,"pst=out_ds"// outData
         			,""//strArg
@@ -215,7 +195,6 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.rest_onload,this);
-            this.Div00.form.confirm_btn.addEventHandler("onclick",this.Div00_confirm_btn_onclick,this);
             this.Div00.form.del_btn.addEventHandler("onclick",this.Div00_del_btn_onclick,this);
             this.Div00.form.send_btn.addEventHandler("onclick",this.Div00_send_btn_onclick,this);
         };

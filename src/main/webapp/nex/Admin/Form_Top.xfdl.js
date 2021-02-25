@@ -148,8 +148,8 @@
         this.Form_Top_onload = function(obj,e)
         {
         			this.transaction(
-        			"alarm" //id
-        			,"/alarm.nex"//url
+        			"alarmAdmin" //id
+        			,"/alarmAdmin.nex"//url
         			,""// inData
         			,"admin_alarm=out_ds"// outData
         			,""//strArg

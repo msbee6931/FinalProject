@@ -6,11 +6,21 @@
 select * from postmessage where receiver=#{receiver} order by 5, 1 desc
 </select>
 <select id="listBySender" resultType="kh.spring.dto.PostMessageDTO">
-select * from postmessage where sender=#{sender} order by 1 desc
+select * from postmessage where sender=#{sender} order by 5 desc
 </select>
 <select id="alarm" resultType="int">
 select count(seq) from postmessage where receiver=#{receiver} and confirm='N'
 </select>
+
+<select id="alarmAdmin" resultType="int">
+select count(seq) from postmessage where sender=#{sender} and reply is not null
+</select>
+
+<select id="received" resultType="kh.spring.dto.PostMessageDTO">
+select * from postmessage where sender=#{sender} and reply is not null
+</select>
+
+
 <update id="update">
 	update postmessage set reply=#{reply} where seq =#{seq}
 </update>
