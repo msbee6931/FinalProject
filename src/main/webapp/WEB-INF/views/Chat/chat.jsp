@@ -428,10 +428,28 @@
 		});
 		// 채팅 목록으로 가기
 		$("#goChatList").on("click",function(){
+			var roomNumber = $("#roomNumber").val();
+			
+			$.ajax({
+				type: 'POST',
+				url: '/chatting/insertUserState',
+				data: {roomNumber:roomNumber},
+				success: function(data) { console.log("success!")}
+			});
+			
 			location.href="/chatting/chatList";
 		});
 		// 채팅홈으로 가기
 		$("#goChatHome").on("click",function(){
+			var roomNumber = $("#roomNumber").val();
+			
+			$.ajax({
+				type: 'POST',
+				url: '/chatting/insertUserState',
+				data: {roomNumber:roomNumber},
+				success: function(data) { console.log("success!")}
+			});
+			
 			location.href="/chatting/chatHome";
 		});
 		

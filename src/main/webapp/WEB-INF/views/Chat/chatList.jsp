@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,11 +68,17 @@
 												<div class="row detail">
 													<div class="row">${Jdto.getUserName() }</div>
 													<c:if test="${list != null }">
-														<c:forEach var="cDto" items="${list}">
-															<c:if test="${cDto.getRoomNumber() == dto.getRoomNumber()}">
-																<div class="col-10 message"></div>
-																<div class="col-2 count"></div>
-															</c:if>
+														<c:forEach var="cDto" items="${list}" varStatus="status">
+															<c:forEach var="uDto" items="${stateList }">
+																<c:if test="${stateList != null }">
+																	<c:if test="${cDto.getRoomNumber() == dto.getRoomNumber() == uDto.getRoomNumber()}">
+																		<c:if test="${cDto.getUploadDate() > uDto.getOutTime() }">
+																			<div class="col-10 message">${cDto.getMessage() }</div>
+																			<div class="col-2 count">${status.count }</div>
+																		</c:if>
+																	</c:if>
+																</c:if>
+															</c:forEach>
 														</c:forEach>
 													</c:if>
 												</div>

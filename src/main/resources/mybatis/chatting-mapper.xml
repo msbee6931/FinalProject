@@ -60,6 +60,14 @@
 		<foreach item="i" collection="list" open="(" close=")" separator=",">#{i.f_seq}</foreach>
 	</delete>
 	
+	 <select id="getUserState" resultType="kh.spring.dto.UserStateDTO">
+ 		select * from userState where userId=#{userId}
+ 	</select>
+ 	
+ 	<insert id="insertUserState">
+ 		insert into userState values(#{userId},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
+ 	</insert>
+ 	
 	<!-- FRIEND -->
 	<select id="searchFriend" resultType="kh.spring.dto.UserDTO">
 		select * from chatUser where userId like '%'||#{searchTxt}||'%' or userName like '%'||#{searchTxt}||'%' 
@@ -83,11 +91,11 @@
 	
 	<!-- Chat -->
  	<insert id="insertMessage">
- 		insert into chatMessage(seq,userId,message,roomNumber) values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber})
+ 		insert into chatMessage(seq,userId,message,roomNumber,uploadDate) values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
  	</insert> 
  	
  	<insert id="insertEmoticon">
- 		insert into chatMessage(seq,userId,oriName,roomNumber) values(chatMessage_seq.nextval,#{userId},#{oriName},#{roomNumber})
+ 		insert into chatMessage(seq,userId,oriName,roomNumber,uploadDate) values(chatMessage_seq.nextval,#{userId},#{oriName},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
  	</insert>
  	
  	<select id="getChatting" resultType="kh.spring.dto.MessageDTO">
@@ -104,7 +112,7 @@
  	</select>
  	
  	<insert id="insertChatFile">
- 		insert into chatMessage(seq,roomNumber,oriName,savedName,uploadDate,userId) values(chatFile_seq.nextval,#{roomNumber},#{oriName},#{savedName},default,#{userId})
+ 		insert into chatMessage(seq,roomNumber,oriName,savedName,uploadDate,userId) values(chatFile_seq.nextval,#{roomNumber},#{oriName},#{savedName},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),#{userId})
  	</insert>
  	
  	<select id="getFile" resultType="kh.spring.dto.MessageDTO">
@@ -143,5 +151,9 @@
 	
 	<delete id="leave">
 		delete from chatRoomJoin where roomNumber=#{roomNumber} and userId=#{userId}
+	</delete>
+	
+	<delete id="deleteUserState">
+		delete from userState where roomNumber=#{roomNumber} and userId=#{userId}
 	</delete>
  </mapper>

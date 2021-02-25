@@ -16,6 +16,7 @@ import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
 import kh.spring.dto.StudentsDTO;
 import kh.spring.dto.UserDTO;
+import kh.spring.dto.UserStateDTO;
 
 @Repository
 public class ChattingDAO {
@@ -104,6 +105,18 @@ public class ChattingDAO {
 	// 채팅 아이디 삭제(교직원)
 	public int deleteChatUserFac(List<FacultyDTO> list) {
 		return session.delete("chatting.deleteChatUserFac",list);
+	}
+	
+	// 유저의 상태 가져오기
+	public List<UserStateDTO> getUserState(String userId){
+		return session.selectList("chatting.getUserState",userId);
+	}
+	
+	public int insertUserState(String userId,String roomNumber) {
+		Map<String,String> param = new HashMap<>();
+		param.put("roomNumber", roomNumber);
+		param.put("userId", userId);
+		return session.insert("chatting.insertUserState",param);
 	}
 	
 	/* Friend */
@@ -226,5 +239,12 @@ public class ChattingDAO {
 		param.put("roomNumber", roomNumber);
 		param.put("userId", userId);
 		return session.delete("chatting.leave",param);
+	}
+	
+	public int deleteUserState(String roomNumber,String userId) {
+		Map<String,String> param = new HashMap<>();
+		param.put("roomNumber", roomNumber);
+		param.put("userId", userId);
+		return session.delete("chatting.deleteUserState",param);
 	}
 }
