@@ -76,9 +76,9 @@
 					</div>
 						<div class="collapse navbar-collapse" id="listCollapse" >
 							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item" ><a class="nav-link active" href="/normalList.notice?page=1">일반공지</a>
+								<li class="nav-item" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="/academicList.notice?page=1">학사공지</a>
+								<li class="nav-item"><a class="nav-link active" href="/academicList.notice?page=1">학사공지</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
 								</li>

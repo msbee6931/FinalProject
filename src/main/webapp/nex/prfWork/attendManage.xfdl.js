@@ -315,7 +315,9 @@
 
         this.gr_stdList_oncellclick = function(obj,e)
         {
-        	if(e.col == 4){
+        	if(e.col == 3){
+        		obj.dropdownCombo();
+        	}else if(e.col == 4){
         		var attendState = this.ds_attend.getColumn(e.row,"attendState");
         		if(attendState == 03){
         			var reason = this.ds_attend.getColumn(e.row,"absenceReason");

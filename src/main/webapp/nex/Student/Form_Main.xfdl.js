@@ -247,9 +247,9 @@
 
         this.btnClassTime_onclick = function(obj,e)
         {
-        	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 10 + "'");
+        	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("1030","시간표 조회","stdWork::timeSchedule.xfdl"); //form 오픈 함수
+        	this.fn_openForm("2050","시간표 조회","stdWork::timeSchedule.xfdl"); //form 오픈 함수
         };
 
 
@@ -262,9 +262,9 @@
 
         this.btnGrade_onclick = function(obj,e)
         {
-        	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 10 + "'");
+        	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("1020","성적 조회","stdWork::readGrade.xfdl"); //form 오픈 함수
+        	this.fn_openForm("2070","성적 조회","stdWork::readGrade.xfdl"); //form 오픈 함수
         };
 
         this.btnCertification_onclick = function(obj,e)
@@ -275,7 +275,9 @@
         };
         this.btnScholarMg_onclick = function(obj,e)
         {
-
+        	this.objApp.std_menu.filter("menu_id.substring(0,2) == '" + 10 + "'");
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        	this.fn_openForm("104020","장학금 내역 조회","stdWork::stdReadScholarship.xfdl"); //form 오픈 함수
         };
 
         this.Form_Work_onload = function(obj,e)
@@ -283,9 +285,7 @@
         	var name=  this.objApp.gds_students.getColumn(0,"name");
         	var deptCode = this.objApp.gds_students.getColumn(0,"deptCode");
         	var nRow = this.objApp.deptCode.findRow("code",deptCode);
-        	trace("ROW : " + nRow);
         	var dept = this.objApp.deptCode.getColumn(nRow,"name");
-        	trace("dept : " + dept);
         	this.div_Info.form.sta_name.set_text(name + "님 환영합니다");
         	this.div_Info.form.sta_dept.set_text(dept)
         	this.transaction(
@@ -338,8 +338,12 @@
         this.btnMore_onclick = function(obj,e)
         {
         	/*nexacro.open( strID, strFormURL, objParentFrame, {objArguList}, strOpenStyle, nLeft, nTop [, nWidth, nHeight [, objOpener [, strExtOpenStyle ]]])*/
+        	if(this.ds_Notice.getRowCount() > 0 ){
         	var part = this.ds_Notice.getColumn(0,"deptcode")
         	nexacro.open("normal","Student::NoticeLocation.xfdl",this.getOwnerFrame(),{part : part},"showtitlebar=true resizable=true",0, 0, 800, 600, this);
+        	}else{
+        		alert("공지사항이 없습니다");
+        	}
         };
 
 

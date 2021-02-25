@@ -30,5 +30,8 @@
 <select id="deptStudentList" resultType="kh.spring.dto.StudentsDTO">
 	select * from students where deptCode =#{deptCode} order by rest desc, s_seq
 </select>
-
+<select id="classStudents" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where s_seq in
+	<foreach collection="list" item="i" open="(" close=")" separator=",">#{i.sCode}</foreach>
+</select>
 </mapper>

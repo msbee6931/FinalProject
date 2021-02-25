@@ -13,7 +13,7 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1080,520);
+                this._setFormPosition(900,600);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -41,19 +41,19 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00","1050","0","30","520",null,null,null,null,null,null,this);
+            obj = new Static("Static00","869","43","30","520",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","0","0","30","520",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00","0","40","30","520",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","159","500","600","20",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_00","159","583","600","20",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
@@ -65,7 +65,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Tab("Tab00","30","40","1020","500",null,null,null,null,null,null,this);
+            obj = new Tab("Tab00","30","40","840","500",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_tabindex("0");
             this.addChild(obj.name, obj);
@@ -74,98 +74,92 @@
             obj.set_text("공지사항");
             this.Tab00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","0","33","100","25",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Static("Static00","139","33","100","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("0");
             obj.set_text("제목");
+            obj.set_font("18px/normal \"Arial\",\"-윤고딕320\"");
             obj.set_textAlign("center");
-            obj.set_cssclass("sta_default");
+            obj.set_background("lightgray");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title","99","33","400","25",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Edit("edt_title","239","33","200","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("1");
-            obj.set_cssclass("edt_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","0","57","100","200",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Static("Static00_00","139","83","100","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("2");
             obj.set_text("내용");
+            obj.set_font("18px/normal \"Arial\",\"-윤고딕320\"");
             obj.set_textAlign("center");
-            obj.set_cssclass("sta_default");
+            obj.set_background("lightgray");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new TextArea("text_contents","99","57","921","200",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new TextArea("text_contents","239","83","500","200",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("3");
-            obj.set_cssclass("txt_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","520","386","100","25",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Button("btn_cancel","679","383","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("4");
             obj.set_text("취소");
-            obj.set_cssclass("btn_can");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Button("btn_save","340","386","100","25",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Button("btn_save","604","383","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("5");
             obj.set_text("저장");
-            obj.set_cssclass("btn_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","0","256","100","100",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Static("Static00_00_00","139","283","100","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("6");
             obj.set_text("첨부파일");
+            obj.set_font("18px/normal \"Arial\",\"-윤고딕320\"");
             obj.set_textAlign("center");
-            obj.set_cssclass("sta_default");
+            obj.set_background("lightgray");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","100","256","860","100",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Grid("Grid00","239","283","500","100",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("7");
             obj.set_binddataset("ds_NoticeFiles");
             obj.set_autofittype("col");
-            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"n_seq\"/><Cell col=\"2\" text=\"parentSeq\"/><Cell col=\"3\" text=\"fileName\"/><Cell col=\"4\" text=\"savedFileName\"/><Cell col=\"5\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","960","256","60","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Static("Static02","439","33","100","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("8");
-            obj.set_text("파일찾기");
-            obj.set_enable("false");
-            obj.set_cssclass("btn_default");
-            this.Tab00.Tabpage1.addChild(obj.name, obj);
-
-            obj = new Button("btn_delete","960","305","60","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
-            obj.set_taborder("9");
-            obj.set_text("파일삭제");
-            obj.set_enable("false");
-            obj.set_cssclass("btn_can");
-            this.Tab00.Tabpage1.addChild(obj.name, obj);
-
-            obj = new Static("Static02","500","33","110","24",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
-            obj.set_taborder("10");
             obj.set_text("분류");
+            obj.set_font("18px/normal \"Arial\",\"-윤고딕320\"");
+            obj.set_background("lightgray");
             obj.set_textAlign("center");
-            obj.set_cssclass("sta_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Combo("com_list","610","33","410","25",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
-            obj.set_taborder("11");
+            obj = new Combo("com_list","539","34","200","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj.set_taborder("9");
             obj.set_innerdataset("ds_deptcode");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
-            obj.set_cssclass("cmb_default");
             obj.set_text("");
             obj.set_value("");
             obj.set_index("-1");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","659","-1","100","25",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
-            obj.set_taborder("12");
+            obj = new Button("btn_del","679","-1","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj.set_taborder("10");
             obj.set_text("삭제");
-            obj.set_cssclass("btn_del");
+            this.Tab00.Tabpage1.addChild(obj.name, obj);
+
+            obj = new Button("btn_insert","739","283","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj.set_taborder("11");
+            obj.set_text("파일찾기");
+            this.Tab00.Tabpage1.addChild(obj.name, obj);
+
+            obj = new Button("btn_delete","739","327","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj.set_taborder("12");
+            obj.set_text("파일삭제");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1080,520,this,function(p){});
+            obj = new Layout("default","",900,600,this,function(p){});
+            obj.set_stepcount("0");
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -472,9 +466,9 @@
             this.Tab00.Tabpage1.form.btn_cancel.addEventHandler("onclick",this.Tab00_Tabpage1_btn_cancel_onclick,this);
             this.Tab00.Tabpage1.form.btn_save.addEventHandler("onclick",this.Tab00_Tabpage1_btn_save_onclick,this);
             this.Tab00.Tabpage1.form.Grid00.addEventHandler("onheadclick",this.Tab00_Tabpage1_Grid00_onheadclick,this);
+            this.Tab00.Tabpage1.form.btn_del.addEventHandler("onclick",this.Tab00_Tabpage1_btn_del_onclick,this);
             this.Tab00.Tabpage1.form.btn_insert.addEventHandler("onclick",this.Tab00_Tabpage1_btn_insert_onclick,this);
             this.Tab00.Tabpage1.form.btn_delete.addEventHandler("onclick",this.Tab00_Tabpage1_btn_delete_onclick,this);
-            this.Tab00.Tabpage1.form.btn_del.addEventHandler("onclick",this.Tab00_Tabpage1_btn_del_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onerror",this.FileUpTransfer00_onerror,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);

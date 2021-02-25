@@ -124,7 +124,7 @@
         this.objApp = nexacro.getApplication();
         this.colSchedule_onload = function(obj,e)
         {
-        	if(this.objApp.gds_professor.getRowCount() > 0){
+        	if(this.objApp.gds_professor.getRowCount() > 0 || this.objApp.gds_students.getRowCount() > 0){
         		this.div_schedule.form.btn_del.set_visible(false);
         		this.div_schedule.form.btn_insert.set_visible(false);
         	}
@@ -165,6 +165,9 @@
         		this.div_schedule.form.cal_dept.set_value(objDate);
         		var date= this.div_schedule.form.cal_dept.value;
         		this.colSchedule_ds.filter("eDate>='"+date+"'");
+        	}else if(sId =="deleteColSchedule"){
+        		this.reload();
+
         	}
         }
 
@@ -192,15 +195,10 @@
         };
 
         //콜백 성공하면 데이터셋 불러오기
-        this.fn_callback_colSchedule = function() {
-        	this.transaction(
-        		"selectColSchedule",//id
-        		"/schedule/selectColSchedule",//url (절대경로)
-        		"",//in_ds:U
-        		"colSchedule_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
+        this.fn_callback_colSchedule = function(sId) {
+        	if(sId == "colSchedule_insert_pop"){
+        		this.reload();
+        	}
         };
 
         //일정 상세보기 모달창 띄우기
@@ -215,22 +213,12 @@
         		this.getOwnerFrame(),
         		{seq:seq},
         		this,
-        		"fn_callback_updateCol"
+        		"fn_callback_colSchedule"
         	);
 
         };
 
-        this.fn_callback_updateCol= function()
-        {
-        	this.transaction(
-        		"selectColSchedule",//id
-        		"/schedule/selectColSchedule",//url (절대경로)
-        		"",//in_ds:U
-        		"colSchedule_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
-        }
+
 
         this.seq="";
         this.Div00_Grid00_oncellclick = function(obj,e)
@@ -255,7 +243,7 @@
         				"",//in_ds:U
         				"",//()_out_ds
         				"seq="+this.seq,//argument
-        				"fn_callback_delete"
+        				"fn_callback"
         			)
         		}
         		else {return;}
