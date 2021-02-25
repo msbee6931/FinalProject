@@ -52,6 +52,7 @@
         			);
         };
         this.fn_callback_login=function(sId,errCd,errMsg){
+
         	 if (errCd < 0) {
         		trace("Error["+errCd+"]:"+errMsg);
              }

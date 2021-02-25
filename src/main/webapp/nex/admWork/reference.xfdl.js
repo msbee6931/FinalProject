@@ -290,7 +290,7 @@
         		let nRow = this.reference.addRow();
 
         		this.reference.setColumn(nRow,"title",title);
-        		this.reference.setColumn(nRow,"contents",contents);
+        		this.reference.setColumn(nRow,"contents",nexacro.wrapQuote(contents));
 
         		this.transaction(
         			"uploadDTO",//id
