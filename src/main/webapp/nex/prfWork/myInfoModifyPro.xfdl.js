@@ -85,7 +85,7 @@
 
             obj = new Button("btn_cancel","574","357","50","40",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
-            obj.set_text("취소");
+            obj.set_text("다시입력");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","350","80","100","30",null,null,null,null,null,null,this.Div00.form);
@@ -268,7 +268,8 @@
 
         this.Div00_btn_cancel_onclick = function(obj,e)
         {
-        	this.close("");
+        	this.Div00.form.edt_pw.set_value("");
+        	this.myInfoModifyPro_onload();
         };
 
         });

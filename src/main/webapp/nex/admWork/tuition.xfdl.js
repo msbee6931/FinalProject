@@ -18,22 +18,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("tuition_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("scholar_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"percentage\" type=\"INT\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">00</Col><Col id=\"name\">일반</Col><Col id=\"percentage\">0</Col></Row><Row><Col id=\"code\">01</Col><Col id=\"name\">선행</Col><Col id=\"percentage\">0.3</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">추천장학</Col><Col id=\"percentage\">0.5</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">재정지원</Col><Col id=\"percentage\">0.8</Col></Row><Row><Col id=\"code\">04</Col><Col id=\"name\">성적우수</Col><Col id=\"percentage\">1.0</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("students_ds", this);
             obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("scholorship_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"STRING\" size=\"256\"/><Column id=\"s_rec\" type=\"STRING\" size=\"256\"/><Column id=\"s_smt\" type=\"STRING\" size=\"256\"/><Column id=\"s_spt\" type=\"STRING\" size=\"256\"/><Column id=\"s_etc\" type=\"STRING\" size=\"256\"/><Column id=\"sSum\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -81,7 +71,7 @@
             obj.set_taborder("4");
             obj.set_binddataset("tuition_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"입학금\"/><Cell col=\"2\" text=\"수업료\"/><Cell col=\"3\" text=\"학생회비\"/><Cell col=\"4\" text=\"졸업앨범비\"/><Cell col=\"5\" text=\"오리엔테이션비\"/><Cell col=\"6\" text=\"합계\"/><Cell col=\"7\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:t_enter\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:t_class\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:t_std\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:t_grd\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:t_ore\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:tSum\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:t_date\" displaytype=\"date\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"100\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"학기\"/><Cell col=\"3\" text=\"등록금 총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:tSum\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_del","909","411","80","25",null,null,null,null,null,null,this.Div00.form);
@@ -156,9 +146,29 @@
         		"",//in_ds:U
         		"tuition_ds=out_ds",//()_out_ds
         		"",//argument
-        		"fn_callback"
+        		"fn_callback_tuition"
         		)
 
+
+
+        };
+
+        this.fn_callback_tuition = function()
+        {
+        		for(var i=0;i<this.tuition_ds.getRowCount();i++)
+        	{
+        		var sDate =this.tuition_ds.getColumn(i,"t_date");
+        		var mon = sDate.substr(5,2);
+        		var sMonth = nexacro.toNumber(mon)
+        		if(sMonth<8)
+        		{
+        			this.tuition_ds.setColumn(i,"type","1학기");
+        		}
+        		else
+        		{
+        			this.tuition_ds.setColumn(i,"type","2학기");
+        		}
+        	}
         };
 
 

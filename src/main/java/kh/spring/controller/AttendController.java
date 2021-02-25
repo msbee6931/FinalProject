@@ -19,8 +19,10 @@ public class AttendController {
 
 	@Autowired
 	private AttendService service;
+	
 	@RequestMapping("/attendDayList.nex")
 	public NexacroResult attendDayList(@ParamVariable(name="classCode")int classCode) {
+		System.out.println("AttendDAYLISY");
 		NexacroResult nr = new NexacroResult();
 		AttendDTO dto = new AttendDTO();
 		dto.setClassCode(classCode);
@@ -33,7 +35,7 @@ public class AttendController {
 		}
 		return nr;
 	}
-	@RequestMapping("/attendList.nex")
+	@RequestMapping("/attendInsert.nex")
 	public NexacroResult attendList(@ParamDataSet(name="in_ds")List<AttendDTO> list) {
 		NexacroResult nr = new NexacroResult();
 		AttendDTO dto = new AttendDTO();
@@ -78,6 +80,7 @@ public class AttendController {
 	public NexacroResult attendDel(@ParamDataSet(name="in_ds")AttendDTO dto) {
 		NexacroResult nr = new NexacroResult();	
 		service.attendDel(dto);
+		//삭제 시 attendDay랑 classCode 사용하기 때문에 List로 받아올 필요가없다
 		return nr;
 	}
 

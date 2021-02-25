@@ -227,18 +227,6 @@
             obj.set_taborder("2");
             obj.set_binddataset("deptCodeChart_ds");
             obj._setContents({
-            	"title": {
-            		"id": "title",
-            		"text": "학과별 학생 수",
-            		"textfont": "14pt/normal '맑은 고딕'",
-            		"padding": "0px 0px 5px"
-            	},
-            	"legend": {
-            		"id": "legend",
-            		"padding": "3px 10px 3px 10px",
-            		"itemtextfont": "9pt '맑은 고딕'",
-            		"itemtextcolor": "#4c4c4c"
-            	},
             	"tooltip": {
             		"id": "tooltip",
             		"background": "#4b4b4b",
@@ -290,7 +278,14 @@
             			"highlightbarvisible": "false",
             			"selecttype": "bind"
             		}
-            	]
+            	],
+            	"title": {
+            		"id": "title",
+            		"text": "Float Chart",
+            		"textfont": "20pt/normal \"맑은 고딕\"",
+            		"padding": "0px 0px 5px",
+            		"linestyle": "0px none"
+            	}
             });
             obj.set_categorycolumn("bind:category");
             this.Div00.addChild(obj.name, obj);

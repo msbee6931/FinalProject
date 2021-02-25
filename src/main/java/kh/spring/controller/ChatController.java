@@ -78,7 +78,10 @@ public class ChatController {
 		// 모든 채팅방 목록 반환
 		List<RoomDTO> roomList = service.findAllRoomByUserId(userId);
 		List<RoomJoinDTO> roomJoinList = service.findRoomJoin();
+		// 모든 채팅 가져오기
+		List<MessageDTO> list = service.getAllChatting();
 		
+		model.addAttribute("list",list);
 		model.addAttribute("roomList",roomList);
 		model.addAttribute("roomJoinList",roomJoinList);
 		model.addAttribute("user",user);

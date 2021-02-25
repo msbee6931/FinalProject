@@ -21,10 +21,8 @@
 	</foreach>
 </update>
 <insert id="insertstu">
-	<foreach item="i" collection="list" separator=" " open="insert All" close="select * from dual">
-	into students(s_seq,name,email,contact,address,scholarship,rest,grade,pw,gender,deptcode,colcode,colgrade,secnumber)
-	values(#{i.s_seq},#{i.name},#{i.email},#{i.contact},#{i.address},#{i.scholarship},#{i.rest},#{i.grade},#{i.pw},#{i.gender},#{i.deptCode},#{i.colCode},#{i.colGrade},#{i.secNumber})
-	</foreach>
+	insert into students 
+	values(#{s_seq},#{name},#{email},#{contact},#{address},#{scholarship},#{rest},#{grade},#{pw},#{gender},#{deptCode},#{colCode},#{colGrade},#{secNumber})
 </insert>
 
 <!-- professor -->

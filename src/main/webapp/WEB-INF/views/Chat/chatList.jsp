@@ -22,7 +22,7 @@
 		margin: 0px;
 	}
  	div{
-		border: 1px solid black;
+		/* border: 1px solid black; */
 	} 
 	.container{
 		padding: 50px;
@@ -45,6 +45,9 @@
 	img{
 		margin-right: 10px;
 	}
+	.detail{
+		width: 100%;
+	}
 </style>
 </head>
 <body>
@@ -56,19 +59,33 @@
 					<c:forEach var="dto" items="${roomList}">
 						<div class="row p-2 enter">
 							<input type="hidden" class="roomNumber" value="${dto.getRoomNumber() }">
-							<div class="col-12 d-flex roomName">
+							<div class="col-12 d-flex roomInfo">
 								<c:choose>
 									<c:when test="${dto.getRoomName() == '' or dto.getRoomName() == null}">
 										<img src="/img/chat2.png" class="col-2">
 										<c:forEach var="Jdto" items="${roomJoinList}">
 											<c:if test="${dto.getRoomNumber() == Jdto.getRoomNumber() and user.getUserName() != Jdto.getUserName()}">	
-												<div class="col-4">${Jdto.getUserName() }</div>
+												<div class="row detail">
+													<div class="row">${Jdto.getUserName() }</div>
+													<c:if test="${list != null }">
+														<c:forEach var="cDto" items="${list}">
+															<c:if test="${cDto.getRoomNumber() == dto.getRoomNumber()}">
+																<div class="col-10 message"></div>
+																<div class="col-2 count"></div>
+															</c:if>
+														</c:forEach>
+													</c:if>
+												</div>
 											</c:if>
 										</c:forEach>
 									</c:when>
 									<c:otherwise>
 										<img src="/img/chat4.png" class="col-2">
-										<div class="col-10">${dto.getRoomName() }</div>
+										<div class="row detail">
+											<div class="row">${dto.getRoomName() }</div>
+											<div class="col-10 message"></div>
+											<div class="col-2 count"></div>
+										</div>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -95,9 +112,22 @@
 			
 			client.subscribe("/topic/chatList",function(msg){
 				var result = JSON.parse(msg.body);
-				count += 1;
 				
-				$(".list").append("<div class='row'>"+result.roomNumber+":"+count+"</div>");
+				$(".enter").each(function(i){
+					   var roomNumber = $(this).children(".roomNumber").val();
+					   
+					   if(result.roomNumber == roomNumber){
+						   var parent = $(this).children(".roomInfo").children(".detail");
+						   /* var detail = roomInfo.children(".detail"); */
+				
+						   count += 1;
+						   parent.children(".count").text(count);
+						   parent.children(".message").text(result.message);
+					   }
+					});
+				
+				/* count += 1;			
+				$(".list").append("<div class='row'>"+result.roomNumber+":"+count+"</div>"); */
 			});
 		});
 		

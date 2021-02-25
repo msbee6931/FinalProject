@@ -118,6 +118,10 @@ public class ChattingService {
 		return dao.getChatting(roomNumber);
 	}
 	
+	public List<MessageDTO> getAllChatting() {
+		return dao.getAllChatting();
+	}
+	
 	public int insertChatFile(String roomNumber, String oriName, String savedName, String userId) {
 		return dao.insertChatFile(roomNumber,oriName,savedName,userId);
 	}

@@ -99,6 +99,10 @@
  		order by uploadDate
  	</select>
  	
+ 	 <select id="getAllChatting" resultType="kh.spring.dto.MessageDTO">
+ 		select * from chatMessage order by uploadDate
+ 	</select>
+ 	
  	<insert id="insertChatFile">
  		insert into chatMessage(seq,roomNumber,oriName,savedName,uploadDate,userId) values(chatFile_seq.nextval,#{roomNumber},#{oriName},#{savedName},default,#{userId})
  	</insert>

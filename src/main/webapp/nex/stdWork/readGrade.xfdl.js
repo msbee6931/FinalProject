@@ -75,6 +75,7 @@
             obj.set_taborder("0");
             obj.set_binddataset("reset_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\"/><Column size=\"50\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"100\"/><Column size=\"50\"/><Column size=\"50\"/><Column size=\"50\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/><Row size=\"24\" band=\"summ\"/></Rows><Band id=\"head\"><Cell text=\"학년\"/><Cell col=\"1\" text=\"학기\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"과목명\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"등급\"/><Cell col=\"7\" text=\"평점\"/></Band><Band id=\"body\"><Cell text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:term\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:rating\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:point\" textAlign=\"center\"/></Band><Band id=\"summary\"><Cell colspan=\"3\" text=\"총 이수 학점\"/><Cell col=\"3\" text=\"expr:dataset.getSum('parseInt(classPoint.replace(&quot;학점&quot;,&quot;&quot;))')+&quot;학점&quot;\"/><Cell col=\"4\" text=\"총 평점\"/><Cell col=\"5\" text=\"expr:dataset.getSum('point')\"/><Cell col=\"6\" text=\"평균 평점\"/><Cell col=\"7\" text=\"expr:nexacro.round(dataset.getSum('point')/dataset.getRowCount(),2)\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
@@ -104,9 +105,10 @@
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_grade","247","32","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_grade","247","32","60","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_part","519","32","25","25",null,null,null,null,null,null,this.Div00.form);

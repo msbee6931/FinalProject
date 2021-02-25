@@ -274,7 +274,7 @@
 
         this.Tab00_Tabpage1_btn_cancel_onclick = function(obj,e)
         {
-        	this.close();
+        	this.nomalNotice_Info_onload();
         };
         //업로드용 Virtual 파일 onsuccess 이벤트
         this.Upload_VirtualFile_onsuccess = function(obj, e)

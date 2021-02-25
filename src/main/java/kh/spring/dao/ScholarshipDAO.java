@@ -83,4 +83,7 @@ public class ScholarshipDAO {
 	public int deleteReqfile(int parentSeq) {
 		return session.delete("Scholarship.deleteReqfile", parentSeq);
 	}
+	public List<ScholarshipDTO> stdSelectOne(int std_code) {
+		return session.selectList("Scholarship.stdSelectOne", std_code);
+	}
 }

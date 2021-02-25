@@ -163,6 +163,10 @@ public class ChattingDAO {
 		return session.selectList("chatting.getChatting",roomNumber);
 	}
 	
+	public List<MessageDTO> getAllChatting() {
+		return session.selectList("chatting.getAllChatting");
+	}
+	
 	public int insertChatFile(String roomNumber, String oriName, String savedName,String userId) {
 		Map<String,String> param = new HashMap<>();
 		param.put("userId", userId);

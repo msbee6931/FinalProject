@@ -104,6 +104,7 @@ public class PostMessageController {
 		NexacroResult nr = new NexacroResult();
 		PMservice.updateConfirm(list);
 		List<PostMessageDTO> list2 = PMservice.listByReceiver(id);
+
 		nr.addDataSet("out_ds",list2);
 		return nr;
 	}

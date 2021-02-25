@@ -212,6 +212,7 @@ nav {
 				</c:choose>
 				<a href="/nex" class="p-4 txt">종합정보</a>
 			</div>
+
 		</div>
 		<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
 		<div class="row body">
