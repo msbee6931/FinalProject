@@ -43,7 +43,7 @@
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"41\"/><Column size=\"73\"/><Column size=\"193\"/><Column size=\"48\"/><Column size=\"103\"/><Column size=\"57\"/><Column size=\"85\"/><Column size=\"248\"/><Column size=\"94\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학년\"/><Cell col=\"5\" text=\"과목코드\"/><Cell col=\"6\" text=\"학점\"/><Cell col=\"7\" text=\"담당교수\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"인원수\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"3\" text=\"bind:className\" displaytype=\"normal\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"########\"/><Cell col=\"6\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"41\"/><Column size=\"73\"/><Column size=\"193\"/><Column size=\"48\"/><Column size=\"103\"/><Column size=\"57\"/><Column size=\"85\"/><Column size=\"248\"/><Column size=\"94\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학년\"/><Cell col=\"5\" text=\"과목코드\"/><Cell col=\"6\" text=\"학점\"/><Cell col=\"7\" text=\"담당교수\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"인원수\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"3\" text=\"bind:className\" displaytype=\"normal\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditmaskchar=\"########\"/><Cell col=\"6\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_search","690","24","120","25",null,null,null,null,null,null,this);
@@ -100,7 +100,7 @@
 
             obj = new Button("btnExport","830","460","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_text("엑셀");
+            obj.set_text("Exel");
             obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
 
@@ -361,7 +361,7 @@
         	this.exportObj = new ExcelExportObject("Export00", this);
 
         	this.exportObj.set_exportfilename(semester + " 개설과목");
-        	this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
+        	this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
 
         	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.gr_classList, "Sheet1!A1");
 

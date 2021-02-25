@@ -52,7 +52,7 @@
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"83\"/><Column size=\"108\"/><Column size=\"254\"/><Column size=\"67\"/><Column size=\"119\"/><Column size=\"207\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학과코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"학과\"/><Cell col=\"5\" text=\"강의시간\"/><Cell col=\"6\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"########\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:classTime\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"83\"/><Column size=\"108\"/><Column size=\"254\"/><Column size=\"67\"/><Column size=\"119\"/><Column size=\"207\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학과코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"학과\"/><Cell col=\"5\" text=\"강의시간\"/><Cell col=\"6\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:classTime\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","80","20","120","50",null,null,null,null,null,null,this);
@@ -96,7 +96,7 @@
             obj.set_taborder("6");
             obj.set_binddataset("ds_attend");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"90\"/><Column size=\"155\"/><Column size=\"110\"/><Column size=\"85\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석일자\"/><Cell col=\"3\" text=\"출석체크\"/><Cell col=\"4\" text=\"사유\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" edittype=\"none\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"mask\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attendDay\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:attendState\" displaytype=\"combocontrol\" edittype=\"combo\" combodataset=\"ds_attendState\" combocodecol=\"id\" combodatacol=\"name\" textAlign=\"center\" calendarbuttonsize=\"30 30\"/><Cell col=\"4\" displaytype=\"buttoncontrol\" edittype=\"button\" text=\"사유\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"90\"/><Column size=\"155\"/><Column size=\"110\"/><Column size=\"85\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석일자\"/><Cell col=\"3\" text=\"출석체크\"/><Cell col=\"4\" text=\"사유\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" edittype=\"none\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attendDay\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:attendState\" displaytype=\"combocontrol\" edittype=\"combo\" combodataset=\"ds_attendState\" combocodecol=\"id\" combodatacol=\"name\" textAlign=\"center\" calendarbuttonsize=\"30 30\"/><Cell col=\"4\" displaytype=\"buttoncontrol\" edittype=\"button\" text=\"사유\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal","70","260","300","260",null,null,null,null,null,null,this);
@@ -315,7 +315,9 @@
 
         this.gr_stdList_oncellclick = function(obj,e)
         {
-        	if(e.col == 4){
+        	if(e.col == 3){
+        		obj.dropdownCombo();
+        	}else if(e.col == 4){
         		var attendState = this.ds_attend.getColumn(e.row,"attendState");
         		if(attendState == 03){
         			var reason = this.ds_attend.getColumn(e.row,"absenceReason");

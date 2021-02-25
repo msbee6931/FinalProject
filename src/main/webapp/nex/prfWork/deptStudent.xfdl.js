@@ -50,8 +50,9 @@
             obj.set_taborder("4");
             obj.set_binddataset("ds_students");
             obj.set_autofittype("col");
-            obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"104\"/><Column size=\"93\"/><Column size=\"65\"/><Column size=\"68\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"성별\"/><Cell col=\"4\" text=\"재적상태\"/></Band><Band id=\"body\"><Cell text=\"bind:s_seq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"2\" text=\"bind:colGrade\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"3\" text=\"expr:gender=='M'?'남':'여'\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"4\" text=\"bind:rest\" textAlign=\"center\" expr=\"expr:rest=='Y'?'재학':'휴학'\" cursor=\"pointer\"/></Band></Format></Formats>");
+
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"104\"/><Column size=\"93\"/><Column size=\"65\"/><Column size=\"68\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"성별\"/><Cell col=\"4\" text=\"재적상태\"/></Band><Band id=\"body\"><Cell text=\"bind:s_seq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"2\" text=\"bind:colGrade\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"3\" text=\"expr:gender=='M'?'남':'여'\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"4\" text=\"bind:rest\" textAlign=\"center\" expr=\"expr:rest=='N'?'재학':'휴학'\" cursor=\"pointer\"/></Band></Format></Formats>");
+
             this.addChild(obj.name, obj);
 
             obj = new Div("div_Info","460","20",null,null,"40","70",null,null,null,null,this);

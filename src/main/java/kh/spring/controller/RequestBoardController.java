@@ -147,7 +147,7 @@ public class RequestBoardController {
 		model.addAttribute("id",id);
 		//-----------------------------------------
 
-		return "Board/RequestView";
+		return "Board/RequestViewP";
 	}
 	
 	@RequestMapping("updatePage")

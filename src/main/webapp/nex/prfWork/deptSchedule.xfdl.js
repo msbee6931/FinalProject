@@ -146,6 +146,9 @@
         this.writer=this.objApp.gds_professor.getColumn(0,'name');
         this.deptSchedule_onload = function(obj,e)
         {
+        	if(this.objApp.gds_students.getRowCount() > 0 ){
+        		this.div_schedule.form.btn_insert.set_visible(false);
+        	}
         	this.transaction(
         		"selectDeptSchedule",//id
         		"/schedule/selectDeptSchedule",//url (절대경로)
