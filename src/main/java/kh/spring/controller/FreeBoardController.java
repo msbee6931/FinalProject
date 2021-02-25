@@ -90,6 +90,28 @@ public class FreeBoardController {
 		return "Board/FreeView";
 	}
 	
+	@RequestMapping("viewp")
+	public String viewp(HttpServletRequest request,Model model) {
+		
+		String fids = request.getParameter("login");
+		int fid = Integer.parseInt(fids);
+		String id= Integer.toString(fid);
+		String seq = request.getParameter("seq");
+		FreeBoardDTO pdto = FBservice.selectBySeq(seq);
+		//view_count +1 업데이트
+		FBservice.updateView_Count(pdto.getView_count(), seq);
+		//변동 완료후 dto 보내기
+		FreeBoardDTO dto = FBservice.selectBySeq(seq);
+		model.addAttribute("dto",dto);
+
+		model.addAttribute("id",id);
+		//-----------------------------------------
+		int page =1;
+		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
+		model.addAttribute("list",list);
+		return "Board/FreeView";
+	}
+	
 
 	@RequestMapping("delete")
 	public String delete(FreeBoardDTO dto,HttpServletRequest request,Model model) throws Exception {

@@ -18,12 +18,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("deptSchedule_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"STRING\" size=\"256\"/><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"schDate\" type=\"STRING\" size=\"256\"/><Column id=\"schDay\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"STRING\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ScheduleCode_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">[공지]</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">[학과]</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">[개인]</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">01</Col><Col id=\"name\">[공지]</Col></Row><Row><Col id=\"code\">02</Col><Col id=\"name\">[학과]</Col></Row><Row><Col id=\"code\">03</Col><Col id=\"name\">[기타]</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -72,9 +72,10 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","839","36","90","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_insert","839","36","100","25",null,null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
+            obj.set_cssclass("btn_insert");
             this.div_schedule.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","429","76","500","350",null,null,null,null,null,null,this.div_schedule.form);
@@ -84,42 +85,48 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" displaytype=\"combotext\" combocodecol=\"code\" combodatacol=\"name\" textAlign=\"center\" combodataset=\"ScheduleCode_ds\"/><Cell col=\"1\" text=\"bind:title\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" textAlign=\"center\"/></Band></Format></Formats>");
             this.div_schedule.addChild(obj.name, obj);
 
+            obj = new Button("btn_entireSchd","429","36","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj.set_taborder("3");
+            obj.set_text("전체일정");
+            obj.set_cssclass("btn_default");
+            this.div_schedule.addChild(obj.name, obj);
+
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("학과 스케줄");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00_00","464","87","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00_00_00","628","87","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("");
             obj.set_background("#d23636");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00_00_00","475","85","65","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03_00_00_00","639","85","65","15",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("공지사항");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","541","87","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02","705","87","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("");
             obj.set_background("#78a2dd");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03","552","85","65","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03","716","85","65","15",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("학과일정");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00","618","87","10","10",null,null,null,null,null,null,this);
+            obj = new Static("Static02_00","782","87","10","10",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("");
             obj.set_background("#ab9f1b");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00","629","85","65","15",null,null,null,null,null,null,this);
+            obj = new Static("Static03_00","793","85","65","15",null,null,null,null,null,null,this);
             obj.set_taborder("11");
-            obj.set_text("개인일정");
+            obj.set_text("기타일정");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -162,8 +169,6 @@
 
             currDate = year+month+day; // 오늘 날짜
 
-        	//오늘 날짜 데이터셋 세팅
-        	this.deptSchedule_ds.filter("schDate=='"+currDate+"'");
         };
 
         this.fn_callback = function(sId, errCd,errMsg){
@@ -225,19 +230,13 @@
         	}
         };
 
-        this.fn_callback_on=function()
-        {
-        	//오늘 날짜 데이터셋 세팅
-        	this.deptSchedule_ds.filter("schDate=='"+currDate+"'");
-        }
+
 
 
         //클릭 시 Grid 에 일정 띄우기
         this.Div00_cal_dept_ondayclick = function(obj,e)
         {
-        	var clickedDate = e.date; // 클릭한 날짜
-
-        	this.deptSchedule_ds.filter("Date=='"+clickedDate+"'"); // 날짜로 필터
+        	this.deptSchedule_ds.filter("sDate<='"+e.date+"'&& eDate>='"+e.date+"'");
         };
 
 
@@ -258,16 +257,8 @@
         };
 
         //콜백 성공하면 데이터셋 불러오기
-        this.fn_callback_deptSchedule = function(suc) {
-        	alert(suc)
-        	this.transaction(
-        		"selectDeptSchedule",//id
-        		"/schedule/selectDeptSchedule",//url (절대경로)
-        		"",//in_ds:U
-        		"deptSchedule_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
+        this.fn_callback_deptSchedule = function() {
+        	this.reload();
         };
 
         //일정 상세보기 모달창 띄우기
@@ -275,11 +266,10 @@
         {
 
         	var seq = this.deptSchedule_ds.getColumn(e.row,"seq");
-        	var schDate = this.deptSchedule_ds.getColumn(e.row,"schDate");
-        	var id = this.deptSchedule_ds.getColumn(e.row,"id"); // 등록한 id
+        	var writer = this.deptSchedule_ds.getColumn(e.row,"writer"); // 등록한 id
 
         	// 	id 일치하면
-        	if(id == this.code)
+        	if(writer == this.code)
         	{
         		var objCF = new ChildFrame();
         		objCF.init("deptSchedule_update_pop",200,100,400,350);
@@ -287,7 +277,7 @@
         		objCF.set_formurl("prfWork::deptSchedule_update_pop.xfdl");
         		objCF.showModal(
         			this.getOwnerFrame(),
-        			{seq:seq,schDate:schDate},
+        			{seq:seq},
         			this,
         			"fn_callback_deptSchedule"
         		);
@@ -299,7 +289,7 @@
         		objCF.set_formurl("prfWork::deptSchedule_read_pop.xfdl");
         		objCF.showModal(
         			this.getOwnerFrame(),
-        			{seq:seq,schDate:schDate},
+        			{seq:seq},
         			this,
         			"fn_callback_deptSchedule"
         		);
@@ -312,6 +302,11 @@
 
 
 
+        this.div_schedule_btn_entireSchd_onclick = function(obj,e)
+        {
+        	this.deptSchedule_ds.filter("");
+        };
+
         });
         
         // Regist UI Components Event
@@ -322,6 +317,7 @@
             this.div_schedule.form.cal_dept.addEventHandler("onrbuttonup",this.Div00_cal_dept_onrbuttonup,this);
             this.div_schedule.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
             this.div_schedule.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
+            this.div_schedule.form.btn_entireSchd.addEventHandler("onclick",this.div_schedule_btn_entireSchd_onclick,this);
             this.deptSchedule_ds.addEventHandler("onrowsetchanged",this.deptSchedule_ds_onrowsetchanged,this);
         };
 

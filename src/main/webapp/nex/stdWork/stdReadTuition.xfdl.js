@@ -41,13 +41,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","36","28","948","66",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","36","28",null,null,"35","356",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -109,7 +109,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","68","160","945","270",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","68","160",null,null,"67","90",null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_binddataset("tuition_ds");
             obj.set_autofittype("col");

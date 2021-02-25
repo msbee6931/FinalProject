@@ -159,12 +159,12 @@ div {
 			<div class='comment'>
 				<span class='revWriter'>${i.rev_writer}</span> <span class='revDate'>${i.rev_write_date}</span>
 				<p class='revContents'>${i.rev_contents}</p>
-				<!-- 여기다가 c:if id==i.writer_seq 해주기 -->
+				<c:if test="${id == i.rev_writer}">
 				<button type='button' class='rUpdBtn' data-revSeq=${i.rev_seq }
 					data-mainSeq=${i.main_seq }>수정</button>
 				<button type='button' class='rDelBtn' data-revSeq=${i.rev_seq }
 					data-mainSeq=${i.main_seq }>삭제</button>
-
+				</c:if>
 			</div>
 		</c:forEach>
 
@@ -174,7 +174,10 @@ div {
 				id=rUpdateReturn value=돌아가기>
 		</div>
 	</div>
-	`
+	`		<!-- footer -->
+		<footer>
+			<jsp:include page="/WEB-INF/views/footer.jsp" />
+		</footer>
 
 
 	<script>      
@@ -330,6 +333,7 @@ div {
    		                            "</div>"
    		                        div.html(str);
    		                        $("#revList").append(div);
+   		                     $(".rUpdModal").hide();
    		                    }
    		   				$("#uptContents").val()="";
    		   				$("#revList").on("click",".rDelBtn",function(){
@@ -409,7 +413,7 @@ div {
 
    	
    
-   	
+   	$(".rUpdModal").hide(); 
    	
    	
    	

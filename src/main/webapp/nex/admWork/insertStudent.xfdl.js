@@ -11,6 +11,7 @@
         {
             this.set_name("insertStudent");
             this.set_titletext("New Form");
+            this.set_cssclass("med_default");
             if (Form == this.constructor)
             {
                 this._setFormPosition(350,550);
@@ -89,40 +90,49 @@
 
             obj = new Edit("edt_name","85","55","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","85","125","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","85","160","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","85","195","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_scholarship","85","230","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_grade","85","300","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_pw","85","335","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","95","515","50","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_insert","75","515","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("25");
             obj.set_text("입력");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","210","515","50","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_cancel","190","515","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("26");
             obj.set_text("취소");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_10_00","10","405","50","30",null,null,null,null,null,null,this);
@@ -140,6 +150,7 @@
             obj.set_innerdataset("colCode_Copy");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_deptCode","85","440","175","30",null,null,null,null,null,null,this);
@@ -147,12 +158,14 @@
             obj.set_innerdataset("deptCode_copy");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_rest","85","265","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var com_rest_innerdataset = new nexacro.NormalDataset("com_rest_innerdataset", obj);
             com_rest_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">휴학</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">재학</Col></Row></Rows>");
             obj.set_innerdataset(com_rest_innerdataset);
@@ -162,6 +175,7 @@
             obj.set_taborder("10");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var com_gender_innerdataset = new nexacro.NormalDataset("com_gender_innerdataset", obj);
             com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">M</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">W</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
             obj.set_innerdataset(com_gender_innerdataset);
@@ -176,6 +190,7 @@
             obj.set_taborder("13");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var com_colGrade_innerdataset = new nexacro.NormalDataset("com_colGrade_innerdataset", obj);
             com_colGrade_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학년</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학년</Col></Row><Row><Col id=\"codecolumn\">3</Col><Col id=\"datacolumn\">3학년</Col></Row><Row><Col id=\"codecolumn\">4</Col><Col id=\"datacolumn\">4학년</Col></Row></Rows>");
             obj.set_innerdataset(com_colGrade_innerdataset);
@@ -185,6 +200,7 @@
             obj.set_taborder("2");
             obj.set_format("###### - #{######}");
             obj.set_type("string");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mas_s_seq","85","20","175","30",null,null,null,null,null,null,this);
@@ -193,6 +209,7 @@
             obj.set_format("#########");
             obj.set_autoskip("true");
             obj.set_tooltiptext("학번은 9자리입니다.");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions

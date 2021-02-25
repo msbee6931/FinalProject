@@ -60,11 +60,12 @@
             obj.set_text("일반공지");
             this.Tab00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","140","0","730","420",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj = new Grid("Grid00","0","0","1020","420",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("0");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"n_seq\"/><Cell col=\"1\" text=\"title\"/><Cell col=\"2\" text=\"writedate\"/><Cell col=\"3\" text=\"contents\"/><Cell col=\"4\" text=\"deptcode\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:writedate\"/><Cell col=\"3\" text=\"bind:contents\"/><Cell col=\"4\" text=\"bind:deptcode\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"n_seq\"/><Cell col=\"1\" text=\"title\"/><Cell col=\"2\" text=\"writedate\"/><Cell col=\"3\" text=\"contents\"/><Cell col=\"4\" text=\"deptcode\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:writedate\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:contents\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:deptcode\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage2",this.Tab00);

@@ -29,13 +29,10 @@ public class ScheduleController {
 	
 	//학과 스케줄 입력
 	@RequestMapping("insertDeptScheule")
-	public NexacroResult insertDeptScheule(@ParamDataSet(name="in_ds")List<DeptScheduleDTO> list) {
-		System.out.println("--------------------- 학과 스케줄 등록 컨트롤러 확인------ "+list.size());
-		for(int i=0; i<list.size();i++) {
-			DeptScheduleDTO dto = list.get(i);
+	public NexacroResult insertDeptScheule(@ParamDataSet(name="in_ds")DeptScheduleDTO dto) {
+		System.out.println("--------------------- 학과 스케줄 등록 컨트롤러 확인------ ");
+		System.out.println("코드 >>"+dto.getCode()+dto.getContent()+"<내용,,,날짜>"+dto.getsDate()+dto.geteDate()+"내용 >>"+dto.getTitle()+"작성자"+dto.getWriter());
 			int result = sService.insertDeptSchedule(dto);
-		}
-		
 		NexacroResult nr = new NexacroResult();
 		return nr;
 	}
@@ -51,10 +48,9 @@ public class ScheduleController {
 	
 	//학과 스케줄 개별 조회
 	@RequestMapping("selectOneDeptSchedule")
-	public NexacroResult selectOneDeptSchedule(@ParamVariable(name="seq")String seq, @ParamVariable(name="schDate")String schDate) {
+	public NexacroResult selectOneDeptSchedule(@ParamVariable(name="seq")String seq) {
 		System.out.println("-----------------학과 스케줄 개별 조회");
-		System.out.println("seq 넘어 오는 값:  "+seq + "   schDate 넘어오는 값" + schDate);
-		DeptScheduleDTO dto = sService.selectOneDeptSchedule(seq, schDate);
+		DeptScheduleDTO dto = sService.selectOneDeptSchedule(seq);
 		NexacroResult nr = new NexacroResult();
 		nr.addDataSet("out_ds",dto);
 		return nr;
@@ -62,28 +58,19 @@ public class ScheduleController {
 	
 	//학과 스케줄 수정
 	@RequestMapping("updateDeptSchedule")
-	public NexacroResult updateDeptSchedule(@ParamVariable(name="oriSeq")String oriSeq, @ParamDataSet(name="in_ds")List<DeptScheduleDTO> list) {
+	public NexacroResult updateDeptSchedule( @ParamDataSet(name="in_ds")DeptScheduleDTO dto) {
 		System.out.println("-----------------학과 스케줄 수정 컨트롤러 확인 ");
-		System.out.println("seq 넘어 오는 값:  "+oriSeq + " 기존 스케줄러 삭제 예정");
-		int resultDelete = sService.deleteDeptSchedule(oriSeq);
-		
-		if(resultDelete>0) {
-			System.out.println("기존 내용 지우고 다시 새로 입력 ---------- 리스트 사이즈 : ");
-			for(int i=1; i<list.size();i++) {
-				DeptScheduleDTO dto = list.get(i);
-				System.out.println(list.get(i).getSchDate()+"-----------들어오는 시퀀스확인 : "+list.get(i).getSeq());
-				int resultInsert = sService.insertDeptSchedule(dto);
-			}
-		}
+
+				int resultInsert = sService.updateDeptSchedule(dto);
 		NexacroResult nr = new NexacroResult();
 		return nr;
 	}
 	
 	//학과 스케줄 삭제
 		@RequestMapping("deleteScheule")
-		public NexacroResult deleteScheule(@ParamVariable(name="oriSeq")String oriSeq) {
+		public NexacroResult deleteScheule(@ParamVariable(name="seq")String seq) {
 			System.out.println("--------------------- 학과 스케줄 삭제 컨트롤러 확인------ ");
-			int result = sService.deleteDeptSchedule(oriSeq);
+			int result = sService.deleteDeptSchedule(seq);
 			if(result>0) {
 			System.out.println("삭제완료");
 			}

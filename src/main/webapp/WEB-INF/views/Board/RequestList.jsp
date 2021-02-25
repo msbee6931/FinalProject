@@ -172,11 +172,7 @@ nav {
 						</h5>
 					</div>
 				</div>
-				<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel">
-					<h3>
-						<b>건의 게시판</b>
-					</h3>
-				</div>
+
 			</div>
 			<div class="choose">
 				<br> <a href="/free/boardList">자유게시판</a> <br> <a
@@ -190,7 +186,7 @@ nav {
 					<div class="row">
 						<div class="col-12">
 							<H3>
-								<b>자유게시판</b>
+								<b>건의게시판</b>
 							</H3>
 						</div>
 						<div class="col-12">

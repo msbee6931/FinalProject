@@ -63,58 +63,62 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("성적 조회");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("div_line","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","35","71","950","330",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","14","71",null,null,"10","29",null,null,null,null,this.div_line.form);
             obj.set_taborder("0");
             obj.set_binddataset("reset_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\"/><Column size=\"50\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"100\"/><Column size=\"50\"/><Column size=\"50\"/><Column size=\"50\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/><Row size=\"24\" band=\"summ\"/></Rows><Band id=\"head\"><Cell text=\"학년\"/><Cell col=\"1\" text=\"학기\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"과목명\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"등급\"/><Cell col=\"7\" text=\"평점\"/></Band><Band id=\"body\"><Cell text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:term\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:rating\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:point\" textAlign=\"center\"/></Band><Band id=\"summary\"><Cell colspan=\"3\" text=\"총 이수 학점\"/><Cell col=\"3\" text=\"expr:dataset.getSum('parseInt(classPoint.replace(&quot;학점&quot;,&quot;&quot;))')+&quot;학점&quot;\"/><Cell col=\"4\" text=\"총 평점\"/><Cell col=\"5\" text=\"expr:dataset.getSum('point')\"/><Cell col=\"6\" text=\"평균 평점\"/><Cell col=\"7\" text=\"expr:nexacro.round(dataset.getSum('point')/dataset.getRowCount(),2)\"/></Band></Format></Formats>");
-            this.Div00.addChild(obj.name, obj);
+            this.div_line.addChild(obj.name, obj);
 
-            obj = new Static("Static00","40","32","60","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","14","32","60","25",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("1");
             obj.set_text("학년 구분 :");
-            this.Div00.addChild(obj.name, obj);
+            this.div_line.addChild(obj.name, obj);
 
-            obj = new Combo("cmb_grade","100","32","140","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Combo("cmb_grade","80","32","140","25",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("2");
             obj.set_innerdataset("gradeCode_ds");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             obj.set_text("Combo00");
-            this.Div00.addChild(obj.name, obj);
+            this.div_line.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","309","32","60","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00","309","32","60","25",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("3");
             obj.set_text("이수 구분 :");
-            this.Div00.addChild(obj.name, obj);
+            this.div_line.addChild(obj.name, obj);
 
-            obj = new Combo("cmb_part","369","32","140","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Combo("cmb_part","379","32","140","25",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("4");
             obj.set_innerdataset("partCode_ds");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             obj.set_text("Combo00");
-            this.Div00.addChild(obj.name, obj);
+            this.div_line.addChild(obj.name, obj);
 
-            obj = new Button("btn_grade","247","32","60","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_grade","227","32","60","25",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("5");
             obj.set_cssclass("btn_search");
             obj.set_text("조회");
-            this.Div00.addChild(obj.name, obj);
+            this.div_line.addChild(obj.name, obj);
 
-            obj = new Button("btn_part","519","32","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_part","529","32","60","25",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("6");
             obj.set_cssclass("btn_search");
-            this.Div00.addChild(obj.name, obj);
+            obj.set_text("조회");
+            this.div_line.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
             obj.set_taborder("3");
@@ -355,10 +359,10 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.readGrade_onload,this);
-            this.Div00.form.cmb_grade.addEventHandler("onitemchanged",this.Div00_cmb_grade_onitemchanged,this);
-            this.Div00.form.cmb_part.addEventHandler("onitemchanged",this.Div00_cmb_part_onitemchanged,this);
-            this.Div00.form.btn_grade.addEventHandler("onclick",this.Div00_btn_grade_onclick,this);
-            this.Div00.form.btn_part.addEventHandler("onclick",this.Div00_btn_part_onclick,this);
+            this.div_line.form.cmb_grade.addEventHandler("onitemchanged",this.Div00_cmb_grade_onitemchanged,this);
+            this.div_line.form.cmb_part.addEventHandler("onitemchanged",this.Div00_cmb_part_onitemchanged,this);
+            this.div_line.form.btn_grade.addEventHandler("onclick",this.Div00_btn_grade_onclick,this);
+            this.div_line.form.btn_part.addEventHandler("onclick",this.Div00_btn_part_onclick,this);
         };
 
         this.loadIncludeScript("readGrade.xfdl");

@@ -65,39 +65,91 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","897","20","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("0");
-            obj.set_text("작성하기");
-            obj.set_cssclass("btn_insert");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","30","61","369","360",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","30","61",null,null,"620","29",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_binddataset("absenceCopy_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"분류\"/><Cell col=\"1\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:code\" displaytype=\"combotext\" combodataset=\"absenceCode_ds\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:writeDate\" displaytype=\"date\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","424","64","573","357",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00",null,"22","585",null,"19","28",null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
-            obj.set_text("");
-            obj.set_cssclass("sta_line");
+            obj.set_text("Div00");
+            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static01","444","75","136","32",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
+            obj = new Static("sta_absTitle","16","16","136","32",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("0");
             obj.set_text("휴학신청서 보기");
-            this.Div00.addChild(obj.name, obj);
+            obj.set_cssclass("sta_title");
+            this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02","440","282","550","135",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_01_00_00","16","63","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("1");
+            obj.set_text("기 간");
+            obj.set_cssclass("sta_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00_00_00","16","92","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("2");
+            obj.set_text("사 유");
+            obj.set_cssclass("sta_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Radio("Radio00","123","93","440","28",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("3");
+            obj.set_innerdataset("absenceCode_ds");
+            obj.set_codecolumn("code");
+            obj.set_datacolumn("name");
+            obj.set_rowcount("1");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Calendar("cal_sDate","127","68","150","20",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("4");
+            obj.set_cssclass("cal_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Calendar("cal_eDate","317","68","150","20",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("5");
+            obj.set_cssclass("cal_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_02","16","121","100","100",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("6");
+            obj.set_text("첨부파일");
+            obj.set_cssclass("sta_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Grid("Grid00","115","123","382","100",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("7");
+            obj.set_binddataset("absFileList_ds");
+            obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"32\"/><Column size=\"419\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"0\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_down","496","122","70","101",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("8");
+            obj.set_text("파일\r\n다운로드");
+            obj.set_cssclass("btn_default");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02","16","221","547","127",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("9");
             obj.set_cssclass("sta_line");
+            this.Div00.form.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_insert","Grid00:-100","26","100","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("0");
+            obj.set_text("작성하기");
+            obj.set_cssclass("btn_insert");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
@@ -106,57 +158,10 @@
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","510","350","490","70",null,null,null,null,null,null,this);
+            obj = new Static("sta_default","490","305","490","70",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("");
             obj.set_textAlign("center");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn_down","950","219","70","101",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_text("파일\r\n다운로드");
-            obj.set_cssclass("btn_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","568","220","382","100",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
-            obj.set_binddataset("absFileList_ds");
-            obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"32\"/><Column size=\"419\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"0\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00_02","469","219","100","101",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
-            obj.set_text("첨부파일");
-            obj.set_cssclass("sta_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_01_00_00_00","469","187","101","30",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
-            obj.set_text("사 유");
-            obj.set_cssclass("sta_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Radio("Radio00","579","189","440","28",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
-            obj.set_innerdataset("absenceCode_ds");
-            obj.set_codecolumn("code");
-            obj.set_datacolumn("name");
-            obj.set_rowcount("1");
-            this.addChild(obj.name, obj);
-
-            obj = new Calendar("cal_sDate","580","162","150","20",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
-            this.addChild(obj.name, obj);
-
-            obj = new Calendar("cal_eDate","770","162","150","20",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_01_00_00","469","157","101","30",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
-            obj.set_text("기 간");
-            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -166,15 +171,15 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-            obj = new BindItem("item0","cal_sDate","value","absence_ds","sDate");
+            obj = new BindItem("item0","Div00.form.Div00.form.Radio00","value","absence_ds","code");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item1","cal_eDate","value","absence_ds","eDate");
+            obj = new BindItem("item1","Div00.form.Div00.form.cal_sDate","value","absence_ds","sDate");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item2","Radio00","value","absence_ds","code");
+            obj = new BindItem("item2","Div00.form.Div00.form.cal_eDate","value","absence_ds","eDate");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -188,6 +193,7 @@
         this.registerScript("absence.xfdl", function() {
         this.objApp = nexacro.getApplication();
         this.std_code=this.objApp.gds_students.getColumn(0,'s_seq');
+
         this.absence_onload = function(obj,e)
         {
         	this.transaction(
@@ -214,6 +220,11 @@
         		"fn_callback_pop_abs"
         	);
         };
+
+        this.fn_callback_pop_abs = function()
+        {
+        	this.reload();
+        }
 
 
         this.seq="";
@@ -253,11 +264,11 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.absence_onload,this);
-            this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
             this.Div00.form.Grid00.addEventHandler("oncellclick",this.Div00_Grid00_oncellclick,this);
-            this.btn_down.addEventHandler("onclick",this.Div00_btn_add_onclick,this);
-            this.cal_sDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
-            this.cal_eDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
+            this.Div00.form.Div00.form.cal_sDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
+            this.Div00.form.Div00.form.cal_eDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
+            this.Div00.form.Div00.form.btn_down.addEventHandler("onclick",this.Div00_btn_add_onclick,this);
+            this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
         };
 
         this.loadIncludeScript("absence.xfdl");

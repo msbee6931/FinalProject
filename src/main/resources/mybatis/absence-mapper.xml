@@ -34,6 +34,9 @@
 <delete id="deleteReqAbsFile">
 	delete from absenceFile where parentSeq=#{seq}
 </delete>
+<update id="updateReadAbs">
+	update absence set checkValue = '읽음' where seq=#{seq}
+</update>
 
 <insert id="insertRest">
 	insert into rest values (rest_seq.nextval,#{std_code},#{title},sysdate)

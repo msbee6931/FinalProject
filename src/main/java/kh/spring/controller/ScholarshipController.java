@@ -225,6 +225,7 @@ public class ScholarshipController {
 	//학생쪽_장학금 신청 목록 조회
 	@RequestMapping("selectOneReqScholar.scholarship")
 	public NexacroResult selectOneReqScholar(@ParamVariable(name="code")int stdCode) {
+		System.out.println("학생쪽 장학금 신청 목록 불러오기");
 		NexacroResult nr = new NexacroResult();
 		List<ReqScholarDTO> list =  sService.selectOneReqScholar(stdCode);
 		nr.addDataSet("out_ds",list);

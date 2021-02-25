@@ -18,111 +18,121 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("students_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"birth\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"age\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"colGrade\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00_02","20","57","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_02","20","57","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("학 과");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","79","57","120","36",null,null,null,null,null,null,this);
+            obj = new Combo("Combo00","79","57","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_readonly("true");
             obj.set_innerdataset("deptCode");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
+            obj.set_cssclass("cmb_default");
             obj.set_text("Combo00");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","198","57","60","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00","198","57","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("학 번");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00","257","57","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00","257","57","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","20","93","60","37",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
-            obj.set_text("생년월일");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_title00_00","79","93","120","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_01_01","198","81","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_01_01","198","93","60","37",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
             obj.set_text("학 년");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01","257","93","120","37",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj = new Edit("edt_title01","257","81","120","25",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_01","20","129","60","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_01","79","129","297","25",null,null,null,null,null,null,this);
             obj.set_taborder("8");
-            obj.set_text("연락처");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_01","79","129","120","37",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_00_00","198","105","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("9");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00_00_00_00","198","129","60","37",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
             obj.set_text("성 명");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_00_00","257","129","120","37",null,null,null,null,null,null,this);
+            obj = new Edit("edt_title00_00_00","257","105","120","25",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_cssclass("edt_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00_00","20","129","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("11");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_01_00_00","20","165","60","37",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
             obj.set_text("주 소");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01_00","79","165","298","37",null,null,null,null,null,null,this);
+            obj = new Static("Static02","30","230","357","34",null,null,null,null,null,null,this);
             obj.set_taborder("13");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02","20","201","357","93",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
             obj.set_text(" 본인은 본교에 복학하고자 하오니 허가하여 주시기 바랍니다.");
-            obj.set_border("1px solid #c1c1c1");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_commit","157","310","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
+            obj = new Button("btn_commit","157","350","100","25",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
             obj.set_text("승인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_ok","277","310","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
-            obj.set_text("확인");
+            obj = new Button("btn_ok","277","350","100","25",null,null,null,null,null,null,this);
+            obj.set_taborder("15");
+            obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","23","10","120","30",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
+            obj.set_taborder("16");
             obj.set_text("복학 신청서");
+            obj.set_cssclass("sta_title");
+            this.addChild(obj.name, obj);
+
+            obj = new Div("Div00","20","153","356","177",null,null,null,null,null,null,this);
+            obj.set_taborder("17");
+            obj.set_cssclass("div_line");
+            obj.set_text("");
+            this.addChild(obj.name, obj);
+
+            obj = new MaskEdit("med_birth","79","81","120","25",null,null,null,null,null,null,this);
+            obj.set_taborder("18");
+            obj.set_cssclass("med_default");
+            obj.set_type("string");
+            obj.set_format("@@@@@@");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("edt_contact","79","105","119","25",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("edt_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_01","20","105","60","25",null,null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_text("연락처");
+            obj.set_cssclass("sta_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00_00","20","81","60","25",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_text("생년월일");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -135,27 +145,27 @@
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item1","edt_title00_01","value","students_ds","contact");
-            this.addChild(obj.name, obj);
-            obj.bind();
-
             obj = new BindItem("item2","edt_title00","value","students_ds","s_seq");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item3","edt_title00_00_00","value","students_ds","name");
+            obj = new BindItem("item3","med_birth","value","students_ds","secNumber");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item4","edt_title00_00","value","students_ds","birth");
+            obj = new BindItem("item4","edt_title01","value","students_ds","colGrade");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item5","edt_title01_00","value","students_ds","adress");
+            obj = new BindItem("item5","edt_contact","value","students_ds","contact");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item6","edt_title01","value","students_ds","grade");
+            obj = new BindItem("item1","edt_title00_01","value","students_ds","address");
+            this.addChild(obj.name, obj);
+            obj.bind();
+
+            obj = new BindItem("item6","edt_title00_00_00","value","students_ds","name");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -186,16 +196,18 @@
         this.fn_callback_stdInfo = function()
         {
         	var rest = this.students_ds.getColumn(0,"rest");
-        	alert(rest)
         	if(rest=='N')
         	{
-        		this.btn_commit.set_text("승인완료");
+        		this.btn_commit.set_text("완료");
         	}
         }
 
         //승인 처리
         this.Div00_btn_commit_onclick = function(obj,e)
         {
+        	var check = this.confirm("복학을 승인하시겠습니까?");
+        	if(check)
+        	{
         	this.transaction(
         		"pdateStdRest",//id
         		"/students/updateStdRest.students",//url (절대경로)
@@ -204,11 +216,13 @@
         		"sCode="+this.std_code,//argument
         		"fn_callback_rest"
         		)
+        	} else
+        	{return;}
         };
 
         this.fn_callback_rest = function()
         {
-        	this.btn_commit.set_text("승인완료");
+        	this.btn_commit.set_text("완료");
         }
 
         //그냥 닫기

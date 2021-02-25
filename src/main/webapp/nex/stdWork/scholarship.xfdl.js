@@ -63,68 +63,79 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("등록금 신청");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
+            obj.set_async("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","29","16","80","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("0");
-            obj.set_text("작성하기");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","30","61","429","360",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","9","61",null,null,"560","9",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_binddataset("reqScholar_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"335\"/><Column size=\"64\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\"/><Cell col=\"1\" text=\"bind:writeDate\" displaytype=\"date\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02","511","100","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_text("제목");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
-            this.addChild(obj.name, obj);
+            obj = new Button("btn_insert","Grid00:-100","26","100",null,null,"Grid00:10",null,null,null,null,this.Div00.form);
+            obj.set_taborder("0");
+            obj.set_text("작성하기");
+            obj.set_cssclass("btn_insert");
+            this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","610","100","420","30",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj = new Div("div_line",null,"61","550",null,"5","8",null,null,null,null,this.Div00.form);
+            obj.set_taborder("2");
+            obj.set_text("Div00");
+            obj.set_cssclass("div_line");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new TextArea("txt_cotents","114","173","420","189",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("0");
+            obj.set_cssclass("txt_default");
             obj.set_readonly("true");
-            this.addChild(obj.name, obj);
+            this.Div00.form.div_line.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","511","130","100","140",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
+            obj = new Static("Static00_00_00_00","15","174","100","190",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("1");
+            obj.set_text("신청사유");
+            obj.set_cssclass("sta_default");
+            this.Div00.form.div_line.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00","16","56","100","117",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("2");
             obj.set_text("첨부파일");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
-            this.addChild(obj.name, obj);
+            obj.set_cssclass("sta_default");
+            this.Div00.form.div_line.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","612","131","348","140",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
+            obj = new Grid("Grid00","117","57","348","117",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("3");
             obj.set_binddataset("schFileList_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"26\"/><Column size=\"239\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"파일이름\"/><Cell col=\"2\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
+            this.Div00.form.div_line.addChild(obj.name, obj);
 
-            obj = new Button("btn_down","960","130","70","140",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj = new Button("btn_down","465","56","70","117",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("4");
             obj.set_text("파일\r\n다운로드");
-            this.addChild(obj.name, obj);
+            obj.set_cssclass("btn_default");
+            this.Div00.form.div_line.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","511","270","100","190",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
-            obj.set_text("신청사유");
-            obj.set_background("#c1c1c1");
-            obj.set_border("1px solid #c1c1c1");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("Edit01","610","271","420","189",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj = new Edit("edt_title","115","26","420","30",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("5");
             obj.set_readonly("true");
-            this.addChild(obj.name, obj);
+            obj.set_cssclass("edt_default");
+            this.Div00.form.div_line.addChild(obj.name, obj);
+
+            obj = new Static("Static00_02","16","26","100","30",null,null,null,null,null,null,this.Div00.form.div_line.form);
+            obj.set_taborder("6");
+            obj.set_text("제목");
+            obj.set_cssclass("sta_default");
+            this.Div00.form.div_line.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -133,19 +144,15 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-            obj = new BindItem("item0","Edit00","value","reqScholar_ds","title");
+            obj = new BindItem("item0","Div00.form.div_line.form.txt_cotents","value","reqScholarCopy_ds","contents");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item1","Edit01","value","reqScholar_ds","contents");
+            obj = new BindItem("item1","Div00.form.div_line.form.edt_title","value","reqScholar_ds","title");
             this.addChild(obj.name, obj);
             obj.bind();
 
-            obj = new BindItem("item2","Edit00","accessibilityaction","reqScholarCopy_ds","title");
-            this.addChild(obj.name, obj);
-            obj.bind();
-
-            obj = new BindItem("item3","Edit01","accessibilityaction","reqScholarCopy_ds","contents");
+            obj = new BindItem("item2","Div00.form.div_line.form.edt_title","accessibilityaction","reqScholarCopy_ds","title");
             this.addChild(obj.name, obj);
             obj.bind();
         };
@@ -192,14 +199,7 @@
 
         this.fn_callback_pop_t = function()
         {
-        		this.transaction(
-        		"selectOneReqScholar.scholarship",//id
-        		"/scholarship/selectOneReqScholar.scholarship",//url (절대경로)
-        		"",//in_ds:U
-        		"reqScholar_ds=out_ds",//()_out_ds
-        		"code="+this.code,//argument
-        		"fn_callback"
-        		)
+        		this.reload();
         }
 
 
@@ -323,11 +323,11 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.scholarship_onload,this);
-            this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
             this.Div00.form.Grid00.addEventHandler("oncellclick",this.Div00_Grid00_oncellclick,this);
-            this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
-            this.btn_down.addEventHandler("onclick",this.btn_down_onclick,this);
+            this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
+            this.Div00.form.div_line.form.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
+            this.Div00.form.div_line.form.btn_down.addEventHandler("onclick",this.btn_down_onclick,this);
         };
 
         this.loadIncludeScript("scholarship.xfdl");
