@@ -366,9 +366,10 @@
             obj.set_visible("false");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","0","0","382","315",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form.classTimeList.form);
+            obj = new Grid("Grid00","0","-4","382","315",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form.classTimeList.form);
             obj.set_taborder("0");
             obj.set_binddataset("ds_classTimeList");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"44\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"교시\"/><Cell col=\"1\" text=\"월\"/><Cell col=\"2\" text=\"화\"/><Cell col=\"3\" text=\"수\"/><Cell col=\"4\" text=\"목\"/><Cell col=\"5\" text=\"금\"/><Cell col=\"6\" text=\"토\" color=\"blue\"/><Cell col=\"7\" text=\"일\" color=\"red\"/></Band><Band id=\"body\"><Cell text=\"bind:Time\"/><Cell col=\"1\" text=\"bind:Mon\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"2\" text=\"bind:Tue\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"3\" text=\"bind:Wed\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"4\" text=\"bind:Thu\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"5\" text=\"bind:Fri\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"6\" text=\"bind:Sat\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"7\" text=\"bind:Sun\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/></Band></Format></Formats>");
             this.Div00.form.classPlanTab.classPlan.form.classTimeList.addChild(obj.name, obj);
 
@@ -1116,6 +1117,7 @@
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
         	}
         	if(sId == "classListSeq"){
+
         		//수업 정보 가져와서 띄우기
         		classForm.co_part.set_value(this.ds_class.getColumn(0,"classPart"));
         		classForm.edt_className.set_value(this.ds_class.getColumn(0,"className"));

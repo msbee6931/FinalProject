@@ -24,8 +24,17 @@
 	insert into students 
 	values(#{s_seq},#{name},#{email},#{contact},#{address},#{scholarship},#{rest},#{grade},#{pw},#{gender},#{deptCode},#{colCode},#{colGrade},#{secNumber})
 </insert>
-
+<select id="selectstu" resultType="int">
+	select count(*) from students where s_seq = #{s_seq}
+</select>
+<select id="selectS_seq" resultType="kh.spring.dto.StudentsDTO">
+	select * from students where s_seq like '%001'
+</select>
+<select id="lastNum" resultType="int">
+	select * from(select s_seq from students order by ROWNUM DESC) where rownum = 1 and s_seq like '%'||#{s_seq}||'%'
+</select>
 <!-- professor -->
+
 <select id="professorList" resultType="kh.spring.dto.ProfessorDTO">
 	select * from professor
 </select>
@@ -36,10 +45,8 @@
 	</foreach>
 </delete>
 <insert id="insertPro">
-	<foreach item="i" collection="list" separator=" " open="insert All" close="select * from dual">
-	into professor(p_seq,name,email,contact,address,lecture,pw,secNumber,colCode,deptCode)
-	values(#{i.p_seq},#{i.name},#{i.email},#{i.contact},#{i.address},#{i.lecture},#{i.pw},#{i.secNumber},#{i.colCode},#{i.deptCode})
-	</foreach>
+	insert into professor
+	values(#{p_seq},#{name},#{email},#{contact},#{address},#{pw},#{secNumber},#{colCode},#{deptCode},#{gender})
 </insert>
 <update id="updatePro">
 	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
@@ -48,6 +55,15 @@
 		where p_seq = #{i.p_seq}
 	</foreach>
 </update>
+<select id="selectP_seq" resultType="kh.spring.dto.ProfessorDTO">
+	select * from professor where p_seq like '%001'
+</select>
+<select id="lastPNum" resultType="int">
+	select * from (select p_seq from professor order by ROWNUM DESC) where rownum = 1 and p_seq like '%'||#{p_seq}||'%' 
+</select>
+<select id="selectpro" resultType="int">
+	select count(*) from professor where p_seq = #{p_seq}
+</select>
 
 <!-- faculty -->
 <select id="facultylist" resultType="kh.spring.dto.FacultyDTO">

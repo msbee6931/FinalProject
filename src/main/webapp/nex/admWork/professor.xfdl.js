@@ -238,11 +238,25 @@
 
         	}
         };
+        this.professor_onload = function(obj,e)
+        {
+        	this.transaction(
+
+        				"ds_retrivepro" //1. strSvcID
+        				,"/professorList.nex" //2. strURL
+        				,"" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
+        				,"ds_professor=out_ds" //4.strOutDatasets -select Fds=Sds
+        				,"" //5.strArgument text값
+        				,"fn_callback" //6.strCallbackFunc
+        			);
+        };
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.addEventHandler("onload",this.professor_onload,this);
             this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
             this.btn_retrive.addEventHandler("onclick",this.btn_retrive_onclick,this);
             this.btn_save.addEventHandler("onclick",this.btn_save_onclick,this);

@@ -27,7 +27,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
+            obj = new Static("sta_logo","0","0","200","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_background("url(\'theme::default/images/khLogo.png\')");
             this.addChild(obj.name, obj);
@@ -42,7 +42,7 @@
             obj.set_background("#0d6efd");
             this.addChild(obj.name, obj);
 
-            obj = new Menu("Menu00","241","10","849","30",null,null,null,null,null,null,this);
+            obj = new Menu("Menu00","215","10","849","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_innerdataset("ds_menu");
             obj.set_captioncolumn("menu_name");
@@ -50,21 +50,22 @@
             obj.set_levelcolumn("menu_level");
             this.addChild(obj.name, obj);
 
-            obj = new Button("alarm_btn",null,"10","80","30","120",null,null,null,null,null,this);
+            obj = new Button("alarm_btn",null,"10","80","30","122",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("쪽지");
             obj.set_cssclass("btn_message");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout00",null,"10","100","30","13",null,null,null,null,null,this);
+            obj = new Button("btn_logout00",null,"10","100","30","14",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("로그아웃");
             obj.set_cssclass("btn_logout");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","210","10","30","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_home",null,"10","100","30","210",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_cssclass("btn_home");
+            obj.set_text("Home");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -182,17 +183,41 @@
         			,"fn_callback"//callback
         		);
         }
+        this.btn_home_onclick = function(obj,e)
+        {
+        	location.href="/";
+        };
+
+
+
+        this.sta_logo_onclick = function(obj,e)
+        {
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.form.fn_deleteTab();
+        	this.fn_setFrameSize("home")
+        };
+
+        this.fn_setFrameSize = function(type)
+        {
+        	if(type == "home"){
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        	} else {
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        	}
+        }
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.Form_Top_onload,this);
+            this.sta_logo.addEventHandler("onclick",this.sta_logo_onclick,this);
             this.btn_logout.addEventHandler("onclick",this.btn_logout_onclick,this);
             this.Menu00.addEventHandler("onmenuclick",this.Menu00_onmenuclick,this);
             this.Menu00.addEventHandler("onrbuttondown",this.Menu00_onrbuttondown,this);
             this.alarm_btn.addEventHandler("onclick",this.alarm_btn_onclick,this);
             this.btn_logout00.addEventHandler("onclick",this.btn_logout_onclick,this);
+            this.btn_home.addEventHandler("onclick",this.btn_home_onclick,this);
         };
 
         this.loadIncludeScript("Form_Top.xfdl");

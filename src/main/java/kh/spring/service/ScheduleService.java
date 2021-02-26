@@ -23,8 +23,8 @@ public class ScheduleService {
 		return sDao.updateDeptSchedule(dto);
 	}
 
-	public List<DeptScheduleDTO> selectDeptSchedule(){
-		return sDao.selectDeptSchedule();
+	public List<DeptScheduleDTO> selectDeptSchedule(String deptCode){
+		return sDao.selectDeptSchedule(deptCode);
 	}
 	
 	public int updateDeptScheule(DeptScheduleDTO dto) {

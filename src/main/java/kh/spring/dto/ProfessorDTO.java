@@ -8,10 +8,10 @@ public class ProfessorDTO {
 	private String email;
 	private String contact;
 	private String address;
-	private String lecture;
 	private String pw;
 	private String colCode;
 	private String deptCode;
+	private String gender;
 	public int getChk() {
 		return chk;
 	}
@@ -54,12 +54,6 @@ public class ProfessorDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getLecture() {
-		return lecture;
-	}
-	public void setLecture(String lecture) {
-		this.lecture = lecture;
-	}
 	public String getPw() {
 		return pw;
 	}
@@ -78,8 +72,14 @@ public class ProfessorDTO {
 	public void setDeptCode(String deptCode) {
 		this.deptCode = deptCode;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public ProfessorDTO(int chk, int p_seq, String name, String secNumber, String email, String contact, String address,
-			String lecture, String pw, String colCode, String deptCode) {
+			String pw, String colCode, String deptCode, String gender) {
 		super();
 		this.chk = chk;
 		this.p_seq = p_seq;
@@ -88,15 +88,15 @@ public class ProfessorDTO {
 		this.email = email;
 		this.contact = contact;
 		this.address = address;
-		this.lecture = lecture;
 		this.pw = pw;
 		this.colCode = colCode;
 		this.deptCode = deptCode;
+		this.gender = gender;
 	}
 	public ProfessorDTO() {
 		super();
 	}
-		
+	
 	
 	
 	

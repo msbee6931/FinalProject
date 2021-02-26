@@ -46,24 +46,26 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new WebBrowser("WebBrowser00","79","1","1241","440",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","2","1","75","35",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00","2","1","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("pdf 저장");
+            obj.set_cssclass("btn_pdf");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("성적 증명서");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             // Layout Functions
