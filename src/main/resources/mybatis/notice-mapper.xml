@@ -25,7 +25,7 @@
 	where parentSeq = #{parentSeq}
 </update>
 <select id="selectNomalNotice" resultType="kh.spring.dto.NoticeDTO">
-	select * from notice where deptcode = 'A'
+	select * from notice where deptcode = 'A' order by writedate
 </select>
 <select id="selectNomalNotice_Info" resultType="kh.spring.dto.NoticeDTO">
 	select * from notice where n_seq = #{n_seq}

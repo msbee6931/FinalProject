@@ -16,13 +16,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-#subLabel{
-	width:fit-content;
-	color:white;
-}
 #box {
-	border: 1px solid black;
-	border-radius: 10px;
+	min-height:500px;
 }
 </style>
 </head>
@@ -31,7 +26,15 @@
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
-		<div class="row pt-3">
+
+			<div class="d-flex flex-row-reverse">
+				<div class="bd-highlight d-none d-lg-block">
+					<h5>
+						<a href="/">Home&gt;</a><a href="/reference/refList.ref?page=1">자료실</a>
+					</h5>
+				</div>
+			</div>
+
 			<div class="row">
 			<div class="col-xl-12 d- pt-4" id="box">
 					<div class="row">
@@ -125,7 +128,6 @@
 					</c:if>
 				</div>
 			</div>
-		</div>
 	</div>
 		<!-- footer -->
 		<footer>
