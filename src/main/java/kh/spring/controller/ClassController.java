@@ -65,7 +65,7 @@ public class ClassController {
 		return nr;
 	}
 	@RequestMapping("/proMyClassList.nex")
-	public NexacroResult myClassList(@ParamVariable(name="proCode")int proCode) {
+	public NexacroResult proMyClassList(@ParamVariable(name="proCode")int proCode) {
 		NexacroResult nr = new NexacroResult();
 		List<ClassDTO> list = service.proMyClassList(proCode);
 		nr.addDataSet("out_ds",list);

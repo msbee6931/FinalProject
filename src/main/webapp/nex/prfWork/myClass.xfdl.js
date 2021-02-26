@@ -123,11 +123,11 @@
         {
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
-        		this.co_year.set_text(objDate.getFullYear()+"년");
-        		this.co_semester.set_text("1학기");
+        		this.co_year.set_value(objDate.getFullYear());
+        		this.co_semester.set_value(1);
         	}else{
-        		this.co_year.set_text(objDate.getFullYear()+"년");
-        		this.co_semester.set_text("2학기");
+        		this.co_year.set_value(objDate.getFullYear());
+        		this.co_semester.set_value(2);
         	}
         	var proCode = this.objApp.gds_professor.getColumn(0,"p_seq");
         	this.transaction(
@@ -152,7 +152,7 @@
         			date[i] = date[i].substring(0,8);
         			this.ds_class.setColumn(i,"reg_date",date[i]);
         		}
-        		var year = this.co_year.value
+        		var year = this.co_year.value;
         		var startDate =  year+ "0101";
         		var semester = this.co_semester.value;
         		var mDate = year+ "0801";

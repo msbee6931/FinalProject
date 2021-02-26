@@ -52,7 +52,7 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_com","10","20",null,null,"613","409",null,null,null,null,this.div_line.form);
+            obj = new Div("div_com","10","20","395","49",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("0");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -86,7 +86,7 @@
             obj.set_cssclass("btn_search");
             this.div_line.form.div_com.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","10","89",null,null,"8","19",null,null,null,null,this.div_line.form);
+            obj = new Grid("gr_classList","10","89",null,null,"8","19",null,null,null,null,this.div_line.form);
             obj.set_taborder("1");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
@@ -117,13 +117,13 @@
         	var sCode = this.objApp.gds_students.getColumn(0,"s_seq"); // 학번
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
-        		this.co_year.set_text(objDate.getFullYear()+"년");
-        		this.co_semester.set_text("1학기");
+        		this.div_line.form.div_com.form.co_year.set_value(objDate.getFullYear())
+        		this.div_line.form.div_com.form.co_semester.set_value(1)
         		var startTime = objDate.getFullYear()+"0101";
         		var endTime = objDate.getFullYear()+"0731";
         	}else{
-        		this.co_year.set_text(objDate.getFullYear()+"년");
-        		this.co_semester.set_text("2학기");
+        		this.div_line.form.div_com.form.co_year.set_value(objDate.getFullYear())
+        		this.div_line.form.div_com.form.co_semester.set_value(2)
         		var startTime = objDate.getFullYear()+"0801";
         		var endTime = objDate.getFullYear()+"1231";
         	}
@@ -133,11 +133,11 @@
         		,""
         		,"ds_class=out_ds"
         		,"sCode="+sCode + " startTime="+startTime+" endTime="+endTime
-        		,"fn_callback_myClass"
+        		,"fn_callback"
         	);
         };
 
-        this.Grid00_oncellclick = function(obj,e)
+        this.gr_classList_oncellclick = function(obj,e)
         {
         	if(e.col == 2){
         		var classSeq = this.ds_class.getColumn(e.row,"classSeq");
@@ -154,9 +154,9 @@
         this.btnSearch_onclick = function(obj,e)
         {
         	var sCode = this.objApp.gds_students.getColumn(0,"s_seq"); //학번
-        	var year = this.co_year.text;
-        	year = year.substring(0,year.length-1)
-        	if(this.co_semester.text == "1학기"){
+        	var year = this.div_line.form.div_com.form.co_year.value;
+        	var semester = this.div_line.form.div_com.form.co_semester.value;
+        	if(semester ==  1){
         		var startTime = year+"0101";
         		var endTime = year+"0731";
         	}else{
@@ -174,6 +174,7 @@
         };
 
 
+
         });
         
         // Regist UI Components Event
@@ -182,7 +183,7 @@
             this.addEventHandler("onload",this.myClassList_onload,this);
             this.div_line.form.div_com.form.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.div_line.form.div_com.form.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
-            this.div_line.form.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
+            this.div_line.form.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
         };
 
         this.loadIncludeScript("myClassList.xfdl");

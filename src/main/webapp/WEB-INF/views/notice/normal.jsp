@@ -18,15 +18,15 @@
 <style>
 
 #box {
-	border: 1px solid black;
-	border-radius: 10px;
+	min-height:500px;
 }
 #nav-ul{
 	width:100%;
 }
 #subLabel{
-	width:fit-content;
+	background-color: #275cb8;
 	color:white;
+	max-width:200px;
 }
 
 #sideBox{
@@ -39,21 +39,21 @@
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
-		<div class="row pt-3">
-			<div class="d-flex flex-row-reverse">
+		<div class="row">
+			<div class="d-flex flex-row-reverse  mb-3">
 				<div class="bd-highlight d-none d-lg-block">
 					<h5>
 						<a href="/">Home&gt;</a><a href="/normalList.notice?page=1">공지사항&gt;</a><a href="/normalList.notice?page=1">일반공지</a>
 					</h5>
 				</div>
 			</div>
-			<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>공지사항</b></h3>
-			</div>
 		</div>
 			<div class="row">
 				<div class="col-lg-2 d-grid text-center" id="sideBox">
 					<!--collapse 추가  -->
+					<div class="col-12 d-none d-lg-block py-5" id="subLabel" >
+						<h3><b>공지사항</b></h3>
+					</div>
 					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
 					<div class="col d-grid">
 						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" ><b>공지사항</b></button>
@@ -113,9 +113,9 @@
 						<div class="row" style="border-bottom: 1px solid black">
 							<div class="col-md-2 d-none d-md-block text-center">${i.rn}</div>
 							<div class="col-md-4 col-12 text-left"><a href="/normalView.notice?seq=${i.n_seq}">${i.title}</a></div>
-							<div class="col-md-2 col-3 text-center">
-							<fmt:parseDate var="Date" value="${i.writedate}" pattern="yyyy-MM-dd"/>
-                            <fmt:formatDate value="${Date}" type="date" pattern="yyyy-MM-dd"/>
+							<div class="col-md-2 col-3 text-center">${i.writedate}
+<%-- 							<fmt:parseDate var="Date" value="${i.writedate}" pattern="yyyy-MM-dd"/>
+                            <fmt:formatDate value="${Date}" type="date" pattern="yyyy-MM-dd"/> --%>
                             </div> 
                             <c:choose>
                            	<c:when test="${i.file == 'Y'}">

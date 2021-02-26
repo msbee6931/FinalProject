@@ -19,16 +19,17 @@
 
 
 #box {
-	border: 1px solid black;
-	border-radius: 10px;
+	min-height:500px;
 }
 #nav-ul{
 	width:100%;
 }
 #subLabel{
-	width:fit-content;
+	background-color: #275cb8;
 	color:white;
+	max-width:200px;
 }
+
 
 #sideBox{
 	max-height:300px;
@@ -48,13 +49,13 @@
 					</h5>
 				</div>
 			</div>
-			<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel" >
-			<h3><b>공지사항</b></h3>
-			</div>
 		</div>
 			<div class="row">
 				<div class="col-lg-2 d-grid text-center" id="sideBox">
 					<!--collapse 추가  -->
+					<div class="col-12 d-none d-lg-block py-5" id="subLabel" >
+						<h3><b>공지사항</b></h3>
+					</div>
 					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
 					<div class="col d-grid">
 						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" ><b>공지사항</b></button>
