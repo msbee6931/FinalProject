@@ -80,7 +80,14 @@
 	}
 </style>
 </head>
-<body>
+<script type="text/javascript">
+ window.history.forward();
+ function noBack(){
+	window.history.forward();
+ }
+</script>
+
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<div class="container">
 		<input type="hidden" id="userId" value="${userId }">
 		<input type="hidden" id="roomNumber" value="${roomNumber }">
@@ -106,8 +113,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<input type="text" class="col-11" id="searchTxt">
+			<input type="text" class="col-10" id="searchTxt">
 			<div class="col-1" id="searchBtn"><i class="fas fa-search"></i></div>
+			<div class="col-1 next">next</div>
 		</div>
 		<div class="row contents" id="contents">			
 			<c:if test="${list != null }">
@@ -238,6 +246,17 @@
 	<script>
 		var socket = new SockJS("/wechat"); // 엔드포인트 주소 넣기
 		var client = Stomp.over(socket); // 연결 이후 작업 처리하는 코드
+		
+		$(document).ready(function(){
+			var roomNumber = $("#roomNumber").val();
+			
+			$.ajax({
+				type: 'POST',
+				url: '/chatting/deleteUserState',
+				data: {roomNumber:roomNumber},
+				success: function(data) { console.log("success!")}
+			});
+		});
 		
 		client.connect({},function(resp){ // {}는 헤더정보 없으면  빈 칸
 			console.log(resp);
@@ -462,35 +481,65 @@
 			window.open(url,name,option);
 		});
 		
+		var count = 0;
+		
 		// 대화내용 검색
-		$(document).ready(function(){
+		$(document).ready(function(){	
 			$("#searchBtn").on("click",function(){
 				var searchTxt = $("#searchTxt").val();
-				var keyword = $("p:contains('"+searchTxt+"')");
-				var offset = keyword.offset();
-				$('html').animate({scrollTop : offset.top}, 400);
-				//keyword.css("color","red");
+				
+				if(searchTxt == null || searchTxt == ''){
+					alert("검색 키워드를 입력해주세요!");
+				}else{
+					var keyword = $("p:contains('"+searchTxt+"')");
+					
+					if(count < keyword.length){ 
+						var offset = $(keyword[count]).offset();
+						console.log(offset);
+						$('.contents').animate({scrollTop : offset.top}, 400);
+						$(keyword[count-1]).css("background-color","white");
+						$(keyword[count]).css("background-color","yellow");
+						count++;
+					}else{
+						alert("마지막 검색 결과입니다.");
+						$("#searchTxt").val("");
+						keyword.css("background-color","white");
+						count = 0;
+					} 
+				}
 			});
 		});
 		
 		$("#searchTxt").on("keydown",function(e){
 			if(e.keyCode==13){
 				var searchTxt = $("#searchTxt").val();
-				var keyword = $("p:contains('"+searchTxt+"')");
 				
-				console.log(keyword[0]);
-				//for(var i=0;i<keyword.length;i++){
-					var offset = keyword.offset();
-					$('.contents').animate({scrollTop : offset.top}, 400);
-					//keyword.css("color","red");
-				//}
+				if(searchTxt == null || searchTxt == ''){
+					alert("검색 키워드를 입력해주세요!");
+				}else{
+					var keyword = $("p:contains('"+searchTxt+"')");
+					
+					if(count < keyword.length){ 
+						var offset = $(keyword[count]).offset();
+						console.log(offset);
+						$('.contents').animate({scrollTop : offset.top}, 400);
+						$(keyword[count-1]).css("background-color","white");
+						$(keyword[count]).css("background-color","yellow");
+						count++;
+					}else{
+						alert("마지막 검색 결과입니다.");
+						$("#searchTxt").val("");
+						keyword.css("background-color","white");
+						count = 0;
+					} 
+				}
 			}
 		});
 		
 		function scrollBottom(){
 			var sideContents = document.getElementById("contents");
 			sideContents.scrollTop = sideContents.scrollHeight;
-		}
+		}		
 	</script>
 </body>
 </html>

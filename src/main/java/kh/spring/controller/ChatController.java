@@ -77,19 +77,21 @@ public class ChatController {
 		UserDTO user = service.getUserInfo(userId);
 		
 		// 모든 채팅방 목록 가져오기
-		List<RoomDTO> roomList = service.findAllRoomByUserId(userId);
+		List<RoomJoinDTO> roomList = service.findAllRoomByUserId(userId);
 		// 모든 방 참가자 목록 가져오기
 		List<RoomJoinDTO> roomJoinList = service.findRoomJoin();
-		// 모든 채팅 가져오기
-		List<MessageDTO> list = service.getAllChatting();
-		// 유저의 상태 가져오기
-		List<UserStateDTO> stateList = service.getUserState(userId);
+		// 채팅 알림을 위한 목록
+		List<List<MessageDTO>> list = new ArrayList<>();
 		
-		model.addAttribute("list",list);
+		for(RoomJoinDTO dto : roomList){
+			List<MessageDTO> mDto = service.getAlarmMessage(dto.getRoomNumber(),userId);
+			list.add(mDto);
+		}
+
 		model.addAttribute("roomList",roomList);
 		model.addAttribute("roomJoinList",roomJoinList);
 		model.addAttribute("user",user);
-		model.addAttribute("stateList",stateList);
+		model.addAttribute("messageList",list);
 		
 		return "Chat/chatList";
 	}
@@ -120,8 +122,6 @@ public class ChatController {
 		List<MessageDTO> list = service.getChatting(roomNumber);
 		List<RoomJoinDTO> joinList = service.getJoinRoomInfo(roomNumber);
 		
-		// 채팅방 입장시 채팅방 나간 기록 삭제
-		int deleteUserState = service.deleteUserState(roomNumber,userId);
 		// 모든 유저 정보
 		List<UserDTO> allUser = service.getAllUserInfo();
 		// 친구리스트
@@ -134,6 +134,25 @@ public class ChatController {
 		model.addAttribute("joinList",joinList);
 		
 		return "Chat/chat";
+	}
+	
+	
+	@RequestMapping("deleteUserState")
+	public void deleteUserState(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		String userId = (String) session.getAttribute("userId");
+		String roomNumber = request.getParameter("roomNumber");
+		
+		// 채팅방 입장시 채팅방 나간 기록 삭제
+		int result = service.deleteUserState(roomNumber,userId);
+		
+		PrintWriter pw = response.getWriter();
+		JsonObject obj = new JsonObject();
+		if(result>0) {
+			obj.addProperty("msg", "성공!");
+		}else {
+			obj.addProperty("msg", "실패!");;
+		}
+		pw.append(obj.toString());
 	}
 	
 	@RequestMapping("profilePage")
@@ -360,11 +379,11 @@ public class ChatController {
 	
 	@MessageMapping("chat/emoticon/{roomNumber}")
 	public void chatEmoticon(MessageDTO dto) {
-		System.out.println("이모티콘 도착!");
 		int result = service.insertEmoticon(dto.getUserId(),dto.getOriName(),dto.getRoomNumber());
 		
 		if(result>0) {
 			template.convertAndSend("/topic/chat/emoticon/"+dto.getRoomNumber(),dto);
+			template.convertAndSend("/topic/chatListE",dto);
 		}
 	}
 	
@@ -399,9 +418,11 @@ public class ChatController {
 				String format = oriName.substring(oriName.lastIndexOf(".")+1);
 				// System.out.println("업로드한 파일은 포맷은 "+format);
 				if(format.contentEquals("gif")||format.contentEquals("jpg")||format.contentEquals("png")||format.contentEquals("bpm")||format.contentEquals("tif")||format.contentEquals("tiff")||format.contentEquals("raw")||format.contentEquals("rle")||format.contentEquals("dib")) {
-					template.convertAndSend("/topic/img/"+roomNumber,dto); 
+					template.convertAndSend("/topic/img/"+roomNumber,dto);
+					template.convertAndSend("/topic/chatListI",dto);
 				}else {
 					template.convertAndSend("/topic/file/"+roomNumber,dto); 
+					template.convertAndSend("/topic/chatListF",dto);
 				}
 			}
 		}
@@ -552,7 +573,7 @@ public class ChatController {
 		UserDTO user = service.getUserInfo(userId);
 		
 		// 모든 채팅방 목록 반환
-		List<RoomDTO> roomList = service.findAllRoomByUserId(userId);
+		List<RoomJoinDTO> roomList = service.findAllRoomByUserId(userId);
 		List<RoomJoinDTO> roomJoinList = service.findRoomJoin();
 		
 		model.addAttribute("roomList",roomList);

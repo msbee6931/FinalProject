@@ -30,12 +30,14 @@ public class UserStateDTO {
 	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
 	}
-	public long getOutTime() throws Exception {
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date to = transFormat.parse(outTime);
-		long time = to.getTime();
-		
-		return time;
+	public String getOutTime() throws Exception {
+		/*
+		 * SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		 * Date to = transFormat.parse(outTime); long time = to.getTime();
+		 * 
+		 * return time;
+		 */
+		return outTime;
 	}
 	public void setOutTime(String outTime) {
 		this.outTime = outTime;

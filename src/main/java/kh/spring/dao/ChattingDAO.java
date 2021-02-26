@@ -107,11 +107,6 @@ public class ChattingDAO {
 		return session.delete("chatting.deleteChatUserFac",list);
 	}
 	
-	// 유저의 상태 가져오기
-	public List<UserStateDTO> getUserState(String userId){
-		return session.selectList("chatting.getUserState",userId);
-	}
-	
 	public int insertUserState(String userId,String roomNumber) {
 		Map<String,String> param = new HashMap<>();
 		param.put("roomNumber", roomNumber);
@@ -189,13 +184,19 @@ public class ChattingDAO {
 		return session.insert("chatting.insertChatFile",param);
 	}
 	
-
 	public MessageDTO getFile(String savedName) {
 		return session.selectOne("chatting.getFile", savedName);
 	}
 	
+	public List<MessageDTO> getAlarmMessage(String roomNumber,String userId){
+		Map<String,Object> param = new HashMap<>();
+		param.put("userId", userId);
+		param.put("roomNumber", roomNumber);
+		return session.selectList("chatting.getAlarmMessage",param);
+	}
+	
 	/* Room */
-	public List<RoomDTO> findAllRoomByUserId(String userId) {
+	public List<RoomJoinDTO> findAllRoomByUserId(String userId) {
 		return session.selectList("chatting.findAllRoomByUserId",userId);
 	}
 	

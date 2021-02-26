@@ -59,10 +59,6 @@
 		delete from chatUser where userId in
 		<foreach item="i" collection="list" open="(" close=")" separator=",">#{i.f_seq}</foreach>
 	</delete>
-	
-	 <select id="getUserState" resultType="kh.spring.dto.UserStateDTO">
- 		select * from userState where userId=#{userId}
- 	</select>
  	
  	<insert id="insertUserState">
  		insert into userState values(#{userId},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
@@ -117,6 +113,10 @@
  	
  	<select id="getFile" resultType="kh.spring.dto.MessageDTO">
  		select * from chatMessage where savedName = #{savedName}
+ 	</select>
+ 	
+ 	<select id="getAlarmMessage" resultType="kh.spring.dto.MessageDTO">
+ 		select * from chatMessage where roomNumber=#{roomNumber} and uploadDate>(select outTime from userState where roomNumber=#{roomNumber} and userId=#{userId})
  	</select>
  	
  	<!-- Room -->

@@ -83,11 +83,6 @@ public class ChattingService {
 		return dao.deleteChatUserFac(list);
 	}
 	
-	// 유저의 상태 가져오기
-	public List<UserStateDTO> getUserState(String userId){
-		return dao.getUserState(userId);
-	}
-	
 	public int insertUserState(String userId,String roomNumber) {
 		return dao.insertUserState(userId,roomNumber);
 	}
@@ -140,8 +135,12 @@ public class ChattingService {
 		return dao.getFile(savedName);
 	}
 	
+	public List<MessageDTO> getAlarmMessage(String roomNumber,String userId){
+		return dao.getAlarmMessage(roomNumber,userId);
+	}
+	
 	/* Room */
-	public List<RoomDTO> findAllRoomByUserId(String userId) {
+	public List<RoomJoinDTO> findAllRoomByUserId(String userId) {
 		return dao.findAllRoomByUserId(userId);
 	}
 	

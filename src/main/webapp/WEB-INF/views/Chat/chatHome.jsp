@@ -38,7 +38,13 @@
 	}
 </style>
 </head>
-<body>
+<script type="text/javascript">
+ window.history.forward();
+ function noBack(){
+	window.history.forward();
+ }
+</script>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<div class="container" id="container">
 		<div>친구</div>
 		<div class="row p-3 d-flex align-items-center myProfile">
