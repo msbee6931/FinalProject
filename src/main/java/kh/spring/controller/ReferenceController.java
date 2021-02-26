@@ -304,6 +304,8 @@ public class ReferenceController {
 		navi = navi.substring(0, navi.length()-1);
 		}
 		
+		Rservice.garbageDelete();
+		
 		model.addAttribute("select",1);
 		model.addAttribute("type","default");
 		model.addAttribute("list",list);
@@ -313,7 +315,6 @@ public class ReferenceController {
 		model.addAttribute("end",end);
 		
 		
-		Rservice.garbageDelete();
 		return "ref/pds";
 	}
 	@RequestMapping("search.ref")
@@ -322,6 +323,7 @@ public class ReferenceController {
 		String content = request.getParameter("content");
 		String category = request.getParameter("category");
 		System.out.println(content +":" +category );
+		Rservice.garbageDelete();
 		if(page <= 0) {
 			page = 1;
 		}
@@ -356,7 +358,6 @@ public class ReferenceController {
 		model.addAttribute("page",page);
 		model.addAttribute("end",end);
 
-		Rservice.garbageDelete();
 		return "ref/pds";
 	}
 	@RequestMapping("downloadAll.ref")
