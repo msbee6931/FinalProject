@@ -1215,7 +1215,6 @@
         			,"classSeq="+nexacro.wrapQuote(classSeq)
         			,"fn_callback"
         		);
-
         	}
         }
 

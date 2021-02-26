@@ -35,7 +35,8 @@ div {
 .container {
 	width: 1000px;
 	height: 600px;
-	position: relative;
+	position: absolute;
+	left:17%;
 	text-align: center;
 	background-color: #3333CC;
 }
@@ -114,15 +115,16 @@ div {
 }
 
 .reply{
-	position: relative;
+	position: absolute;
 	left:17%;
+	top:82%;
 	width:1000px;
 	height:200px;
 	background-color: #435a7c;
 }
 
 .mainReply{
-	position: relative;
+	position: absolute;
 	top:3%;
 	left:5%;
 	width:900px;
@@ -142,8 +144,9 @@ div {
 	background-color: #6666FF;
 	width: 1000px;
 	height: 30px;
-	position: relative;
+	position: absolute;
 	left: 17%;
+	top:78%;
 	text-align: center;
 	color: white;
 	line-height:30px;
@@ -181,12 +184,6 @@ div {
 				<input type=button id=btn2 value="돌아가기">
 			</form>
 		</div>
-	</div>
-		<div class= replyLine>
-		관리자의 답변
-	</div>
-	<div class = reply>
-		<div class= mainReply>${dto.reply }</div>
 	</div>
 
 

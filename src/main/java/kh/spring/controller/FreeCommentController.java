@@ -100,7 +100,7 @@ public class FreeCommentController {
 	   
 	   @RequestMapping("delete")
 	   @ResponseBody
-	   public String delete(HttpServletRequest request) {
+	   public String delete(HttpServletRequest request,Model model) {
 	      System.out.println("delete 요청 확인");
 	      String mSeq=request.getParameter("mainSeq");
 	      int rSeq= Integer.parseInt(request.getParameter("revSeq"));
@@ -117,7 +117,7 @@ public class FreeCommentController {
 	   
 	   @RequestMapping("update")
 	   @ResponseBody
-	   public String update(HttpServletRequest request) {
+	   public String update(HttpServletRequest request,Model model) {
 	      String mSeq = (String)request.getParameter("mSeq");
 	      System.out.println("update.FreeComment 요청확인");
 	      String rSeq =  request.getParameter("revSeq");
@@ -128,6 +128,7 @@ public class FreeCommentController {
 	      if(result > 0) {
 	         Gson gson=new Gson();
 	         List <FreeCommentDTO> list = service.selectAll(mSeq,page);
+	         model.addAttribute("id",(Integer)session.getAttribute("login"));
 	         return gson.toJson(list);
 	      }
 	      return "false";

@@ -216,6 +216,7 @@
         	var objCF = new ChildFrame();
 
         	objCF.init("freeEnlargement_pop",100,100,1000,600);
+
         	objCF.set_titletext("내용 확대");
         	objCF.set_formurl("admWork::freeEnlargement_pop.xfdl");
         	 var objParam = {param1:this.Div00.form.Edit01.value,
