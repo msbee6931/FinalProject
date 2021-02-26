@@ -51,7 +51,7 @@
             obj.set_text("나의 정보 수정");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("");
             obj.set_cssclass("div_line");

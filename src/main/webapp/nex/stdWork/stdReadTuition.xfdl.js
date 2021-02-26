@@ -47,9 +47,8 @@
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","36","28",null,null,"35","356",null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","36","28",null,"66","35",null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
-            obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
@@ -113,6 +112,7 @@
             obj.set_taborder("6");
             obj.set_binddataset("tuition_ds");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"60\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학년\"/><Cell col=\"1\" text=\"학기 구분\"/><Cell col=\"2\" text=\"입학금\"/><Cell col=\"3\" text=\"수업료\"/><Cell col=\"4\" text=\"학생회비\"/><Cell col=\"5\" text=\"졸업앨범비\"/><Cell col=\"6\" text=\"오리엔테이션비\"/><Cell col=\"7\" text=\"총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_grade\" textAlign=\"center\" suppress=\"1\"/><Cell col=\"1\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:t_enter\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:t_class\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:t_std\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:t_grd\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:t_ore\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:tSum\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 

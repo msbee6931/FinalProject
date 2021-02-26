@@ -63,32 +63,32 @@
             this.Div00.form.classPlanTab.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_fin","641","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("40");
-            obj.set_textAlign("center");
-            obj.set_format("+0");
-            this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
-
-            obj = new MaskEdit("mask_task","486","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("39");
             obj.set_textAlign("center");
             obj.set_format("+0");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mask_otest","331","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
+            obj = new MaskEdit("mask_task","486","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("38");
+            obj.set_textAlign("center");
+            obj.set_format("+0");
+            this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mask_otest","331","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
+            obj.set_taborder("37");
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_argue","491","365","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("30");
+            obj.set_taborder("29");
             obj.set_format("+990");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new MaskEdit("mask_test","256","365","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("29");
+            obj.set_taborder("28");
             obj.set_format("+990");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
@@ -129,7 +129,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_01","351","127","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("16");
+            obj.set_taborder("15");
             obj.set_text(" ▣ 강의 시간");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
@@ -176,62 +176,62 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00","21","176","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("19");
+            obj.set_taborder("18");
             obj.set_text(" ▣ 교과목 및 목표");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00_00","21","296","138","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("21");
+            obj.set_taborder("20");
             obj.set_text(" ▣ 수업운영 방법(비율)");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00_00_00","22","511","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("22");
+            obj.set_taborder("21");
             obj.set_text(" ▣ 교재 및 참고자료");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new TextArea("ta_goal","21","215","930","75",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("20");
+            obj.set_taborder("19");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Button("btnSave","759","5","90","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("23");
+            obj.set_taborder("22");
             obj.set_text("저장");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_02_00_00_00_00","21","403","118","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("24");
+            obj.set_taborder("23");
             obj.set_text(" ▣ 평가방법(비율)");
             obj.set_border("1px solid gray");
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static03","21","550","118","43",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("42");
+            obj.set_taborder("41");
             obj.set_text("주교재");
             obj.set_border("1px solid");
             obj.set_background("silver");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("Static03_00","21","593","118","43",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("44");
+            obj.set_taborder("43");
             obj.set_text("참고 자료");
             obj.set_border("1px solid");
             obj.set_background("silver");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Edit("edt_mainBook","139","550","812","43",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("43");
+            obj.set_taborder("42");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_course","21","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("25");
+            obj.set_taborder("24");
             obj.set_text("강의");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -239,7 +239,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_test","256","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("26");
+            obj.set_taborder("25");
             obj.set_text("실험/실습");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -247,7 +247,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_argue","491","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("27");
+            obj.set_taborder("26");
             obj.set_text("발표/토의/토론");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -255,7 +255,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sum","726","335","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("28");
+            obj.set_taborder("27");
             obj.set_text("합계");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -263,7 +263,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_attend","21","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("32");
+            obj.set_taborder("31");
             obj.set_text("출석");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -271,7 +271,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_mid","176","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("33");
+            obj.set_taborder("32");
             obj.set_text("중간고사");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -279,7 +279,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_fin","641","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("36");
+            obj.set_taborder("35");
             obj.set_text("기말고사");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -287,7 +287,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_task","486","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("35");
+            obj.set_taborder("34");
             obj.set_text("과제");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -295,7 +295,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_otest","331","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("34");
+            obj.set_taborder("33");
             obj.set_text("수시");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -303,7 +303,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sum2","796","442","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("37");
+            obj.set_taborder("36");
             obj.set_text("합계");
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
@@ -311,14 +311,14 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_sum2","796","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("41");
+            obj.set_taborder("40");
             obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0%");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Static("sta_sum","726","365","235","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("31");
+            obj.set_taborder("30");
             obj.set_textAlign("center");
             obj.set_border("1px solid gray");
             obj.set_text("0%");
@@ -346,7 +346,7 @@
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Edit("edt_classTime","469","127","455","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("17");
+            obj.set_taborder("16");
             obj.set_textAlign("center");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
@@ -357,13 +357,8 @@
             obj.set_background("lightgray");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
-            obj = new Edit("edt_classRoom","139","127","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("15");
-            obj.set_textAlign("center");
-            this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
-
             obj = new Button("dropBtn","924","127","25","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
-            obj.set_taborder("18");
+            obj.set_taborder("17");
             obj.set_text("");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
@@ -371,9 +366,10 @@
             obj.set_visible("false");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","0","0","382","315",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form.classTimeList.form);
+            obj = new Grid("Grid00","0","-4","382","315",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form.classTimeList.form);
             obj.set_taborder("0");
             obj.set_binddataset("ds_classTimeList");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"44\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"교시\"/><Cell col=\"1\" text=\"월\"/><Cell col=\"2\" text=\"화\"/><Cell col=\"3\" text=\"수\"/><Cell col=\"4\" text=\"목\"/><Cell col=\"5\" text=\"금\"/><Cell col=\"6\" text=\"토\" color=\"blue\"/><Cell col=\"7\" text=\"일\" color=\"red\"/></Band><Band id=\"body\"><Cell text=\"bind:Time\"/><Cell col=\"1\" text=\"bind:Mon\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"2\" text=\"bind:Tue\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"3\" text=\"bind:Wed\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"4\" text=\"bind:Thu\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"5\" text=\"bind:Fri\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"6\" text=\"bind:Sat\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"7\" text=\"bind:Sun\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/></Band></Format></Formats>");
             this.Div00.form.classPlanTab.classPlan.form.classTimeList.addChild(obj.name, obj);
 
@@ -443,6 +439,19 @@
             obj.set_falsevalue("F");
             obj.set_truevalue("P");
             obj.set_value("F");
+            this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mask_classRoom","139","126","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
+            obj.set_taborder("55");
+            obj.set_textAlign("center");
+            obj.set_displaynulltext("ex) 101");
+            obj.set_type("string");
+            obj.set_format("###");
+            this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
+
+            obj = new Button("btnClassRoom","263","166","86","33",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
+            obj.set_taborder("55");
+            obj.set_text("강의실 보기");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
             obj = new Tabpage("classSchedule",this.Div00.form.classPlanTab);
@@ -902,8 +911,8 @@
         	var dept = classForm.co_dept.value;
         	var grade = classForm.co_grade.text;
         	var classTime = classForm.edt_classTime.text;
-        	var classRoom = classForm.edt_classRoom.text;
-
+        	var classRoom = classForm.mask_classRoom.text;
+        	trace(classRoom)
         	if(sum != "100%" || sum2 != "100%"){alert("합계가 100%가 아닙니다")}
         	else if(part =="" || part == null){alert("이수구분을 선택해주세요");}
         	else if(person =="" || person == null){alert("인원을 입력해주세요");}
@@ -1051,6 +1060,7 @@
         		);
         		classForm.edt_classSeq.set_readonly(true);
         		if(view == 'Y'){
+        			classForm.btnClassRoom.set_visible(false);
         			classForm.btnSave.set_visible( false );
         		}
         	}else{
@@ -1107,6 +1117,7 @@
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
         	}
         	if(sId == "classListSeq"){
+
         		//수업 정보 가져와서 띄우기
         		classForm.co_part.set_value(this.ds_class.getColumn(0,"classPart"));
         		classForm.edt_className.set_value(this.ds_class.getColumn(0,"className"));
@@ -1118,7 +1129,7 @@
         		classForm.co_dept.set_value(this.ds_class.getColumn(0,"dept"));
         		classForm.co_grade.set_text(this.ds_class.getColumn(0,"grade"));
         		classForm.edt_classTime.set_value(this.ds_class.getColumn(0,"classTime"));
-        		classForm.edt_classRoom.set_value(this.ds_class.getColumn(0,"classRoom"));
+        		classForm.mask_classRoom.set_value(this.ds_class.getColumn(0,"classRoom"));
         		classForm.ta_goal.set_value(this.ds_class.getColumn(0,"classGoal"));
         		var limit = this.ds_class.getColumn(0,"limit").split("/");
         		classForm.mask_limit.set_value(limit[1]);
@@ -1209,6 +1220,16 @@
 
 
 
+        this.Div00_classPlanTab_classPlan_btnClassRoom_onclick = function(obj,e)
+        {
+        		let x = this.width/2;
+        		let y = this.height/2-225;
+        		let objCF = new ChildFrame();
+        		objCF.init("popClassRoom",x,y,800,450,0,0,"admWork::classRoomList.xfdl");
+        		objCF.set_showtitlebar(false);
+        		objCF.showModal(this.getOwnerFrame(),{},this,"fn_pop_callback");
+        };
+
         });
         
         // Regist UI Components Event
@@ -1252,6 +1273,7 @@
             this.Div00.form.classPlanTab.classPlan.form.mask_attend.addEventHandler("canchange",this.evaluation_canchange,this);
             this.Div00.form.classPlanTab.classPlan.form.mask_mid.addEventHandler("canchange",this.evaluation_canchange,this);
             this.Div00.form.classPlanTab.classPlan.form.co_dept.addEventHandler("ondropdown",this.Div00_classPlanTab_classPlan_co_dept_ondropdown,this);
+            this.Div00.form.classPlanTab.classPlan.form.btnClassRoom.addEventHandler("onclick",this.Div00_classPlanTab_classPlan_btnClassRoom_onclick,this);
         };
 
         this.loadIncludeScript("detail.xfdl");

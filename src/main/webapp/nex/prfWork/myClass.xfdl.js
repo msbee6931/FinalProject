@@ -50,7 +50,7 @@
             obj.set_taborder("4");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"90\"/><Column size=\"179\"/><Column size=\"59\"/><Column size=\"113\"/><Column size=\"68\"/><Column size=\"209\"/><Column size=\"103\"/><Column size=\"57\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"과목코드\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"강의실\"/><Cell col=\"8\" text=\"인원수\"/></Band><Band id=\"body\"><Cell text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"90\"/><Column size=\"179\"/><Column size=\"59\"/><Column size=\"113\"/><Column size=\"68\"/><Column size=\"209\"/><Column size=\"103\"/><Column size=\"57\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"과목코드\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"강의실\"/><Cell col=\"8\" text=\"인원수\"/></Band><Band id=\"body\"><Cell text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"#########\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_year","400","12","120","28",null,null,null,null,null,null,this);
@@ -94,9 +94,10 @@
             obj.set_text("검색");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExport","949","430","101","40",null,null,null,null,null,null,this);
+            obj = new Button("btn_exel","949","430","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("10");
-            obj.set_text("Export");
+            obj.set_text("Exel");
+            obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -244,7 +245,17 @@
         };
 
 
-        this.btnExport_onclick = function(obj,e)
+        this.Export00_onsuccess = function(obj, e)
+        {
+        	trace("Export00_onsuccess");
+        }
+
+        this.Export00_onerror = function(obj, e)
+        {
+        	trace("Export00_onerror");
+        }
+
+        this.btn_exel_onclick = function(obj,e)
         {
         	if(this.ds_class.getRowCount() > 0){
         		var date = this.ds_class.getColumn(0,"reg_date");
@@ -258,8 +269,8 @@
         	}
         		this.exportObj = new ExcelExportObject("Export00", this);
 
-        		this.exportObj.set_exportfilename(semester + " 개설과목");
-        		this.exportObj.set_exporturl("http://http://15.165.196.249//nexacro-xeni/XExportImport");
+        		this.exportObj.set_exportfilename(semester + " 수업 과목");
+        		this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
 
         		this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.gr_classList, "Sheet1!A1");
 
@@ -270,18 +281,6 @@
 
         		trace("Number of Exported Item: " + intExportedItem);
         };
-        this.Export00_onsuccess = function(obj, e)
-        {
-        	trace("Export00_onsuccess");
-        }
-
-        this.Export00_onerror = function(obj, e)
-        {
-        	trace("Export00_onerror");
-        }
-
-
-
 
         });
         
@@ -294,7 +293,7 @@
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.co_search.addEventHandler("onitemchanged",this.co_search_onitemchanged,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
-            this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
+            this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
         };
 
         this.loadIncludeScript("myClass.xfdl");

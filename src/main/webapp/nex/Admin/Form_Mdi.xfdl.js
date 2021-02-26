@@ -50,7 +50,6 @@
         // User Script
         this.registerScript("Form_Mdi.xfdl", function() {
         this.objApp = nexacro.getApplication();
-        this.av_FrameSet="";
 
         this.Form_Mdi_onload = function(obj,e)
         {
@@ -117,6 +116,18 @@
         	if(this.adm_form.getRowCount() == 0){
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("0,*,0");
         	}
+        };
+
+        this.fn_deleteTab = function()
+        {
+        	var av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
+        	var arrObj = av_FrameSet.all;
+        	for(var i=arrObj.length-1; i>=0 ; i--)
+        	{
+        		arrObj[i].form.close();
+        		this.tab_menu.removeTabpage(i);
+        	}
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.LeftFrame.form.adm_form.clearData();
         };
 
 

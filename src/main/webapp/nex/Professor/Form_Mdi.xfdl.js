@@ -148,6 +148,18 @@
         	}
         }
 
+        this.fn_deleteTab = function()
+        {
+        	var av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
+        	var arrObj = av_FrameSet.all;
+        	for(var i=arrObj.length-1; i>=0 ; i--)
+        	{
+        		arrObj[i].form.close();
+        		this.tab_menu.removeTabpage(i);
+        	}
+        	this.objApp.prf_openForm.clearData();
+        };
+
 
 
 
