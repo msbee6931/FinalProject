@@ -44,7 +44,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
             obj.set_cssclass("div_line");
@@ -74,11 +74,6 @@
             obj.set_text("pdf 저장");
             obj.set_cssclass("btn_pdf");
             this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("졸업 증명서");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this

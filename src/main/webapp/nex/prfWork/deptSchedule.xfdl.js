@@ -72,7 +72,7 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert",null,"46","100","25","20",null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_insert",null,"46","100","25","130",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
             obj.set_cssclass("btn_insert");
@@ -85,7 +85,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" displaytype=\"combotext\" combocodecol=\"code\" combodatacol=\"name\" textAlign=\"center\" combodataset=\"ScheduleCode_ds\"/><Cell col=\"1\" text=\"bind:title\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" textAlign=\"center\"/></Band></Format></Formats>");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_entireSchd",null,"46","100","25","130",null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_entireSchd",null,"46","100","25","20",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("3");
             obj.set_text("전체일정");
             obj.set_cssclass("btn_cal");
@@ -147,20 +147,27 @@
         // User Script
         this.registerScript("deptSchedule.xfdl", function() {
         this.objApp = nexacro.getApplication();
-        this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
-        this.writer=this.objApp.gds_professor.getColumn(0,'name');
-        this.deptCode=this.objApp.gds_professor.getColumn(0,'deptCode');
+        this.code="";
         this.deptSchedule_onload = function(obj,e)
         {
+        	var deptCode="";
+
         	if(this.objApp.gds_students.getRowCount() > 0 ){
         		this.div_schedule.form.btn_insert.set_visible(false);
+        		this.code=this.objApp.gds_students.getColumn(0,'s_seq');
+        		deptCode=this.objApp.gds_professor.getColumn(0,'deptCode');
+        	}
+        	else if (this.objApp.professor.getRowCount() > 0 )
+        	{
+        		this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
+        		deptCode=this.objApp.gds_professor.getColumn(0,'deptCode');
         	}
         	this.transaction(
         		"selectDeptSchedule",//id
         		"/schedule/selectDeptSchedule",//url (절대경로)
         		"",//in_ds:U
         		"deptSchedule_ds=out_ds",//()_out_ds
-        		"deptCode="+this.deptCode,//argument
+        		"deptCode="+deptCode,//argument
         		"fn_callback"
         	)
 

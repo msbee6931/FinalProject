@@ -31,12 +31,14 @@
             obj.set_taborder("1");
             obj.set_autofittype("col");
             obj.set_binddataset("ds_stdTimeTable");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"60\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"31\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"월요일\"/><Cell col=\"2\" text=\"화요일\"/><Cell col=\"3\" text=\"수요일\"/><Cell col=\"4\" text=\"목요일\"/><Cell col=\"5\" text=\"금요일\"/><Cell col=\"6\" text=\"토요일\"/><Cell col=\"7\" text=\"일요일\" wordWrap=\"english\"/></Band><Band id=\"body\"><Cell text=\"bind:time\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:mon\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"2\" text=\"bind:tue\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:wed\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:thu\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"5\" text=\"bind:fri\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"6\" text=\"bind:sat\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:sun\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnCancel","710","455","98","30",null,null,null,null,null,null,this);
+            obj = new Button("btnCancel","710","455","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_title","10","0","210","40",null,null,null,null,null,null,this);

@@ -55,7 +55,6 @@
             obj = new Div("div_com","10","20","395","49",null,null,null,null,null,null,this.div_line.form);
             obj.set_taborder("0");
             obj.set_text("Div00");
-            obj.set_cssclass("div_line");
             this.div_line.addChild(obj.name, obj);
 
             obj = new Combo("co_year","10","10","120","25",null,null,null,null,null,null,this.div_line.form.div_com.form);
@@ -86,7 +85,7 @@
             obj.set_cssclass("btn_search");
             this.div_line.form.div_com.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList","10","89",null,null,"8","19",null,null,null,null,this.div_line.form);
+            obj = new Grid("gr_classList","10","65",null,null,"8","19",null,null,null,null,this.div_line.form);
             obj.set_taborder("1");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");

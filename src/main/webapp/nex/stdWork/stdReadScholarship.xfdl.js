@@ -28,20 +28,14 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("장학금 내역 조회");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
+            obj.set_taborder("1");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
-            obj.set_taborder("3");
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
+            obj.set_taborder("2");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
@@ -49,67 +43,66 @@
             obj = new Div("Div00","36","28",null,"66","35",null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("Div00");
-            obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_seq","30","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("sta_seq","0","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             obj.set_text("학번");
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_dept","248","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("sta_dept","218","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             obj.set_text("학과");
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_grade","466","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("sta_grade","436","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("2");
             obj.set_text("학년");
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_name","684","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("sta_name","654","15","100","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("3");
             obj.set_text("이름");
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_seq","129","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Edit("edt_seq","99","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("4");
             obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_dept","347","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Edit("edt_dept","317","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("5");
             obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_grade","565","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Edit("edt_grade","535","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("6");
             obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_name","783","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Edit("edt_name","753","15","120","30",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("7");
             obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","1051","0","29","520",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
+            obj.set_taborder("3");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj.set_taborder("4");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","68","160",null,null,"67","90",null,null,null,null,this);
-            obj.set_taborder("6");
+            obj = new Grid("Grid00","68","95",null,null,"67","75",null,null,null,null,this);
+            obj.set_taborder("5");
             obj.set_binddataset("scholorship_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");

@@ -933,10 +933,9 @@
         			var nRow = this.ds_class.addRow();
         			var nRow2 = this.ds_classSchedule.addRow();
         			//학번 조합
-        			var col = Math.floor(dept/10,0)+"0"; //대분류
         			var pro = proCode.substring(7,9) //교번 뒤에 2자리
         			var ran = Math.floor(Math.random()*100,2);
-        			classSeq = col+dept+pro+ran;
+        			classSeq = dept+pro+ran;
         			classForm.edt_classSeq.set_text(classSeq);
         		}else{
         			var Row = 0;
@@ -1200,10 +1199,9 @@
         		var nRow2 = this.ds_classSchedule.findRow("classSeq",classSeq);
         		var proCode = classForm.sta_proCode.text;
         		var dept = classForm.co_dept.value;
-        		col = Math.floor(dept/10,0)+"0"; //대분류
         		pro = proCode.substring(7,9) //교번 뒤에 2자리
         		var ran = Math.floor(Math.random()*100,2);
-        		classSeq = col+dept+pro+ran;
+        		classSeq = dept+pro+ran;
         		classForm.edt_classSeq.set_text(classSeq);
         		this.ds_class.setColumn(nRow,"classSeq",classSeq);
         		this.ds_class.setColumn(nRow2,"classSeq",classSeq);
