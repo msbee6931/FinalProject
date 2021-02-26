@@ -22,6 +22,11 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
+            obj = new Static("Static01","30","10",null,null,"25","30",null,null,null,null,this);
+            obj.set_taborder("11");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_visible("false");
@@ -46,37 +51,41 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList","29","49","1022","376",null,null,null,null,null,null,this);
+            obj = new Grid("gr_classList","40","59",null,null,"39","70",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"90\"/><Column size=\"179\"/><Column size=\"59\"/><Column size=\"113\"/><Column size=\"68\"/><Column size=\"209\"/><Column size=\"103\"/><Column size=\"57\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"과목코드\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"강의실\"/><Cell col=\"8\" text=\"인원수\"/></Band><Band id=\"body\"><Cell text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"#########\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","400","12","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_year",null,"19","120","25","560",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_year_innerdataset = new nexacro.NormalDataset("co_year_innerdataset", obj);
             co_year_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">2020</Col><Col id=\"datacolumn\">2020년</Col></Row><Row><Col id=\"codecolumn\">2021</Col><Col id=\"datacolumn\">2021년</Col></Row></Rows>");
             obj.set_innerdataset(co_year_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","530","12","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester",null,"19","120","25","435",null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_semester_innerdataset = new nexacro.NormalDataset("co_semester_innerdataset", obj);
             co_semester_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학기</Col></Row></Rows>");
             obj.set_innerdataset(co_semester_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_search","660","11","120","28",null,null,null,null,null,null,this);
+            obj = new Combo("co_search",null,"19","120","25","310",null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_search_innerdataset = new nexacro.NormalDataset("co_search_innerdataset", obj);
             co_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">&quot;&quot;</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">className</Col><Col id=\"datacolumn\">과목명</Col></Row><Row><Col id=\"codecolumn\">classTime</Col><Col id=\"datacolumn\">강의시간</Col></Row><Row><Col id=\"codecolumn\">classRoom</Col><Col id=\"datacolumn\">강의실</Col></Row></Rows>");
             obj.set_innerdataset(co_search_innerdataset);
@@ -85,16 +94,18 @@
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search","785","11","170","28",null,null,null,null,null,null,this);
+            obj = new Edit("edt_search",null,"19","170","25","135",null,null,null,null,null,this);
             obj.set_taborder("8");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","960","9","90","33",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,"19","90","25","40",null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("검색");
+            obj.set_cssclass("btn_search");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_exel","949","430","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_exel",null,null,"100","25","39","40",null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("Exel");
             obj.set_cssclass("btn_exel");
@@ -104,7 +115,7 @@
             //-- Default Layout : this
             obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_mobileorientation("landscape");
-            obj.set_stepcount("2");
+            obj.set_stepcount("0");
             this.addLayout(obj.name, obj);
             
             // BindItem Information

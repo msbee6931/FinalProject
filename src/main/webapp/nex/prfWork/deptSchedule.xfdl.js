@@ -56,7 +56,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_schedule","30","38",null,null,"29","30",null,null,null,null,this);
+            obj = new Div("div_schedule","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");

@@ -46,14 +46,8 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("나의 정보 수정");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
-            obj.set_taborder("5");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);

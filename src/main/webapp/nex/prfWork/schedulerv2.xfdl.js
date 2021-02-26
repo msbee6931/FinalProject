@@ -27,19 +27,19 @@
             obj.set_taborder("0");
             this.addChild(obj.name, obj);
 
-            obj = new Static("stYearMonth","442","21","178",null,null,"grpScheduler:15",null,null,null,null,this);
+            obj = new Static("stYearMonth","472","21","178",null,null,"grpScheduler:15",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnPrev","386","30","20",null,null,"grpScheduler:25",null,null,null,null,this);
+            obj = new Button("btnPrev","416","30","20",null,null,"grpScheduler:25",null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("<");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNext","656","30","20",null,null,"grpScheduler:25",null,null,null,null,this);
+            obj = new Button("btnNext","686","30","20",null,null,"grpScheduler:25",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text(">");
             obj.set_cssclass("btn_default");
@@ -195,7 +195,7 @@
         									//요일 배경 속성
         									"graphicsrect" : {
         												"x" : 0, "y" : 0, "width" : 0, "height" : 0,
-        												"fillstyle" : "#ffffff",
+        												"fillstyle" : "#0d6efd",
         												"strokepen" : "1px solid #000000"
         											 },
 
@@ -205,8 +205,8 @@
         												"text" : "",
         												"textAlign" : "center",
         												"verticalAlign" : "middle",
-        												"font" : 'bold 9pt arial',
-        												"color" : "#000000"
+        												"font" : 'bold 9pt Malgun Gothic',
+        												"color" : "#ffffff"
         											 }
 
 
@@ -230,7 +230,7 @@
         									"graphicsrect" : {
         												"x" : 0, "y" : 0, "width" : 0, "height" : 0,
         												"fillstyle" : "#ffffff",
-        												"strokepen" : "1px solid #000000"
+        												"strokepen" : "1px solid #0d6efd"
         											 },
 
         									//일자 텍스트 속성
@@ -239,7 +239,7 @@
         												"text" : "",
         												"textAlign" : "right",
         												"verticalAlign" : "top",
-        												"font" : 'bold 9pt arial',
+        												"font" : 'bold 9pt Malgun Gothic',
         												"color" : ""
         											 }
         								},

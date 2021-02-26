@@ -13,7 +13,7 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1080,570);
+                this._setFormPosition(1080,520);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -48,24 +48,55 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("gr_classList","75","67","930","143",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00","0","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00","1051","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static01","27","10",null,null,"30","30",null,null,null,null,this);
+            obj.set_taborder("14");
+            obj.set_cssclass("sta_line");
+            obj.set_text("");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("gr_classList","48","57",null,"143","47",null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"83\"/><Column size=\"108\"/><Column size=\"254\"/><Column size=\"67\"/><Column size=\"119\"/><Column size=\"207\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학과코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"학과\"/><Cell col=\"5\" text=\"강의시간\"/><Cell col=\"6\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:classTime\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00","80","20","120","50",null,null,null,null,null,null,this);
+            obj = new Static("Static00","48","14","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("나의 강좌");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_label","455","220","190","50",null,null,null,null,null,null,this);
+            obj = new Static("sta_label","390","gr_classList:10","190","50",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("학생 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","715","27","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_year",null,"27","120","25","245",null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -76,7 +107,7 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","845","27","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester",null,"27","120","25","115",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -87,19 +118,21 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","975","27","25","25",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,"27","60","25","45",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_stdList","455","260","535","260",null,null,null,null,null,null,this);
+            obj = new Grid("gr_stdList","390","250",null,null,"50","70",null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_binddataset("ds_attend");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"90\"/><Column size=\"155\"/><Column size=\"110\"/><Column size=\"85\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석일자\"/><Cell col=\"3\" text=\"출석체크\"/><Cell col=\"4\" text=\"사유\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" edittype=\"none\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attendDay\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:attendState\" displaytype=\"combocontrol\" edittype=\"combo\" combodataset=\"ds_attendState\" combocodecol=\"id\" combodatacol=\"name\" textAlign=\"center\" calendarbuttonsize=\"30 30\"/><Cell col=\"4\" displaytype=\"buttoncontrol\" edittype=\"button\" text=\"사유\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal","70","260","300","260",null,null,null,null,null,null,this);
+            obj = new Calendar("cal","48","250","322",null,null,"70",null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_type("monthonly");
             obj.set_usetrailingday("true");
@@ -110,7 +143,7 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave","890","525","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btnSave",null,null,"100","25","50","40",null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("저장");
             obj.set_cssclass("btn_default");
@@ -121,11 +154,11 @@
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new TextArea("ta_reason","0","0","200","120",null,null,null,null,null,null,this.pop_reason.form);
+            obj = new TextArea("ta_reason","20","0","180","120",null,null,null,null,null,null,this.pop_reason.form);
             obj.set_taborder("0");
             this.pop_reason.addChild(obj.name, obj);
 
-            obj = new Button("btnDel","780","525","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btnDel",null,null,"100","25","160","40",null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
@@ -133,7 +166,7 @@
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1080,570,this,function(p){});
+            obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_mobileorientation("landscape");
             obj.set_stepcount("0");
             this.addLayout(obj.name, obj);

@@ -13,7 +13,7 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1080,570);
+                this._setFormPosition(1080,520);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -32,31 +32,64 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("gr_classList","20","6","1040","425",null,null,null,null,null,null,this);
+            obj = new Static("Static01","27","10",null,null,"27","30",null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("gr_classList","40","40",null,null,"39","89",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"64\"/><Column size=\"152\"/><Column size=\"76\"/><Column size=\"55\"/><Column size=\"74\"/><Column size=\"88\"/><Column size=\"189\"/><Column size=\"61\"/><Column size=\"57\"/><Column size=\"50\"/><Column size=\"131\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"교수이름\"/><Cell col=\"6\" text=\"학과\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"인원수\"/><Cell col=\"10\" text=\"학년\"/><Cell col=\"11\" text=\"요청사항\" displaytype=\"normal\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" cursor=\"pointer\" textDecoration=\"underline\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditmaskchar=\"#######\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"11\" text=\"bind:reqState\" displaytype=\"combotext\" textAlign=\"center\" expandshow=\"show\" wordWrap=\"english\" combodataset=\"ds_req\" combocodecol=\"id\" combodatacol=\"name\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnWrite","670","441","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnWrite",null,null,"100","25","249","54",null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("작성하기");
+            obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnUpd","800","441","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnUpd",null,null,"100","25","144","54",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("수정하기");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDel","930","441","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnDel",null,null,"100","25","39","54",null,null,null,null,this);
             obj.set_taborder("3");
-            obj.set_text("삭제 및 취소 요청");
+            obj.set_text("취소 요청");
+            obj.set_cssclass("btn_can");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
+            obj.set_taborder("5");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00","1051","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",1080,570,this,function(p){});
+            obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             

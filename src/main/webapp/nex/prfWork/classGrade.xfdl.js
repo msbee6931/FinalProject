@@ -39,189 +39,224 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Combo("co_year","650","7","120","25",null,null,null,null,null,null,this);
+            obj = new Static("Static01","27","10",null,null,"30","30",null,null,null,null,this);
+            obj.set_taborder("50");
+            obj.set_cssclass("sta_line");
+            obj.set_text("");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
+            obj.set_taborder("51");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00","0","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("52");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00","1051","0","29","520",null,null,null,null,null,null,this);
+            obj.set_taborder("53");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
+            obj.set_taborder("54");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("co_year",null,"14","191","25","265",null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_year_innerdataset = new nexacro.NormalDataset("co_year_innerdataset", obj);
             co_year_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">2020</Col><Col id=\"datacolumn\">2020년</Col></Row><Row><Col id=\"codecolumn\">2021</Col><Col id=\"datacolumn\">2021년</Col></Row></Rows>");
             obj.set_innerdataset(co_year_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","780","7","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester",null,"14","120","25","140",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_semester_innerdataset = new nexacro.NormalDataset("co_semester_innerdataset", obj);
             co_semester_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학기</Col></Row></Rows>");
             obj.set_innerdataset(co_semester_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","910","4","90","25",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,"14","90","25","40",null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("검색");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList","75","47","930","143",null,null,null,null,null,null,this);
+            obj = new Grid("gr_classList","39","42",null,null,"40","320",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"83\"/><Column size=\"108\"/><Column size=\"254\"/><Column size=\"67\"/><Column size=\"119\"/><Column size=\"207\"/><Column size=\"91\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학과코드\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학점\"/><Cell col=\"4\" text=\"학과\"/><Cell col=\"5\" text=\"강의시간\"/><Cell col=\"6\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"########\"/><Cell col=\"2\" text=\"bind:className\" textAlign=\"center\" cursor=\"pointer\" textDecoration=\"underline\"/><Cell col=\"3\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"5\" text=\"bind:classTime\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_myClass","80","0","120","50",null,null,null,null,null,null,this);
+            obj = new Static("label_myClass","39","0","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("나의 강좌");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_stdList","75","230","228","285",null,null,null,null,null,null,this);
+            obj = new Grid("gr_stdList","39",null,null,"250","760","40",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_binddataset("ds_stdClass");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" displaytype=\"mask\" textAlign=\"center\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_name","330","230","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_name",null,null,"100","30","650","260",null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("이름");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_name","430","230","110","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_name",null,null,"110","30","540","260",null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_code","560","230","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_code",null,null,"100","30","420","260",null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("학번");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_code","660","230","120","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_code",null,null,"120","30","300","260",null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_sum","900","330","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_sum",null,null,"100","30","80","170",null,null,null,null,this);
             obj.set_taborder("10");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sum2","900","300","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sum2",null,null,"100","30","80","200",null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("합계");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_fin","800","300","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_fin",null,null,"100","30","180","200",null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("기말고사");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_task","700","300","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_task",null,null,"100","30","280","200",null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("과제");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_otest","600","300","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_otest",null,null,"100","30","380","200",null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("수시");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_mid","500","300","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_mid",null,null,"100","30","480","200",null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("중간고사");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_attend","400","300","100","30",null,null,null,null,null,null,this);
+            obj = new Static("label_attend",null,null,"100","30","580","200",null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("출석");
-            obj.set_border("1px solid gray");
-            obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mask_attend","400","360","100","30",null,null,null,null,null,null,this);
+            obj = new MaskEdit("mask_attend",null,null,"100","30","580","140",null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mask_mid","500","360","100","30",null,null,null,null,null,null,this);
+            obj = new MaskEdit("mask_mid",null,null,"100","30","480","140",null,null,null,null,this);
             obj.set_taborder("18");
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mask_otest","600","360","100","30",null,null,null,null,null,null,this);
+            obj = new MaskEdit("mask_otest",null,null,"100","30","380","140",null,null,null,null,this);
             obj.set_taborder("19");
             obj.set_maskchar("###");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mask_task","700","360","100","30",null,null,null,null,null,null,this);
+            obj = new MaskEdit("mask_task",null,null,"100","30","280","140",null,null,null,null,this);
             obj.set_taborder("20");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mask_fin","800","360","100","30",null,null,null,null,null,null,this);
+            obj = new MaskEdit("mask_fin",null,null,"100","30","180","140",null,null,null,null,this);
             obj.set_taborder("21");
             obj.set_textAlign("center");
             obj.set_format("+0");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_sumAll","900","360","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_sumAll",null,null,"100","30","80","140",null,null,null,null,this);
             obj.set_taborder("22");
             obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("labelEval","330","330","70","30",null,null,null,null,null,null,this);
+            obj = new Static("labelEval",null,null,"70","30","680","170",null,null,null,null,this);
             obj.set_taborder("23");
             obj.set_text("평가방법");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("labelGrade","330","360","70","30",null,null,null,null,null,null,this);
+            obj = new Static("labelGrade",null,null,"70","30","680","140",null,null,null,null,this);
             obj.set_taborder("24");
             obj.set_text("점수");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_bin","330","300","70","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_bin",null,null,"70","30","680","200",null,null,null,null,this);
             obj.set_taborder("25");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
@@ -229,34 +264,35 @@
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAttend","910","260","90","25",null,null,null,null,null,null,this);
+            obj = new Button("btnAttend",null,null,"90","25","80","235",null,null,null,null,this);
             obj.set_taborder("26");
             obj.set_text("출석현황 보기");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("labelTotal","800","430","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("27");
-            obj.set_text("총점");
-            obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
-            obj.set_textAlign("center");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("sta_total","900","430","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("28");
-            obj.set_text("");
-            obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
-            obj.set_textAlign("center");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnSave","900","470","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("29");
-            obj.set_text("저장");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList2","40","12","210","268",null,null,null,null,null,null,this);
+            obj = new Static("labelTotal",null,null,"100","30","180","78",null,null,null,null,this);
+            obj.set_taborder("27");
+            obj.set_text("총점");
+            obj.set_padding("0px 0px 0px 5px");
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("sta_total",null,null,"100","30","80","78",null,null,null,null,this);
+            obj.set_taborder("28");
+            obj.set_text("");
+            obj.set_padding("0px 0px 0px 5px");
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnSave",null,null,"100","25","80","40",null,null,null,null,this);
+            obj.set_taborder("29");
+            obj.set_text("저장");
+            obj.set_cssclass("btn_insert");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("gr_classList2","40","12","210",null,null,"240",null,null,null,null,this);
             obj.set_taborder("30");
             obj.set_positionstep("1");
             obj.set_binddataset("ds_class");
@@ -265,106 +301,107 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"141\"/><Column size=\"68\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"과목명\"/><Cell col=\"1\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:className\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_fin","800","330","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_fin",null,null,"100","30","180","170",null,null,null,null,this);
             obj.set_taborder("31");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_task","700","330","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_task",null,null,"100","30","280","170",null,null,null,null,this);
             obj.set_taborder("32");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_otest","600","330","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_otest",null,null,"100","30","380","170",null,null,null,null,this);
             obj.set_taborder("33");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_mid","500","330","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_mid",null,null,"100","30","480","170",null,null,null,null,this);
             obj.set_taborder("34");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_attend","400","330","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_attend",null,null,"100","30","580","170",null,null,null,null,this);
             obj.set_taborder("35");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_label","75","190","190","50",null,null,null,null,null,null,this);
+            obj = new Static("sta_label","39","gr_classList:-10","190","50",null,null,null,null,null,null,this);
             obj.set_taborder("36");
             obj.set_text("학생 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_sumR","900","390","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_sumR",null,null,"100","30","80","110",null,null,null,null,this);
             obj.set_taborder("37");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("labelResult","330","390","70","30",null,null,null,null,null,null,this);
+            obj = new Static("labelResult",null,null,"70","30","680","110",null,null,null,null,this);
             obj.set_taborder("38");
             obj.set_text("결과");
             obj.set_padding("0px 0px 0px 5px");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_finR","800","390","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_finR",null,null,"100","30","180","110",null,null,null,null,this);
             obj.set_taborder("39");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_taskR","700","390","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_taskR",null,null,"100","30","280","110",null,null,null,null,this);
             obj.set_taborder("40");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_otestR","600","390","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_otestR",null,null,"100","30","380","110",null,null,null,null,this);
             obj.set_taborder("41");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_midR","500","390","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_midR",null,null,"100","30","480","110",null,null,null,null,this);
             obj.set_taborder("42");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_attendR","400","390","100","30",null,null,null,null,null,null,this);
+            obj = new Static("sta_attendR",null,null,"100","30","580","110",null,null,null,null,this);
             obj.set_taborder("43");
-            obj.set_border("1px solid gray");
             obj.set_textAlign("center");
             obj.set_text("0");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnChangeEval","790","260","115","25",null,null,null,null,null,null,this);
+            obj = new Button("btnChangeEval",null,null,"115","25","175","235",null,null,null,null,this);
             obj.set_taborder("44");
             obj.set_text("평가방법 변경하기");
             obj.set_tooltiptext("평가시작 전에만 가능합니다");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_caution","330","430","320","85",null,null,null,null,null,null,this);
+            obj = new Static("label_caution",null,null,"320","50","430","40",null,null,null,null,this);
             obj.set_taborder("45");
-            obj.set_text("-주의 사항- \r\n\r\n평가방법은 평가시작 전에만 변경이 가능합니다.\r\n평가 후 수정을 원하시면 관리자에게 문의해주세요.");
+            obj.set_text("※평가방법은 평가시작 전에만 변경이 가능합니다. \r\n평가 후 수정을 원하시면 관리자에게 문의해주세요.");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_background("linen");
             obj.set_borderRadius("5px");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_rank","270","12","780","438",null,null,null,null,null,null,this);
+            obj = new Grid("gr_rank","270","12",null,null,"30","70",null,null,null,null,this);
             obj.set_taborder("46");
             obj.set_positionstep("1");
             obj.set_binddataset("gds_grade");
@@ -373,21 +410,21 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"52\"/><Column size=\"68\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"순위\"/><Cell col=\"9\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:rank\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_rank\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format><Format id=\"PassFail\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"92\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_passFail\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave2","930","500","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btnSave2",null,null,"100","25","30","25",null,null,null,null,this);
             obj.set_taborder("47");
             obj.set_text("저장");
             obj.set_positionstep("1");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_rank","40","325","210","160",null,null,null,null,null,null,this);
+            obj = new Div("div_rank","40",null,"210","160",null,"35",null,null,null,null,this);
             obj.set_taborder("48");
             obj.set_text("Div00");
             obj.set_positionstep("1");
             obj.set_url("prfWork::rankStandard.xfdl");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_exel","820","500","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_exel",null,null,"100","25","140","25",null,null,null,null,this);
             obj.set_taborder("49");
             obj.set_text("Exel");
             obj.set_positionstep("1");

@@ -33,7 +33,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -53,32 +53,26 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
-            obj.set_text("출결조회");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
+            obj.set_taborder("2");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","1051","0","29","520",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
+            obj.set_taborder("3");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj.set_taborder("4");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","320","90",null,null,"39","40",null,null,null,null,this);
-            obj.set_taborder("6");
+            obj.set_taborder("5");
             obj.set_binddataset("ds_stdClass");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
@@ -86,17 +80,17 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00","38","60","112","30",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj.set_taborder("6");
             obj.set_text("내 관리 강좌");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_title","475","60","140","30",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
+            obj.set_taborder("7");
             obj.set_text("");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00_00","Div00:-721","60","45","30",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
+            obj.set_taborder("8");
             obj.set_text("과목명 :");
             this.addChild(obj.name, obj);
 
