@@ -49,31 +49,43 @@
             obj = new Button("btnGrade","50","370","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("학생 성적 관리");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAttend","170","370","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("학생 출석 입력");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,0px none,1px solid #ffffff");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnClassList","50","420","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("개설강좌 조회");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnDeptStdList","170","420","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+
             obj.set_text("학과 학생 조회");
+
             this.addChild(obj.name, obj);
 
             obj = new Button("btnMypage","50","320","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("개인정보 조회");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnDeptSchedule","170","320","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("학과 스케줄 ");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,0px none,1px solid #ffffff");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_schedule","750","36","290","224",null,null,null,null,null,null,this);

@@ -22,10 +22,13 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
+
             obj = new Combo("co_search","660","12","120","28",null,null,null,null,null,null,this);
+
             obj.set_taborder("0");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_search_innerdataset = new nexacro.NormalDataset("co_search_innerdataset", obj);
             co_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">All</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">className</Col><Col id=\"datacolumn\">과목명</Col></Row><Row><Col id=\"codecolumn\">proName</Col><Col id=\"datacolumn\">담당교수</Col></Row><Row><Col id=\"codecolumn\">classTime</Col><Col id=\"datacolumn\">강의시간</Col></Row><Row><Col id=\"codecolumn\">classRoom</Col><Col id=\"datacolumn\">강의실</Col></Row></Rows>");
             obj.set_innerdataset(co_search_innerdataset);
@@ -35,13 +38,19 @@
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_search","785","12","170","28",null,null,null,null,null,null,this);
+
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
+
             obj = new Button("btnSearch","960","10","90","33",null,null,null,null,null,null,this);
+
             obj.set_taborder("2");
             obj.set_text("검색");
+            obj.set_cssclass("btn_search");
             this.addChild(obj.name, obj);
+
 
             obj = new Grid("gr_classList","30","51","1021","390",null,null,null,null,null,null,this);
             obj.set_taborder("3");
@@ -51,28 +60,41 @@
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_semester","530","13","120","28",null,null,null,null,null,null,this);
+
             obj.set_taborder("4");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_semester_innerdataset = new nexacro.NormalDataset("co_semester_innerdataset", obj);
             co_semester_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학기</Col></Row></Rows>");
             obj.set_innerdataset(co_semester_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
+
             obj = new Combo("co_year","400","13","120","28",null,null,null,null,null,null,this);
+
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var co_year_innerdataset = new nexacro.NormalDataset("co_year_innerdataset", obj);
             co_year_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">2020</Col><Col id=\"datacolumn\">2020년</Col></Row><Row><Col id=\"codecolumn\">2021</Col><Col id=\"datacolumn\">2021년</Col></Row></Rows>");
             obj.set_innerdataset(co_year_innerdataset);
             obj.set_text("");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Button("btn_exel","949","450","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("Export");
+=======
+
+            obj = new Button("btn_exel","949","450","100","25",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_text("Export");
+
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
 
@@ -98,6 +120,7 @@
             obj.set_taborder("10");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
+
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -293,10 +316,15 @@
         {
             this.addEventHandler("onload",this.classList_onload,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
+
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
             this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
+<<<<<<< HEAD
+=======
+
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
         };
 
         this.loadIncludeScript("classList.xfdl");

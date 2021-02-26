@@ -103,7 +103,11 @@
             obj.set_text("취소");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Button("btn_save","594","383","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+=======
+            obj = new Button("btn_save","604","383","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             obj.set_taborder("5");
             obj.set_text("저장");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
@@ -144,11 +148,28 @@
             obj = new Button("btn_del","679","-1","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("10");
             obj.set_text("삭제");
+<<<<<<< HEAD
+=======
+            this.Tab00.Tabpage1.addChild(obj.name, obj);
+
+            obj = new Button("btn_insert","739","283","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj.set_taborder("11");
+            obj.set_text("파일찾기");
+            this.Tab00.Tabpage1.addChild(obj.name, obj);
+
+            obj = new Button("btn_delete","739","327","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
+            obj.set_taborder("12");
+            obj.set_text("파일삭제");
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",900,600,this,function(p){});
+<<<<<<< HEAD
+=======
+            obj.set_stepcount("0");
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -456,6 +477,11 @@
             this.Tab00.Tabpage1.form.btn_save.addEventHandler("onclick",this.Tab00_Tabpage1_btn_save_onclick,this);
             this.Tab00.Tabpage1.form.Grid00.addEventHandler("onheadclick",this.Tab00_Tabpage1_Grid00_onheadclick,this);
             this.Tab00.Tabpage1.form.btn_del.addEventHandler("onclick",this.Tab00_Tabpage1_btn_del_onclick,this);
+<<<<<<< HEAD
+=======
+            this.Tab00.Tabpage1.form.btn_insert.addEventHandler("onclick",this.Tab00_Tabpage1_btn_insert_onclick,this);
+            this.Tab00.Tabpage1.form.btn_delete.addEventHandler("onclick",this.Tab00_Tabpage1_btn_delete_onclick,this);
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onerror",this.FileUpTransfer00_onerror,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);

@@ -121,6 +121,10 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a986354821a335ba4e31612508e783b25c5e7235
         });
         
         // Regist UI Components Event

@@ -28,6 +28,18 @@ public class AdminService {
 	public int insertstu(StudentsDTO dto) {
 		return aDAO.insertstu(dto);
 	}
+	public int selectstu(int s_seq) {
+		return aDAO.selectstu(s_seq);
+	}
+	public List<StudentsDTO> selectS_seq() {
+		return aDAO.selectS_seq();
+	}
+	public int lastNum(int s_seq) {
+		return aDAO.lastNum(s_seq);
+	}
+	public int lastPNum(int p_seq) {
+		return aDAO.lastPNum(p_seq);
+	}
 	//professor
 	public List<ProfessorDTO> getlistPro(){
 		return aDAO.getlistPro();
@@ -38,9 +50,16 @@ public class AdminService {
 	public int deletePro(List<ProfessorDTO> list) {
 		return aDAO.deletePro(list);
 	}
-	public int insertPro(List<ProfessorDTO> list) {
-		return aDAO.insertPro(list);
+	public int insertPro(ProfessorDTO dto) {
+		return aDAO.insertPro(dto);
 	}
+	public List<ProfessorDTO> selectP_seq(){
+		return aDAO.selectP_seq();
+	}
+	public int selectpro(int p_seq) {
+		return aDAO.selectpro(p_seq);
+	}
+	
 	//faculty
 	public List<FacultyDTO> getlistFac(){
 		return aDAO.getlistFac();
