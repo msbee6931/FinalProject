@@ -187,13 +187,13 @@
         {
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
-        		this.co_year.set_text(objDate.getFullYear()+"년");
-        		this.co_semester.set_text("1학기");
+        		this.co_year.set_value(objDate.getFullYear());
+        		this.co_semester.set_value(1);
         		var startTime = objDate.getFullYear()+"0101";
         		var endTime = objDate.getFullYear()+"0731";
         	}else{
-        		this.co_year.set_text(objDate.getFullYear()+"년");
-        		this.co_semester.set_text("2학기");
+        		this.co_year.set_value(objDate.getFullYear());
+        		this.co_semester.set_value(1);
         		var startTime = objDate.getFullYear()+"0801";
         		var endTime = objDate.getFullYear()+"1231";
         	}
