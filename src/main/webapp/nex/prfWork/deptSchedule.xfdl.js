@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("deptSchedule_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"STRING\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"content\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -62,7 +62,7 @@
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_dept","9","76","380","350",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Calendar("cal_dept","9","76",null,null,"630","24",null,null,null,null,this.div_schedule.form);
             obj.set_taborder("0");
             obj.set_type("monthonly");
             obj.set_innerdataset("ds_cal");
@@ -72,57 +72,62 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","899","46","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_insert",null,"46","100","25","20",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
             obj.set_cssclass("btn_insert");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","399","76","600","350",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Grid("Grid00",null,"76","600",null,"20","24",null,null,null,null,this.div_schedule.form);
             obj.set_taborder("2");
             obj.set_binddataset("deptSchedule_ds");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" displaytype=\"combotext\" combocodecol=\"code\" combodatacol=\"name\" textAlign=\"center\" combodataset=\"ScheduleCode_ds\"/><Cell col=\"1\" text=\"bind:title\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" textAlign=\"center\"/></Band></Format></Formats>");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_entireSchd","789","46","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_entireSchd",null,"46","100","25","130",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("3");
             obj.set_text("전체일정");
-            obj.set_cssclass("btn_default");
+            obj.set_cssclass("btn_cal");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00_00","432","87","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj = new Div("Div00","cal_dept:0","35","257","42",null,null,null,null,null,null,this.div_schedule.form);
+            obj.set_taborder("4");
+            obj.set_text("Div00");
+            this.div_schedule.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00","11","15","10","10",null,null,null,null,null,null,this.div_schedule.form.Div00.form);
+            obj.set_taborder("0");
             obj.set_text("");
             obj.set_background("#d23636");
-            this.addChild(obj.name, obj);
+            this.div_schedule.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00_00_00","443","85","65","15",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
+            obj = new Static("Static03_00_00_00","22","13","65","15",null,null,null,null,null,null,this.div_schedule.form.Div00.form);
+            obj.set_taborder("1");
             obj.set_text("공지사항");
-            this.addChild(obj.name, obj);
+            this.div_schedule.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02","509","87","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj = new Static("Static02","88","15","10","10",null,null,null,null,null,null,this.div_schedule.form.Div00.form);
+            obj.set_taborder("2");
             obj.set_text("");
             obj.set_background("#78a2dd");
-            this.addChild(obj.name, obj);
+            this.div_schedule.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static03","520","85","65","15",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
+            obj = new Static("Static03","99","13","65","15",null,null,null,null,null,null,this.div_schedule.form.Div00.form);
+            obj.set_taborder("3");
             obj.set_text("학과일정");
-            this.addChild(obj.name, obj);
+            this.div_schedule.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00","586","87","10","10",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
+            obj = new Static("Static02_00","165","15","10","10",null,null,null,null,null,null,this.div_schedule.form.Div00.form);
+            obj.set_taborder("4");
             obj.set_text("");
             obj.set_background("#ab9f1b");
-            this.addChild(obj.name, obj);
+            this.div_schedule.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00","597","85","65","15",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj = new Static("Static03_00","176","13","65","15",null,null,null,null,null,null,this.div_schedule.form.Div00.form);
+            obj.set_taborder("5");
             obj.set_text("기타일정");
-            this.addChild(obj.name, obj);
+            this.div_schedule.form.Div00.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -144,14 +149,18 @@
         this.objApp = nexacro.getApplication();
         this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
         this.writer=this.objApp.gds_professor.getColumn(0,'name');
+        this.deptCode=this.objApp.gds_professor.getColumn(0,'deptCode');
         this.deptSchedule_onload = function(obj,e)
         {
+        	if(this.objApp.gds_students.getRowCount() > 0 ){
+        		this.div_schedule.form.btn_insert.set_visible(false);
+        	}
         	this.transaction(
         		"selectDeptSchedule",//id
         		"/schedule/selectDeptSchedule",//url (절대경로)
         		"",//in_ds:U
         		"deptSchedule_ds=out_ds",//()_out_ds
-        		"",//argument
+        		"deptCode="+this.deptCode,//argument
         		"fn_callback"
         	)
 

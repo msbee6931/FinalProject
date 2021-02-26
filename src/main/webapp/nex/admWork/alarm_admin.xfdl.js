@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("admin_alarm", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"confirm\" type=\"STRING\" size=\"256\"/><Column id=\"sender\" type=\"STRING\" size=\"256\"/><Column id=\"receiver\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"reply\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"confirm\"/><Col id=\"chk\">0</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"confirm\" type=\"STRING\" size=\"256\"/><Column id=\"sender\" type=\"STRING\" size=\"256\"/><Column id=\"receiver\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"reply\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -32,7 +32,8 @@
             obj.set_taborder("1");
             obj.set_binddataset("admin_alarm");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"92\"/><Column size=\"99\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"보낸이\"/><Cell col=\"2\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:sender\" edittype=\"mask\" maskeditformat=\"#########\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:receiver\" edittype=\"mask\" maskeditformat=\"#########\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"92\"/><Column size=\"99\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"보낸이\"/><Cell col=\"2\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:sender\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:receiver\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("del_btn","135","542","100","30",null,null,null,null,null,null,this);
@@ -77,12 +78,6 @@
             obj.set_cssclass("textarea_default");
             this.Div00_00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","650","558","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("전송");
-            obj.set_cssclass("btn_default");
-            this.addChild(obj.name, obj);
-
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",800,600,this,function(p){});
@@ -112,20 +107,7 @@
         	trace(ErrorCode);
         }
 
-        this.Button00_onclick = function(obj,e)
-        {
-        	   this.transaction(
-                    "PMUpd"
-                    ,"/PMUpd.nex"
-                    ,"in_ds=admin_alarm:U"
-                    ,""
-                    ,""
-                    ,"fn_callback"
-                 )
 
-        	alert("전송 되었습니다.");
-
-        };
 
         this.del_btn_onclick = function(obj,e)
         {
@@ -173,7 +155,6 @@
             this.addEventHandler("onload",this.alarm_admin_onload,this);
             this.del_btn.addEventHandler("onclick",this.del_btn_onclick,this);
             this.Div00.form.Edit00.addEventHandler("oninput",this.Div00_Edit00_oninput,this);
-            this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
         };
 
         this.loadIncludeScript("alarm_admin.xfdl");

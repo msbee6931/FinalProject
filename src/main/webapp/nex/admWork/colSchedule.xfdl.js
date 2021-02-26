@@ -51,13 +51,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_schedule","30","38","1021","452",null,null,null,null,null,null,this);
+            obj = new Div("div_schedule","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_dept","29","56","350","350",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Calendar("cal_dept","9","56",null,null,"620","44",null,null,null,null,this.div_schedule.form);
             obj.set_taborder("0");
             obj.set_type("monthonly");
             obj.set_innerdataset("ds_cal");
@@ -67,13 +67,13 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","879","16","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_insert",null,"16","100","25","10",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("1");
             obj.set_text("일정 등록");
             obj.set_cssclass("btn_insert");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Grid("gr_colSchedule","429","56","550","350",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Grid("gr_colSchedule",null,"56","600",null,"10","44",null,null,null,null,this.div_schedule.form);
             obj.set_taborder("2");
             obj.set_binddataset("colSchedule_ds");
             obj.set_autofittype("col");
@@ -81,22 +81,22 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"291\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"시작날짜\"/><Cell col=\"2\" text=\"종료날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\" textAlign=\"center\"/></Band></Format></Formats>");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","879","416","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btn_del",null,null,"100","25","10","9",null,null,null,null,this.div_schedule.form);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btnAll","429","16","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btnAll",null,"16","100","25","510",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("4");
             obj.set_text("전체 일정");
-            obj.set_cssclass("btn_default");
+            obj.set_cssclass("btn_cal");
             this.div_schedule.addChild(obj.name, obj);
 
-            obj = new Button("btnAfter","549","16","100","25",null,null,null,null,null,null,this.div_schedule.form);
+            obj = new Button("btnAfter",null,"16","100","25","405",null,null,null,null,null,this.div_schedule.form);
             obj.set_taborder("5");
             obj.set_text("남은 일정");
-            obj.set_cssclass("btn_default");
+            obj.set_cssclass("btn_cal");
             this.div_schedule.addChild(obj.name, obj);
 
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
@@ -124,7 +124,7 @@
         this.objApp = nexacro.getApplication();
         this.colSchedule_onload = function(obj,e)
         {
-        	if(this.objApp.gds_professor.getRowCount() > 0){
+        	if(this.objApp.gds_professor.getRowCount() > 0 || this.objApp.gds_students.getRowCount() > 0){
         		this.div_schedule.form.btn_del.set_visible(false);
         		this.div_schedule.form.btn_insert.set_visible(false);
         	}
@@ -165,6 +165,9 @@
         		this.div_schedule.form.cal_dept.set_value(objDate);
         		var date= this.div_schedule.form.cal_dept.value;
         		this.colSchedule_ds.filter("eDate>='"+date+"'");
+        	}else if(sId =="deleteColSchedule"){
+        		this.reload();
+
         	}
         }
 
@@ -192,15 +195,10 @@
         };
 
         //콜백 성공하면 데이터셋 불러오기
-        this.fn_callback_colSchedule = function() {
-        	this.transaction(
-        		"selectColSchedule",//id
-        		"/schedule/selectColSchedule",//url (절대경로)
-        		"",//in_ds:U
-        		"colSchedule_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
+        this.fn_callback_colSchedule = function(sId) {
+        	if(sId == "colSchedule_insert_pop"){
+        		this.reload();
+        	}
         };
 
         //일정 상세보기 모달창 띄우기
@@ -215,22 +213,12 @@
         		this.getOwnerFrame(),
         		{seq:seq},
         		this,
-        		"fn_callback_updateCol"
+        		"fn_callback_colSchedule"
         	);
 
         };
 
-        this.fn_callback_updateCol= function()
-        {
-        	this.transaction(
-        		"selectColSchedule",//id
-        		"/schedule/selectColSchedule",//url (절대경로)
-        		"",//in_ds:U
-        		"colSchedule_ds=out_ds",//()_out_ds
-        		"",//argument
-        		"fn_callback"
-        	)
-        }
+
 
         this.seq="";
         this.Div00_Grid00_oncellclick = function(obj,e)
@@ -255,7 +243,7 @@
         				"",//in_ds:U
         				"",//()_out_ds
         				"seq="+this.seq,//argument
-        				"fn_callback_delete"
+        				"fn_callback"
         			)
         		}
         		else {return;}

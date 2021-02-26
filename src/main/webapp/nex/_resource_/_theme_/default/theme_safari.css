@@ -1037,19 +1037,13 @@ textarea::-webkit-scrollbar { display: none; }
 	background : #6c9cff;
 	color : #ffffff;
 }
-.Button.btn_default
-{
-	background : #0d6efd;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #0d6efd;
-}
 .Button.btn_exel
 {
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #0d6efd;
 	background : #ffffff;
+	cursor : pointer;
 }
 .Button.btn_exel .nexacontentsbox
 {
@@ -1061,6 +1055,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 .Button.btn_home .nexacontentsbox
 {
@@ -1073,6 +1068,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 .Button.btn_search .nexacontentsbox
 {
@@ -1085,6 +1081,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #1c0c7c;
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 .Button.btn_del .nexacontentsbox
 {
@@ -1097,6 +1094,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 .Button.btn_insert .nexacontentsbox
 {
@@ -1108,6 +1106,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 .Button.btn_logout .nexacontentsbox
 {
@@ -1119,6 +1118,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 .Button.btn_message .nexacontentsbox
 {
@@ -1141,6 +1141,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 .TextArea.txt_default
 {
@@ -1160,8 +1161,30 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 .Button.btn_pdf .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+.Button.btn_default
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+.Button.btn_cal
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+.Button.btn_cal .nexacontentsbox
 {
 	text-align : center;
 	background-position-x : center;
@@ -1704,19 +1727,13 @@ textarea::-webkit-scrollbar { display: none; }
 	font : bold 12px "Malgun Gothic";
 	color : #1c0c7c;
 }
-#nexacontainer .Button.btn_default[status=focused]
-{
-	background : #0d6efd;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #0d6efd;
-}
 #nexacontainer .Button.btn_exel[status=mouseover]
 {
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #0d6efd;
 	background : #ffffff;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_exel[status=mouseover] .nexacontentsbox
 {
@@ -1729,6 +1746,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	border : 1px solid #0d6efd;
 	background : #ffffff;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_exel[status=focused] .nexacontentsbox
 {
@@ -1740,6 +1758,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_home[status=mouseover] .nexacontentsbox
 {
@@ -1751,6 +1770,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_home[status=focused] .nexacontentsbox
 {
@@ -1763,6 +1783,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_search[status=mouseover] .nexacontentsbox
 {
@@ -1775,6 +1796,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_search[status=focused] .nexacontentsbox
 {
@@ -1787,6 +1809,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #1c0c7c;
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_del[status=mouseover] .nexacontentsbox
 {
@@ -1799,6 +1822,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #1c0c7c;
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_del[status=focused] .nexacontentsbox
 {
@@ -1811,6 +1835,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_insert[status=mouseover] .nexacontentsbox
 {
@@ -1823,6 +1848,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_insert[status=focused] .nexacontentsbox
 {
@@ -1834,6 +1860,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_logout[status=mouseover] .nexacontentsbox
 {
@@ -1845,6 +1872,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_logout[status=focused] .nexacontentsbox
 {
@@ -1856,6 +1884,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_message[status=mouseover] .nexacontentsbox
 {
@@ -1867,6 +1896,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_message[status=focused] .nexacontentsbox
 {
@@ -1891,6 +1921,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_can[status=focused]
 {
@@ -1898,6 +1929,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .TextArea.txt_default[status=mouseover]
 {
@@ -1947,6 +1979,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_pdf[status=mouseover] .nexacontentsbox
 {
@@ -1959,8 +1992,75 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_pdf[status=focused] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_default[status=mouseover]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_default[status=focused]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Grid.grd_default .head[status=mouseover]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+#nexacontainer .Grid.grd_default .head[status=focused]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+#nexacontainer .Grid.grd_default .head[status=readonly]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+#nexacontainer .Grid.grd_default .head .row .cell[status=mouseover]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+#nexacontainer .Button.btn_cal[status=mouseover]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_cal[status=mouseover] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_cal[status=focused]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_cal[status=focused] .nexacontentsbox
 {
 	text-align : center;
 	background-position-x : center;
@@ -2195,26 +2295,13 @@ textarea::-webkit-scrollbar { display: none; }
 	background : #6c9cff;
 	color : #ffffff;
 }
-#nexacontainer .Button.btn_default[userstatus=pushed]
-{
-	background : #0d6efd;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #0d6efd;
-}
-#nexacontainer .Button.btn_default[userstatus=selected]
-{
-	background : #0d6efd;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #0d6efd;
-}
 #nexacontainer .Button.btn_exel[userstatus=pushed]
 {
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #0d6efd;
 	background : #ffffff;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_exel[userstatus=pushed] .nexacontentsbox
 {
@@ -2227,6 +2314,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	border : 1px solid #0d6efd;
 	background : #ffffff;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_exel[userstatus=selected] .nexacontentsbox
 {
@@ -2238,6 +2326,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_home[userstatus=pushed] .nexacontentsbox
 {
@@ -2249,6 +2338,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_home[userstatus=selected] .nexacontentsbox
 {
@@ -2261,6 +2351,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_search[userstatus=pushed] .nexacontentsbox
 {
@@ -2273,6 +2364,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_search[userstatus=selected] .nexacontentsbox
 {
@@ -2285,6 +2377,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #1c0c7c;
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_del[userstatus=pushed] .nexacontentsbox
 {
@@ -2297,6 +2390,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #1c0c7c;
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_del[userstatus=selected] .nexacontentsbox
 {
@@ -2309,6 +2403,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_insert[userstatus=pushed] .nexacontentsbox
 {
@@ -2321,6 +2416,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_insert[userstatus=selected] .nexacontentsbox
 {
@@ -2332,6 +2428,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_logout[userstatus=pushed] .nexacontentsbox
 {
@@ -2343,6 +2440,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_logout[userstatus=selected] .nexacontentsbox
 {
@@ -2354,6 +2452,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_message[userstatus=pushed] .nexacontentsbox
 {
@@ -2365,6 +2464,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_message[userstatus=selected] .nexacontentsbox
 {
@@ -2381,6 +2481,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_can[userstatus=selected]
 {
@@ -2388,6 +2489,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .TextArea.txt_default[userstatus=nulltext]
 {
@@ -2413,6 +2515,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_pdf[userstatus=pushed] .nexacontentsbox
 {
@@ -2425,8 +2528,51 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_pdf[userstatus=selected] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_default[userstatus=pushed]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_default[userstatus=selected]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_cal[userstatus=pushed]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_cal[userstatus=pushed] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_cal[userstatus=selected]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_cal[userstatus=selected] .nexacontentsbox
 {
 	text-align : center;
 	background-position-x : center;
@@ -2773,19 +2919,13 @@ textarea::-webkit-scrollbar { display: none; }
 	background : #ffffff;
 	color : #444444;
 }
-#nexacontainer .Button.btn_default[status=disabled]
-{
-	background : #0d6efd;
-	color : #ffffff;
-	font : 12px "Malgun Gothic";
-	border : 1px solid #0d6efd;
-}
 #nexacontainer .Button.btn_exel[status=disabled]
 {
 	color : #0d6efd;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #0d6efd;
 	background : #ffffff;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_exel[status=disabled] .nexacontentsbox
 {
@@ -2797,6 +2937,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_home[status=disabled] .nexacontentsbox
 {
@@ -2809,6 +2950,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_search[status=disabled] .nexacontentsbox
 {
@@ -2821,6 +2963,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #1c0c7c;
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_del[status=disabled] .nexacontentsbox
 {
@@ -2833,6 +2976,7 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_insert[status=disabled] .nexacontentsbox
 {
@@ -2844,6 +2988,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_logout[status=disabled] .nexacontentsbox
 {
@@ -2855,6 +3000,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	background : #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_message[status=disabled] .nexacontentsbox
 {
@@ -2871,6 +3017,7 @@ textarea::-webkit-scrollbar { display: none; }
 	color : #ffffff;
 	font : 12px "Malgun Gothic";
 	border : 1px solid #1c0c7c;
+	cursor : pointer;
 }
 #nexacontainer .TextArea.txt_default[status=disabled]
 {
@@ -2890,8 +3037,36 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 12px "Malgun Gothic";
 	background : #ffffff;
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 #nexacontainer .Button.btn_pdf[status=disabled] .nexacontentsbox
+{
+	text-align : center;
+	background-position-x : center;
+}
+#nexacontainer .Button.btn_default[status=disabled]
+{
+	background : #0d6efd;
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Grid.grd_default .head[status=disabled]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+#nexacontainer .Button.btn_cal[status=disabled]
+{
+	color : #ffffff;
+	font : 12px "Malgun Gothic";
+	background : #0d6efd;
+	border : 1px solid #0d6efd;
+	cursor : pointer;
+}
+#nexacontainer .Button.btn_cal[status=disabled] .nexacontentsbox
 {
 	text-align : center;
 	background-position-x : center;
@@ -2944,22 +3119,22 @@ textarea::-webkit-scrollbar { display: none; }
 	background : #6c9cff;
 	color : #ffffff;
 }
+#nexacontainer .Grid.grd_default .head .row .cell[status=mouseover][userstatus=blinked]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
+#nexacontainer .Grid.grd_default .head .row .cell[status=mouseover][userstatus=invalidtext]
+{
+	font : bold 12px/normal "Malgun Gothic";
+	background : #6c9cff;
+	color : #ffffff;
+}
 #nexacontainer .Grid.grd_default .body .row .cell[userstatus=selected][status=mouseover]
 {
 	font : bold 12px "Malgun Gothic";
 	color : #1c0c7c;
-}
-#nexacontainer .Button.btn_default[status=mouseover][userstatus=pushed]
-{
-	background : #6c9cff;
-	color : #ffffff;
-	font : bold 12px/normal "Malgun Gothic";
-}
-#nexacontainer .Button.btn_default[status=mouseover][userstatus=selected]
-{
-	background : #6c9cff;
-	color : #ffffff;
-	font : bold 12px/normal "Malgun Gothic";
 }
 #nexacontainer .Calendar.cal_default .dropbutton[status=disabled][userstatus=pushed]
 {

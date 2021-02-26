@@ -326,7 +326,7 @@
         
         // User Script
         this.registerScript("chart.xfdl", function() {
-
+        this.objApp =nexacro.getApplication();
         this.chart_onload = function(obj,e)
         {
         	this.transaction(
@@ -342,194 +342,37 @@
         this.fn_callback = function()
         {
 
+
         	for (var i=0; i<this.colCodeChartCopy_ds.getRowCount();i++)
         	{
         		var category = this.colCodeChartCopy_ds.getColumn(i,"category");
         		var count = this.colCodeChartCopy_ds.getColumn(i,"count");
-        		if(category == '10')
-        		{
-        			this.colCodeChart_ds.addRow();
-        			this.colCodeChart_ds.setColumn(i,"category","인문대학");
-        			this.colCodeChart_ds.setColumn(i,"value",count);
+        		var fRow = this.objApp.colCode.findRow("code",category);
+        		var colCode = this.objApp.colCode.getColumn(fRow,"code");
+        		var colName = this.objApp.colCode.getColumn(fRow,"name");
 
-        		}
-        		else if (category == '20')
+        		if(category == colCode)
         		{
         			this.colCodeChart_ds.addRow();
-        			this.colCodeChart_ds.setColumn(i,"category","사회과학대학");
+        			this.colCodeChart_ds.setColumn(i,"category",colName);
         			this.colCodeChart_ds.setColumn(i,"value",count);
         		}
-        		else if (category == '30')
-        		{
-        			this.colCodeChart_ds.addRow();
-        			this.colCodeChart_ds.setColumn(i,"category","자연과학대학");
-        			this.colCodeChart_ds.setColumn(i,"value",count);
-        		}
-        		else if (category == '40')
-        		{
-        			this.colCodeChart_ds.addRow();
-        			this.colCodeChart_ds.setColumn(i,"category","간호대학");
-        			this.colCodeChart_ds.setColumn(i,"value",count);
-        		}
-        		else if (category == '50')
-        		{
-        			this.colCodeChart_ds.addRow();
-        			this.colCodeChart_ds.setColumn(i,"category","공과대학");
-        			this.colCodeChart_ds.setColumn(i,"value",count);
-        		}
-        		else if (category == '60')
-        		{
-        			this.colCodeChart_ds.addRow();
-        			this.colCodeChart_ds.setColumn(i,"category","사범대학");
-        			this.colCodeChart_ds.setColumn(i,"value",count);
-        		}
+
         	}
 
 
-
-
-
-
+        	//학과별 사람 수
         	for (var j=0; j<this.deptCodeChartCopy_ds.getRowCount(); j++)
         	{
         		var category = this.deptCodeChartCopy_ds.getColumn(j,"category");
         		var count = this.deptCodeChartCopy_ds.getColumn(j,"count");
-        		if(category == '11')
+        		var fRow = this.objApp.deptCode.findRow("code",category);
+        		var deptCode = this.objApp.deptCode.getColumn(fRow,"code");
+        		var deptName = this.objApp.deptCode.getColumn(fRow,"name");
+        		if(category == deptCode)
         		{
         			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","국어국문학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '12')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","영어영문학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '13')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","국사학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '14')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","철학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '21')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","사회복지학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '12')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","영어영문학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '22')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","경제학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '23')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","사회학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '24')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","심리학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '31')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","통계학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '32')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","화학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '33')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","생명과학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '41')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","간호학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '51')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","전기공학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '52')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","컴퓨터공학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '53')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","화학생물공학부");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '54')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","건축학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '55')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","산업공학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '61')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","교육학과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '62')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","국어교육과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '63')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","영어교육과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '64')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","수학교육과");
-        			this.deptCodeChart_ds.setColumn(j,"value",count);
-        		}
-        		else if (category == '65')
-        		{
-        			this.deptCodeChart_ds.addRow();
-        			this.deptCodeChart_ds.setColumn(j,"category","체육교육과");
+        			this.deptCodeChart_ds.setColumn(j,"category",deptName);
         			this.deptCodeChart_ds.setColumn(j,"value",count);
         		}
         	}

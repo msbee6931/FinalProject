@@ -29,10 +29,13 @@ public class ClassService {
 	public int classScheduleUpdate(ClassScheduleDTO dto) {
 		return dao.classScheduleUpdate(dto);
 	}
+	public List<ClassDTO> proMyClassList(int proCode){
+		return dao.proMyClassList(proCode);
+	}
 	public List<ClassDTO> classReqList(){
 		return dao.classReqList();
 	}
-	public List<ClassDTO> classListProCode(String proCode,String startTime,String endTime){
+	public List<ClassDTO> classListProCode(int proCode,String startTime,String endTime){
 		return dao.classListProCode(proCode,startTime,endTime);
 	}
 	public List<ClassDTO> classList(){
@@ -125,7 +128,7 @@ public class ClassService {
 	public int stdTimeTableSeqDel(List<StudentClassDTO>list) {
 		return dao.stdTimeTableSeqDel(list);
 	}
-	public List<ClassDTO> proClassList(String proCode,String startTime,String endTime){
+	public List<ClassDTO> proClassList(int proCode,String startTime,String endTime){
 		return dao.proClassList(proCode,startTime,endTime);
 	}
 	public List<StudentClassDTO> stdListSeq(StudentClassDTO dto){

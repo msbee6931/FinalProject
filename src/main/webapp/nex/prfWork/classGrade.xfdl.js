@@ -943,15 +943,14 @@
         }
 
 
-
-        this.btnExport_onclick = function(obj,e)
+        this.btn_exel_onclick = function(obj,e)
         {
         	var nRow = this.ds_class.rowposition;
         	var className = this.ds_class.getColumn(nRow,"className");
         	this.exportObj = new ExcelExportObject("Export00", this);
 
         	this.exportObj.set_exportfilename(className + " 성적 집계");
-        	this.exportObj.set_exporturl("http://localhost/nexacro-xeni/XExportImport");
+        	this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
 
         	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.gr_rank, "Sheet1!A1");
 
@@ -962,6 +961,7 @@
 
         	trace("Number of Exported Item: " + intExportedItem);
         };
+
         this.Export00_onsuccess = function(obj, e)
         {
         	trace("Export00_onsuccess");
@@ -999,6 +999,7 @@
         		alert("수업을 선택해주세요");
         	}
         };
+
 
         });
         

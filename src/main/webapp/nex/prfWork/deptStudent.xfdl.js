@@ -22,6 +22,12 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
+            obj = new Static("Static01","30","10",null,null,"28","30",null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_text("Static01");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_visible("false");
@@ -46,15 +52,15 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_stdList","29","60",null,null,"640","70",null,null,null,null,this);
+            obj = new Grid("gr_stdList","38","71",null,null,"615","70",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_students");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"104\"/><Column size=\"93\"/><Column size=\"65\"/><Column size=\"68\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"성별\"/><Cell col=\"4\" text=\"재적상태\"/></Band><Band id=\"body\"><Cell text=\"bind:s_seq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"2\" text=\"bind:colGrade\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"3\" text=\"expr:gender=='M'?'남':'여'\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"4\" text=\"bind:rest\" textAlign=\"center\" expr=\"expr:rest=='Y'?'재학':'휴학'\" cursor=\"pointer\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"104\"/><Column size=\"93\"/><Column size=\"65\"/><Column size=\"68\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"성별\"/><Cell col=\"4\" text=\"재적상태\"/></Band><Band id=\"body\"><Cell text=\"bind:s_seq\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"2\" text=\"bind:colGrade\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"3\" text=\"expr:gender=='M'?'남':'여'\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"4\" text=\"bind:rest\" textAlign=\"center\" expr=\"expr:rest=='N'?'재학':'휴학'\" cursor=\"pointer\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_Info","460","20",null,null,"40","70",null,null,null,null,this);
+            obj = new Div("div_Info",null,"20","574",null,"36","70",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("학생 정보");
             obj.set_cssclass("div_line");
@@ -98,31 +104,37 @@
             obj = new Edit("edt_name","90","78","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("7");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_enroll","90","118","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("8");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_colGrade","341","78","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("9");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","341","278","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("10");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","90","278","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("11");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","90","318","450","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("12");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Radio("rd_gender","341","105","190","50",null,null,null,null,null,null,this.div_Info.form);
@@ -143,6 +155,7 @@
             obj = new Edit("edt_dept","341","158","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("15");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("sta_code","20","30","70","40",null,null,null,null,null,null,this.div_Info.form);
@@ -153,6 +166,7 @@
             obj = new Edit("edt_code","90","38","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("17");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("sta_col","20","150","70","40",null,null,null,null,null,null,this.div_Info.form);
@@ -163,6 +177,7 @@
             obj = new Edit("edt_col","89","158","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("19");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("sta_birth","271","30","70","40",null,null,null,null,null,null,this.div_Info.form);
@@ -173,11 +188,13 @@
             obj = new Edit("edt_birth","341","38","150","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("21");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Div("div_search","30","20",null,null,"640","461",null,null,null,null,this);
+            obj = new Div("div_search","39","20","426","39",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_cssclass("div_line");
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_grade","5","3","30","30",null,null,null,null,null,null,this.div_search.form);
@@ -185,10 +202,11 @@
             obj.set_text("학년");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Combo("co_grade","34","3","100","30",null,null,null,null,null,null,this.div_search.form);
+            obj = new Combo("co_grade","34","6","100","25",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("1");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_cssclass("cmb_default");
             var div_search_form_co_grade_innerdataset = new nexacro.NormalDataset("div_search_form_co_grade_innerdataset", obj);
             div_search_form_co_grade_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\"/><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1학년</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2학년</Col></Row><Row><Col id=\"codecolumn\">3</Col><Col id=\"datacolumn\">3학년</Col></Row><Row><Col id=\"codecolumn\">4</Col><Col id=\"datacolumn\">4학년</Col></Row></Rows>");
             obj.set_innerdataset(div_search_form_co_grade_innerdataset);
@@ -197,11 +215,12 @@
             obj.set_index("0");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Combo("co_category","144","3","100","30",null,null,null,null,null,null,this.div_search.form);
+            obj = new Combo("co_category","144","6","76","25",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("2");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_tooltiptext("학번은 일치할 경우만 검색가능합니다");
+            obj.set_cssclass("cmb_default");
             var div_search_form_co_category_innerdataset = new nexacro.NormalDataset("div_search_form_co_category_innerdataset", obj);
             div_search_form_co_category_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">s_seq</Col><Col id=\"datacolumn\">학번</Col></Row><Row><Col id=\"codecolumn\">name</Col><Col id=\"datacolumn\">이름</Col></Row></Rows>");
             obj.set_innerdataset(div_search_form_co_category_innerdataset);
@@ -210,14 +229,15 @@
             obj.set_index("0");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search","248","3","108","31",null,null,null,null,null,null,this.div_search.form);
+            obj = new Edit("edt_search","228","6","108","25",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("3");
+            obj.set_cssclass("edt_default");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","366","3","30","30",null,null,null,null,null,null,this.div_search.form);
+            obj = new Button("btnSearch","346","6","60","25",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("4");
             obj.set_cssclass("btn_search");
-            obj.set_text("");
+            obj.set_text("조회");
             this.div_search.addChild(obj.name, obj);
 
             // Layout Functions

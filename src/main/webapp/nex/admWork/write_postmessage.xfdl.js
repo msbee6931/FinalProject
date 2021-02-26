@@ -82,6 +82,7 @@
 
             obj = new TextArea("TextArea00","12","9","480","252",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
+            obj.set_cssclass("txt_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
 
             obj = new Button("Button00","925","410","92","31",null,null,null,null,null,null,this.Div00.form);
@@ -94,7 +95,8 @@
             obj.set_taborder("3");
             obj.set_binddataset("professor");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"132\"/><Column size=\"96\"/><Column size=\"132\"/><Column size=\"140\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"p_seq\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"email\"/><Cell col=\"3\" text=\"contact\"/></Band><Band id=\"body\"><Cell text=\"bind:p_seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:email\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:contact\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"132\"/><Column size=\"96\"/><Column size=\"132\"/><Column size=\"140\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"id\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"email\"/><Cell col=\"3\" text=\"contact\"/></Band><Band id=\"body\"><Cell text=\"bind:p_seq\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:email\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:contact\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00","519","90","100","29",null,null,null,null,null,null,this.Div00.form);
@@ -138,7 +140,7 @@
         this.Div00_Button00_onclick = function(obj,e)
         {
         		var receiver = this.Div00.form.Div00.form.Edit00.value;
-        		var contents=this.Div00.form.Div00_00.form.TextArea00.value;
+        		var contents=nexacro.wrapQuote(this.Div00.form.Div00_00.form.TextArea00.value);
 
         		 this.transaction(
                     "PMInsert"
