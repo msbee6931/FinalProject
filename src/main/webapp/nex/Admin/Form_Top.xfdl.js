@@ -162,7 +162,6 @@
 
         this.fn_setFrameSize = function(type)
         {
-        	alert("홈 확인");
         	if(type == "home"){
         		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
         	} else {

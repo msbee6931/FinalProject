@@ -373,33 +373,21 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"52\"/><Column size=\"68\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"순위\"/><Cell col=\"9\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:rank\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_rank\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format><Format id=\"PassFail\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"92\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_passFail\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
             obj = new Button("btnSave2","930","500","100","25",null,null,null,null,null,null,this);
-=======
-
-            obj = new Button("btnSave2","930","500","100","25",null,null,null,null,null,null,this);
-
->>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             obj.set_taborder("47");
             obj.set_text("저장");
             obj.set_positionstep("1");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_rank","40","290","210","160",null,null,null,null,null,null,this);
+            obj = new Div("div_rank","40","325","210","160",null,null,null,null,null,null,this);
             obj.set_taborder("48");
             obj.set_text("Div00");
             obj.set_positionstep("1");
             obj.set_url("prfWork::rankStandard.xfdl");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
             obj = new Button("btn_exel","820","500","100","25",null,null,null,null,null,null,this);
-=======
-
-            obj = new Button("btn_exel","820","500","100","25",null,null,null,null,null,null,this);
-
->>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             obj.set_taborder("49");
             obj.set_text("Exel");
             obj.set_positionstep("1");
@@ -1013,10 +1001,6 @@
         };
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a986354821a335ba4e31612508e783b25c5e7235
         });
         
         // Regist UI Components Event

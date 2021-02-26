@@ -25,8 +25,8 @@ public class ScheduleDAO {
 		return session.update("Schedule.updateDeptSchedule", dto);
 	}
 	
-	public List<DeptScheduleDTO> selectDeptSchedule() {
-		return session.selectList("Schedule.selectDeptSchedule");
+	public List<DeptScheduleDTO> selectDeptSchedule(String deptCode) {
+		return session.selectList("Schedule.selectDeptSchedule",deptCode);
 	}
 	
 	public int updateDeptScheule(DeptScheduleDTO dto) {

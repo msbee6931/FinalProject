@@ -65,13 +65,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"72\"/><Column size=\"111\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"확인\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:write_date\"/><Cell col=\"4\" text=\"bind:view_count\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-<<<<<<< HEAD
             obj = new Div("Div00",null,"13","568",null,"36","40",null,null,null,null,this.Div00.form);
-=======
-
-            obj = new Div("Div00","439","13",null,null,"11","40",null,null,null,null,this.Div00.form);
-
->>>>>>> a986354821a335ba4e31612508e783b25c5e7235
             obj.set_taborder("1");
             obj.set_text("");
             obj.set_cssclass("div_line");
