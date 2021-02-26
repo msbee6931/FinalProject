@@ -37,12 +37,13 @@ public class StudentsService {
 	}
 	public List<ChartDTO> selectGenderCount() {
 		return dao.selectGenderCount();
-	}
-	
+	}	
 	public List<StudentsDTO> selectAllStd() {
 		return dao.selectAllStd();
 	}
-
+	public List<StudentsDTO> deptStudentList(StudentsDTO dto){
+		return dao.deptStudentList(dto);
+	}
 	
 	
 	
