@@ -2,12 +2,15 @@ package kh.spring.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
+import com.nexacro.uiadapter17.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
 
 import kh.spring.dto.FacultyDTO;
@@ -35,6 +38,9 @@ public class AdminController {
 
 	@Autowired
 	private ChattingService cService;
+	
+	@Autowired
+	private HttpSession session;
 
 	//students
 	@RequestMapping("studentslist.nex")
@@ -224,11 +230,10 @@ public class AdminController {
 
 
 	@RequestMapping("ReplyUpd.nex")
-	public NexacroResult updReply(@ParamDataSet(name="in_ds")RequestBoardDTO dto) {
-		//-- login session update 이후 바꿔 줘야함
-		String id= "0101005";
+	public NexacroResult updReply(@ParamDataSet(name="in_ds")RequestBoardDTO dto,@ParamVariable(name="reply")String reply) {
 
 		NexacroResult nr = new NexacroResult();
+		dto.setReply(reply);
 		RBservice.updateReply(dto);
 		List<RequestBoardDTO> list = RBservice.selectAll();
 		nr.addDataSet("out_ds",list);		
@@ -239,8 +244,7 @@ public class AdminController {
 
 	@RequestMapping("RBLoad.nex")
 	public NexacroResult RBNexLoad() {
-		//-- login session update 이후 바꿔 줘야함
-		String id= "0101005";
+
 		NexacroResult nr = new NexacroResult();
 		List<RequestBoardDTO> list = RBservice.selectAll();
 		nr.addDataSet("out_ds",list);
@@ -257,8 +261,7 @@ public class AdminController {
 
 	@RequestMapping("FBLoad.nex")
 	public NexacroResult FBNexLoad() throws Exception {
-		//-- login session update 이후 바꿔 줘야함
-		String id= "0101005";
+
 		NexacroResult nr = new NexacroResult();
 		int cpage = 1;
 		List<FreeBoardDTO> list = FBservice.listByCpage(cpage);

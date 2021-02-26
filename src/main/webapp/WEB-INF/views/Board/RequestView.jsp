@@ -37,43 +37,51 @@ div {
 	height: 600px;
 	position: relative;
 	text-align: center;
+	background-color: #3333CC;
 }
 
 .title {
 	width: 100%;
 	hight: 30px;
 	float: left;
+	background-color:white;
 }
 
 .bar1 {
 	float: left;
-	width: 5%
+	width: 5%;
+	background-color:white;
 }
 
 .bar2 {
 	float: left;
-	width: 50%
+	width: 50%;
+	background-color:white;
 }
 
 .bar3 {
 	float: left;
-	width: 20%
+	width: 20%;
+	background-color:white;
 }
 
 .bar4 {
 	float: left;
-	width: 20%
+	width: 20%;
+	background-color:white;
 }
 
 .bar5 {
 	float: left;
-	width: 5%
+	width: 5%;
+	background-color:white;
 }
 
 .main {
 	float: left;
 	width: 100%;
 	height: 500px;
+	background-color:white;
 }
 
 .rev {
@@ -106,10 +114,39 @@ div {
 }
 
 .reply{
-	position:relative;
+	position: relative;
 	left:17%;
-	width:600px;
+	width:1000px;
 	height:200px;
+	background-color: #435a7c;
+}
+
+.mainReply{
+	position: relative;
+	top:3%;
+	left:5%;
+	width:900px;
+	height:180px;
+	background-color: white;
+}
+
+#btn2,#btn,#upt{
+	border-radius : 10px;
+	width:100px;
+	height:30px;
+	color: white;
+	background-color: #435a7c;
+	border: 1px solid white;
+}
+.replyLine{
+	background-color: #6666FF;
+	width: 1000px;
+	height: 30px;
+	position: relative;
+	left: 17%;
+	text-align: center;
+	color: white;
+	line-height:30px;
 }
 </style>
 </head>
@@ -145,10 +182,17 @@ div {
 			</form>
 		</div>
 	</div>
+		<div class= replyLine>
+		관리자의 답변
+	</div>
 	<div class = reply>
-		답변 : ${dto.reply }
+		<div class= mainReply>${dto.reply }</div>
 	</div>
 
+				<!-- footer -->
+		<footer>
+			<jsp:include page="/WEB-INF/views/footer.jsp" />
+		</footer>
 	
 
 	<script>      

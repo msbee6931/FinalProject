@@ -4,30 +4,26 @@ import java.sql.Date;
 
 public class DeptScheduleDTO {
 	private int seq;
-	private int id;
-	private String writer;
+	private int writer;
+	private String name;
 	private String title;
 	private String sDate;
 	private String eDate;
-	private String schDate;
-	private String schDay;
 	private String code;
 	private String content;
 	private String writeDate;
 	
 	public DeptScheduleDTO() {}
 
-	public DeptScheduleDTO(int seq, int id, String writer, String title, String sDate, String eDate, String schDate,
-			String schDay, String code, String content, String writeDate) {
+	public DeptScheduleDTO(int seq, int writer, String name, String title, String sDate, String eDate, String code,
+			String content, String writeDate) {
 		super();
 		this.seq = seq;
-		this.id = id;
 		this.writer = writer;
+		this.name = name;
 		this.title = title;
 		this.sDate = sDate;
 		this.eDate = eDate;
-		this.schDate = schDate;
-		this.schDay = schDay;
 		this.code = code;
 		this.content = content;
 		this.writeDate = writeDate;
@@ -41,20 +37,20 @@ public class DeptScheduleDTO {
 		this.seq = seq;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getWriter() {
+	public int getWriter() {
 		return writer;
 	}
 
-	public void setWriter(String writer) {
+	public void setWriter(int writer) {
 		this.writer = writer;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getTitle() {
@@ -81,22 +77,6 @@ public class DeptScheduleDTO {
 		this.eDate = eDate;
 	}
 
-	public String getSchDate() {
-		return schDate;
-	}
-
-	public void setSchDate(String schDate) {
-		this.schDate = schDate;
-	}
-
-	public String getSchDay() {
-		return schDay;
-	}
-
-	public void setSchDay(String schDay) {
-		this.schDay = schDay;
-	}
-
 	public String getCode() {
 		return code;
 	}
@@ -121,8 +101,6 @@ public class DeptScheduleDTO {
 		this.writeDate = writeDate;
 	}
 
-
-	
 	
 	
 }

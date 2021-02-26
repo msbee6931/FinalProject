@@ -19,6 +19,9 @@ public class ScheduleService {
 	public int insertDeptSchedule(DeptScheduleDTO dto){
 		return sDao.insertDeptSchedule(dto);
 	}
+	public int updateDeptSchedule(DeptScheduleDTO dto) {
+		return sDao.updateDeptSchedule(dto);
+	}
 
 	public List<DeptScheduleDTO> selectDeptSchedule(){
 		return sDao.selectDeptSchedule();
@@ -28,8 +31,8 @@ public class ScheduleService {
 		return sDao.updateDeptScheule(dto);
 	}
 	
-	public DeptScheduleDTO selectOneDeptSchedule(String seq, String schDate) {
-		return sDao.selectOneDeptSchedule(seq,schDate);
+	public DeptScheduleDTO selectOneDeptSchedule(String seq) {
+		return sDao.selectOneDeptSchedule(seq);
 	}
 
 	public int deleteDeptSchedule(String oriSeq) {

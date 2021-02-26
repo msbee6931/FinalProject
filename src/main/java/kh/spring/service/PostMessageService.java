@@ -37,4 +37,12 @@ public class PostMessageService {
 	public int updateConfirm(List<PostMessageDTO> list) {
 		return dao.updateConfirm(list);
 	}
+	
+	public int alarmAdmin(String sender) {
+		return dao.alarmAdmin(sender);
+	}
+	
+	public List<PostMessageDTO> received(String sender){
+		return dao.received(sender);
+	}
 }

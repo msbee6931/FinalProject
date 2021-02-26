@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kh.spring.dao.StudentsDAO;
 import kh.spring.dto.ChartDTO;
+import kh.spring.dto.StudentClassDTO;
 import kh.spring.dto.StudentsDTO;
 
 @Service
@@ -43,6 +44,9 @@ public class StudentsService {
 	}
 	public List<StudentsDTO> deptStudentList(StudentsDTO dto){
 		return dao.deptStudentList(dto);
+	}
+	public List<StudentsDTO> classStudents(List<StudentClassDTO> list){
+		return dao.classStudents(list);
 	}
 	
 	

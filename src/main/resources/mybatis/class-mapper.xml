@@ -43,6 +43,9 @@
 		update class set reqState = 'DC' where reqState ='DR' and classSeq in
 		<foreach separator="," close=")" open="(" item="i" collection="list">#{i.classSeq} </foreach>
 	</update>
+	<select id="proMyClassList" resultType="kh.spring.dto.ClassDTO">
+		select * from class where proCode = #{proCode} and reqState = 'A'
+	</select>
 	<select id="classListSeq" resultType="kh.spring.dto.ClassDTO">
 		select * from class where classSeq = #{classSeq}
 	</select>
@@ -128,6 +131,6 @@
 		select * from class where proCode = #{proCode} and reg_date between to_date(#{startTime},'YYYYMMDD') and to_date(#{endTime},'YYYYMMDD') and reqState ='A'
 	</select>
 	<select id="stdListSeq" resultType="kh.spring.dto.StudentClassDTO">
-		select * from studentClass where classCode =#{classCode}
+		select * from studentClass where classCode =#{classCode} and basket = 'N'
 	</select>
 </mapper>

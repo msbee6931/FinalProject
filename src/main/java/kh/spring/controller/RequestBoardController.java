@@ -128,6 +128,28 @@ public class RequestBoardController {
 		return "Board/RequestView";
 	}
 	
+	@RequestMapping("viewp")
+	public String viewp(HttpServletRequest request,Model model) {
+
+		String fids = request.getParameter("login");
+		int fid = Integer.parseInt(fids);
+		String id = Integer.toString(fid);
+		String seq = request.getParameter("seq");
+		RequestBoardDTO rdto = RBservice.selectBySeq(seq);
+		//view_count +1 업데이트
+		RBservice.updateView_Count(rdto.getView_count(), seq);
+		//변동 완료후 dto 보내기
+		RequestBoardDTO dto = RBservice.selectBySeq(seq);
+		
+		model.addAttribute("dto",dto);
+		
+
+		model.addAttribute("id",id);
+		//-----------------------------------------
+
+		return "Board/RequestViewP";
+	}
+	
 	@RequestMapping("updatePage")
 	public String toUpdate(RequestBoardDTO dto,Model model) {
 

@@ -2,9 +2,11 @@ package kh.spring.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,11 +18,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.util.WebUtils;
 
+import kh.spring.dto.ColScheduleDTO;
 import kh.spring.dto.FreeBoardDTO;
 import kh.spring.dto.FreeCommentDTO;
+import kh.spring.dto.LoginInfoDTO;
+import kh.spring.dto.NoticeDTO;
+import kh.spring.service.ColScheduleService;
 import kh.spring.service.FreeBoardService;
 import kh.spring.service.FreeCommentService;
+import kh.spring.service.LoginService;
+import kh.spring.service.NoticeService;
+import kh.spring.service.SchoolScheduleService;
 
 @Controller
 @RequestMapping("/free")
@@ -32,7 +42,13 @@ public class FreeBoardController {
 	private FreeCommentService FCservice;
 	@Autowired
 	private HttpSession session;
-	
+	@Autowired
+	private NoticeService nService;
+	@Autowired
+	private LoginService lService;
+	@Autowired
+	private ColScheduleService cService;
+
 	
 	@RequestMapping("boardList")
 	public String toBoard(HttpServletRequest request,Model model) throws Exception{
@@ -41,6 +57,54 @@ public class FreeBoardController {
 			System.out.println("fid : "+fid);
 		}catch(Exception e) {
 			model.addAttribute("error","Login이 필요한 페이지입니다.");
+			int page =1;
+			String type = "home";
+			List<NoticeDTO> all = nService.selectNoticeAll();
+			List<NoticeDTO> normal = nService.selectNormalByPage(page,type);
+			List<NoticeDTO> academic = nService.selectAcademicByPage(page,type);
+			List<NoticeDTO> scholar = nService.selectScholarByPage(page,type);
+			List<NoticeDTO> employment = nService.selectEmploymentByPage(page,type);
+			model.addAttribute("all",all);
+			model.addAttribute("normal",normal);
+			model.addAttribute("academic",academic);
+			model.addAttribute("scholar",scholar);
+			model.addAttribute("employment",employment);
+			if(session.getAttribute("std") == null && session.getAttribute("pro") == null && session.getAttribute("adm") == null) {
+				Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+				System.out.println("loginCookie : " + loginCookie);
+				if(loginCookie != null) {
+					String sessionId = loginCookie.getValue();
+					LoginInfoDTO dto = new LoginInfoDTO();
+					dto.setSessionId(sessionId);
+					dto = lService.selectLoginInfo(dto); 
+					if(dto != null) {
+						if(dto.getUserType().contentEquals("std")) {
+							session.setAttribute("std", dto.getUserId());
+						}else if(dto.getUserType().contentEquals("pro")) {
+							session.setAttribute("pro", dto.getUserId());
+						}else {
+							session.setAttribute("adm",dto.getUserId());
+						}
+					}
+				}
+			}
+			//-----------------------
+			List<ColScheduleDTO> list =cService.selectAll();
+			List<ColScheduleDTO> list2 = new ArrayList<ColScheduleDTO>();
+			for(int i = 0; i<list.size(); i++) {
+				String title =list.get(i).getTitle();
+				String sdate =list.get(i).getsDate().substring(0, 4)+"-"+list.get(i).getsDate().substring(4, 6)+"-"+list.get(i).getsDate().substring(6, 8);
+				String edate =list.get(i).geteDate().substring(0,4)+"-"+list.get(i).geteDate().substring(4,6)+"-"+list.get(i).geteDate().substring(6, 8);
+				ColScheduleDTO dto = new ColScheduleDTO();
+				dto.setTitle(title);
+				dto.setsDate(sdate);
+				dto.seteDate(edate);
+				dto.setSeq(i);
+				list2.add(dto);
+			}
+			int size = list2.size();
+			model.addAttribute("size",size);
+			model.addAttribute("list",list2);
 			return "home";
 		}
 		
@@ -88,6 +152,28 @@ public class FreeBoardController {
 		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
 		model.addAttribute("list",list);
 		return "Board/FreeView";
+	}
+	
+	@RequestMapping("viewp")
+	public String viewp(HttpServletRequest request,Model model) {
+		
+		String fids = request.getParameter("login");
+		int fid = Integer.parseInt(fids);
+		String id= Integer.toString(fid);
+		String seq = request.getParameter("seq");
+		FreeBoardDTO pdto = FBservice.selectBySeq(seq);
+		//view_count +1 업데이트
+		FBservice.updateView_Count(pdto.getView_count(), seq);
+		//변동 완료후 dto 보내기
+		FreeBoardDTO dto = FBservice.selectBySeq(seq);
+		model.addAttribute("dto",dto);
+
+		model.addAttribute("id",id);
+		//-----------------------------------------
+		int page =1;
+		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
+		model.addAttribute("list",list);
+		return "Board/FreeViewP";
 	}
 	
 

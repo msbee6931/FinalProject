@@ -47,6 +47,7 @@ public class ScholarshipController {
 
 	private Logger logger = LoggerFactory.getLogger(ScholarshipController.class);
 
+
 	@Autowired
 	private HttpSession session;
 
@@ -224,6 +225,7 @@ public class ScholarshipController {
 	//학생쪽_장학금 신청 목록 조회
 	@RequestMapping("selectOneReqScholar.scholarship")
 	public NexacroResult selectOneReqScholar(@ParamVariable(name="code")int stdCode) {
+		System.out.println("학생쪽 장학금 신청 목록 불러오기");
 		NexacroResult nr = new NexacroResult();
 		List<ReqScholarDTO> list =  sService.selectOneReqScholar(stdCode);
 		nr.addDataSet("out_ds",list);
@@ -285,10 +287,17 @@ public class ScholarshipController {
 		}
 		
 		NexacroResult nr = new NexacroResult();
-
 		int result = sService.deleteReqSch(list);
-
+		return nr;
+	}
 	
+	@RequestMapping("stdSelectOne.scholarship")
+	public NexacroResult stdSelectOne() {
+		int user = (int)session.getAttribute("std");
+		System.out.println("장학금 조회띄위기 "+user);
+		NexacroResult nr = new NexacroResult();
+		List<ScholarshipDTO> list = sService.stdSelectOne(user);
+		nr.addDataSet("out_ds",list);
 		return nr;
 	}
 

@@ -6,6 +6,8 @@ public class ScholarshipDTO {
 
 	private int seq;
 	private int std_code;
+	private String std_grade;
+	private String type;
 	private int s_kind;
 	private int s_rec;
 	private int s_smt;
@@ -16,11 +18,13 @@ public class ScholarshipDTO {
 	
 	public ScholarshipDTO() {}
 
-	public ScholarshipDTO(int seq, int std_code, int s_kind, int s_rec, int s_smt, int s_spt, int s_etc, int sSum,
-			String s_date) {
+	public ScholarshipDTO(int seq, int std_code, String std_grade, String type, int s_kind, int s_rec, int s_smt,
+			int s_spt, int s_etc, int sSum, String s_date) {
 		super();
 		this.seq = seq;
 		this.std_code = std_code;
+		this.std_grade = std_grade;
+		this.type = type;
 		this.s_kind = s_kind;
 		this.s_rec = s_rec;
 		this.s_smt = s_smt;
@@ -44,6 +48,22 @@ public class ScholarshipDTO {
 
 	public void setStd_code(int std_code) {
 		this.std_code = std_code;
+	}
+
+	public String getStd_grade() {
+		return std_grade;
+	}
+
+	public void setStd_grade(String std_grade) {
+		this.std_grade = std_grade;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public int getS_kind() {
@@ -102,6 +122,7 @@ public class ScholarshipDTO {
 		this.s_date = s_date;
 	}
 
+	
 	
 		
 	

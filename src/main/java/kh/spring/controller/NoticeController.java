@@ -717,6 +717,7 @@ public class NoticeController {
 	public void downloadAll(HttpServletRequest request,HttpServletResponse resp) throws Exception {
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		String title = request.getParameter("title");
+		System.out.println("Title : " + title);
 		NoticeFileDTO dto = new NoticeFileDTO();
 		dto.setParentSeq(seq);
 		List<NoticeFileDTO> list = nService.selectFileParentSeq(dto);

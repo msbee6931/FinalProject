@@ -856,7 +856,7 @@ public class CertificationController {
 		
 		//------------성적관련--------------------
 
-		int scode=(Integer)session.getAttribute("login");
+		int scode=Integer.parseInt(s_seq);
 		List<Std_TranscriptDTO> list = STservice.selectByScode(scode);
 
 		List<Std_TranscriptDTO> f_f = new ArrayList<Std_TranscriptDTO>();
