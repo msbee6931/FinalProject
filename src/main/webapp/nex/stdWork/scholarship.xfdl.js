@@ -60,14 +60,8 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("등록금 신청");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
-            obj.set_taborder("5");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             obj.set_async("false");
@@ -78,10 +72,10 @@
             obj.set_binddataset("reqScholar_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"335\"/><Column size=\"64\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\"/><Cell col=\"1\" text=\"bind:writeDate\" displaytype=\"date\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"335\"/><Column size=\"64\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"제목\"/><Cell col=\"1\" text=\"작성날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:writeDate\" displaytype=\"date\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert","Grid00:-100","26","100",null,null,"Grid00:10",null,null,null,null,this.Div00.form);
+            obj = new Button("btn_insert","9","26","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("작성하기");
             obj.set_cssclass("btn_insert");

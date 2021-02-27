@@ -46,14 +46,8 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("장학금 신청 관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
-            obj.set_taborder("5");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
@@ -74,7 +68,6 @@
 
             obj = new Div("Div00","24","26","420","40",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
-            obj.set_cssclass("div_line");
             obj.set_text("");
             this.Div00.addChild(obj.name, obj);
 

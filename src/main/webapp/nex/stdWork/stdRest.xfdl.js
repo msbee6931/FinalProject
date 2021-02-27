@@ -56,7 +56,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","39",null,null,"29","30",null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -76,13 +76,13 @@
             obj.set_cssclass("btn_insert");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00",null,"60","425",null,"15","34",null,null,null,null,this.Div00.form);
+            obj = new Div("Div00",null,"60","425",null,"15","31",null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_contetns","15","123","394","197",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("sta_contetns","15","122","397",null,null,"27",null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             obj.set_text("");
             obj.set_cssclass("sta_line");
@@ -177,12 +177,6 @@
             obj.set_text("학 번");
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text(" 복학 신청서 관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this

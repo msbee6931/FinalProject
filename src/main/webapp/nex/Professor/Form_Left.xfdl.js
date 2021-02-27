@@ -120,7 +120,6 @@
         }
 
 
-
         });
         
         // Regist UI Components Event

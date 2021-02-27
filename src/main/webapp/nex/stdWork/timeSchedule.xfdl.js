@@ -246,6 +246,7 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.timeSchule_onload,this);
+            this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
         };
 
         this.loadIncludeScript("timeSchedule.xfdl");

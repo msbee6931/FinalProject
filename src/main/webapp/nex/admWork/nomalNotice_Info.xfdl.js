@@ -101,11 +101,13 @@
             obj = new Button("btn_cancel","679","383","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("4");
             obj.set_text("취소");
+            obj.set_cssclass("btn_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Button("btn_save","594","383","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("5");
             obj.set_text("저장");
+            obj.set_cssclass("btn_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00","139","283","100","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
@@ -120,7 +122,7 @@
             obj.set_taborder("7");
             obj.set_binddataset("ds_NoticeFiles");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"n_seq\"/><Cell col=\"2\" text=\"parentSeq\"/><Cell col=\"3\" text=\"fileName\"/><Cell col=\"4\" text=\"savedFileName\"/><Cell col=\"5\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\"/><Column size=\"50\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"50\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\"/><Cell col=\"2\" text=\"파일번호\"/><Cell col=\"3\" text=\"파일이름\"/><Cell col=\"4\"/><Cell col=\"5\" text=\"파일사이즈\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Static("Static02","439","33","100","50",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
@@ -144,6 +146,7 @@
             obj = new Button("btn_del","679","-1","60","35",null,null,null,null,null,null,this.Tab00.Tabpage1.form);
             obj.set_taborder("10");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_default");
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             // Layout Functions
@@ -371,9 +374,7 @@
         	var contents = this.Tab00.Tabpage1.form.text_contents.value;
 
         	var nRow = this.ds_Notice.addRow();
-        	var rtitle = su
         	trace(title);
-        	trace(writedate)
         	trace(contents);
 
         	var list = this.Tab00.Tabpage1.form.com_list.value;

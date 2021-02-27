@@ -67,6 +67,7 @@
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("공지사항 입력");
+            obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_list","550","101","200","50",null,null,null,null,null,null,this);
@@ -114,11 +115,13 @@
             obj = new Button("btn_cancel","690","451","60","35",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("취소");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_save","605","451","60","35",null,null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("저장");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00_00","150","351","100","50",null,null,null,null,null,null,this);
@@ -133,17 +136,19 @@
             obj.set_taborder("14");
             obj.set_binddataset("ds_NoticeFiles");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"50\"/><Column size=\"30\"/><Column size=\"120\"/><Column size=\"30\"/><Column size=\"100\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\"/><Cell col=\"3\" text=\"파일이름\"/><Cell col=\"4\"/><Cell col=\"5\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\"/><Column size=\"50\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"50\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\"/><Cell col=\"2\" text=\"파일번호\"/><Cell col=\"3\" text=\"파일이름\"/><Cell col=\"4\"/><Cell col=\"5\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_insert","750","351","60","35",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("파일찾기");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_delete","750","385","60","35",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("파일삭제");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -178,7 +183,13 @@
         	trace(id);
         	trace(ErrorCode);
         	trace(ErrorMsg);
-        	alert("ErrorCode : "+ErrorCode);
+        	if(ErrorCode == 0){
+        	alert("성공");
+        	this.fn_FileClear();
+        	this.edt_title.set_value("");
+        	this.com_list.set_value("");
+        	this.text_contents.set_value("");
+        	}
         };
         this.renotice_onload = function(obj,e)
         {
@@ -326,11 +337,6 @@
         		alert("학과구분 입력해주세요");
         		return;
         	}
-
-        	//파일전송
-        	if(this.FileUpTransfer00.filelist.length > 0){
-        	this.FileUpTransfer00.upload("/uploadNoticeFile.notice"); //file up url
-        	}
         	if(list == 'A'){
         	trace(dept);
         	this.ds_Notice.setColumn(nRow,"deptcode",list);
@@ -342,6 +348,12 @@
         	}else if(list == 'D'){
         	this.ds_Notice.setColumn(nRow,"deptcode",list);
         	}
+
+        	//파일전송
+        	if(this.FileUpTransfer00.filelist.length > 0){
+        	this.FileUpTransfer00.upload("/uploadNoticeFile.notice"); //file up url
+        	}
+
         	trace(title);
         	trace(contents);
         	this.ds_Notice.setColumn(nRow,"title",title);

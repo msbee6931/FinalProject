@@ -69,28 +69,34 @@
 
             obj = new Edit("edt_name","85","20","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","85","90","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("7");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","85","125","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","85","160","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_insert","85","320","50","30",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_text("입력");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_cancel","210","320","50","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("취소");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_06_00","10","230","75","30",null,null,null,null,null,null,this);
@@ -108,6 +114,7 @@
             obj.set_innerdataset("colCode_Copy");
             obj.set_codecolumn("Code");
             obj.set_datacolumn("Value");
+            obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_deptCode","85","265","175","30",null,null,null,null,null,null,this);
@@ -115,12 +122,14 @@
             obj.set_codecolumn("Code");
             obj.set_datacolumn("Value");
             obj.set_innerdataset("deptCode_copy");
+            obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
             obj = new MaskEdit("mas_secNumber","85","55","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_type("string");
             obj.set_format("###### - #{######}");
+            obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("com_gender","85","195","175","30",null,null,null,null,null,null,this);
@@ -128,6 +137,7 @@
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_readonly("true");
+            obj.set_cssclass("cmb_default");
             var com_gender_innerdataset = new nexacro.NormalDataset("com_gender_innerdataset", obj);
             com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">M</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">W</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
             obj.set_innerdataset(com_gender_innerdataset);

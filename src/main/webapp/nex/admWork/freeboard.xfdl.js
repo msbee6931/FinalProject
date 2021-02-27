@@ -51,13 +51,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","44",null,null,"30","30",null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"30","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","24","55",null,null,"618","40",null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","24","49",null,null,"618","40",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("free");
             obj.set_autofittype("col");
@@ -88,18 +88,18 @@
             obj.set_cssclass("btn_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","32","15","87","33",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","32","9","87","33",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("FreeBoard");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","885","408","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn",null,null,"100","30","36","4",null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","129","26","107","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Combo("Combo00","99","13","107","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_innerdataset("search");
             obj.set_codecolumn("id");
@@ -108,26 +108,21 @@
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","246","26","115","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit00","216","13","115","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","370","26","25","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00","340","13","60","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("Edit01","341","413","15","10",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text(" 자유 게시판 관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -239,7 +234,6 @@
             this.Div00.form.Div00.form.enlargement.addEventHandler("onclick",this.Div00_Div00_enlargement_onclick,this);
             this.Div00.form.del_btn.addEventHandler("onclick",this.Div00_del_btn_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
-            this.Static01.addEventHandler("onclick",this.Static01_onclick,this);
         };
 
         this.loadIncludeScript("freeboard.xfdl");

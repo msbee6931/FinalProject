@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_class", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"classPart\" type=\"STRING\" size=\"256\"/><Column id=\"className\" type=\"STRING\" size=\"256\"/><Column id=\"classSeq\" type=\"INT\" size=\"256\"/><Column id=\"classPoint\" type=\"STRING\" size=\"256\"/><Column id=\"proCode\" type=\"STRING\" size=\"256\"/><Column id=\"proName\" type=\"STRING\" size=\"256\"/><Column id=\"dept\" type=\"STRING\" size=\"256\"/><Column id=\"classTime\" type=\"STRING\" size=\"256\"/><Column id=\"classRoom\" type=\"STRING\" size=\"256\"/><Column id=\"limit\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"classGoal\" type=\"STRING\" size=\"256\"/><Column id=\"classMethod\" type=\"STRING\" size=\"256\"/><Column id=\"classEvaluation\" type=\"STRING\" size=\"256\"/><Column id=\"classReferences\" type=\"STRING\" size=\"256\"/><Column id=\"reqState\" type=\"STRING\" size=\"256\"/><Column id=\"rejectMsg\" type=\"STRING\" size=\"256\"/><Column id=\"reg_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"classPart\" type=\"STRING\" size=\"256\"/><Column id=\"className\" type=\"STRING\" size=\"256\"/><Column id=\"classSeq\" type=\"INT\" size=\"256\"/><Column id=\"classPoint\" type=\"STRING\" size=\"256\"/><Column id=\"proCode\" type=\"STRING\" size=\"256\"/><Column id=\"proName\" type=\"STRING\" size=\"256\"/><Column id=\"dept\" type=\"STRING\" size=\"256\"/><Column id=\"classTime\" type=\"STRING\" size=\"256\"/><Column id=\"classRoom\" type=\"STRING\" size=\"256\"/><Column id=\"limit\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"classGoal\" type=\"STRING\" size=\"256\"/><Column id=\"classMethod\" type=\"STRING\" size=\"256\"/><Column id=\"classEvaluation\" type=\"STRING\" size=\"256\"/><Column id=\"classReferences\" type=\"STRING\" size=\"256\"/><Column id=\"reqState\" type=\"STRING\" size=\"256\"/><Column id=\"rejectMsg\" type=\"STRING\" size=\"256\"/><Column id=\"reg_date\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -38,7 +38,12 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("gr_classList","30","60","1021","390",null,null,null,null,null,null,this);
+            obj = new Static("Static01","30","10",null,null,"26","30",null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("gr_classList","35","60",null,null,"34","70",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
@@ -46,7 +51,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"41\"/><Column size=\"73\"/><Column size=\"193\"/><Column size=\"48\"/><Column size=\"103\"/><Column size=\"57\"/><Column size=\"85\"/><Column size=\"248\"/><Column size=\"94\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"이수구분\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학년\"/><Cell col=\"5\" text=\"과목코드\"/><Cell col=\"6\" text=\"학점\"/><Cell col=\"7\" text=\"담당교수\"/><Cell col=\"8\" text=\"강의시간\"/><Cell col=\"9\" text=\"강의실\"/><Cell col=\"10\" text=\"인원수\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"3\" text=\"bind:className\" displaytype=\"normal\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditmaskchar=\"########\"/><Cell col=\"6\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"9\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_search","690","24","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_search",null,"24","120","25","280",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -59,18 +64,18 @@
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search","815","24","170","25",null,null,null,null,null,null,this);
+            obj = new Edit("edt_search",null,"24","170","25","105",null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","995","24","60","25",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,"24","60","25","34",null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_cssclass("btn_search");
             obj.set_text("조회");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","420","24","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_year",null,"24","120","25","540",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -81,7 +86,7 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","550","24","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester",null,"24","120","25","410",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -92,13 +97,13 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDel","940","460","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btnDel",null,null,"100","25","34","35",null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExport","830","460","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btnExport",null,null,"100","25","139","35",null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("Exel");
             obj.set_cssclass("btn_exel");
@@ -126,6 +131,16 @@
             obj.set_taborder("11");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Div("div_navi","146","460","674","30",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_text("Div00");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnAdd","170","17","90","38",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
+            obj.set_text("Button00");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -384,6 +399,42 @@
 
 
 
+        this.btnAdd_onclick = function(obj,e)
+        {
+        	var cut = 15;
+        	var num = 1;
+        	var nPageCount = Math.ceil(this.ds_class.getRowCount()/cut);
+        	var nWidth = "";
+        	var objPrev1 = new Button("btnPrev1",0,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviPrev1",objPrev1);
+        		objPrev1.set_text("<<");
+        		objPrev1.show();
+
+        	var	objPrev2 = new Button("btnPrev2",30,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviPrev2",objPrev2);
+        		objPrev2.set_text("<");
+        		objPrev2.show();
+
+        	for(var i=1; i<=nPageCount; i++){
+        		var objButton = new Button("btn'"+i+"'",i*30+30,0, 30, 30, null, null);
+        		this.div_navi.addChild("navi'"+i+"'",objButton);
+        		objButton.set_text(i);
+        		nWidth = i*30+30;
+        		this.objButton.addEventHandler("onclick",this.fn_paging, this)
+        		objButton.show();
+        	}
+        	var objNext1 = new Button("btnNext1",nWidth+30,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviNext1",objNext1);
+        		objNext1.set_text(">");
+        		objNext1.show();
+
+        	var	objNext2 = new Button("btnNext2",nWidth+60,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviNext2",objNext2);
+        		objNext2.set_text(">>");
+        		objNext2.show();
+        	this.ds_class.filter("currow <= '"+cut*1+"' && currow >= 1");
+        };
+
         });
         
         // Regist UI Components Event
@@ -398,6 +449,7 @@
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.btnDel.addEventHandler("onclick",this.btnDel_onclick,this);
             this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
+            this.btnAdd.addEventHandler("onclick",this.btnAdd_onclick,this);
         };
 
         this.loadIncludeScript("classList.xfdl");

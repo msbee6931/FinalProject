@@ -51,14 +51,14 @@
 
 
             obj = new Dataset("ds_deptCode", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\"/><Col id=\"name\">전체</Col></Row><Row><Col id=\"code\">11</Col><Col id=\"name\">국어국문학과</Col></Row><Row><Col id=\"code\">12</Col><Col id=\"name\">영어영문학과</Col></Row><Row><Col id=\"code\">13</Col><Col id=\"name\">국사학과</Col></Row><Row><Col id=\"code\">14</Col><Col id=\"name\">철학과</Col></Row><Row><Col id=\"code\">21</Col><Col id=\"name\">사회복지학과</Col></Row><Row><Col id=\"code\">22</Col><Col id=\"name\">경제학부</Col></Row><Row><Col id=\"code\">23</Col><Col id=\"name\">사회학과</Col></Row><Row><Col id=\"code\">24</Col><Col id=\"name\">심리학과</Col></Row><Row><Col id=\"code\">31</Col><Col id=\"name\">통계학과</Col></Row><Row><Col id=\"code\">32</Col><Col id=\"name\">화학부</Col></Row><Row><Col id=\"code\">33</Col><Col id=\"name\">생명과학부</Col></Row><Row><Col id=\"code\">41</Col><Col id=\"name\">간호학부</Col></Row><Row><Col id=\"code\">51</Col><Col id=\"name\">전기공학부</Col></Row><Row><Col id=\"code\">52</Col><Col id=\"name\">컴퓨터공학부</Col></Row><Row><Col id=\"code\">53</Col><Col id=\"name\">화학생물공학부</Col></Row><Row><Col id=\"code\">54</Col><Col id=\"name\">건축학과</Col></Row><Row><Col id=\"code\">55</Col><Col id=\"name\">산업공학과</Col></Row><Row><Col id=\"code\">61</Col><Col id=\"name\">교육학과</Col></Row><Row><Col id=\"code\">62</Col><Col id=\"name\">국어교육과</Col></Row><Row><Col id=\"code\">63</Col><Col id=\"name\">영어교육과</Col></Row><Row><Col id=\"code\">64</Col><Col id=\"name\">수학교육과</Col></Row><Row><Col id=\"code\">65</Col><Col id=\"name\">체육교육과</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"name\">전체</Col><Col id=\"code\"/></Row><Row><Col id=\"code\">1011</Col><Col id=\"name\">국어국문학과</Col></Row><Row><Col id=\"code\">1012</Col><Col id=\"name\">영어영문학과</Col></Row><Row><Col id=\"code\">1013</Col><Col id=\"name\">국사학과</Col></Row><Row><Col id=\"code\">1014</Col><Col id=\"name\">철학과</Col></Row><Row><Col id=\"code\">2021</Col><Col id=\"name\">사회복지학과</Col></Row><Row><Col id=\"code\">2022</Col><Col id=\"name\">경제학부</Col></Row><Row><Col id=\"code\">2023</Col><Col id=\"name\">사회학과</Col></Row><Row><Col id=\"code\">2024</Col><Col id=\"name\">심리학과</Col></Row><Row><Col id=\"code\">3031</Col><Col id=\"name\">통계학과</Col></Row><Row><Col id=\"code\">3032</Col><Col id=\"name\">화학부</Col></Row><Row><Col id=\"code\">3033</Col><Col id=\"name\">생명과학부</Col></Row><Row><Col id=\"code\">4041</Col><Col id=\"name\">간호학부</Col></Row><Row><Col id=\"code\">5051</Col><Col id=\"name\">전기공학부</Col></Row><Row><Col id=\"code\">5052</Col><Col id=\"name\">컴퓨터공학부</Col></Row><Row><Col id=\"code\">5053</Col><Col id=\"name\">화학생물공학부</Col></Row><Row><Col id=\"code\">5054</Col><Col id=\"name\">건축학과</Col></Row><Row><Col id=\"code\">5055</Col><Col id=\"name\">산업공학과</Col></Row><Row><Col id=\"code\">6061</Col><Col id=\"name\">교육학과</Col></Row><Row><Col id=\"code\">6062</Col><Col id=\"name\">국어교육과</Col></Row><Row><Col id=\"code\">6063</Col><Col id=\"name\">영어교육과</Col></Row><Row><Col id=\"code\">6064</Col><Col id=\"name\">수학교육과</Col></Row><Row><Col id=\"code\">6065</Col><Col id=\"name\">체육교육과</Col></Row><Row><Col id=\"code\">7071</Col><Col id=\"name\">교양학과</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Div("div_Info","30","10","200",null,null,"30",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("Info");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00","9","69","80","25",null,null,null,null,null,null,this.div_Info.form);
@@ -223,7 +223,7 @@
             obj.set_cssclass("cmb_dept");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList","240","35",null,null,"50","285",null,null,null,null,this);
+            obj = new Grid("gr_classList","240","43",null,null,"29","282",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
@@ -231,12 +231,12 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"44\"/><Column size=\"68\"/><Column size=\"216\"/><Column size=\"47\"/><Column size=\"57\"/><Column size=\"181\"/><Column size=\"38\"/><Column size=\"58\"/><Column size=\"91\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"과목코드\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"담당교수\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"신청\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"신청/제한인원\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"3\" text=\"bind:className\" textDecoration=\"underline\" tooltiptext=\"수업계획서 보기\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" displaytype=\"buttoncontrol\" text=\"신청\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00","250","10","100","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00","240","14","130","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("▷ 개설강좌 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00_00","240","255",null,null,"50","45",null,null,null,null,this);
+            obj = new Grid("Grid00_00","240","271",null,null,"30","29",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_myClass");
             obj.set_autofittype("col");
@@ -244,7 +244,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"45\"/><Column size=\"60\"/><Column size=\"46\"/><Column size=\"75\"/><Column size=\"236\"/><Column size=\"47\"/><Column size=\"68\"/><Column size=\"226\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"취소\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"과목명\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"담당교수\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/></Band><Band id=\"body\"><Cell displaytype=\"buttoncontrol\" text=\"취소\" cursor=\"pointer\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"4\" text=\"bind:className\" cursor=\"pointer\" textDecoration=\"underline\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00","240","230","120","30",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_00","240","242","150","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("▷ 수강신청내역 리스트");
             this.addChild(obj.name, obj);
@@ -449,11 +449,9 @@
         					alert("수강 가능한 학년이 아닙니다");
         					return;
         				}else{
-        					if(dept != myDept){
-        						if(part == "A" || "B"){
-        							alert("다른 학과 전공은 신청이 불가능합니다");
-        							return;
-        						}
+        					if(dept != myDept && dept != "7071" && part != "F"){
+        						alert("다른 학과 전공은 신청이 불가능합니다");
+        						return;
         					}else{
         						var classTime = this.ds_class.getColumn(nRow,"classTime");
         						var className = this.ds_class.getColumn(nRow,"className");

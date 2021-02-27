@@ -65,7 +65,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -127,23 +127,23 @@
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","115","123","382","100",null,null,null,null,null,null,this.Div00.form.Div00.form);
-            obj.set_taborder("7");
-            obj.set_binddataset("absFileList_ds");
-            obj.set_autofittype("col");
-            obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"32\"/><Column size=\"419\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"0\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj = new Static("Static02","16","220","550",null,null,"31",null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("9");
+            obj.set_cssclass("sta_line");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_down","496","122","70","101",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Button("btn_down","496","123","70","97",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("8");
             obj.set_text("파일\r\n다운로드");
             obj.set_cssclass("btn_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02","16","221","547","127",null,null,null,null,null,null,this.Div00.form.Div00.form);
-            obj.set_taborder("9");
-            obj.set_cssclass("sta_line");
+            obj = new Grid("Grid00","115","123","382","97",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj.set_taborder("7");
+            obj.set_binddataset("absFileList_ds");
+            obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"32\"/><Column size=\"419\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"0\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_insert","Grid00:-100","26","100","25",null,null,null,null,null,null,this.Div00.form);
@@ -152,14 +152,8 @@
             obj.set_cssclass("btn_insert");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("휴학 신청");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
             obj = new Static("sta_default","490","305","490","70",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
+            obj.set_taborder("5");
             obj.set_text("");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);

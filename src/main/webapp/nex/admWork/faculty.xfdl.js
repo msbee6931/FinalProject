@@ -22,38 +22,44 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","29","80","1021","360",null,null,null,null,null,null,this);
+            obj = new Static("Static01","30","10",null,null,"26","30",null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("Grid00","35","80",null,null,"34","80",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_faculty");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"교직원번호\"/><Cell col=\"2\" text=\"이름\"/><Cell col=\"3\" text=\"주민번호\"/><Cell col=\"4\" text=\"email\"/><Cell col=\"5\" text=\"전화번호\"/><Cell col=\"6\" text=\"주소\"/><Cell col=\"7\" text=\"학과분류\"/><Cell col=\"8\" text=\"학과\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:f_seq\"/><Cell col=\"2\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"3\" text=\"bind:secNumber\" edittype=\"mask\" displaytype=\"mask\" maskedittype=\"string\" maskeditformat=\"###### - #######\"/><Cell col=\"4\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"5\" text=\"bind:contact\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:address\" edittype=\"normal\"/><Cell col=\"7\" text=\"bind:colCode\" edittype=\"combo\" combodataset=\"colCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"8\" text=\"bind:deptCode\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_retrive","950","40","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_retrive",null,"40","100","25","34",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_cssclass("btn_default");
             obj.set_text("전체조회");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_save","840","450","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_save",null,null,"100","25","140","45",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("저장");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","950","450","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_del",null,null,"100","25","34","45",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_add","840","40","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_add",null,"40","100","25","140",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("입력");
             obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("cb_search","30","40","100","25",null,null,null,null,null,null,this);
+            obj = new Combo("cb_search","35","40","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");

@@ -52,7 +52,7 @@
             obj.set_cssclass("btn_search");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester","530","20","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_semester",null,"20","120","25","410",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -63,7 +63,7 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year","400","20","120","25",null,null,null,null,null,null,this);
+            obj = new Combo("co_year",null,"20","120","25","540",null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -98,7 +98,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gt_classList","40","54",null,null,"40","70",null,null,null,null,this);
+            obj = new Grid("gt_classList","40","54",null,null,"40","80",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
@@ -106,7 +106,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"90\"/><Column size=\"179\"/><Column size=\"55\"/><Column size=\"113\"/><Column size=\"68\"/><Column size=\"114\"/><Column size=\"209\"/><Column size=\"103\"/><Column size=\"57\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"과목코드\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"담당교수\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"인원수\"/></Band><Band id=\"body\"><Cell text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"#########\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_exel","940","450","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_exel",null,null,"100","25","40","45",null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("Exel");
             obj.set_cssclass("btn_exel");

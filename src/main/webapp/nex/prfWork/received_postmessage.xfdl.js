@@ -46,13 +46,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","0","25","319","391",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","0","9","319",null,null,"41",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_binddataset("pst");
             obj.set_autofittype("col");
@@ -60,23 +60,23 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"121\"/><Column size=\"127\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"sender\"/><Cell col=\"2\" text=\"receiver\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:sender\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:receiver\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00","320","240","679","172",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","320",null,null,"197","10","41",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new TextArea("TextArea00","8","10","665","154",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new TextArea("TextArea00","8",null,null,"178","14","7",null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00_00","320","40","679","163",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00_00","320","40",null,null,"10","275",null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","6","8","668","147",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
+            obj = new Edit("Edit00","6","8",null,null,"13","6",null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
             obj.set_cssclass("edt_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
@@ -88,30 +88,24 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","319","209","152","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00","319","Div00_00:6","152","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_text("reply");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","198","418","100","28",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn","219",null,"100","25",null,"13",null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("send_btn","889","417","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("send_btn",null,null,"100","25","10","14",null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("전송");
             obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("받은 쪽지함");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this

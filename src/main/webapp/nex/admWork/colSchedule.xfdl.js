@@ -51,7 +51,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_schedule","30","38",null,null,"29","30",null,null,null,null,this);
+            obj = new Div("div_schedule","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
@@ -98,12 +98,6 @@
             obj.set_text("남은 일정");
             obj.set_cssclass("btn_cal");
             this.div_schedule.addChild(obj.name, obj);
-
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("학사 스케줄");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this

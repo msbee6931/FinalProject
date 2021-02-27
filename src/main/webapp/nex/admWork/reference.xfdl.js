@@ -20,12 +20,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("Dataset00", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"size\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"size\" type=\"STRING\" size=\"256\"/><Column id=\"parentSeq\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("reference", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/><Column id=\"parentSeq\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -37,7 +37,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00","29","115","870","150",null,null,null,null,null,null,this);
+            obj = new Static("Static00","30","75",null,"150","180",null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("Drop Files Here");
             obj.set_visible("true");
@@ -48,44 +48,33 @@
             obj.set_verticalAlign("middle");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","909","115","140","75",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_text("파일찾기");
-            obj.set_cssclass("btn_default");
+            obj = new Static("Static01_00","30","10",null,null,"26","30",null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("sta_line");
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","30","115","880","150",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","36","52",null,"150","174",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"57\"/><Column size=\"318\"/><Column size=\"108\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:name\"/><Cell col=\"2\" text=\"bind:size\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"418\"/><Column size=\"369\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:size\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button02","911","190","140","75",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_text("삭제");
-            obj.set_cssclass("btn_can");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("Button03","874","445","100","25",null,null,null,null,null,null,this);
+            obj = new Button("Button03",null,null,"100","25","35","40",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("작성하기");
             obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","88","28","72","36",null,null,null,null,null,null,this);
+            obj = new Static("Static01","36","28","104","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("Title : ");
-            obj.set_cssclass("sta_title");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("title","168","30","400","30",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
-            obj = new TextArea("contents","30","264","1020","156",null,null,null,null,null,null,this);
+            obj = new TextArea("contents","36","202",null,null,"40","75",null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
@@ -112,6 +101,23 @@
             obj.set_taborder("11");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00",null,"52","140","80","40",null,null,null,null,null,this);
+            obj.set_taborder("0");
+            obj.set_text("파일찾기");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("title","139","28",null,"25","40",null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_cssclass("edt_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button02",null,"131","140","75","40",null,null,null,null,null,this);
+            obj.set_taborder("3");
+            obj.set_text("삭제");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -298,35 +304,39 @@
         			"in_ds=reference:U",//in_ds:U
         			"",//()_out_ds
         			"",//argument
-        			"fn_callback"
+        			"file_callback"
         	)
-
-        	//파일전송
-        	this.FileUpTransfer00.upload("/reference/uploadFile"); //file up url
-        	alert("등록되었습니다.")
-        	this.title.set_value("");
-        	this.contents.set_value("");
-        	this.Dataset00.reset();
-        	this.FileUpTransfer00.clearFileList();
 
 
         		}
 
 
         };
+        this.file_callback = function (tID, eCode, eMag)
+        {
+        	trace("parentSeq = "+this.parentSeq);
+        	this.FileUpTransfer00.setPostData("parentSeq",this.parentSeq);
+        	//파일전송
+        	this.FileUpTransfer00.upload("/reference/uploadFile");
 
+        	alert("등록되었습니다.")
+        	this.title.set_value("");
+        	this.contents.set_value("");
+        	this.Dataset00.reset();
+        	this.FileUpTransfer00.clearFileList();
+        }
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-            this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
             this.Grid00.addEventHandler("ondragenter",this.Grid00_ondragenter,this);
             this.Grid00.addEventHandler("ondragleave",this.Grid00_ondragleave,this);
             this.Grid00.addEventHandler("ondrop",this.Grid00_ondrop,this);
             this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
-            this.Button02.addEventHandler("onclick",this.Button02_onclick,this);
             this.Button03.addEventHandler("onclick",this.Button03_onclick,this);
+            this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
+            this.Button02.addEventHandler("onclick",this.Button02_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);
             this.FileUpTransfer00.addEventHandler("onsuccess",this.FileUpTransfer00_onsuccess,this);

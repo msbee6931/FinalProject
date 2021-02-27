@@ -77,13 +77,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new BasicChart("BasicChart00","19","20","490","250",null,null,null,null,null,null,this.Div00.form);
+            obj = new BasicChart("BasicChart00","19","18",null,null,"510","210",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("colCodeChart_ds");
             obj._setContents({
@@ -177,13 +177,13 @@
             obj.set_categorycolumn("bind:category");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new PieChart("PieChart00","174","280","175","160",null,null,null,null,null,null,this.Div00.form);
+            obj = new PieChart("PieChart00","174","289",null,null,"670","29",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_binddataset("genderChart_ds");
             obj._setContents({
             	"title": {
             		"id": "title",
-            		"text": "학생 성(姓) 수",
+            		"text": "학생 남녀 수",
             		"textfont": "bold 14px/normal \"맑은 고딕\"",
             		"padding": "0px 0px 5px"
             	},
@@ -223,7 +223,7 @@
             obj.set_categorycolumn("bind:category");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new FloatChart("FloatChart00","559","18","432","393",null,null,null,null,null,null,this.Div00.form);
+            obj = new FloatChart("FloatChart00","559","18",null,null,"28","9",null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_binddataset("deptCodeChart_ds");
             obj._setContents({
@@ -289,12 +289,6 @@
             });
             obj.set_categorycolumn("bind:category");
             this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("통계 관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
