@@ -137,7 +137,10 @@
         
         // User Script
         this.registerScript("reference.xfdl", function() {
+<<<<<<< HEAD
         this.parentSeq="";
+=======
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
 
         this.Button00_onclick = function(obj,e)
         {

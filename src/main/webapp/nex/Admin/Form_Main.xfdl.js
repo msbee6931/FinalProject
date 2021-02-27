@@ -62,7 +62,11 @@
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Button("btnReference","170","369","120","50",null,null,null,null,null,null,this);
+=======
+            obj = new Button("btnReference","169","369","120","50",null,null,null,null,null,null,this);
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_taborder("1");
             obj.set_text("자료실 관리");
             obj.set_cssclass("btn_default");
@@ -74,7 +78,11 @@
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Button("btnScholarMg","170","418","120","50",null,null,null,null,null,null,this);
+=======
+            obj = new Button("btnScholarMg","169","418","120","50",null,null,null,null,null,null,this);
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_taborder("3");
             obj.set_text("장학금 신청 관리");
             obj.set_cssclass("btn_default");

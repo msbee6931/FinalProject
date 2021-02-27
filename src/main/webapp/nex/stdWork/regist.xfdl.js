@@ -449,11 +449,17 @@
         					alert("수강 가능한 학년이 아닙니다");
         					return;
         				}else{
+<<<<<<< HEAD
         					if(dept != myDept){
         						if(part == "A" || "B"){
         							alert("다른 학과 전공은 신청이 불가능합니다");
         							return;
         						}
+=======
+        					if(dept != myDept && dept != "7071" && part != "F"){
+        						alert("다른 학과 전공은 신청이 불가능합니다");
+        						return;
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         					}else{
         						var classTime = this.ds_class.getColumn(nRow,"classTime");
         						var className = this.ds_class.getColumn(nRow,"className");
