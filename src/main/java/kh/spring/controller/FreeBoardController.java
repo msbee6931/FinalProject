@@ -25,6 +25,8 @@ import kh.spring.dto.FreeBoardDTO;
 import kh.spring.dto.FreeCommentDTO;
 import kh.spring.dto.LoginInfoDTO;
 import kh.spring.dto.NoticeDTO;
+import kh.spring.dto.ReferenceDTO;
+import kh.spring.dto.Reference_FileDTO;
 import kh.spring.service.ColScheduleService;
 import kh.spring.service.FreeBoardService;
 import kh.spring.service.FreeCommentService;
@@ -110,16 +112,34 @@ public class FreeBoardController {
 		
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = FBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
+		
 		List<FreeBoardDTO> list = FBservice.listByCpage(currentPage);	
 		String navi = FBservice.getNavi(currentPage);
 		
 		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
 		
 
@@ -134,7 +154,7 @@ public class FreeBoardController {
 	}
 	
 	@RequestMapping("view")
-	public String view(HttpServletRequest request,Model model) {
+	public String view(HttpServletRequest request,Model model) throws Exception {
 		
 		int fid = (Integer)session.getAttribute("login");
 		String id= Integer.toString(fid);
@@ -148,9 +168,27 @@ public class FreeBoardController {
 
 		model.addAttribute("id",id);
 		//-----------------------------------------
-		int page =1;
+		int page =0;
+		try {
+			String spage = request.getParameter("page");
+			page = Integer.parseInt(spage);
+			int end = (FCservice.countAll(Integer.parseInt(seq))/10)+1;
+			if(page>end) {
+				page=end;
+			}else if(page<=0) {
+				page=1;
+			}
+		}catch(Exception e) {
+			page = 1;
+		}
 		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
 		model.addAttribute("list",list);
+		
+		String navi = FCservice.navi(page, seq);
+		model.addAttribute("navi",navi);
+		model.addAttribute("npage",page+1);
+		model.addAttribute("ppage",page-1);
+		model.addAttribute("seq",seq);
 		return "Board/FreeView";
 	}
 	
@@ -185,21 +223,38 @@ public class FreeBoardController {
 		//---------------------------
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = FBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
+		
 		List<FreeBoardDTO> list = FBservice.listByCpage(currentPage);	
 		String navi = FBservice.getNavi(currentPage);
 		
 		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
 		
 
 		return "Board/FreeList";
-		
 	}
 	
 	
@@ -233,16 +288,34 @@ public class FreeBoardController {
 		//-----------------------------------
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = FBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
+		
 		List<FreeBoardDTO> list = FBservice.listByCpage(currentPage);	
 		String navi = FBservice.getNavi(currentPage);
 		
 		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
 		
 
@@ -283,22 +356,40 @@ public class FreeBoardController {
 		
 		
 		//-----------------------------------
-				String cpage = null;
-				int currentPage = 0;
-				if(request.getParameter("cpage")==null) {
-					currentPage= 1;
-				}else {
-					cpage = request.getParameter("cpage");
-					currentPage = Integer.parseInt(cpage);
-				}
-				List<FreeBoardDTO> list = FBservice.listByCpage(currentPage);	
-				String navi = FBservice.getNavi(currentPage);
-				
-				model.addAttribute("list", list);
-				model.addAttribute("navi", navi);
-				
+          String cpage = null;
+  		int currentPage = 0;
+  		String s = null;
+  		int p = 0;
+  		int end = 0;
+  		try {
+  		 s = request.getParameter("cpage");
+  		 p = Integer.parseInt(s);
+  		 end = FBservice.count()/10+1;
+  		}catch(Exception e) {
+  			s = null;
+  		}
+  		
+  		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
+  			currentPage= 1;
+  		}else if(p>end){
+  			currentPage = end;
+  		}else {
 
-				return "Board/FreeList";
+  			cpage = request.getParameter("cpage");
+  			currentPage = Integer.parseInt(cpage);
+  		}
+  		
+  		List<FreeBoardDTO> list = FBservice.listByCpage(currentPage);	
+  		String navi = FBservice.getNavi(currentPage);
+  		
+  		model.addAttribute("list", list);
+  		
+  		
+  		model.addAttribute("page",currentPage);
+  		model.addAttribute("navi", navi);
+  		
+
+  		return "Board/FreeList";
 	}
 	
 	
@@ -311,14 +402,33 @@ public class FreeBoardController {
 		//-----------------------------------
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = FBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
-
+		
 		String navi = FBservice.getNavi(currentPage);
+		
+		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
 		
 

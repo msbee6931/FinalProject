@@ -113,6 +113,9 @@ nav {
 	position:relative;
 	left:1050px;
 }
+.navi{
+text-align:center;
+}
 </style>
 </head>
 <body>
@@ -143,7 +146,7 @@ nav {
 									<div class="row p-4">
 
 										<div class="col-sm-12 col-md-6 p-0">
-											<input class="form-control" name="content" type="search" placeholder="제목을 입력해주세요" required>
+											<input class="form-control" name="title" type="search" placeholder="제목을 입력해주세요" required>
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
 											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
@@ -169,8 +172,9 @@ nav {
 							<div class="col-md-2 col-3 text-center">${i.writer }</div>
 							<div class="col-md-2 d-none d-md-block text-center">${i.view_count}</div>
 						</div>
+						
 					</c:forEach>
-
+						<div class=navi><a href=/free/boardList?cpage=${page-1}><-</a> ${navi } <a href=/free/boardList?cpage=${page+1}>-></a></div>
 						<div class= "write"><button class="btn btn-primary d-md-block" id="write">글쓰기</button></div>
 				</div>
 			</div>

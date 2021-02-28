@@ -64,4 +64,8 @@ public class FreeBoardDAO {
 	   public int deleteList(List<FreeBoardDTO> list) {
 		   return session.delete("Free.deleteList",list);
 	   }
+	   
+		public int count() {
+			return session.selectOne("Free.count");
+		}
 }

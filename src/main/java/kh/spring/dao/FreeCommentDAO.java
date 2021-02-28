@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kh.spring.dto.FreeCommentDTO;
+import kh.spring.dto.ReferenceDTO;
 import kh.spring.statics.BoardConfigurator;
 
 @Repository
@@ -62,4 +63,23 @@ public class FreeCommentDAO {
 	   public FreeCommentDTO selectDTOByRev_Seq(String rev_seq) {
 		   return session.selectOne("fcomment.selectDTOByRev_Seq",rev_seq);
 	   }
+	   
+	   
+	   
+		public List<FreeCommentDTO> selectByPage(int page){
+			int startRowNum = (page-1)*BoardConfigurator.recordCountPerPage +1;
+			int endRowNum = startRowNum + BoardConfigurator.recordCountPerPage -1;
+			Map<String,Object> param = new HashMap<>();
+			param.put("startRowNum", startRowNum);
+			param.put("endRowNum", endRowNum);
+			return session.selectList("fcomment.selectByPage",param);
+		}
+		
+		public int countAll(int main_seq) {
+			return session.selectOne("fcomment.countAll",main_seq);
+		}
+		
+		public FreeCommentDTO firstDTO(int main_seq) {
+			return session.selectOne("fcomment.firstDTO",main_seq);
+		}
 }

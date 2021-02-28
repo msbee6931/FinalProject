@@ -38,7 +38,7 @@ public class FreeCommentController {
 	   
 	   
 	   @RequestMapping(value="insert", method=RequestMethod.POST)
-	   public String insert( MultipartFile files,Model model,HttpServletRequest request, FreeCommentDTO dto) {
+	   public String insert( MultipartFile files,Model model,HttpServletRequest request, FreeCommentDTO dto) throws Exception {
 
 		   int seq = (Integer)session.getAttribute("login");
 	      String rev_writer = Integer.toString(seq);
@@ -73,13 +73,35 @@ public class FreeCommentController {
 	      int page = 1;
 	      if(result > 0) {
 	        
-	         List <FreeCommentDTO> list = service.selectAll(Integer.toString(dto.getMain_seq()),page);
-	         model.addAttribute("list",list);
+
 	         
 	 		FreeBoardDTO dto2 = FBservice.selectBySeq(Integer.toString(dto.getMain_seq()));
 			model.addAttribute("dto",dto2);
 			model.addAttribute("id",seq);
-	         return "Board/FreeView";
+			
+	         
+	         	         
+			try {
+				String spage = request.getParameter("page");
+				page = Integer.parseInt(spage);
+				int end = (service.countAll(seq)/10)+1;
+				if(page>end) {
+					page=end;
+				}else if(page<=0) {
+					page=1;
+				}
+			}catch(Exception e) {
+				page = 1;
+			}
+			List<FreeCommentDTO> list =service.selectAll(Integer.toString(dto.getMain_seq()), page);
+			model.addAttribute("list",list);
+			
+			String navi = service.navi(page, Integer.toString(dto.getMain_seq()));
+			model.addAttribute("navi",navi);
+			model.addAttribute("npage",page+1);
+			model.addAttribute("ppage",page-1);
+			model.addAttribute("seq",dto.getMain_seq());
+			return "Board/FreeView";
 	      }
 	      return "false" ;
 	   }
@@ -100,7 +122,7 @@ public class FreeCommentController {
 	   
 	   @RequestMapping("delete")
 	   @ResponseBody
-	   public String delete(HttpServletRequest request,Model model) {
+	   public String delete(HttpServletRequest request,Model model) throws Exception {
 	      System.out.println("delete 요청 확인");
 	      String mSeq=request.getParameter("mainSeq");
 	      int rSeq= Integer.parseInt(request.getParameter("revSeq"));
@@ -110,6 +132,11 @@ public class FreeCommentController {
 	       if(result>0) {
 	    	   Gson gson = new Gson();
 	    	   List<FreeCommentDTO> list = service.selectAll(mSeq, page);
+	    	   FreeCommentDTO dto =service.fistDTO(Integer.parseInt(mSeq));
+	    	   String navi = service.navi(page, mSeq);
+	    	   dto.setBlank1(Integer.toString((Integer)session.getAttribute("login")));
+	    	   dto.setBlank2(navi);
+	    	   list.add(0,dto);
 	    	   return gson.toJson(list);
 	       }
 	      return "false";
