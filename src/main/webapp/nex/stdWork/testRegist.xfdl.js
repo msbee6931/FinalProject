@@ -59,102 +59,102 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("div_Info","28","10","200",null,null,"30",null,null,null,null,this);
+            obj = new Div("div_Info","30","10","200",null,null,"30",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("Info");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00","9","59","80","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00","9","59","80","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("0");
             obj.set_text("학과");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","9","89","80","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_01","9","83","80","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("1");
             obj.set_text("학번");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02","9","119","80","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_02","9","107","80","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("2");
             obj.set_text("성명");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_03","9","149","80","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_03","9","131","80","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("3");
             obj.set_text("수강학년");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_03_00","9","179","80","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_03_00","9","155","80","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("4");
             obj.set_text("신청가능학점");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static01","9","219","120","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static01","9","189","120","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("5");
             obj.set_text("● 개설강좌 조회");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04","9","249","60","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_04","9","219","60","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("6");
             obj.set_text("학과");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04_00","9","279","60","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_04_00","9","249","60","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("7");
             obj.set_text("이수구분");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04_00_00","9","309","60","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("Static00_04_00_00","9","279","60","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("8");
             obj.set_text("과목명");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("sta_name","89","119","100","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("sta_name","89","107","100","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("9");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_cssclass("sta_line");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("sta_grade","89","149","100","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("sta_grade","89","131","100","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("10");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_cssclass("sta_line");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("sta_point","89","179","100","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("sta_point","89","155","100","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("11");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_cssclass("sta_line");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("sta_sSeq","89","89","100","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Static("sta_sSeq","89","83","100","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("12");
             obj.set_text("");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_cssclass("sta_line");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Combo("co_dept","69","249","120","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Combo("co_dept","69","219","120","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("13");
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
@@ -165,7 +165,7 @@
             obj.set_index("-1");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Combo("co_part","69","279","120","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Combo("co_part","69","249","120","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("14");
             obj.set_innerdataset("ds_part");
             obj.set_codecolumn("id");
@@ -177,12 +177,12 @@
             obj.set_index("0");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Edit("edt_className","69","309","120","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Edit("edt_className","69","279","120","30",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("15");
             obj.set_cssclass("gg1123412");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Button("btnClassSearch","129","344","60","25",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Button("btnClassSearch","129","314","60","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("16");
             obj.set_text("조회");
             obj.set_cssclass("btn_search");
@@ -206,7 +206,7 @@
             obj.set_text("");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Combo("co_myDept","89","59","100","30",null,null,null,null,null,null,this.div_Info.form);
+            obj = new Combo("co_myDept","89","59","100","25",null,null,null,null,null,null,this.div_Info.form);
             obj.set_taborder("20");
             obj.set_innerdataset("deptCode");
             obj.set_codecolumn("code");
@@ -215,12 +215,12 @@
             obj.set_cssclass("cmb_default");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00","240","10","120","25",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00","240","14","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("▷ 개설강좌 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList","240","35",null,null,"29","290",null,null,null,null,this);
+            obj = new Grid("gr_classList","240","43",null,null,"29","282",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
@@ -228,12 +228,12 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"44\"/><Column size=\"68\"/><Column size=\"216\"/><Column size=\"47\"/><Column size=\"57\"/><Column size=\"181\"/><Column size=\"38\"/><Column size=\"58\"/><Column size=\"91\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"과목코드\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"담당교수\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"담기\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"신청/제한인원\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"3\" text=\"bind:className\" textDecoration=\"underline\" tooltiptext=\"수업계획서 보기\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" displaytype=\"buttoncontrol\" text=\"담기\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:basketLimit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00","240","230","140","25",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_00","240","gr_classList:4","140","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("▷ 장바구니 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_basketList","240","255",null,null,"29","70",null,null,null,null,this);
+            obj = new Grid("gr_basketList","240",null,null,"219","29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_myBasket");
             obj.set_autofittype("col");

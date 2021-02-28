@@ -40,6 +40,7 @@ public class ScheduleController {
 	//학과 스케줄 조회
 	@RequestMapping("selectDeptSchedule")
 	public NexacroResult selectDeptSchedule(@ParamVariable(name="deptCode")String deptCode) {
+		System.out.println("넘어오는 뎁트 코드 확인하기 ,,>>" +deptCode);
 		List<DeptScheduleDTO> list = sService.selectDeptSchedule(deptCode);
 		NexacroResult nr = new NexacroResult();
 		nr.addDataSet("out_ds",list);

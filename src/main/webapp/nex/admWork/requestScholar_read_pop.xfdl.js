@@ -175,6 +175,11 @@
         {
 
         	var objDs = this.schFileList_ds;
+        	var arr = objDs.extractRows("chk==1");
+        	if(arr.length==0||arr==-1){
+        		alert("선택된항목이없습니다.");
+        		return;
+        	};
 
         	this.FileDownTransfer00.setPostData("seq",this.seq); // 현재 게시물의seq를 넘김
         	//총 첨부파일 중 체크 된 파일만 이벤트 발생
@@ -232,21 +237,9 @@
         // 닫기 버튼
         this.Div00_btn_cancle_onclick = function(obj,e)
         {
-        		this.transaction(
-        			"checkValueReqScholar.scholarship",//id
-        			"/scholarship/checkValueReqScholar.scholarship",//url (절대경로)
-        			"",//in_ds:U
-        			"",//()_out_ds
-        			"seq="+this.seq,//argument
-        			"fn_callback_check"
-        			)
-
+        		this.close();
         };
 
-        this.fn_callback_check = function()
-        {
-        		this.close(this.seq);
-        }
 
         //헤더 전체  클릭 적용
         this.Div00_Grid00_onheadclick = function(obj,e)

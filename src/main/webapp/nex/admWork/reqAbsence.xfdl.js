@@ -51,19 +51,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("휴학신청서 관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
-            obj.set_taborder("5");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","-1","51",null,null,"0","59",null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","5","29",null,null,"4","59",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("absence_ds");
             obj.set_autofittype("col");
@@ -71,7 +65,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"20\"/><Column size=\"100\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"작성날짜\"/><Cell col=\"3\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writeDate\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:checkValue\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_del",null,null,"100","25","23","12",null,null,null,null,this.Div00.form);
+            obj = new Button("btn_del",null,null,"100","25","4","12",null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
@@ -122,6 +116,14 @@
         		this,
         		"fn_callback_pop_read"
         	);
+        		this.transaction(
+        		"updateReadAbs.absence",//id
+        		"/absence/updateReadAbs.absence",//url (절대경로)
+        		"",//in_ds:U
+        		"",//()_out_ds
+        		"seq="+this.seq,//argument
+        		"fn_callback_read"
+        		)
         };
 
         this.fn_callback_pop_read =function()

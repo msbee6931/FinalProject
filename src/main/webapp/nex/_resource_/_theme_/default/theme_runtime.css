@@ -727,6 +727,7 @@
 .Combo.cmb_default
 {
 	border : 1px solid #0d6efd;
+	cursor : pointer;
 }
 .Combo.cmb_default .comboedit
 {

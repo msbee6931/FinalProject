@@ -51,13 +51,13 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","39","1021","451",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","24","45","376","359",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","24","45","376",null,null,"51",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_binddataset("reply");
             obj.set_autofittype("col");
@@ -65,13 +65,13 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"51\"/><Column size=\"63\"/><Column size=\"124\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"확인\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:write_date\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:view_count\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00","414","13","568","221",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","414","13",null,"221","12",null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","15","7","450","28",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Static("Static00","15","7",null,"28","107",null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             obj.set_text("Contents");
             obj.set_textAlign("center");
@@ -79,23 +79,23 @@
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","16","44","541","167",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new WebBrowser("WebBrowser00","16","44",null,"167","17",null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Button("enlargement","476","6","80","28",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Button("enlargement",null,"6","80","28","17",null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("2");
             obj.set_text("확대");
             obj.set_cssclass("btn_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div01","414","245","570","159",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div01","414","245",null,null,"10","51",null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("Div01");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","12","5","540","27",null,null,null,null,null,null,this.Div00.form.Div01.form);
+            obj = new Static("Static00","12","5",null,null,"19","147",null,null,null,null,this.Div00.form.Div01.form);
             obj.set_taborder("0");
             obj.set_text("Reply");
             obj.set_textAlign("center");
@@ -103,7 +103,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.form.Div01.addChild(obj.name, obj);
 
-            obj = new TextArea("TextArea00","12","39","541","106",null,null,null,null,null,null,this.Div00.form.Div01.form);
+            obj = new TextArea("TextArea00","12","39",null,null,"19","35",null,null,null,null,this.Div00.form.Div01.form);
             obj.set_taborder("1");
             obj.set_cssclass("txt_default");
             this.Div00.form.Div01.addChild(obj.name, obj);
@@ -114,13 +114,13 @@
             obj.set_font("bold italic 16px/normal \"Arial\",\"-윤고딕320\"");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","874","416","112","29",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("Button00",null,null,"100","25","10","15",null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_text("전송");
             obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","303","408","97","32",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn","303",null,"100","25",null,"15",null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
@@ -135,25 +135,20 @@
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","240","16","74","24",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit00","240","16","89","24",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit01","220","407","41","26",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit01","220",null,"41","26",null,"15",null,null,null,null,this.Div00.form);
             obj.set_taborder("8");
             obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Button("Button00","370","27","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
-            obj.set_text("건의 게시판 관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("Button00","358","56","25","25",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
             obj.set_cssclass("btn_search");
+            obj.set_text("조회");
             this.addChild(obj.name, obj);
 
             // Layout Functions

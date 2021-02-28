@@ -65,7 +65,7 @@
             obj.set_border("1px solid white");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","142","1","736","440",null,null,null,null,null,null,this.Div00.form);
+            obj = new WebBrowser("WebBrowser00","142","1","736",null,null,"37",null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             this.Div00.addChild(obj.name, obj);
 

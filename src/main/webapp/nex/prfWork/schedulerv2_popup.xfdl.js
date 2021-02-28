@@ -34,6 +34,7 @@
 
             obj = new Edit("edtTitle","70","10","320","20",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","10","40","40","20",null,null,null,null,null,null,this);
@@ -43,6 +44,7 @@
 
             obj = new Calendar("calSDate","70","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("3");
+            obj.set_cssclass("cal_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00","10","70","60","20",null,null,null,null,null,null,this);
@@ -55,6 +57,7 @@
             obj.set_innerdataset("dsType");
             obj.set_codecolumn("code");
             obj.set_datacolumn("value");
+            obj.set_cssclass("cmb_default");
             obj.set_text("공지");
             obj.set_value("01");
             obj.set_index("0");
@@ -67,20 +70,24 @@
 
             obj = new TextArea("teaContent","10","130","380","120",null,null,null,null,null,null,this);
             obj.set_taborder("7");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnOk","113","259","80","30",null,null,null,null,null,null,this);
+            obj = new Button("btnOk","83","259","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDel","203","259","80","30",null,null,null,null,null,null,this);
+            obj = new Button("btnDel","213","259","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("삭제");
+            obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("calEDate","230","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("10");
+            obj.set_cssclass("cal_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_01","210","40","10","20",null,null,null,null,null,null,this);
@@ -142,9 +149,41 @@
         {
         	var objReturn;
         	var diff = this.calEDate.value - this.calSDate.value;
+        	var title = this.edtTitle.value;
+        	var sDate= this.calSDate.value;
+        	var eDate= this.calEDate.value;
+        	var code = this.cmbType.value;
+        	var content = this.teaContent.value;
+
         	if(diff < 0){
         		alert("일자를 확인하세요")
-        	}else{
+        	}
+        	else if (title =="" || title==null)
+        	{
+        		alert("일정 제목을 입력해주세요");
+        		return;
+        	}
+        	else if (sDate=="" || sDate==null)
+        	{
+        		alert("일정 시작 날짜를 입력해주세요");
+        		return;
+        	}
+        		else if (eDate=="" || eDate==null)
+        	{
+        		alert("일정 종료 날짜를 입력해주세요");
+        		return;
+        	}
+        		else if (code=="" || code==null)
+        	{
+        		alert("일정 분류를 선택해주세요");
+        		return;
+        	}
+        		else if (content=="" || content==null)
+        	{
+        		alert("일정 내용을 입력해주세요");
+        		return;
+        	}
+        	else{
         		objReturn = {
         			"popuptype" : this.popuptype,
         			"id" : this.scheduleId,

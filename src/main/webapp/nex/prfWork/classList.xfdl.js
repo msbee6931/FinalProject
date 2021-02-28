@@ -98,7 +98,7 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gt_classList","40","54",null,null,"40","70",null,null,null,null,this);
+            obj = new Grid("gt_classList","40","54",null,null,"40","80",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_binddataset("ds_class");
             obj.set_autofittype("col");
