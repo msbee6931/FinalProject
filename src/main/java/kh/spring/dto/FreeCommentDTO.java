@@ -10,6 +10,10 @@ public class FreeCommentDTO {
 	private int good;
 	private int bad;
 	private int writer_seq;
+	private String blank1;
+	private String blank2;
+	private String blank3;
+	private String blank4;
 	public int getRev_seq() {
 		return rev_seq;
 	}
@@ -58,8 +62,32 @@ public class FreeCommentDTO {
 	public void setWriter_seq(int writer_seq) {
 		this.writer_seq = writer_seq;
 	}
+	public String getBlank1() {
+		return blank1;
+	}
+	public void setBlank1(String blank1) {
+		this.blank1 = blank1;
+	}
+	public String getBlank2() {
+		return blank2;
+	}
+	public void setBlank2(String blank2) {
+		this.blank2 = blank2;
+	}
+	public String getBlank3() {
+		return blank3;
+	}
+	public void setBlank3(String blank3) {
+		this.blank3 = blank3;
+	}
+	public String getBlank4() {
+		return blank4;
+	}
+	public void setBlank4(String blank4) {
+		this.blank4 = blank4;
+	}
 	public FreeCommentDTO(int rev_seq, int main_seq, String rev_contents, String rev_writer, String rev_write_date,
-			int good, int bad, int writer_seq) {
+			int good, int bad, int writer_seq, String blank1, String blank2, String blank3, String blank4) {
 		super();
 		this.rev_seq = rev_seq;
 		this.main_seq = main_seq;
@@ -69,10 +97,15 @@ public class FreeCommentDTO {
 		this.good = good;
 		this.bad = bad;
 		this.writer_seq = writer_seq;
+		this.blank1 = blank1;
+		this.blank2 = blank2;
+		this.blank3 = blank3;
+		this.blank4 = blank4;
 	}
 	public FreeCommentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 }

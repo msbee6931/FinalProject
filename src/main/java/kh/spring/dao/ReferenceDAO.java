@@ -70,7 +70,4 @@ public class ReferenceDAO {
 		return session.update("Reference.view_countUpd",dto);
 	}
 	
-	public int garbageDelete() {
-		return session.delete("Reference.garbageDelete");
-	}
 }
