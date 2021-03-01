@@ -26,4 +26,11 @@
      	select * from free_comment where rev_seq=#{rev_seq}
      </select>
 
+	<select id="countAll" resultType="int">
+		select count(rev_seq) from free_comment where main_seq=#{main_seq}
+	</select>
+	
+	<select id="firstDTO" resultType="kh.spring.dto.FreeCommentDTO">
+		select * from free_comment where rev_seq = (select min(rev_seq) from free_comment where main_seq =#{main_seq})
+	</select>
 </mapper>

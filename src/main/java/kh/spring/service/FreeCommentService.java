@@ -79,4 +79,11 @@ public class FreeCommentService {
 	   public FreeCommentDTO selectDTOByRev_Seq(String rev_seq) {
 		   return dao.selectDTOByRev_Seq(rev_seq);
 	   }
+	   public int countAll(int main_seq) {
+		   return dao.countAll(main_seq);
+	   }
+	   public FreeCommentDTO fistDTO(int main_seq) {
+		   return dao.firstDTO(main_seq);
+	   }
+	   
 }

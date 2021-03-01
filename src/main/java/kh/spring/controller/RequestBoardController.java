@@ -44,16 +44,34 @@ public class RequestBoardController {
 	public String toBoard(HttpServletRequest request,Model model) throws Exception{
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = RBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
+		
 		List<FreeBoardDTO> list = RBservice.listByCpage(currentPage);	
 		String navi = RBservice.getNavi(currentPage);
 		
 		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
 		
 		
@@ -92,19 +110,39 @@ public class RequestBoardController {
 				//---------------------------------
 				String cpage = null;
 				int currentPage = 0;
-				if(request.getParameter("cpage")==null) {
+				String s = null;
+				int p = 0;
+				int end = 0;
+				try {
+				 s = request.getParameter("cpage");
+				 p = Integer.parseInt(s);
+				 end = RBservice.count()/10+1;
+				}catch(Exception e) {
+					s = null;
+				}
+				
+				if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 					currentPage= 1;
+				}else if(p>end){
+					currentPage = end;
 				}else {
+
 					cpage = request.getParameter("cpage");
 					currentPage = Integer.parseInt(cpage);
 				}
+				
 				List<FreeBoardDTO> list = RBservice.listByCpage(currentPage);	
 				String navi = RBservice.getNavi(currentPage);
 				
 				model.addAttribute("list", list);
+				
+				
+				model.addAttribute("page",currentPage);
 				model.addAttribute("navi", navi);
-		
-		return "Board/RequestList";
+				
+				
+
+				return "Board/RequestList";
 	}
 	
 	@RequestMapping("view")
@@ -182,22 +220,41 @@ public class RequestBoardController {
 		
 		
 		//-----------------------------------
-				String cpage = null;
-				int currentPage = 0;
-				if(request.getParameter("cpage")==null) {
-					currentPage= 1;
-				}else {
-					cpage = request.getParameter("cpage");
-					currentPage = Integer.parseInt(cpage);
-				}
-				List<FreeBoardDTO> list = RBservice.listByCpage(currentPage);	
-				String navi = RBservice.getNavi(currentPage);
-				
-				model.addAttribute("list", list);
-				model.addAttribute("navi", navi);
-				
+  		String cpage = null;
+  		int currentPage = 0;
+  		String s = null;
+  		int p = 0;
+  		int end = 0;
+  		try {
+  		 s = request.getParameter("cpage");
+  		 p = Integer.parseInt(s);
+  		 end = RBservice.count()/10+1;
+  		}catch(Exception e) {
+  			s = null;
+  		}
+  		
+  		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
+  			currentPage= 1;
+  		}else if(p>end){
+  			currentPage = end;
+  		}else {
 
-				return "Board/RequestList";
+  			cpage = request.getParameter("cpage");
+  			currentPage = Integer.parseInt(cpage);
+  		}
+  		
+  		List<FreeBoardDTO> list = RBservice.listByCpage(currentPage);	
+  		String navi = RBservice.getNavi(currentPage);
+  		
+  		model.addAttribute("list", list);
+  		
+  		
+  		model.addAttribute("page",currentPage);
+  		model.addAttribute("navi", navi);
+  		
+  		
+
+  		return "Board/RequestList";
 	}
 	
 	@RequestMapping("delete")
@@ -209,17 +266,36 @@ public class RequestBoardController {
 		//--------------------------------
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = RBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
+		
 		List<FreeBoardDTO> list = RBservice.listByCpage(currentPage);	
 		String navi = RBservice.getNavi(currentPage);
 		
 		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
+		
 		
 
 		return "Board/RequestList";
@@ -235,15 +311,35 @@ public class RequestBoardController {
 		//-----------------------------------
 		String cpage = null;
 		int currentPage = 0;
-		if(request.getParameter("cpage")==null) {
+		String s = null;
+		int p = 0;
+		int end = 0;
+		try {
+		 s = request.getParameter("cpage");
+		 p = Integer.parseInt(s);
+		 end = RBservice.count()/10+1;
+		}catch(Exception e) {
+			s = null;
+		}
+		
+		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
+		}else if(p>end){
+			currentPage = end;
 		}else {
+
 			cpage = request.getParameter("cpage");
 			currentPage = Integer.parseInt(cpage);
 		}
-
+		
 		String navi = RBservice.getNavi(currentPage);
+		
+		model.addAttribute("list", list);
+		
+		
+		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
+		
 		
 
 		return "Board/RequestList";

@@ -20,12 +20,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("Dataset00", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"size\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"size\" type=\"STRING\" size=\"256\"/><Column id=\"parentSeq\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("reference", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/><Column id=\"parentSeq\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -59,7 +59,7 @@
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"57\"/><Column size=\"318\"/><Column size=\"108\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:name\"/><Cell col=\"2\" text=\"bind:size\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"418\"/><Column size=\"369\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:size\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button03",null,null,"100","25","35","40",null,null,null,null,this);
@@ -137,6 +137,7 @@
         
         // User Script
         this.registerScript("reference.xfdl", function() {
+        this.parentSeq="";
 
         this.Button00_onclick = function(obj,e)
         {
@@ -304,23 +305,27 @@
         			"in_ds=reference:U",//in_ds:U
         			"",//()_out_ds
         			"",//argument
-        			"fn_callback"
+        			"file_callback"
         	)
-
-        	//파일전송
-        	this.FileUpTransfer00.upload("/reference/uploadFile"); //file up url
-        	alert("등록되었습니다.")
-        	this.title.set_value("");
-        	this.contents.set_value("");
-        	this.Dataset00.reset();
-        	this.FileUpTransfer00.clearFileList();
 
 
         		}
 
 
         };
+        this.file_callback = function (tID, eCode, eMag)
+        {
+        	trace("parentSeq = "+this.parentSeq);
+        	this.FileUpTransfer00.setPostData("parentSeq",this.parentSeq);
+        	//파일전송
+        	this.FileUpTransfer00.upload("/reference/uploadFile");
 
+        	alert("등록되었습니다.")
+        	this.title.set_value("");
+        	this.contents.set_value("");
+        	this.Dataset00.reset();
+        	this.FileUpTransfer00.clearFileList();
+        }
         });
         
         // Regist UI Components Event

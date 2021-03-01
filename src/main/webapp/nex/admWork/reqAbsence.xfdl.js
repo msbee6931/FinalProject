@@ -116,6 +116,14 @@
         		this,
         		"fn_callback_pop_read"
         	);
+        		this.transaction(
+        		"updateReadAbs.absence",//id
+        		"/absence/updateReadAbs.absence",//url (절대경로)
+        		"",//in_ds:U
+        		"",//()_out_ds
+        		"seq="+this.seq,//argument
+        		"fn_callback_read"
+        		)
         };
 
         this.fn_callback_pop_read =function()
