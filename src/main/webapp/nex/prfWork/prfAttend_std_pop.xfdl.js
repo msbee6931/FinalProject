@@ -36,6 +36,7 @@
             obj.set_taborder("0");
             obj.set_binddataset("ds_attend");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"63\"/><Column size=\"55\"/><Column size=\"19\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"날짜\"/><Cell col=\"1\" text=\"출석 여부\"/><Cell col=\"2\" text=\"비고\"/></Band><Band id=\"body\"><Cell text=\"bind:attendDay\" displaytype=\"date\" edittype=\"none\"/><Cell col=\"1\" text=\"bind:attendState\" displaytype=\"combotext\" edittype=\"none\" combodatacol=\"name\" combodataset=\"ds_attendState\" combocodecol=\"id\"/><Cell col=\"2\" edittype=\"none\" expandshow=\"expr:attendState == &quot;04&quot; ? &quot;show&quot;  : &quot;hide&quot;\" textAlign=\"center\" text=\"expr:attendState == &quot;04&quot; ? &quot;기타 &quot;  : &quot;&quot;\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -77,15 +78,15 @@
             obj.set_max("100");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00_00","390","76","170","30",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_00_00","370","76","190","30",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("*지각·조퇴 3회는 결석 1회로 산정");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","234","556","100","30",null,null,null,null,null,null,this);
+            obj = new Button("Button00","250","556","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("닫기");
-            obj.set_cssclass("btn_default");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","30","10","30","30",null,null,null,null,null,null,this);

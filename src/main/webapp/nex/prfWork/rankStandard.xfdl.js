@@ -23,57 +23,57 @@
             obj = new Static("Static03","0","8","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("등급(최대 %)");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_00","105","8","105","35",null,null,null,null,null,null,this);
+            obj = new Static("Static03_00","104","8","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("최대 인원");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_01","0","43","105","35",null,null,null,null,null,null,this);
+            obj = new Static("Static03_01","0","42","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("A등급(30%)");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_A","105","43","105","35",null,null,null,null,null,null,this);
+            obj = new Static("sta_A","104","42","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("0");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_02","0","78","105","35",null,null,null,null,null,null,this);
+            obj = new Static("Static03_02","0","76","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("B등급(40%)");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_B","105","78","105","35",null,null,null,null,null,null,this);
+            obj = new Static("sta_B","104","76","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("0");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03_03","0","113","105","35",null,null,null,null,null,null,this);
+            obj = new Static("Static03_03","0","110","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("C등급 (30%)");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_C","105","113","105","35",null,null,null,null,null,null,this);
+            obj = new Static("sta_C","104","110","105","35",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("0");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             // Layout Functions

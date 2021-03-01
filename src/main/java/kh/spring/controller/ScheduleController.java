@@ -39,8 +39,8 @@ public class ScheduleController {
 	
 	//학과 스케줄 조회
 	@RequestMapping("selectDeptSchedule")
-	public NexacroResult selectDeptSchedule() {
-		List<DeptScheduleDTO> list = sService.selectDeptSchedule();
+	public NexacroResult selectDeptSchedule(@ParamVariable(name="deptCode")String deptCode) {
+		List<DeptScheduleDTO> list = sService.selectDeptSchedule(deptCode);
 		NexacroResult nr = new NexacroResult();
 		nr.addDataSet("out_ds",list);
 		return nr;

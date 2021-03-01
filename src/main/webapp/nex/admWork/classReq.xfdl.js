@@ -32,21 +32,26 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("gr_classList","30","49","1020","401",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00","30","10",null,null,"26","30",null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("gr_classList","35","49",null,null,"34","70",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_autofittype("col");
             obj.set_binddataset("ds_class");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"37\"/><Column size=\"59\"/><Column size=\"151\"/><Column size=\"111\"/><Column size=\"51\"/><Column size=\"67\"/><Column size=\"91\"/><Column size=\"189\"/><Column size=\"60\"/><Column size=\"48\"/><Column size=\"43\"/><Column size=\"132\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"교수명\"/><Cell col=\"6\" text=\"학과\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"인원수\"/><Cell col=\"10\" text=\"학년\"/><Cell col=\"11\" text=\"요청상태\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"mask\" maskeditmaskchar=\"########\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"11\" text=\"bind:reqState\" displaytype=\"combotext\" textAlign=\"center\" combodataset=\"ds_req\" combocodecol=\"id\" combodatacol=\"name\" expandshow=\"show\" wordWrap=\"english\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"37\"/><Column size=\"59\"/><Column size=\"151\"/><Column size=\"111\"/><Column size=\"51\"/><Column size=\"67\"/><Column size=\"91\"/><Column size=\"189\"/><Column size=\"60\"/><Column size=\"48\"/><Column size=\"43\"/><Column size=\"132\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" checkboxtruevalue=\"1\" checkboxfalsevalue=\"0\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"교수명\"/><Cell col=\"6\" text=\"학과\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"인원수\"/><Cell col=\"10\" text=\"학년\"/><Cell col=\"11\" text=\"요청상태\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" cursor=\"pointer\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditmaskchar=\"########\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:dept\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:limit\" textAlign=\"center\"/><Cell col=\"10\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"11\" text=\"bind:reqState\" displaytype=\"combotext\" textAlign=\"center\" combodataset=\"ds_req\" combocodecol=\"id\" combodatacol=\"name\" expandshow=\"show\" wordWrap=\"english\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_ok","830","460","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok",null,null,"100","25","140","35",null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("승인");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_reject","950","460","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_reject",null,null,"100","25","35","35",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("거절");
             obj.set_cssclass("btn_can");
@@ -70,16 +75,16 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_text("개설강의 요청관리");
-            obj.set_cssclass("sta_title");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static00_00","1051","0",null,null,"0","0",null,null,null,null,this);
-            obj.set_taborder("7");
+            obj.set_taborder("6");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnClassRoom",null,"20","100","25","34",null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_text("강의실 확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -300,6 +305,17 @@
 
 
 
+        this.btnClassRoom_onclick = function(obj,e)
+        {
+        		let x = this.width/2-400;
+        		let y = this.height/2-225;
+        		let objCF = new ChildFrame();
+        		objCF.init("popClassRoom",x,y,800,450,0,0,"admWork::classRoomList.xfdl");
+        		objCF.set_showtitlebar(false);
+        		objCF.showModal(this.getOwnerFrame(),{},this,"fn_pop_callback");
+
+        };
+
         });
         
         // Regist UI Components Event
@@ -311,6 +327,7 @@
             this.gr_classList.addEventHandler("onexpanddown",this.gr_classList_onexpanddown,this);
             this.btn_ok.addEventHandler("onclick",this.btn_ok_onclick,this);
             this.btn_reject.addEventHandler("onclick",this.btn_reject_onclick,this);
+            this.btnClassRoom.addEventHandler("onclick",this.btnClassRoom_onclick,this);
         };
 
         this.loadIncludeScript("classReq.xfdl");

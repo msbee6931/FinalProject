@@ -277,8 +277,10 @@ div {
                         str= "<span class='revWriter'>"+obj[i].rev_writer+"</span>"+
                             "<span class='revDate'>"+obj[i].rev_write_date+"</span>"+
                             "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+                            "<c:if test="+${id == obj[i].rev_writer}+">"+
                             "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
                             "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+                            "</c:if>"+
                             "</div>"
                         div.html(str);
                         $("#revList").append(div);
@@ -300,8 +302,10 @@ div {
    			                        str= "<span class='revWriter'>"+obj[i].rev_writer+"</span>"+
    			                            "<span class='revDate'>"+obj[i].rev_write_date+"</span>"+
    			                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+   			                         	"<c:if test="+${id == obj[i].rev_writer}+">"+
    			                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
    			                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+   			                         	"</c:if>"+
    			                            "</div>"
    			                        div.html(str);
    			                        $("#revList").append(div);
@@ -339,8 +343,10 @@ div {
    		   		                        str= "<span class='revWriter'>"+obj[i].rev_writer+"</span>"+
    		   		                            "<span class='revDate'>"+obj[i].rev_write_date+"</span>"+
    		   		                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+   		   		                      		"<c:if test="+${id == obj[i].rev_writer}+">"+
    		   		                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
    		   		                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+   		   		                      		"</c:if>"+
    		   		                            "</div>"
    		   		                        div.html(str);
    		   		                        $("#revList").append(div);
@@ -392,8 +398,10 @@ div {
    		                        str= "<span class='revWriter'>"+obj[i].rev_writer+"</span>"+
    		                            "<span class='revDate'>"+obj[i].rev_write_date+"</span>"+
    		                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+   		                         	"<c:if test="+${id == obj[i].rev_writer}+">"+
    		                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
    		                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+   		                            "</c:if>"+
    		                            "</div>"
    		                        div.html(str);
    		                        $("#revList").append(div);
@@ -416,8 +424,10 @@ div {
    	   			                        str= "<span class='revWriter'>"+obj[i].rev_writer+"</span>"+
    	   			                            "<span class='revDate'>"+obj[i].rev_write_date+"</span>"+
    	   			                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+   	   			                      		"<c:if test="+${id == obj[i].rev_writer}+">"+
    	   			                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
    	   			                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+   	   			                      		"</c:if>"+
    	   			                            "</div>"
    	   			                        div.html(str);
    	   			                        $("#revList").append(div);
@@ -455,8 +465,10 @@ div {
    	   		   		                        str= "<span class='revWriter'>"+obj[i].rev_writer+"</span>"+
    	   		   		                            "<span class='revDate'>"+obj[i].rev_write_date+"</span>"+
    	   		   		                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+   	   		   		                  			 "<c:if test="+${id == obj[i].rev_writer}+">"+
    	   		   		                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
    	   		   		                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+   	   		   		                   			"</c:if>"+
    	   		   		                            "</div>"
    	   		   		                        div.html(str);
    	   		   		                        $("#revList").append(div);

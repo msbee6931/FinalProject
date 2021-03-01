@@ -46,34 +46,17 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btnGrade","50","370","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_text("학생 성적 관리");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnAttend","170","370","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("학생 출석 입력");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnClassList","50","420","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnClassList","50","418","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("개설강좌 조회");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,1px solid #ffffff,0px none,0px none");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDeptStdList","170","420","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnDeptStdList","170","418","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("학과 학생 조회");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnMypage","50","320","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
-            obj.set_text("개인정보 조회");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnDeptSchedule","170","320","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("학과 스케줄 ");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_schedule","750","36","290","224",null,null,null,null,null,null,this);
@@ -90,6 +73,7 @@
             obj.set_taborder("7");
             obj.set_autofittype("col");
             obj.set_binddataset("ds_Schedule");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"1\" text=\"bind:sdate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"2\" text=\"bind:edate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -107,38 +91,45 @@
             obj.set_taborder("10");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"46\"/><Column size=\"196\"/><Column size=\"64\"/><Column size=\"112\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:deptcode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ds_deptcode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"2\" displaytype=\"imagecontrol\" imagestretch=\"fixaspectratio\" background=\"transparent\" text=\"expr:file==&quot;Y&quot;?&quot;theme://images/file.png&quot;:&quot;&quot;\" cursor=\"pointer\"/><Cell col=\"3\" text=\"bind:writedate\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd \" displaytype=\"calendarcontrol\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAll","310","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("전체");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnNormal","370","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("일반");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAcademic","430","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("학사");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnScholar","490","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_text("장학");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnEmployment","550","51","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_text("취업");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnMore","670","50","60","30",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_text("more+");
             obj.set_visible("false");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_month","910","260","130","20",null,null,null,null,null,null,this);
@@ -157,7 +148,7 @@
 
             obj = new Div("div_Info","50","50","250","216",null,null,null,null,null,null,this);
             obj.set_taborder("19");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_dept","5","53","240","40",null,null,null,null,null,null,this.div_Info.form);
@@ -183,6 +174,34 @@
             obj.set_taborder("3");
             obj.set_text("읽지 않은 메일");
             this.div_Info.addChild(obj.name, obj);
+
+            obj = new Button("btnGrade","50","369","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("0");
+            obj.set_text("학생 성적 관리");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnAttend","170","369","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_text("학생 출석 입력");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,0px none,1px solid #ffffff");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnMypage","50","320","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_text("개인정보 조회");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnDeptSchedule","170","320","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("5");
+            obj.set_text("학과 스케줄 ");
+            obj.set_cssclass("btn_default");
+            obj.set_border("0px none,0px none,1px solid #ffffff");
+            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -554,21 +573,14 @@
         };
 
 
-
-
-
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.Form_Main_onload,this);
-            this.btnGrade.addEventHandler("onclick",this.btnGrade_onclick,this);
-            this.btnAttend.addEventHandler("onclick",this.btnAttend_onclick,this);
             this.btnClassList.addEventHandler("onclick",this.btnClassList_onclick,this);
             this.btnDeptStdList.addEventHandler("onclick",this.btnDeptStdList_onclick,this);
-            this.btnMypage.addEventHandler("onclick",this.btnMypage_onclick,this);
-            this.btnDeptSchedule.addEventHandler("onclick",this.btnDeptSchedule_onclick,this);
             this.cal_schedule.addEventHandler("onspin",this.cal_schedule_onspin,this);
             this.gr_schedule.addEventHandler("oncellclick",this.gr_schedule_oncellclick,this);
             this.gr_notice.addEventHandler("oncellclick",this.gr_notice_oncellclick,this);
@@ -580,6 +592,10 @@
             this.btnMore.addEventHandler("onclick",this.btnMore_onclick,this);
             this.co_month.addEventHandler("canitemchange",this.co_month_canitemchange,this);
             this.div_Info.form.sta_alarm.addEventHandler("onclick",this.div_Info_sta_alarm_onclick,this);
+            this.btnGrade.addEventHandler("onclick",this.btnGrade_onclick,this);
+            this.btnAttend.addEventHandler("onclick",this.btnAttend_onclick,this);
+            this.btnMypage.addEventHandler("onclick",this.btnMypage_onclick,this);
+            this.btnDeptSchedule.addEventHandler("onclick",this.btnDeptSchedule_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };

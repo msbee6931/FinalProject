@@ -22,7 +22,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00","0","0","200","50",null,null,null,null,null,null,this);
+            obj = new Static("sta_logo","0","0","200","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_background("url(\'theme::default/images/khLogo.png\')");
             this.addChild(obj.name, obj);
@@ -33,7 +33,7 @@
             obj.set_color("whitesmoke");
             this.addChild(obj.name, obj);
 
-            obj = new Menu("Menu00","250","10","870","30",null,null,null,null,null,null,this);
+            obj = new Menu("Menu00","215","10","870","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_innerdataset("ds_menu");
             obj.set_captioncolumn("menu_name");
@@ -41,12 +41,13 @@
             obj.set_levelcolumn("menu_level");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00","210","10","30","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_home",null,"10","100","30","130",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_cssclass("btn_home");
+            obj.set_text("HOME");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_logout",null,"10","100","30","30",null,null,null,null,null,this);
+            obj = new Button("btn_logout",null,"10","100","30","20",null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("로그아웃");
             obj.set_cssclass("btn_logout");
@@ -121,13 +122,35 @@
         	location.href="/";
         }
 
+        this.btn_home_onclick = function(obj,e)
+        {
+        		location.href="/";
+        };
+
+        this.sta_logo_onclick = function(obj,e)
+        {
+        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.form.fn_deleteTab();
+        	this.fn_setFrameSize("home")
+        };
+
+        this.fn_setFrameSize = function(type)
+        {
+        	if(type == "home"){
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        	} else {
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        	}
+        }
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.Form_Top_onload,this);
+            this.sta_logo.addEventHandler("onclick",this.sta_logo_onclick,this);
             this.Menu00.addEventHandler("onmenuclick",this.Menu00_onmenuclick,this);
+            this.btn_home.addEventHandler("onclick",this.btn_home_onclick,this);
             this.btn_logout.addEventHandler("onclick",this.btn_logout_onclick,this);
         };
 

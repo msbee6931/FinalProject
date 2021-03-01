@@ -67,6 +67,21 @@ public class AdminController {
 		int result = aService.updatestu(list);
 		return nr;
 	}
+	@RequestMapping("selectS_seq.nex")
+	public NexacroResult selectS_seq() {
+		System.out.println("도착");
+		NexacroResult nr = new NexacroResult();
+		List<StudentsDTO> dto = aService.selectS_seq();
+		nr.addDataSet("out_ds", dto);
+		return nr;
+	}@RequestMapping("selectP_seq.nex")
+	public NexacroResult selectP_seq() {
+		System.out.println("셀렉트p도착");
+		NexacroResult nr = new NexacroResult();
+		List<ProfessorDTO> dto = aService.selectP_seq();
+		nr.addDataSet("out_ds", dto);
+		return nr;
+	}
 	@RequestMapping("insertStudent.nex")
 	public NexacroResult insertStudent(@ParamDataSet(name="in_ds")StudentsDTO dto) {
 		System.out.println("도착");
@@ -79,6 +94,23 @@ public class AdminController {
 		dto.setPw(Spw); 
 		s_seq = dto.getS_seq();
 		System.out.println(s_seq);
+		String seq = Integer.toString(s_seq);
+		String seq1 = seq.substring(0, 6);
+		System.out.println(seq1);
+		int seq2 = Integer.parseInt(seq1);
+		
+		int r_seq = aService.selectstu(s_seq);
+		
+		if(r_seq > 0) {
+			System.out.println("라스트넘버에 +1");
+			System.out.println(s_seq);
+			int lastNum = aService.lastNum(seq2);
+			System.out.println(lastNum);
+			s_seq = lastNum + 1;
+			System.out.println(s_seq);
+			dto.setS_seq(s_seq);
+		}
+		
 		userName = dto.getName();
 		NexacroResult nr = new NexacroResult();
 		int result = aService.insertstu(dto);
@@ -88,6 +120,7 @@ public class AdminController {
 		cService.insertChatUser(userId,userName);
 
 		return nr;
+	//professor
 	}
 	@RequestMapping("professorList.nex")
 	public NexacroResult professorList() {
@@ -113,20 +146,34 @@ public class AdminController {
 		return nr;
 	}
 	@RequestMapping("insertProfessor.nex")
-	public NexacroResult insertProfessor(@ParamDataSet(name="in_ds")List<ProfessorDTO> list) {
+	public NexacroResult insertProfessor(@ParamDataSet(name="in_ds")ProfessorDTO dto) {
 		System.out.println("도착");
 		String pw; String Spw = null;
 		int p_seq = 0;
 		String userName = null;
-		for(int i =0; i < list.size(); i++) {
-			pw = list.get(i).getPw();
+			pw = dto.getPw();
 			Spw = EncryptUtils.getSHA256(pw);
-			list.get(i).setPw(Spw);
-			p_seq = list.get(i).getP_seq();
-			userName = list.get(i).getName();
-		}
+			dto.setPw(Spw);
+			p_seq = dto.getP_seq();
+			String seq = Integer.toString(p_seq);
+			String seq1 = seq.substring(0, 6);
+			System.out.println(seq1);
+			int seq2 = Integer.parseInt(seq1);
+			
+			int r_seq = aService.selectpro(p_seq);
+			
+			if(r_seq > 0) {
+				System.out.println("라스트넘버에 +1");
+				System.out.println(p_seq);
+				int lastPNum = aService.lastPNum(seq2);
+				System.out.println(lastPNum);
+				p_seq = lastPNum + 1;
+				System.out.println(p_seq);
+				dto.setP_seq(p_seq);
+			}
+			userName = dto.getName();
 		NexacroResult nr = new NexacroResult();
-		int result = aService.insertPro(list);
+		int result = aService.insertPro(dto);
 		// 채팅 아이디 생성
 		String userId = Integer.toString(p_seq);		
 		cService.insertChatUser(userId,userName);

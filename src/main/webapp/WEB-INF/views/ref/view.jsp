@@ -15,13 +15,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-#subLabel{
-	width:fit-content;
-	color:white;
-}
+
 #box {
-	border: 1px solid black;
-	border-radius: 10px;
+	min-height:500px;
 }
 #viewBox{
 	background-color:#f5f5f5;
@@ -49,7 +45,6 @@
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
-			<div class="row pt-3">
 				<div class="d-flex flex-row-reverse">
 					<div class="bd-highlight d-none d-lg-block">
 						<h5>
@@ -57,12 +52,6 @@
 						</h5>
 					</div>
 				</div>
-				<div class="d-flex d-none d-lg-block m-2 bg-dark p-5" id="subLabel"> 
-					<h3>
-						<b>자료실</b>
-					</h3>
-				</div>
-			</div>
 			<div class="row">
 				<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
 				<div class="col-xl-12 " id="box">

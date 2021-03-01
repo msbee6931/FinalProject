@@ -73,6 +73,7 @@
             obj = new Edit("edt_title","168","83","600","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_cssclass("edt_default");
+            obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00","70","83","100","30",null,null,null,null,null,null,this.Div00.form);
@@ -95,7 +96,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"350\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","668","150","100","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_del","668","150","100","32",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("파일 삭제");
             obj.set_cssclass("btn_can");
@@ -124,7 +125,7 @@
             obj.set_text("1. 선행작학금 신청의 경우, 증명할 수 있는 서류를 첨부 부탁드립니다. (ex: 표창장, 선행상 등)\r\n2. 추천장학금 신청의 경우, 증명할 수 있는 추천서를 첨부 부탁드립니다.\r\n3. 성적우수장학금 신청의 경우, 성적증명서 첨부 부탁드립니다.\r\n4. 생활지원 장학금 신청의 경우, 사실을 증명할  수 있는 서류를 첨부 부탁드립니다.");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02","169","54","600","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static02","169","54","599","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("10");
             obj.set_text("");
             obj.set_cssclass("sta_line");
@@ -150,12 +151,14 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static03","468","434","302","35",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static03","468","444","302","35",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("13");
             obj.set_text("※ 작성 후, 수정·삭제는 관리자로 문의 부탁드립니다.");
+            obj.set_color("#5537ac");
+            obj.set_textAlign("right");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new TextArea("TextArea00","171","181","600","138",null,null,null,null,null,null,this.Div00.form);
+            obj = new TextArea("txt_contents","169","181","599","138",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("14");
             obj.set_cssclass("txt_default");
             this.Div00.addChild(obj.name, obj);
@@ -331,8 +334,17 @@
         //파일전송 버튼클릭
         this.Div00_btn_save_onclick = function(obj,e)
         {
+        		var nRow = this.reqScholar_ds.addRow();
+        		var title = this.Div00.form.edt_title.value;
+        		var contents = this.Div00.form.txt_contents.value;
+
         	if(this.FileUpTransfer00.filelist.length == 0) {
         		alert("첨부한 파일이 없습니다.");
+        		return;
+        	}
+        	else if(contents == null || contents == "")
+        	{
+        		alert("신청 사유를 입력해 주세요");
         		return;
         	}
 
@@ -340,10 +352,6 @@
 
         	if(conValue)
         	{
-
-        		var nRow = this.reqScholar_ds.addRow();
-        		var title = this.Div00.form.edt_title.value;
-        		var contents = this.Div00.form.edt_contents.value;
 
         		this.reqScholar_ds.setColumn(nRow,"title",title);
         		this.reqScholar_ds.setColumn(nRow,"contents",contents);

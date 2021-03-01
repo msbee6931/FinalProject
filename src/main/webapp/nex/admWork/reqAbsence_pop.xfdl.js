@@ -89,19 +89,19 @@
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title00_00_00","619","90","191","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_title00_00_00","617","90","190","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("9");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_title01_00","98","120","712","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_title01_00","97","120","710","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("11");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_down","709","209","100","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_down","707","205","100","70",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("15");
             obj.set_text("파일\r\n다운로드");
             obj.set_cssclass("btn_default");
@@ -112,7 +112,7 @@
             obj.set_text("※유의사항\r\n1. 입대휴학 신청자는 입대 사실을 확인할 수 있는 증명서 1통을 첨부해야 함.\r\n2. 군입대 후 귀향조취 된 경우에는 즉시 행정팀으로 통보해야함.\r\n3. 일반휴학기간 중 입대할 경우에는 입대 전에 입영통지서 사본 1통을 첨부하여 휴학연기 신청서를 제출해야 함.\r\n4. 질병으로 휴학하는 경우에는 종합병원장이 발행하는 4주 이상의 진단서를 첨부해야함.\r\n5. 휴학기간 만료 후 해당 학기 등록기간 내에 복학하지 않을 경우에는  퇴학처리 됨.");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","127","205","575","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","127","205","580","70",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("17");
             obj.set_binddataset("absFileList_ds");
             obj.set_autofittype("col");
@@ -150,7 +150,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","550","60","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_00","548","60","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("생년월일");
             obj.set_cssclass("sta_default");
@@ -180,13 +180,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00","28","118","70","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("10");
-            obj.set_text("주 소");
-            obj.set_cssclass("sta_default");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00_00_00","550","90","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_00_00","548","90","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("8");
             obj.set_text("성 명");
             obj.set_cssclass("sta_default");
@@ -198,7 +192,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static04","98","149","710","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static04","98","149","709","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("21");
             obj.set_text("");
             obj.set_cssclass("sta_line");
@@ -246,17 +240,23 @@
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static06","30","280","782","131",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static06","8","275","799","136",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("28");
             obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new MaskEdit("MaskEdit00","619","62","190","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new MaskEdit("MaskEdit00","617","62","190","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("29");
             obj.set_cssclass("med_default");
             obj.set_readonly("true");
             obj.set_type("string");
             obj.set_format("@@@@@@");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","28","118","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("10");
+            obj.set_text("주 소");
+            obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions

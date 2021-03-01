@@ -11,10 +11,9 @@
         {
             this.set_name("insertStudent");
             this.set_titletext("New Form");
-            this.set_cssclass("med_default");
             if (Form == this.constructor)
             {
-                this._setFormPosition(350,550);
+                this._setFormPosition(350,380);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -24,170 +23,128 @@
 
 
             obj = new Dataset("deptCode_copy", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">11</Col><Col id=\"name\">국어국문학과</Col></Row><Row><Col id=\"code\">12</Col><Col id=\"name\">영어영문학과</Col></Row><Row><Col id=\"code\">13</Col><Col id=\"name\">국사학과</Col></Row><Row><Col id=\"code\">14</Col><Col id=\"name\">철학과</Col></Row><Row><Col id=\"code\">21</Col><Col id=\"name\">사회복지학과</Col></Row><Row><Col id=\"code\">22</Col><Col id=\"name\">경제학부</Col></Row><Row><Col id=\"code\">23</Col><Col id=\"name\">사회학과</Col></Row><Row><Col id=\"code\">24</Col><Col id=\"name\">심리학과</Col></Row><Row><Col id=\"code\">31</Col><Col id=\"name\">통계학과</Col></Row><Row><Col id=\"code\">32</Col><Col id=\"name\">화학부</Col></Row><Row><Col id=\"code\">33</Col><Col id=\"name\">생명과학부</Col></Row><Row><Col id=\"code\">41</Col><Col id=\"name\">간호학부</Col></Row><Row><Col id=\"code\">51</Col><Col id=\"name\">전기공학부</Col></Row><Row><Col id=\"code\">52</Col><Col id=\"name\">컴퓨터공학부</Col></Row><Row><Col id=\"code\">53</Col><Col id=\"name\">화학생물공학부</Col></Row><Row><Col id=\"code\">54</Col><Col id=\"name\">건축학과</Col></Row><Row><Col id=\"code\">55</Col><Col id=\"name\">산업공학과</Col></Row><Row><Col id=\"code\">61</Col><Col id=\"name\">교육학과</Col></Row><Row><Col id=\"code\">62</Col><Col id=\"name\">국어교육과</Col></Row><Row><Col id=\"code\">63</Col><Col id=\"name\">영어교육과</Col></Row><Row><Col id=\"code\">64</Col><Col id=\"name\">수학교육과</Col></Row><Row><Col id=\"code\">65</Col><Col id=\"name\">체육교육과</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"Code\" type=\"STRING\" size=\"256\"/><Column id=\"Value\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"Code\">1011</Col><Col id=\"Value\">국어국문학과</Col></Row><Row><Col id=\"Code\">1012</Col><Col id=\"Value\">영어영문학과</Col></Row><Row><Col id=\"Code\">1013</Col><Col id=\"Value\">국사학과</Col></Row><Row><Col id=\"Code\">1014</Col><Col id=\"Value\">철학과</Col></Row><Row><Col id=\"Code\">2021</Col><Col id=\"Value\">사회복지학과</Col></Row><Row><Col id=\"Code\">2022</Col><Col id=\"Value\">경제학부</Col></Row><Row><Col id=\"Code\">2023</Col><Col id=\"Value\">사회학과</Col></Row><Row><Col id=\"Code\">2024</Col><Col id=\"Value\">심리학과</Col></Row><Row><Col id=\"Code\">3031</Col><Col id=\"Value\">통계학과</Col></Row><Row><Col id=\"Code\">3032</Col><Col id=\"Value\">화학부</Col></Row><Row><Col id=\"Code\">3033</Col><Col id=\"Value\">생명과학부</Col></Row><Row><Col id=\"Code\">4041</Col><Col id=\"Value\">간호학부</Col></Row><Row><Col id=\"Code\">5051</Col><Col id=\"Value\">전기공학부</Col></Row><Row><Col id=\"Code\">5052</Col><Col id=\"Value\">컴퓨터공학부</Col></Row><Row><Col id=\"Code\">5053</Col><Col id=\"Value\">화학생물공학부</Col></Row><Row><Col id=\"Code\">5054</Col><Col id=\"Value\">건축학과</Col></Row><Row><Col id=\"Code\">5055</Col><Col id=\"Value\">산업공학과</Col></Row><Row><Col id=\"Code\">6061</Col><Col id=\"Value\">교육학과</Col></Row><Row><Col id=\"Code\">6062</Col><Col id=\"Value\">국어교육과</Col></Row><Row><Col id=\"Code\">6063</Col><Col id=\"Value\">영어교육과</Col></Row><Row><Col id=\"Code\">6064</Col><Col id=\"Value\">수학교육과</Col></Row><Row><Col id=\"Code\">6065</Col><Col id=\"Value\">체육교육과</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("colCode_Copy", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">10</Col><Col id=\"name\">인문대학</Col></Row><Row><Col id=\"code\">20</Col><Col id=\"name\">사회과학대학</Col></Row><Row><Col id=\"code\">30</Col><Col id=\"name\">자연과학대학</Col></Row><Row><Col id=\"code\">40</Col><Col id=\"name\">간호대학</Col></Row><Row><Col id=\"code\">50</Col><Col id=\"name\">공과대학</Col></Row><Row><Col id=\"code\">60</Col><Col id=\"name\">사범대학</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"Code\" type=\"STRING\" size=\"256\"/><Column id=\"Value\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"Code\">10</Col><Col id=\"Value\">인문대학</Col></Row><Row><Col id=\"Code\">20</Col><Col id=\"Value\">사회과학대학</Col></Row><Row><Col id=\"Code\">30</Col><Col id=\"Value\">자연과학대학</Col></Row><Row><Col id=\"Code\">40</Col><Col id=\"Value\">간호대학</Col></Row><Row><Col id=\"Code\">50</Col><Col id=\"Value\">공과대학</Col></Row><Row><Col id=\"Code\">60</Col><Col id=\"Value\">사범대학</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("Dataset00", this);
+            obj._setContents("<ColumnInfo><Column id=\"Column0\" type=\"STRING\" size=\"256\"/><Column id=\"Column1\" type=\"STRING\" size=\"256\"/><Column id=\"Column2\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00","10","20","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
-            obj.set_text("학번");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00","10","55","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
+            obj = new Static("Static00_00","10","20","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("9");
             obj.set_text("이름");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","10","90","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
+            obj = new Static("Static00_01","10","55","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
             obj.set_text("주민번호");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02","10","125","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
+            obj = new Static("Static00_02","10","90","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
             obj.set_text("이메일");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_03","10","160","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("18");
+            obj = new Static("Static00_03","10","125","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
             obj.set_text("전화번호");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04","10","195","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("19");
+            obj = new Static("Static00_04","10","160","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
             obj.set_text("주소");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_05","10","230","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("20");
-            obj.set_text("장학금");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_06","10","265","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("21");
-            obj.set_text("휴학");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_07","10","300","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("22");
-            obj.set_text("성적");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_09","10","335","75","30",null,null,null,null,null,null,this);
-            obj.set_taborder("23");
-            obj.set_text("초기비밀번호");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_10","10","370","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("24");
+            obj = new Static("Static00_10","10","195","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
             obj.set_text("성별");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_name","85","55","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
+            obj = new Edit("edt_name","85","20","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("0");
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_email","85","125","175","30",null,null,null,null,null,null,this);
+            obj = new Edit("edt_email","85","90","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("2");
+            obj.set_cssclass("edt_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("edt_contact","85","125","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_contact","85","160","175","30",null,null,null,null,null,null,this);
+            obj = new Edit("edt_address","85","160","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_address","85","195","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_scholarship","85","230","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_grade","85","300","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("edt_pw","85","335","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
-            obj.set_cssclass("edt_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn_insert","75","515","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("25");
+            obj = new Button("btn_insert","95","345","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("15");
             obj.set_text("입력");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","190","515","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("26");
+            obj = new Button("btn_cancel","210","345","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("16");
             obj.set_text("취소");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_10_00","10","405","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("27");
+            obj = new Static("Static00_10_00","10","230","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("17");
             obj.set_text("학과분류");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_10_01","10","440","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("28");
+            obj = new Static("Static00_10_01","10","265","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("18");
             obj.set_text("학과");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("com_colCode","85","405","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj = new Combo("com_colCode","85","230","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
             obj.set_innerdataset("colCode_Copy");
-            obj.set_codecolumn("code");
-            obj.set_datacolumn("name");
+            obj.set_codecolumn("Code");
+            obj.set_datacolumn("Value");
             obj.set_cssclass("cmb_default");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("com_deptCode","85","440","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
-            obj.set_innerdataset("deptCode_copy");
-            obj.set_codecolumn("code");
-            obj.set_datacolumn("name");
-            obj.set_cssclass("cmb_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Combo("com_rest","85","265","175","30",null,null,null,null,null,null,this);
+            obj = new Combo("com_deptCode","85","265","175","30",null,null,null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
+            obj.set_innerdataset("deptCode_copy");
+            obj.set_codecolumn("Code");
+            obj.set_datacolumn("Value");
             obj.set_cssclass("cmb_default");
-            var com_rest_innerdataset = new nexacro.NormalDataset("com_rest_innerdataset", obj);
-            com_rest_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">휴학</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">재학</Col></Row></Rows>");
-            obj.set_innerdataset(com_rest_innerdataset);
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("com_gender","85","370","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj = new Combo("com_gender","85","195","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.set_readonly("true");
             obj.set_cssclass("cmb_default");
             var com_gender_innerdataset = new nexacro.NormalDataset("com_gender_innerdataset", obj);
             com_gender_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">M</Col><Col id=\"datacolumn\">남자</Col></Row><Row><Col id=\"codecolumn\">W</Col><Col id=\"datacolumn\">여자</Col></Row></Rows>");
             obj.set_innerdataset(com_gender_innerdataset);
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_10_01_00","10","475","50","30",null,null,null,null,null,null,this);
-            obj.set_taborder("29");
+            obj = new Static("Static00_10_01_00","10","300","50","30",null,null,null,null,null,null,this);
+            obj.set_taborder("19");
             obj.set_text("학년");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("com_colGrade","85","475","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
+            obj = new Combo("com_colGrade","85","300","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("8");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("cmb_default");
@@ -196,25 +153,16 @@
             obj.set_innerdataset(com_colGrade_innerdataset);
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mas_secNumber","85","90","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
+            obj = new MaskEdit("mas_secNumber","85","55","175","30",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
             obj.set_format("###### - #{######}");
             obj.set_type("string");
             obj.set_cssclass("med_default");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mas_s_seq","85","20","175","30",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_type("string");
-            obj.set_format("#########");
-            obj.set_autoskip("true");
-            obj.set_tooltiptext("학번은 9자리입니다.");
-            obj.set_cssclass("med_default");
-            this.addChild(obj.name, obj);
-
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",350,550,this,function(p){});
+            obj = new Layout("default","",350,380,this,function(p){});
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             
@@ -235,6 +183,11 @@
         
         // User Script
         this.registerScript("insertStudent.xfdl", function() {
+        var s_seq;
+        var seq1;
+        var seq2;
+        var r_seq;
+
         this.fn_update_students = function(id,url){	//업데이트 따로 뺀것
           this.transaction(
                     id
@@ -251,35 +204,61 @@
         	trace(ErrorCode);
 
         }
+        this.fn_s_seqcallback = function(id,ErrorCode,ErrorMsg){	//콜백함수
+        	trace(id);
+        	trace(ErrorMsg);
+        	trace(ErrorCode);
+
+
+        	if(this.ds_students_copy.getCount() == 0){
+        	this.ds_students_copy.filter("");
+        	}else{
+        	for(var i = 0; i< this.ds_students_copy.getCount(); i++){
+
+        	r_seq = this.ds_students_copy.getColumn(i,"s_seq");
+
+        	}
+        	}
+
+        }
 
 
 
         this.btn_insert_onclick = function(obj,e)
         {
-        	var s_seq = this.mas_s_seq.value;
         	var name = this.edt_name.value;
         	var secNumber = this.mas_secNumber.value;
         	var email = this.edt_email.value;
         	var contact = this.edt_contact.value;
         	var address = this.edt_address.value;
-        	var scholarship = this.edt_scholarship.value;
-        	var rest = this.com_rest.value;
-        	var grade = this.edt_grade.value;
-        	var pw = this.edt_pw.value;
         	var gender = this.com_gender.value;
         	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;
         	var colGrade = this.com_colGrade.text;
-        	var rs_seq = this.mas_s_seq.text.length;
 
-        	var test = this.mas_s_seq.text.substring(rs_seq,rs_seq-1);
-        	trace(test);
+        	s_seq = seq1+deptCode+"001";
+        	trace(s_seq);
 
+        	var pw = this.mas_secNumber.text.substring(0,6);
+        	if(this.ds_students_copy.getCount() == 0){
+        		this.ds_students_copy.filter("");
+        	}else{
+        	for(var i = 0; i< this.ds_students_copy.getCount(); i++){
 
-        	if(s_seq == null || s_seq == "undefined" || test == '_'){
-        		this.alert("학번 입력해주세요(9자리)");
-        		return;
-        	}else if(name == null || name == "undefined"){
+        	r_seq = this.ds_students_copy.getColumn(i,"s_seq");
+        	if(s_seq == r_seq){
+        		s_seq = seq1+deptCode;
+        	}
+
+        	}
+        	}
+        	if(this.ds_students_copy.getCount() == 0){
+        		this.ds_students_copy.filter("");
+        	}
+
+        	trace(s_seq);
+
+        	if(name == null || name == "undefined"){
         		this.alert("이름 입력해주세요");
         		return;
         	}else if(secNumber == null || secNumber == "undefined"){
@@ -293,18 +272,6 @@
         		return;
         	}else if(address == null || address == "undefined"){
         		this.alert("주소 입력해주세요");
-        		return;
-        	}else if(scholarship == null || scholarship == "undefined"){
-        		this.alert("장학금 입력해주세요");
-        		return;
-        	}else if(rest == null || rest == "undefined"){
-        		this.alert("휴학여부 입력해주세요");
-        		return;
-        	}else if(grade == null || grade == "undefined"){
-        		this.alert("성적 입력해주세요");
-        		return;
-        	}else if(pw == null || pw == "undefined"){
-        		this.alert("비밀번호 입력해주세요");
         		return;
         	}else if(gender == null || gender == "undefined"){
         		this.alert("성별 입력해주세요");
@@ -327,14 +294,15 @@
         	this.ds_students_copy.setColumn(addRow,"email",email);
         	this.ds_students_copy.setColumn(addRow,"contact",contact);
         	this.ds_students_copy.setColumn(addRow,"address",address);
-        	this.ds_students_copy.setColumn(addRow,"scholarship",scholarship);
-        	this.ds_students_copy.setColumn(addRow,"rest",rest);
-        	this.ds_students_copy.setColumn(addRow,"grade",grade);
+        	this.ds_students_copy.setColumn(addRow,"scholarship",0);
+        	this.ds_students_copy.setColumn(addRow,"rest","N");
+        	this.ds_students_copy.setColumn(addRow,"grade",0);
         	this.ds_students_copy.setColumn(addRow,"pw",pw);
         	this.ds_students_copy.setColumn(addRow,"gender",gender);
         	this.ds_students_copy.setColumn(addRow,"deptCode",deptCode);
         	this.ds_students_copy.setColumn(addRow,"colCode",colCode);
         	this.ds_students_copy.setColumn(addRow,"colGrade",colGrade);
+        	trace(this.ds_students_copy.saveXML());
 
         	this.transaction(
 
@@ -354,15 +322,120 @@
         	this.close("");
         };
 
+        this.mas_secNumber_oninput = function(obj,e)
+        {
+
+        	var test = this.mas_secNumber.text.substring(9,10);
+        	trace(test);
+        	var gender = this.com_gender.value;
+        	if(test == 1){
+        	this.com_gender.set_value("M");
+        	}else if(test == 2){
+        	this.com_gender.set_value("W");
+        	}
+        };
+
+        this.insertStudent_onload = function(obj,e)
+        {
+        	var arrComboList = [this.com_colCode, this.com_deptCode];
+
+        	this.gfnInitMultiCombo(arrComboList);
+
+
+        };
+
+        this.gfnInitMultiCombo = function(arrComboList)
+        {
+        	var i;
+        	var nCount = arrComboList.length;
+        	var objCombo;
+        	var objChildCombo;
+
+        	for(i=0;i<nCount;i++)
+        	{
+        		objCombo = arrComboList[i];
+
+        		if(i!=nCount-1)
+        		{
+        			objChildCombo = arrComboList[i+1];
+        			objCombo.childcombo = objChildCombo;
+        			objCombo.addEventHandler("onitemchanged", this.cmbMultiCombo_onitemchanged, this);
+        		}
+        	}
+
+        	this.gfnItemChangedMultiCombo(arrComboList[0], "-1");
+        }
+
+         /**
+        * @description 	   : 콤보 아이템 변경 처리 함수
+        * @param objCombo  : 아이템 변경할 콤보 컴포넌트
+        * @param sValue    : 변경할 콤보 값
+        * @return          : 없음
+        */
+        this.gfnItemChangedMultiCombo = function(objCombo, sValue)
+        {
+        	//하위 콤보 컴포넌트 가져오기
+        	var objChildCombo = objCombo.childcombo;
+
+        	//현재 컴포넌트 값 변경
+        	objCombo.set_value(sValue);
+
+        	//하위 콤보가 있을 경우
+        	if(objChildCombo!=null)
+        	{
+        		//하위 콤보의 InnerDataset 가져오기
+        		var objDs = objChildCombo.getInnerDataset();
+
+        		//상위콤보 값을 기준으로 하위콤보 필터링
+        		objDs.filter("Code.toString().indexOf('"+sValue+"')==0||Code=='-1'");
+
+        		//콤보 아이템 변경 처리 함수 호출
+        		this.gfnItemChangedMultiCombo(objChildCombo, "-1");
+        	}
+        }
+
+        /**************************************************************************
+         * 각 COMPONENT 별 EVENT 영역
+         **************************************************************************/
+
+          /**
+        * @description 	   : 콤보 아이템 변경 이벤트
+        * @param obj       : 이벤트 발생한 콤보 컴포넌트
+        * @param e         : 이벤트 오브젝트
+        * @return          : 없음
+        */
+        this.cmbMultiCombo_onitemchanged = function(obj, e)
+        {
+        	//콤보 아이템 변경 처리 함수 호출
+        	this.gfnItemChangedMultiCombo(obj, e.postvalue);
+        }
+
+
+        this.com_colGrade_onitemchanged = function(obj,e)
+        {
+        	var test = this.com_colGrade.value;
+        	var sseq = this.com_deptCode.value;
+        	if(test == 1){
+        	seq1 = 21;
+        	}else if(test == 2){
+        	seq1 = 20;
+        	}else if(test == 3){
+        	seq1 = 19;
+        	}else if(test == 4){
+        	seq1 = 18;
+        	}
+        };
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-            this.Static00_09.addEventHandler("onclick",this.Static00_09_onclick,this);
+            this.addEventHandler("onload",this.insertStudent_onload,this);
             this.btn_insert.addEventHandler("onclick",this.btn_insert_onclick,this);
             this.btn_cancel.addEventHandler("onclick",this.btn_cancel_onclick,this);
-            this.com_gender.addEventHandler("onitemchanged",this.com_gender_onitemchanged,this);
+            this.com_colGrade.addEventHandler("onitemchanged",this.com_colGrade_onitemchanged,this);
+            this.mas_secNumber.addEventHandler("oninput",this.mas_secNumber_oninput,this);
         };
 
         this.loadIncludeScript("insertStudent.xfdl");

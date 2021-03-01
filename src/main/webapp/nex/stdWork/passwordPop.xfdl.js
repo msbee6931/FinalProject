@@ -25,18 +25,21 @@
             obj.set_text("현재비밀번호를입력하세요");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_pw","25","85","150","30",null,null,null,null,null,null,this);
+            obj = new Edit("edt_pw","25","85","150","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_ok","40","160","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok","10","160","80","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_calcel","120","160","40","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_calcel","110","160","80","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("취소");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -56,34 +59,37 @@
         
         // User Script
         this.registerScript("passwordPop.xfdl", function() {
-
+        var check;
 
         this.btn_calcel_onclick = function(obj,e)
         {
-        	this.close("");
+        	this.close();
         };
 
         this.btn_ok_onclick = function(obj,e)
         {
         	var pw = this.parent.pw;
+        	trace(pw);
         	var cpw = this.edt_pw.value;
         	var shaObj = new jsSHA("SHA-256","TEXT");
         	shaObj.update(cpw);
-
         	var hash = shaObj.getHash("HEX");
+
         	if(pw.length<64){
         	var shaaObj = new jsSHA("SHA-256","TEXT");
         	shaaObj.update(pw);
         	var hush = shaaObj.getHash("HEX");
         	if(hush == hash){
-        	if(this.confirm("수정하시겠습니까?")){
-        	this.close(hash)
+        	if(this.confirm("확인됐습니다.")){
+        	check = "1";
+        	this.close(check);
         	}else{this.close("");}
         	}
         	}else if(pw.length>=64){
         	if(pw == hash){
-        	if(this.confirm("수정하시겠습니까?")){
-        	this.close(hash)
+        	if(this.confirm("확인됐습니다.")){
+        	check = "1";
+        	this.close(check);
         	}else{this.close("");}
         	}else{this.alert("비밀번호 다시입력해주세요");}
         	}

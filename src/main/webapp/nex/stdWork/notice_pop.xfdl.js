@@ -34,69 +34,75 @@
             obj = new Static("label_notice","30","30","120","60",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("공지(분류)");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_title","30","100","741","70",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("TItle");
-            obj.set_border("1px solid black");
-            obj.set_textAlign("center");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("label_date","110","170","120","60",null,null,null,null,null,null,this);
+            obj = new Static("label_date","30","124","200","25",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("작성일자");
             obj.set_textAlign("center");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("label_viewCount","460","170","120","60",null,null,null,null,null,null,this);
+            obj = new Static("label_viewCount","450","124","200","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("조회수");
             obj.set_textAlign("center");
-            obj.set_border("1px solid black");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new TextArea("ta_content","30","230","741","230",null,null,null,null,null,null,this);
+            obj = new TextArea("ta_content","30","148","741","310",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_readonly("true");
+            obj.set_cssclass("txt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_file","30","460","120","75",null,null,null,null,null,null,this);
+            obj = new Static("sta_file","30","457","120","75",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("첨부파일");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_close","670","545","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_close","670","545","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("닫기");
+            obj.set_cssclass("btn_can");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_view_count","580","170","120","60",null,null,null,null,null,null,this);
+            obj = new Static("sta_view_count","649","124","120","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_text("조회수");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Grid("gr_fileList","150","460","520","75",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_binddataset("ds_NoticeFiles");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"360\"/><Column size=\"127\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"파일 이름\"/><Cell col=\"2\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnDownload","670","460","100","75",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("다운로드");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_date","230","170","170","60",null,null,null,null,null,null,this);
+            obj = new Calendar("cal_date","230","124","220","25",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_dateformat("yyyy-MM-dd");
+            obj.set_cssclass("cal_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("sta_title","30","100","741","25",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_text("TItle");
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions

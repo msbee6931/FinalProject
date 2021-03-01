@@ -240,7 +240,7 @@ public class NoticeDAO {
 	public List<NoticeDTO> selectNoticeAll(){
 		Map<String,Object> param = new HashMap<>();
 		param.put("startRowNum", 1);
-		param.put("endRowNum", 5);
+		param.put("endRowNum", 8);
 		return db.selectList("Notice.selectNoticeAll",param);
 	}
 	//Bachelor

@@ -90,8 +90,9 @@
 				<input type="button" id="inputBtn" class="col-sm-4 col-12" value="검색">
 			</div>
 			<div class="row btns">
-				<div id="goChatList" class="col-sm-6 col-12">chatList</div>
-				<div id="goProfile" class="col-sm-6 col-12">profile update</div>
+				<div id="goChatList" class="col-sm-4 col-12">chatList</div>
+				<div id="goProfile" class="col-sm-4 col-12">profile update</div>
+				<div id="goMain" class="col-sm-4 col-12">main</div>
 			</div>
 		</div>
 	</div>
@@ -160,6 +161,10 @@
 		var name = "profile";
         var option = "width = 500, height = 500, top = 100, left = 200";
 		window.open(url,name,option);
+	});
+	
+	$("#goMain").on("click",function(){
+		location.href="/";
 	});
 	</script>
 </body>

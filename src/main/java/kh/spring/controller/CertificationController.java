@@ -61,59 +61,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -159,59 +159,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -240,59 +240,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -361,59 +361,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -485,59 +485,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -584,59 +584,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -667,59 +667,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}
@@ -788,59 +788,59 @@ public class CertificationController {
 
 		String part = null;
 		if(dto.getColCode().contentEquals("10")) {
-			if(dto.getDeptCode().contentEquals("11")) {
+			if(dto.getDeptCode().contentEquals("1011")) {
 				part = "국어국문학과";
-			}else if(dto.getDeptCode().contentEquals("12")) {
+			}else if(dto.getDeptCode().contentEquals("1012")) {
 				part = "영어영문학과";
-			}else if(dto.getDeptCode().contentEquals("13")) {
+			}else if(dto.getDeptCode().contentEquals("1013")) {
 				part = "국사학과";
-			}else if(dto.getDeptCode().contentEquals("14")) {
+			}else if(dto.getDeptCode().contentEquals("1014")) {
 				part = "철학과";
 			}
 		}else if(dto.getColCode().contentEquals("20")) {
-			if(dto.getDeptCode().contentEquals("21")) {
+			if(dto.getDeptCode().contentEquals("2021")) {
 				part = "사회복지학과";
-			}else if(dto.getDeptCode().contentEquals("22")) {
+			}else if(dto.getDeptCode().contentEquals("2022")) {
 				part = "경제학부";
-			}else if(dto.getDeptCode().contentEquals("23")) {
+			}else if(dto.getDeptCode().contentEquals("2023")) {
 				part = "사회학과";
-			}else if(dto.getDeptCode().contentEquals("24")) {
+			}else if(dto.getDeptCode().contentEquals("2024")) {
 				part = "심리학과";
 			}
 		}else if(dto.getColCode().contentEquals("30")) {
-			if(dto.getDeptCode().contentEquals("31")) {
+			if(dto.getDeptCode().contentEquals("3031")) {
 				part = "통계학과";
-			}else if(dto.getDeptCode().contentEquals("32")) {
+			}else if(dto.getDeptCode().contentEquals("3032")) {
 				part = "화학부";
-			}else if(dto.getDeptCode().contentEquals("33")) {
+			}else if(dto.getDeptCode().contentEquals("3033")) {
 				part = "생명과학부";
 			}
 		}else if(dto.getColCode().contentEquals("40")) {
-			if(dto.getDeptCode().contentEquals("41")) {
+			if(dto.getDeptCode().contentEquals("4041")) {
 				part = "간호학부";
 			}
 		}else if(dto.getColCode().contentEquals("50")) {
-			if(dto.getDeptCode().contentEquals("51")) {
+			if(dto.getDeptCode().contentEquals("5051")) {
 				part = "전기공학부";
-			}else if(dto.getDeptCode().contentEquals("52")) {
+			}else if(dto.getDeptCode().contentEquals("5052")) {
 				part = "컴퓨터공학부";
-			}else if(dto.getDeptCode().contentEquals("53")) {
+			}else if(dto.getDeptCode().contentEquals("5053")) {
 				part = "화학생물공학부";
-			}else if(dto.getDeptCode().contentEquals("54")) {
+			}else if(dto.getDeptCode().contentEquals("5054")) {
 				part = "건축학과";
-			}else if(dto.getDeptCode().contentEquals("55")) {
+			}else if(dto.getDeptCode().contentEquals("5055")) {
 				part = "산업공학과";
 			}
 		}else if(dto.getColCode().contentEquals("60")) {
-			if(dto.getDeptCode().contentEquals("61")) {
+			if(dto.getDeptCode().contentEquals("6061")) {
 				part = "교육학과";
-			}else if(dto.getDeptCode().contentEquals("62")) {
+			}else if(dto.getDeptCode().contentEquals("6062")) {
 				part = "국어교육과";
-			}else if(dto.getDeptCode().contentEquals("63")) {
+			}else if(dto.getDeptCode().contentEquals("6063")) {
 				part = "영어교육과";
-			}else if(dto.getDeptCode().contentEquals("64")) {
+			}else if(dto.getDeptCode().contentEquals("6064")) {
 				part = "수학교육과";
-			}else if(dto.getDeptCode().contentEquals("65")) {
+			}else if(dto.getDeptCode().contentEquals("6065")) {
 				part = "체육교육과";
 			}
 		}

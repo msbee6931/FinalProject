@@ -46,46 +46,48 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
+            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("나의 정보 수정");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("Div00","0","38","1021","452",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
             obj.set_text("");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_p_seq","450","80","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_name","450","115","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_email","450","185","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_contact","450","220","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("edt_address","450","255","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_modify","424","356","50","40",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_modify","384","356","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("수정");
+            obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancel","574","357","50","40",null,null,null,null,null,null,this.Div00.form);
+            obj = new Button("btn_cancel","524","357","100","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("다시입력");
+            obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","350","80","100","30",null,null,null,null,null,null,this.Div00.form);
@@ -120,6 +122,7 @@
 
             obj = new Edit("edt_pw","450","290","150","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("13");
+            obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_04_00","350","290","100","30",null,null,null,null,null,null,this.Div00.form);
@@ -131,6 +134,7 @@
             obj.set_taborder("15");
             obj.set_format("###### - #{######}");
             obj.set_type("string");
+            obj.set_cssclass("med_default");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -176,30 +180,53 @@
         	trace(id);
         	trace(ErrorMsg);
         	trace(ErrorCode);
+
+        	var p_seq = this.ds_professor_copy.getColumn(0,"p_seq");
+        	var pw = this.ds_professor_copy.getColumn(0,"pw");
+        	trace(pw);
+        	let x = this.width/2-50;
+        	let y = this.height/2-50;
+        	let objCF = new ChildFrame();
+        	objCF.init("passpop",x,y,200,200,0,0,"stdWork::passwordPop.xfdl");
+        	objCF.set_showtitlebar(false);
+        	objCF.showModal(this.getOwnerFrame(),{p_seq:p_seq, pw:pw},this,"fn_pcallback");
         }
 
 
         this.Div00_btn_modify_onclick = function(obj,e)
         {
         	var cpw = this.Div00.form.edt_pw.value;
-        	if(cpw == null){alert("수정할비밀번호입력하세요")
+        	if(cpw == null || cpw == "undefined" || cpw == ""){alert("수정할비밀번호입력하세요")
         	return;
         	}
-
-        	var p_seq = this.ds_professor_copy.getColumn(e.row,"p_seq");
-        	var pw = this.ds_professor_copy.getColumn(e.row,"pw");
-
+        	var p_seq = this.ds_professor_copy.getColumn(0,"p_seq");
+        	var pw = this.ds_professor_copy.getColumn(0,"pw");
+        	trace(pw);
         	let x = this.width/2-50;
         	let y = this.height/2-50;
         	let objCF = new ChildFrame();
         	objCF.init("passpop",x,y,200,200,0,0,"stdWork::passwordPop.xfdl");
         	objCF.set_showtitlebar(false);
-        	objCF.showModal(this.getOwnerFrame(),{p_seq:p_seq, pw:pw},this,"fn_passcallback");
+        	objCF.showModal(this.getOwnerFrame(),{p_seq:p_seq, pw:pw},this,"fn_okcallback");
+
+
+
+
+
 
         };
-
-        this.myInfoModifyPro_onload = function(obj,e)
+        this.fn_pcallback = function(id,ErrorCode,ErrorMsg)
         {
+        	trace(id);
+        	trace(ErrorMsg);
+        	trace(ErrorCode);
+
+        }
+        this.fn_passcallback = function(id,ErrorCode,ErrorMsg){
+        	trace(ErrorCode);
+        	if(ErrorCode == 0){
+        	alert("수정되었습니다.");
+        	this.Div00.form.edt_pw.set_value("");
         	this.transaction(
 
         				"ds_myInfoPro" //1. strSvcID
@@ -207,14 +234,14 @@
         				,"" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
         				,"ds_professor_copy=out_ds" //4.strOutDatasets -select Fds=Sds
         				,"" //5.strArgument text값
-        				,"fn_callback" //6.strCallbackFunc
+        				,"fn_pcallback" //6.strCallbackFunc
         			);
-        			//this.ds_professor_copy.filter("");
-        };
-        this.fn_passcallback = function(id,hash){
-        	if(hash == ""){return;}
-        	else{
+        	}
+        }
+        this.fn_okcallback = function(id,ErrorCode,ErrorMsg){
 
+        	trace(ErrorCode);
+        	if(ErrorCode == 1){
         	var p_seq = this.Div00.form.edt_p_seq.value;
         	var name = this.Div00.form.edt_name.value;
         	var secNumber = this.Div00.form.mas_secNumber.value;
@@ -260,11 +287,26 @@
         				,"in_ds=ds_professor_copy:U" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
         				,"" //4.strOutDatasets -select Fds=Sds
         				,"" //5.strArgument text값
+        				,"fn_passcallback" //6.strCallbackFunc
+        			);
+        		}else{
+        		this.alert("취소하셧습니다");
+        		}
+        }
+
+        this.myInfoModifyPro_onload = function(obj,e)
+        {
+        	this.transaction(
+
+        				"ds_myInfoPro" //1. strSvcID
+        				,"/myInfoPro.nex" //2. strURL
+        				,"" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
+        				,"ds_professor_copy=out_ds" //4.strOutDatasets -select Fds=Sds
+        				,"" //5.strArgument text값
         				,"fn_callback" //6.strCallbackFunc
         			);
-
-        	}
-        }
+        			//this.ds_professor_copy.filter("");
+        };
 
         this.Div00_btn_cancel_onclick = function(obj,e)
         {

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class DeptScheduleDTO {
 	private int seq;
+	private String deptCode;
 	private int writer;
 	private String name;
 	private String title;
@@ -15,10 +16,11 @@ public class DeptScheduleDTO {
 	
 	public DeptScheduleDTO() {}
 
-	public DeptScheduleDTO(int seq, int writer, String name, String title, String sDate, String eDate, String code,
-			String content, String writeDate) {
+	public DeptScheduleDTO(int seq, String deptCode, int writer, String name, String title, String sDate, String eDate,
+			String code, String content, String writeDate) {
 		super();
 		this.seq = seq;
+		this.deptCode = deptCode;
 		this.writer = writer;
 		this.name = name;
 		this.title = title;
@@ -35,6 +37,14 @@ public class DeptScheduleDTO {
 
 	public void setSeq(int seq) {
 		this.seq = seq;
+	}
+
+	public String getDeptCode() {
+		return deptCode;
+	}
+
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
 	}
 
 	public int getWriter() {
@@ -101,6 +111,7 @@ public class DeptScheduleDTO {
 		this.writeDate = writeDate;
 	}
 
+	
 	
 	
 }

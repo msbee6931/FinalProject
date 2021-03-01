@@ -20,14 +20,16 @@
 
             
             // UI Components Initialize
-            obj = new Button("btn_ok","210","163","80","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok","190","163","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("확인");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_state","10","9","280","147",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions

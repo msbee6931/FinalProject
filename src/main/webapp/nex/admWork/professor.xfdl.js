@@ -22,7 +22,12 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","30","70","1020","370",null,null,null,null,null,null,this);
+            obj = new Static("Static01","30","10",null,null,"26","30",null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("sta_line");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("Grid00","35","70",null,null,"35","80",null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_professor");
             obj.set_autofittype("col");
@@ -30,31 +35,31 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"69\"/><Column size=\"85\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"교수번호\"/><Cell col=\"2\" text=\"이름\"/><Cell col=\"3\" text=\"주민번호\"/><Cell col=\"4\" text=\"email\"/><Cell col=\"5\" text=\"학과분류\"/><Cell col=\"6\" text=\"학과\"/><Cell col=\"7\" text=\"전화번호\" edittype=\"normal\"/><Cell col=\"8\" text=\"주소\"/><Cell col=\"9\" text=\"강사\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:p_seq\"/><Cell col=\"2\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"3\" text=\"bind:secNumber\" edittype=\"mask\" displaytype=\"mask\" maskedittype=\"string\" maskeditformat=\"###### - #######\"/><Cell col=\"4\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"5\" text=\"bind:colCode\" edittype=\"combo\" displaytype=\"normal\" combodataset=\"colCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"6\" text=\"bind:deptCode\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:contact\"/><Cell col=\"8\" text=\"bind:address\" edittype=\"normal\"/><Cell col=\"9\" text=\"bind:lecture\" edittype=\"combo\" combodataset=\"ds_YN\" combocodecol=\"code\" combodatacol=\"name\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_retrive","950","28","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_retrive",null,"28","100","25","35",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("전체조회");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_save","950","460","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_save",null,null,"100","25","35","35",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("저장");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_del","840","460","100","30",null,null,null,null,null,null,this);
+            obj = new Button("btn_del",null,null,"100","25","140","35",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_add","840","28","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_add",null,"28","100","25","140",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("입력");
             obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("cb_search","30","28","100","25",null,null,null,null,null,null,this);
+            obj = new Combo("cb_search","35","28","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -238,11 +243,25 @@
 
         	}
         };
+        this.professor_onload = function(obj,e)
+        {
+        	this.transaction(
+
+        				"ds_retrivepro" //1. strSvcID
+        				,"/professorList.nex" //2. strURL
+        				,"" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
+        				,"ds_professor=out_ds" //4.strOutDatasets -select Fds=Sds
+        				,"" //5.strArgument text값
+        				,"fn_callback" //6.strCallbackFunc
+        			);
+        };
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.addEventHandler("onload",this.professor_onload,this);
             this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
             this.btn_retrive.addEventHandler("onclick",this.btn_retrive_onclick,this);
             this.btn_save.addEventHandler("onclick",this.btn_save_onclick,this);

@@ -23,27 +23,28 @@
             obj = new Static("Static00","0","20","105","40",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("기준");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","105","20","105","40",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("점수(총점)");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_pass","0","60","105","40",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("PASS");
-            obj.set_border("1px solid black");
             obj.set_textAlign("center");
+            obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Edit("edt_score","105","60","105","40",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_textAlign("center");
+            obj.set_cssclass("edt_default");
             obj.set_text("80");
             this.addChild(obj.name, obj);
 
