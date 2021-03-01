@@ -252,7 +252,7 @@ public class FreeBoardController {
 		
 		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
-		
+
 
 		return "Board/FreeList";
 	}
@@ -317,7 +317,7 @@ public class FreeBoardController {
 		
 		model.addAttribute("page",currentPage);
 		model.addAttribute("navi", navi);
-		
+
 
 		return "Board/FreeList";
 		

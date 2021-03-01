@@ -136,6 +136,7 @@ public class FreeCommentController {
 	    	   String navi = service.navi(page, mSeq);
 	    	   dto.setBlank1(Integer.toString((Integer)session.getAttribute("login")));
 	    	   dto.setBlank2(navi);
+	    	   dto.setBlank3(mSeq);
 	    	   list.add(0,dto);
 	    	   return gson.toJson(list);
 	       }
@@ -144,19 +145,24 @@ public class FreeCommentController {
 	   
 	   @RequestMapping("update")
 	   @ResponseBody
-	   public String update(HttpServletRequest request,Model model) {
+	   public String update(HttpServletRequest request,Model model) throws Exception {
 	      String mSeq = (String)request.getParameter("mSeq");
 	      System.out.println("update.FreeComment 요청확인");
 	      String rSeq =  request.getParameter("revSeq");
 	      String rCon =  request.getParameter("revContents");
 	      System.out.println(rSeq +":"+rCon);
 	      int result = service.update(rSeq,rCon);
-	      int page =1;
-	      if(result > 0) {
-	         Gson gson=new Gson();
-	         List <FreeCommentDTO> list = service.selectAll(mSeq,page);
-	         model.addAttribute("id",(Integer)session.getAttribute("login"));
-	         return gson.toJson(list);
+	       int page = 1;
+	       if(result>0) {
+	    	   Gson gson = new Gson();
+	    	   List<FreeCommentDTO> list = service.selectAll(mSeq, page);
+	    	   FreeCommentDTO dto =service.fistDTO(Integer.parseInt(mSeq));
+	    	   String navi = service.navi(page, mSeq);
+	    	   dto.setBlank1(Integer.toString((Integer)session.getAttribute("login")));
+	    	   dto.setBlank2(navi);
+	    	   dto.setBlank3(mSeq);
+	    	   list.add(0,dto);
+	    	   return gson.toJson(list);
 	      }
 	      return "false";
 	   }
