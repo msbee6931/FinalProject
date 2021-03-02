@@ -28,20 +28,51 @@
 	margin: auto;
 }
 #pickBtn{
-	width: 100px;
+	width: 200px;
 	margin: 15px auto;
-	text-align: center;
+	border-style: none;
+	background-color: #efefef;
+	border-radius: 4px;
+	padding: 7px;
+	color: gray;
+	cursor: pointer
+}
+#pickBtn>b{
+	display: flex;
+	justify-content: center;
+}
+#pickBtn:hover{
+	background-color: lightgray;
 }
 #name{
-	width: 100%;
-	margin: 15px 0px;
+	width: 90%;
+	margin: 15px 30px;
+	border: 1px solid lightgray;
+	border-radius: 100px;
+	padding: 10px;
+}
+.btns{
+	display: flex;
+	justify-content: center;
+}
+.btns>div{
+	border-style: none;
+	border-radius: 4px;
+	padding: 10px;
+	color: gray;
+	cursor: pointer;
+	background-color: #efefef;
+	text-align: center;
+	margin: 0px 20px;
+}
+.btns>div:hover {
+	background-color: lightgray;
 }
 </style>
 </head>
 <body>
-	<div class="container">
-		<div class="row">프로필 편집</div>
-		<div id="img" class="row">
+	<div class="container-fluid p-0">
+		<div id="img" class="row pt-5">
 			<c:choose>
 				<c:when test="${user.getImg() != null }">
 					<img src="/files/${user.getImg() }" width="30px">
@@ -57,14 +88,14 @@
 		<form name="profileForm" id="profileForm" method="POST" ENCTYPE="multipart/form-data">
     		<input type="file" id="file" name="file" style="display:none;" onchange="setThumbnail(event)">
 		</form>
-		<input type="button" id="pickBtn" class="row" value="사진 선택" onclick="pick()">
+		<div id="pickBtn" class="row" onclick="pick()"><b>사진 선택</b></div>
 		
-		<input type="text" value="${user.getUserName() }" id="name" class="row">
+		<input type="text" value="${user.getUserName() }" id="name" class="row my-4">
 		<input type="hidden" value="${user.getUserName() }" id="oriName">
 		
-		<div class="row btns">
-			<input type="button" value="완료" id="complete" class="col-12 col-sm-6">
-			<input type="button" value="취소" id="close" class="col-12 col-sm-6">
+		<div class="row btns py-3">
+			<div id="complete" class="col-sx-12 col-sm-5"><b>완료</b></div>
+			<div id="close" class="col-sx-12 col-sm-5"><b>닫기</b></div>
 		</div>
 	</div>
 	

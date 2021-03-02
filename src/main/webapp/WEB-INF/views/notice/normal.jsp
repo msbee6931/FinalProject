@@ -16,7 +16,13 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 #box {
 	min-height:500px;
 }
@@ -24,13 +30,19 @@
 	width:100%;
 }
 #subLabel{
-	background-color: #275cb8;
+	background-color: #193461;
 	color:white;
 	max-width:200px;
 }
-
 #sideBox{
 	max-height:300px;
+}
+#search{
+	background-color: #495d8f;
+	color: #ffffff;
+}
+#search:hover {
+	background-color: #193461;
 }
 </style>
 </head>
@@ -38,11 +50,11 @@
 	<div class="contatiner">
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
-		<div class="container">
+		<div class="container pb-5">
 		<div class="row pt-3">
 			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
-					<Sh5>
+					<h5>
 						<a href="/">Home&gt;</a><a href="/normalList.notice?page=1">공지사항&gt;</a><a href="/normalList.notice?page=1">일반공지</a>
 					</h5>
 				</div>
@@ -90,11 +102,11 @@
 												<option value="3"${category == '3' ? 'selected="selected"' : ''} >제목+내용</option>			
 											</select>
 										</div>
-										<div class="col-sm-12 col-md-6 p-0">
+										<div class="col-sm-12 col-md-6 p-0 px-2">
 											<input class="form-control" name="content" type="search" placeholder="검색어를 입력해주세요">
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
-											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
+											<button type="submit" class="btn d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
@@ -102,7 +114,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="row text-center" style="border-bottom: 1px solid black">
+					<div class="row text-center py-2" style="border-bottom: 1px solid gray">
 						<div class="col-md-2 d-none d-md-block">번호</div>
 						<div class="col-md-4 d-none d-md-block">제목</div>
 						<div class="col-md-2 d-none d-md-block">등록일</div>
@@ -110,7 +122,7 @@
 						<div class="col-md-2 d-none d-md-block">조회수</div>
 					</div>
 					<c:forEach var="i" items="${list}">
-						<div class="row" style="border-bottom: 1px solid black">
+						<div class="row py-2" style="border-bottom: 1px solid #efefef">
 							<div class="col-md-2 d-none d-md-block text-center">${i.rn}</div>
 							<div class="col-md-4 col-12 text-left"><a href="/normalView.notice?seq=${i.n_seq}">${i.title}</a></div>
 							<div class="col-md-2 col-3 text-center">${i.writedate}

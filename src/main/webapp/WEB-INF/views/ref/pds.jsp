@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학사 자료실</title>
+<title>자료실</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -16,8 +16,22 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 #box {
 	min-height:500px;
+}
+#search{
+	background-color: #495d8f;
+	color: #ffffff;
+}
+#search:hover {
+	background-color: #193461;
 }
 </style>
 </head>
@@ -36,17 +50,17 @@
 			</div>
 
 			<div class="row">
-			<div class="col-xl-12 d- pt-4" id="box">
+			<div class="col-xl-12 pt-4 pb-4" id="box">
 					<div class="row">
 						<div class="col-12">
-							<H3>
+							<h3>
 								<b>자료실</b>
-							</H3>
+							</h3>
 						</div>
 						<div class="col-12">
-							<form action="/reference/search.ref?page=1" method="post" class="row">
+							<form action="/reference/search.ref?page=1" method="post" class="row py-4">
 								<div class="col-md-6 order-md-2">
-									<div class="row p-4">
+									<div class="row">
 										<div class="col-sm-12 col-md-3 p-0">
 											<select class="form-select" name="category" id="select">
 												<option value="1"${category == '1' ? 'selected="selected"' : ''}>제목</option>
@@ -54,11 +68,11 @@
 												<option value="3"${category == '3' ? 'selected="selected"' : ''} >제목+내용</option>			
 											</select>
 										</div>
-										<div class="col-sm-12 col-md-6 p-0">
+										<div class="col-sm-12 col-md-6 p-0 px-2">
 											<input class="form-control" name="content" type="search" placeholder="검색어를 입력해주세요">
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
-											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
+											<button type="submit" class="btn d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
@@ -66,7 +80,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="row text-center" style="border-bottom: 1px solid black">
+					<div class="row py-2 text-center" style="border-bottom: 1px solid gray">
 						<div class="col-md-2 d-none d-md-block">번호</div>
 						<div class="col-md-4 d-none d-md-block">제목</div>
 						<div class="col-md-2 d-none d-md-block">등록일</div>
@@ -74,7 +88,7 @@
 						<div class="col-md-2 d-none d-md-block">조회수</div>
 					</div>
 					<c:forEach var="i" items="${list}">
-						<div class="row" style="border-bottom: 1px solid black">
+						<div class="row py-2" style="border-bottom: 1px solid #efefef">
 							<div class="col-md-2 d-none d-md-block text-center">${i.seq}</div>
 							<div class="col-md-4 col-12 text-left"><a href="/reference/view.ref?seq=${i.seq}">${i.title}</a></div>
 							<div class="col-md-2 col-3 text-center">

@@ -12,9 +12,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
 <script
@@ -24,31 +22,32 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://kit.fontawesome.com/a24c081181.js" crossorigin="anonymous"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 /* COMMON */
 * {
+	font-family: 'Nanum Gothic', sans-serif;
 	box-sizing: border-box;
 	padding: 0px;
 	margin: 0px;
 }
-
-div {
-	/* border: 1px solid black; */
-	
-}
-
 .container {
 	padding: 50px;
 }
-
 .row { -
 	-bs-gutter-x: 0rem;
+}
+p{
+	margin-bottom: 0rem;
 }
 /* ROOMLIST */
 .enter {
 	cursor: pointer;
 }
-
 .roomName {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -57,13 +56,44 @@ div {
 	/* height: 20px; */
 	display: block;
 }
-
 img {
 	margin-right: 10px;
 }
-
 .detail {
 	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.top{
+	border-bottom: 1px solid lightgray;
+	text-align: right;
+}
+.btns{
+	display: flex;
+	justify-content: center;
+}
+.btns>div{
+	text-align: center;
+}
+.message{
+	padding-left: 12px;
+}
+.count{
+	display: flex;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #ff5c36;
+	border-radius: 50px;
+	color: #ffffff;
+}
+.msgContent{
+	display: flex;
+	justify-content: space-between;
+}
+.top,.btns{
+	cursor: pointer;
 }
 </style>
 </head>
@@ -73,33 +103,32 @@ img {
 	window.history.forward();
  }
 </script>
-
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
-	<div class="container">
-		<div class="row">채팅방</div>
+	<div class="container-fluid p-0">
+		<div class="row p-4 px-5 top" id="roomCreate"><i class="fas fa-plus"></i></div>
 		<div class="row list">
 			<c:choose>
 				<c:when test="${roomList != null }">
 					<c:forEach var="dto" items="${roomList}">
-						<div class="row p-2 enter">
-							<input type="hidden" class="roomNumber"
-								value="${dto.getRoomNumber() }">
+						<div class="row p-3 px-5 enter">
+							<input type="hidden" class="roomNumber" value="${dto.getRoomNumber() }">
 							<div class="col-12 d-flex roomInfo">
 								<c:choose>
 									<c:when
 										test="${dto.getRoomName() == '' or dto.getRoomName() == null}">
-										<img src="/img/chat2.png" class="col-2">
+										<img src="/img/chat2.png" class="col-1">
+										<div class="row px-3 detail">
 										<c:forEach var="Jdto" items="${roomJoinList}">
 											<c:if test="${dto.getRoomNumber() == Jdto.getRoomNumber() and user.getUserName() != Jdto.getUserName()}">
-												<div class="row detail">
-													<div class="row">${Jdto.getUserName() }</div>
+													<div class="col-2">${Jdto.getUserName() }</div>
 													<c:if test="${messageList != null }">
 														<c:forEach var="list" items="${messageList}">
 															<c:forEach var="cDto" items="${list }" varStatus="status">
 																<c:if test="${cDto.getRoomNumber() == dto.getRoomNumber()}">
 																	<c:if test="${status.last == true}">
-																	<div class="col-10 message">
-																		<c:choose>
+																		<div class="row msgContent">
+																			<div class="col-10 message">
+																			<c:choose>
 																			<c:when test="${cDto.getOriName() == null }">
 																				<div class="row">
 																					<p class="col">${cDto.getMessage() }</p>
@@ -119,27 +148,29 @@ img {
 																				<div class="row">파일을 보냈습니다.</div>
 																			</c:otherwise>
 																		</c:choose>
+																		</div>
+																		<div class="col-2 count">${status.count }</div>
 																	</div>
-																	<div class="col-2 count">${status.count }</div>
 																	</c:if>
 																</c:if>
 															</c:forEach>
 														</c:forEach>
 													</c:if>
-												</div>
 											</c:if>
 										</c:forEach>
+										</div>
 									</c:when>
 									<c:otherwise>
-										<img src="/img/chat4.png" class="col-2">
-										<div class="row detail">
-											<div class="row">${dto.getRoomName() }</div>
+										<img src="/img/chat4.png" class="col-1">
+										<div class="row px-3 detail">
+											<div class="col-12">${dto.getRoomName() }</div>
 											<c:if test="${messageList != null }">
 														<c:forEach var="list" items="${messageList}">
 															<c:forEach var="cDto" items="${list }" varStatus="status">
 																<c:if test="${cDto.getRoomNumber() == dto.getRoomNumber()}">
 																	<c:if test="${status.last == true}">
-																	<div class="col-10 message">
+																		<div class="row msgContent">
+																			<div class="col-10 message">
 																		<c:choose>
 																			<c:when test="${cDto.getOriName() == null }">
 																				<div class="row">
@@ -162,6 +193,7 @@ img {
 																		</c:choose>
 																	</div>
 																	<div class="col-2 count">${status.count }</div>
+																		</div>
 																	</c:if>
 																</c:if>
 															</c:forEach>
@@ -177,11 +209,10 @@ img {
 				<c:otherwise>채팅방이 없습니다.</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="row">
-			<input type="button" id="roomCreate" value="방 생성">
-		</div>
-		<div class="row">
-			<input type="button" id="goChatHome" value="채팅 홈">
+		<div class="row etc">
+			<div class="row btns py-4" style="background-color:#efefef">
+				<div id="goChatHome" class="col-md-6 col-sm-12"><i class="fas fa-home"></i></div>
+			</div>
 		</div>
 	</div>
 
@@ -199,18 +230,18 @@ img {
 					var roomNumber = $(this).children(".roomNumber").val();
 						if (result.roomNumber == roomNumber) {
 							var parent = $(this).children(".roomInfo").children(".detail");
-							var msg = parent.children(".message");
+							var msg = parent.children(".msgContent");
 							
 							if(msg.length > 0){
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text(result.message);
+								msg.children(".count").text(count);
+								msg.children(".message").text(result.message);
 							}else{
-								parent.append("<div class='col-10 message'></div><div class='col-2 count'></div>");
+								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
 								
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text(result.message);
+								msg.children(".count").text(count);
+								msg.children(".message").text(result.message);
 							}
 						}
 				});
@@ -222,18 +253,18 @@ img {
 					var roomNumber = $(this).children(".roomNumber").val();
 						if (result.roomNumber == roomNumber) {
 							var parent = $(this).children(".roomInfo").children(".detail");
-							var msg = parent.children(".message");
+							var msg = parent.children(".msgContent");
 
 							if(msg.length > 0){
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text("이모티콘을 보냈습니다.");
+								msg.children(".count").text(count);
+								msg.children(".message").text("이모티콘을 보냈습니다.");
 							}else{
-								parent.append("<div class='col-10 message'></div><div class='col-2 count'></div>");
+								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
 								
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text("이모티콘을 보냈습니다.");
+								msg.children(".count").text(count);
+								msg.children(".message").text("이모티콘을 보냈습니다.");
 							}
 						}
 				});
@@ -245,18 +276,18 @@ img {
 					var roomNumber = $(this).children(".roomNumber").val();
 						if (result.roomNumber == roomNumber) {
 							var parent = $(this).children(".roomInfo").children(".detail");
-							var msg = parent.children(".message");
+							var msg = parent.children(".msgContent");
 							
 							if(msg.length > 0){
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text("사진을 보냈습니다.");
+								msg.children(".count").text(count);
+								msg.children(".message").text("사진을 보냈습니다.");
 							}else{
-								parent.append("<div class='col-10 message'></div><div class='col-2 count'></div>");
+								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
 								
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text("사진을 보냈습니다.");
+								msg.children(".count").text(count);
+								msg.children(".message").text("사진을 보냈습니다.");
 							}
 						}
 				});
@@ -268,18 +299,18 @@ img {
 					var roomNumber = $(this).children(".roomNumber").val();
 						if (result.roomNumber == roomNumber) {
 							var parent = $(this).children(".roomInfo").children(".detail");
-							var msg = parent.children(".message");
+							var msg = parent.children(".msgContent");
 								
 							if(msg.length > 0){
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text("파일을 보냈습니다.");
+								msg.children(".count").text(count);
+								msg.children(".message").text("파일을 보냈습니다.");
 							}else{
-								parent.append("<div class='col-10 message'></div><div class='col-2 count'></div>");
+								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
 								
 								count += 1;
-								parent.children(".count").text(count);
-								parent.children(".message").text("파일을 보냈습니다.");
+								msg.children(".count").text(count);
+								msg.children(".message").text("파일을 보냈습니다.");
 							}
 						}
 				});
@@ -301,7 +332,6 @@ img {
 		$("#goChatHome").on("click", function() {
 			location.href = "/chatting/chatHome";
 		});
-
 	</script>
 </body>
 </html>

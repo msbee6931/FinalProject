@@ -12,8 +12,14 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://kit.fontawesome.com/a24c081181.js" crossorigin="anonymous"></script>
 <style>
+	@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 	/* COMMON */
 	*{
+		font-family: 'Nanum Gothic', sans-serif;
 		box-sizing: border-box;
 		padding: 0px;
 		margin: 0px;
@@ -36,6 +42,36 @@
 	#goChatList,#goProfile{
 		text-align: center;
 	}
+	#right{
+		display: flex;
+		justify-content: flex-end;
+		border-bottom: 1px solid lightgray;
+		padding: 20px 0px;
+		align-items: center;
+	}
+	.searchInput{
+		padding-left: 50px;
+	}
+	#inputTxt{
+		border: 1px solid lightgray;
+		border-radius: 6px;
+		height: 40px;
+		padding: 10px;
+	}
+	#inputBtn{
+		border-radius: 6px;
+		border-style: none;
+		height: 40px;
+	}
+	#inputBtn:hover{
+		background-color: lightgray;
+	}
+	.btns>div{
+		cursor: pointer;
+	}
+	.searchIcon,#goProfile{
+		cursor: pointer;
+	}
 </style>
 </head>
 <script type="text/javascript">
@@ -45,24 +81,31 @@
  }
 </script>
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
-	<div class="container" id="container">
-		<div>친구</div>
-		<div class="row p-3 d-flex align-items-center myProfile">
-			<div class="col-2 p-0 profileImg user">
+	<div class="container-fluid p-0" id="container">
+		<div class="row" id="right">
+			<div class="col-md-10 col-sm-12 searchInput" style="display:none">
+				<input type="text" id="inputTxt" class="col-md-6 col-sm-12" placeholder="검색할 친구를 입력해주세요.">
+				<input type="button" id="inputBtn" class="col-md-1 col-sm-12" value="검색">
+			</div>
+			<div class="col-sm-1 col-12 text-center searchIcon"><i class="fas fa-search"></i></div>
+			<div id="goProfile" class="col-sm-1 col-12"><i class="fas fa-cog"></i></div>
+		</div>
+		<div class="row p-3 px-5 d-flex align-items-center myProfile">
+			<div class="col-1 p-0 profileImg user">
 				<c:choose>
 					<c:when test="${user.getImg() == null }"><img src="/img/deepblue.png" width="50px"></c:when>
 					<c:otherwise><img src="/files/${user.getImg()}" width="50px"></c:otherwise>
 				</c:choose>
 			</div>
-			<div class="col-10" id="userName">${user.getUserName() }</div>
+			<div class="col-11" id="userName">${user.getUserName() }</div>
 			<input type="hidden" id="userId" value=${user.getUserId() }>
 		</div>
-		<div class="row p-0 otherProfile">
+		<div class="row p-0 px-5 pb-3 otherProfile">
 			<c:choose>
 				<c:when test="${friendList != null }">
 					<c:forEach var="dto" items="${friendList }">
-						<div class="row p-3 d-flex align-items-center friend">
-							<div class="col-2 profileImg other">
+						<div class="row py-3 d-flex align-items-center friend">
+							<div class="col-1 profileImg other">
 								<c:forEach var="aDto" items="#{allUser}">
 									<c:if test="${dto.getFriendId() == aDto.getUserId() }">
 										<c:choose>
@@ -72,7 +115,7 @@
 									</c:if>
 								</c:forEach>
 							</div>
-							<div class="col-8 friendName">${dto.getFriendName() }</div>
+							<div class="col-9 friendName">${dto.getFriendName() }</div>
 							<div class="col-1 chatIcon"><i class="far fa-comment-dots"></i></div>
 							<div class="col-1 deleteFriend"><i class="fas fa-minus"></i></div>
 							<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
@@ -85,18 +128,12 @@
 			</c:choose>
 		</div>
 		<div class="row etc">
-			<div class="row p-3 searchInput">
-				<input type="text" id="inputTxt" class="col-sm-8 col-12" placeholder="검색할 친구를 입력해주세요.">
-				<input type="button" id="inputBtn" class="col-sm-4 col-12" value="검색">
-			</div>
-			<div class="row btns">
-				<div id="goChatList" class="col-sm-4 col-12">chatList</div>
-				<div id="goProfile" class="col-sm-4 col-12">profile update</div>
-				<div id="goMain" class="col-sm-4 col-12">main</div>
+			<div class="row btns py-4" style="background-color:#efefef">
+				<div id="goMain" class="col-md-6 col-sm-12 text-center"><i class="fas fa-home"></i></div>
+				<div id="goChatList" class="col-md-6 col-sm-12"><i class="far fa-comments"></i></div>
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 
 	<script>
 	$(document).on("click",".chatIcon",function(){
@@ -165,6 +202,11 @@
 	
 	$("#goMain").on("click",function(){
 		location.href="/";
+	});
+	
+	$(".searchIcon").on("click",function(){
+		var flag = $(".searchInput").css("display");
+		(flag == "block")?$(".searchInput").css("display","none"):$(".searchInput").css("display","block");
 	});
 	</script>
 </body>

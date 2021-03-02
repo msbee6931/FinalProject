@@ -11,8 +11,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+	font-family: 'Nanum Gothic', sans-serif;
+}
 /* COMMON */
 * {
+	font-family: 'Nanum Gothic', sans-serif;
 	box-sizing: border-box;
 	padding: 0px;
 	margin: 0px;
@@ -35,11 +40,26 @@
 .friendName {
 	cursor: pointer;
 }
+.title{
+	background-color: #efefef;
+	color: gray;
+}
+.btns>div{
+	border-style: none;
+	background-color: #efefef;
+	border-radius: 4px;
+	padding: 15px;
+	color: gray;
+	cursor: pointer;
+}
+.btns>div:hover {
+	background-color: lightgray;
+}
 </style>
 </head>
 <body>
-	<div class="container">
-		<div class="row">대화상대 초대</div>
+	<div class="container-fluid p-0">
+		<div class="row p-3 px-4 title"><b>대화상대 초대</b></div>
 		<input type="hidden" id="roomNumber" value="${roomNumber}">
 		<input type="hidden" id="roomName" value="${roomName}">
 		<%-- <div> 
@@ -48,11 +68,11 @@
 				<div class="joinMember">${jDto.getUserName()}</div>
 			</c:forEach>
 		</div> --%>
-		<div class="row p-0 profile">
+		<div class="row p-3 profile">
 			<c:choose>
 				<c:when test="${inviteList != null }">
 					<c:forEach var="dto" items="${inviteList }">
-						<div class="row p-0 friend">
+						<div class="row p-2 py-3 friend">
 							<div class="col-2 profileImg other">
 								<c:forEach var="aDto" items="${allUser}">
 									<c:if test="${dto.getFriendId() == aDto.getUserId() }">
@@ -78,9 +98,9 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="row btns">
-			<input type="button" id="complete" class="col-12 col-sm-6" value="완료">
-			<input type="button" id="close" class="col-12 col-sm-6" value="취소">
+		<div class="row btns text-center">
+			<div id="complete" class="col-sx-12 col-sm-6"><b>완료</b></div>
+			<div id="close" class="col-sx-12 col-sm-6"><b>취소</b></div>
 		</div>
 	</div>
 

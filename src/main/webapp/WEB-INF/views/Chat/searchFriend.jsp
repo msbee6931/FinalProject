@@ -10,9 +10,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://kit.fontawesome.com/a24c081181.js" crossorigin="anonymous"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+	font-family: 'Nanum Gothic', sans-serif;
+}
 /* COMMON */
 * {
+	font-family: 'Nanum Gothic', sans-serif;
 	box-sizing: border-box;
 	padding: 0px;
 	margin: 0px;
@@ -27,18 +33,33 @@
 .searchOutput .profile{
 	display: flex;
 }
+#close{
+	border-style: none;
+	background-color: #efefef;
+	border-radius: 4px;
+	padding: 10px;
+	color: gray;
+	cursor: pointer;
+}
+#close:hover{
+	background-color: lightgray;
+}
+.title{
+	background-color: #efefef;
+	color: gray;
+}
 </style>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid p-0">
 		<input type="hidden" value="${user.getUserName()}" id="userName">
-		<div class="row p-2">친구 검색</div>
-		<div class="row searchOutput">
+		<div class="row p-3 px-4 title"><b>친구 검색</b></div>
+		<div class="row p-3 searchOutput">
 			<c:choose>
 				<c:when test="${list!=null}">
 					<c:forEach var="dto" items="${list }">
 						<c:if test="${dto.getUserId() != userId }">
-							<div class="row p-2 d-flex align-items-center profile">
+							<div class="row p-2 py-3 d-flex align-items-center profile">
 								<div class="col-1">
 									<c:forEach var="aDto" items="#{allUser}">
 										<c:if test="${dto.getUserId() == aDto.getUserId() }">
@@ -51,7 +72,7 @@
 								</div>
 								<div class="col-3 friendId">${dto.getUserId() }</div>
 								<div class="col-7 friendName">${dto.getUserName() }</div>
-								<input type="button" class="col-1 add" value="+">
+								<div class="col-1 add"><i class="fas fa-plus"></i></div>
 							</div>
 						</c:if>
 					</c:forEach>
@@ -59,8 +80,8 @@
 				<c:otherwise>검색결과가 없습니다.</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="row btns">
-			<input type="button" id="close" class="col-12" value="취소">
+		<div class="row text-center btns">
+			<div class="col-12 p-3" id="close"><b>취소</b></div>
 		</div>
 	</div>
 	

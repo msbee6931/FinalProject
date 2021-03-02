@@ -14,11 +14,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="https://kit.fontawesome.com/a24c081181.js" crossorigin="anonymous"></script>
 <style>
+	@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	.nanumgothic * {
+ 		font-family: 'Nanum Gothic', sans-serif;
+	}
 	/* COMMON */
 	*{
+		font-family: 'Nanum Gothic', sans-serif;
 		box-sizing: border-box;
 		padding: 0px;
 		margin: 0px;
+	}
+	p{
+		margin-bottom: 0rem;
 	}
 /* 	div{
 		border: 1px solid black;
@@ -32,33 +40,39 @@
 		--bs-gutter-x: 0rem;
 	}
 	/* CHAT */
-	.contents{
-		height: 80%;
+	#contents{
+		height: 500px;
 		overflow-y:auto;
 		word-wrap:break-word;
 	}
 	.contents .me{
 		text-align: right;
+		margin: 6px;
 	}
 	.contents .others{
 		text-align: left;
+		margin: 6px;
 	}
 	.contents .sendImg{
 		width: 100px;
 		height: 100px;
 	}
 	.contents #message{
-		height: 20%;
+		height: 200px;
+	}
+	.etc{
+		padding: 15px 0px;
+		border-top: 1px solid lightgray;
 	}
 	.etc div{
 		text-align: center;
 	}
 	#emoticons{
 		padding: 10px;
+		text-align: center;
 	}
 	#emoticons img{
-		width: 50px;
-		height: 50px;
+		margin-right: 30px;
 	}
 	.others{
 		display: flex;
@@ -73,10 +87,60 @@
 		display: block;
 	}
 	.members{
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid lightgray;
 	}
-	.joinuserName{
+	.joinUserName{
 		cursor: point;
+		display: flex;
+		align-items: center;
+	}
+	.icons{
+		display: flex;
+		padding: 25px 0px;
+		background-color: #efefef;
+	}
+	.icons>div{
+		display: flex;
+	}
+	.icons .left{
+		padding-left: 30px;
+	}
+	.icons .right{
+		justify-content: flex-end;
+	}
+	.icons .left>div,
+	.icons .right>div{
+		cursor: pointer;
+	}
+	.btns{
+		background-color: #efefef;
+	}
+	.btns>div{
+		cursor: pointer;
+	}
+	.sendMsg>input{
+		border: 1px solid lightgray;
+		padding: 30px 0px;
+	}
+	.sendMsg>button{
+		border-style: none;
+		background-color: lightgray;
+		color: #ffffff;
+	}
+	.sendMsg>button:hover{
+		background-color: gray;
+	}
+	.search{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 10px;
+	}
+	.search>input{
+		margin-right: 15px; 
+		padding: 5px;
+		border: 1px solid lightgray;
+		border-radius: 100px;
 	}
 </style>
 </head>
@@ -88,36 +152,41 @@
 </script>
 
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
-	<div class="container">
+	<div class="container-fluid p-0">
 		<input type="hidden" id="userId" value="${userId }">
 		<input type="hidden" id="roomNumber" value="${roomNumber }">
-		<input type="button" id="invite" value="초대하기">
-		<input type="button" id="leave" value="방 나가기">
-		<div class="row"> 
-			<div class="row">참가자</div>
-			<div class="row members">
-				<c:forEach var="jDto" items="${joinList}">
-					<c:forEach var="aDto" items="${allUser}">
-						<c:if test="${jDto.getUserId() == aDto.getUserId() }">
-							<div class="col-3 d-flex member">
-								<c:choose>
-									<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="30px" class="joinUserImg"></c:when>
-									<c:otherwise><img src="/files/${aDto.getImg()}" width="30px" class="joinUserImg"></c:otherwise>
-								</c:choose>
-								<div class="joinUserId" style="display: none">${jDto.getUserId()}</div>
-								<div class="col joinUserName">${jDto.getUserName()}</div>
-							</div>
-						</c:if>
-					</c:forEach>
-				</c:forEach>
+		<div class="row icons">
+			<div class="col-6 left">
+				<div class="col-1" id="showMember"><i class="fas fa-user-friends"></i></div>
+				<div class="col-1" id="showSearch"><i class="fas fa-search"></i></div>
+			</div>
+			<div class="col-6 right">
+				<div class="col-1" id="invite"><i class="fas fa-plus"></i></div>
+				<div class="col-1" id="leave"><i class="fas fa-sign-out-alt"></i></div>
 			</div>
 		</div>
-		<div class="row">
-			<input type="text" class="col-10" id="searchTxt">
-			<div class="col-1" id="searchBtn"><i class="fas fa-search"></i></div>
-			<div class="col-1 next">next</div>
+		<div class="row p-3 members" style="display:none">
+			<c:forEach var="jDto" items="${joinList}">
+				<c:forEach var="aDto" items="${allUser}">
+					<c:if test="${jDto.getUserId() == aDto.getUserId() }">
+						<div class="col-3 d-flex member">
+							<c:choose>
+								<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="30px" class="col-2 joinUserImg"></c:when>
+								<c:otherwise><img src="/files/${aDto.getImg()}" width="30px" class="joinUserImg"></c:otherwise>
+							</c:choose>
+							<div class="joinUserId" style="display: none">${jDto.getUserId()}</div>
+							<div class="col-3 px-2 joinUserName">${jDto.getUserName()}</div>
+						</div>
+					</c:if>
+				</c:forEach>
+			</c:forEach>
 		</div>
-		<div class="row contents" id="contents">			
+
+		<div class="row search" style="display:none">
+			<input type="text" class="col-8" id="searchTxt">
+			<div class="col-1" id="searchBtn"><i class="fas fa-search"></i></div>
+		</div>
+		<div class="row p-4 contents" id="contents">			
 			<c:if test="${list != null }">
 				<c:forEach var="dto" items="${list}">
 					<c:choose>
@@ -154,39 +223,39 @@
 								<c:choose>
 									<c:when test="${dto.getOriName() == null }">
 										<div class="row others">	
-											<div class="col-1">
+											<div class="col-1 text-center">
 												<c:choose>
 													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-2">${aDto.getUserName()}: </div>
-											<p class="col-9">${dto.getMessage() }</p>
+											<div class="col-1">${aDto.getUserName()}: </div>
+											<p class="col-10">${dto.getMessage() }</p>
 										</div>
 									</c:when>
 
 									<c:when test="${dto.getOriName() != null and dto.getSavedName() == null}">
 										<div class="row others">	
-											<div class="col-1">
+											<div class="col-1 text-center">
 												<c:choose>
 													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-2">${aDto.getUserName()}: </div>
+											<div class="col-1">${aDto.getUserName()}: </div>
 											<img src="${dto.getOriName()}" class="col-8 sendImg">
 										</div>
 									</c:when>
 
 									<c:when test="${dto.getFormat()=='gif' or dto.getFormat()=='png' or dto.getFormat()=='jpg' or dto.getFormat()=='raw' or dto.getFormat()=='tif' or dto.getFormat()=='tiff' or dto.getFormat()=='bpm' or dto.getFormat()=='rle' or dto.getFormat()=='dib'}">
 										<div class='row others'>
-											<div class="col-1">
+											<div class="col-1 text-center">
 												<c:choose>
 													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-2">${aDto.getUserName()}: </div> 
+											<div class="col-1">${aDto.getUserName()}: </div> 
 											<div class="col-8">
 												<img src='/files/${dto.getSavedName() }' class="sendImg">
 												<a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }' class='imgLink'>${dto.getOriName() }</a>
@@ -196,13 +265,13 @@
 									
 									<c:otherwise>
 										<div class="row others">
-											<div class="col-1">
+											<div class="col-1 text-center">
 												<c:choose>
 													<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" class="proImg"></c:when>
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-2">${aDto.getUserName()}: </div>
+											<div class="col-1">${aDto.getUserName()}: </div>
 											<a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }" class="col-8">${dto.getOriName() }</a>
 										</div>
 									</c:otherwise>
@@ -214,15 +283,15 @@
 				</c:forEach>
 			</c:if>
 		</div>
-		<div class="row" id="emoticons" style="display:none;">
-			<img src="/img/happy.png" id="happy" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/excited.png" id="excited" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/nomal.png" id="nomal" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/soso.png" id="soso" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/sleepy.png" id="sleepy" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/sad.png" id="sad" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/angry.png" id="angry" ondblclick="sendEmoticon(this)" class="col">
-			<img src="/img/surprised.png" id="surprised" ondblclick="sendEmoticon(this)" class="col">
+		<div class="row" id="emoticons" style="display:none">
+			<img src="/img/happy.png" id="happy" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/excited.png" id="excited" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/nomal.png" id="nomal" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/soso.png" id="soso" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/sleepy.png" id="sleepy" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/sad.png" id="sad" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/angry.png" id="angry" class="col-1" ondblclick="sendEmoticon(this)">
+			<img src="/img/surprised.png" id="surprised" class="col-1" ondblclick="sendEmoticon(this)">		
 		</div>
 		<div class="row etc">
 			<div id="fileWrapper" class="col-6">
@@ -234,12 +303,12 @@
 			<div id="emoticonIcon" class="col-6"><i class="far fa-laugh"></i></div>
 		</div>
 		<div class="row sendMsg">
-			<input type="text" id="message" class="col-10">
-			<button id="send" class="col-2">Send</button>
+			<input type="text" id="message" class="col-10 px-3">
+			<button id="send" class="col-2"><b>전송</b></button>
 		</div>
-		<div class="row">
-			<input type="button" id="goChatList" value="목록">
-			<input type="button" id="goChatHome" value="채팅 홈">
+		<div class="row text-center py-4 btns">
+			<div class="col-md-6 col-sm-12" id="goChatHome"><i class="fas fa-home"></i></div>
+			<div class="col-md-6 col-sm-12" id="goChatList"><i class="far fa-comments"></i></div>
 		</div>
 	</div>
 	
@@ -298,7 +367,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row'><p class='col me'>"+result.message+"</p></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><p class='col-8'>"+result.message+"</p></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><p class='col-8'>"+result.message+"</p></div>");
 				}
 				scrollBottom();
 			});
@@ -318,7 +387,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row'><div class='col me'><img src='"+result.oriName+"' class='sendImg'></div></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><img src='"+result.oriName+"' class='col-8 sendImg'></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><img src='"+result.oriName+"' class='col-8 sendImg'></div>");
 				}
 				scrollBottom();
 			});
@@ -338,7 +407,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row me'><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><a class='col-8' href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
 				}
 				scrollBottom();
 			});
@@ -358,7 +427,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row'><div class='col me'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1'><img src='"+userImg+"' class='proImg'></div><div class='col-3'>"+userName+" : </div><div class='col-8'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><div class='col-8'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
 				}
 				scrollBottom();
 			});
@@ -477,7 +546,7 @@
 			var joinUserId = $(this).siblings(".joinUserId").text();
 			var url = "/chatting/profileView?joinUserId="+joinUserId;
 			var name = "profileView";
-	        var option = "width = 500, height = 500, top = 100, left = 200";
+	        var option = "width = 500, height = 300, top = 100, left = 200";
 			window.open(url,name,option);
 		});
 		
@@ -540,6 +609,15 @@
 			var sideContents = document.getElementById("contents");
 			sideContents.scrollTop = sideContents.scrollHeight;
 		}		
+		
+		$("#showMember").on("click",function(){
+			var flag = $(".members").css("display");
+			(flag == "flex")?$(".members").css("display","none"):$(".members").css("display","flex");
+		});
+		$("#showSearch").on("click",function(){
+			var flag = $(".search").css("display");
+			(flag == "flex")?$(".search").css("display","none"):$(".search").css("display","flex");
+		});
 	</script>
 </body>
 </html>
