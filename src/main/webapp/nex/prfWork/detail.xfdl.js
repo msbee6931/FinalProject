@@ -371,6 +371,19 @@
             obj.set_visible("false");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            obj = new MaskEdit("edt_classSeq","469","49","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
+            obj.set_taborder("52");
+            obj.set_textAlign("center");
+            obj.set_readonly("true");
+            obj.set_cssclass("edt_default");
+            this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
+
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
+>>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj = new Button("btnClose","869","15","80","25",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("50");
             obj.set_text("닫기");
@@ -396,6 +409,7 @@
             obj.set_cssclass("med_default");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new MaskEdit("edt_classSeq","469","49","212","39",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("52");
             obj.set_maskchar("###");
@@ -405,6 +419,8 @@
             obj.set_cssclass("edt_default");
             this.Div00.form.classPlanTab.classPlan.addChild(obj.name, obj);
 
+=======
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj = new MaskEdit("mask_attend","21","472","155","30",null,null,null,null,null,null,this.Div00.form.classPlanTab.classPlan.form);
             obj.set_taborder("42");
             obj.set_maskchar("###");
@@ -456,421 +472,765 @@
 
             obj = new Tabpage("classSchedule",this.Div00.form.classPlanTab);
             obj.set_text("수업운영계획");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("sta_line");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.addChild(obj.name, obj);
 
             obj = new Static("Static00","29","20","70","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("0");
             obj.set_text("주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("lightsteelblue");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","99","20","257","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("1");
             obj.set_text("강의주제");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("lightsteelblue");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","751","20","205","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("2");
             obj.set_text("준비물");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("lightsteelblue");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_02","356","20","200","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("3");
             obj.set_text("수업내용");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("lightsteelblue");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_02_00","556","20","195","40",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("4");
             obj.set_text("관련지식 및 유의사항");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("lightsteelblue");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03","29","60","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("5");
             obj.set_text("1주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_00","29","95","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("6");
             obj.set_text("2주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_01","29","130","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("7");
             obj.set_text("3주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_02","29","410","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("8");
             obj.set_text("11주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_03","29","375","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("9");
             obj.set_text("10주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_04","29","340","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("10");
             obj.set_text("9주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_05","29","305","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("11");
             obj.set_text("8주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_06","29","270","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("12");
             obj.set_text("7주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_07","29","235","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("13");
             obj.set_text("6주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_08","29","165","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("14");
             obj.set_text("4주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_09","29","200","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("15");
             obj.set_text("5주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_02_00","29","445","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("16");
             obj.set_text("12주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_02_01","29","480","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("17");
             obj.set_text("13주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_02_02","29","515","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("18");
             obj.set_text("14주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Static("Static00_03_02_03","29","550","70","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("19");
             obj.set_text("15주차");
+<<<<<<< HEAD
             obj.set_border("1px solid gray");
             obj.set_background("whitesmoke");
             obj.set_textAlign("center");
+=======
+            obj.set_textAlign("center");
+            obj.set_cssclass("sta_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject1","99","60","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("20");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject2","99","95","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("21");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject3","99","130","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("22");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject4","99","165","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("23");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject5","99","200","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("24");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject12","99","445","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("31");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject6","99","235","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("25");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject13","99","480","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("32");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject7","99","270","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("26");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject8","99","305","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("27");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject9","99","340","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("28");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject14","99","515","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("33");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject15","99","550","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("34");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject10","99","375","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("29");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_subject11","99","410","257","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("30");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice1","556","60","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("35");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice2","556","95","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("36");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice3","556","130","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("37");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice4","556","165","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("38");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice5","556","200","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("39");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice6","556","235","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("40");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice7","556","270","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("41");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice8","556","305","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("42");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice9","556","340","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("43");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice10","556","375","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("44");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice11","556","410","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("45");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice12","556","445","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("46");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice13","556","480","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("47");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice14","556","515","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("48");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_notice15","556","550","195","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("49");
             obj.set_textAlign("center");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare1","751","60","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("50");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare2","751","95","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("51");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare3","751","130","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("52");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare4","751","165","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("53");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare5","751","200","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("54");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare6","751","235","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("55");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare7","751","270","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("56");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare8","751","305","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("57");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare9","751","340","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("58");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare10","751","375","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("59");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare11","751","410","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("60");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare12","751","445","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("61");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare13","751","480","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("62");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare14","751","515","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("63");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new Edit("edt_prepare15","751","550","205","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("64");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("edt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content1","356","60","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("65");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content6","356","235","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("70");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content10","356","375","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("74");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content11","356","410","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("75");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content12","356","445","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("76");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content2","356","95","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("66");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content3","356","130","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("67");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content4","356","165","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("68");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content5","356","200","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("69");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content7","356","270","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("71");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content8","356","305","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("72");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content9","356","340","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("73");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content14","356","515","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("78");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content15","356","550","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("79");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             obj = new TextArea("ta_content13","356","480","200","35",null,null,null,null,null,null,this.Div00.form.classPlanTab.classSchedule.form);
             obj.set_taborder("77");
+<<<<<<< HEAD
+=======
+            obj.set_cssclass("txt_default");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classSchedule.addChild(obj.name, obj);
 
             // Layout Functions
@@ -911,7 +1271,11 @@
         	var dept = classForm.co_dept.value;
         	var grade = classForm.co_grade.text;
         	var classTime = classForm.edt_classTime.text;
+<<<<<<< HEAD
         	var classRoom = classForm.mask_classRoom.text;
+=======
+        	var classRoom = classForm.mask_classRoom.value;
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         	trace(classRoom)
         	if(sum != "100%" || sum2 != "100%"){alert("합계가 100%가 아닙니다")}
         	else if(part =="" || part == null){alert("이수구분을 선택해주세요");}
@@ -1228,6 +1592,20 @@
         		objCF.showModal(this.getOwnerFrame(),{},this,"fn_pop_callback");
         };
 
+<<<<<<< HEAD
+=======
+        this.Div00_classPlanTab_classPlan_co_part_onitemchanged = function(obj,e)
+        {
+        	if(e.postvalue == "C" || e.postvalue =="D" || e.postvalue =="E"){
+        		classForm.co_dept.set_value("7071");
+        		classForm.co_dept.set_readonly(true);
+        	}else{
+        		classForm.co_dept.set_value("");
+        		classForm.co_dept.set_readonly(false);
+        	}
+        };
+
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         });
         
         // Regist UI Components Event
@@ -1243,6 +1621,10 @@
             this.Div00.form.classPlanTab.classPlan.form.Static00_02.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
             this.Div00.form.classPlanTab.classPlan.form.Static00_02_01.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
             this.Div00.form.classPlanTab.classPlan.form.Static00_02_04.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
+<<<<<<< HEAD
+=======
+            this.Div00.form.classPlanTab.classPlan.form.co_part.addEventHandler("onitemchanged",this.Div00_classPlanTab_classPlan_co_part_onitemchanged,this);
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.Div00.form.classPlanTab.classPlan.form.Static00_02_03.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
             this.Div00.form.classPlanTab.classPlan.form.Static00_02_02_00.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
             this.Div00.form.classPlanTab.classPlan.form.Static00_02_02_00_00.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);

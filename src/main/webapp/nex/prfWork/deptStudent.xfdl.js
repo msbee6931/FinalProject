@@ -314,7 +314,11 @@
         {
         	var code = this.ds_students.getColumn(e.row,"s_seq").toString();
         	var name = this.ds_students.getColumn(e.row,"name");
+<<<<<<< HEAD
         	var enroll = "20"+code.substring(e.row,2)+"년 03월 02일";
+=======
+        	var enroll = "20"+code.substring(0,2)+"년 03월 02일";
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         	var colGrade = this.ds_students.getColumn(e.row,"colGrade");
         	var birth = this.ds_students.getColumn(e.row,"secNumber");
         	birth = birth.substring(0,6);

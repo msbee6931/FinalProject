@@ -139,16 +139,6 @@
         			,"fn_callback"//callback
         		);
 
-        		this.transaction(
-        			"garbageInsert" //id
-        			,"/reference/garbageInsert"//url
-        			,""// inData
-        			,""// outData
-        			,""//strArg
-        			,"fn_callback"//callback
-        		);
-
-        		this.FileUpTransfer00.upload("/reference/uploadFile");
 
         };
 

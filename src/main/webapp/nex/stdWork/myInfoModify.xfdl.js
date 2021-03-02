@@ -48,6 +48,15 @@
 
             obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("4");
+<<<<<<< HEAD
+=======
+            obj.set_text("나의 정보 수정");
+            obj.set_cssclass("sta_title");
+            this.addChild(obj.name, obj);
+
+            obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
+            obj.set_taborder("5");
+>>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
@@ -177,11 +186,22 @@
         // User Script
         this.registerScript("myInfoModify.xfdl", function() {
         this.objApp = nexacro.getApplication();
+        var check;
+
 
         this.fn_callback = function(id,ErrorCode,ErrorMsg){	//콜백함수
         	trace(id);
         	trace(ErrorMsg);
         	trace(ErrorCode);
+
+        	var s_seq = this.ds_students_copy.getColumn(0,"s_seq");
+        	var pw = this.ds_students_copy.getColumn(0,"pw");
+        	let x = this.width/2-50;
+        	let y = this.height/2-50;
+        	let objCF = new ChildFrame();
+        	objCF.init("passpop",x,y,200,200,0,0,"stdWork::passwordPop.xfdl");
+        	objCF.set_showtitlebar(false);
+        	objCF.showModal(this.getOwnerFrame(),{s_seq:s_seq, pw:pw},this,"fn_pcallback");
         }
 
 
@@ -192,29 +212,55 @@
 
 
         };
+        this.fn_pcallback = function(id,ErrorCode,ErrorMsg,check)
+        {
+        	trace(id);
+        	trace(ErrorMsg);
+        	trace(ErrorCode);
+        	trace(check);
+        }
+        this.fn_checkcallback = function(id,ErrorCode,ErrorMsg){
+
+        }
 
         this.Div00_btn_modify_onclick = function(obj,e)
         {
         	var cpw = this.Div00.form.edt_pw.value;
-        	if(cpw == null){alert("수정할비밀번호입력하세요")
+        	trace(cpw);
+        	if(cpw == null || cpw == "undefined" || cpw == ""){alert("수정할비밀번호입력하세요")
         	return;
         	}
 
-        	var s_seq = this.ds_students_copy.getColumn(e.row,"s_seq");
-        	var pw = this.ds_students_copy.getColumn(e.row,"pw");
+        	var s_seq = this.ds_students_copy.getColumn(0,"s_seq");
+        	var pw = this.ds_students_copy.getColumn(0,"pw");
 
         	let x = this.width/2-50;
         	let y = this.height/2-50;
         	let objCF = new ChildFrame();
         	objCF.init("passpop",x,y,200,200,0,0,"stdWork::passwordPop.xfdl");
         	objCF.set_showtitlebar(false);
-        	objCF.showModal(this.getOwnerFrame(),{s_seq:s_seq, pw:pw},this,"fn_passcallback");
+        	objCF.showModal(this.getOwnerFrame(),{s_seq:s_seq, pw:pw},this,"fn_okcallback");
 
         };
-        this.fn_passcallback = function(id,hash){
-        	if(hash == ""){return;}
-        	else{
+        this.fn_passcallback = function(id,ErrorCode,ErrorMsg){
+        	trace(ErrorCode);
+        	if(ErrorCode == 0){
+        	alert("수정되었습니다.");
+        	this.Div00.form.edt_pw.set_value("");
+        	this.transaction(
 
+        				"ds_myInfoStu" //1. strSvcID
+        				,"/myInfoStu.nex" //2. strURL
+        				,"" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
+        				,"ds_students_copy=out_ds" //4.strOutDatasets -select Fds=Sds
+        				,"" //5.strArgument text값
+        				,"fn_pcallback" //6.strCallbackFunc
+        			);
+        	}
+        }
+        this.fn_okcallback = function(id,ErrorCode,ErrorMsg,check){
+        	trace(ErrorCode);
+        	if(ErrorCode == 1){
         	var s_seq = this.Div00.form.edt_s_seq.value;
         	var name = this.Div00.form.edt_name.value;
         	var secNumber = this.Div00.form.mas_secNumber.value;
@@ -263,9 +309,11 @@
         				,"in_ds=ds_students_copy:U" //3.strInDatasets - I,U,D Sds=Fds:U 변경된값만보내겟다, :A, :N
         				,"" //4.strOutDatasets -select Fds=Sds
         				,"" //5.strArgument text값
-        				,"fn_callback" //6.strCallbackFunc
+        				,"fn_passcallback" //6.strCallbackFunc
         			);
-        	}
+        		}else{
+        		this.alert("취소하셧습니다");
+        		}
         }
 
         this.myInfoModify_onload = function(obj,e)
@@ -279,7 +327,8 @@
         				,"" //5.strArgument text값
         				,"fn_callback" //6.strCallbackFunc
         			);
-        			this.ds_students_copy.filter("");
+
+
         };
 
 

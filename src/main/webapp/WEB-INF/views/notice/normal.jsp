@@ -39,10 +39,10 @@
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
-		<div class="row">
-			<div class="d-flex flex-row-reverse  mb-3">
+		<div class="row pt-3">
+			<div class="d-flex flex-row-reverse">
 				<div class="bd-highlight d-none d-lg-block">
-					<h5>
+					<Sh5>
 						<a href="/">Home&gt;</a><a href="/normalList.notice?page=1">공지사항&gt;</a><a href="/normalList.notice?page=1">일반공지</a>
 					</h5>
 				</div>

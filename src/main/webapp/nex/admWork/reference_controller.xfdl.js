@@ -339,27 +339,28 @@
                     ,"in_ds=reference:U"
                     ,""
                     ,""
-                    ,"fn_callback"
+                    ,"file_callback"
                  )
-
-        	//파일전송
-        	this.FileUpTransfer00.upload("/reference/updateFile"); //file up url
-
-
 
 
         };
 
+
+        this.file_callback = function (tID, eCode, eMag)
+        {
+
+        	trace(this.parentSeq)
+        	this.FileUpTransfer00.setPostData("parentSeq",this.parentSeq);
+
+        	//파일전송
+        	this.FileUpTransfer00.upload("/reference/updateFile"); //file up url
+
+        	alert("수정 되었습니다.")
+        }
+
         this.sample_fileuptransfer_01_onload = function(obj,e)
         {
-        		this.transaction(
-        			"garbageDelte" //id
-        			,"/reference/garbageDelete"//url
-        			,""// inData
-        			,""// outData
-        			,""//strArg
-        			,"fn_callback"//callback
-        		);
+
 
         		this.transaction(
         			"ReferenceLoad" //id

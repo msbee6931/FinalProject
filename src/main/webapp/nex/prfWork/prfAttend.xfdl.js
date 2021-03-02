@@ -71,7 +71,11 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Grid("Grid00","320","70",null,null,"39","60",null,null,null,null,this);
+=======
+            obj = new Grid("Grid00","320","90",null,null,"39","40",null,null,null,null,this);
+>>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_taborder("5");
             obj.set_binddataset("ds_stdClass");
             obj.set_autofittype("col");
@@ -79,6 +83,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"162\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"이름\"/><Cell col=\"2\" text=\"출석률\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\"/><Cell col=\"1\" text=\"bind:sName\"/><Cell col=\"2\" text=\"bind:basket\" displaytype=\"progressbarcontrol\" progressbarsmooth=\"true\" progressbarblockgap=\"1\" progressbarblocksize=\"1\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
             obj = new Static("sta_title","385","40","140","30",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("");
@@ -86,6 +91,20 @@
 
             obj = new Static("Static00_00_00_00","330","40","45","30",null,null,null,null,null,null,this);
             obj.set_taborder("7");
+=======
+            obj = new Static("Static00_00_00","38","60","112","30",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_text("내 관리 강좌");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("sta_title","475","60","140","30",null,null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_text("");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00_00","Div00:-721","60","45","30",null,null,null,null,null,null,this);
+            obj.set_taborder("8");
+>>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_text("과목명 :");
             this.addChild(obj.name, obj);
 

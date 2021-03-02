@@ -18,7 +18,11 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_class", this);
+<<<<<<< HEAD
             obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"classPart\" type=\"STRING\" size=\"256\"/><Column id=\"className\" type=\"STRING\" size=\"256\"/><Column id=\"classSeq\" type=\"INT\" size=\"256\"/><Column id=\"classPoint\" type=\"STRING\" size=\"256\"/><Column id=\"proCode\" type=\"STRING\" size=\"256\"/><Column id=\"proName\" type=\"STRING\" size=\"256\"/><Column id=\"dept\" type=\"STRING\" size=\"256\"/><Column id=\"classTime\" type=\"STRING\" size=\"256\"/><Column id=\"classRoom\" type=\"STRING\" size=\"256\"/><Column id=\"limit\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"classGoal\" type=\"STRING\" size=\"256\"/><Column id=\"classMethod\" type=\"STRING\" size=\"256\"/><Column id=\"classEvaluation\" type=\"STRING\" size=\"256\"/><Column id=\"classReferences\" type=\"STRING\" size=\"256\"/><Column id=\"reqState\" type=\"STRING\" size=\"256\"/><Column id=\"rejectMsg\" type=\"STRING\" size=\"256\"/><Column id=\"reg_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+=======
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"classPart\" type=\"STRING\" size=\"256\"/><Column id=\"className\" type=\"STRING\" size=\"256\"/><Column id=\"classSeq\" type=\"INT\" size=\"256\"/><Column id=\"classPoint\" type=\"STRING\" size=\"256\"/><Column id=\"proCode\" type=\"STRING\" size=\"256\"/><Column id=\"proName\" type=\"STRING\" size=\"256\"/><Column id=\"dept\" type=\"STRING\" size=\"256\"/><Column id=\"classTime\" type=\"STRING\" size=\"256\"/><Column id=\"classRoom\" type=\"STRING\" size=\"256\"/><Column id=\"limit\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"classGoal\" type=\"STRING\" size=\"256\"/><Column id=\"classMethod\" type=\"STRING\" size=\"256\"/><Column id=\"classEvaluation\" type=\"STRING\" size=\"256\"/><Column id=\"classReferences\" type=\"STRING\" size=\"256\"/><Column id=\"reqState\" type=\"STRING\" size=\"256\"/><Column id=\"rejectMsg\" type=\"STRING\" size=\"256\"/><Column id=\"reg_date\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/><Row/></Rows>");
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             this.addChild(obj.name, obj);
 
 
@@ -133,6 +137,19 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
+<<<<<<< HEAD
+=======
+            obj = new Div("div_navi","146","460","674","30",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_text("Div00");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnAdd","170","17","90","38",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
+            obj.set_text("Button00");
+            this.addChild(obj.name, obj);
+
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,520,this,function(p){});
@@ -389,6 +406,45 @@
 
 
 
+<<<<<<< HEAD
+=======
+        this.btnAdd_onclick = function(obj,e)
+        {
+        	var cut = 15;
+        	var num = 1;
+        	var nPageCount = Math.ceil(this.ds_class.getRowCount()/cut);
+        	var nWidth = "";
+        	var objPrev1 = new Button("btnPrev1",0,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviPrev1",objPrev1);
+        		objPrev1.set_text("<<");
+        		objPrev1.show();
+
+        	var	objPrev2 = new Button("btnPrev2",30,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviPrev2",objPrev2);
+        		objPrev2.set_text("<");
+        		objPrev2.show();
+
+        	for(var i=1; i<=nPageCount; i++){
+        		var objButton = new Button("btn'"+i+"'",i*30+30,0, 30, 30, null, null);
+        		this.div_navi.addChild("navi'"+i+"'",objButton);
+        		objButton.set_text(i);
+        		nWidth = i*30+30;
+        		this.objButton.addEventHandler("onclick",this.fn_paging, this)
+        		objButton.show();
+        	}
+        	var objNext1 = new Button("btnNext1",nWidth+30,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviNext1",objNext1);
+        		objNext1.set_text(">");
+        		objNext1.show();
+
+        	var	objNext2 = new Button("btnNext2",nWidth+60,0, 30, 30, null, null);
+        		this.div_navi.addChild("naviNext2",objNext2);
+        		objNext2.set_text(">>");
+        		objNext2.show();
+        	this.ds_class.filter("currow <= '"+cut*1+"' && currow >= 1");
+        };
+
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         });
         
         // Regist UI Components Event
@@ -403,6 +459,10 @@
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.btnDel.addEventHandler("onclick",this.btnDel_onclick,this);
             this.btnExport.addEventHandler("onclick",this.btnExport_onclick,this);
+<<<<<<< HEAD
+=======
+            this.btnAdd.addEventHandler("onclick",this.btnAdd_onclick,this);
+>>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         };
 
         this.loadIncludeScript("classList.xfdl");

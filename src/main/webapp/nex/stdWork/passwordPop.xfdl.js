@@ -59,34 +59,37 @@
         
         // User Script
         this.registerScript("passwordPop.xfdl", function() {
-
+        var check;
 
         this.btn_calcel_onclick = function(obj,e)
         {
-        	this.close("");
+        	this.close();
         };
 
         this.btn_ok_onclick = function(obj,e)
         {
         	var pw = this.parent.pw;
+        	trace(pw);
         	var cpw = this.edt_pw.value;
         	var shaObj = new jsSHA("SHA-256","TEXT");
         	shaObj.update(cpw);
-
         	var hash = shaObj.getHash("HEX");
+
         	if(pw.length<64){
         	var shaaObj = new jsSHA("SHA-256","TEXT");
         	shaaObj.update(pw);
         	var hush = shaaObj.getHash("HEX");
         	if(hush == hash){
-        	if(this.confirm("수정하시겠습니까?")){
-        	this.close(hash)
+        	if(this.confirm("확인됐습니다.")){
+        	check = "1";
+        	this.close(check);
         	}else{this.close("");}
         	}
         	}else if(pw.length>=64){
         	if(pw == hash){
-        	if(this.confirm("수정하시겠습니까?")){
-        	this.close(hash)
+        	if(this.confirm("확인됐습니다.")){
+        	check = "1";
+        	this.close(check);
         	}else{this.close("");}
         	}else{this.alert("비밀번호 다시입력해주세요");}
         	}
