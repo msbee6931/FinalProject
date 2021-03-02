@@ -228,12 +228,12 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"44\"/><Column size=\"68\"/><Column size=\"216\"/><Column size=\"47\"/><Column size=\"57\"/><Column size=\"181\"/><Column size=\"38\"/><Column size=\"58\"/><Column size=\"91\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"이수구분\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"과목코드\"/><Cell col=\"3\" text=\"과목명\"/><Cell col=\"4\" text=\"학점\"/><Cell col=\"5\" text=\"담당교수\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"담기\"/><Cell col=\"8\" text=\"강의실\"/><Cell col=\"9\" text=\"신청/제한인원\"/></Band><Band id=\"body\"><Cell text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"3\" text=\"bind:className\" textDecoration=\"underline\" tooltiptext=\"수업계획서 보기\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" displaytype=\"buttoncontrol\" text=\"담기\" textAlign=\"center\" cursor=\"pointer\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:basketLimit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00","240","242","140","25",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_00","240","gr_classList:4","140","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("▷ 장바구니 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_basketList","240","271",null,null,"29","30",null,null,null,null,this);
+            obj = new Grid("gr_basketList","240",null,null,"219","29","30",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_myBasket");
             obj.set_autofittype("col");
@@ -454,17 +454,9 @@
         					alert("수강 가능한 학년이 아닙니다");
         					return;
         				}else{
-<<<<<<< HEAD
-        					if(dept != myDept){
-        						if(part == "A" || "B"){
-        							alert("다른 학과 전공은 신청이 불가능합니다");
-        							return;
-        						}
-=======
         					if(dept != myDept && dept != "7071" && part != "F"){
         						alert("다른 학과 전공은 신청이 불가능합니다");
         						return;
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         					}else{
         						var classTime = this.ds_class.getColumn(nRow,"classTime");
         						var className = this.ds_class.getColumn(nRow,"className")+" (예비)*";

@@ -49,51 +49,31 @@
             
             // UI Components Initialize
             obj = new Static("Static00_00","0","0","29","520",null,null,null,null,null,null,this);
-<<<<<<< HEAD
-            obj.set_taborder("10");
-=======
             obj.set_taborder("9");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
-<<<<<<< HEAD
-            obj.set_taborder("11");
-=======
             obj.set_taborder("10");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00","1051","0","29","520",null,null,null,null,null,null,this);
-<<<<<<< HEAD
-            obj.set_taborder("12");
-=======
             obj.set_taborder("11");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
-<<<<<<< HEAD
-            obj.set_taborder("13");
-=======
             obj.set_taborder("12");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01","27","10",null,null,"30","30",null,null,null,null,this);
-<<<<<<< HEAD
-            obj.set_taborder("14");
-=======
             obj.set_taborder("13");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
             obj.set_cssclass("sta_line");
             obj.set_text("");
             this.addChild(obj.name, obj);
@@ -458,10 +438,7 @@
 
         this.btnDel_onclick = function(obj,e)
         {
-<<<<<<< HEAD
-=======
         	var attendDay = this.ds_attend.getColumn(0,"attendDay");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         	if(this.confirm("해당 요일을 삭제하시겠습니까?")){
         		if(this.ds_attend.getRowCount() > 0){
         			this.transaction(
@@ -475,11 +452,8 @@
         		}else{
         			alert("수업이 없습니다");
         		}
-<<<<<<< HEAD
-=======
         		var arr = this.ds_cal.extractRows("datecolumn=='"+attendDay+"'");
         		this.ds_cal.deleteMultiRows(arr)
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         		this.ds_attend.deleteAll();
         	}
         };

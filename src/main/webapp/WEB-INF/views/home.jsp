@@ -7,7 +7,7 @@
 <head>
 <link rel="icon" type="image/png" href="http://example.com/myicon.png">
 <meta charset="UTF-8">
-<title>KH정보교육원</title>
+<title>KH대학교</title>
 <link
 	href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.css'
 	rel='stylesheet' />
@@ -88,39 +88,11 @@
 </script>
 
 <style>
-@font-face {
-    font-family: 'HangultuelGothic';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.10/HangultuelGothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: 'GmarketSansBold';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-@font-face {
-	font-family: 'GmarketSansMedium';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
 }
-
-@font-face {
-	font-family: 'GmarketSansLight';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
 *{
 	box-sizing: border-box;
 	padding: 0px;
@@ -128,6 +100,9 @@
 	-ms-overflow-style: none;
 }
 ::-webkit-scrollbar { display: none; }
+.row{
+	--bs-gutter-x: 0rem;
+}
 a {
 	text-decoration: none;
 }
@@ -138,31 +113,36 @@ li {
 
 * {
 	box-sizing: border-box;
+	font-family: 'Nanum Gothic', sans-serif;
 }
-
 .container {
 	padding: 0;
-	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 	font-size: 14px;
 }
-
-#calendar {
-	max-width: 700px;
-	margin: 0 auto;
+.align{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 80px;
+	margin-top: 20px;
+}
+.calendar {
+	max-width: 600px;
+}
+.notice{
+	max-width: 600px;
+	padding-top: 17px;
 }
 
 .headt1 {
-	font-family: 'GmarketSansLight';
 	font-size: 13px;
 	text-align: right;
-	background-color: #0d6efd;
+	background-color: #193461;
+/* 	background-color: #0d6efd; */
 	color: #ffffff;
-	/* background-color: #435a7c; */
 	padding: 15px 0px;
 }
 
 .headt2 {
-	font-family: 'GmarketSansLight';
 	background-color: white;
 }
 
@@ -188,11 +168,39 @@ nav {
 	display: flex;
 	justify-content: space-around;
 }
-.news .newsBoard,
-.news .newsCalendar{
-/* 	padding: 0px 30px;
-	height: 400px;
-	overflow: scroll; */
+.newsImg{
+	display: flex;
+	justify-content: space-between;
+}
+.newsImg img{
+	width: 400px;
+	height: 350px;
+}
+.sns {
+	background-image: url("/img/snsbg.png");
+	padding: 100px 0px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 60px;
+	margin-top: 30px;
+}
+.sns>.row{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.snsIcon{
+	text-align: center;
+}
+.snsIcon img{
+	width: 100px;
+	height: 100px;
+}
+.snsIcon a{
+	color: #ffffff;
+}
+.snsIcon div{
+	margin-top: 20px;
 }
 </style>
 </head>
@@ -221,13 +229,13 @@ nav {
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-bs-interval="10000">
-							<img src="/img/carousel1.jpg" class="d-block w-100" alt="...">
+							<img src="/img/2.jpg" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item" data-bs-interval="5000">
-							<img src="/img/carousel2.jpg" class="d-block w-100" alt="...">
+							<img src="/img/1.jpg" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="/img/carousel3.jpg" class="d-block w-100" alt="...">
+							<img src="/img/3.jpg" class="d-block w-100" alt="...">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleInterval"
@@ -246,12 +254,61 @@ nav {
 		<div class="container">
 			<div class="row text-center py-5">
 				<div class="col">
-					<h2><b>새로운 소식</b></h2>
-					<p>KH정보교육원의 다양한 소식을 전해드립니다.</p>
+					<div class="row py-4">
+						<h1><b>새로운 소식</b></h1>
+						<h5>KH대학교의 다양한 소식을 전해드립니다.</h5>
+					</div>
+					<div class="row newsImg">
+						<div class="col-md-12 col-lg-4">
+							<a href="https://www.kosaf.go.kr/ko/main.do"><img src="/img/news1.gif" ></a>
+						</div>
+						<div class="col-md-12 col-lg-4">
+							<a href="https://www.acrc.go.kr/acrc/index.do"><img src="/img/news2.gif" ></a>
+						</div>
+						<div class="col-md-12 col-lg-4">
+							<a href="https://www.keris.or.kr/main/main.do"><img src="/img/news3.gif" ></a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row mb-5">
-				<div class="col-12 col-lg-6">
+		</div>
+		<div class="container-fluid sns">
+			<div class="row">
+				<div class="col-sm-2 col-lg-2 snsIcon">
+					<a href="https://www.youtube.com/?gl=KR&hl=ko">
+						<img src="/img/youtube.png">
+						<div><b>Youtube</b></div>
+					</a>
+				</div>
+				<div class="col-sm-2 col-lg-2 snsIcon">
+					<a href="https://www.instagram.com/">
+						<img src="/img/instagram.png">
+						<div><b>Instagram</b></div>
+					</a>
+				</div>
+				<div class="col-sm-2 col-lg-2 snsIcon">
+					<a href="https://m.facebook.com/?locale2=ko_KR">
+						<img src="/img/facebook.png">
+						<div><b>Facebook</b></div>
+					</a>
+				</div>
+				<div class="col-sm-2 col-lg-2 snsIcon">
+					<a href="https://twitter.com/?lang=ko">
+						<img src="/img/twitter.png">
+						<div><b>Twitter</b></div>	
+					</a>
+				</div>
+				<div class="col-sm-2 col-lg-2 snsIcon">
+					<a href="https://section.blog.naver.com/BlogHome.nhn?directoryNo=0&currentPage=1&groupId=0">
+						<img src="/img/blog.png">
+						<div><b>Blog</b></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	<div class="container">
+			<div class="row align">
+				<div class="col-12 col-lg-6 notice">
 					<nav>
 						<div class="row" style="border-bottom: 2px solid black">
 							<div class="col-10">
@@ -434,7 +491,7 @@ nav {
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-lg-6">
+				<div class="col-12 col-lg-6 calendar">
 					<div class="row">
 						<div id='calendar'></div>
 					</div>
@@ -446,19 +503,21 @@ nav {
 		<footer>
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
 		</footer>
+		
+		<div class="row" style="display:none">
+			<input type="hidden" id= size value=${size }><br>
+			<c:forEach var="i" items="${list }">
+				<input type=hidden id="${i.seq }seq" value=${i.seq }>
+				<input type=hidden id="${i.seq }title" value= "${i.title }">
+				<input type=hidden id="${i.seq }sDate" value= "${i.sDate }">
+				<input type=hidden id="${i.seq }eDate" value= "${i.eDate }">
+				<br>
+			</c:forEach>	
+			<input type="hidden" id = error value="${error }">
+		</div>
 	</div>
-					<input type="hidden" id= size value=${size }><br>
-					<c:forEach var="i" items="${list }">
-						<input type=hidden id="${i.seq }seq" value=${i.seq }>
-						<input type=hidden id="${i.seq }title" value= "${i.title }">
-						<input type=hidden id="${i.seq }sDate" value= "${i.sDate }">
-						<input type=hidden id="${i.seq }eDate" value= "${i.eDate }">
-						<br>
-				</c:forEach>
-	
-	<input type="hidden" id = error value="${error }">
-	
 </body>
+
 <script>
 
 	var error =document.getElementById("error").value;
