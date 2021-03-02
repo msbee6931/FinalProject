@@ -83,7 +83,7 @@
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\"/><Cell col=\"4\" text=\"bind:deptcode\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:title\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:deptcode\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Tab00.Tabpage2.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage3",this.Tab00);
@@ -95,7 +95,7 @@
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\"/><Cell col=\"4\" text=\"bind:deptcode\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:title\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:deptcode\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Tab00.Tabpage3.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage4",this.Tab00);
@@ -107,7 +107,7 @@
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\"/><Cell col=\"4\" text=\"bind:deptcode\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:title\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:deptcode\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Tab00.Tabpage4.addChild(obj.name, obj);
 
             // Layout Functions

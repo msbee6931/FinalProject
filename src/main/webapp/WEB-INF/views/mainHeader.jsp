@@ -60,7 +60,7 @@ nav {
 			<nav class="navbar navbar-expand-xl navbar-light"
 				style="background-color: white">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/"><img src="/img/logo.PNG"></a>
+					<a class="navbar-brand" href="/"><img src="/img/khunv_logo.png"></a>
 					<button class="navbar-toggler" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
 						aria-controls="navbarTogglerDemo02" aria-expanded="false"

@@ -135,7 +135,6 @@ public class AbsenceController {
 
 		int seq = Integer.parseInt(request.getParameter("seq")); // 부모 고유 번호 받아오기
 		int countFile = aService.selectCountFile(seq); // 해당 게시물에 총 첨부된 파일 갯수
-
 		ArrayList arrSaved = new ArrayList(); //저장된 이름
 		ArrayList arrOrg = new ArrayList(); // 원래 이름
 		//그중 다운로드 될 파일 갯수 및 이름 조회
@@ -154,7 +153,7 @@ public class AbsenceController {
     
 				String uid = UUID.randomUUID().toString().replaceAll("-", "");
 			    targetFile = aService.getCompressZipFile(arrSaved, filePath, "compressZip_"+uid);	    
-			    tranName = seq+"번_장학금_요청글_첨부파일.zip";
+			    tranName = seq+"번_휴학신청_첨부파일.zip";
 
 			} else {
 				targetFile = new File(filePath+"/"+arrSaved.get(i));
@@ -226,6 +225,14 @@ public class AbsenceController {
 			return nr;
 		}
 		
+		//휴학신청서 삭제
+		@RequestMapping("deleteRest.absence")
+		public NexacroResult deleteRest(@ParamVariable(name="seq")int seq) throws Exception {
+			System.out.println("복학신청서 삭제 컨트롤러 확인----->");
+			NexacroResult nr = new NexacroResult();
+			int result = aService.deleteRest(seq);
+			return nr;
+		}
 	
 	
 	

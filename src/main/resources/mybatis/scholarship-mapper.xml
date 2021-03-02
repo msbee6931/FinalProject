@@ -23,7 +23,7 @@
 </select>
 
 <select id="selectReqScholar" resultType="kh.spring.dto.ReqScholarDTO">
-	select * from reqScholar order by 1
+	select * from reqScholar order by 1 desc
 </select>
 
 <select id="selectSeqReqScholar" resultType="kh.spring.dto.ReqScholarDTO">
