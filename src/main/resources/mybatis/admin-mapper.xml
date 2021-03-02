@@ -51,7 +51,7 @@
 <update id="updatePro">
 	<foreach collection="list" item="i" separator=";" open="DECLARE BEGIN" close="; END;">
 		update professor set name = #{i.name}, email= #{i.email},
-		contact=#{i.contact}, address=#{i.address}, lecture=#{i.lecture}, secNumber=#{i.secNumber}, colCode=#{i.colCode},deptCode=#{i.deptCode}
+		contact=#{i.contact}, address=#{i.address}, gender=#{i.gender}, secNumber=#{i.secNumber}, colCode=#{i.colCode},deptCode=#{i.deptCode}
 		where p_seq = #{i.p_seq}
 	</foreach>
 </update>

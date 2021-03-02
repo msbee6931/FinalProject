@@ -257,8 +257,6 @@ public class ReferenceController {
 		navi = navi.substring(0, navi.length()-1);
 		}
 		
-		Rservice.garbageDelete();
-		
 		model.addAttribute("select",1);
 		model.addAttribute("type","default");
 		model.addAttribute("list",list);

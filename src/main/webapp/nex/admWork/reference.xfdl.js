@@ -59,11 +59,7 @@
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-<<<<<<< HEAD
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"57\"/><Column size=\"318\"/><Column size=\"108\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:name\"/><Cell col=\"2\" text=\"bind:size\"/></Band></Format></Formats>");
-=======
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"418\"/><Column size=\"369\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:size\" textAlign=\"center\"/></Band></Format></Formats>");
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             this.addChild(obj.name, obj);
 
             obj = new Button("Button03",null,null,"100","25","35","40",null,null,null,null,this);
@@ -141,10 +137,7 @@
         
         // User Script
         this.registerScript("reference.xfdl", function() {
-<<<<<<< HEAD
         this.parentSeq="";
-=======
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
 
         this.Button00_onclick = function(obj,e)
         {

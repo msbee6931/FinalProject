@@ -17,28 +17,11 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style>
-@font-face {
-	font-family: 'GmarketSansMedium';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'GmarketSansLight';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
 .headt1 {
-	font-family: 'GmarketSansLight';
 	font-size: 13px;
 	text-align: right;
 	/* background-color: #435a7c; */
-	background-color: #0d6efd;
+	background-color: #193461;
 	padding: 15px 0px;
 }
 .txt{

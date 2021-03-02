@@ -75,13 +75,13 @@ public class RequestBoardService {
 	      StringBuilder sb = new StringBuilder(); // 메모리 효율성과 코드의 가독성에 좋음
 
 	      if(needPrev) {
-	         sb.append("<a href= '/?cpage="+(startNavi-1)+"'> < </a>");
+	         sb.append("<a href= '/request/boardList?cpage="+(startNavi-1)+"'> < </a>");
 	      }
 	      for(int i=startNavi; i <= endNavi; i++) {
-	         sb.append("<a href= '/?cpage="+i+"'>"+i+" </a>");
+	         sb.append("<a href= '/request/boardList?cpage="+i+"'>"+i+" </a>");
 	      }
 	      if(needNext) {
-	         sb.append("<a href='/?cpage="+(endNavi+1)+"'> > </a>");
+	         sb.append("<a href='/request/boardList?cpage="+(endNavi+1)+"'> > </a>");
 	      }
 	      
 	      return sb.toString();
@@ -107,6 +107,10 @@ public class RequestBoardService {
 	 }
 	 
 	 public List<RequestBoardDTO> searchByTitle(String title) {
+		 title = "%"+title+"%";
 		 return dao.searchByTitle(title);
 	 }
+	 public int count() {
+			return dao.count();
+	}
 }

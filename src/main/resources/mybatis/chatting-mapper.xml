@@ -59,7 +59,11 @@
 		delete from chatUser where userId in
 		<foreach item="i" collection="list" open="(" close=")" separator=",">#{i.f_seq}</foreach>
 	</delete>
-	
+ 	
+ 	<insert id="insertUserState">
+ 		insert into userState values(#{userId},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
+ 	</insert>
+ 	
 	<!-- FRIEND -->
 	<select id="searchFriend" resultType="kh.spring.dto.UserDTO">
 		select * from chatUser where userId like '%'||#{searchTxt}||'%' or userName like '%'||#{searchTxt}||'%' 
@@ -77,13 +81,17 @@
 		select * from friend where friendId not in (<foreach collection="joinList" item="item" separator=",">#{item.userId}</foreach>) and userId = #{userId}
 	</select>
 	
+	<delete id="deleteFriend">
+		delete from friend where userId=#{userId} and friendId=#{friendId}
+	</delete>
+	
 	<!-- Chat -->
  	<insert id="insertMessage">
- 		insert into chatMessage(seq,userId,message,roomNumber) values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber})
+ 		insert into chatMessage(seq,userId,message,roomNumber,uploadDate) values(chatMessage_seq.nextval,#{userId},#{message},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
  	</insert> 
  	
  	<insert id="insertEmoticon">
- 		insert into chatMessage(seq,userId,oriName,roomNumber) values(chatMessage_seq.nextval,#{userId},#{oriName},#{roomNumber})
+ 		insert into chatMessage(seq,userId,oriName,roomNumber,uploadDate) values(chatMessage_seq.nextval,#{userId},#{oriName},#{roomNumber},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'))
  	</insert>
  	
  	<select id="getChatting" resultType="kh.spring.dto.MessageDTO">
@@ -95,12 +103,20 @@
  		order by uploadDate
  	</select>
  	
+ 	 <select id="getAllChatting" resultType="kh.spring.dto.MessageDTO">
+ 		select * from chatMessage order by uploadDate
+ 	</select>
+ 	
  	<insert id="insertChatFile">
- 		insert into chatMessage(seq,roomNumber,oriName,savedName,uploadDate,userId) values(chatFile_seq.nextval,#{roomNumber},#{oriName},#{savedName},default,#{userId})
+ 		insert into chatMessage(seq,roomNumber,oriName,savedName,uploadDate,userId) values(chatFile_seq.nextval,#{roomNumber},#{oriName},#{savedName},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),#{userId})
  	</insert>
  	
  	<select id="getFile" resultType="kh.spring.dto.MessageDTO">
  		select * from chatMessage where savedName = #{savedName}
+ 	</select>
+ 	
+ 	<select id="getAlarmMessage" resultType="kh.spring.dto.MessageDTO">
+ 		select * from chatMessage where roomNumber=#{roomNumber} and uploadDate>(select outTime from userState where roomNumber=#{roomNumber} and userId=#{userId})
  	</select>
  	
  	<!-- Room -->
@@ -135,5 +151,9 @@
 	
 	<delete id="leave">
 		delete from chatRoomJoin where roomNumber=#{roomNumber} and userId=#{userId}
+	</delete>
+	
+	<delete id="deleteUserState">
+		delete from userState where roomNumber=#{roomNumber} and userId=#{userId}
 	</delete>
  </mapper>

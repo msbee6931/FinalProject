@@ -155,15 +155,9 @@
         	if(this.objApp.gds_students.getRowCount() > 0 ){
         		this.div_schedule.form.btn_insert.set_visible(false);
         		this.code=this.objApp.gds_students.getColumn(0,'s_seq');
-<<<<<<< HEAD
         		deptCode=this.objApp.gds_students.getColumn(0,'deptCode');
         	}
         	else if (this.objApp.gds_professor.getRowCount() > 0 )
-=======
-        		deptCode=this.objApp.gds_professor.getColumn(0,'deptCode');
-        	}
-        	else if (this.objApp.professor.getRowCount() > 0 )
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
         	{
         		this.code=this.objApp.gds_professor.getColumn(0,'p_seq');
         		deptCode=this.objApp.gds_professor.getColumn(0,'deptCode');

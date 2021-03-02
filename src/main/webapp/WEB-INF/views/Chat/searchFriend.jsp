@@ -49,8 +49,8 @@
 										</c:if>
 									</c:forEach>
 								</div>
-								<div class="col-2 friendId">${dto.getUserId() }</div>
-								<div class="col-8 friendName">${dto.getUserName() }</div>
+								<div class="col-3 friendId">${dto.getUserId() }</div>
+								<div class="col-7 friendName">${dto.getUserName() }</div>
 								<input type="button" class="col-1 add" value="+">
 							</div>
 						</c:if>
@@ -58,6 +58,9 @@
 				</c:when>
 				<c:otherwise>검색결과가 없습니다.</c:otherwise>
 			</c:choose>
+		</div>
+		<div class="row btns">
+			<input type="button" id="close" class="col-12" value="취소">
 		</div>
 	</div>
 	
@@ -77,10 +80,14 @@
 					alert("이미 친구인 사용자입니다.");
 				}else{
 					alert("친구목록에 추가되었습니다.");
-					location.href="/chatting/chatHome?userId="+resp.userId;
+					opener.parent.location.reload();
+					window.close();
 				}
 			}); 
-			// location.href="/chatting/friendAdd?friendId="+friendId+"&friendName="+friendName+"&userName="+userName;
+		});
+		
+		$("#close").on("click", function() {
+			window.close();
 		});
 	</script>
 </body>

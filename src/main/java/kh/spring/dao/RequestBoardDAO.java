@@ -72,4 +72,8 @@ public class RequestBoardDAO {
 	   public List<RequestBoardDTO> searchByTitle(String title) {
 		   return session.selectList("Request.searchByTitle",title);
 	   }
+	   
+	   public int count() {
+			return session.selectOne("Request.count");
+		}
 }

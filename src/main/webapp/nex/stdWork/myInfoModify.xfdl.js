@@ -46,17 +46,14 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div00","30","10",null,null,"29","30",null,null,null,null,this);
+            obj = new Static("sta_title","30","9","200","30",null,null,null,null,null,null,this);
             obj.set_taborder("4");
-<<<<<<< HEAD
-=======
             obj.set_text("나의 정보 수정");
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","30","38",null,null,"29","30",null,null,null,null,this);
             obj.set_taborder("5");
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
@@ -112,37 +109,37 @@
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","350","80","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj.set_taborder("6");
             obj.set_text("학번");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00","350","115","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
+            obj.set_taborder("7");
             obj.set_text("이름");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_01","350","150","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj.set_taborder("8");
             obj.set_text("주민번호");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_02","350","185","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
+            obj.set_taborder("9");
             obj.set_text("이메일");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_03","350","220","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
+            obj.set_taborder("10");
             obj.set_text("전화번호");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_04","350","255","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj.set_taborder("11");
             obj.set_text("주소");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_06","350","290","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj.set_taborder("12");
             obj.set_text("수정할비밀번호");
             this.addChild(obj.name, obj);
 

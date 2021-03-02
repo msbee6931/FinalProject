@@ -33,60 +33,24 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
             obj.set_taborder("1");
-=======
-<<<<<<< HEAD
-            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-=======
-            obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("시간표 조회");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","1050","0","30",null,null,"0",null,null,null,null,this);
-<<<<<<< HEAD
             obj.set_taborder("2");
-=======
-<<<<<<< HEAD
-            obj.set_taborder("2");
-=======
-            obj.set_taborder("3");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
-<<<<<<< HEAD
             obj.set_taborder("3");
-=======
-<<<<<<< HEAD
-            obj.set_taborder("3");
-=======
-            obj.set_taborder("4");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-<<<<<<< HEAD
-            obj = new Grid("Grid00","29","40",null,"400","30",null,null,null,null,null,this);
-            obj.set_taborder("4");
-=======
-<<<<<<< HEAD
             obj = new Grid("Grid00","29","40",null,"400","30",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_autofittype("col");
@@ -97,24 +61,6 @@
 
             obj = new Button("btn_exel","Grid00:-100","Grid00:8","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
-=======
-            obj = new Grid("Grid00","140","40","800","400",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
-            obj.set_autofittype("col");
-            obj.set_binddataset("ds_stdTimeTable");
-            obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"60\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/><Column size=\"105\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"31\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"월요일\"/><Cell col=\"2\" text=\"화요일\"/><Cell col=\"3\" text=\"수요일\"/><Cell col=\"4\" text=\"목요일\"/><Cell col=\"5\" text=\"금요일\"/><Cell col=\"6\" text=\"토요일\"/><Cell col=\"7\" text=\"일요일\" wordWrap=\"english\"/></Band><Band id=\"body\"><Cell text=\"bind:time\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:mon\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"2\" text=\"bind:tue\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:wed\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"4\" text=\"bind:thu\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"5\" text=\"bind:fri\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"6\" text=\"bind:sat\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:sun\" textAlign=\"center\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
-<<<<<<< HEAD
-            obj = new Button("btn_exel","Grid00:-100","Grid00:8","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-=======
-            obj = new Button("btn_exel","830","448","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_text("Exel");
             obj.set_cssclass("btn_exel");
             this.addChild(obj.name, obj);
@@ -296,10 +242,6 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.timeSchule_onload,this);
-<<<<<<< HEAD
-=======
-            this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
->>>>>>> f1e3f9aa2e576c89823bba1e52c80fa784a5bf97
         };
 
         this.loadIncludeScript("timeSchedule.xfdl");

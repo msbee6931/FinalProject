@@ -1,6 +1,8 @@
 package kh.spring.dto;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MessageDTO {
 	private int seq;
@@ -62,9 +64,18 @@ public class MessageDTO {
 	public void setSavedName(String savedName) {
 		this.savedName = savedName;
 	}
-	public String getUploadDate() {
-		return uploadDate;
+
+	public String getUploadDate() { 
+		return uploadDate; 
 	}
+	
+	/*
+	 * public long getUploadDate() throws Exception { SimpleDateFormat transFormat =
+	 * new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); Date to =
+	 * transFormat.parse(this.uploadDate); long time = to.getTime();
+	 * 
+	 * return time; }
+	 */
 	public void setUploadDate(String uploadDate) {
 		this.uploadDate = uploadDate;
 	}

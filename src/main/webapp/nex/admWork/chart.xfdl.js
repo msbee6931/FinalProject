@@ -177,11 +177,7 @@
             obj.set_categorycolumn("bind:category");
             this.Div00.addChild(obj.name, obj);
 
-<<<<<<< HEAD
             obj = new PieChart("PieChart00","174",null,null,"160","670","29",null,null,null,null,this.Div00.form);
-=======
-            obj = new PieChart("PieChart00","174","289",null,null,"670","29",null,null,null,null,this.Div00.form);
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_taborder("1");
             obj.set_binddataset("genderChart_ds");
             obj._setContents({
@@ -227,11 +223,7 @@
             obj.set_categorycolumn("bind:category");
             this.Div00.addChild(obj.name, obj);
 
-<<<<<<< HEAD
             obj = new FloatChart("FloatChart00",null,"18","432",null,"28","9",null,null,null,null,this.Div00.form);
-=======
-            obj = new FloatChart("FloatChart00","559","18",null,null,"28","9",null,null,null,null,this.Div00.form);
->>>>>>> 24b4a7bc167f16b95dbf0a63bdd9affa6d8f3208
             obj.set_taborder("2");
             obj.set_binddataset("deptCodeChart_ds");
             obj._setContents({

@@ -14,6 +14,7 @@ import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
 import kh.spring.dto.StudentsDTO;
 import kh.spring.dto.UserDTO;
+import kh.spring.dto.UserStateDTO;
 
 @Service
 public class ChattingService {
@@ -82,6 +83,10 @@ public class ChattingService {
 		return dao.deleteChatUserFac(list);
 	}
 	
+	public int insertUserState(String userId,String roomNumber) {
+		return dao.insertUserState(userId,roomNumber);
+	}
+	
 	/* Friend */
 	public List<UserDTO> searchFriend(String searchTxt) {
 		return dao.searchFriend(searchTxt);
@@ -100,6 +105,11 @@ public class ChattingService {
 		return dao.getInviteList(joinList,userId);
 	}
 	
+	// 친구 삭제하기
+	public int deleteFriend(String userId,String friendId) {
+		return dao.deleteFriend(userId,friendId);
+	}
+	
 	/* Chat */
 	public int insertMessage(String userId, String message, String roomNumber) {
 		return  dao.insertMessage(userId,message,roomNumber);
@@ -113,6 +123,10 @@ public class ChattingService {
 		return dao.getChatting(roomNumber);
 	}
 	
+	public List<MessageDTO> getAllChatting() {
+		return dao.getAllChatting();
+	}
+	
 	public int insertChatFile(String roomNumber, String oriName, String savedName, String userId) {
 		return dao.insertChatFile(roomNumber,oriName,savedName,userId);
 	}
@@ -121,8 +135,12 @@ public class ChattingService {
 		return dao.getFile(savedName);
 	}
 	
+	public List<MessageDTO> getAlarmMessage(String roomNumber,String userId){
+		return dao.getAlarmMessage(roomNumber,userId);
+	}
+	
 	/* Room */
-	public List<RoomDTO> findAllRoomByUserId(String userId) {
+	public List<RoomJoinDTO> findAllRoomByUserId(String userId) {
 		return dao.findAllRoomByUserId(userId);
 	}
 	
@@ -153,5 +171,8 @@ public class ChattingService {
 	public int leave(String roomNumber,String userId) {
 		return dao.leave(roomNumber,userId);
 	}
-
+	
+	public int deleteUserState(String roomNumber,String userId) {
+		return dao.deleteUserState(roomNumber,userId);
+	}
 }
