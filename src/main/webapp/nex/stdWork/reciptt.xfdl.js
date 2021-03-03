@@ -65,7 +65,7 @@
             obj.set_border("1px solid white");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","142","1","736",null,null,"37",null,null,null,null,this.Div00.form);
+            obj = new WebBrowser("WebBrowser00","142","1","1187",null,null,"37",null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             this.Div00.addChild(obj.name, obj);
 
@@ -73,6 +73,14 @@
             obj.set_taborder("4");
             obj.set_text("pdf 저장");
             obj.set_cssclass("btn_pdf");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00","80","122","868","235",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("5");
+            obj.set_text("해당 내역이 없습니다.");
+            obj.set_font("bold 28px/normal \"Malgun Gothic\"");
+            obj.set_textAlign("center");
+            obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -94,12 +102,37 @@
         this.registerScript("reciptt.xfdl", function() {
         	this.objApp = nexacro.getApplication();
         	var s =this.objApp.gds_students.getColumn(0,'s_seq');
-
+        	this.confirm="";
 
         this.absence_onload = function(obj,e)
         {
-        	this.Div00.form.WebBrowser00.set_url("http://15.165.196.249/certification/paymentp?seq="+s);
+        	 this.transaction(
+                    "TuitionConfirm"
+                    ,"/tuition/TuitinConfirm.nex"
+                    ,""
+                    ,""
+                    ,"std_code="+s
+                    ,"fn_callback"
+                 )
         };
+
+        this.fn_callback = function(id,ErrorCode,ErrorMsg){
+        	trace(id);
+        	trace(ErrorMsg);
+        	trace(ErrorCode);
+        	trace("confirm : "+this.confirm);
+        	if(this.confirm==s){
+        		this.Div00.form.WebBrowser00.set_url("http://15.165.196.249/certification/paymentp?seq="+s);
+        	}else{
+        		alert("고지 내역이 없습니다.");
+        		this.Div00.form.Button00.set_visible(false);
+        		this.Div00.form.WebBrowser00.set_visible(false);
+        		this.Div00.form.Static00.set_visible(true);
+        	}
+
+        }
+
+
 
         this.Div00_Button00_onclick = function(obj,e)
         {

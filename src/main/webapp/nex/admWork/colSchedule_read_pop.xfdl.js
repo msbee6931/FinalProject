@@ -31,6 +31,7 @@
             obj = new Edit("edt_title","70","10","320","20",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_cssclass("edt_default");
+            obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","10","40","40","20",null,null,null,null,null,null,this);
@@ -41,6 +42,7 @@
             obj = new Calendar("cal_sDate","70","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_cssclass("cal_default");
+            obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","10","70","40","20",null,null,null,null,null,null,this);
@@ -51,11 +53,13 @@
             obj = new TextArea("tea_content","10","100","380","150",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_cssclass("txt_default");
+            obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
             obj = new Calendar("cal_eDate","260","40","130","20",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_cssclass("cal_default");
+            obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_01","225","40","10","20",null,null,null,null,null,null,this);

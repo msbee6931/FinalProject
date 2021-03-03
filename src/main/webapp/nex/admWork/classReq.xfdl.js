@@ -87,6 +87,12 @@
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
+            obj = new Button("btnRetrieve",null,"20","100","25","140",null,null,null,null,null,this);
+            obj.set_taborder("9");
+            obj.set_text("새로고침");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,520,this,function(p){});
@@ -103,8 +109,9 @@
         };
         
         // User Script
+        this.addIncludeScript("classReq.xfdl","lib::Common.xjs");
         this.registerScript("classReq.xfdl", function() {
-
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.classReq_onload = function(obj,e)
         {
         		this.gr_classList.setCellProperty("Head",0,"text",0);
@@ -151,39 +158,8 @@
         		for(let i = 0;i<this.ds_class.getRowCount();i++){
         			this.ds_class.setColumn(i,"chk",check);
         		}
-        	}
-
-        	var objDs = this.objects[obj.binddataset];
-        	for (var i = 1; i < obj.getCellCount("head"); i++)
-        	{
-        		var sHeadText = obj.getCellText(-1, i); //Head영역은 index가 -1
-        		var nLen   = sHeadText.length - 1;    //텍스트 길이
-        		if (i == e.cell)
-        		{
-        			var sColId = (obj.getCellProperty("body", e.col,"text")).toString().split(":"); //Text값이 bind:형태로 나오기 떄문에
-        			if (sHeadText.substr(nLen) == "▲")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▼");
-        				objDs.set_keystring("S:-" + sColId[1]);
-        			}
-        			else if (sHeadText.substr(nLen) == "▼")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▲");
-        				objDs.set_keystring("S:+" + sColId[1]);
-        			}
-        			else
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText+"▲"); //없을 경우 기호 붙힘
-        				objDs.set_keystring("S:+" + sColId[1]);
-        			}
-        		}
-        		else //선택된 Head 제외하고 모두 기호 삭제
-        		{
-        			if (sHeadText.substr(nLen) == "▲" || sHeadText.substr(nLen) == "▼")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen));
-        			}
-        		}
+        	}else{
+        		this.cfn_GridSort(obj,e);
         	}
         };
 
@@ -316,6 +292,11 @@
 
         };
 
+        this.btnRetrive_onclick = function(obj,e)
+        {
+        	this.reload();
+        };
+
         });
         
         // Regist UI Components Event
@@ -328,6 +309,7 @@
             this.btn_ok.addEventHandler("onclick",this.btn_ok_onclick,this);
             this.btn_reject.addEventHandler("onclick",this.btn_reject_onclick,this);
             this.btnClassRoom.addEventHandler("onclick",this.btnClassRoom_onclick,this);
+            this.btnRetrieve.addEventHandler("onclick",this.btnRetrive_onclick,this);
         };
 
         this.loadIncludeScript("classReq.xfdl");

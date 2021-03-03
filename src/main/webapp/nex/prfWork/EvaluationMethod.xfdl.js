@@ -240,24 +240,22 @@
         		var otest = this.mask_otest.text;
         		var task = this.mask_task.text;
         		var fin = this.mask_fin.text;
+        		var ev = attend +"|"+mid+"|"+otest+"|"+task+"|"+fin;
         		var eval = attend +"|"+mid+"|"+otest+"|"+task+"|"+fin+"|"+this.parent.classCode;
         		var addRow = this.ds_class.addRow();
-        		this.ds_class.setColumn(addRow,"classEvaluation",eval);
+        		this.ds_class.setColumn(addRow,"classEvaluation",ev);
         		this.ds_class.setColumn(addRow,"classSeq",this.parent.classCode);
-
         		this.transaction(
-        					"classEvalUpd"
-        					,"/classEvalUpd.nex"
-        					,"in_ds=ds_class:U"
-        					,""
-        					,""
-        					,"fn_callback"
-        				);
-
+        				"classEvalUpd"
+        				,"/classEvalUpd.nex"
+        				,"in_ds=ds_class:U"
+        				,""
+        				,""
+        				,"fn_callback"
+        			);
         		this.close(eval);
         	}
         };
-
         this.grade_canchange = function(obj,e)
         {
         	var attend = this.mask_attend.text;

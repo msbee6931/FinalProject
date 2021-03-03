@@ -45,4 +45,11 @@ public class PostMessageService {
 	public List<PostMessageDTO> received(String sender){
 		return dao.received(sender);
 	}
+	
+	public int updateConfirmOne(int seq) {
+		return dao.updateConfirmOne(seq);
+	}
+	public PostMessageDTO selectDTO(int seq) {
+		return dao.selectDTO(seq);
+	}
 }

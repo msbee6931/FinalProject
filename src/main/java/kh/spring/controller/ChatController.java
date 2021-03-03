@@ -37,7 +37,6 @@ import kh.spring.dto.MessageDTO;
 import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
 import kh.spring.dto.UserDTO;
-import kh.spring.dto.UserStateDTO;
 import kh.spring.service.ChattingService;
 
 @Controller
