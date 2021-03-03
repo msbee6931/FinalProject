@@ -16,6 +16,7 @@ import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
 import kh.spring.dto.StudentsDTO;
 import kh.spring.dto.UserDTO;
+import kh.spring.dto.UserStateDTO;
 
 @Repository
 public class ChattingDAO {
@@ -106,6 +107,13 @@ public class ChattingDAO {
 		return session.delete("chatting.deleteChatUserFac",list);
 	}
 	
+	public int insertUserState(String userId,String roomNumber) {
+		Map<String,String> param = new HashMap<>();
+		param.put("roomNumber", roomNumber);
+		param.put("userId", userId);
+		return session.insert("chatting.insertUserState",param);
+	}
+	
 	/* Friend */
 	public List<UserDTO> searchFriend(String searchTxt) {
 		return session.selectList("chatting.searchFriend", searchTxt);
@@ -133,6 +141,14 @@ public class ChattingDAO {
 		param.put("joinList", joinList);
 		return session.selectList("chatting.getInviteList", param);
 	}
+	
+	// 친구 삭제하기
+	public int deleteFriend(String userId,String friendId) {
+		Map<String,String> param = new HashMap<>();
+		param.put("userId", userId);
+		param.put("friendId", friendId);
+		return session.delete("chatting.deleteFriend",param);
+	}
 
 	/* Chat */
 	public int insertMessage(String userId, String message, String roomNumber) {
@@ -155,6 +171,10 @@ public class ChattingDAO {
 		return session.selectList("chatting.getChatting",roomNumber);
 	}
 	
+	public List<MessageDTO> getAllChatting() {
+		return session.selectList("chatting.getAllChatting");
+	}
+	
 	public int insertChatFile(String roomNumber, String oriName, String savedName,String userId) {
 		Map<String,String> param = new HashMap<>();
 		param.put("userId", userId);
@@ -164,13 +184,19 @@ public class ChattingDAO {
 		return session.insert("chatting.insertChatFile",param);
 	}
 	
-
 	public MessageDTO getFile(String savedName) {
 		return session.selectOne("chatting.getFile", savedName);
 	}
 	
+	public List<MessageDTO> getAlarmMessage(String roomNumber,String userId){
+		Map<String,Object> param = new HashMap<>();
+		param.put("userId", userId);
+		param.put("roomNumber", roomNumber);
+		return session.selectList("chatting.getAlarmMessage",param);
+	}
+	
 	/* Room */
-	public List<RoomDTO> findAllRoomByUserId(String userId) {
+	public List<RoomJoinDTO> findAllRoomByUserId(String userId) {
 		return session.selectList("chatting.findAllRoomByUserId",userId);
 	}
 	
@@ -214,5 +240,12 @@ public class ChattingDAO {
 		param.put("roomNumber", roomNumber);
 		param.put("userId", userId);
 		return session.delete("chatting.leave",param);
+	}
+	
+	public int deleteUserState(String roomNumber,String userId) {
+		Map<String,String> param = new HashMap<>();
+		param.put("roomNumber", roomNumber);
+		param.put("userId", userId);
+		return session.delete("chatting.deleteUserState",param);
 	}
 }

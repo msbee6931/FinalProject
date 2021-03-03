@@ -60,67 +60,28 @@ public class ReferenceController {
 	@RequestMapping("uploadDTO")
 	public NexacroResult uploadReferenceDTO(@ParamDataSet(name="in_ds")ReferenceDTO dto) throws Exception{
 
-	      session.setAttribute("ycount", 0);
-		NexacroResult nr = new NexacroResult();
 		int seq1 = (Integer)session.getAttribute("login");
 		String writer = Integer.toString(seq1);
 		dto.setWriter(writer);
-		int sResult = Rservice.insertDTO(dto);
+		int result = Rservice.insertDTO(dto);
+		if(result>0) {
+			System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡ 시퀀스 확인 >> "+dto.getSeq());
 
-		if(sResult>0) {
-			int fseq = Rservice.selectLastSeq();
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("fseq : "+fseq);
-
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			System.out.println("*");
-			session.setAttribute("fseq", fseq);
-		}else {
-			System.out.println("에러 등장");
+		} else {
+			System.out.println("-----에러 확인");
 		}
-
+		NexacroResult nr = new NexacroResult();
+		nr.addVariable("parentSeq", dto.getSeq());
 		return nr;
+		
+		
 	}
 
 	@RequestMapping("uploadFile")
 	public NexacroResult uploadFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("파일 업로드");
-		int parentSeq = (Integer)session.getAttribute("fseq");
 
-				parentSeq+=1;
-				System.out.println("*----");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("parentSeq : "+parentSeq);
-
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-				System.out.println("*---");
-		
-		
-		
-		
+		int parentSeq = Integer.parseInt((String)request.getParameter("parentSeq"));
 		
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
@@ -189,26 +150,18 @@ public class ReferenceController {
 
 		NexacroResult nr = new NexacroResult();
 		Rservice.update(dto);
-		System.out.println("=============================");
-		System.out.println("=============================");
-		System.out.println("useq : "+dto.getSeq());
-		System.out.println("=============================");
-		System.out.println("=============================");
+
+		nr.addVariable("parentSeq", dto.getSeq());
 		return nr;
 	}
 	@RequestMapping("updateFile")
 	public NexacroResult updateFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("파일 업데이트");
 
-		int parentSeq = (Integer)session.getAttribute("useq");
 
-			System.out.println("##########################");
-			System.out.println("##########################");
-			System.out.println("parentSeq : "+parentSeq);
-			System.out.println("##########################");
-			System.out.println("##########################");
-
+		int parentSeq = Integer.parseInt((String)request.getParameter("parentSeq"));
 		
+
 		
 		
 		MultipartHttpServletRequest multipartRequest = 
@@ -304,8 +257,6 @@ public class ReferenceController {
 		navi = navi.substring(0, navi.length()-1);
 		}
 		
-		Rservice.garbageDelete();
-		
 		model.addAttribute("select",1);
 		model.addAttribute("type","default");
 		model.addAttribute("list",list);
@@ -323,7 +274,6 @@ public class ReferenceController {
 		String content = request.getParameter("content");
 		String category = request.getParameter("category");
 		System.out.println(content +":" +category );
-		Rservice.garbageDelete();
 		if(page <= 0) {
 			page = 1;
 		}
@@ -550,31 +500,5 @@ public class ReferenceController {
 		nr.addDataSet("out_ds",list);
 		return nr;
 	}
-	@RequestMapping("garbageInsert")
-	public NexacroResult newGarbage() {
-		NexacroResult nr = new NexacroResult();
-		int seq1 = (Integer)session.getAttribute("login");
-		String writer = Integer.toString(seq1);
-		ReferenceDTO dto = new ReferenceDTO();
-		dto.setWriter(writer);
-		dto.setTitle("axc_ss3321kw");
-		dto.setContents("a");
-		int sResult = Rservice.insertDTO(dto);
-		int fseq = Rservice.selectLastSeq();
-		session.setAttribute("fseq", fseq);
-		if(sResult>0) {
-			System.out.println("garbage입력 완료");
-		}
-		return nr;
-	}
-	
-	@RequestMapping("garbageDelete")
-	public NexacroResult Garbage() {
-		NexacroResult nr = new NexacroResult();
-		int sResult = Rservice.garbageDelete();
-		if(sResult>0) {
-			System.out.println("garbage삭제 완료");
-		}
-		return nr;
-	}
+
 }

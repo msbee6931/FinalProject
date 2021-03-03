@@ -57,11 +57,11 @@
 </head>
 <body>
 
-<form action=/request/write method="post" name = myform onsubmit="return check()" enctype="multipart/form-data">
+<form action=/request/write?capge=1 method="post" name = myform onsubmit="return check()" enctype="multipart/form-data">
     <div class = "content">
        <table border="1">
         <tr>
-            <td>자유게시판 글 쓰기</td>
+            <td>건의게시판 글 쓰기</td>
         </tr>
         <tr>
             <td> 

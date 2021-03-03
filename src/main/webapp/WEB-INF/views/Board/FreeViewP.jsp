@@ -82,6 +82,7 @@ div {
 	width: 100%;
 	height: 500px;
 	background-color: white;
+		overflow:scroll;
 }
 
 .rev {
@@ -184,7 +185,7 @@ div {
 			<form action="/free/delete" method="post">
 				<input type=hidden id=seq name=seq value=${dto.seq }> <input
 					type=hidden id=cpage name=cpage value=1>
-				<c:if test="${id == i.writer}">
+				<c:if test="${id == dto.writer}">
 					<input type=submit id=btn value="삭제">
 					<input type=button id=upt value="수정하기">
 					<script>

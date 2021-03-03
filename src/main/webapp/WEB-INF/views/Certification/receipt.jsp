@@ -37,7 +37,7 @@
         <div class=basic1>학 과</div>
         <div class=basic2>${part }</div>
         <div class=basic1>학년</div>
-        <div class=basic2>${dto.grade }</div>
+        <div class=basic2>${dto.colGrade }</div>
         <div class=basic1>해당학기</div>
         <div class=basic2>${semester }</div>
         <div class=pay1>청 구<br>내 역</div>

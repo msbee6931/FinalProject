@@ -25,26 +25,6 @@
         }
     </script>
 <style>
-@font-face {
-	font-family: 'GmarketSansBold';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-
-
-@font-face {
-	font-family: 'GmarketSansLight';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
 a {
 	text-decoration: none;
 }
@@ -58,8 +38,8 @@ li {
 	
 }
 .headt2 {
-	font-family: 'GmarketSansLight';
 	background-color: white;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 nav {
@@ -80,7 +60,7 @@ nav {
 			<nav class="navbar navbar-expand-xl navbar-light"
 				style="background-color: white">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/"><img src="/img/logo.PNG"></a>
+					<a class="navbar-brand" href="/"><img src="/img/khunv_logo.png"></a>
 					<button class="navbar-toggler" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
 						aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -105,7 +85,6 @@ nav {
 					</div>
 				</div>
 			</nav>
-		</div>
+		</div>		
 </body>
-
 </html>

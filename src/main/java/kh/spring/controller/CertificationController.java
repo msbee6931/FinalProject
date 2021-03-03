@@ -739,10 +739,10 @@ public class CertificationController {
 		}else {
 			semester="2학기";
 		}
-
-		//-- 생년월일 포맷 맞추기
-		String birth = dto.getSecNumber().substring(0,6);
-
+		//-- 생년월일
+		String birth = dto.getSecNumber().substring(0,6)+" - "+dto.getSecNumber().substring(7,13);
+		
+		try {
 		//-- 납부관련 dto 불러오기
 		TuitionDTO dto2 = Tservice.selectByStd_code(s_seq);
 		
@@ -750,27 +750,33 @@ public class CertificationController {
 		int sum1=dto2.getT_enter()+dto2.getT_class();
 		
 		//-- 생년월일 포맷 맞추기
-				String t_date = dto2.getT_date().substring(0,4)+"년 "+dto2.getT_date().substring(5,7)+"월 "+dto2.getT_date().substring(8,10)+"일";
-			
+		String t_date = dto2.getT_date().substring(0,10);
 		//장학금 총액 구하기
+		int scholarship=0;
+		try {
 				ScholarshipDTO dto3 = Scservice.selectDTOByStd_Code(dto.getS_seq());
-				int scholarship = dto3.getsSum();
-				
+				 scholarship = dto3.getsSum();
+		}catch(Exception e) {
+			scholarship = 0;
+		}
 		// 청구 총액 구하기
 				
-				int finalsum = dto2.gettSum()-scholarship;
+		int finalsum = dto2.gettSum()-scholarship;
 		
 		model.addAttribute("finalsum",finalsum);
 		model.addAttribute("scholarship",scholarship);		
 		model.addAttribute("sum1",sum1);
 		model.addAttribute("t_date",t_date);
 		model.addAttribute("dto2",dto2);
+		model.addAttribute("birth",birth);
 		model.addAttribute("dto",dto);
 		model.addAttribute("semester",semester);
 		model.addAttribute("part",part);
 		model.addAttribute("sysdate",sysdate);
-		model.addAttribute("birth",birth);
 		return "Certification/receipt";
+		}catch(Exception e) {
+			return "Certification/default";
+		}
 	}
 	
 	@RequestMapping("transcriptp")
