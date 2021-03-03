@@ -74,8 +74,8 @@ public class ScholarshipDAO {
 	public int updateOne(ScholarshipDTO dto) {
 		return session.update("Scholarship.updateOne", dto);
 	}
-	public int deleteOne(int seq) {
-		return session.delete("Scholarship.deleteOne", seq);
+	public int deleteOne(List<ScholarshipDTO> list) {
+		return session.delete("Scholarship.deleteOne", list);
 	}
 	public int deleteReqSch(List<ReqScholarDTO> list) {
 		return session.delete("Scholarship.deleteReqSch", list);

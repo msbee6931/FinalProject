@@ -3,7 +3,7 @@ package kh.spring.dto;
 import java.sql.Date;
 
 public class AbsenceDTO {
-
+	private String chk;
 	private int seq;
 	private int std_code;
 	private String sDate;
@@ -14,9 +14,10 @@ public class AbsenceDTO {
 	
 	public AbsenceDTO() {}
 
-	public AbsenceDTO(int seq, int std_code, String sDate, String eDate, String code, Date writeDate,
+	public AbsenceDTO(String chk, int seq, int std_code, String sDate, String eDate, String code, Date writeDate,
 			String checkValue) {
 		super();
+		this.chk = chk;
 		this.seq = seq;
 		this.std_code = std_code;
 		this.sDate = sDate;
@@ -24,6 +25,14 @@ public class AbsenceDTO {
 		this.code = code;
 		this.writeDate = writeDate;
 		this.checkValue = checkValue;
+	}
+
+	public String getChk() {
+		return chk;
+	}
+
+	public void setChk(String chk) {
+		this.chk = chk;
 	}
 
 	public int getSeq() {
@@ -82,6 +91,5 @@ public class AbsenceDTO {
 		this.checkValue = checkValue;
 	}
 
-	
 	
 }

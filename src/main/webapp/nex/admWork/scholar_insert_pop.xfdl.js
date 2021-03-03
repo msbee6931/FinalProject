@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("scholar_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"INT\" size=\"256\"/><Column id=\"s_rec\" type=\"INT\" size=\"256\"/><Column id=\"s_smt\" type=\"INT\" size=\"256\"/><Column id=\"s_spt\" type=\"INT\" size=\"256\"/><Column id=\"s_etc\" type=\"INT\" size=\"256\"/><Column id=\"sSum\" type=\"INT\" size=\"256\"/><Column id=\"s_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"s_kind\" type=\"INT\" size=\"256\"/><Column id=\"s_rec\" type=\"INT\" size=\"256\"/><Column id=\"s_smt\" type=\"INT\" size=\"256\"/><Column id=\"s_spt\" type=\"INT\" size=\"256\"/><Column id=\"s_etc\" type=\"INT\" size=\"256\"/><Column id=\"sSum\" type=\"INT\" size=\"256\"/><Column id=\"s_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -27,20 +27,14 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btn_ok","86","355","100","25",null,null,null,null,null,null,this);
+            obj = new Button("btn_ok","150","355","100","25",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("확인");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_cancle","205","355","100","25",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("취소");
-            obj.set_cssclass("btn_can");
-            this.addChild(obj.name, obj);
-
             obj = new Div("Div00","21","20","358","325",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
+            obj.set_taborder("1");
             obj.set_text("Div00");
             obj.set_border("1px solid #c1c1c1");
             obj.set_cssclass("div_line");
@@ -252,7 +246,7 @@
         		)
 
         		//확인
-        		this.close();
+        		this.close(this.std_code);
         	}
         	else
         	{
@@ -260,11 +254,7 @@
         	}
         };
 
-        //닫기 버튼
-        this.btn_cancle_onclick = function(obj,e)
-        {
-        	this.close();
-        };
+
 
         //자동으로 최종 합계 구하는 함수
         this.fn_tSum = function()
@@ -299,7 +289,6 @@
         {
             this.addEventHandler("onload",this.scholar_insert_pop_onload,this);
             this.btn_ok.addEventHandler("onclick",this.btn_ok_onclick,this);
-            this.btn_cancle.addEventHandler("onclick",this.btn_cancle_onclick,this);
             this.Div00.form.medt_a.addEventHandler("canchange",this.fn_tSum,this);
             this.Div00.form.medt_b.addEventHandler("canchange",this.fn_tSum,this);
             this.Div00.form.medt_c.addEventHandler("canchange",this.fn_tSum,this);

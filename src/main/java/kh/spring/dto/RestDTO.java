@@ -3,19 +3,29 @@ package kh.spring.dto;
 import java.sql.Date;
 
 public class RestDTO {
+	private String chk;
 	private int seq;
 	private int std_code;
 	private String title;
-	private Date writeDate;
+	private String writeDate;
 	
 	public RestDTO() {}
 
-	public RestDTO(int seq, int std_code, String title, Date writeDate) {
+	public RestDTO(String chk, int seq, int std_code, String title, String writeDate) {
 		super();
+		this.chk = chk;
 		this.seq = seq;
 		this.std_code = std_code;
 		this.title = title;
 		this.writeDate = writeDate;
+	}
+
+	public String getChk() {
+		return chk;
+	}
+
+	public void setChk(String chk) {
+		this.chk = chk;
 	}
 
 	public int getSeq() {
@@ -42,15 +52,14 @@ public class RestDTO {
 		this.title = title;
 	}
 
-	public Date getWriteDate() {
+	public String getWriteDate() {
 		return writeDate;
 	}
 
-	public void setWriteDate(Date writeDate) {
+	public void setWriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
 
-	
 	
 	
 }

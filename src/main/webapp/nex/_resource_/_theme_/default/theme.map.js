@@ -3415,7 +3415,23 @@
 							{
 								"color" : nexacro.ColorObject("#ffffff")
 							}
-						}
+						},
+						"class" :
+						[
+							{
+								"pgb_default" :
+								{
+									"self" :
+									{
+										"enabled" :
+										{
+											"color" : nexacro.ColorObject("#1c0c7c"),
+											"font" : nexacro.FontObject("bold 11px/normal \"Malgun Gothic\"")
+										}
+									}
+								}
+							}
+						]
 					},
 					"ProgressBarControl" :
 					{

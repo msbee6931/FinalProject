@@ -176,11 +176,15 @@ public class AbsenceController {
 	}
 	
 	@RequestMapping("deleteReqAbs.absence")
-	public NexacroResult deleteReqAbs(@ParamVariable(name="seq")int seq) throws Exception {
+	public NexacroResult deleteReqAbs(@ParamDataSet(name="in_ds")List<AbsenceDTO> list) throws Exception {
 		System.out.println("휴학신청서 삭제 컨트롤러 확인----->");
 		NexacroResult nr = new NexacroResult();
-		int resultFile=aService.deleteReqAbsFile(seq);
-		int result = aService.deleteReqAbs(seq);
+		for(int i=0; i<list.size();i++) {
+			int resultFile=aService.deleteReqAbsFile(list.get(i).getSeq());
+			int result = aService.deleteReqAbs(list.get(i).getSeq());
+		}
+
+
 		return nr;
 	}
 	
@@ -227,10 +231,10 @@ public class AbsenceController {
 		
 		//휴학신청서 삭제
 		@RequestMapping("deleteRest.absence")
-		public NexacroResult deleteRest(@ParamVariable(name="seq")int seq) throws Exception {
+		public NexacroResult deleteRest(@ParamDataSet(name="in_ds")List<RestDTO> list) throws Exception {
 			System.out.println("복학신청서 삭제 컨트롤러 확인----->");
 			NexacroResult nr = new NexacroResult();
-			int result = aService.deleteRest(seq);
+			int result = aService.deleteRest(list);
 			return nr;
 		}
 	

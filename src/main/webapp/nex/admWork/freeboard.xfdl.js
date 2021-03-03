@@ -18,12 +18,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("free", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"writer\">aa</Col><Col id=\"title\">cc</Col></Row><Row><Col id=\"writer\">bb</Col><Col id=\"title\">dd</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("search", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"data\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">title</Col><Col id=\"data\">title</Col></Row><Row><Col id=\"code\">writer</Col><Col id=\"data\">writer</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"data\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">seq</Col><Col id=\"data\">전체</Col></Row><Row><Col id=\"code\">title</Col><Col id=\"data\">제목</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -62,7 +62,7 @@
             obj.set_binddataset("free");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"72\"/><Column size=\"111\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"확인\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:write_date\"/><Cell col=\"4\" text=\"bind:view_count\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"72\"/><Column size=\"111\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\" maskeditformat=\"#########\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:write_date\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:view_count\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00",null,"13","568",null,"36","40",null,null,null,null,this.Div00.form);
@@ -78,7 +78,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new WebBrowser("WebBrowser00","14","45","543","335",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new WebBrowser("WebBrowser00","14","45","543","364",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
@@ -99,30 +99,30 @@
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Combo("Combo00","99","13","107","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("4");
-            obj.set_innerdataset("search");
-            obj.set_codecolumn("id");
-            obj.set_datacolumn("column");
-            obj.set_cssclass("cmb_default");
-            obj.set_text("Combo00");
-            this.Div00.addChild(obj.name, obj);
-
             obj = new Edit("Edit00","216","13","115","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("5");
+            obj.set_taborder("4");
             obj.set_cssclass("edt_default");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("Button00","340","13","60","25",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("6");
+            obj.set_taborder("5");
             obj.set_cssclass("btn_search");
             obj.set_text("조회");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Edit("Edit01","341","413","15","10",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("7");
+            obj.set_taborder("6");
             obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
+
+            obj = new Combo("Combo00","134","24","93","24",null,null,null,null,null,null,this);
+            obj.set_taborder("5");
+            obj.set_innerdataset("search");
+            obj.set_codecolumn("code");
+            obj.set_datacolumn("data");
+            obj.set_cssclass("cmb_default");
+            obj.set_text("Combo00");
+            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -131,9 +131,7 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-            obj = new BindItem("item0","Div00.form.Edit01","value","free","seq");
-            this.addChild(obj.name, obj);
-            obj.bind();
+
         };
         
         this.loadPreloadList = function()
@@ -191,11 +189,18 @@
 
         this.Div00_Button00_onclick = function(obj,e)
         {
-        	let type = this.Div00.form.Combo00.value;
-        	let value=this.Div00.form.Edit00.value;
-        	let filter = type+"='"+value+"'";
-        	this.free.filter(filter);
+
+        	var cmb = this.Combo00.value;
+        	var edit = this.Div00.form.Edit00.value;
+        	if(cmb == 'title')
+        	{
+        		this.free.filter(cmb+".indexOf('"+edit+"')>=0");
+        	}else if(cmb=='seq'){
+        		this.free.filter("");
+        	}
+        	this.Div00.form.Edit00.set_value("");
         };
+
 
         this.Div00_Grid00_oncellposchanged = function(obj,e)
         {
@@ -224,6 +229,19 @@
         	);
         };
 
+
+        this.Div00_Grid00_onheadclick = function(obj,e)
+        {
+        	let flag = obj.getCellProperty("Head",0,"text");
+        	let check = flag==0?1:0;
+        	if(e.cell==0){
+        		obj.setCellProperty("Head",0,"text",check);
+        		for(let i = 0;i<this.free.getRowCount();i++){
+        			this.free.setColumn(i,"chk",check);
+        		}
+        	}
+        };
+
         });
         
         // Regist UI Components Event
@@ -231,6 +249,7 @@
         {
             this.addEventHandler("onload",this.rest_onload,this);
             this.Div00.form.Grid00.addEventHandler("oncellposchanged",this.Div00_Grid00_oncellposchanged,this);
+            this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.Div00.form.enlargement.addEventHandler("onclick",this.Div00_Div00_enlargement_onclick,this);
             this.Div00.form.del_btn.addEventHandler("onclick",this.Div00_del_btn_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
