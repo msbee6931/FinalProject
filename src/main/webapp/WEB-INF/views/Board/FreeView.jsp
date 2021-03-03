@@ -99,9 +99,9 @@ div {
 	width: 600px;
 	height: 200px;
 	position: relative;
-	left: 17%;
+	left: 30%;
 }
-#btn2,#btn,#upt{
+#btn2,#btn,#upt,#modUpdBtn,#modCanBtn{
 	border-radius : 10px;
 	width:100px;
 	height:30px;
@@ -150,6 +150,9 @@ div {
 a{
 	color:white;
 	text-underline:none;
+}
+.BtnsArea{
+	text-align:right;
 }
 </style>
 </head>
@@ -208,6 +211,8 @@ a{
 
 	<div class="revlist" id=revList>
 		<input type=hidden id=mSeq value=${dto.seq }>
+		<input type=hidden id=hiddenId value=${id }>
+		
 		<c:forEach var="i" items="${list}">
 			<div class='comment'>
 				<span class='revWriter'><작성자> : ${i.rev_writer}</span> <span class='revDate'><작성일> : ${i.rev_write_date}</span>
@@ -220,18 +225,23 @@ a{
 				</c:if>
 			</div>
 		</c:forEach>
-
-		<div class=rUpdModal>
-			<textarea id=uptContents></textarea>
-			<input type=button id=rUpdateBtn value=등록> <input type=button
-				id=rUpdateReturn value=돌아가기>
-		</div>
 	</div>
+	
+	<div class="rUpdModal">
+			<div class="rUpdContent">
+				<div>
+					<textarea class="modalRevCon" name="modalRevCon"></textarea>
+				</div>
+				<div class="BtnsArea">
+					<button type="button" class="modalRevBtns" id="modUpdBtn">수정</button>
+					<button type="button" class="modalRevBtns" id="modCanBtn">취소</button>
+				</div>
+			</div>
+	</div>
+
 	<div class=replyLine3 id =navi><a href=/free/view?page=${ppage }&seq=${seq}><-</a> ${navi } <a href=/free/view?page=${npage}&seq=${seq}>-></a></div>
-
-
 	<script>      
-      
+
 	document.getElementById("btn2").onclick=function(){
            location.href="/free/boardList?cpage=1"
        }
@@ -242,241 +252,98 @@ a{
 	        height : 100,
 	        width : 1000
 	    });
-	    $("#uptContents").summernote({
+	    $(".modalRevCon").summernote({
 	    	height:200,
 	    	width:600
 	    });
 	});
-	$(".rDelBtn").click(function(){
-			$.ajax({
-				url:"/fcomment/delete",
-				type:"post",
-				data:{revSeq:$(this).attr("data-revSeq"),mainSeq:$(this).attr("data-mainSeq")},
-				dataType:"json"
-			}).done(function(obj){
-				if(obj.length>0){
-   					alert("삭제 성공!");
-   					$(".comment").remove();
-   					for (let i=0; i<obj.length;i++){
-                        let div = $("<div class='comment'>");
-                        str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
-                            "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
-                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
-                            "<c:if test="+obj[0].blank1 == obj[i].rev_writer+">"+
-                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
-                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
-                            "</c:if>"+
-                            "</div>"
-                        div.html(str);
-                        $("#revList").append(div);
+	$(".rUpdModal").hide();
+	
+	//-----------------------------------
+	           $("#revList").on("click",".rUpdBtn",function(){
+                    $(".rUpdModal").show();
+                    $(".revlist").hide();
+                    $("#navi").hide();
+                    let rCon = $(this).parent().children(".revContents").text();
+                    $(".modalRevCon").val(rCon);
+                    let revSeq = $(this).attr("data-revSeq");
+                    let mSeq = $(this).attr("data-mainSeq");
+                    console.log(revSeq);
+                    console.log(mSeq);
+                    $("#modUpdBtn").attr("data-revSeq",revSeq);
+                    $("#modUpdBtn").attr("data-mainSeq",mSeq);
+                });
+
+                $("#revList").on("click",".rDelBtn",function(){
+                    let delConfirm = confirm("삭제하시겠습니까?");
+                    if(delConfirm){
+                   	$(this).parent().remove();
+                        $.ajax({
+                        	url:"/fcomment/delete",
+            				type:"post",
+            				data:{revSeq:$(this).attr("data-revSeq"),mainSeq:$(this).attr("data-mainSeq")},
+            				dataType:"json"
+                        })
+                    $.ajax({
+                        url:"/fcomment/getNavi",
+                        type:"post",
+                        data : {mSeq:$("#mSeq").val()},                    
+                }).done(function(resp){
+                	$("#revPage").html(resp);
+                	$(".rUpdModal").hide();
+                		})
                     }
-   					
-   					$("#revList").on("click",".rDelBtn",function(){
-   						$.ajax({
-   							url:"/fcomment/delete",
-   							type:"post",
-   							data:{revSeq:$(this).attr("data-revSeq"),mainSeq:$(this).attr("data-mainSeq")},
-   							dataType:"json"
-   						}).done(function(obj){
-   							if(obj.length>0){
-   			   					alert("삭제 성공!");
-   			   					$(".comment").remove();
-   			   					for (let i=0; i<obj.length;i++){
-   			                        let div = $("<div class='comment'>");
-   			                        str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
-   		                            "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
-   			                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
-   			                         "<c:if test="+obj[0].blank1 == obj[i].rev_writer+">"+
-   			                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
-   			                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
-   			                         	"</c:if>"+
-   			                            "</div>"
-   			                        div.html(str);
-   			                        $("#revList").append(div);
-   			                    }
-   							}
-   						})
-   					});
-   					$("#revList").on("click",".rUpdBtn",function(){
-   						$(".comment").hide();
-   			   			$(".rUpdModal").show();
-   			   			
-   			   			$("#rUpdateReturn").click(function(){
-   			   		   		$(".rUpdModal").hide();
-   			   		   		$(".comment").show();
-   			   		   	})
-   			   		   	let Seq = $(this).attr("data-revSeq");
-   						let mainSeq = $(this).attr("data-mainSeq");
-   			
-   						$("#rUpdateBtn").click(function(){
-   						let updConfirm = confirm("수정하시겠습니까?");
-   		   		   		if(updConfirm) {
-   		   		   			$.ajax({
-   		   		   				url:"/fcomment/update",
-   		   		   				type:"post",
-   		   		   				data:{revSeq:Seq,revContents:$("#uptContents").val(),mSeq:mainSeq},
-   		   		   				dataType:"json"
-   		   		   			}).done(function(obj){
-   		   		   				if(obj.length>0){
-   		   		   					alert("업데이트 성공!");
-   		   		   					$(".comment").remove();
-   		   		   					for (let i=0; i<obj.length;i++){
-   		   		                        let div = $("<div class='comment'>");
-   		   		                        str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
-   		                             "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
-   		   		                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
-   		   		                      "<c:if test="+obj[0].blank1 == obj[i].rev_writer+">"+
-   		   		                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
-   		   		                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
-   		   		                      		"</c:if>"+
-   		   		                            "</div>"
-   		   		                        div.html(str);
-   		   		                        $("#revList").append(div);
-   		   		                    }
-   		   		   			 	 $("#uptContents").val()="";
-   		   		   				 $(".rUpdModal").attr("style", "display:none;");
-   		   		   				 $("#navi").show();
-   		   		   				}
-   							});
-   						}
-   					});
-   				});
-   			 $(".rUpdModal").attr("style", "display:none;");
-			}
-		})
-		
-	});
-	
-	
-	
-   	$(".rUpdModal").hide(); 
+                });
+  
+                $("#modCanBtn").on("click",function(){
+                    $(".rUpdModal").attr("style", "display:none;");
+                });
+
+                $("#modUpdBtn").on("click",function(){
+                    let updConfirm = confirm("수정하시겠습니까?");
+                    if(updConfirm) {
+                        $.ajax({
+                        	url:"/fcomment/update",
+		   		   				type:"post",
+		   		   				data:{revSeq:$(this).attr("data-revSeq"),mSeq:$(this).attr("data-mainSeq"),revContents:$(".modalRevCon").val()},
+		   		   				dataType:"json"
+                        }).done(function(obj){
+                       		console.log(obj);
+                            if(obj.length > 0 ){
+                                alert("업데이트 성공");
+                                $(".comment").remove();
+  		   		   					for (let i=0; i<obj.length;i++){
+  		   		   						let div = $("<div class='comment'>");
+  		   		   						if(hiddenId.value==obj[i].rev_writer){
+  		   		   						 str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
+	              	         	 			  "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
+	   		                      	  		   "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+	   		                          		  "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
+	   		                         		   "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
+	   		                         	   "</div>"
+  		   		   						}else{
+  		   		   							str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
+  		              	         	 		  "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
+  		   		                      	     "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
+  		   		                            "</div>"
+  		   		   						}
+  		   		                        
+  		   		                        div.html(str);
+  		   		                        $("#revList").append(div);
+  		   		                    }
+  		   		   				 $("#navi").show();
+  		                       $(".revlist").show();
+  		   		   				$(".rUpdModal").hide();
+                            }
+                            $(".rUpdModal").attr("style", "display:none;");
+                            
+                        })
+                    }
+                });
+
+
+            </script>
    	
-   	$(".rUpdBtn").click(function() {
-			$(".comment").hide();
-   			$(".rUpdModal").show();
-   			$("#navi").hide();
-   			
-   			$("#rUpdateReturn").click(function(){
-   		   		$(".rUpdModal").hide();
-   		   		$(".comment").show();
-   		   		$("#navi").show();
-   		   	})
-   		   	
-   		   	let Seq = $(this).attr("data-revSeq");
-   			let mainSeq = $(this).attr("data-mainSeq");
-   			
-   			$("#rUpdateBtn").click(function(){
-   		   		let updConfirm = confirm("수정하시겠습니까?");
-   		   		if(updConfirm) {
-   		   			$.ajax({
-   		   				url:"/fcomment/update",
-   		   				type:"post",
-   		   				data:{revSeq:Seq,revContents:$("#uptContents").val(),mSeq:mainSeq},
-   		   				dataType:"json"
-   		   			}).done(function(obj){
-   		   				if(obj.length>0){
-   		   					alert("업데이트 성공!");
-   		   					$(".comment").remove();
-   		   					for (let i=0; i<obj.length;i++){
-   		                        let div = $("<div class='comment'>");
-   		                        str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
-   	                            "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
-   		                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
-   		                         	"<c:if test="+obj[0].blank1 == obj[i].rev_writer+">"+
-   		                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
-   		                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
-   		                            "</c:if>"+
-   		                            "</div>"
-   		                        div.html(str);
-   		                        $("#revList").append(div);
-   		                     $(".rUpdModal").hide();
-   		                     $("#navi").show();
-   		                    }
-   		   				$("#uptContents").val()="";
-   		   				$("#revList").on("click",".rDelBtn",function(){
-   	   						$.ajax({
-   	   							url:"/fcomment/delete",
-   	   							type:"post",
-   	   							data:{revSeq:$(this).attr("data-revSeq"),mainSeq:$(this).attr("data-mainSeq")},
-   	   							dataType:"json"
-   	   						}).done(function(obj){
-   	   							if(obj.length>0){
-   	   			   					alert("삭제 성공!");
-   	   			   					$(".comment").remove();
-   	   			   					for (let i=0; i<obj.length;i++){
-   	   			                        let div = $("<div class='comment'>");
-   	   			                        str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
-   	   	                            "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
-   	   			                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
-   	   			                      "<c:if test="+obj[0].blank1 == obj[i].rev_writer+">"+
-   	   			                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
-   	   			                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
-   	   			                      		"</c:if>"+
-   	   			                            "</div>"
-   	   			                        div.html(str);
-   	   			                        $("#revList").append(div);
-   	   			                    }
-   	   							}
-   	   						})
-   	   					});
-   	   					$("#revList").on("click",".rUpdBtn",function(){
-   	   						$(".comment").hide();
-   	   			   			$(".rUpdModal").show();
-   	   			   			
-   	   			   			$("#rUpdateReturn").click(function(){
-   	   			   		   		$(".rUpdModal").hide();
-   	   			   		   		$(".comment").show();
-   	   			   		   	})
-   	   			   		   	let Seq = $(this).attr("data-revSeq");
-   	   						let mainSeq = $(this).attr("data-mainSeq");
-   	   			
-   	   						$("#rUpdateBtn").click(function(){
-   	   						let updConfirm = confirm("수정하시겠습니까?");
-   	   		   		   		if(updConfirm) {
-   	   		   		   			$.ajax({
-   	   		   		   				url:"/fcomment/update",
-   	   		   		   				type:"post",
-   	   		   		   				data:{revSeq:Seq,revContents:$("#uptContents").val(),mSeq:mainSeq},
-   	   		   		   				dataType:"json"
-   	   		   		   			}).done(function(obj){
-   	   		   		   				if(obj.length>0){
-   	   		   		   					alert("업데이트 성공!");
-   	   		   		   					$(".comment").remove();
-   	   		   		   					for (let i=0; i<obj.length;i++){
-   	   		   		                        let div = $("<div class='comment'>");
-   	   		   		                        str= "<span class='revWriter'>"+"<작성자> : "+obj[i].rev_writer+"</span>"+
-   	   		                            "<span class='revDate'>"+"<작성일> : "+obj[i].rev_write_date+"</span>"+
-   	   		   		                            "<p class='revContents'>"+obj[i].rev_contents+"</p>"+
-   	   		   		                   "<c:if test="+obj[0].blank1 == obj[i].rev_writer+">"+
-   	   		   		                            "<button type ='button' class='rUpdBtn' data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">수정</button>"+
-   	   		   		                            "<button type='button' class='rDelBtn'  data-revSeq="+obj[i].rev_seq+" data-mainSeq="+obj[i].main_seq+">삭제</button>"+
-   	   		   		                   			"</c:if>"+
-   	   		   		                            "</div>"
-   	   		   		                        div.html(str);
-   	   		   		                        $("#revList").append(div);
-   	   		   		                    }
-   	   		   		   				 $("#uptContents").val()="";
-   	   		   		   				 $(".rUpdModal").attr("style", "display:none;");
-   	   		   		   				 $("#navi").show();
-   	   		   		   				}
-   	   							});
-   	   						}
-   	   					});
-   	   				});
-   		   			 $(".rUpdModal").attr("style", "display:none;");
-   		   			}
-   		   		})
-   			}
-   		})
-     });
-   	
-   
-   	$(".rUpdModal").hide(); 
-   	
-   	
-   	
-       
-   </script>
 
 </body>
 </html>
