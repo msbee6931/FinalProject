@@ -25,11 +25,11 @@ public class TuitionController {
 	@Autowired
 	private HttpSession session;
 	
-	@RequestMapping("insert.tuition")
-	public NexacroResult insert(@ParamDataSet(name="in_ds")TuitionDTO dto) {
-		System.out.println("컨트롤러 확인");
+	@RequestMapping("insertOne.tuition")
+	public NexacroResult insertOne(@ParamDataSet(name="in_ds",required=false )TuitionDTO dto) {
+		System.out.println("등록금 입력 컨트롤러 확인>>>>>");
 		NexacroResult nr = new NexacroResult();
-		System.out.println("학년확인,,,,,,,,,,,,,>" + dto.getStd_grade());
+		System.out.println("학년확인,,,,,,,,,,,,,>" + dto.getStd_code()+dto.gettSum());
 		int result = tService.insertTuition(dto);
 		return nr;
 	}
@@ -64,11 +64,11 @@ public class TuitionController {
 	}
 	
 	@RequestMapping("deleteOne.tuition")
-	public NexacroResult deleteOne( @ParamVariable(name="seq")int seq) {
+	public NexacroResult deleteOne( @ParamDataSet(name="in_ds")List<TuitionDTO>list) {
 		System.out.println("등록금 삭제 확인");
 		NexacroResult nr = new NexacroResult();
 
-		int result = tService.deleteOne(seq);
+		int result = tService.deleteOne(list);
 		
 		return nr;
 	}

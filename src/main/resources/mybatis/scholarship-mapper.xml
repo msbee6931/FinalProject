@@ -18,9 +18,6 @@
     </selectKey>
 	insert into reqScholar (seq,std_code,title,contents,writeDate,checkRead)values (#{seq},#{std_code},#{title},#{contents},sysdate,'읽지않음')
 </insert>
-<select id="selectlastSeq" resultType="int">
-	SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'REQSCHOLAR_SEQ'
-</select>
 
 <select id="selectReqScholar" resultType="kh.spring.dto.ReqScholarDTO">
 	select * from reqScholar order by 1 desc
@@ -57,7 +54,10 @@ select * from scholarship where std_code=#{std_code}
 	update scholarship set s_kind=#{s_kind}, s_rec=#{s_rec}, s_smt=#{s_smt}, s_spt=#{s_spt}, s_etc=#{s_etc}, sSum=#{sSum} where seq=#{seq} 
 </update>
 <delete id="deleteOne">
-	delete from scholarship where seq=#{seq}
+	delete from scholarship where seq in
+  	<foreach item="i" collection="list" open="(" close=")" separator=",">
+          #{i.seq}
+    </foreach>
 </delete>
 <delete id="deleteReqSch">
 	delete from reqScholar where seq in

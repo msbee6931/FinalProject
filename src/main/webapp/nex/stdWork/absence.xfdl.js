@@ -205,6 +205,10 @@
 
         this.Div00_btn_insert_onclick = function(obj,e)
         {
+        	var checkRest = this.objApp.gds_students.getColumn(0,'rest');
+
+        	if(checkRest == 'N')
+        	{
         	//휴학 신청서 입력을 위한 모달창
         	var objCF = new ChildFrame();
         	objCF.init("absence_pop",200,100,900,600);
@@ -216,6 +220,12 @@
         		this,
         		"fn_callback_pop_abs"
         	);
+        	}
+        	else
+        	{
+        		alert("휴학생은 휴학신청서를 작성할 수 없습니다.")
+        		return;
+        	}
         };
 
         this.fn_callback_pop_abs = function()

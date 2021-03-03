@@ -904,6 +904,15 @@
 {
 	text-align : center;
 }
+.ProgressBar.pgb_default .progressbartext
+{
+	color : #1c0c7c;
+	font : bold 11px/normal "Malgun Gothic";
+}
+.ProgressBar.pgb_default .progressbaritem
+{
+	background : #6c9cff;
+}
 .Button[status=mouseover]
 {
 	background : linear-gradient(to top,#e7e7e7,#fefefe);
