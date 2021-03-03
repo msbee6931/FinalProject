@@ -26,7 +26,7 @@
 <body>
     <div class=container>
         <div class=header>
-            <h2>등록금 및 기타경비 납부 확인서</h2>
+            <h2>등록금 및 기타경비 고지서</h2>
         </div>
         <div class=basic1>학 번</div>
         <div class=basic2>${dto.s_seq }</div>

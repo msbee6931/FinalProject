@@ -43,12 +43,33 @@ public class PostMessageController {
 	
 	@RequestMapping("PMUpd.nex")
 	public NexacroResult alarmUpd(@ParamDataSet(name="in_ds")PostMessageDTO dto,@ParamVariable(name="reply")String reply) {
-	
+		int seq = (Integer)session.getAttribute("login");
+		String id = Integer.toString(seq);
 		NexacroResult nr = new NexacroResult();
+		//답글 넣기
 		dto.setReply(reply);
+		//답글 db 넣기
 		PMservice.update(dto);
+		//확인 y 만들기
+		PMservice.updateConfirmOne(dto.getSeq());
+		// 보낸이 찾기위한 dto select
+
+
+		PostMessageDTO dto2 = new PostMessageDTO();
+		//dto2에 받는이에 답글 작성자 기입
+		dto2.setReceiver(dto.getSender());
+		// 보낸이에 지금 로그인한사람 넣기
+		dto2.setSender(seq);
+		// 내용에 답글 넣고
+		dto2.setContents(reply);
+		// 위를 바탕으로 새로운 데이터 만들기
+		PMservice.insert(dto2);
+		List<PostMessageDTO> list = PMservice.listByReceiver(id);
+		nr.addDataSet("out_ds",list);
+		
 		return nr;
 	}
+	
 	
 	@RequestMapping("PMDel.nex")
 	public NexacroResult alarmDel(@ParamDataSet(name="in_ds")List<PostMessageDTO> list) {
