@@ -21,7 +21,10 @@ select * from tuition where std_code=#{std_code}
 	update tuition set t_enter=#{t_enter}, t_class=#{t_class}, t_std=#{t_std}, t_grd=#{t_grd}, t_ore=#{t_ore}, tSum=#{tSum} where seq=#{seq}
 </update>
 <delete id="deleteOne">
-	delete from tuition where seq=#{seq}
+	delete from tuition where seq in
+  	<foreach item="i" collection="list" open="(" close=")" separator=",">
+          #{i.seq}
+    </foreach>
 </delete>
 <select id="stdSelectOne" resultType="kh.spring.dto.TuitionDTO">
 	select * from tuition where std_code=#{std_code} order by 2

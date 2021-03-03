@@ -225,6 +225,9 @@
         this.std_code=this.objApp.gds_students.getColumn(0,'s_seq');
         this.Div00_btn_insert_onclick = function(obj,e)
         {
+        	var checkRest = this.objApp.gds_students.getColumn(0,'rest');
+        	if(checkRest == 'Y')
+        	{
 
         	//복학신청서 입력을 위한 모달창
         	var objCF = new ChildFrame();
@@ -239,6 +242,12 @@
         		this,
         		"fn_callback_stdRest"
         	);
+        	}
+        	else
+        	{
+        		alert("재학생은 복학신청서를 작성할 수 없습니다.")
+        		return;
+        	}
         };
 
         this.fn_callback_stdRest = function()

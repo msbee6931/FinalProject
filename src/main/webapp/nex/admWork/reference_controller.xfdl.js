@@ -58,6 +58,7 @@
             obj.set_taborder("1");
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
+            obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"214\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -94,7 +95,8 @@
             obj.set_taborder("8");
             obj.set_binddataset("reference");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"65\"/><Column size=\"220\"/><Column size=\"191\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"seq\"/><Cell col=\"2\" text=\"title\"/><Cell col=\"3\" text=\"write_date\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:seq\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:write_date\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"65\"/><Column size=\"220\"/><Column size=\"191\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"번호\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:seq\"/><Cell col=\"2\" text=\"bind:title\"/><Cell col=\"3\" text=\"bind:write_date\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_01","37","26","186","36",null,null,null,null,null,null,this);
@@ -403,6 +405,18 @@
 
         };
 
+        this.Grid01_onheadclick = function(obj,e)
+        {
+        	let flag = obj.getCellProperty("Head",0,"text");
+        	let check = flag==0?1:0;
+        	if(e.cell==0){
+        		obj.setCellProperty("Head",0,"text",check);
+        		for(let i = 0;i<this.reference.getRowCount();i++){
+        			this.reference.setColumn(i,"chk",check);
+        		}
+        	}
+        };
+
         });
         
         // Regist UI Components Event
@@ -418,6 +432,7 @@
             this.update.addEventHandler("onclick",this.update_onclick,this);
             this.Grid01.addEventHandler("oncellclick",this.Grid01_oncellclick,this);
             this.Grid01.addEventHandler("oncellposchanged",this.Grid01_oncellposchanged,this);
+            this.Grid01.addEventHandler("onheadclick",this.Grid01_onheadclick,this);
             this.Static01_01.addEventHandler("onclick",this.Static01_01_onclick,this);
             this.Button03_00.addEventHandler("onclick",this.Button03_onclick,this);
             this.Button01.addEventHandler("onclick",this.Button01_onclick,this);

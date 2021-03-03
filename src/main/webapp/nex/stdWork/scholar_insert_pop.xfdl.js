@@ -82,24 +82,12 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_add","668","112","100","39",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("3");
-            obj.set_text("파일찾기");
-            obj.set_cssclass("btn_default");
-            this.Div00.addChild(obj.name, obj);
-
             obj = new Grid("Grid00","168","112","501","71",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_binddataset("schFileList_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"33\"/><Column size=\"350\"/><Column size=\"80\"/></Columns><Rows><Row size=\"20\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"fileName\"/><Cell col=\"2\" text=\"fileSize\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Button("btn_del","668","150","100","32",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("5");
-            obj.set_text("파일 삭제");
-            obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_save","559","484","100","25",null,null,null,null,null,null,this.Div00.form);
@@ -161,6 +149,18 @@
             obj = new TextArea("txt_contents","169","181","599","138",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("14");
             obj.set_cssclass("txt_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_add","668","112","100","39",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("3");
+            obj.set_text("파일찾기");
+            obj.set_cssclass("btn_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_del","668","150","100","32",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("5");
+            obj.set_text("파일 삭제");
+            obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -284,16 +284,25 @@
 
         this.Div00_btn_del_onclick = function(obj,e)
         {
-        	for(let i =0; i<this.schFileList_ds.getRowCount();i++){
-        		if(this.schFileList_ds.getColumn(i,"check") == 1){
+        	let arr = this.schFileList_ds.extractRows("chk==1");
+
+        	if(arr.length==0 || arr.length== -1){alert("선택된 항목이 없습니다.");return;}
+
+
+        	for(var i = this.schFileList_ds.getRowCount()-1; i>-1;i--){
+        		if(this.schFileList_ds.getColumn(i,"chk") == 1)
+        		{
         			//FileUpTransfer 해당 파일삭제
         			var nIdx = this.FileUpTransfer00.removeFileByIndex(i);
-        			//정상삭제 시 해당 데이터 삭제
-        			if(nIdx > -1) {
+        			if(nIdx>-1)
+        			{
+        				//정상삭제 시 해당 데이터 삭제
         				this.schFileList_ds.deleteRow(i);
         			}
         		}
         	}
+        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
+
         };
 
 
@@ -479,13 +488,13 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.scholar_pop_onload,this);
-            this.Div00.form.btn_add.addEventHandler("onclick",this.Div00_btn_add_onclick,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
-            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.Div00.form.btn_save.addEventHandler("onclick",this.Div00_btn_save_onclick,this);
             this.Div00.form.btn_can.addEventHandler("onclick",this.Div00_btn_can_onclick,this);
             this.Div00.form.Static01.addEventHandler("onclick",this.Div00_Static01_onclick,this);
             this.Div00.form.Radio00.addEventHandler("onitemchanged",this.Div00_Radio00_onitemchanged,this);
+            this.Div00.form.btn_add.addEventHandler("onclick",this.Div00_btn_add_onclick,this);
+            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onerror",this.FileUpTransfer00_onerror,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);

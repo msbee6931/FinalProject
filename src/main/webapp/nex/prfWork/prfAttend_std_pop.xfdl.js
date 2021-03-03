@@ -72,8 +72,9 @@
 
             obj = new ProgressBar("ProgressBar00","30","50","530","25",null,null,null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_text("ProgressBar00");
+            obj.set_text("출석률");
             obj.set_smooth("true");
+            obj.set_cssclass("pgb_default");
             obj.set_min("0");
             obj.set_max("100");
             this.addChild(obj.name, obj);
@@ -202,19 +203,18 @@
         	}
 
         	//출석 일 수
-        	this.ds_attend.filter("attendState==01");
-        	var countStateA = this.ds_attend.getRowCount();
+        	var arrA = this.ds_attend.extractRows("attendState==01");
+        	var countStateA = arrA.length;
         	//지각 일 수
-        	this.ds_attend.filter("attendState==02");
-        	var countStateB = this.ds_attend.getRowCount();
+        	var arrB = this.ds_attend.extractRows("attendState==02");
+        	var countStateB = arrB.length;
         	//조퇴 일 수
-        	this.ds_attend.filter("attendState==03");
-        	var countStateC = this.ds_attend.getRowCount();
+        	var arrC = this.ds_attend.extractRows("attendState==03");
+        	var countStateC = arrC.length;
         	//지각 일 수
-        	this.ds_attend.filter("attendState==04");
-        	var countStateD = this.ds_attend.getRowCount();
+        	var arrD = this.ds_attend.extractRows("attendState==04");
+        	var countStateD = arrD.length;
 
-        	this.ds_attend.filter("");
 
         	//지각 or 조퇴 가 합해서 3회 이상 되면 결석 처리
         	var notAttend = countStateB+countStateC;
