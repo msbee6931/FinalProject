@@ -114,8 +114,8 @@
 							<div class="col-md-2 d-none d-md-block text-center">${i.rn}</div>
 							<div class="col-md-4 col-12 text-left"><a href="/normalView.notice?seq=${i.n_seq}">${i.title}</a></div>
 							<div class="col-md-2 col-3 text-center">${i.writedate}
-<%-- 							<fmt:parseDate var="Date" value="${i.writedate}" pattern="yyyy-MM-dd"/>
-                            <fmt:formatDate value="${Date}" type="date" pattern="yyyy-MM-dd"/> --%>
+							<fmt:parseDate var="Date" value="${i.writedate}" pattern="yyyy-MM-dd"/>
+                            <fmt:formatDate value="${Date}" type="date" pattern="yyyy-MM-dd"/> 
                             </div> 
                             <c:choose>
                            	<c:when test="${i.file == 'Y'}">

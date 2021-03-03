@@ -109,19 +109,16 @@
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
             obj.set_rowcount("1");
-            obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Calendar("cal_sDate","127","68","150","20",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("4");
             obj.set_cssclass("cal_default");
-            obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Calendar("cal_eDate","317","68","150","20",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("5");
             obj.set_cssclass("cal_default");
-            obj.set_readonly("true");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_02","16","121","100","100",null,null,null,null,null,null,this.Div00.form.Div00.form);
@@ -255,100 +252,6 @@
         		)
         }
 
-        this.Div00_Div00_Grid00_onheadclick = function(obj,e)
-        {
-        		if(e.cell == 0)
-            {
-                this.gf_setCheckAll(obj, e);
-            }
-        };
-
-        this.gv_isCheckAll = 0;
-        this.gf_setCheckAll = function(obj, e)
-        {
-            var sColID = obj.getCellProperty("body", e.cell, "text").replace("bind:", "");
-
-        	var sheadValue = obj.getCellProperty("head",e.cell,"text");
-
-            if(sColID == "chk")
-            {
-        		sheadValue = (sheadValue =="1"? "0":"1");
-        		obj.setCellProperty("head",e.cell,"text",sheadValue);
-
-        		this.absFileList_ds.set_enableevent(false);
-        		for(var i=0; i< this.absFileList_ds.getRowCount(); i++)
-        		{
-        			this.absFileList_ds.setColumn(i, "chk",sheadValue);
-        		}
-        		this.absFileList_ds.set_enableevent(true);
-            }
-
-        }
-
-        //------------------------------------ 파일다운로드 버튼
-        this.Div00_btn_add_onclick = function(obj,e)
-        {
-        	var objDs = this.absFileList_ds;
-        	var arr = objDs.extractRows("chk==1");
-        	if(arr.length==0||arr==-1){
-        		alert("선택된항목이없습니다.");
-        		return;
-        	};
-
-        	this.FileDownTransfer00.setPostData("seq",this.seq); // 현재 게시물의seq를 넘김
-        	//총 첨부파일 중 체크 된 파일만 이벤트 발생
-
-
-        	for(var i=0; i< objDs.getRowCount(); i++){
-
-        			if(objDs.getColumn(i,"chk") == "1"){
-        			// 체크된 파일만 서버로 변수를 보냄
-
-        			var savedFileName = objDs.getColumn(i,"savedFileName");
-        			this.FileDownTransfer00.setPostData("savedFileName'"+i+"'",savedFileName);
-
-        			var fileName = objDs.getColumn(i,"fileName");
-        			this.FileDownTransfer00.setPostData("fileName'"+i+"'",fileName);
-
-        		}
-        	}
-
-          //파일다운로드 실행
-          this.FileDownTransfer00.download("/absence/downAbsFile.absence");
-
-          //검색 후 지정 체크박스 해제
-        	this.Div00.form.Div00.form.Grid00.setCellProperty("head",0,"text",0);
-        	for(let i =0; i<this.absFileList_ds.getRowCount();i++){
-        		if(this.absFileList_ds.getColumn(i,"chk") == 1){
-        			this.absFileList_ds.setColumn(i,"chk",0);
-        		}
-        	}
-        };
-
-
-        //파일다운로드 성공시 (NRE 에서만 지원)
-        this.FileDownTransfer00_onsuccess = function(obj,e)
-        {
-          var sMsg = e.targetfullpath +"\n"+  e.url;
-
-          alert(sMsg);
-        };
-
-        //파일다운로드 실패시 (NRE 에서만 지원)
-        this.FileDownTransfer00_onerror = function(obj,e)
-        {
-          var sMsg = ">>>>>>>>>>>>>>>>>>>>>>>>>>  ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>\n";
-          sMsg += "statuscode: "+e.statuscode+"\n";
-          sMsg += "requesturi: "+e.requesturi+"\n";
-          sMsg += "locationuri: "+e.locationuri+"\n" ;
-          sMsg += "errormsg: "+e.errormsg+"\n";
-
-          alert(sMsg);
-        };
-
-
-
-
         });
         
         // Regist UI Components Event
@@ -359,7 +262,6 @@
             this.Div00.form.Div00.form.cal_sDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.Div00.form.cal_eDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.Div00.form.btn_down.addEventHandler("onclick",this.Div00_btn_add_onclick,this);
-            this.Div00.form.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Div00_Grid00_onheadclick,this);
             this.Div00.form.btn_insert.addEventHandler("onclick",this.Div00_btn_insert_onclick,this);
         };
 

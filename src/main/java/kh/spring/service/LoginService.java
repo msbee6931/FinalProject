@@ -1,5 +1,7 @@
 package kh.spring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +46,14 @@ public class LoginService {
 	}
 	public int updLoginInfo(LoginInfoDTO dto) {
 		return lDAO.updLoginInfo(dto);
+	}
+	public List<AdminDTO> adminList(){
+		return lDAO.adminList();
+	}
+	public int registUpd(AdminDTO dto) {
+		return lDAO.registUpd(dto);
+	}
+	public int testUpd(AdminDTO dto) {
+		return lDAO.testUpd(dto);
 	}
 }

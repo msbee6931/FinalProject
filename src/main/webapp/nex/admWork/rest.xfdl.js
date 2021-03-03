@@ -115,7 +115,7 @@
 
         this.Div00_Grid00_oncelldblclick = function(obj,e)
         {
-        	var seq = this.rlist_ds.getColumn(e.row,"seq");
+        		var seq = this.rlist_ds.getColumn(e.row,"seq");
         	var std_code = this.rlist_ds.getColumn(e.row,"std_code");
 
         		//내용 확인을 위한 모달 창
@@ -134,25 +134,6 @@
         };
 
 
-        this.seq="";
-        this.Div00_Grid00_oncellclick = function(obj,e)
-        {
-        		this.seq = this.rlist_ds.getColumn(e.row,"seq");
-        };
-
-        this.Div00_btn_del_onclick = function(obj,e)
-        {
-        	var nRow = this.rlist_ds.findRow("seq",this.seq);
-        	this.rlist_ds.deleteRow(nRow);
-        	this.transaction(
-        		"deleteReqAbs.absence",//id
-        		"/absence/deleteReqAbs.absence",//url (절대경로)
-        		"",//in_ds:U
-        		"",//()_out_ds
-        		"seq="+this.seq,//argument
-        		"fn_callback"
-        		)
-        };
 
         });
         

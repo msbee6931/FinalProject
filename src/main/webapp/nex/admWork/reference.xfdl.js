@@ -137,7 +137,6 @@
         
         // User Script
         this.registerScript("reference.xfdl", function() {
-        this.parentSeq="";
 
         this.Button00_onclick = function(obj,e)
         {

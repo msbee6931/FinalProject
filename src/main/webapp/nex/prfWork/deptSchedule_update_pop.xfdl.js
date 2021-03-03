@@ -189,33 +189,7 @@
         	var diff = eDate - sDate;
         	if(diff < 0 ){
         		alert("일자를 확인해주세요");
-        	}
-        	else if (title=="" || title==null)
-        	{
-        		alert("일정 제목을 입력해주세요");
-        		return;
-        	}
-        	else if (sDate=="" || sDate==null)
-        	{
-        		alert("일정 시작 날짜를 입력해주세요");
-        		return;
-        	}
-        		else if (eDate=="" || eDate==null)
-        	{
-        		alert("일정 종료 날짜를 입력해주세요");
-        		return;
-        	}
-        		else if (code=="" || code==null)
-        	{
-        		alert("일정 분류를 선택해주세요");
-        		return;
-        	}
-        		else if (content=="" || content==null)
-        	{
-        		alert("일정 내용을 입력해주세요");
-        		return;
-        	}
-        	else{
+        	}else{
         		this.deptSchedule_ds.setColumn(0,"title",title);
         		this.deptSchedule_ds.setColumn(0,"sDate",sDate);
         		this.deptSchedule_ds.setColumn(0,"eDate",eDate);

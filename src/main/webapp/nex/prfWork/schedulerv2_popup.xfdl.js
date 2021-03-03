@@ -149,41 +149,9 @@
         {
         	var objReturn;
         	var diff = this.calEDate.value - this.calSDate.value;
-        	var title = this.edtTitle.value;
-        	var sDate= this.calSDate.value;
-        	var eDate= this.calEDate.value;
-        	var code = this.cmbType.value;
-        	var content = this.teaContent.value;
-
         	if(diff < 0){
         		alert("일자를 확인하세요")
-        	}
-        	else if (title =="" || title==null)
-        	{
-        		alert("일정 제목을 입력해주세요");
-        		return;
-        	}
-        	else if (sDate=="" || sDate==null)
-        	{
-        		alert("일정 시작 날짜를 입력해주세요");
-        		return;
-        	}
-        		else if (eDate=="" || eDate==null)
-        	{
-        		alert("일정 종료 날짜를 입력해주세요");
-        		return;
-        	}
-        		else if (code=="" || code==null)
-        	{
-        		alert("일정 분류를 선택해주세요");
-        		return;
-        	}
-        		else if (content=="" || content==null)
-        	{
-        		alert("일정 내용을 입력해주세요");
-        		return;
-        	}
-        	else{
+        	}else{
         		objReturn = {
         			"popuptype" : this.popuptype,
         			"id" : this.scheduleId,

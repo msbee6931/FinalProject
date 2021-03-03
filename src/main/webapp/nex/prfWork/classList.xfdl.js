@@ -185,7 +185,11 @@
         			this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
         		}
         		if(this.ds_class.getRowCount() > 0 ){
+<<<<<<< HEAD
         			this.gfn_navi(15,this.ds_class,"init");
+=======
+        			this.gfn_navi(5,this.ds_class,"init");
+>>>>>>> f22be9ffe3a945715f048b8e3887b540369989b4
         		}
         	}
         }

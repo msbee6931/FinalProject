@@ -5,5 +5,7 @@
 <select id="selectAll" resultType="kh.spring.dto.ProfessorDTO">
 	select * from professor
 </select>
-
+<select id="professorInfo" resultType ="kh.spring.dto.ProfessorDTO">
+	select * from professor where p_seq = #{p_seq}
+</select>
 </mapper>
