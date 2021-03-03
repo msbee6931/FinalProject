@@ -28,15 +28,15 @@
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","10","80","230","450",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","10","80","260","450",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_binddataset("admin_alarm");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"92\"/><Column size=\"99\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"보낸이\"/><Cell col=\"2\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:sender\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:receiver\" maskeditformat=\"#########\" textAlign=\"center\" displaytype=\"text\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"38\"/><Column size=\"45\"/><Column size=\"89\"/><Column size=\"89\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\" edittype=\"text\"/><Cell col=\"3\" text=\"bind:receiver\" edittype=\"text\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("del_btn","135","542","100","30",null,null,null,null,null,null,this);
+            obj = new Button("del_btn","170","540","100","30",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
@@ -145,6 +145,24 @@
         this.Div00_Edit00_oninput = function(obj,e)
         {
         	alert("내용은 바꾸실수 없습니다.\n 바뀐 내용은 저장되지 않습니다.");
+        };
+
+        this.Button00_onclick = function(obj,e)
+        {
+        	let arr = this.admin_alarm.extractRows("chk==1");
+
+        	if(arr.length==0 || arr.length== -1){alert("선택된 항목이 없습니다.");return;}
+
+
+
+        		   this.transaction(
+                    "PMConfirm"
+                    ,"/PMConfirm.nex"
+                    ,"in_ds=admin_alarm:U"
+                    ,"admin_alarm=out_ds"
+                    ,""
+                    ,"fn_callback"
+                 )
         };
 
         });

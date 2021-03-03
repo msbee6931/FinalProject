@@ -48,4 +48,10 @@ public class PostMessageDAO {
 	public List<PostMessageDTO> received(String sender){
 		return session.selectList("PostMessage.received",sender);
 	}
+	public int updateConfirmOne(int seq) {
+		return session.update("PostMessage.updateConfirmOne",seq);
+	}
+	public PostMessageDTO selectDTO(int seq) {
+		return session.selectOne("PostMessage.selectDTO",seq);
+	}
 }

@@ -86,7 +86,7 @@
             obj.set_binddataset("ds_NoticeFiles");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\"/><Column size=\"50\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"50\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\"/><Cell col=\"2\" text=\"파일번호\"/><Cell col=\"3\" text=\"파일이름\"/><Cell col=\"4\"/><Cell col=\"5\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:n_seq\"/><Cell col=\"2\" text=\"bind:parentSeq\"/><Cell col=\"3\" text=\"bind:fileName\"/><Cell col=\"4\" text=\"bind:savedFileName\"/><Cell col=\"5\" text=\"bind:fileSize\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"파일번호\"/><Cell col=\"1\" text=\"파일이름\"/><Cell col=\"2\" text=\"파일크기\"/></Band><Band id=\"body\"><Cell text=\"bind:parentSeq\"/><Cell col=\"1\" text=\"bind:fileName\"/><Cell col=\"2\" text=\"bind:fileSize\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00_00","60","342","140",null,null,"78",null,null,null,null,this);
@@ -274,16 +274,12 @@
 
         this.btn_delete_onclick = function(obj,e)
         {
-        	for(let i =0; i<this.ds_NoticeFiles.getRowCount();i++){
-        		if(this.ds_NoticeFiles.getColumn(i,"chk") == 1){
-        		//FileUpTransfer 해당 파일삭제
-        			var nIdx = this.FileUpTransfer00.removeFileByIndex(i);
+        	var nIdx = this.FileUpTransfer00.removeFileByIndex(e.row);
         			//정상삭제 시 해당 데이터 삭제
         			if(nIdx > -1) {
-        				this.ds_NoticeFiles.deleteRow(i);
+        				this.ds_NoticeFiles.deleteRow(e.row);
         			}
-        		}
-        	}
+
         };
 
         this.FileUpTransfer00_onerror = function(obj,e)

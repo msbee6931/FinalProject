@@ -59,7 +59,7 @@
             obj.set_binddataset("Dataset00");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"418\"/><Column size=\"369\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"chk\"/><Cell col=\"1\" text=\"name\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:size\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"418\"/><Column size=\"369\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"이름\"/><Cell col=\"2\" text=\"size\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\"/><Cell col=\"1\" text=\"bind:name\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:size\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button03",null,null,"100","25","35","40",null,null,null,null,this);
@@ -249,10 +249,14 @@
 
         this.Grid00_onheadclick = function(obj,e)
         {
-        	if(e.cell == 0)
-            {
-                this.gf_setCheckAll(obj, e);
-            }
+        	let flag = obj.getCellProperty("Head",0,"text");
+        	let check = flag==0?1:0;
+        	if(e.cell==0){
+        		obj.setCellProperty("Head",0,"text",check);
+        		for(let i = 0;i<this.Dataset00.getRowCount();i++){
+        			this.Dataset00.setColumn(i,"chk",check);
+        		}
+        	}
         };
 
         this.gv_isCheckAll = 0;

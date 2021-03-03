@@ -40,4 +40,13 @@
 <update id="updLoginInfo">
 	update loginInfo set sessionId =#{sessionId}, sessionLimit = #{sessionLimit} where userId = #{userId} and userType = #{userType}
 </update>
+<select id="adminList" resultType="kh.spring.dto.AdminDTO">
+	select * from admin
+</select>
+<update id="registUpd">
+	update admin set regist =#{regist}
+</update>
+<update id="testUpd">
+	update admin set test =#{test}
+</update>
 </mapper>
