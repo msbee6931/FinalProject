@@ -183,9 +183,13 @@ public class FreeBoardController {
 		}
 		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
 		model.addAttribute("list",list);
-		
-		String navi = FCservice.navi(page, seq);
-		model.addAttribute("navi",navi);
+		if(list==null) {
+			model.addAttribute("navi",1);
+		}else {
+				String navi = FCservice.navi(page, seq);
+				model.addAttribute("navi",navi);
+		}
+
 		model.addAttribute("npage",page+1);
 		model.addAttribute("ppage",page-1);
 		model.addAttribute("seq",seq);

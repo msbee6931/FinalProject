@@ -239,7 +239,9 @@ a{
 			</div>
 	</div>
 
-	<div class=replyLine3 id =navi><a href=/free/view?page=${ppage }&seq=${seq}><-</a> ${navi } <a href=/free/view?page=${npage}&seq=${seq}>-></a></div>
+
+			<div class=replyLine3 id =navi><a href=/free/view?page=${ppage }&seq=${seq}><-</a> ${navi } <a href=/free/view?page=${npage}&seq=${seq}>-></a></div>
+
 	<script>      
 
 	document.getElementById("btn2").onclick=function(){
