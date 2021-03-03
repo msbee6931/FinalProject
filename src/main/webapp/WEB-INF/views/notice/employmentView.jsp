@@ -88,7 +88,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mb-5">
 				<div class="col-lg-2 d-grid text-center" id="sideBox">
 					<!--collapse 추가  -->
 					<div class="col-12 d-none d-lg-block py-5" id="subLabel" >

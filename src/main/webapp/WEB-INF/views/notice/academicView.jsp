@@ -146,6 +146,7 @@
 									<div class="col-8"><img src="/img/file.png"><a href="/download.notice?seq=${i.f_seq}"> ${i.fileName}</a></div>
 									<div class="col-4"><button type="button" class="download">다운로드</button><input type="hidden" value="${i.f_seq}"></div>
 								</div>
+
 								</c:forEach>
 							</c:if>
 						</div>
