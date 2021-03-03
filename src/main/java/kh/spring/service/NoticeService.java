@@ -31,6 +31,9 @@ public class NoticeService {
 	public int selectseq() {
 		return nDAO.selectseq();
 	}
+	public int selectLastNseq() {
+		return nDAO.selectLastNseq();
+	}
 	public int selectn_seq() {
 		return nDAO.selectn_seq();
 	}

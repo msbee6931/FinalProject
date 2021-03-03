@@ -89,14 +89,15 @@ public class NoticeController {
 	public NexacroResult uploadNoticeFile(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("업로드노티스파일도착");
 		
-		int selectLastSeq = nService.selectLastSeq();
-		System.out.println("Seq확인 : "+selectLastSeq);
+		int selectlastnum = nService.selectLastNseq();
+		System.out.println("last N_seq : " + selectlastnum);
+		if(selectlastnum == 0) {
+			selectlastnum = 1;
+		}
 		
 		int selectn_seq= nService.selectn_seq();
 		System.out.println("n_seq : " + selectn_seq);
-		if(selectLastSeq == 0) {
-			selectLastSeq = 1;
-		}
+		
 		if(selectn_seq == 0) {
 			selectn_seq = 1;
 		}
@@ -126,7 +127,7 @@ public class NoticeController {
 			String uid = UUID.randomUUID().toString().replaceAll("-", "");
 			String savedFileName = uid + "_" +originalFileName;
 			
-			NoticeFileDTO ndto = new NoticeFileDTO(0,0,selectn_seq,originalFileName,savedFileName,multipartFile.getSize());
+			NoticeFileDTO ndto = new NoticeFileDTO(0,0,selectlastnum,originalFileName,savedFileName,multipartFile.getSize());
 			int result = nService.insertNoticeFile(ndto);
 			
 			if(result > 0) {
