@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("ds_part", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\"/><Col id=\"name\">전체</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">전공필수</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">전공선택</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">교양필수</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">E</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">계열기초</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\"/><Col id=\"name\">전체</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">전공필수</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">전공선택</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">교양필수</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">교양선택</Col></Row><Row><Col id=\"id\">E</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">계열기초</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -156,7 +156,7 @@
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
             obj.set_cssclass("cmb_default");
-            obj.set_text("전체");
+            obj.set_text("");
             obj.set_value("");
             obj.set_index("-1");
             this.div_Info.addChild(obj.name, obj);
@@ -223,6 +223,12 @@
             obj.set_cssclass("cmb_dept");
             this.div_Info.addChild(obj.name, obj);
 
+            obj = new Button("btnRetrieve","64","334","60","25",null,null,null,null,null,null,this.div_Info.form);
+            obj.set_taborder("23");
+            obj.set_text("갱신");
+            obj.set_cssclass("btn_default");
+            this.div_Info.addChild(obj.name, obj);
+
             obj = new Grid("gr_classList","240","43",null,null,"29","282",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_binddataset("ds_class");
@@ -236,7 +242,7 @@
             obj.set_text("▷ 개설강좌 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00_00","240",null,null,"220","30","29",null,null,null,null,this);
+            obj = new Grid("gr_myClassList","240","271",null,null,"30","29",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_myClass");
             obj.set_autofittype("col");
@@ -244,7 +250,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"45\"/><Column size=\"60\"/><Column size=\"46\"/><Column size=\"75\"/><Column size=\"236\"/><Column size=\"47\"/><Column size=\"68\"/><Column size=\"226\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"취소\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"과목명\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"담당교수\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/></Band><Band id=\"body\"><Cell displaytype=\"buttoncontrol\" text=\"취소\" cursor=\"pointer\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"4\" text=\"bind:className\" cursor=\"pointer\" textDecoration=\"underline\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00","240","gr_classList:4","150",null,null,"253",null,null,null,null,this);
+            obj = new Static("Static01_00_00","240","242","150","25",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("▷ 수강신청내역 리스트");
             this.addChild(obj.name, obj);
@@ -290,7 +296,9 @@
         };
         
         // User Script
+        this.addIncludeScript("regist.xfdl","lib::Common.xjs");
         this.registerScript("regist.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.ClassRegist_onload = function(obj,e)
         {
@@ -301,9 +309,9 @@
         	this.div_Info.form.sta_sSeq.set_text(sCode);
         	this.div_Info.form.sta_name.set_text(sName);
         	this.div_Info.form.co_myDept.set_value(deptCode);
-        	this.div_Info.form.sta_grade.set_text(grade);
-
+        	this.div_Info.form.sta_grade.set_text(grade+"학년");
         	var objDate= new Date();
+
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.div_Info.form.sta_semester.set_text(objDate.getFullYear()+"년 1학기");
         		var startTime = objDate.getFullYear()+"0101";
@@ -350,7 +358,7 @@
         	}
         	if(sId == "myClassList"){
         		var nPoint = 0;
-        		for(var i=0; i<this.ds_myClass.getRowCountNF(); i++){
+        		for(var i=0; i<this.ds_myClass.getRowCount(); i++){
         			var classSeq = this.ds_myClass.getColumn(i,"classSeq");
         			var nRow = this.ds_class.findRow("classSeq",classSeq);
         			this.ds_class.deleteRow(nRow)
@@ -410,10 +418,28 @@
         	var part = this.div_Info.form.co_part.value;
         	var className = this.div_Info.form.edt_className.text;
         	this.ds_class.filter("dept.indexOf('"+dept+"')>=0 && classPart.indexOf('"+part+"')>=0 && className.indexOf('"+className+"')>=0");
+        	for(var i = 0; i< this.ds_myClass.getRowCount(); i++){
+        		if(this.ds_myClass.getRowCount() > 0 ){
+        			var classSeq = this.ds_myClass.getColumn(i,"classSeq");
+        			var nRow = this.ds_class.findRow("classSeq",classSeq);
+        			if(nRow != -1){
+        				this.ds_class.deleteRow(nRow);
+        			}
+        		}
+        	}
         };
         this.div_Info_co_dept_onitemchanged = function(obj,e)
         {
         	this.ds_class.filter("dept.indexOf('"+e.postvalue+"')>=0");
+        	for(var i = 0; i< this.ds_myClass.getRowCount(); i++){
+        		if(this.ds_myClass.getRowCount() > 0 ){
+        			var classSeq = this.ds_myClass.getColumn(i,"classSeq");
+        			var nRow = this.ds_class.findRow("classSeq",classSeq);
+        			if(nRow != -1){
+        				this.ds_class.deleteRow(nRow);
+        			}
+        		}
+        	}
         };
 
         this.gr_classList_oncellclick = function(obj,e)
@@ -445,12 +471,12 @@
         				alert("학점이 부족합니다");
         				return;
         			}else{
-        				if(grade != myGrade){
-        					alert("수강 가능한 학년이 아닙니다");
-        					return;
-        				}else{
-        					if(dept != myDept && dept != "7071" && part != "F"){
+        				if(dept != myDept && dept != "7071" && part != "F"){
         						alert("다른 학과 전공은 신청이 불가능합니다");
+        						return;
+        				}else{
+        					if(grade != myGrade && dept != "7071"){
+        						alert("수강 가능한 학년이 아닙니다");
         						return;
         					}else{
         						var classTime = this.ds_class.getColumn(nRow,"classTime");
@@ -563,7 +589,7 @@
         this.row= "";
         this.count = "";
         this.count2 = "";
-        this.msg ="";
+        this.msg =""; //인원 초과했을 경우 지표
         this.fn_callback_stdClass=function(sId,errCd,errMsg){
         	if (errCd < 0) {
         		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
@@ -584,7 +610,7 @@
         			);
         			this.ds_class.deleteRow(this.row);
         		}else{
-        			alert("인원수를 초과했습니다");
+        			alert("인원수를 초과했습니다"); //인원 초과됐을 경우 마지막 row를 삭제하고 시간표에서도 삭제
         			this.ds_myClass.deleteRow(this.ds_myClass.getRowCount()-1);
         			var className= this.ds_class.getColumn(this.row,"className");
         			for(var i=0; i<this.ds_stdTimeTable.getRowCount();i++){
@@ -638,30 +664,6 @@
         			,"fn_callback"
         		);
         		this.ds_class.deleteRow(this.row);
-        	}else if(sId == "stdBasketDelete"){
-        		var basketLimit = this.ds_class.getColumnNF(this.row,"basketLimit").split("/");
-        		this.ds_class.setColumnNF(this.row,"basketLimit",this.count2+"/"+basketLimit[1]);
-        		basketLimit = this.ds_class.getColumnNF(this.row,"basketLimit")
-        		var classSeq = this.ds_class.getColumnNF(this.row,"classSeq");
-        		this.transaction(
-        			"/limitUpdBasket"
-        			,"/limitBasketUpd.nex"
-        			,""
-        			,""
-        			,"limit="+basketLimit +" classSeq="+classSeq
-        			,"fn_callback"
-        		);
-        		var limit = this.ds_class.getColumnNF(this.row,"limit").split("/");
-        		this.ds_class.setColumnNF(this.row,"limit",this.count+"/"+limit[1]);
-        		limit = this.ds_class.getColumnNF(this.row,"limit")
-        		this.transaction(
-        			"/limitUpd"
-        			,"/limitUpd.nex"
-        			,""
-        			,""
-        			,"limit="+limit +" classSeq="+classSeq
-        			,"fn_callback"
-        		);
         	}
         }
         this.gr_myClassList_oncellclick = function(obj,e)
@@ -673,6 +675,11 @@
         		var sCode = this.div_Info.form.sta_sSeq.text;
         		var myPoint = this.div_Info.form.sta_point.text;
         		var point = this.ds_myClass.getColumn(nRow,"classPoint").replace("학점","");
+        		//filter 과정에서 신청한 내역의 과목이 전체 과목 내역에 보일 경우 삭제
+        		var findRow = this.ds_class.findRow("classSeq",classCode);
+        		if(findRow != -1){
+        			this.ds_class.deleteRow(findRow);
+        		}
         		//학점 갱신
         		this.div_Info.form.sta_point.set_text(nexacro.toNumber(myPoint)+nexacro.toNumber(point));
         		//DB에서 해당 시간표 삭제
@@ -699,10 +706,10 @@
         	if(e.col==4){
         		var classSeq = this.ds_myClass.getColumn(e.row,"classSeq");
         		var proCode = this.ds_myClass.getColumn(e.row,"proCode");
-        		var x = this.width/2-500;
-        		var y = this.height/2-340;
+        		var xWidth = this.width/2-500;
+        		var yHeight = this.height/2-340;
         		var objCF = new ChildFrame();
-        		objCF.init("popAdd",x,y,1000,680,0,0,"prfWork::detail.xfdl");
+        		objCF.init("popAdd",xWidth,yHeight,1000,680,0,0,"prfWork::detail.xfdl");
         		objCF.set_showtitlebar(false);
         		objCF.showModal(this.getOwnerFrame(),{classSeq:classSeq, proCode : proCode, view : 'Y'},this,"fn_pop_callback");
         	}
@@ -711,10 +718,10 @@
         this.div_Info_classTime_onclick = function(obj,e)
         {
         	var sCode = this.div_Info.form.sta_sSeq.text;
-        	var x = this.width/2-410;
-        	var y = this.height/2-220;
+        	var xWidth = this.width/2-410;
+        	var yHeight = this.height/2-220;
         	var objCF = new ChildFrame();
-        	objCF.init("popTimeTable",x,y,820,440,0,0,"stdWork::studentSchedule.xfdl");
+        	objCF.init("popTimeTable",xWidth,yHeight,820,440,0,0,"stdWork::studentSchedule.xfdl");
         	objCF.set_showtitlebar(false);
 
         	objCF.showModal(this.getOwnerFrame(),{sCode:sCode},this,"fn_pop_callback");
@@ -747,6 +754,22 @@
 
 
 
+        this.gr_classList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
+
+        this.gr_myClassList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
+        this.div_Info_btnRetrieve_onclick = function(obj,e)
+        {
+        	this.reload();
+        };
+
         });
         
         // Regist UI Components Event
@@ -759,9 +782,12 @@
             this.div_Info.form.btnClassSearch.addEventHandler("onclick",this.div_Info_btnClassSearch_onclick,this);
             this.div_Info.form.basket.addEventHandler("onclick",this.div_Info_basket_onclick,this);
             this.div_Info.form.classTime.addEventHandler("onclick",this.div_Info_classTime_onclick,this);
+            this.div_Info.form.btnRetrieve.addEventHandler("onclick",this.div_Info_btnRetrieve_onclick,this);
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
+            this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.Static01_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
-            this.Grid00_00.addEventHandler("oncellclick",this.gr_myClassList_oncellclick,this);
+            this.gr_myClassList.addEventHandler("oncellclick",this.gr_myClassList_oncellclick,this);
+            this.gr_myClassList.addEventHandler("onheadclick",this.gr_myClassList_onheadclick,this);
             this.Static01_00_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
         };
 

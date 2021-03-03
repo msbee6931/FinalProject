@@ -234,7 +234,7 @@
         	var gender = this.com_gender.value;
         	var colCode = this.com_colCode.value;
         	var deptCode = this.com_deptCode.value;
-        	var colGrade = this.com_colGrade.value;
+        	var colGrade = this.com_colGrade.text;
 
         	s_seq = seq1+deptCode+"001";
         	trace(s_seq);

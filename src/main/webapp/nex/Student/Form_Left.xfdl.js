@@ -41,6 +41,7 @@
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",200,550,this,function(p){});
+            obj.set_stepcount("0");
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -72,9 +73,26 @@
         	sTrPath = nexacro.replaceAll(sTrPath, ".", ">");
 
         	var rest = this.objApp.gds_students.getColumn(0,"rest");
-        	if(sMenuId == '2020' || sMenuId == '2010'){
+        	var regist = this.objApp.gds_admin.getColumn(0,"regist");
+        	var test = this.objApp.gds_admin.getColumn(0,"test");
+        	if(sMenuId == '2010' || sMenuId == '2020'){
         		if(rest == 'Y'){
         			alert("휴학 중인 상태입니다.\n수강신청이 불가능합니다");
+        			if(this.objApp.std_openForm.getRowCount() == 0){
+        				this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        			}
+        			return;
+        		}else if(sMenuId == '2010' && regist !='open'){
+        			alert("수강신청 기간이 아닙니다. 관리자에게 문의해주세요");
+        			if(this.objApp.std_openForm.getRowCount() == 0){
+        				this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        			}
+        			return;
+        		}else if(sMenuId == '2020'&& test !='open'){
+        			alert("예비 수강신청 기간이 아닙니다. 관리자에게 문의해주세요");
+        			if(this.objApp.std_openForm.getRowCount() == 0){
+        				this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        			}
         			return;
         		}
         	}
@@ -128,11 +146,28 @@
         }
 
 
+        this.Form_Left_onload = function(obj,e)
+        {
+        	this.transaction(
+        				"admList"
+        				,"/admList.log"
+        				,""
+        				,"gds_admin=adm_ds"
+        				,""
+        				,"fn_callback"
+        			);
+        };
+        this.fn_callback = function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        }
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.addEventHandler("onload",this.Form_Left_onload,this);
             this.Grid00.addEventHandler("oncelldblclick",this.Grid00_oncelldblclick,this);
         };
 

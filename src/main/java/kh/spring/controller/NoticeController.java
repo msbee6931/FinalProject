@@ -37,12 +37,14 @@ import com.nexacro17.xapi.tx.HttpPlatformResponse;
 import com.nexacro17.xapi.tx.PlatformException;
 import com.nexacro17.xapi.tx.PlatformType;
 
+import kh.spring.dto.AdminDTO;
 import kh.spring.dto.ColScheduleDTO;
 import kh.spring.dto.IndScheduleDTO;
 import kh.spring.dto.NoticeDTO;
 import kh.spring.dto.NoticeFileDTO;
 import kh.spring.dto.PostMessageDTO;
 import kh.spring.service.ColScheduleService;
+import kh.spring.service.LoginService;
 import kh.spring.service.NoticeService;
 import kh.spring.service.PostMessageService;
 import kh.spring.service.ScheduleService;
@@ -65,6 +67,8 @@ public class NoticeController {
 	private ScheduleService scService;
 	@Autowired
 	private PostMessageService pService; 
+	@Autowired
+	private LoginService lService;
 	
 	@RequestMapping("deleteNotice.notice")
 	public NexacroResult deleteNotice(@ParamVariable(name="n_seq")int n_seq) {
@@ -860,7 +864,6 @@ public class NoticeController {
 		}
 		return "Firefox";
 	}
-	
 	@RequestMapping("/main.notice")
 	public NexacroResult mainStd() {
 		NexacroResult nr = new NexacroResult();
@@ -884,6 +887,7 @@ public class NoticeController {
 		List<NoticeFileDTO> list2 = nService.selectFileAll();
 		List<IndScheduleDTO> list3 = scService.selectIndSchedule(writer);
 		int count = pService.alarm(proCode);
+		System.out.println("COUNT : " + count);
 		varList.add("count",count);
 		HttpPlatformResponse pRes = new HttpPlatformResponse(response, PlatformType.CONTENT_TYPE_XML, "utf-8");
 		pRes.setData(out_pData);

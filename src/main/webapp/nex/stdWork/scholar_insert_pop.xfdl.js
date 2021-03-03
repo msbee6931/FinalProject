@@ -334,10 +334,9 @@
         //파일전송 버튼클릭
         this.Div00_btn_save_onclick = function(obj,e)
         {
-        	var nRow = this.reqScholar_ds.addRow();
-        	var title = this.Div00.form.edt_title.value;
-        	var type = this.Div00.form.Radio00.value;
-        	var contents = this.Div00.form.txt_contents.value;
+        		var nRow = this.reqScholar_ds.addRow();
+        		var title = this.Div00.form.edt_title.value;
+        		var contents = this.Div00.form.txt_contents.value;
 
         	if(this.FileUpTransfer00.filelist.length == 0) {
         		alert("첨부한 파일이 없습니다.");
@@ -348,39 +347,32 @@
         		alert("신청 사유를 입력해 주세요");
         		return;
         	}
-        	else if (type == null || type == "")
+
+        	var conValue = this.confirm("확인 버튼 시 내용을 수정할 수 없습니다. 제출하시겠습니까?");
+
+        	if(conValue)
         	{
-        		alert("신청 분류를 선택해 주세요.");
-        		return;
+
+        		this.reqScholar_ds.setColumn(nRow,"title",title);
+        		this.reqScholar_ds.setColumn(nRow,"contents",contents);
+        		this.reqScholar_ds.setColumn(nRow,"std_code",this.std_code);
+
+
+
+        		//파일 전송이 성공 하면 트랜잭션 전송
+
+        		this.transaction(
+        			"reqScholar",//id
+        			"/scholarship/uploadReqScholar.scholarship",//url (절대경로)
+        			"in_ds=reqScholar_ds:U",//in_ds:U
+        			"",//()_out_ds
+        			"",//argument
+        			"fn_callback_reqScholar"
+        		)
         	}
-        	else{
-
-        		var conValue = this.confirm("확인 버튼 시 내용을 수정할 수 없습니다. 제출하시겠습니까?");
-
-        		if(conValue)
-        		{
-
-        			this.reqScholar_ds.setColumn(nRow,"title",title);
-        			this.reqScholar_ds.setColumn(nRow,"contents",contents);
-        			this.reqScholar_ds.setColumn(nRow,"std_code",this.std_code);
-
-
-
-        			//파일 전송이 성공 하면 트랜잭션 전송
-
-        			this.transaction(
-        				"reqScholar",//id
-        				"/scholarship/uploadReqScholar.scholarship",//url (절대경로)
-        				"in_ds=reqScholar_ds:U",//in_ds:U
-        				"",//()_out_ds
-        				"",//argument
-        				"fn_callback_reqScholar"
-        			)
-        		}
-        		else
-        		{
-        			return;
-        		}
+        	else
+        	{
+        		return;
         	}
         };
 

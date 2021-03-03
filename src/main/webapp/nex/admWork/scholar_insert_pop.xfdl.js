@@ -197,7 +197,7 @@
         		"students_ds=out_ds",//()_out_ds
         		"sCode="+this.std_code,//argument
         		"fn_callback_stdInfo"
-        	)
+        		)
 
 
         	//maskEdit 기본값 0처리 하기
@@ -226,38 +226,32 @@
 
         	//fee_ds 장학금 db에 학번 및 등록금 금액 넣기
 
-        	var nRow = this.scholar_ds.addRow();
-        	this.scholar_ds.setColumn(nRow,"std_code",this.std_code);
-        	var grade = this.students_ds.getColumn(0,"colGrade");
-        	this.scholar_ds.setColumn(nRow,"std_grade",grade);
-        	this.scholar_ds.setColumn(nRow,"s_kind",inputa);
-        	this.scholar_ds.setColumn(nRow,"s_kind",inputa);
-        	this.scholar_ds.setColumn(nRow,"s_rec",inputb);
-        	this.scholar_ds.setColumn(nRow,"s_smt",inputc);
-        	this.scholar_ds.setColumn(nRow,"s_spt",inputd);
-        	this.scholar_ds.setColumn(nRow,"s_etc",inpute);
-        	this.scholar_ds.setColumn(nRow,"sSum",sSum);
+        		var nRow = this.scholar_ds.addRow();
+        		this.scholar_ds.setColumn(nRow,"std_code",this.std_code);
+        		var grade = this.students_ds.getColumn(0,"colGrade");
+        		this.scholar_ds.setColumn(nRow,"std_grade",grade);
+        		this.scholar_ds.setColumn(nRow,"s_kind",inputa);
+        		this.scholar_ds.setColumn(nRow,"s_kind",inputa);
+        		this.scholar_ds.setColumn(nRow,"s_rec",inputb);
+        		this.scholar_ds.setColumn(nRow,"s_smt",inputc);
+        		this.scholar_ds.setColumn(nRow,"s_spt",inputd);
+        		this.scholar_ds.setColumn(nRow,"s_etc",inpute);
+        		this.scholar_ds.setColumn(nRow,"sSum",sSum);
 
-        	var check = this.confirm("입력사항을 저장하시겠습니까?");
-        	if(check)
-        	{
+
 
         		this.transaction(
-        			"insert.scholarship",//id
-        			"/scholarship/insert.scholarship",//url (절대경로)
-        			"in_ds=scholar_ds:U",//in_ds:U
-        			"",//()_out_ds
-        			"",//argument
-        			"fn_callback"
+        		"insert.scholarship",//id
+        		"/scholarship/insert.scholarship",//url (절대경로)
+        		"in_ds=scholar_ds:U",//in_ds:U
+        		"",//()_out_ds
+        		"",//argument
+        		"fn_callback"
         		)
 
-        		//확인
-        		this.close();
-        	}
-        	else
-        	{
-        		return;
-        	}
+
+        	//확인
+        	this.close();
         };
 
         //닫기 버튼

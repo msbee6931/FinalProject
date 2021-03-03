@@ -224,6 +224,25 @@ public class LoginController {
 		model.addAttribute("scholar",scholar);
 		model.addAttribute("employment",employment);
 	}
+	@RequestMapping("/admList.log")
+	public NexacroResult adminList() {
+		NexacroResult nr = new NexacroResult();
+		List<AdminDTO> list = lService.adminList();
+		nr.addDataSet("adm_ds",list);
+		return nr;
+	}
+	@RequestMapping("/registUpd.log")
+	public NexacroResult registUpd(@ParamDataSet(name="in_ds")AdminDTO dto) {
+		NexacroResult nr = new NexacroResult();
+		lService.registUpd(dto);
+		return nr;
+	}
+	@RequestMapping("/testUpd.log")
+	public NexacroResult testUpd(@ParamDataSet(name="in_ds")AdminDTO dto) {
+		NexacroResult nr = new NexacroResult();
+		lService.testUpd(dto);
+		return nr;
+	}
 	@ExceptionHandler
 	public String exceptionhandler(Exception e) {
 		e.printStackTrace();

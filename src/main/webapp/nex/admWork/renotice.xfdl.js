@@ -183,7 +183,13 @@
         	trace(id);
         	trace(ErrorCode);
         	trace(ErrorMsg);
-
+        	if(ErrorCode == 0){
+        	alert("성공");
+        	this.fn_FileClear();
+        	this.edt_title.set_value("");
+        	this.com_list.set_value("");
+        	this.text_contents.set_value("");
+        	}
         };
         this.renotice_onload = function(obj,e)
         {
@@ -344,7 +350,9 @@
         	}
 
         	//파일전송
-
+        	if(this.FileUpTransfer00.filelist.length > 0){
+        	this.FileUpTransfer00.upload("/uploadNoticeFile.notice"); //file up url
+        	}
 
         	trace(title);
         	trace(contents);
@@ -358,32 +366,10 @@
         		"in_ds=ds_Notice:U",//in_ds:U
         		"",//()_out_ds
         		"",//argument
-        		"fn_filecallback"
+        		"fn_callback"
         	);
         	//this.FileUpTransfer00.upload("/uploadNoticeFile.notice");
         };
-        this.fn_filecallback = function(id,ErrorCode,ErrorMsg){
-        	trace(id);
-        	trace(ErrorCode);
-        	trace(ErrorMsg);
-        	if(ErrorCode == 0){
-        	alert("성공");
-        	if(this.FileUpTransfer00.filelist.length > 0){
-        	this.FileUpTransfer00.upload("/uploadNoticeFile.notice"); //file up url
-        	}
-        	this.fn_FileClear();
-        	this.edt_title.set_value("");
-        	this.com_list.set_value("");
-        	this.text_contents.set_value("");
-        	}else{
-        	this.alert("전송실패");
-        	this.fn_FileClear();
-        	this.edt_title.set_value("");
-        	this.com_list.set_value("");
-        	this.text_contents.set_value("");
-        	}
-
-        }
 
 
         this.fn_FileClear = function (){

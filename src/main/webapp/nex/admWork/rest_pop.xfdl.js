@@ -198,7 +198,7 @@
         	var rest = this.students_ds.getColumn(0,"rest");
         	if(rest=='N')
         	{
-        		this.btn_commit.set_text("복학 처리 완료");
+        		this.btn_commit.set_text("완료");
         	}
         }
 
@@ -222,7 +222,7 @@
 
         this.fn_callback_rest = function()
         {
-        	this.btn_commit.set_text("복학 처리 완료");
+        	this.btn_commit.set_text("완료");
         }
 
         //그냥 닫기

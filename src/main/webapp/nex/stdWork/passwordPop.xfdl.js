@@ -28,7 +28,6 @@
             obj = new Edit("edt_pw","25","85","150","25",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_cssclass("edt_default");
-            obj.set_password("true");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_ok","10","160","80","25",null,null,null,null,null,null,this);

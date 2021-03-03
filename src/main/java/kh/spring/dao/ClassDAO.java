@@ -162,4 +162,7 @@ public class ClassDAO {
 	public List<StudentClassDTO> stdListSeq(StudentClassDTO dto){
 		return session.selectList("Class.stdListSeq",dto);
 	}
+	public int evalUpd(ClassDTO dto) {
+		return session.update("Class.evalUpd",dto);
+	}
 }

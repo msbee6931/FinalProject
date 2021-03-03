@@ -29,42 +29,37 @@
             this.addChild(obj.name, obj);
 
 
-            obj = new Dataset("ds_rank", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">A+</Col><Col id=\"name\">A+</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">A</Col></Row><Row><Col id=\"id\">B+</Col><Col id=\"name\">B+</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">B</Col></Row><Row><Col id=\"id\">C+</Col><Col id=\"name\">C+</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">C</Col></Row><Row><Col id=\"id\">D+</Col><Col id=\"name\">D+</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">D</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">F</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("ds_passFail", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">P</Col><Col id=\"name\">PASS</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">FAIL</Col></Row></Rows>");
+            obj = new Dataset("ds_grade", this);
+            obj._setContents("<ColumnInfo><Column id=\"sCode\" type=\"INT\" size=\"256\"/><Column id=\"sName\" type=\"STRING\" size=\"256\"/><Column id=\"classCode\" type=\"INT\" size=\"256\"/><Column id=\"attend\" type=\"INT\" size=\"256\"/><Column id=\"mid\" type=\"INT\" size=\"256\"/><Column id=\"otest\" type=\"INT\" size=\"256\"/><Column id=\"task\" type=\"INT\" size=\"256\"/><Column id=\"fin\" type=\"INT\" size=\"256\"/><Column id=\"total\" type=\"INT\" size=\"256\"/><Column id=\"rank\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static01","27","10",null,null,"30","30",null,null,null,null,this);
-            obj.set_taborder("50");
+            obj.set_taborder("45");
             obj.set_cssclass("sta_line");
             obj.set_text("");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
-            obj.set_taborder("51");
+            obj.set_taborder("46");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00","0","0","29","520",null,null,null,null,null,null,this);
-            obj.set_taborder("52");
+            obj.set_taborder("47");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00","1051","0","29","520",null,null,null,null,null,null,this);
-            obj.set_taborder("53");
+            obj.set_taborder("48");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
-            obj.set_taborder("54");
+            obj.set_taborder("49");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
@@ -292,59 +287,50 @@
             obj.set_cssclass("btn_insert");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_classList2","40","12","210",null,null,"240",null,null,null,null,this);
-            obj.set_taborder("30");
-            obj.set_positionstep("1");
-            obj.set_binddataset("ds_class");
-            obj.set_autofittype("col");
-            obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"141\"/><Column size=\"68\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"과목명\"/><Cell col=\"1\" text=\"인원 수\"/></Band><Band id=\"body\"><Cell text=\"bind:className\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
             obj = new Static("sta_fin",null,null,"100","30","180","170",null,null,null,null,this);
-            obj.set_taborder("31");
+            obj.set_taborder("30");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_task",null,null,"100","30","280","170",null,null,null,null,this);
-            obj.set_taborder("32");
+            obj.set_taborder("31");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_otest",null,null,"100","30","380","170",null,null,null,null,this);
-            obj.set_taborder("33");
+            obj.set_taborder("32");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_mid",null,null,"100","30","480","170",null,null,null,null,this);
-            obj.set_taborder("34");
+            obj.set_taborder("33");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_attend",null,null,"100","30","580","170",null,null,null,null,this);
-            obj.set_taborder("35");
+            obj.set_taborder("34");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_label","39","gr_classList:-10","190","50",null,null,null,null,null,null,this);
-            obj.set_taborder("36");
+            obj.set_taborder("35");
             obj.set_text("학생 리스트");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_sumR",null,null,"100","30","80","110",null,null,null,null,this);
-            obj.set_taborder("37");
+            obj.set_taborder("36");
             obj.set_textAlign("center");
             obj.set_text("0");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("labelResult",null,null,"70","30","680","110",null,null,null,null,this);
-            obj.set_taborder("38");
+            obj.set_taborder("37");
             obj.set_text("결과");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_textAlign("center");
@@ -352,90 +338,60 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_finR",null,null,"100","30","180","110",null,null,null,null,this);
-            obj.set_taborder("39");
+            obj.set_taborder("38");
             obj.set_textAlign("center");
             obj.set_text("0");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_taskR",null,null,"100","30","280","110",null,null,null,null,this);
-            obj.set_taborder("40");
+            obj.set_taborder("39");
             obj.set_textAlign("center");
             obj.set_text("0");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_otestR",null,null,"100","30","380","110",null,null,null,null,this);
-            obj.set_taborder("41");
+            obj.set_taborder("40");
             obj.set_textAlign("center");
             obj.set_text("0");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_midR",null,null,"100","30","480","110",null,null,null,null,this);
-            obj.set_taborder("42");
+            obj.set_taborder("41");
             obj.set_textAlign("center");
             obj.set_text("0");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_attendR",null,null,"100","30","580","110",null,null,null,null,this);
-            obj.set_taborder("43");
+            obj.set_taborder("42");
             obj.set_textAlign("center");
             obj.set_text("0");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnChangeEval",null,null,"115","25","175","235",null,null,null,null,this);
-            obj.set_taborder("44");
+            obj.set_taborder("43");
             obj.set_text("평가방법 변경하기");
             obj.set_tooltiptext("평가시작 전에만 가능합니다");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Static("label_caution",null,null,"320","50","430","40",null,null,null,null,this);
-            obj.set_taborder("45");
+            obj.set_taborder("44");
             obj.set_text("※평가방법은 평가시작 전에만 변경이 가능합니다. \r\n평가 후 수정을 원하시면 관리자에게 문의해주세요.");
             obj.set_padding("0px 0px 0px 5px");
             obj.set_background("linen");
             obj.set_borderRadius("5px");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_rank","270","12",null,null,"30","70",null,null,null,null,this);
-            obj.set_taborder("46");
-            obj.set_positionstep("1");
-            obj.set_binddataset("gds_grade");
-            obj.set_autofittype("col");
-            obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"52\"/><Column size=\"68\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"순위\"/><Cell col=\"9\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:rank\" textAlign=\"center\"/><Cell col=\"9\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_rank\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format><Format id=\"PassFail\"><Columns><Column size=\"94\"/><Column size=\"67\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"92\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"출석\"/><Cell col=\"3\" text=\"중간고사\"/><Cell col=\"4\" text=\"수시\" textAlign=\"center\"/><Cell col=\"5\" text=\"과제\"/><Cell col=\"6\" text=\"기말고사\"/><Cell col=\"7\" text=\"총점\"/><Cell col=\"8\" text=\"성적\"/></Band><Band id=\"body\"><Cell text=\"bind:sCode\" textAlign=\"center\" displaytype=\"mask\" maskeditformat=\"#########\"/><Cell col=\"1\" text=\"bind:sName\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:attend\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mid\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:otest\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:task\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:fin\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:total\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:grade\" displaytype=\"combocontrol\" textAlign=\"center\" combodataset=\"ds_passFail\" combocodecol=\"id\" combodatacol=\"name\" edittype=\"combo\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnSave2",null,null,"100","25","30","25",null,null,null,null,this);
-            obj.set_taborder("47");
-            obj.set_text("저장");
-            obj.set_positionstep("1");
-            obj.set_cssclass("btn_default");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("div_rank","40",null,"210","160",null,"35",null,null,null,null,this);
-            obj.set_taborder("48");
-            obj.set_text("Div00");
-            obj.set_positionstep("1");
-            obj.set_url("prfWork::rankStandard.xfdl");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn_exel",null,null,"100","25","140","25",null,null,null,null,this);
-            obj.set_taborder("49");
-            obj.set_text("Exel");
-            obj.set_positionstep("1");
-            obj.set_cssclass("btn_exel");
-            this.addChild(obj.name, obj);
-
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1080,520,this,function(p){});
             obj.set_mobileorientation("landscape");
-            obj.set_stepcount("2");
+            obj.set_stepcount("0");
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -444,11 +400,13 @@
         
         this.loadPreloadList = function()
         {
-            this._addPreloadList("fdl","prfWork::rankStandard.xfdl");
+
         };
         
         // User Script
+        this.addIncludeScript("classGrade.xfdl","lib::Common.xjs");
         this.registerScript("classGrade.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.classGrade_onload = function(obj,e)
         {
@@ -561,27 +519,27 @@
         	var classCode =this.ds_stdClass.getColumn(e.row,"classCode");
         	this.sta_code.set_text(sCode);
         	this.sta_name.set_text(sName);
-        	this.objApp.gds_grade.clearData();
-        	var addRow = this.objApp.gds_grade.addRow();
-        	this.objApp.gds_grade.setColumn(addRow,"sCode",sCode);
-        	this.objApp.gds_grade.setColumn(addRow,"classCode",classCode);
+        	this.ds_grade.clearData();
+        	var addRow = this.ds_grade.addRow();
+        	this.ds_grade.setColumn(addRow,"sCode",sCode);
+        	this.ds_grade.setColumn(addRow,"classCode",classCode);
         	this.transaction(
         		"stdGrade"
         		,"/stdGrade.nex"
-        		,"in_ds=gds_grade"
-        		,"gds_grade=out_ds"
+        		,"in_ds=ds_grade"
+        		,"ds_grade=out_ds"
         		,""
         		,"fn_callback_grade"
         	);
         };
         this.fn_callback_grade=function(sId,errCd,errMsg){
         	if(sId == "stdGrade"){
-        		if(this.objApp.gds_grade.getRowCount() > 0){
-        			var attend = this.objApp.gds_grade.getColumn(0,"attend");
-        			var mid = this.objApp.gds_grade.getColumn(0,"mid");
-        			var otest = this.objApp.gds_grade.getColumn(0,"otest");
-        			var task = this.objApp.gds_grade.getColumn(0,"task");
-        			var fin = this.objApp.gds_grade.getColumn(0,"fin");
+        		if(this.ds_grade.getRowCount() > 0){
+        			var attend = this.ds_grade.getColumn(0,"attend");
+        			var mid = this.ds_grade.getColumn(0,"mid");
+        			var otest = this.ds_grade.getColumn(0,"otest");
+        			var task = this.ds_grade.getColumn(0,"task");
+        			var fin = this.ds_grade.getColumn(0,"fin");
         			trace("attend" + attend);
         			var count = 0;
         			this.mask_attend.set_value(attend)
@@ -603,7 +561,7 @@
         			this.fn_gradeTotal();
         		}
         	}else if(sId =="stdGradeList"){
-        		if(this.objApp.gds_grade.getRowCount() > 0){
+        		if(this.ds_grade.getRowCount() > 0){
         			alert("이미 평가중입니다\n수정이 불가능합니다");
         		}else{
         			var nRow = this.ds_class.rowposition;
@@ -611,67 +569,26 @@
         			let objCF = new ChildFrame();
         			let x = this.sta_bin.getOffsetLeft()+200;
         			let y = this.sta_bin.getOffsetTop()+80;
-        			objCF.init("popMsg",x,y,680,170,0,0,"prfWork::EvaluationMethod.xfdl");
+        			objCF.init("popEvl",x,y,680,170,0,0,"prfWork::EvaluationMethod.xfdl");
         			objCF.set_showtitlebar(false);
-        			objCF.showModal(this.getOwnerFrame(),{classCode:classCode},this,"fn_callback_evalUpd");
-        		}
-        	}else if(sId=="stdGradeRank"){
-        		if(this.objApp.gds_grade.getRowCount()> 0){
-        			var nRow = this.ds_class.rowposition;
-        			if(this.ds_class.getColumn(nRow,"passFail") =="P"){
-        				this.div_rank.set_url("prfWork::passFailStandard.xfdl");
-        			}else{
-        				this.div_rank.set_url("prfWork::rankStandard.xfdl");
-        				var nCount = this.objApp.gds_grade.getRowCount();
-        				var A = nexacro.ceil(nCount * 0.3);
-        				var B = nexacro.ceil(nCount * 0.7);
-        				var C =	nCount;
-        				this.div_rank.form.sta_A.set_text(A);
-        				this.div_rank.form.sta_B.set_text(B);
-        				this.div_rank.form.sta_C.set_text(C);
-        				var total = new Array();
-        				var total2 = new Array();
-        				for(var i=0; i<this.objApp.gds_grade.getRowCount(); i++){
-        					total[i] = this.objApp.gds_grade.getColumn(i,"total");
-        					var rank = 1;
-        					for(var j=0; j<this.objApp.gds_grade.getRowCount(); j++){
-        						total2[j] = this.objApp.gds_grade.getColumn(j,"total");
-        						if(total[i] < total2[j]){
-        							rank +=1;
-        						}
-        						this.objApp.gds_grade.setColumn(i,"rank",rank);
-        						var nRank = this.objApp.gds_grade.getColumn(i,"rank");
-        						var grade =  this.objApp.gds_grade.getColumn(i,"grade");
-        						if(grade == null){
-        							if(nRank <= nCount){
-        								this.objApp.gds_grade.setColumn(i,"grade","C+");
-        								if(nRank <= A+B){
-        									this.objApp.gds_grade.setColumn(i,"grade","B+");
-        									if(nRank <= A){
-        										this.objApp.gds_grade.setColumn(i,"grade","A+");
-        									}
-        								}
-        							}
-        						}
-        					}
-        				}
-        			}
+        			objCF.showModal(this.getOwnerFrame(),{classCode:classCode},this,"fn_pop_callback");
         		}
         	}
         }
-        this.fn_callback_evalUpd=function(sId,errCd,errMsg,eval){
-        	if (errCd < 0) {
-        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
-        	}
-        	var ev = eval.split("|");
-        	this.sta_attend.set_text(ev[0]);
-        	this.sta_mid.set_text(ev[1]);
-        	this.sta_otest.set_text(ev[2]);
-        	this.sta_task.set_text(ev[3]);
-        	this.sta_fin.set_text(ev[4]);
-        	this.sta_sum.set_text(parseInt(ev[0])+parseInt(ev[1])+parseInt(ev[2])+parseInt(ev[3])+parseInt(ev[4])+"%");
-        	var nRow = this.ds_class.findRow("classSeq",ev[5]);
-        	this.ds_class.setColumn(nRow,"classEvaluation",ev[0]+"|"+ev[1]+"|"+ev[2]+"|"+ev[3]+"|"+ev[4])
+        this.fn_pop_callback=function(sId,eval){
+        	if(sId == "popEvl"){
+        			if(eval != null){
+        				var ev = eval.split("|");
+        				this.sta_attend.set_text(ev[0]);
+        				this.sta_mid.set_text(ev[1]);
+        				this.sta_otest.set_text(ev[2]);
+        				this.sta_task.set_text(ev[3]);
+        				this.sta_fin.set_text(ev[4]);
+        				this.sta_sum.set_text(parseInt(ev[0])+parseInt(ev[1])+parseInt(ev[2])+parseInt(ev[3])+parseInt(ev[4])+"%");
+        				var nRow = this.ds_class.findRow("classSeq",ev[5]);
+        				this.ds_class.setColumn(nRow,"classEvaluation",ev[0]+"|"+ev[1]+"|"+ev[2]+"|"+ev[3]+"|"+ev[4])
+        			}
+        		}
         }
 
         this.grade_canchange = function(obj,e)
@@ -835,31 +752,29 @@
         	var fin = this.mask_fin.text;
         	var total = this.sta_total.text;
         	total = total.substring(0,total.length-1);
-        	var addRow = this.objApp.gds_grade.addRow();
-        	this.objApp.gds_grade.setColumn(addRow,"sCode",sCode);
-        	this.objApp.gds_grade.setColumn(addRow,"sName",sName);
-        	this.objApp.gds_grade.setColumn(addRow,"classCode",classCode);
-        	this.objApp.gds_grade.setColumn(addRow,"attend",attend);
-        	this.objApp.gds_grade.setColumn(addRow,"mid",mid);
-        	this.objApp.gds_grade.setColumn(addRow,"otest",otest);
-        	this.objApp.gds_grade.setColumn(addRow,"task",task);
-        	this.objApp.gds_grade.setColumn(addRow,"fin",fin);
-        	this.objApp.gds_grade.setColumn(addRow,"total",total);
+        	var addRow = this.ds_grade.addRow();
+        	this.ds_grade.setColumn(addRow,"sCode",sCode);
+        	this.ds_grade.setColumn(addRow,"sName",sName);
+        	this.ds_grade.setColumn(addRow,"classCode",classCode);
+        	this.ds_grade.setColumn(addRow,"attend",attend);
+        	this.ds_grade.setColumn(addRow,"mid",mid);
+        	this.ds_grade.setColumn(addRow,"otest",otest);
+        	this.ds_grade.setColumn(addRow,"task",task);
+        	this.ds_grade.setColumn(addRow,"fin",fin);
+        	this.ds_grade.setColumn(addRow,"total",total);
         	if(sCode == null || sCode ==""){
         		this.alert("학생을 선택해주세요");
         	}else{
         		this.transaction(
         			"stdGradeSave"
         			,"/stdGradeInsert.nex"
-        			,"in_ds=gds_grade:U"
-        			,"gds_grade=out_ds"
+        			,"in_ds=ds_grade:U"
+        			,"ds_grade=out_ds"
         			,""
         			,"fn_callback"
         		);
         	}
         };
-
-
 
         this.btnChangeEval_onclick = function(obj,e)
         {
@@ -873,141 +788,13 @@
         			"stdGradeList"
         			,"/stdGradeList.nex"
         			,""
-        			,"gds_grade=out_ds"
+        			,"ds_grade=out_ds"
         			,"classCode="+classCode
         			,"fn_callback_grade"
         		);
         	}
         };
 
-
-        this.gr_classList2_oncellclick = function(obj,e)
-        {
-        	if(this.ds_class.getColumn(e.row,"passFail")=="P"){
-        		this.gr_rank.set_formatid("PassFail");
-        	}else{
-        		this.gr_rank.set_formatid("default");
-        	}
-        	var classCode = this.ds_class.getColumn(e.row,"classSeq");
-        	this.transaction(
-        		"stdGradeRank"
-        		,"/stdGradeList.nex"
-        		,""
-        		,"gds_grade=out_ds"
-        		,"classCode="+classCode
-        		,"fn_callback_grade"
-        	);
-
-        };
-
-        this.gr_rank_onheadclick = function(obj,e)
-        {
-        	var objDs = this.objects[obj.binddataset];
-        	for (var i = 1; i < obj.getCellCount("head"); i++)
-        	{
-        		var sHeadText = obj.getCellText(-1, i); //Head영역은 index가 -1
-        		var nLen   = sHeadText.length - 1;    //텍스트 길이
-        		if (i == e.cell)
-        		{
-        			var sColId = (obj.getCellProperty("body", e.col,"text")).toString().split(":"); //Text값이 bind:형태로 나오기 떄문에
-        			if (sHeadText.substr(nLen) == "▲")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▼");
-        				objDs.set_keystring("S:-" + sColId[1]);
-        			}
-        			else if (sHeadText.substr(nLen) == "▼")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▲");
-        				objDs.set_keystring("S:+" + sColId[1]);
-        			}
-        			else
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText+"▲"); //없을 경우 기호 붙힘
-        				objDs.set_keystring("S:+" + sColId[1]);
-        			}
-        		}
-        		else //선택된 Head 제외하고 모두 기호 삭제
-        		{
-        			if (sHeadText.substr(nLen) == "▲" || sHeadText.substr(nLen) == "▼")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen));
-        			}
-        		}
-        	}
-        };
-
-        this.btnSave2_onclick = function(obj,e)
-        {	var A = 0;
-        	var B = 0;
-        	for(var i=0; i<this.objApp.gds_grade.getRowCount(); i++){
-        		var grade = this.objApp.gds_grade.getColumn(i,"grade");
-        		if(grade == "A"||  grade == "A+"){
-        			A +=1;
-        		}
-        		if(grade == "B"||  grade == "B+"){
-        			B +=1;
-        		}
-        	}
-        	if(this.gr_rank.formatid == "default"){
-        		var RankA = this.div_rank.form.sta_A.text;
-        		var RankB = this.div_rank.form.sta_B.text;
-        		if(A > RankA || A+B > RankB ){
-        			this.alert("등급별 최대인원을 초과했습니다")
-        		}else{
-        			if(this.objApp.gds_grade.getRowCount() > 0){
-        				this.transaction(
-        					"stdGradeUpd"
-        					,"/stdGradeUpd.nex"
-        					,"in_ds=gds_grade:A"
-        					,""
-        					,""
-        					,"fn_callback"
-        				);
-        			}
-        		}
-        	}else{
-        		if(this.objApp.gds_grade.getRowCount() > 0){
-        			this.transaction(
-        				"stdGradeUpd"
-        				,"/stdGradeUpd.nex"
-        				,"in_ds=gds_grade:A"
-        				,""
-        				,""
-        				,"fn_callback"
-        			);
-        		}
-        	}
-        }
-
-
-        this.btn_exel_onclick = function(obj,e)
-        {
-        	var nRow = this.ds_class.rowposition;
-        	var className = this.ds_class.getColumn(nRow,"className");
-        	this.exportObj = new ExcelExportObject("Export00", this);
-
-        	this.exportObj.set_exportfilename(className + " 성적 집계");
-        	this.exportObj.set_exporturl("http://15.165.196.249/nexacro-xeni/XExportImport");
-
-        	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.gr_rank, "Sheet1!A1");
-
-        	this.addEventHandler("onsuccess", this.Export00_onsuccess, this);
-        	this.addEventHandler("onerror", this.Export00_onerror, this);
-
-        	var intExportedItem = this.exportObj.exportData();
-
-        	trace("Number of Exported Item: " + intExportedItem);
-        };
-
-        this.Export00_onsuccess = function(obj, e)
-        {
-        	trace("Export00_onsuccess");
-        }
-
-        this.Export00_onerror = function(obj, e)
-        {
-        	trace("Export00_onerror");
-        }
 
         this.btnAttend_onclick = function(obj,e)
         {
@@ -1038,6 +825,16 @@
         };
 
 
+        this.gr_classList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
+        this.gr_stdList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
         });
         
         // Regist UI Components Event
@@ -1046,7 +843,9 @@
             this.addEventHandler("onload",this.classGrade_onload,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
+            this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.gr_stdList.addEventHandler("oncellclick",this.gr_stdList_oncellclick,this);
+            this.gr_stdList.addEventHandler("onheadclick",this.gr_stdList_onheadclick,this);
             this.sum2.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
             this.label_fin.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
             this.label_task.addEventHandler("onclick",this.Tab00_Tabpage1_Static00_02_onclick,this);
@@ -1070,13 +869,9 @@
             this.mask_fin.addEventHandler("onchanged",this.mask_fin_onchanged,this);
             this.btnAttend.addEventHandler("onclick",this.btnAttend_onclick,this);
             this.btnSave.addEventHandler("onclick",this.btnSave_onclick,this);
-            this.gr_classList2.addEventHandler("oncellclick",this.gr_classList2_oncellclick,this);
             this.sta_label.addEventHandler("onclick",this.sta_label_onclick,this);
             this.btnChangeEval.addEventHandler("onclick",this.btnChangeEval_onclick,this);
             this.label_caution.addEventHandler("onclick",this.Static01_onclick,this);
-            this.gr_rank.addEventHandler("onheadclick",this.gr_rank_onheadclick,this);
-            this.btnSave2.addEventHandler("onclick",this.btnSave2_onclick,this);
-            this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
         };
 
         this.loadIncludeScript("classGrade.xfdl");

@@ -20,11 +20,6 @@
             obj = new Dataset("reqScholar_ds", this);
             obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/><Column id=\"checkRead\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("searchType_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">-1</Col><Col id=\"name\">전체</Col></Row><Row><Col id=\"code\">01</Col><Col id=\"name\">학번</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","29",null,null,"0",null,null,null,null,this);
@@ -71,32 +66,21 @@
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00","24","26","355","40",null,null,null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","24","26","420","40",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_stdCode","94","7","150","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Edit("edt_stdCode","9","7","150","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("0");
             obj.set_displaynulltext("학번을 입력하세요");
             obj.set_cssclass("edt_default");
-            obj.set_visible("false");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btn_search","246","7","60","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
+            obj = new Button("btn_search","169","7","60","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
             obj.set_taborder("1");
             obj.set_text("조회");
             obj.set_cssclass("btn_search");
-            obj.set_visible("false");
-            this.Div00.form.Div00.addChild(obj.name, obj);
-
-            obj = new Combo("Combo00","11","7","70","25",null,null,null,null,null,null,this.Div00.form.Div00.form);
-            obj.set_taborder("2");
-            obj.set_innerdataset("searchType_ds");
-            obj.set_codecolumn("code");
-            obj.set_datacolumn("name");
-            obj.set_cssclass("cmb_default");
-            obj.set_text("Combo00");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -119,8 +103,6 @@
 
         this.requestScholar_onload = function(obj,e)
         {
-
-        	this.Div00.form.Div00.form.Combo00.set_value("-1");
         	this.transaction(
         		"selectReqScholar.", // 1. strSvcID
         		"/scholarship/selectReqScholar.scholarship", // 2. strURL(절대경로로 입력해주어야함. 로컬호스트 뒤에는 이클립스 서버파일에 있는 path값)
@@ -129,9 +111,6 @@
         		"", // 5. strArgument
         		"fn_callback_selectReq" // 6. strCallbackFunc
         	);
-
-        	var arrComboList = [this.com_colCode, this.com_deptCode];
-        	this.gfnInitMultiCombo(arrComboList);
         };
 
 
@@ -139,15 +118,6 @@
         {
         	var seq = this.reqScholar_ds.getColumn(e.row, "seq");
         	var std_code = this.reqScholar_ds.getColumn(e.row, "std_code");
-
-        	this.transaction(
-        			"checkValueReqScholar.scholarship",//id
-        			"/scholarship/checkValueReqScholar.scholarship",//url (절대경로)
-        			"",//in_ds:U
-        			"",//()_out_ds
-        			"seq="+seq,//argument
-        			"fn_callback_check"
-        			)
 
 
         	//내용 확인을 위한 모달 창
@@ -206,8 +176,7 @@
 
         this.Div00_btn_search_onclick = function(obj,e)
         {
-
-        	var stdCodeValue = this.Div00.form.Div00.form.edt_stdCode.value;
+        	var stdCodeValue = this.Div00.form.edt_stdCode.value;
         	this.reqScholar_ds.filter("std_code=='"+stdCodeValue+"'");
         };
 
@@ -215,8 +184,6 @@
 
         this.Div00_btn_del_onclick = function(obj,e)
         {
-
-
         	var arr = this.reqScholar_ds.extractRows("chk==1");
         	if(arr.length==0||arr==-1)
         	{
@@ -245,23 +212,6 @@
 
         };
 
-        this.Div00_Div00_Combo00_onitemchanged = function(obj,e)
-        {
-        	var searchType = this.Div00.form.Div00.form.Combo00.value;
-        	if(searchType == '-1')
-        	{
-        		this.Div00.form.Div00.form.edt_stdCode.set_visible('false');
-        		this.Div00.form.Div00.form.btn_search.set_visible('false');
-        		this.reqScholar_ds.filter("");
-        	}
-        	else if (searchType == '01')
-        	{
-        		this.Div00.form.Div00.form.edt_stdCode.set_visible('true');
-        		this.Div00.form.Div00.form.btn_search.set_visible('true');
-        	}
-
-        };
-
         });
         
         // Regist UI Components Event
@@ -272,7 +222,6 @@
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
             this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.Div00.form.Div00.form.btn_search.addEventHandler("onclick",this.Div00_btn_search_onclick,this);
-            this.Div00.form.Div00.form.Combo00.addEventHandler("onitemchanged",this.Div00_Div00_Combo00_onitemchanged,this);
         };
 
         this.loadIncludeScript("requestScholar.xfdl");

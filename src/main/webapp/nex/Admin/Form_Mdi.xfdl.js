@@ -112,9 +112,8 @@
         	this.adm_form.deleteRow(nRow);
         	/*trace(this.adm_form.saveXML());*/
         	// Left에서 추가시켰던 row를 다시 지워주는 행위
-        	trace("개수 : " + this.adm_form.getRowCount());
         	if(this.adm_form.getRowCount() == 0){
-        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("0,*,0");
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
         	}
         };
 
