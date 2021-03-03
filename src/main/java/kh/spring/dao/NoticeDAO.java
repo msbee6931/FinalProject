@@ -34,6 +34,9 @@ public class NoticeDAO {
 	public int selectseq() {
 		return db.selectOne("Notice.selectseq");
 	}
+	public int selectLastNseq() {
+		return db.selectOne("Notice.selectLastNseq");
+	}
 	public int selectn_seq() {
 		return db.selectOne("Notice.selectn_seq");
 	}
