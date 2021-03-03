@@ -109,7 +109,9 @@
         };
         
         // User Script
+        this.addIncludeScript("myClassList.xfdl","lib::Common.xjs");
         this.registerScript("myClassList.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.myClassList_onload = function(obj,e)
         {
@@ -174,6 +176,11 @@
 
 
 
+        this.div_line_gr_classList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
         });
         
         // Regist UI Components Event
@@ -183,6 +190,7 @@
             this.div_line.form.div_com.form.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.div_line.form.div_com.form.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
             this.div_line.form.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
+            this.div_line.form.gr_classList.addEventHandler("onheadclick",this.div_line_gr_classList_onheadclick,this);
         };
 
         this.loadIncludeScript("myClassList.xfdl");

@@ -24,7 +24,7 @@
             // UI Components Initialize
             obj = new Static("Static01","30","10",null,null,"28","30",null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_text("Static01");
+            obj.set_text("");
             obj.set_cssclass("sta_line");
             this.addChild(obj.name, obj);
 
@@ -32,6 +32,7 @@
             obj.set_taborder("0");
             obj.set_visible("false");
             obj.set_background("RGBA(236,135,135,0.71)");
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01","80","0","800","10",null,null,null,null,null,null,this);
@@ -197,12 +198,12 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_grade","5","3","30","30",null,null,null,null,null,null,this.div_search.form);
+            obj = new Static("sta_grade","15","3","30","30",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("0");
             obj.set_text("학년");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Combo("co_grade","34","6","100","25",null,null,null,null,null,null,this.div_search.form);
+            obj = new Combo("co_grade","47","6","100","25",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("1");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -215,30 +216,27 @@
             obj.set_index("0");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Combo("co_category","144","6","76","25",null,null,null,null,null,null,this.div_search.form);
+            obj = new Edit("edt_search","181","6","108","25",null,null,null,null,null,null,this.div_search.form);
             obj.set_taborder("2");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            obj.set_tooltiptext("학번은 일치할 경우만 검색가능합니다");
-            obj.set_cssclass("cmb_default");
-            var div_search_form_co_category_innerdataset = new nexacro.NormalDataset("div_search_form_co_category_innerdataset", obj);
-            div_search_form_co_category_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">s_seq</Col><Col id=\"datacolumn\">학번</Col></Row><Row><Col id=\"codecolumn\">name</Col><Col id=\"datacolumn\">이름</Col></Row></Rows>");
-            obj.set_innerdataset(div_search_form_co_category_innerdataset);
-            obj.set_text("학번");
-            obj.set_value("s_seq");
-            obj.set_index("0");
-            this.div_search.addChild(obj.name, obj);
-
-            obj = new Edit("edt_search","228","6","108","25",null,null,null,null,null,null,this.div_search.form);
-            obj.set_taborder("3");
             obj.set_cssclass("edt_default");
             this.div_search.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch","346","6","60","25",null,null,null,null,null,null,this.div_search.form);
-            obj.set_taborder("4");
+            obj = new Button("btnSearch","291","6","60","25",null,null,null,null,null,null,this.div_search.form);
+            obj.set_taborder("3");
             obj.set_cssclass("btn_search");
             obj.set_text("조회");
             this.div_search.addChild(obj.name, obj);
+
+            obj = new Button("btnRetrieve","353","6","60","25",null,null,null,null,null,null,this.div_search.form);
+            obj.set_taborder("4");
+            obj.set_cssclass("btn_default");
+            obj.set_text("초기화");
+            this.div_search.addChild(obj.name, obj);
+
+            obj = new Static("sta_name","189","24","30","30",null,null,null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_text("이름");
+            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -355,13 +353,13 @@
         this.div_search_btnSearch_onclick = function(obj,e)
         {
         	var colGrade = this.div_search.form.co_grade.value;
-        	var category = this.div_search.form.co_category.value;
         	var text = this.div_search.form.edt_search.text;
-        	if(category =="s_seq"){
-        		this.ds_students.filter("s_seq=='"+text+"' && colGrade.indexOf('"+colGrade+"')>=0");
-        	}else{
-        		this.ds_students.filter("name.indexOf('"+text+"')>=0 && colGrade.indexOf('"+colGrade+"')>=0");
-        	}
+        	this.ds_students.filter("name.indexOf('"+text+"')>=0 && colGrade.indexOf('"+colGrade+"')>=0");
+        };
+
+        this.div_search_btnRetrieve_onclick = function(obj,e)
+        {
+        	this.ds_students.filter("");
         };
 
         });
@@ -375,6 +373,7 @@
             this.div_Info.form.sta_code.addEventHandler("onclick",this.div_Info_sta_code_onclick,this);
             this.div_search.form.co_grade.addEventHandler("onitemchanged",this.div_search_co_grade_onitemchanged,this);
             this.div_search.form.btnSearch.addEventHandler("onclick",this.div_search_btnSearch_onclick,this);
+            this.div_search.form.btnRetrieve.addEventHandler("onclick",this.div_search_btnRetrieve_onclick,this);
         };
 
         this.loadIncludeScript("deptStudent.xfdl");

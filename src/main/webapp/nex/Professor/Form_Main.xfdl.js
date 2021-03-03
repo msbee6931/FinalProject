@@ -46,20 +46,20 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btnClassList","50","418","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnClassList","50","418","122","50",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("개설강좌 조회");
             obj.set_cssclass("btn_default");
             obj.set_border("0px none,1px solid #ffffff,0px none,0px none");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDeptStdList","170","418","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnDeptStdList","173","418","122","50",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("학과 학생 조회");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_schedule","750","36","290","224",null,null,null,null,null,null,this);
+            obj = new Calendar("cal_schedule","750","50","290","210",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_type("monthonly");
             obj.set_innerdataset("ds_cal");
@@ -69,7 +69,7 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_schedule","750","280","290","210",null,null,null,null,null,null,this);
+            obj = new Grid("gr_schedule","750","280","290","188",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_autofittype("col");
             obj.set_binddataset("ds_Schedule");
@@ -77,18 +77,13 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"1\" text=\"bind:sdate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"2\" text=\"bind:edate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_bookmark","50","276","100","44",null,null,null,null,null,null,this);
+            obj = new Static("sta_bookmark","50","286","100","44",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("즐겨찾기");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","318","10","92","44",null,null,null,null,null,null,this);
-            obj.set_taborder("9");
-            obj.set_text("공지사항");
-            this.addChild(obj.name, obj);
-
             obj = new Grid("gr_notice","310","80","420","306",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
@@ -96,44 +91,44 @@
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAll","310","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj.set_taborder("10");
             obj.set_text("전체");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnNormal","370","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj.set_taborder("11");
             obj.set_text("일반");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAcademic","430","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
+            obj.set_taborder("12");
             obj.set_text("학사");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnScholar","490","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
+            obj.set_taborder("13");
             obj.set_text("장학");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnEmployment","550","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
+            obj.set_taborder("14");
             obj.set_text("취업");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnMore","670","50","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
+            obj.set_taborder("15");
             obj.set_text("more+");
             obj.set_visible("false");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_month","910","260","130","20",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
+            obj.set_taborder("16");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             var co_month_innerdataset = new nexacro.NormalDataset("co_month_innerdataset", obj);
@@ -142,12 +137,12 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_schedule","750","260","91","20",null,null,null,null,null,null,this);
-            obj.set_taborder("18");
+            obj.set_taborder("17");
             obj.set_text("남은 일정");
             this.addChild(obj.name, obj);
 
             obj = new Div("div_Info","50","50","250","216",null,null,null,null,null,null,this);
-            obj.set_taborder("19");
+            obj.set_taborder("18");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
@@ -175,28 +170,28 @@
             obj.set_text("읽지 않은 메일");
             this.div_Info.addChild(obj.name, obj);
 
-            obj = new Button("btnGrade","50","369","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnGrade","50","369","122","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("학생 성적 관리");
             obj.set_cssclass("btn_default");
             obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAttend","170","369","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnAttend","173","369","122","50",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("학생 출석 입력");
             obj.set_cssclass("btn_default");
             obj.set_border("0px none,0px none,1px solid #ffffff");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnMypage","50","320","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnMypage","50","320","122","50",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("개인정보 조회");
             obj.set_cssclass("btn_default");
             obj.set_border("0px none,1px solid #ffffff,1px solid #ffffff,0px none");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDeptSchedule","170","320","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnDeptSchedule","173","320","122","50",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("학과 스케줄 ");
             obj.set_cssclass("btn_default");

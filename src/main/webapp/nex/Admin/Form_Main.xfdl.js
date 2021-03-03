@@ -56,43 +56,43 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btnBoard","50","369","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnBoard","40","370","125","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("건의게시판 관리");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnReference","169","369","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnReference","166","370","125","50",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("자료실 관리");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnClassList","50","418","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnClassList","40","421","125","50",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("개설강좌 조회");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnScholarMg","169","418","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnScholarMg","166","421","125","50",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("장학금 신청 관리");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnStudentMg","50","320","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnStudentMg","40","319","125","50",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("학생 관리");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNotice","169","320","120","50",null,null,null,null,null,null,this);
+            obj = new Button("btnNotice","166","319","125","50",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("공지사항 관리");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_schedule","790","36","290","224",null,null,null,null,null,null,this);
+            obj = new Calendar("cal_schedule","750","50","330","210",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_type("monthonly");
             obj.set_innerdataset("ds_cal");
@@ -102,7 +102,7 @@
             obj.set_textcolorcolumn("textcolorcolumn");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_schedule","790","280","290","210",null,null,null,null,null,null,this);
+            obj = new Grid("gr_schedule","750","280","330","191",null,null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_binddataset("ds_colSchedule");
             obj.set_autofittype("col");
@@ -110,63 +110,58 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_bookmark","50","276","100","44",null,null,null,null,null,null,this);
+            obj = new Static("sta_bookmark","40","286","100","44",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_text("즐겨찾기");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01","348","10","92","44",null,null,null,null,null,null,this);
+            obj = new Grid("gr_notice","310","80","420","306",null,null,null,null,null,null,this);
             obj.set_taborder("9");
-            obj.set_text("공지사항");
-            this.addChild(obj.name, obj);
-
-            obj = new Grid("gr_notice","340","80","420","306",null,null,null,null,null,null,this);
-            obj.set_taborder("10");
             obj.set_binddataset("ds_Notice");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"46\"/><Column size=\"196\"/><Column size=\"64\"/><Column size=\"112\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:deptcode\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ds_deptcode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"1\" text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"2\" displaytype=\"imagecontrol\" imagestretch=\"fixaspectratio\" background=\"transparent\" text=\"expr:file==&quot;Y&quot;?&quot;theme://images/file.png&quot;:&quot;&quot;\" cursor=\"pointer\"/><Cell col=\"3\" text=\"bind:writedate\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd \" displaytype=\"calendarcontrol\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAll","340","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj = new Button("btnAll","310","51","60","30",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
             obj.set_text("전체");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNormal","400","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj = new Button("btnNormal","370","51","60","30",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
             obj.set_text("일반");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAcademic","460","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
+            obj = new Button("btnAcademic","430","51","60","30",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
             obj.set_text("학사");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnScholar","520","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("14");
+            obj = new Button("btnScholar","490","51","60","30",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
             obj.set_text("장학");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnEmployment","580","51","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("15");
+            obj = new Button("btnEmployment","550","51","60","30",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
             obj.set_text("취업");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnMore","700","50","60","30",null,null,null,null,null,null,this);
-            obj.set_taborder("16");
+            obj = new Button("btnMore","670","50","60","30",null,null,null,null,null,null,this);
+            obj.set_taborder("15");
             obj.set_text("more+");
             obj.set_visible("false");
             obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             obj = new Combo("co_month","950","260","130","20",null,null,null,null,null,null,this);
-            obj.set_taborder("17");
+            obj.set_taborder("16");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("cmb_default");
@@ -175,13 +170,13 @@
             obj.set_innerdataset(co_month_innerdataset);
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_schedule","790","260","91","20",null,null,null,null,null,null,this);
-            obj.set_taborder("18");
+            obj = new Static("sta_schedule","750","260","91","20",null,null,null,null,null,null,this);
+            obj.set_taborder("17");
             obj.set_text("남은 일정");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_Info","50","51","250","229",null,null,null,null,null,null,this);
-            obj.set_taborder("19");
+            obj = new Div("div_Info","40","51","251","229",null,null,null,null,null,null,this);
+            obj.set_taborder("18");
             obj.set_text("Div00");
             obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
@@ -204,6 +199,44 @@
             obj.set_textDecoration("underline");
             obj.set_color("cornflowerblue");
             this.div_Info.addChild(obj.name, obj);
+
+            obj = new Button("btnStartRegist","310","420","100","50",null,null,null,null,null,null,this);
+            obj.set_taborder("19");
+            obj.set_text("수강신청 열기");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnCloseRegist","415","420","100","50",null,null,null,null,null,null,this);
+            obj.set_taborder("20");
+            obj.set_text("수강신청 닫기");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnStartTest","525","420","100","50",null,null,null,null,null,null,this);
+            obj.set_taborder("21");
+            obj.set_text("예비수강 열기");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnCloseTest","630","420","100","50",null,null,null,null,null,null,this);
+            obj.set_taborder("22");
+            obj.set_text("예비수강 닫기");
+            obj.set_cssclass("btn_default");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staRegist","310","392","205","23",null,null,null,null,null,null,this);
+            obj.set_taborder("23");
+            obj.set_text("");
+            obj.set_cssclass("sta_line");
+            obj.set_padding("0px 0px 0px 10px");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staTest","525","392","205","23",null,null,null,null,null,null,this);
+            obj.set_taborder("24");
+            obj.set_text("");
+            obj.set_cssclass("sta_line");
+            obj.set_padding("0px 0px 0px 10px");
+            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -324,6 +357,20 @@
         		,""
         		,"fn_callback"
         	);
+        	if(this.objApp.gds_admin.getRowCount() > 0){
+        		var regist = this.objApp.gds_admin.getColumn(0,"regist");
+        		var test = this.objApp.gds_admin.getColumn(0,"test");
+        		if(regist == 'open'){
+        			this.staRegist.set_text("수강신청 진행중");
+        		}else{
+        			this.staRegist.set_text("수강신청 끝남");
+        		}
+        		if(test == 'open'){
+        			this.staTest.set_text("예비 수강신청 진행중");
+        		}else{
+        			this.staTest.set_text("예비 수강신청 끝남");
+        		}
+        	}
         };
 
         this.count =""; // 읽지 않은 알람 개수
@@ -375,7 +422,6 @@
         	}else{
         		alert("공지사항이 없습니다");
         	}
-
         };
 
 
@@ -499,10 +545,65 @@
         };
 
 
+        this.btnStartRegist_onclick = function(obj,e)
+        {
+        	alert("수강신청을 시작합니다");
+        	this.objApp.gds_admin.setColumn(0,"regist","open");
+        	this.staRegist.set_text("수강신청 진행중");
+        	this.transaction(
+        				"registUpd"
+        				,"/registUpd.log"
+        				,"in_ds=gds_admin"
+        				,""
+        				,""
+        				,"fn_callback"
+        			);
+        };
 
+        this.btnCloseRegist_onclick = function(obj,e)
+        {
+        	alert("수강신청이 끝났습니다");
+        	this.objApp.gds_admin.setColumn(0,"regist","close");
+        	this.staRegist.set_text("수강신청 끝남");
+        	this.transaction(
+        				"registUpd"
+        				,"/registUpd.log"
+        				,"in_ds=gds_admin"
+        				,""
+        				,""
+        				,"fn_callback"
+        			);
+        };
 
+        this.btnStartTest_onclick = function(obj,e)
+        {
+        	alert("예비 수강신청을 시작합니다");
+        	this.objApp.gds_admin.setColumn(0,"test","open");
+        	this.staTest.set_text("예비 수강신청 진행중");
+        	this.transaction(
+        				"testUpd"
+        				,"/testUpd.log"
+        				,"in_ds=gds_admin"
+        				,""
+        				,""
+        				,"fn_callback"
+        			);
+        };
 
-
+        this.btnCloseTest_onclick = function(obj,e)
+        {
+        	alert("예비 수강신청이 끝났습니다");
+        	this.objApp.gds_admin.setColumn(0,"test","close");
+        	this.staTest.set_text("예비 수강신청 끝남");
+        	this.transaction(
+        				"testUpd"
+        				,"/testUpd.log"
+        				,"in_ds=gds_admin"
+        				,""
+        				,""
+        				,"fn_callback"
+        			);
+        };
 
         });
         
@@ -527,6 +628,10 @@
             this.btnMore.addEventHandler("onclick",this.btnMore_onclick,this);
             this.co_month.addEventHandler("canitemchange",this.co_month_canitemchange,this);
             this.div_Info.form.sta_alarm.addEventHandler("onclick",this.div_Info_sta_alarm_onclick,this);
+            this.btnStartRegist.addEventHandler("onclick",this.btnStartRegist_onclick,this);
+            this.btnCloseRegist.addEventHandler("onclick",this.btnCloseRegist_onclick,this);
+            this.btnStartTest.addEventHandler("onclick",this.btnStartTest_onclick,this);
+            this.btnCloseTest.addEventHandler("onclick",this.btnCloseTest_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };

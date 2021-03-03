@@ -70,6 +70,18 @@
         	var sTrPath  = obj.getTreePath(e.row); 	//풀 메뉴 트리구조 가져올 때 쓸것 / 쓸지안쓸지도..즐찾도..^^;;
         	sTrPath = nexacro.replaceAll(sTrPath, ".", ">");
 
+        	var regist = this.objApp.gds_admin.getColumn(0,"regist");
+        	if(sMenuId == '20303010' || sMenuId == '20302020' || sMenuId == '20302010'){
+        		if(regist =='open'){
+        			alert("수강신청 기간입니다. 관리자에게 문의해주세요");
+        			if(this.objApp.std_openForm.getRowCount() == 0){
+        				this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        			}
+        			return;
+        		}
+        	}
+
+
         	//화면 오픈 스크립트
         	if(sFormUrl.length <= 0)	return;
         	var av_FrameSet = this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.FrameSet00;
@@ -118,13 +130,29 @@
 
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.ChildFrame00.form.fn_addTab(sFormId, sMenuNm);
         }
-
+        this.Form_Left_onload = function(obj,e)
+        {
+        	this.transaction(
+        				"admList"
+        				,"/admList.log"
+        				,""
+        				,"gds_admin=adm_ds"
+        				,""
+        				,"fn_callback"
+        			);
+        };
+        this.fn_callback = function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        }
 
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.addEventHandler("onload",this.Form_Left_onload,this);
             this.Grid00.addEventHandler("oncelldblclick",this.Grid00_oncelldblclick,this);
         };
 

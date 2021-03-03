@@ -59,7 +59,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"90\"/><Column size=\"179\"/><Column size=\"59\"/><Column size=\"113\"/><Column size=\"68\"/><Column size=\"209\"/><Column size=\"103\"/><Column size=\"57\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"과목명\"/><Cell col=\"3\" text=\"학년\"/><Cell col=\"4\" text=\"과목코드\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"강의시간\"/><Cell col=\"7\" text=\"강의실\"/><Cell col=\"8\" text=\"인원수\"/></Band><Band id=\"body\"><Cell text=\"expr:currow+1\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:className\" tooltiptext=\"상세보기\" textDecoration=\"underline\" textAlign=\"center\" cursor=\"pointer\" wordWrap=\"english\"/><Cell col=\"3\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"#########\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"7\" text=\"bind:classRoom\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:limit\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_year",null,"19","120","25","560",null,null,null,null,null,this);
+            obj = new Combo("co_year",null,"19","120","25","650",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -70,7 +70,7 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_semester",null,"19","120","25","435",null,null,null,null,null,this);
+            obj = new Combo("co_semester",null,"19","120","25","525",null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -81,25 +81,25 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("co_search",null,"19","120","25","310",null,null,null,null,null,this);
+            obj = new Combo("co_search",null,"19","120","25","400",null,null,null,null,null,this);
             obj.set_taborder("7");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("cmb_default");
             var co_search_innerdataset = new nexacro.NormalDataset("co_search_innerdataset", obj);
-            co_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">&quot;&quot;</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">className</Col><Col id=\"datacolumn\">과목명</Col></Row><Row><Col id=\"codecolumn\">classTime</Col><Col id=\"datacolumn\">강의시간</Col></Row><Row><Col id=\"codecolumn\">classRoom</Col><Col id=\"datacolumn\">강의실</Col></Row></Rows>");
+            co_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">className</Col><Col id=\"datacolumn\">과목명</Col></Row><Row><Col id=\"codecolumn\">classTime</Col><Col id=\"datacolumn\">강의시간</Col></Row><Row><Col id=\"codecolumn\">classRoom</Col><Col id=\"datacolumn\">강의실</Col></Row></Rows>");
             obj.set_innerdataset(co_search_innerdataset);
             obj.set_text("전체");
             obj.set_value("All");
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_search",null,"19","170","25","135",null,null,null,null,null,this);
+            obj = new Edit("edt_search",null,"19","170","25","225",null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_cssclass("edt_default");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,"19","90","25","40",null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,"19","90","25","130",null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_text("검색");
             obj.set_cssclass("btn_search");
@@ -109,6 +109,12 @@
             obj.set_taborder("10");
             obj.set_text("Exel");
             obj.set_cssclass("btn_exel");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnRetrieve",null,"20","90","25","35",null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_text("초기화");
+            obj.set_cssclass("btn_default");
             this.addChild(obj.name, obj);
 
             // Layout Functions
@@ -128,7 +134,9 @@
         };
         
         // User Script
+        this.addIncludeScript("myClass.xfdl","lib::Common.xjs");
         this.registerScript("myClass.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.myClass_onload = function(obj,e)
         {
@@ -195,38 +203,7 @@
         //정렬
         this.gr_classList_onheadclick = function(obj,e)
         {
-        	var objDs = this.objects[obj.binddataset];
-        	for (var i = 1; i < obj.getCellCount("head"); i++)
-        	{
-        		var sHeadText = obj.getCellText(-1, i); //Head영역은 index가 -1
-        		var nLen   = sHeadText.length - 1;    //텍스트 길이
-        		if (i == e.cell)
-        		{
-        			var sColId = (obj.getCellProperty("body", e.col,"text")).toString().split(":"); //Text값이 bind:형태로 나오기 떄문에
-        			if (sHeadText.substr(nLen) == "▲")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▼");
-        				objDs.set_keystring("S:-" + sColId[1]);
-        			}
-        			else if (sHeadText.substr(nLen) == "▼")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▲");
-        				objDs.set_keystring("S:+" + sColId[1]);
-        			}
-        			else
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText+"▲"); //없을 경우 기호 붙힘
-        				objDs.set_keystring("S:+" + sColId[1]);
-        			}
-        		}
-        		else //선택된 Head 제외하고 모두 기호 삭제
-        		{
-        			if (sHeadText.substr(nLen) == "▲" || sHeadText.substr(nLen) == "▼")
-        			{
-        				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen));
-        			}
-        		}
-        	}
+        	this.cfn_GridSort(obj,e);
         };
 
         //검색
@@ -253,6 +230,7 @@
         			this.ds_class.filter("reg_date >='"+mDate+"'&& reg_date <= '"+endDate+"'")
         		}
         	}
+
         };
 
 
@@ -293,6 +271,11 @@
         		trace("Number of Exported Item: " + intExportedItem);
         };
 
+        this.btnRetrieve_onclick = function(obj,e)
+        {
+        	this.ds_class.filter("");
+        };
+
         });
         
         // Regist UI Components Event
@@ -305,6 +288,7 @@
             this.co_search.addEventHandler("onitemchanged",this.co_search_onitemchanged,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
             this.btn_exel.addEventHandler("onclick",this.btn_exel_onclick,this);
+            this.btnRetrieve.addEventHandler("onclick",this.btnRetrieve_onclick,this);
         };
 
         this.loadIncludeScript("myClass.xfdl");

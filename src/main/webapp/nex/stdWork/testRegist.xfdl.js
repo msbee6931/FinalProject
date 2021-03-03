@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("ds_part", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\"/><Col id=\"name\">전체</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">전공필수</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">전공선택</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">교양필수</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">E</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">계열기초</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\"/><Col id=\"name\">전체</Col></Row><Row><Col id=\"id\">A</Col><Col id=\"name\">전공필수</Col></Row><Row><Col id=\"id\">B</Col><Col id=\"name\">전공선택</Col></Row><Row><Col id=\"id\">C</Col><Col id=\"name\">교양필수</Col></Row><Row><Col id=\"id\">D</Col><Col id=\"name\">교양선택</Col></Row><Row><Col id=\"id\">E</Col><Col id=\"name\">지정교양</Col></Row><Row><Col id=\"id\">F</Col><Col id=\"name\">계열기초</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -159,7 +159,7 @@
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
             obj.set_innerdataset("ds_deptCode");
-            obj.set_cssclass("gg1123412");
+            obj.set_cssclass("cmb_default");
             obj.set_text("전체");
             obj.set_value("");
             obj.set_index("-1");
@@ -171,7 +171,7 @@
             obj.set_codecolumn("id");
             obj.set_datacolumn("name");
             obj.set_displaynulltext("전체");
-            obj.set_cssclass("gg1123412");
+            obj.set_cssclass("cmb_default");
             obj.set_text("전체");
             obj.set_value("");
             obj.set_index("0");
@@ -213,6 +213,12 @@
             obj.set_datacolumn("name");
             obj.set_readonly("true");
             obj.set_cssclass("cmb_default");
+            this.div_Info.addChild(obj.name, obj);
+
+            obj = new Button("btnRetrieve","64","314","60","25",null,null,null,null,null,null,this.div_Info.form);
+            obj.set_taborder("21");
+            obj.set_text("갱신");
+            obj.set_cssclass("btn_default");
             this.div_Info.addChild(obj.name, obj);
 
             obj = new Static("Static01_00","240","14","120","25",null,null,null,null,null,null,this);
@@ -282,7 +288,9 @@
         };
         
         // User Script
+        this.addIncludeScript("testRegist.xfdl","lib::Common.xjs");
         this.registerScript("testRegist.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.ClassRegist_onload = function(obj,e)
         {
@@ -293,7 +301,7 @@
         	this.div_Info.form.sta_sSeq.set_text(sCode);
         	this.div_Info.form.sta_name.set_text(sName);
         	this.div_Info.form.co_myDept.set_value(deptCode);
-        	this.div_Info.form.sta_grade.set_text(grade);
+        	this.div_Info.form.sta_grade.set_text(grade+"학년");
         	var objDate= new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
         		this.div_Info.form.sta_semester.set_text(objDate.getFullYear()+"년 1학기");
@@ -357,11 +365,10 @@
         			nPoint += parseInt(point);
         		}
         		this.div_Info.form.sta_point.set_text(20 - nPoint);
-        	}else if(sId == "myClassList"){
+        	}else if(sId == "myClassList"){ //로직적으로는 아니지만, 혹시 수강신청 후 예비수강 신청할경우 수강신청한 목록안보이게
         		for(var i=0; i<this.ds_myClass.getRowCount(); i++){
         			var classSeq = this.ds_myClass.getColumn(i,"classSeq");
         			var nRow = this.ds_class.findRow("classSeq",classSeq);
-        			trace(nRow);
         			this.ds_class.deleteRow(nRow)
         		}
         	}else if(sId == "stdTimeTableList"){
@@ -416,10 +423,24 @@
         	var className = this.div_Info.form.edt_className.text;
 
         	this.ds_class.filter("dept.indexOf('"+dept+"')>=0 && classPart.indexOf('"+part+"')>=0 && className.indexOf('"+className+"')>=0");
+        	if(this.ds_myBasket.getRowCount() > 0 ){
+        		for(var i=0; i<this.ds_myBasket.getRowCount(); i++){
+        			var classSeq = this.ds_myBasket.getColumn(i,"classSeq");
+        			var nRow = this.ds_class.findRow("classSeq",classSeq);
+        			this.ds_class.deleteRow(nRow);
+        		}
+        	}
         };
         this.div_Info_co_dept_onitemchanged = function(obj,e)
         {
         	this.ds_class.filter("dept.indexOf('"+e.postvalue+"')>=0");
+        	if(this.ds_myBasket.getRowCount() > 0 ){ //가끔 for문으로 수강신청한 내역이 안지워지는 오류를 대비
+        		for(var i=0; i<this.ds_myBasket.getRowCount(); i++){
+        			var classSeq = this.ds_myBasket.getColumn(i,"classSeq");
+        			var nRow = this.ds_class.findRow("classSeq",classSeq);
+        			this.ds_class.deleteRow(nRow);
+        		}
+        	}
         };
 
         this.gr_classList_oncellclick = function(obj,e)
@@ -450,12 +471,13 @@
         				alert("학점이 부족합니다");
         				return;
         			}else{
-        				if(grade != myGrade){
-        					alert("수강 가능한 학년이 아닙니다");
-        					return;
-        				}else{
-        					if(dept != myDept && dept != "7071" && part != "F"){
+        				if(dept != myDept && dept != "7071" && part != "F"){
         						alert("다른 학과 전공은 신청이 불가능합니다");
+        						return;
+        					}
+        				else{
+        					if(grade != myGrade && dept !="7071"){
+        						alert("수강 가능한 학년이 아닙니다");
         						return;
         					}else{
         						var classTime = this.ds_class.getColumn(nRow,"classTime");
@@ -550,7 +572,6 @@
         		this.ds_myBasket.setColumn(this.row,"basketLimit",this.count2+"/"+limit[1]);
         		limit = this.ds_myBasket.getColumn(this.row,"basketLimit")
         		var classSeq = this.ds_myBasket.getColumn(this.row,"classSeq");
-        		trace(limit);
         		this.transaction(
         			"/limitUpd"
         			,"/limitBasketUpd.nex"
@@ -625,6 +646,21 @@
 
 
 
+        this.gr_classList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
+        this.gr_basketList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
+        this.div_Info_btnRetrieve_onclick = function(obj,e)
+        {
+        	this.reload();
+        };
+
         });
         
         // Regist UI Components Event
@@ -635,10 +671,13 @@
             this.div_Info.form.co_dept.addEventHandler("onitemchanged",this.div_Info_co_dept_onitemchanged,this);
             this.div_Info.form.btnClassSearch.addEventHandler("onclick",this.div_Info_btnClassSearch_onclick,this);
             this.div_Info.form.classTime.addEventHandler("onclick",this.div_Info_classTime_onclick,this);
+            this.div_Info.form.btnRetrieve.addEventHandler("onclick",this.div_Info_btnRetrieve_onclick,this);
             this.Static01_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
+            this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.Static01_00_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
             this.gr_basketList.addEventHandler("oncellclick",this.gr_basketList_oncellclick,this);
+            this.gr_basketList.addEventHandler("onheadclick",this.gr_basketList_onheadclick,this);
         };
 
         this.loadIncludeScript("testRegist.xfdl");

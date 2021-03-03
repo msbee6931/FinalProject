@@ -951,7 +951,6 @@
         	var grade = classForm.co_grade.text;
         	var classTime = classForm.edt_classTime.text;
         	var classRoom = classForm.mask_classRoom.value;
-        	trace(classRoom)
         	if(sum != "100%" || sum2 != "100%"){alert("합계가 100%가 아닙니다")}
         	else if(part =="" || part == null){alert("이수구분을 선택해주세요");}
         	else if(person =="" || person == null){alert("인원을 입력해주세요");}
@@ -965,7 +964,7 @@
         		//ds_class에 값 넣기
         		var goal = classForm.ta_goal.text;
         		var method = classForm.mask_course.text +"|"+classForm.mask_test.text+"|"+classForm.mask_argue.text;
-        		var evaluation = classForm.mask_attend.text +"|"+classForm.mask_mid.text+"|"+classForm.mask_fin.text+"|"+classForm.mask_task.text+"|"+classForm.mask_otest.text;
+        		var evaluation = classForm.mask_attend.text +"|"+classForm.mask_mid.text+"|"+classForm.mask_otest.text+"|"+classForm.mask_task.text+"|"+classForm.mask_fin.text;
         		var references = classForm.edt_mainBook.text +"|" + classForm.edt_subBook.text;
         		reqState = classForm.sta_reqState.text;
         		if(reqState == ""){
@@ -1179,9 +1178,9 @@
         		var classEv = this.ds_class.getColumn(0,"classEvaluation").split("|");
         		classForm.mask_attend.set_value(classEv[0]);
         		classForm.mask_mid.set_value(classEv[1]);
-        		classForm.mask_fin.set_value(classEv[2]);
+        		classForm.mask_otest.set_value(classEv[2]);
         		classForm.mask_task.set_value(classEv[3]);
-        		classForm.mask_otest.set_value(classEv[4]);
+        		classForm.mask_fin.set_value(classEv[4]);
         		classForm.sta_sum2.set_text(nexacro.toNumber(classEv[0])+nexacro.toNumber(classEv[1])+nexacro.toNumber(classEv[2])+nexacro.toNumber(classEv[3])+nexacro.toNumber(classEv[4])+"%");
         		var classRefer = this.ds_class.getColumn(0,"classReferences").split("|");
         		classForm.edt_mainBook.set_value(classRefer[0]);

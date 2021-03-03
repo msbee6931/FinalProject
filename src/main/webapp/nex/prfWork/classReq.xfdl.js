@@ -103,7 +103,9 @@
         };
         
         // User Script
+        this.addIncludeScript("classReq.xfdl","lib::Common.xjs");
         this.registerScript("classReq.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.classReq_onload = function(obj,e)
         {
@@ -161,6 +163,8 @@
         		for(let i = 0;i<this.ds_class.getRowCount();i++){
         			this.ds_class.setColumn(i,"chk",check);
         		}
+        	}else{
+        		this.cfn_GridSort(obj,e);
         	}
         };
 
