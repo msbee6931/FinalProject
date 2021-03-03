@@ -109,7 +109,7 @@
         	av_FrameSet.addChild(formId, objChildFrame);
 
         	objChildFrame.set_resizable(true);
-        	/*objChildFrame.set_openstatus("maximize");*/
+        	objChildFrame.set_openstatus("maximize");
         	objChildFrame.set_showtitlebar(false);  //타이틀바를 안보여야 사이즈가 맞춰짐. 우선 false 주자.
         	objChildFrame.set_titletext(menuName);
         	objChildFrame.set_formurl(formUrl);

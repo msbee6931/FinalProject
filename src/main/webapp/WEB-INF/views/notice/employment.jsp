@@ -16,7 +16,13 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 #box {
 	min-height:500px;
 }
@@ -24,13 +30,37 @@
 	width:100%;
 }
 #subLabel{
-	background-color: #275cb8;
+	background-color: #193461;
 	color:white;
 	max-width:200px;
+}
+#btnCol{
+	background-color: #193461;
+	color:white;
 }
 
 #sideBox{
 	max-height:300px;
+}
+#search{
+	background-color: #495d8f;
+	color: #ffffff;
+}
+#search:hover {
+	background-color: #193461;
+}
+#nav-ul>li>a.active{
+	background-color :#000d37;
+	color: white;
+}
+#nav-ul>li>a:hover,
+#nav-ul>li>a:focus {
+  background-color: #495d8f;
+  color: white;
+}
+
+.nav-li{
+	border-bottom:1px solid black;
 }
 </style>
 </head>
@@ -54,19 +84,19 @@
 					<div class="col-12 d-none d-lg-block py-5" id="subLabel" >
 						<h3><b>공지사항</b></h3>
 					</div>					
-					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
+					<nav class="navbar navbar-expand-lg mb-2 nav-justified">
 					<div class="col d-grid">
-						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" ><b>공지사항</b></button>
+						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" id="btnCol"><b>공지사항</b></button>
 					</div>
 						<div class="collapse navbar-collapse" id="listCollapse" >
 							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
+								<li class="nav-item nav-li" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="/academicList.notice?page=1">학사공지</a>
+								<li class="nav-item nav-li"><a class="nav-link" href="/academicList.notice?page=1">학사공지</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
+								<li class="nav-item nav-li"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
 								</li>
-								<li class="nav-item "><a class="nav-link active" href="/employmentList.notice?page=1">취업공지  </a>
+								<li class="nav-item nav-li"><a class="nav-link active" href="/employmentList.notice?page=1">취업공지  </a>
 								</li>
 							</ul>
 						</div>
@@ -94,7 +124,7 @@
 											<input class="form-control" name="content" type="search" placeholder="검색어를 입력해주세요">
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">
-											<button type="submit" class="btn btn-primary d-md-block" id="search">검색</button>
+											<button type="submit" class="btn d-md-block" id="search">검색</button>
 										</div>
 									</div>
 								</div>
@@ -102,7 +132,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="row text-center" style="border-bottom: 1px solid black">
+					<div class="row text-center py-2" style="border-bottom: 1px solid gray">
 						<div class="col-md-2 d-none d-md-block">번호</div>
 						<div class="col-md-4 d-none d-md-block">제목</div>
 						<div class="col-md-2 d-none d-md-block">등록일</div>
@@ -110,7 +140,7 @@
 						<div class="col-md-2 d-none d-md-block">조회수</div>
 					</div>
 					<c:forEach var="i" items="${list}">
-						<div class="row" style="border-bottom: 1px solid black">
+						<div class="row py-2" style="border-bottom: 1px solid #efefef">
 							<div class="col-md-2 d-none d-md-block text-center">${i.rn}</div>
 							<div class="col-md-4 col-12 text-left"><a href="/employmentView.notice?seq=${i.n_seq}">${i.title}</a></div>
 							<div class="col-md-2 col-3 text-center">

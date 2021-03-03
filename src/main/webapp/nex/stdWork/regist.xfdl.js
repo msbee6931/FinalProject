@@ -242,7 +242,7 @@
             obj.set_text("▷ 개설강좌 리스트");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("gr_myClassList","240","271",null,null,"30","29",null,null,null,null,this);
+            obj = new Grid("gr_myClassList","240",null,null,"220","30","29",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_myClass");
             obj.set_autofittype("col");
@@ -250,7 +250,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"45\"/><Column size=\"60\"/><Column size=\"46\"/><Column size=\"75\"/><Column size=\"236\"/><Column size=\"47\"/><Column size=\"68\"/><Column size=\"226\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"취소\"/><Cell col=\"1\" text=\"이수구분\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"과목코드\"/><Cell col=\"4\" text=\"과목명\"/><Cell col=\"5\" text=\"학점\"/><Cell col=\"6\" text=\"담당교수\"/><Cell col=\"7\" text=\"강의시간\"/><Cell col=\"8\" text=\"강의실\"/></Band><Band id=\"body\"><Cell displaytype=\"buttoncontrol\" text=\"취소\" cursor=\"pointer\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:classPart\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"gds_part\" combocodecol=\"id\" combodatacol=\"name\"/><Cell col=\"2\" text=\"bind:grade\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:classSeq\" textAlign=\"center\" displaytype=\"text\" maskeditformat=\"########\"/><Cell col=\"4\" text=\"bind:className\" cursor=\"pointer\" textDecoration=\"underline\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"5\" text=\"bind:classPoint\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:proName\" textAlign=\"center\"/><Cell col=\"7\" text=\"bind:classTime\" textAlign=\"center\" wordWrap=\"english\"/><Cell col=\"8\" text=\"bind:classRoom\" textAlign=\"center\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00","240","242","150","25",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_00","240","gr_classList:4","150",null,null,"253",null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("▷ 수강신청내역 리스트");
             this.addChild(obj.name, obj);
@@ -784,10 +784,8 @@
             this.div_Info.form.classTime.addEventHandler("onclick",this.div_Info_classTime_onclick,this);
             this.div_Info.form.btnRetrieve.addEventHandler("onclick",this.div_Info_btnRetrieve_onclick,this);
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
-            this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.Static01_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
             this.gr_myClassList.addEventHandler("oncellclick",this.gr_myClassList_oncellclick,this);
-            this.gr_myClassList.addEventHandler("onheadclick",this.gr_myClassList_onheadclick,this);
             this.Static01_00_00.addEventHandler("onclick",this.Div00_Static01_onclick,this);
         };
 

@@ -326,11 +326,16 @@
         		"students_ds=out_ds",//()_out_ds
         		"sCode="+this.std_code,//argument
         		"fn_callback_stdInfo"
-        		)
+        	)
         };
 
         this.fn_callback_stdInfo = function()
         {
+        	var rest = this.students_ds.getColumn(0,"rest");
+        	if(rest=='Y')
+        	{
+        		this.Div00.form.btn_commit.set_text("휴학 처리 완료");
+        	}
         	this.transaction(
         		"selectOne.absence",//id
         		"/absence/selectOne.absence",//url (절대경로)
@@ -338,7 +343,7 @@
         		"absence_ds=out_ds",//()_out_ds
         		"seq="+this.seq,//argument
         		"fn_callback_absenceOne"
-        		)
+        	)
         }
 
         this.fn_callback_absenceOne = function()
@@ -350,11 +355,17 @@
         		"absFileList_ds=out_ds",//()_out_ds
         		"seq="+this.seq,//argument
         		"fn_callback"
-        		)
+        	)
         }
-        this.Div00_btn_add_onclick = function(obj,e)
+        //----다운로드
+        this.Div00_btn_down_onclick = function(obj,e)
         {
         	var objDs = this.absFileList_ds;
+        	var arr = objDs.extractRows("chk==1");
+        	if(arr.length==0||arr==-1){
+        		alert("선택된항목이없습니다.");
+        		return;
+        	};
 
         	this.FileDownTransfer00.setPostData("seq",this.seq); // 현재 게시물의seq를 넘김
         	//총 첨부파일 중 체크 된 파일만 이벤트 발생
@@ -362,7 +373,7 @@
 
         	for(var i=0; i< objDs.getRowCount(); i++){
 
-        			if(objDs.getColumn(i,"chk") == "1"){
+        		if(objDs.getColumn(i,"chk") == "1"){
         			// 체크된 파일만 서버로 변수를 보냄
 
         			var savedFileName = objDs.getColumn(i,"savedFileName");
@@ -374,32 +385,64 @@
         		}
         	}
 
-          //파일다운로드 실행
-          this.FileDownTransfer00.download("/absence/downAbsFile.absence");
+        	//파일다운로드 실행
+        	this.FileDownTransfer00.download("/absence/downAbsFile.absence");
 
-          //검색 후 지정 체크박스 해제
+        	//검색 후 지정 체크박스 해제
         	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
-        	for(let i =0; i<this.schFileList_ds.getRowCount();i++){
-        		if(this.schFileList_ds.getColumn(i,"chk") == 1){
-        			this.schFileList_ds.setColumn(i,"chk",0);
+        	for(let i =0; i<this.absFileList_ds.getRowCount();i++){
+        		if(this.absFileList_ds.getColumn(i,"chk") == 1){
+        			this.absFileList_ds.setColumn(i,"chk",0);
         		}
         	}
         };
 
 
+        //파일다운로드 성공시 (NRE 에서만 지원)
+        this.FileDownTransfer00_onsuccess = function(obj,e)
+        {
+        	var sMsg = e.targetfullpath +"\n"+  e.url;
+
+        	alert(sMsg);
+        };
+
+        //파일다운로드 실패시 (NRE 에서만 지원)
+        this.FileDownTransfer00_onerror = function(obj,e)
+        {
+        	var sMsg = ">>>>>>>>>>>>>>>>>>>>>>>>>>  ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>\n";
+        	sMsg += "statuscode: "+e.statuscode+"\n";
+        	sMsg += "requesturi: "+e.requesturi+"\n";
+        	sMsg += "locationuri: "+e.locationuri+"\n" ;
+        	sMsg += "errormsg: "+e.errormsg+"\n";
+
+        	alert(sMsg);
+        };
+
         //학생 테이블 휴학 처리 하기
 
         this.Div00_btn_commit_onclick = function(obj,e)
         {
-        	this.transaction(
-        		"updateStdAbs.students",//id
-        		"/students/updateStdAbs.students",//url (절대경로)
-        		"",//in_ds:U
-        		"students_ds=out_ds",//()_out_ds
-        		"sCode="+this.std_code,//argument
-        		"fn_callback"
+        	var check = this.confirm("정말로 휴학을 승인하시겠습니까?")
+        	if(check)
+        	{
+        		this.transaction(
+        			"updateStdAbs.students",//id
+        			"/students/updateStdAbs.students",//url (절대경로)
+        			"",//in_ds:U
+        			"students_ds=out_ds",//()_out_ds
+        			"sCode="+this.std_code,//argument
+        			"fn_callback_updAbs"
         		)
+        	}
+        	else
+        	{
+        		return;
+        	}
         };
+        this.fn_callback_updAbs = function()
+        {
+        	this.Div00.form.btn_commit.set_text("휴학 처리 완료");
+        }
 
         this.Div00_Grid00_onheadclick = function(obj,e)
         {
@@ -435,20 +478,12 @@
 
         this.Div00_btn_ok_onclick = function(obj,e)
         {
-        	this.transaction(
-        		"updateReadAbs.absence",//id
-        		"/absence/updateReadAbs.absence",//url (절대경로)
-        		"",//in_ds:U
-        		"",//()_out_ds
-        		"seq="+this.seq,//argument
-        		"fn_callback_read"
-        		)
+        	this.close();
         };
 
-        this.fn_callback_read = function()
-        {
-        	this.close();
-        }
+
+
+
 
         });
         
@@ -456,13 +491,14 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.reqAbsence_pop_onload,this);
-            this.Div00.form.btn_down.addEventHandler("onclick",this.Div00_btn_add_onclick,this);
+            this.Div00.form.btn_down.addEventHandler("onclick",this.Div00_btn_down_onclick,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.btn_ok.addEventHandler("onclick",this.Div00_btn_ok_onclick,this);
             this.Div00.form.cal_sDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.cal_eDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.btn_commit.addEventHandler("onclick",this.Div00_btn_commit_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
+            this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };
 
         this.loadIncludeScript("reqAbsence_pop.xfdl");

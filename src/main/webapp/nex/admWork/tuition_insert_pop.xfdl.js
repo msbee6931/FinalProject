@@ -197,7 +197,7 @@
         		"students_ds=out_ds",//()_out_ds
         		"sCode="+this.std_code,//argument
         		"fn_callback_stdInfo"
-        		)
+        	)
 
         	//maskEdit 기본값 0처리 하기
         	this.Div00.form.medt_a.set_value(0);
@@ -221,29 +221,37 @@
         	//tuition_ds 장학금 db에 학번 및 등록금 금액 넣기
 
 
-        		var nRow = this.tuition_ds.addRow();
-        		this.tuition_ds.setColumn(nRow,"std_code",this.std_code);
-        		var grade=this.students_ds.getColumn(0,"colGrade");
-        		this.tuition_ds.setColumn(nRow,"std_grade",grade);
-        		this.tuition_ds.setColumn(nRow,"t_enter",inputa);
-        		this.tuition_ds.setColumn(nRow,"t_class",inputb);
-        		this.tuition_ds.setColumn(nRow,"t_std",inputc);
-        		this.tuition_ds.setColumn(nRow,"t_grd",inputd);
-        		this.tuition_ds.setColumn(nRow,"t_ore",inpute);
-        		this.tuition_ds.setColumn(nRow,"tSum",tSum);
+        	var nRow = this.tuition_ds.addRow();
+        	this.tuition_ds.setColumn(nRow,"std_code",this.std_code);
+        	var grade=this.students_ds.getColumn(0,"colGrade");
+        	this.tuition_ds.setColumn(nRow,"std_grade",grade);
+        	this.tuition_ds.setColumn(nRow,"t_enter",inputa);
+        	this.tuition_ds.setColumn(nRow,"t_class",inputb);
+        	this.tuition_ds.setColumn(nRow,"t_std",inputc);
+        	this.tuition_ds.setColumn(nRow,"t_grd",inputd);
+        	this.tuition_ds.setColumn(nRow,"t_ore",inpute);
+        	this.tuition_ds.setColumn(nRow,"tSum",tSum);
 
+        	var check = this.confirm("입력 사항을 저장하시겠습니까?");
+        	if(check)
+        	{
 
-        	this.transaction(
-        		"insertTution",//id
-        		"/tuition/insert.tuition",//url (절대경로)
-        		"in_ds=tuition_ds:U",//in_ds:U
-        		"",//()_out_ds
-        		"",//argument
-        		"fn_callback"
+        		this.transaction(
+        			"insertTution",//id
+        			"/tuition/insert.tuition",//url (절대경로)
+        			"in_ds=tuition_ds:U",//in_ds:U
+        			"",//()_out_ds
+        			"",//argument
+        			"fn_callback"
         		)
 
-        	//확인
-        	this.close();
+        		//확인
+        		this.close();
+        	}
+        	else
+        	{
+        		return;
+        	}
 
         };
 
