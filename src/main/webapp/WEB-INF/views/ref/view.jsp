@@ -15,7 +15,13 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 #box {
 	min-height:500px;
 }
@@ -54,7 +60,7 @@
 				</div>
 			<div class="row">
 				<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
-				<div class="col-xl-12 " id="box">
+				<div class="col-xl-12 mb-5" id="box">
 					<div class="row mx-2 ">
 						<div class="col-12 py-4" style="border-bottom: 2px solid black">
 							<H3>
