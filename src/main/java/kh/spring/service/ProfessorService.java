@@ -17,4 +17,7 @@ public class ProfessorService {
 	public List<ProfessorDTO> selectAll(){
 		return dao.selectAll();
 	}
+	public ProfessorDTO professorInfo(ProfessorDTO dto) {
+		return dao.professorInfo(dto);
+	}
 }

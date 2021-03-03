@@ -69,6 +69,9 @@ public class AbsenceService {
 		public List<RestDTO> selectAllRest() {
 			return aDao.selectAllRest();
 		}
+		public int deleteRest(int seq) {
+			return aDao.deleteRest(seq);
+		}
 
 		
 		public File getCompressZipFile(ArrayList arrSaved, String filePath, String compressName) throws Exception {
@@ -94,7 +97,7 @@ public class AbsenceService {
 			   
 			  try {
 			    // Zip 파일생성
-			   // zos = new ZipArchiveOutputStream(new BufferedOutputStream(new FileOutputStream(outZipNm))); 
+			    zos = new ZipArchiveOutputStream(new BufferedOutputStream(new FileOutputStream(outZipNm))); 
 			    for( int i=0; i < files.length; i++ ){
 			      //encoding 설정
 			      zos.setEncoding("UTF-8");

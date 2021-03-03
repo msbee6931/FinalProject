@@ -13,6 +13,7 @@ import com.nexacro.uiadapter17.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
 
 import kh.spring.dto.PostMessageDTO;
+import kh.spring.dto.ProfessorDTO;
 import kh.spring.dto.StudentsDTO;
 import kh.spring.service.PostMessageService;
 import kh.spring.service.ProfessorService;
@@ -21,12 +22,11 @@ import kh.spring.service.StudentsService;
 @Controller
 public class ProfessorController {
 
-	@Autowired
-	private PostMessageService PMservice;
-	@Autowired
-	private HttpSession session;
+
 	@Autowired
 	private StudentsService sService;
+	@Autowired
+	private ProfessorService pService;
 	
 	@RequestMapping("/deptStudents.pro")
 	public NexacroResult deptStudents(@ParamVariable(name="deptCode")String deptCode) {
@@ -38,6 +38,14 @@ public class ProfessorController {
 		nr.addDataSet("out_ds",list);
 		return nr;
 	}
-	
+	@RequestMapping("/professorInfo.pro")
+	public NexacroResult professorInfo(@ParamVariable(name="pCode")int pCode) {
+		NexacroResult nr = new NexacroResult();
+		ProfessorDTO dto = new ProfessorDTO();
+		dto.setP_seq(pCode);
+		dto = pService.professorInfo(dto);
+		nr.addDataSet("out_ds",dto);
+		return nr;
+	}
 	
 }
