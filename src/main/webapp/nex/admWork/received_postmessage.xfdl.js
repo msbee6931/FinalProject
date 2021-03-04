@@ -60,7 +60,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"49\"/><Column size=\"57\"/><Column size=\"109\"/><Column size=\"101\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:confirm\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:sender\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:receiver\" textAlign=\"center\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00","320",null,null,"189","10","49",null,null,null,null,this.Div00.form);
+            obj = new Div("Div00","330",null,null,"189","10","49",null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             obj.set_text("");
             obj.set_cssclass("div_line");
@@ -71,44 +71,44 @@
             obj.set_cssclass("txt_default");
             this.Div00.form.Div00.addChild(obj.name, obj);
 
-            obj = new Div("Div00_00","320","40",null,null,"10","275",null,null,null,null,this.Div00.form);
+            obj = new Div("Div00_00","330","40",null,null,"10","275",null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_text("");
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new TextArea("TextArea00","8","8","672","144",null,null,null,null,null,null,this.Div00.form.Div00_00.form);
+            obj = new TextArea("TextArea00","8","8",null,null,"7","9",null,null,null,null,this.Div00.form.Div00_00.form);
             obj.set_taborder("0");
             obj.set_cssclass("txt_default");
             this.Div00.form.Div00_00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","320","9","152","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00","330","9","152","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("받은 메세지");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","319","Div00_00:6","152","25",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00","329","Div00_00:6","152","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_text("답장 쓰기");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("del_btn",null,null,"100","25","700","13",null,null,null,null,this.Div00.form);
+            obj = new Button("del_btn","219",null,"100","25",null,"13",null,null,null,null,this.Div00.form);
             obj.set_taborder("5");
             obj.set_text("삭제");
             obj.set_cssclass("btn_del");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("send_btn",null,null,"100","25","25","14",null,null,null,null,this.Div00.form);
+            obj = new Button("send_btn",null,null,"100","25","10","14",null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_text("전송");
             obj.set_cssclass("btn_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","153","451","87","25",null,null,null,null,null,null,this);
+            obj = new Button("Button00","153",null,"87","25",null,"44",null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("확인");
             obj.set_cssclass("btn_default");
