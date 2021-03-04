@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("free", this);
-            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"writer\">aa</Col><Col id=\"title\">cc</Col></Row><Row><Col id=\"writer\">bb</Col><Col id=\"title\">dd</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"INT\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"writer\" type=\"STRING\" size=\"256\"/><Column id=\"contents\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"write_date\" type=\"STRING\" size=\"256\"/><Column id=\"view_count\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -110,7 +110,7 @@
             obj.set_text("조회");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("Edit01","341","413","15","10",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("Edit01","350","444","38","25",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("6");
             obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
@@ -131,7 +131,9 @@
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-
+            obj = new BindItem("item0","Div00.form.Edit01","value","free","seq");
+            this.addChild(obj.name, obj);
+            obj.bind();
         };
         
         this.loadPreloadList = function()
@@ -253,6 +255,7 @@
             this.Div00.form.Div00.form.enlargement.addEventHandler("onclick",this.Div00_Div00_enlargement_onclick,this);
             this.Div00.form.del_btn.addEventHandler("onclick",this.Div00_del_btn_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
+            this.Div00.form.Edit01.addEventHandler("onchanged",this.Div00_Edit01_onchanged,this);
         };
 
         this.loadIncludeScript("freeboard.xfdl");
