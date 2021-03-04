@@ -442,7 +442,10 @@
 		});
 		
 		$("#message").on("keydown",function(e){
-			if(e.keyCode==13){
+			/* if(e.shiftKey && e.keyCode==13){
+				var msg = $("#message").val();
+				$("#message").val(msg+"<br>");
+			}else  */if(e.keyCode==13){
 				var userId = $("#userId").val();
 				var msg = $("#message").val();
 				var roomNumber = $("#roomNumber").val();

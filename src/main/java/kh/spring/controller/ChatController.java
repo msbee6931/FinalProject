@@ -342,7 +342,6 @@ public class ChatController {
 	public void deleteFriend(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		String userId = request.getParameter("userId");
 		String friendId = request.getParameter("friendId");
-		System.out.println("요기는 controller userId는 "+userId+" friendId는 "+friendId);
 		int result = service.deleteFriend(userId,friendId);
 		
 		PrintWriter pw = response.getWriter();

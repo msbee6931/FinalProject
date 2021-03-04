@@ -148,15 +148,19 @@
 	$(document).on("click",".deleteFriend",function(){
 		var userId = $("#userId").val();
 		var friendId = $(this).siblings(".friendId").val();
-		$.ajax({
-			type: 'POST',
-			url: '/chatting/deleteFriend',
-			data: {userId:userId,friendId:friendId},
-			dataType: 'json'
-		}).done(function(resp){
-			alert(resp.msg);
-			location.reload();
-		});
+		
+		var result = confirm("친구를 삭제하시겠습니까?");
+		if(result){
+			$.ajax({
+				type: 'POST',
+				url: '/chatting/deleteFriend',
+				data: {userId:userId,friendId:friendId},
+				dataType: 'json'
+			}).done(function(resp){
+				alert(resp.msg);
+				location.reload();
+			});
+		}
 	});
 	
 	$("#inputBtn").on("click",function(){
