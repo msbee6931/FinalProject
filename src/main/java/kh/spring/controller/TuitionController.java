@@ -90,7 +90,7 @@ public class TuitionController {
 		TuitionDTO dto = new TuitionDTO();
 			try {
 				dto  = tService.selectByStd_code(std_code);
-				nr.addVariable("confirm",dto.getSeq());
+				nr.addVariable("confirm",session.getAttribute("login"));
 			}catch(Exception e) {
 				nr.addVariable("confirm","no");
 			}
