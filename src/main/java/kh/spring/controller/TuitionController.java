@@ -86,7 +86,6 @@ public class TuitionController {
 	@RequestMapping("TuitinConfirm.nex")
 	public NexacroResult tuitionConfirm(@ParamVariable(name = "std_code") String std_code) {
 		NexacroResult nr = new NexacroResult();
-		System.out.println("std_code : "+std_code);
 		TuitionDTO dto = new TuitionDTO();
 			try {
 				dto  = tService.selectByStd_code(std_code);
