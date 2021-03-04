@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자유게시판 글쓰기</title>
 
 <!-- include libraries(jQuery, bootstrap) -->
 <link
@@ -34,168 +34,141 @@
 }
 *{
 	font-family: 'Nanum Gothic', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
 }
-div {
-	border: 1px solid black
-}
-
+/* div {
+	border: 1px solid gray;
+} */
 .container {
-	width: 1000px;
+ 	width: 1000px;
 	height: 600px;
-	position: relative;
+/* 	position: relative;  */
 	text-align: center;
-	background-color: #3333CC;
-}
-
-.title {
-	width: 100%;
-	hight: 30px;
-	float: left;
-	background-color:white;
-}
-
-.bar1 {
-	float: left;
-	width: 5%;
-	background-color:white;
-}
-
-.bar2 {
-	float: left;
-	width: 50%;
-	background-color:white;
-}
-
-.bar3 {
-	float: left;
-	width: 20%;
-	background-color:white;
-}
-
-.bar4 {
-	float: left;
-	width: 20%;
-	background-color:white;
-}
-
-.bar5 {
-	float: left;
-	width: 5%;
-	background-color:white;
+/* 	margin: 0px; */
+	padding: 0px;
+	border: 1px solid lightgray;
 }
 
 .main {
-	float: left;
-	width: 100%;
-	height: 500px;
-	background-color:white;
-		overflow:scroll;
+   height: 500px;
+/*    background-color: white; */
+   overflow:auto;
 }
 
-.rev {
+.comment{
+	background-color: #efefef;
+	padding: 10px;
+}
+.info {
+	display: flex;
+	justify-content: space-around;
+	background-color: #efefef;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.comment-wrap{
 	width: 1000px;
-	height: 300px;
-	position: relative;
-	left: 17%;
-}
-
-.revBTN {
-	width: 1000px;
-	height: 300px;
-	position: relative;
-	left: 17%;
-	text-align: right
-}
-
-.revlist {
-	width: 1000px;
-	height: 800px;
-	position: relative;
-	left: 17%;
-}
-
-.rUpdModal {
-	width: 600px;
-	height: 200px;
-	position: relative;
-	left: 17%;
-}
-
-.reply{
-	position: relative;
-	left:17%;
-	width:1000px;
-	height:200px;
-	background-color: #435a7c;
-}
-
-.mainReply{
-	position: relative;
-	top:3%;
-	left:5%;
-	width:900px;
-	height:180px;
-	background-color: white;
-}
-
-#btn2,#btn,#upt{
-	border-radius : 10px;
-	width:100px;
-	height:30px;
-	color: white;
-	background-color: #435a7c;
-	border: 1px solid white;
+	height: 600px;
+/* 	position: relative;  */
+	padding: 0px;
+	margin: auto;
 }
 .replyLine{
-	background-color: #6666FF;
-	width: 1000px;
-	height: 30px;
-	position: relative;
-	left: 17%;
 	text-align: center;
-	color: white;
-	line-height:30px;
+	margin: 20px 0px;
+}
+button,input[type='button'],input[type='submit'] {
+	padding: 12px;
+	border-style: none;
+	background-color: #efefef;
+	border-radius: 4px;
+}
+button:hover,input[type='button']:hover,input[type='submit']:hover{
+	background-color: lightgray
+}
+.replyLine2{
+ text-align: right;
+}
+#navi{
+	margin: 10px;
+	text-align:center;
+}
+.revlist{
+	margin-top: 10px;
+}.title{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}#mainReply{
+	background-color: lightgray;
+	width: 1000px;
+	height: 200px;
+	text-align: center;
+		padding: 10px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	color:green;
+}#reply{
+	width:100%;
+	height: 200px;
+	float:left;
+	background-color:white;
 }
 </style>
 </head>
 <body>
 	<div class="container">
+		<h4 class=title><b>건의게시판</b></h4>
 
-		<div class=title>자유게시판</div>
-
-		<div class=bar1>${dto.seq }</div>
-		<div class=bar2>${dto.title }</div>
-		<div class=bar3>${dto.writer }</div>
-		<div class=bar4>${dto.write_date }</div>
-		<div class=bar5>${dto.view_count }</div>
+		<div class="info">
+			<div class=bar1>${dto.seq }</div>
+			<div class=bar2>${dto.title }</div>
+			<div class=bar3>${dto.writer }</div>
+			<div class=bar4>${dto.write_date }</div>
+			<div class=bar5>${dto.view_count }</div>
+		</div>
 
 		<div class=main>${dto.contents }</div>
-
-
 
 		<div class=title>
 			<form action="/request/delete" method="post">
 				<input type=hidden id=seq name=seq value=${dto.seq }> <input
 					type=hidden id=cpage name=cpage value=1>
 				<c:if test="${id == dto.writer}">
-					<input type=submit id=btn value="삭제">
-					<input type=button id=upt value="수정하기">
+					<div class="btns">
+						<input type="submit" id="btn" value="삭제">
+						<input type="button" id="upt" value="수정하기">
+					</div>
 					<script>
 						document.getElementById("upt").onclick=function(){
 						  	location.href="/request/updatePage?seq="+seq.value;
 					  	 }
 					</script>
 				</c:if>
-				<input type=button id=btn2 value="돌아가기">
 			</form>
+			<input type="button" id="btn2" value="돌아가기">
 		</div>
 	</div>
-		<div class= replyLine>
-		관리자의 답변
-	</div>
-	<div class = reply>
-		<div class= mainReply>${dto.reply }</div>
-	</div>
+	
+		<h4 class="replyLine"><b>관리자의 대답</b></h4>
+
+		<c:choose>
+			<c:when test="${dto.reply == null }">
+			<div class="col-12" id = reply>
+				<div class="col-12 col-sm-2"></div>
+				<div id= mainReply class="col-12 col-sm-10">아직 관리자의 답변이 없습니다.</div>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="col-12" id =reply >
+				<div class="col-12 col-sm-2"></div>
+				<div id= mainReply class="col-12 col-sm-10">${dto.reply }</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
+
 
 				<!-- footer -->
 		<footer>

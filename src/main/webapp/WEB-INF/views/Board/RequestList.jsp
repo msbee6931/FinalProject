@@ -113,9 +113,9 @@ text-align:center;
 					</div>
 						<div class="collapse navbar-collapse" id="listCollapse" >
 							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item nav-li" ><a class="nav-link active" href="/free/boardList">자유게시판</a>
+								<li class="nav-item nav-li" ><a class="nav-link" href="/free/boardList">자유게시판</a>
 								</li>
-								<li class="nav-item nav-li"><a class="nav-link " href="/request/boardList">건의게시판</a>
+								<li class="nav-item nav-li"><a class="nav-link active " href="/request/boardList">건의게시판</a>
 								</li>
 							</ul>
 						</div>

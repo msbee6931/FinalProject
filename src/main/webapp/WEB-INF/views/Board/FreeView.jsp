@@ -93,6 +93,7 @@ button:hover,input[type='button']:hover,input[type='submit']:hover{
 }
 #navi{
 	margin: 10px;
+	text-align:center;
 }
 .revlist{
 	margin-top: 10px;
