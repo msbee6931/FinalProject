@@ -22,8 +22,11 @@
 }
 /* Profile */
 #roomName{
-	width: 100%;
-	margin: 10px 0px;
+	width: 90%;
+	margin: 10px 35px;
+	padding: 10px;
+	border: 1px solid lightgray;
+	border-radius: 100px;
 }
 .friend{
 	display: flex;
@@ -33,18 +36,34 @@
 .friendName {
 	cursor: pointer;
 }
+.btns{
+	display: flex;
+	justify-content: center;
+}
+.btns>div{
+	border-style: none;
+	border-radius: 4px;
+	padding: 10px;
+	color: gray;
+	cursor: pointer;
+	background-color: #efefef;
+	text-align: center;
+	margin: 0px 20px;
+}
+.btns>div:hover{
+	background-color: lightgray;
+}
 </style>
 </head>
 <body>
-	<div class="container">
-		<div class="row">채팅방 생성</div>
+	<div class="container-fluid p-3">
 		<input id="roomName" class="row" placeholder="방 제목을 입력해주세요.">
-		<div class="row profile">
+		<div class="row py-3 profile">
 			<c:choose>
 				<c:when test="${friendList != null }">
 					<c:forEach var="dto" items="${friendList }">
-						<div class="row p-0 friend">
-							<div class="col-2 profileImg other">
+						<div class="row p-0 py-2 friend">
+							<div class="col-2 profileImg other text-center">
 								<c:forEach var="aDto" items="${allUser}">
 									<c:if test="${dto.getFriendId() == aDto.getUserId() }">
 										<c:choose>
@@ -66,8 +85,8 @@
 			</c:choose>
 		</div>
 		<div class="row btns">
-			<input type="button" id="complete" class="col-12 col-sm-6" value="완료">
-			<input type="button" id="close" class="col-12 col-sm-6" value="취소">
+			<div id="complete" class="col-sx-12 col-sm-5"><b>완료</b></div>
+			<div id="close" class="col-sx-12 col-sm-5"><b>취소</b></div>
 		</div>
 	</div>
 

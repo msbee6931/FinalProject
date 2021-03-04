@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자유게시판 글쓰기</title>
 
 <!-- include libraries(jQuery, bootstrap) -->
 <link
@@ -28,186 +28,130 @@
 
 
 <style>
-div {
-	border: 1px solid black
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
 }
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+/* div {
+	border: 1px solid gray;
+} */
 .container {
+ 	width: 1000px;
+	height: 600px;
+/* 	position: relative;  */
+	text-align: center;
+/* 	margin: 0px; */
+	padding: 0px;
+	border: 1px solid lightgray;
+}
+
+.main {
+   height: 500px;
+/*    background-color: white; */
+   overflow:auto;
+}
+
+.comment{
+	background-color: #efefef;
+	padding: 10px;
+}
+.info {
+	display: flex;
+	justify-content: space-around;
+	background-color: #efefef;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.comment-wrap{
 	width: 1000px;
 	height: 600px;
-	position: relative;
-	text-align: center;
-	background-color: #CCFFCC;
-}
-.title {
-	width: 100%;
-	hight: 30px;
-	float: left;
-	background-color: white;
-}
-.bar1 {
-	float: left;
-	width: 5%;
-		background-color: white;
-}
-.bar2 {
-	float: left;
-	width: 50%;
-		background-color: white;
-}
-.bar3 {
-	float: left;
-	width: 20%;
-		background-color: white;
-}
-.bar4 {
-	float: left;
-	width: 20%;
-		background-color: white;
-}
-.bar5 {
-	float: left;
-	width: 5%;
-		background-color: white;
-}
-.main {
-	float: left;
-	width: 100%;
-	height: 500px;
-	background-color: white;
-	overflow:scroll;
-}
-.rev {
-	width: 1000px;
-	height: 150px;
-	position: relative;
-	left: 17%;
-}
-.revBTN {
-	width: 1000px;
-	height: 300px;
-	position: relative;
-	left: 17%;
-	text-align: right;
-}
-.revlist {
-	width: 1000px;
-	position: relative;
-	left: 17%;
-	border:1px solid white;
-}
-.rUpdModal {
-	width: 600px;
-	height: 200px;
-	position: relative;
-	left: 30%;
-}
-#btn2,#btn,#upt,#modUpdBtn,#modCanBtn{
-	border-radius : 10px;
-	width:100px;
-	height:30px;
-	color: white;
-	background-color: #435a7c;
-	border: 1px solid white;
-}
-#write{
-	border-radius : 10px;
-	width:100px;
-	height:30px;
-	color: black;
-	background-color: #CCFFCC;
-	border: 1px solid white;
+/* 	position: relative;  */
+	padding: 0px;
+	margin: auto;
 }
 .replyLine{
-	background-color: green;
-	width: 1000px;
-	height: 30px;
-	position: relative;
-	left: 17%;
 	text-align: center;
-	color: white;
-	line-height:30px;
+	margin: 20px 0px;
+}
+button,input[type='button'],input[type='submit'] {
+	padding: 12px;
+	border-style: none;
+	background-color: #efefef;
+	border-radius: 4px;
+}
+button:hover,input[type='button']:hover,input[type='submit']:hover{
+	background-color: lightgray
 }
 .replyLine2{
-	background-color: green;
-	width: 1000px;
-	height: 50px;
-	position: relative;
-	left: 17%;
-	text-align: right;
-	color: white;
+ text-align: right;
 }
-.replyLine3{
-	background-color: #66CC66;
-	width: 1000px;
-	height: 50px;
-	position: relative;
-	left: 17%;
-	text-align: center;
-	color: white;
-	line-height:50px;
-	font-size:20px;
+#navi{
+	margin: 10px;
 }
-a{
-	color:white;
-	text-underline:none;
-}
-.BtnsArea{
-	text-align:right;
+.revlist{
+	margin-top: 10px;
+}.title{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
 }
 </style>
 </head>
 <body>
 	<div class="container">
+		<h4 class=title><b>자유게시판</b></h4>
 
-	
-		<div class=title>자유게시판</div>
-
-		<div class=bar1>${dto.seq }</div>
-		<div class=bar2>${dto.title }</div>
-		<div class=bar3>${dto.writer }</div>
-		<div class=bar4>${dto.write_date }</div>
-		<div class=bar5>${dto.view_count }</div>
+		<div class="info">
+			<div class=bar1>${dto.seq }</div>
+			<div class=bar2>${dto.title }</div>
+			<div class=bar3>${dto.writer }</div>
+			<div class=bar4>${dto.write_date }</div>
+			<div class=bar5>${dto.view_count }</div>
+		</div>
 
 		<div class=main>${dto.contents }</div>
-
-
 
 		<div class=title>
 			<form action="/free/delete" method="post">
 				<input type=hidden id=seq name=seq value=${dto.seq }> <input
 					type=hidden id=cpage name=cpage value=1>
 				<c:if test="${id == dto.writer}">
-					<input type=submit id=btn value="삭제">
-					<input type=button id=upt value="수정하기">
+					<div class="btns">
+						<input type="submit" id="btn" value="삭제">
+						<input type="button" id="upt" value="수정하기">
+					</div>
 					<script>
 						document.getElementById("upt").onclick=function(){
 						  	location.href="/free/updatePage?seq="+seq.value;
 					  	 }
 					</script>
 				</c:if>
-				<input type=button id=btn2 value="돌아가기">
 			</form>
+			<input type="button" id="btn2" value="돌아가기">
 		</div>
 	</div>
-
-	<div class= replyLine>
-		댓글 등록 하기
-	</div>
+	
+	<div class="comment-wrap">
+		<h4 class="replyLine"><b>댓글 등록 하기</b></h4>
 	
 	<form action=/fcomment/insert method="post"
 		enctype="multipart/form-data">
 		<div class=rev>
 			<textarea id=description name=rev_contents></textarea>
 		</div>
-		<div class= replyLine2>
+		<div class="replyLine2">
 			<input type="hidden" id=main_seq name=main_seq value=${dto.seq }>
 			<input type="submit" id=write value="글 쓰기">
 		</div>
 	</form>
 
-	<div class= replyLine3>
-		댓글
-	</div>
+	<!-- <h5 class= replyLine3><b>댓글</b></h5> -->
 
 	<div class="revlist" id=revList>
 		<input type=hidden id=mSeq value=${dto.seq }>
@@ -240,8 +184,9 @@ a{
 	</div>
 
 
-			<div class=replyLine3 id =navi><a href=/free/view?page=${ppage }&seq=${seq}><-</a> ${navi } <a href=/free/view?page=${npage}&seq=${seq}>-></a></div>
-
+			<div class=replyLine3 id="navi"><a href=/free/view?page=${ppage }&seq=${seq}><-</a> ${navi } <a href=/free/view?page=${npage}&seq=${seq}>-></a></div>
+		
+	</div>
 	<script>      
 
 	document.getElementById("btn2").onclick=function(){

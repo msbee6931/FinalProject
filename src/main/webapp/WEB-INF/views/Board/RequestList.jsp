@@ -16,31 +16,13 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-@font-face {
-	font-family: 'GmarketSansBold';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
 }
-
-@font-face {
-	font-family: 'GmarketSansMedium';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GmarketSansLight';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+	/* box-sizing: border-box; */
 }
 
 a {
@@ -50,72 +32,54 @@ a {
 li {
 	list-style: none;
 }
-
-* {
-	box-sizing: border-box;
-}
-
-.headt1 {
-	font-family: 'GmarketSansMedium';
-	font-size: 13px;
-	text-align: center;
-	color: white;
-	background-color: #435a7c;
-}
-
-.headt2 {
-	font-family: 'GmarketSansLight';
-	background-color: white;
-}
-
-nav {
-	background-color: white;
-}
-
-.nav-item {
-	font-size: 20px;
-}
-
-#pop {
-	cursor: pointer;
-}
-
-#subLabel {
-	width: fit-content;
-	color: white;
+.container{
+	 /* display: flex; */
 }
 
 #box {
-	border: 1px solid black;
-	border-radius: 10px;
+	min-height:500px;
+}
+#nav-ul{
+	width:100%;
+}
+#subLabel{
+	background-color: #193461;
+	color:white;
+	max-width:200px;
 }
 
-.main {
-	height: 800px;
-	border: 1px solid black;
+#btnCol{
+	background-color: #193461;
+	color:white;
 }
 
-.choose {
-	border: 3px solid #330099;
-	border-radius: 10px;
-	width: 10%;
-	height: 200px;
-	float: left;
-	line-height: 45px;
-	text-align: center;
-	font-size: 20px;
-	text-decoration-line: underline;
+#sideBox{
+	max-height:300px;
+}
+#search, #write{
+	background-color: #495d8f;
+	color: #ffffff;
+}
+#search:hover,
+#write:hover {
+	background-color: #193461;
+}
+#nav-ul>li>a.active{
+	background-color :#000d37;
+	color: white;
+}
+#nav-ul>li>a:hover,
+#nav-ul>li>a:focus {
+  background-color: #495d8f;
+  color: white;
 }
 
-.blank {
-	border: 1px solid white;
-	float: left;
-	width: 10%;
+.nav-li{
+	border-bottom:1px solid black;
 }
-
-#write {
-	position: relative;
-	left: 1050px;
+.write{
+	display: flex;
+	justify-content: flex-end;
 }
 .navi{
 text-align:center;
@@ -123,20 +87,44 @@ text-align:center;
 </style>
 </head>
 <body>
-
 	<div class="contatiner">
 		<jsp:include page="/WEB-INF/views/topHeader.jsp" />
 		<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
-
-			<div class="choose">
-				<br> <a href="/free/boardList">자유게시판</a> <br> <a
-					href="/request/boardList">건의게시판</a>
+		<div class="container pb-5">
+			<div class="row pt-3">
+			<div class="d-flex flex-row-reverse">
+				<div class="bd-highlight d-none d-lg-block">
+					<h5>
+						<a href="/">Home&gt;</a><a href="/free/boardList">게시판&gt;</a><a href="/request/boardList">건의게시판</a>
+					</h5>
+				</div>
 			</div>
-
-			<div class="blank"></div>
-			<div class="row">
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2 d-grid text-center" id="sideBox">
+					<!--collapse 추가  -->
+					<div class="col-12 d-none d-lg-block py-5" id="subLabel" >
+						<h3><b>건의게시판</b></h3>
+					</div>
+					<nav class="navbar navbar-expand-lg mb-2 nav-justified ">
+					<div class="col d-grid">
+						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" id="btnCol"><b>건의게시판</b></button>
+					</div>
+						<div class="collapse navbar-collapse" id="listCollapse" >
+							<ul class="navbar-nav flex-column" id="nav-ul">
+								<li class="nav-item nav-li" ><a class="nav-link active" href="/free/boardList">자유게시판</a>
+								</li>
+								<li class="nav-item nav-li"><a class="nav-link " href="/request/boardList">건의게시판</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			<!-- <div class="blank"></div> -->
+			
 				<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
-				<div class="col-xl-12 d- pt-4" id="box">
+				<div class="col-lg-10 d- pt-4" id="box">
 					<div class="row">
 						<div class="col-12">
 							<H3>
@@ -146,9 +134,8 @@ text-align:center;
 						<div class="col-12">
 							<form action=/request/search method="post" class="row">
 								<div class="col-md-6 order-md-2">
-									<div class="row p-4">
-										<div class="col-sm-12 col-md-3 p-0"></div>
-										<div class="col-sm-12 col-md-6 p-0">
+									<div class="row pb-3">
+										<div class="col-sm-12 col-md-9 p-0">
 											<input class="form-control" name="title" type="search"
 												placeholder="제목을 입력해주세요" required>
 										</div>
@@ -162,7 +149,7 @@ text-align:center;
 							</form>
 						</div>
 					</div>
-					<div class="row text-center" style="border-bottom: 1px solid black">
+					<div class="row text-center py-2" style="border-bottom: 1px solid gray">
 						<div class="col-md-2 d-none d-md-block">번호</div>
 						<div class="col-md-3 d-none d-md-block">제목</div>
 						<div class="col-md-2 d-none d-md-block">등록일</div>
@@ -171,7 +158,7 @@ text-align:center;
 						<div class="col-md-1 d-none d-md-block">조회수</div>
 					</div>
 					<c:forEach var="i" items="${list}">
-						<div class="row" style="border-bottom: 1px solid black">
+						<div class="row py-2" style="border-bottom: 1px solid #efefef">
 							<div class="col-md-2 d-none d-md-block text-center">${i.seq}</div>
 							<div class="col-md-3 col-12 text-left">
 								<a href="/request/view?seq=${i.seq }">${i.title }</a>
@@ -190,9 +177,9 @@ text-align:center;
 							<div class="col-md-1 d-none d-md-block text-center">${i.view_count}</div>
 						</div>
 					</c:forEach>
-					<div class=navi><a href=/request/boardList?cpage=${page-1}><-</a> ${navi } <a href=/request/boardList?cpage=${page+1}>-></a></div>
+					<div class="navi mt-3 text-center"><a href=/request/boardList?cpage=${page-1}><-</a> ${navi } <a href=/request/boardList?cpage=${page+1}>-></a></div>
 					<div class="write">
-						<button class="btn btn-primary d-md-block" id="write">글쓰기</button>
+						<button class="btn btn-primary d-md-block mt-3" id="write">글쓰기</button>
 					</div>
 				</div>
 			</div>
@@ -201,6 +188,7 @@ text-align:center;
 		<footer>
 			<jsp:include page="/WEB-INF/views/footer.jsp" />
 		</footer>
+	</div>
 </body>
 <script>
 	document.getElementById("write").onclick = function() {
