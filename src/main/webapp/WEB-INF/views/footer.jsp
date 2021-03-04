@@ -7,7 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 *{
+	font-family: 'Nanum Gothic', sans-serif;
 	box-sizing: border-box;
 	padding: 0px;
 	margin: 0px;

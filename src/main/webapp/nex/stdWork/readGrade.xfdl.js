@@ -149,10 +149,10 @@
         
         // User Script
         this.registerScript("readGrade.xfdl", function() {
-        this.sCode="";
+        this.objApp = nexacro.getApplication();
+        this.std_code=this.objApp.gds_students.getColumn(0,'s_seq');
         this.readGrade_onload = function(obj,e)
-        {
-        	this.sCode = "12345"; // 학번 로그인 후 받아올 예정
+        { // 학번 로그인 후 받아올 예정
 
         	var objDate = new Date();
         	if(objDate.getMonth()+1 && objDate.getMonth()+1 < 8){
@@ -168,7 +168,7 @@
         		,"/myClassList.nex"
         		,""
         		,"ds_class=out_ds"
-        		,"sCode="+this.sCode + " startTime="+startTime+" endTime="+endTime
+        		,"sCode="+this.std_code + " startTime="+startTime+" endTime="+endTime
         		,"fn_callback_myClass"
         	);
         };
@@ -182,7 +182,7 @@
         		,"/stdGradeOneList.nex"
         		,""
         		,"ds_grade=out_ds"
-        		,"sCode="+this.sCode
+        		,"sCode="+this.std_code
         		,"fn_callback_grade"
         	);
         }

@@ -18,12 +18,19 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-.head3{
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+/* .head3{
 	font-family: 'GmarketSansLight';
 }
 .head4{
 	font-family: 'GmarketSansBold';
-}
+} */
 
 .title {
 	border: 1px solid;
@@ -34,7 +41,7 @@
 }
 
 .sub {
-	font-family: 'GmarketSansLight';
+/* 	font-family: 'GmarketSansLight'; */
 	font-size: 20px;
 }
 
@@ -46,11 +53,11 @@
 .a2 {
 	text-decoration: none;
 	color: white;
-	font-family: 'GmarketSansLight';
+/* 	font-family: 'GmarketSansLight'; */
 }
 
 .contents{
-	font-family: 'GmarketSansLight';
+/* 	font-family: 'GmarketSansLight'; */
 }
 </style>
 </head>

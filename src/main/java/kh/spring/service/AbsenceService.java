@@ -69,8 +69,8 @@ public class AbsenceService {
 		public List<RestDTO> selectAllRest() {
 			return aDao.selectAllRest();
 		}
-		public int deleteRest(int seq) {
-			return aDao.deleteRest(seq);
+		public int deleteRest(List<RestDTO> list) {
+			return aDao.deleteRest(list);
 		}
 
 		

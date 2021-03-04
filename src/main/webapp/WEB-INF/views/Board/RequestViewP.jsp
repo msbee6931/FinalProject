@@ -28,6 +28,13 @@
 
 
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 div {
 	border: 1px solid black
 }

@@ -18,7 +18,8 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("tuition_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            obj.set_useclientlayout("true");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -237,8 +238,8 @@
         	{
 
         		this.transaction(
-        			"insertTution",//id
-        			"/tuition/insert.tuition",//url (절대경로)
+        			"insertOne.tuition",//id
+        			"/tuition/insertOne.tuition",//url (절대경로)
         			"in_ds=tuition_ds:U",//in_ds:U
         			"",//()_out_ds
         			"",//argument
@@ -246,7 +247,7 @@
         		)
 
         		//확인
-        		this.close();
+        		this.close(this.std_code);
         	}
         	else
         	{

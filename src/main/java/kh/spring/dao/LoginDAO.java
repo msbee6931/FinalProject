@@ -1,5 +1,7 @@
 package kh.spring.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -43,5 +45,13 @@ public class LoginDAO {
 	public int updLoginInfo(LoginInfoDTO dto) {
 		return db.delete("Login.updLoginInfo",dto);
 	}
-
+	public List<AdminDTO> adminList(){
+		return db.selectList("Login.adminList");
+	}
+	public int registUpd(AdminDTO dto) {
+		return db.update("Login.registUpd",dto);
+	}
+	public int testUpd(AdminDTO dto) {
+		return db.update("Login.testUpd",dto);
+	}
 }

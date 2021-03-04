@@ -17,4 +17,7 @@ public class ProfessorDAO {
 	public List<ProfessorDTO> selectAll(){
 		return session.selectList("Professor.selectAll");
 	}
+	public ProfessorDTO professorInfo(ProfessorDTO dto) {
+		return session.selectOne("Professor.professorInfo",dto);
+	}
 }

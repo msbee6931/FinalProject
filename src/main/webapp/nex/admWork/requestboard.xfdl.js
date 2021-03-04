@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("search", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"data\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">title</Col><Col id=\"data\">title</Col></Row><Row><Col id=\"code\">writer</Col><Col id=\"data\">writer</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"data\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">seq</Col><Col id=\"data\">전체</Col></Row><Row><Col id=\"code\">title</Col><Col id=\"data\">제목</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -62,7 +62,7 @@
             obj.set_binddataset("reply");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"51\"/><Column size=\"63\"/><Column size=\"124\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"확인\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:write_date\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:view_count\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"51\"/><Column size=\"63\"/><Column size=\"124\"/><Column size=\"80\"/><Column size=\"56\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"작성자\"/><Cell col=\"2\" text=\"제목\"/><Cell col=\"3\" text=\"작성일\"/><Cell col=\"4\" text=\"조회수\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:writer\" textAlign=\"center\" maskeditformat=\"#########\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:title\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:write_date\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:view_count\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Div("Div00","414","13",null,"221","12",null,null,null,null,null,this.Div00.form);
@@ -145,7 +145,7 @@
             obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("Button00","370","27","60","25",null,null,null,null,null,null,this);
+            obj = new Button("find","370","27","60","25",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_cssclass("btn_search");
             obj.set_text("조회");
@@ -233,13 +233,6 @@
 
 
 
-        this.Div00_Button01_onclick = function(obj,e)
-        {
-        	let type = this.Div00.form.Combo00.value
-        	let value=this.Div00.form.Edit00.value;
-        	let filter = type+"='"+value+"'";
-        	this.reply.filter(filter);
-        };
 
         this.Div00_Grid00_oncellposchanged = function(obj,e)
         {
@@ -266,6 +259,32 @@
         	);
         };
 
+        this.find_onclick = function(obj,e)
+        {
+        	var cmb = this.Div00.form.Combo00.value;
+        	var edit = this.Div00.form.Edit00.value;
+
+        	if(cmb == 'title')
+        	{
+        		this.reply.filter(cmb+".indexOf('"+edit+"')>=0");
+        	}else if(cmb=='seq'){
+        		this.reply.filter("");
+        	}
+        	this.Div00.form.Edit00.set_value("");
+        };
+
+        this.Div00_Grid00_onheadclick = function(obj,e)
+        {
+        		let flag = obj.getCellProperty("Head",0,"text");
+        	let check = flag==0?1:0;
+        	if(e.cell==0){
+        		obj.setCellProperty("Head",0,"text",check);
+        		for(let i = 0;i<this.reply.getRowCount();i++){
+        			this.reply.setColumn(i,"chk",check);
+        		}
+        	}
+        };
+
         });
         
         // Regist UI Components Event
@@ -273,11 +292,12 @@
         {
             this.addEventHandler("onload",this.rest_onload,this);
             this.Div00.form.Grid00.addEventHandler("oncellposchanged",this.Div00_Grid00_oncellposchanged,this);
+            this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.Div00.form.enlargement.addEventHandler("onclick",this.Div00_Div00_enlargement_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
             this.Div00.form.del_btn.addEventHandler("onclick",this.Div00_del_btn_onclick,this);
             this.Div00.form.Edit00.addEventHandler("onchanged",this.Div00_Edit00_onchanged,this);
-            this.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
+            this.find.addEventHandler("onclick",this.find_onclick,this);
         };
 
         this.loadIncludeScript("requestboard.xfdl");

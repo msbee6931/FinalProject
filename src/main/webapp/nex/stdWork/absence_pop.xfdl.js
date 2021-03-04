@@ -67,16 +67,16 @@
             obj = new Div("Div00","30","20","842","560",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("Div00");
-            obj.set_border("1px solid #c1c1c1");
+            obj.set_cssclass("div_line");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_seq","358","60","191","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_seq","357","60","191","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("2");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_birth","619","60","191","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_birth","616","60","191","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("4");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
@@ -88,34 +88,22 @@
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_contact","358","90","191","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_contact","357","90","191","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("8");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_name","619","90","191","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_name","616","90","191","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("10");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_adress","98","120","712","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_adress","98","120","709","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("12");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Button("btn_fine","709","209","100","39",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("16");
-            obj.set_text("파일찾기");
-            obj.set_cssclass("btn_default");
-            this.Div00.addChild(obj.name, obj);
-
-            obj = new Button("btn_del","709","248","100","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("17");
-            obj.set_text("파일 삭제");
-            obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static01","29","410","780","100",null,null,null,null,null,null,this.Div00.form);
@@ -123,7 +111,7 @@
             obj.set_text("※유의사항\r\n1. 입대휴학 신청자는 입대 사실을 확인할 수 있는 증명서 1통을 첨부해야 함.\r\n2. 군입대 후 귀향조취 된 경우에는 즉시 행정팀으로 통보해야함.\r\n3. 일반휴학기간 중 입대할 경우에는 입대 전에 입영통지서 사본 1통을 첨부하여 휴학연기 신청서를 제출해야 함.\r\n4. 질병으로 휴학하는 경우에는 종합병원장이 발행하는 4주 이상의 진단서를 첨부해야함.\r\n5. 휴학기간 만료 후 해당 학기 등록기간 내에 복학하지 않을 경우에는  퇴학처리 됨.");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00","129","210","575","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Grid("Grid00","127","210","587","70",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("19");
             obj.set_binddataset("absFileList_ds");
             obj.set_autofittype("col");
@@ -151,7 +139,7 @@
             obj.set_cssclass("btn_can");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02","28","280","782","122",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static02","29","278","778","122",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("23");
             obj.set_text("\r\n\r\n본인은 보호자의 동의하에 위와 같이 휴학하고자 하오니 허가하여 주시기 바랍니다.");
             obj.set_cssclass("sta_line");
@@ -170,13 +158,13 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","289","60","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00","288","60","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
             obj.set_text("학 번");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","550","60","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_00","547","60","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("3");
             obj.set_text("생년월일");
             obj.set_cssclass("sta_default");
@@ -188,7 +176,7 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_01","289","90","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_01","288","90","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("7");
             obj.set_text("연락처");
             obj.set_cssclass("sta_default");
@@ -200,31 +188,25 @@
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00_00","29","150","70","30",null,null,null,null,null,null,this.Div00.form);
-            obj.set_taborder("13");
-            obj.set_text("기 간");
-            obj.set_cssclass("sta_default");
-            this.Div00.addChild(obj.name, obj);
-
             obj = new Static("Static00_01_00","29","120","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("11");
             obj.set_text("주 소");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","550","90","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_00_00","547","90","70","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("9");
             obj.set_text("성 명");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_02","28","209","100","70",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static00_00_02","29","209","100","70",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("15");
             obj.set_text("첨부파일");
             obj.set_cssclass("sta_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static04","98","149","710","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static04","98","149","709","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("25");
             obj.set_text("");
             obj.set_border("1px solid #c1c1c1");
@@ -235,20 +217,44 @@
             obj.set_cssclass("cal_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Calendar("cal_eDate","299","153","150","20",null,null,null,null,null,null,this.Div00.form);
+            obj = new Calendar("cal_eDate","298","153","150","20",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("27");
             obj.set_cssclass("cal_default");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static05","277","154","19","19",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static05","268","154","19","19",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("28");
             obj.set_text("~");
+            obj.set_textAlign("center");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("edt_dept","99","60","191","30",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("edt_dept","98","60","191","30",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("29");
             obj.set_cssclass("edt_default");
             obj.set_readonly("true");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_fine","710","209","97","39",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("16");
+            obj.set_text("파일찾기");
+            obj.set_cssclass("btn_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_del","710","248","97","30",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("17");
+            obj.set_text("파일 삭제");
+            obj.set_cssclass("btn_can");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00_00","29","150","70","30",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("13");
+            obj.set_text("기 간");
+            obj.set_cssclass("sta_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("Static06","462","156","307","14",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("30");
+            obj.set_text("ex) 1학기 3월, 2학기 9월부터 4개월 단위로 신청 가능");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -417,7 +423,11 @@
 
         this.Div00_btn_del_onclick = function(obj,e)
         {
-        	for(var i =0; i<this.absFileList_ds.getRowCount();i++){
+        	let arr = this.absFileList_ds.extractRows("chk==1");
+
+        	if(arr.length==0 || arr.length== -1){alert("선택된 항목이 없습니다.");return;}
+
+        	for(var i = this.absFileList_ds.getRowCount()-1 ; i>-1 ; i--){
         		if(this.absFileList_ds.getColumn(i,"chk") == 1){
         			//FileUpTransfer 해당 파일삭제
         			var nIdx = this.FileUpTransfer00.removeFileByIndex(i);
@@ -427,6 +437,7 @@
         			}
         		}
         	}
+        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
         };
 
 
@@ -474,18 +485,28 @@
         	}
 
         	var type = this.Div00.form.rdo_type.value;
-        	var sDate = this.Div00.form.edt_adress.value;
+        	var sDate = this.Div00.form.cal_sDate.value;
         	var eDate = this.Div00.form.cal_eDate.value;
 
         	if(type == null || type == "")
         	{alert("휴학 사유를 체크해주세요")
-        	return;}
+        		return;}
         	else if (sDate == null || sDate ==  "")
         	{alert("날짜를 입력해주세요")
-        	return;}
+        		return;}
         	else if (eDate == null || eDate == "")
         	{alert("날짜를 입력해주세요")
-        	return;}
+        		return;}
+        	else if (sDate-eDate>0)
+        	{
+        		alert("시작날짜와 종료날짜를 확인해주세요")
+        		return;
+        	}
+        	else if (eDate-sDate<120)
+        	{
+        		alert("최소 일정 설정은 학기 기준 4개월이여야 합니다.")
+        		return;
+        	}
 
 
         	var conValue = this.confirm("확인 버튼 시 내용을 수정할 수 없습니다. 제출하시겠습니까?");
@@ -593,20 +614,20 @@
 
 
 
-
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.absence_pop_onload,this);
-            this.Div00.form.btn_fine.addEventHandler("onclick",this.Div00_btn_fine_onclick,this);
-            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.btn_ok.addEventHandler("onclick",this.Div00_btn_ok_onclick,this);
             this.Div00.form.btn_can.addEventHandler("onclick",this.Div00_btn_can_onclick,this);
             this.Div00.form.cal_sDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.cal_eDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
+            this.Div00.form.btn_fine.addEventHandler("onclick",this.Div00_btn_fine_onclick,this);
+            this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
+            this.Div00.form.Static06.addEventHandler("onclick",this.Div00_Static06_onclick,this);
             this.FileUpTransfer00.addEventHandler("onerror",this.FileUpTransfer00_onerror,this);
             this.FileUpTransfer00.addEventHandler("onprogress",this.FileUpTransfer00_onprogress,this);
             this.FileUpTransfer00.addEventHandler("onsuccess",this.FileUpTransfer00_onsuccess,this);

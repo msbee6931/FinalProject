@@ -195,9 +195,9 @@ public class ClassController {
 		cdto = service.classListSeq(classSeq);
 		String[] limit = cdto.getLimit().split("/");
 		if(limitCount < Integer.parseInt(limit[1])){
-		service.stdClassInsert(dto);
-		service.stdTimeTableInsert(list);
-		varList.add("msg","Y");
+			service.stdClassInsert(dto);
+			service.stdTimeTableInsert(list);
+			varList.add("msg","Y");
 		}else {
 			varList.add("msg","N");
 		}
@@ -411,16 +411,20 @@ public class ClassController {
 		}
 		return nr;
 	}
+	@RequestMapping("/classEvalUpd.nex")
+	public NexacroResult classEvalUpd(@ParamDataSet(name="in_ds")ClassDTO dto) {
+		NexacroResult nr = new NexacroResult();
+		service.evalUpd(dto);
+		return nr;
+	}
 	@RequestMapping("/classStudents.nex")
 	public NexacroResult classStudents(@ParamVariable(name="classCode")int classCode) {
 		NexacroResult nr = new NexacroResult();
 		StudentClassDTO dto = new StudentClassDTO();
 		dto.setClassCode(classCode);
 		List<StudentClassDTO> list = service.stdListSeq(dto);
-		System.out.println("LIST : " +list.size());
 		if(list.size() > 0) {
 			List<StudentsDTO> list2 = sService.classStudents(list);
-			System.out.println("LIST2 : " +list2.size());
 			nr.addDataSet("out_ds",list2);
 		}else {
 			List<StudentsDTO> list2 = new ArrayList<>();
@@ -428,6 +432,7 @@ public class ClassController {
 		}
 		return nr;
 	}
+	
 	@ExceptionHandler
 	public String exceptionhandler(Exception e){
 		e.printStackTrace();

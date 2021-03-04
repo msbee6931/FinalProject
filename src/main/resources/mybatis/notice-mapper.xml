@@ -14,6 +14,9 @@
 <select id="selectLastSeq" resultType="int">
 	SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'NOTICE_SEQ'
 </select>
+<select id="selectLastNseq" resultType="int">
+	select n_seq from(select n_seq from notice order by rownum desc) where rownum = 1
+</select>
 <select id="selectn_seq" resultType="int">
 	select count(n_seq) from notice
 </select>

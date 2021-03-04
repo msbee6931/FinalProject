@@ -33,7 +33,7 @@
             obj.set_binddataset("admin_alarm");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"42\"/><Column size=\"68\"/><Column size=\"77\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:receiver\" displaytype=\"text\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"41\"/><Column size=\"42\"/><Column size=\"68\"/><Column size=\"77\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"확인\"/><Cell col=\"2\" text=\"보낸이\"/><Cell col=\"3\" text=\"받는이\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:confirm\"/><Cell col=\"2\" text=\"bind:sender\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:receiver\" displaytype=\"text\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("del_btn","135","542","102","36",null,null,null,null,null,null,this);
@@ -134,7 +134,7 @@
                     "PMUpd"
                     ,"/PMUpd.nex"
                     ,"in_ds=admin_alarm:U"
-                    ,""
+                    ,"admin_alarm=out_ds"
                     ,"reply="+reply
                     ,"fn_callback"
                  )
@@ -190,6 +190,18 @@
         };
 
 
+        this.Grid00_onheadclick = function(obj,e)
+        {
+        			let flag = obj.getCellProperty("Head",0,"text");
+        	let check = flag==0?1:0;
+        	if(e.cell==0){
+        		obj.setCellProperty("Head",0,"text",check);
+        		for(let i = 0;i<this.admin_alarm.getRowCount();i++){
+        			this.admin_alarm.setColumn(i,"chk",check);
+        		}
+        	}
+        };
+
         });
         
         // Regist UI Components Event
@@ -197,6 +209,7 @@
         {
             this.addEventHandler("onload",this.alarm_admin_onload,this);
             this.Grid00.addEventHandler("oncellclick",this.Grid00_oncellclick,this);
+            this.Grid00.addEventHandler("onheadclick",this.Grid00_onheadclick,this);
             this.del_btn.addEventHandler("onclick",this.del_btn_onclick,this);
             this.check_btn.addEventHandler("onclick",this.check_btn_onclick,this);
             this.Button00.addEventHandler("onclick",this.Button00_onclick,this);

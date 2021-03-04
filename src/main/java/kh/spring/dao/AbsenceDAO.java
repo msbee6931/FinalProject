@@ -59,7 +59,7 @@ public class AbsenceDAO {
 		public List<RestDTO> selectAllRest() {
 			return session.selectList("Absence.selectAllRest");
 		}
-		public int deleteRest(int seq) {
-			return session.delete("Absence.deleteRest",seq);
+		public int deleteRest(List<RestDTO> list) {
+			return session.delete("Absence.deleteRest",list);
 		}
 }

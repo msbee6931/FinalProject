@@ -48,6 +48,9 @@
 	select * from rest order by 1 desc
 </select>
 <delete id="deleteRest">
-	delete from rest where seq=#{seq}
+  	delete from rest where seq in
+  	<foreach item="i" collection="list" open="(" close=")" separator=",">
+          #{i.seq}
+    </foreach>
 </delete>
 </mapper>

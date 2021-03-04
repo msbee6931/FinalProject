@@ -36,6 +36,10 @@ select * from postmessage where sender=#{sender} and reply is not null
 <insert id="insert">
 	insert into postmessage values(postmessage_seq.nextval,#{receiver},#{sender},#{contents},'N',null)
 </insert>
-
-
+<update id="updateConfirmOne">
+	update postmessage set confirm='Y' where seq=#{seq}
+</update>
+<select id="selectDTO" resultType="kh.spring.dto.PostMessageDTO">
+	select * from postmessage where seq = #{seq} 
+</select>
 </mapper>

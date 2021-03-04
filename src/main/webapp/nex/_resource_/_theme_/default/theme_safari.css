@@ -1190,6 +1190,15 @@ textarea::-webkit-scrollbar { display: none; }
 	text-align : center;
 	background-position-x : center;
 }
+.ProgressBar.pgb_default .progressbartext
+{
+	color : #1c0c7c;
+	font : bold 11px/normal "Malgun Gothic";
+}
+.ProgressBar.pgb_default .progressbaritem
+{
+	background : #6c9cff;
+}
 #nexacontainer .Button[status=mouseover]
 {
 	background : #e7e7e7;

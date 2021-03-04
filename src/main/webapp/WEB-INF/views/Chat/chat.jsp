@@ -89,6 +89,9 @@
 	.members{
 		border-bottom: 1px solid lightgray;
 	}
+	.member{
+		cursor: pointer;
+	}
 	.joinUserName{
 		cursor: point;
 		display: flex;
@@ -142,6 +145,15 @@
 		border: 1px solid lightgray;
 		border-radius: 100px;
 	}
+	#next, #cancel, #fileIcon, #emoticonIcon, #searchBtn{
+		cursor: pointer;
+	}
+	input:focus{
+		outline: none;
+	}
+	.others .friendName{
+		cursor: pointer;
+	}
 </style>
 </head>
 <script type="text/javascript">
@@ -157,19 +169,19 @@
 		<input type="hidden" id="roomNumber" value="${roomNumber }">
 		<div class="row icons">
 			<div class="col-6 left">
-				<div class="col-1" id="showMember"><i class="fas fa-user-friends"></i></div>
-				<div class="col-1" id="showSearch"><i class="fas fa-search"></i></div>
+				<div class="col-1" id="showMember" title="참가자 목록"><i class="fas fa-user-friends"></i></div>
+				<div class="col-1" id="showSearch" title="대화 검색"><i class="fas fa-search"></i></div>
 			</div>
 			<div class="col-6 right">
-				<div class="col-1" id="invite"><i class="fas fa-plus"></i></div>
-				<div class="col-1" id="leave"><i class="fas fa-sign-out-alt"></i></div>
+				<div class="col-1" id="invite" title="친구 초대"><i class="fas fa-plus"></i></div>
+				<div class="col-1" id="leave" title="방 나가기"><i class="fas fa-sign-out-alt"></i></div>
 			</div>
 		</div>
 		<div class="row p-3 members" style="display:none">
 			<c:forEach var="jDto" items="${joinList}">
 				<c:forEach var="aDto" items="${allUser}">
 					<c:if test="${jDto.getUserId() == aDto.getUserId() }">
-						<div class="col-3 d-flex member">
+						<div class="col-3 d-flex member" title="프로필 보기">
 							<c:choose>
 								<c:when test="${aDto.getImg() == null}"><img src="/img/blue.png" width="30px" class="col-2 joinUserImg"></c:when>
 								<c:otherwise><img src="/files/${aDto.getImg()}" width="30px" class="joinUserImg"></c:otherwise>
@@ -185,6 +197,8 @@
 		<div class="row search" style="display:none">
 			<input type="text" class="col-8" id="searchTxt">
 			<div class="col-1" id="searchBtn"><i class="fas fa-search"></i></div>
+			<div class="col-1" id="next" style="display:none"><i class="fas fa-caret-down"></i></div>
+			<div class="col-1" id="cancel" style="display:none"><i class="fas fa-times"></i></div>
 		</div>
 		<div class="row p-4 contents" id="contents">			
 			<c:if test="${list != null }">
@@ -229,7 +243,8 @@
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-1">${aDto.getUserName()}: </div>
+											<div class="col-1 friendName">${aDto.getUserName()} </div>
+											<input type="hidden" class="friendId" value="${aDto.getUserId()}">
 											<p class="col-10">${dto.getMessage() }</p>
 										</div>
 									</c:when>
@@ -242,7 +257,8 @@
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-1">${aDto.getUserName()}: </div>
+											<div class="col-1 friendName">${aDto.getUserName()} </div>
+											<input type="hidden" class="friendId" value="${aDto.getUserId()}">
 											<img src="${dto.getOriName()}" class="col-8 sendImg">
 										</div>
 									</c:when>
@@ -255,7 +271,8 @@
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-1">${aDto.getUserName()}: </div> 
+											<div class="col-1 friendName">${aDto.getUserName()} </div> 
+											<input type="hidden" class="friendId" value="${aDto.getUserId()}">
 											<div class="col-8">
 												<img src='/files/${dto.getSavedName() }' class="sendImg">
 												<a href='/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }' class='imgLink'>${dto.getOriName() }</a>
@@ -271,7 +288,8 @@
 													<c:otherwise><img src="/files/${aDto.getImg()}" class="proImg"></c:otherwise>
 												</c:choose>
 											</div>
-											<div class="col-1">${aDto.getUserName()}: </div>
+											<div class="col-1 friendName">${aDto.getUserName()} </div>
+											<input type="hidden" class="friendId" value="${aDto.getUserId()}">
 											<a href="/chatting/download?seq=${dto.getSeq() }&oriName=${dto.getOriName() }&savedName=${dto.getSavedName() }&roomNumber=${dto.getRoomNumber() }&uploadDate=${dto.getUploadDate() }" class="col-8">${dto.getOriName() }</a>
 										</div>
 									</c:otherwise>
@@ -294,21 +312,21 @@
 			<img src="/img/surprised.png" id="surprised" class="col-1" ondblclick="sendEmoticon(this)">		
 		</div>
 		<div class="row etc">
-			<div id="fileWrapper" class="col-6">
+			<div id="fileWrapper" class="col-6" title="파일/이미지">
 				<i class="far fa-file-alt" id="fileIcon"></i>
 				<form name="signform" id="signform" method="POST" ENCTYPE="multipart/form-data">
     				<input type="file" id="file" name="file" multiple="true" style="display:none;" onchange="upload()" >
 				</form>	
 			</div>
-			<div id="emoticonIcon" class="col-6"><i class="far fa-laugh"></i></div>
+			<div id="emoticonIcon" class="col-6" title="이모티콘"><i class="far fa-laugh"></i></div>
 		</div>
 		<div class="row sendMsg">
 			<input type="text" id="message" class="col-10 px-3">
 			<button id="send" class="col-2"><b>전송</b></button>
 		</div>
 		<div class="row text-center py-4 btns">
-			<div class="col-md-6 col-sm-12" id="goChatHome"><i class="fas fa-home"></i></div>
-			<div class="col-md-6 col-sm-12" id="goChatList"><i class="far fa-comments"></i></div>
+			<div class="col-md-6 col-sm-12" id="goChatHome" title="채팅홈"><i class="fas fa-home"></i></div>
+			<div class="col-md-6 col-sm-12" id="goChatList" title="채팅 목록"><i class="far fa-comments"></i></div>
 		</div>
 	</div>
 	
@@ -367,7 +385,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row'><p class='col me'>"+result.message+"</p></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><p class='col-8'>"+result.message+"</p></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1 friendName'>"+userName+"</div><input type='hidden' class='friendId' value='"+result.userId+"'><p class='col-8'>"+result.message+"</p></div>");
 				}
 				scrollBottom();
 			});
@@ -387,7 +405,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row'><div class='col me'><img src='"+result.oriName+"' class='sendImg'></div></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><img src='"+result.oriName+"' class='col-8 sendImg'></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1 friendName'>"+userName+"</div><input type='hidden' class='friendId' value='"+result.userId+"'><img src='"+result.oriName+"' class='col-8 sendImg'></div>");
 				}
 				scrollBottom();
 			});
@@ -407,7 +425,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row me'><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><a class='col-8' href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1 friendName'>"+userName+"</div><input type='hidden' class='friendId' value='"+result.userId+"'><a class='col-8' href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div>");
 				}
 				scrollBottom();
 			});
@@ -427,7 +445,7 @@
 				if(result.userId == $("#userId").val()){
 					$(".contents").append("<div class='row'><div class='col me'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
 				}else{
-					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1'>"+userName+" : </div><div class='col-8'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
+					$(".contents").append("<div class='row others'><div class='col-1 text-center'><img src='"+userImg+"' class='proImg'></div><div class='col-1 friendName'>"+userName+"</div><input type='hidden' class='friendId' value='"+result.userId+"'><div class='col-8'><img src='/files/"+result.savedName+"' class='sendImg'><br><a href='/chatting/download?seq="+result.seq+"&oriName="+result.oriName+"&savedName="+result.savedName+"&roomNumber="+result.roomNumber+"&uploadDate="+result.uploadDate+"'>"+result.oriName+"</a></div></div>");
 				}
 				scrollBottom();
 			});
@@ -545,65 +563,123 @@
 		});
 		
 		// 멤버 클릭시 멤버 프로필 정보
-		$(document).on("click",".joinUserName",function(){
-			var joinUserId = $(this).siblings(".joinUserId").text();
+		$(document).on("click",".member",function(){
+			var joinUserId = $(this).children(".joinUserId").text();
 			var url = "/chatting/profileView?joinUserId="+joinUserId;
 			var name = "profileView";
 	        var option = "width = 500, height = 300, top = 100, left = 200";
 			window.open(url,name,option);
 		});
 		
-		var count = 0;
-		
-		// 대화내용 검색
-		$(document).ready(function(){	
-			$("#searchBtn").on("click",function(){
-				var searchTxt = $("#searchTxt").val();
-				
-				if(searchTxt == null || searchTxt == ''){
-					alert("검색 키워드를 입력해주세요!");
-				}else{
-					var keyword = $("p:contains('"+searchTxt+"')");
-					
-					if(count < keyword.length){ 
-						var offset = $(keyword[count]).offset();
-						console.log(offset);
-						$('.contents').animate({scrollTop : offset.top}, 400);
-						$(keyword[count-1]).css("background-color","white");
-						$(keyword[count]).css("background-color","yellow");
-						count++;
-					}else{
-						alert("마지막 검색 결과입니다.");
-						$("#searchTxt").val("");
-						keyword.css("background-color","white");
-						count = 0;
-					} 
-				}
-			});
+		$(document).on("click",".friendName",function(){
+			var friendId = $(this).siblings(".friendId").val();
+			var url = "/chatting/profileView?joinUserId="+friendId;
+			var name = "profileView";
+	        var option = "width = 500, height = 300, top = 100, left = 200";
+			window.open(url,name,option);
 		});
 		
-		$("#searchTxt").on("keydown",function(e){
+		// 대화내용 검색
+		var keyword = null;
+		var count = 0;
+			
+		$("#searchBtn").on("click",function(){
+			var searchTxt = $("#searchTxt").val();
+			$("#next").css("display","block");
+			$("#cancel").css("display","block");
+			
+			if(searchTxt == null || searchTxt == ''){
+				alert("검색 키워드를 입력해주세요!");
+			}else{
+				if(count == 0){
+					keyword = $("p:contains('"+searchTxt+"')");
+				
+					var offset = $(keyword[0]).offset();
+					$('.contents').animate({scrollTop : offset.top}, 400);
+					$(keyword[0]).css("background-color","#fdfd96");
+					count++;
+					
+					$('#searchTxt').attr('disabled', true);
+					$("#searchTxt").css("background-color","#efefef");
+					$("#searchTxt").css("border","1px soild lightgray");
+				}	
+			}
+		});
+			
+		$("#next").on("click",function(){
+			if(count < keyword.length){ 
+				var offset = $(keyword[count]).offset();
+				$('.contents').animate({scrollTop : offset.top}, 400);
+				$(keyword[count-1]).css("background-color","white");
+				$(keyword[count]).css("background-color","#fdfd96");
+				count++;
+			}else{
+				alert("마지막 검색 결과입니다.");
+				$("#searchTxt").val("");
+				keyword.css("background-color","white");
+				count = 0;
+				keyword = null;
+				$('#searchTxt').attr('disabled', false);
+				$("#searchTxt").css("background-color","white");
+			} 
+		});
+			
+		$("#cancel").on("click",function(){
+			$("#searchTxt").val("");
+			keyword.css("background-color","white");
+			count = 0;
+			keyword = null;
+			$('#searchTxt').attr('disabled', false);
+			$("#searchTxt").css("background-color","white");
+		});
+		
+ 		$("#searchTxt").on("keydown",function(e){
 			if(e.keyCode==13){
 				var searchTxt = $("#searchTxt").val();
+				$("#next").css("display","block");
+				$("#cancel").css("display","block");
 				
 				if(searchTxt == null || searchTxt == ''){
 					alert("검색 키워드를 입력해주세요!");
 				}else{
-					var keyword = $("p:contains('"+searchTxt+"')");
-					
-					if(count < keyword.length){ 
-						var offset = $(keyword[count]).offset();
-						console.log(offset);
-						$('.contents').animate({scrollTop : offset.top}, 400);
-						$(keyword[count-1]).css("background-color","white");
-						$(keyword[count]).css("background-color","yellow");
-						count++;
+					if(keyword == null){
+						keyword = $("p:contains('"+searchTxt+"')");
+						$('#searchTxt').attr('disabled', true);
+						$("#searchTxt").css("background-color","#efefef");
+						$("#searchTxt").css("border","1px soild lightgray");
+						
+						if(count < keyword.length){ 
+							var offset = $(keyword[count]).offset();
+							$('.contents').animate({scrollTop : offset.top}, 400);
+							$(keyword[count-1]).css("background-color","white");
+							$(keyword[count]).css("background-color","#fdfd96");
+							count++;
+						}else{
+							alert("마지막 검색 결과입니다.");
+							$("#searchTxt").val("");
+							keyword.css("background-color","white");
+							count = 0;
+							keyword = null;
+							$('#searchTxt').attr('disabled', false);
+							$("#searchTxt").css("background-color","white");
+						} 
 					}else{
-						alert("마지막 검색 결과입니다.");
-						$("#searchTxt").val("");
-						keyword.css("background-color","white");
-						count = 0;
-					} 
+						if(count < keyword.length){ 
+							var offset = $(keyword[count]).offset();
+							$('.contents').animate({scrollTop : offset.top}, 400);
+							$(keyword[count-1]).css("background-color","white");
+							$(keyword[count]).css("background-color","#fdfd96");
+							count++;
+						}else{
+							alert("마지막 검색 결과입니다.");
+							$("#searchTxt").val("");
+							keyword.css("background-color","white");
+							count = 0;
+							keyword = null;
+							$('#searchTxt').attr('disabled', false);
+							$("#searchTxt").css("background-color","white");
+						} 
+					}
 				}
 			}
 		});

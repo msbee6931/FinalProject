@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Error</title>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+</style>
 </head>
 <body>
 	<script >

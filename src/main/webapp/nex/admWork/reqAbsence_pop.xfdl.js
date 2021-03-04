@@ -240,7 +240,7 @@
             obj.set_text("Combo00");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static06","8","275","799","136",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static06","28","275","779","136",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("28");
             obj.set_cssclass("sta_line");
             this.Div00.addChild(obj.name, obj);
@@ -257,6 +257,13 @@
             obj.set_taborder("10");
             obj.set_text("주 소");
             obj.set_cssclass("sta_default");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("btn_complite","599","514","100","25",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("30");
+            obj.set_text("휴학 처리 완료");
+            obj.set_cssclass("btn_default");
+            obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
 
             // Layout Functions
@@ -334,7 +341,8 @@
         	var rest = this.students_ds.getColumn(0,"rest");
         	if(rest=='Y')
         	{
-        		this.Div00.form.btn_commit.set_text("휴학 처리 완료");
+        		this.Div00.form.btn_commit.set_visible(false);
+        		this.Div00.form.btn_complite.set_visible(true);
         	}
         	this.transaction(
         		"selectOne.absence",//id
@@ -441,7 +449,8 @@
         };
         this.fn_callback_updAbs = function()
         {
-        	this.Div00.form.btn_commit.set_text("휴학 처리 완료");
+        	this.Div00.form.btn_commit.set_visible(false);
+        	this.Div00.form.btn_complite.set_visible(true);
         }
 
         this.Div00_Grid00_onheadclick = function(obj,e)
@@ -497,6 +506,7 @@
             this.Div00.form.cal_sDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.cal_eDate.addEventHandler("onchanged",this.Div00_Calendar00_onchanged,this);
             this.Div00.form.btn_commit.addEventHandler("onclick",this.Div00_btn_commit_onclick,this);
+            this.Div00.form.btn_complite.addEventHandler("onclick",this.Div00_btn_commit_onclick,this);
             this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
             this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };

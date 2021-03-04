@@ -30,8 +30,8 @@ public class TuitionService {
 	public int updateOne(TuitionDTO dto) {
 		return tDao.updateOne(dto);
 	}
-	public int deleteOne(int seq) {
-		return tDao.deleteOne(seq);
+	public int deleteOne(List<TuitionDTO> list) {
+		return tDao.deleteOne(list);
 	}
 	public List<TuitionDTO> stdSelectOne(int user) {
 		return tDao.stdSelectOne(user);

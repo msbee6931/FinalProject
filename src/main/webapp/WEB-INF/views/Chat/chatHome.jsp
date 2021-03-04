@@ -72,6 +72,9 @@
 	.searchIcon,#goProfile{
 		cursor: pointer;
 	}
+	.friendName{
+		cursor: pointer;
+	}
 </style>
 </head>
 <script type="text/javascript">
@@ -87,8 +90,8 @@
 				<input type="text" id="inputTxt" class="col-md-6 col-sm-12" placeholder="검색할 친구를 입력해주세요.">
 				<input type="button" id="inputBtn" class="col-md-1 col-sm-12" value="검색">
 			</div>
-			<div class="col-sm-1 col-12 text-center searchIcon"><i class="fas fa-search"></i></div>
-			<div id="goProfile" class="col-sm-1 col-12"><i class="fas fa-cog"></i></div>
+			<div class="col-sm-1 col-12 text-center searchIcon" title="친구 검색"><i class="fas fa-search"></i></div>
+			<div id="goProfile" class="col-sm-1 col-12" title="프로필 설정"><i class="fas fa-cog"></i></div>
 		</div>
 		<div class="row p-3 px-5 d-flex align-items-center myProfile">
 			<div class="col-1 p-0 profileImg user">
@@ -116,8 +119,8 @@
 								</c:forEach>
 							</div>
 							<div class="col-9 friendName">${dto.getFriendName() }</div>
-							<div class="col-1 chatIcon"><i class="far fa-comment-dots"></i></div>
-							<div class="col-1 deleteFriend"><i class="fas fa-minus"></i></div>
+							<div class="col-1 chatIcon" title="채팅하기"><i class="far fa-comment-dots"></i></div>
+							<div class="col-1 deleteFriend" title="친구 삭제"><i class="fas fa-minus"></i></div>
 							<input type="hidden" value="${dto.getFriendId() }" class="friendId">				
 						</div>
 					</c:forEach>
@@ -129,8 +132,8 @@
 		</div>
 		<div class="row etc">
 			<div class="row btns py-4" style="background-color:#efefef">
-				<div id="goMain" class="col-md-6 col-sm-12 text-center"><i class="fas fa-home"></i></div>
-				<div id="goChatList" class="col-md-6 col-sm-12"><i class="far fa-comments"></i></div>
+				<div id="goMain" class="col-md-6 col-sm-12 text-center" title="메인페이지 "><i class="fas fa-home"></i></div>
+				<div id="goChatList" class="col-md-6 col-sm-12" title="채팅 목록"><i class="far fa-comments"></i></div>
 			</div>
 		</div>
 	</div>	
@@ -211,6 +214,15 @@
 	$(".searchIcon").on("click",function(){
 		var flag = $(".searchInput").css("display");
 		(flag == "block")?$(".searchInput").css("display","none"):$(".searchInput").css("display","block");
+	});
+	
+	// 멤버 클릭시 멤버 프로필 정보
+	$(document).on("click",".friendName",function(){
+		var friendId = $(this).siblings(".friendId").val();
+		var url = "/chatting/profileView?joinUserId="+friendId;
+		var name = "profileView";
+        var option = "width = 500, height = 300, top = 100, left = 200";
+		window.open(url,name,option);
 	});
 	</script>
 </body>

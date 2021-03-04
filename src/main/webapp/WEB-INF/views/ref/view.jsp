@@ -75,7 +75,7 @@
 				</div>
 			<div class="row">
 				<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
-				<div class="col-xl-12 pb-5" id="box">
+				<div class="col-xl-12 mb-5" id="box">
 					<div class="row mx-2 ">
 						<div class="col-12 py-4" style="border-bottom: 1px solid gray">
 							<H3>

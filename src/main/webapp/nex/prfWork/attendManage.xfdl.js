@@ -181,7 +181,9 @@
         };
         
         // User Script
+        this.addIncludeScript("attendManage.xfdl","lib::Common.xjs");
         this.registerScript("attendManage.xfdl", function() {
+        this.executeIncludeScript("lib::Common.xjs"); /*include "lib::Common.xjs"*/
         this.objApp = nexacro.getApplication();
         this.attendManage_onload = function(obj,e)
         {
@@ -484,6 +486,11 @@
 
 
 
+        this.gr_classList_onheadclick = function(obj,e)
+        {
+        	this.cfn_GridSort(obj,e);
+        };
+
         });
         
         // Regist UI Components Event
@@ -491,6 +498,7 @@
         {
             this.addEventHandler("onload",this.attendManage_onload,this);
             this.gr_classList.addEventHandler("oncellclick",this.gr_classList_oncellclick,this);
+            this.gr_classList.addEventHandler("onheadclick",this.gr_classList_onheadclick,this);
             this.co_year.addEventHandler("onitemchanged",this.Combo01_onitemchanged,this);
             this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
             this.gr_stdList.addEventHandler("oncellclick",this.gr_stdList_oncellclick,this);

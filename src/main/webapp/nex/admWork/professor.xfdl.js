@@ -37,7 +37,7 @@
             obj.set_binddataset("ds_professor");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"69\"/><Column size=\"85\"/><Column size=\"80\"/><Column size=\"100\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"교수번호\"/><Cell col=\"2\" text=\"이름\"/><Cell col=\"3\" text=\"성별\"/><Cell col=\"4\" text=\"주민번호\"/><Cell col=\"5\" text=\"email\"/><Cell col=\"6\" text=\"학과분류\"/><Cell col=\"7\" text=\"학과\"/><Cell col=\"8\" text=\"전화번호\" edittype=\"normal\"/><Cell col=\"9\" text=\"주소\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:p_seq\" displaytype=\"text\" edittype=\"normal\"/><Cell col=\"2\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"3\" displaytype=\"combotext\" edittype=\"combo\" text=\"bind:gender\" combodataset=\"ds_gender\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"4\" text=\"bind:secNumber\" edittype=\"mask\" displaytype=\"mask\" maskedittype=\"string\" maskeditformat=\"###### - #######\"/><Cell col=\"5\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:colCode\" edittype=\"combo\" displaytype=\"combotext\" combodataset=\"colCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:deptCode\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\" displaytype=\"combotext\" edittype=\"combo\"/><Cell col=\"8\" text=\"bind:contact\" edittype=\"normal\"/><Cell col=\"9\" text=\"bind:address\" edittype=\"normal\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"69\"/><Column size=\"85\"/><Column size=\"80\"/><Column size=\"100\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"교수번호\"/><Cell col=\"2\" text=\"이름\"/><Cell col=\"3\" text=\"성별\"/><Cell col=\"4\" text=\"주민번호\"/><Cell col=\"5\" text=\"email\"/><Cell col=\"6\" text=\"학과분류\"/><Cell col=\"7\" text=\"학과\"/><Cell col=\"8\" text=\"전화번호\" edittype=\"normal\"/><Cell col=\"9\" text=\"주소\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:p_seq\" displaytype=\"text\" edittype=\"none\"/><Cell col=\"2\" text=\"bind:name\" edittype=\"normal\"/><Cell col=\"3\" displaytype=\"combotext\" edittype=\"combo\" text=\"bind:gender\" combodataset=\"ds_gender\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"4\" text=\"bind:secNumber\" edittype=\"mask\" displaytype=\"mask\" maskedittype=\"string\" maskeditformat=\"###### - #######\"/><Cell col=\"5\" text=\"bind:email\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:colCode\" edittype=\"combo\" displaytype=\"combotext\" combodataset=\"colCode\" combocodecol=\"code\" combodatacol=\"name\"/><Cell col=\"7\" text=\"bind:deptCode\" combodataset=\"deptCode\" combocodecol=\"code\" combodatacol=\"name\" displaytype=\"combotext\" edittype=\"combo\"/><Cell col=\"8\" text=\"bind:contact\" edittype=\"normal\"/><Cell col=\"9\" text=\"bind:address\" edittype=\"normal\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("btn_retrive",null,"28","100","25","35",null,null,null,null,null,this);
@@ -70,7 +70,7 @@
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("cmb_default");
             var cb_search_innerdataset = new nexacro.NormalDataset("cb_search_innerdataset", obj);
-            cb_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">All</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">p_seq</Col><Col id=\"datacolumn\">교수번호</Col></Row></Rows>");
+            cb_search_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">All</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">name</Col><Col id=\"datacolumn\">이름</Col></Row></Rows>");
             obj.set_innerdataset(cb_search_innerdataset);
             obj.set_text("전체");
             obj.set_value("All");
@@ -196,8 +196,8 @@
         	let cbValue = this.cb_search.value;
         	let edtValue = this.edt_search.text;
 
-        	if(cbValue == "p_seq"){
-        		this.ds_professor.filter(cbValue+ "=='"+edtValue+"'");
+        	if(cbValue == "name"){
+        		this.ds_professor.filter(cbValue+".indexOf('"+edtValue+"')>=0");
         	}else{
         		this.ds_professor.filter("");
         	}

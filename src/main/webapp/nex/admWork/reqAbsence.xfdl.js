@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("absence_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/><Column id=\"checkValue\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"STRING\" size=\"256\"/><Column id=\"sDate\" type=\"STRING\" size=\"256\"/><Column id=\"eDate\" type=\"STRING\" size=\"256\"/><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/><Column id=\"checkValue\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -62,7 +62,7 @@
             obj.set_binddataset("absence_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"20\"/><Column size=\"100\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"작성날짜\"/><Cell col=\"3\" text=\"읽음여부\"/></Band><Band id=\"body\"><Cell text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writeDate\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:checkValue\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"38\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"학번\"/><Cell col=\"3\" text=\"분류\"/><Cell col=\"4\" text=\"작성날짜\"/><Cell col=\"5\" text=\"읽음 여부\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:seq\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"3\" text=\"bind:code\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:writeDate\" textAlign=\"center\" displaytype=\"date\"/><Cell col=\"5\" text=\"bind:checkValue\" textAlign=\"center\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_del",null,null,"100","25","4","12",null,null,null,null,this.Div00.form);
@@ -140,16 +140,63 @@
 
         this.Div00_btn_del_onclick = function(obj,e)
         {
-        	var nRow = this.absence_ds.findRow("seq",this.seq);
-        	this.absence_ds.deleteRow(nRow);
+        	var objDs = this.absence_ds;
+        	var arr = objDs.extractRows("chk==1");
+        	if(arr.length==0 || arr.length== -1)
+        	{
+        		alert("선택된 항목이 없습니다.");
+        		return;
+        	}
+        	else if (objDs.getRowCount() == 0)
+        	{
+        		alert("선택된 항목이 없습니다.");
+        		return;
+        	}
+
+        	objDs.deleteMultiRows(arr);
+
         	this.transaction(
         		"deleteReqAbs.absence",//id
         		"/absence/deleteReqAbs.absence",//url (절대경로)
-        		"",//in_ds:U
+        		"in_ds=absence_ds:U",//in_ds:U
         		"",//()_out_ds
-        		"seq="+this.seq,//argument
+        		"",//argument
         		"fn_callback"
         		)
+
+        	this.Div00.form.Grid00.setCellProperty("head",0,"text",0);
+
+        };
+
+
+        this.gv_isCheckAll = 0;
+        this.gf_setCheckAll = function(obj, e)
+        {
+            var sColID = obj.getCellProperty("body", e.cell, "text").replace("bind:", "");
+
+        	var sheadValue = obj.getCellProperty("head",e.cell,"text");
+
+            if(sColID == "chk")
+            {
+        		sheadValue = (sheadValue =="1"? "0":"1");
+        		obj.setCellProperty("head",e.cell,"text",sheadValue);
+
+        		this.rlist_ds.set_enableevent(false);
+        		for(var i=0; i< this.rlist_ds.getRowCount(); i++)
+        		{
+        			this.rlist_ds.setColumn(i, "chk",sheadValue);
+        		}
+        		this.rlist_ds.set_enableevent(true);
+            }
+
+        }
+
+        this.Div00_Grid00_onheadclick = function(obj,e)
+        {
+        		if(e.cell == 0)
+            {
+                this.gf_setCheckAll(obj, e);
+            }
         };
 
         });
@@ -160,6 +207,7 @@
             this.addEventHandler("onload",this.reqAbsence_onload,this);
             this.Div00.form.Grid00.addEventHandler("oncelldblclick",this.Div00_Grid00_oncelldblclick,this);
             this.Div00.form.Grid00.addEventHandler("oncellclick",this.Div00_Grid00_oncellclick,this);
+            this.Div00.form.Grid00.addEventHandler("onheadclick",this.Div00_Grid00_onheadclick,this);
             this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
         };
 

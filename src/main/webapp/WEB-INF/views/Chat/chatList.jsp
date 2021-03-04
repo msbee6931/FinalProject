@@ -105,7 +105,7 @@ img {
 </script>
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<div class="container-fluid p-0">
-		<div class="row p-4 px-5 top" id="roomCreate"><i class="fas fa-plus"></i></div>
+		<div class="row p-4 px-5 top" id="roomCreate" title="채팅방 생성"><i class="fas fa-plus"></i></div>
 		<div class="row list">
 			<c:choose>
 				<c:when test="${roomList != null }">
@@ -211,7 +211,7 @@ img {
 		</div>
 		<div class="row etc">
 			<div class="row btns py-4" style="background-color:#efefef">
-				<div id="goChatHome" class="col-md-6 col-sm-12"><i class="fas fa-home"></i></div>
+				<div id="goChatHome" class="col-md-6 col-sm-12" title="채팅홈"><i class="fas fa-home"></i></div>
 			</div>
 		</div>
 	</div>
@@ -233,15 +233,14 @@ img {
 							var msg = parent.children(".msgContent");
 							
 							if(msg.length > 0){
+								count = msg.children(".count").text(); // 기존의 count를 가져옴
+								count *= 1; // 불러온 count는 문자열이므로 숫자로 형변환
 								count += 1;
 								msg.children(".count").text(count);
 								msg.children(".message").text(result.message);
 							}else{
-								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
-								
 								count += 1;
-								msg.children(".count").text(count);
-								msg.children(".message").text(result.message);
+								parent.append("<div class='row msgContent'><div class='col-10 message'>"+result.message+"</div><div class='col-2 count'>"+count+"</div></div>");
 							}
 						}
 				});
@@ -256,15 +255,14 @@ img {
 							var msg = parent.children(".msgContent");
 
 							if(msg.length > 0){
+								count = msg.children(".count").text(); // 기존의 count를 가져옴
+								count *= 1; // 불러온 count는 문자열이므로 숫자로 형변환
 								count += 1;
 								msg.children(".count").text(count);
 								msg.children(".message").text("이모티콘을 보냈습니다.");
 							}else{
-								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
-								
 								count += 1;
-								msg.children(".count").text(count);
-								msg.children(".message").text("이모티콘을 보냈습니다.");
+								parent.append("<div class='row msgContent'><div class='col-10 message'>이모티콘을 보냈습니다.</div><div class='col-2 count'>"+count+"</div></div>");
 							}
 						}
 				});
@@ -279,15 +277,14 @@ img {
 							var msg = parent.children(".msgContent");
 							
 							if(msg.length > 0){
+								count = msg.children(".count").text(); // 기존의 count를 가져옴
+								count *= 1; // 불러온 count는 문자열이므로 숫자로 형변환
 								count += 1;
 								msg.children(".count").text(count);
 								msg.children(".message").text("사진을 보냈습니다.");
 							}else{
-								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
-								
 								count += 1;
-								msg.children(".count").text(count);
-								msg.children(".message").text("사진을 보냈습니다.");
+								parent.append("<div class='row msgContent'><div class='col-10 message'>사진을 보냈습니다.</div><div class='col-2 count'>"+count+"</div></div>");
 							}
 						}
 				});
@@ -302,15 +299,14 @@ img {
 							var msg = parent.children(".msgContent");
 								
 							if(msg.length > 0){
+								count = msg.children(".count").text(); // 기존의 count를 가져옴
+								count *= 1; // 불러온 count는 문자열이므로 숫자로 형변환
 								count += 1;
 								msg.children(".count").text(count);
 								msg.children(".message").text("파일을 보냈습니다.");
 							}else{
-								parent.append("<div class='row msgContent'><div class='col-10 message'></div><div class='col-2 count'></div></div>");
-								
 								count += 1;
-								msg.children(".count").text(count);
-								msg.children(".message").text("파일을 보냈습니다.");
+								parent.append("<div class='row msgContent'><div class='col-10 message'>파일을 보냈습니다.</div><div class='col-2 count'>"+count+"</div></div>");
 							}
 						}
 				});

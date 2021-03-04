@@ -32,8 +32,8 @@ public class TuitionDAO {
 	public int updateOne(TuitionDTO dto) {
 		return session.update("Tuition.updateOne", dto);
 	}
-	public int deleteOne(int seq) {
-		return session.delete("Tuition.deleteOne", seq);
+	public int deleteOne(List<TuitionDTO> list) {
+		return session.delete("Tuition.deleteOne", list);
 	}
 	public List<TuitionDTO> stdSelectOne(int std_code){
 		return session.selectList("Tuition.stdSelectOne", std_code);

@@ -80,7 +80,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="row py-2 text-center" style="border-bottom: 1px solid gray">
+					<div class="row text-center py-2" style="border-bottom: 1px solid gray">
 						<div class="col-md-2 d-none d-md-block">번호</div>
 						<div class="col-md-4 d-none d-md-block">제목</div>
 						<div class="col-md-2 d-none d-md-block">등록일</div>

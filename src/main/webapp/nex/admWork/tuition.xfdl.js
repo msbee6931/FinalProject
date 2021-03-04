@@ -18,7 +18,8 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("tuition_ds", this);
-            obj._setContents("<ColumnInfo><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj.set_useclientlayout("true");
+            obj._setContents("<ColumnInfo><Column id=\"chk\" type=\"STRING\" size=\"256\"/><Column id=\"seq\" type=\"INT\" size=\"256\"/><Column id=\"std_code\" type=\"INT\" size=\"256\"/><Column id=\"std_grade\" type=\"STRING\" size=\"256\"/><Column id=\"type\" type=\"STRING\" size=\"256\"/><Column id=\"t_enter\" type=\"INT\" size=\"256\"/><Column id=\"t_class\" type=\"INT\" size=\"256\"/><Column id=\"t_std\" type=\"INT\" size=\"256\"/><Column id=\"t_grd\" type=\"INT\" size=\"256\"/><Column id=\"t_ore\" type=\"INT\" size=\"256\"/><Column id=\"tSum\" type=\"INT\" size=\"256\"/><Column id=\"t_date\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -63,7 +64,7 @@
             obj.set_binddataset("tuition_ds");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"60\"/><Column size=\"60\"/><Column size=\"100\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"학번\"/><Cell col=\"1\" text=\"학년\"/><Cell col=\"2\" text=\"학기\"/><Cell col=\"3\" text=\"등록금 총 합계\"/></Band><Band id=\"body\"><Cell text=\"bind:std_code\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:tSum\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"25\"/><Column size=\"80\"/><Column size=\"49\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"0\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"학번\"/><Cell col=\"2\" text=\"학년\"/><Cell col=\"3\" text=\"학기\"/><Cell col=\"4\" text=\"등록금 합계\"/><Cell col=\"5\" text=\"입력 날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" edittype=\"checkbox\" displaytype=\"checkboxcontrol\" textAlign=\"center\"/><Cell col=\"1\" text=\"bind:std_code\" textAlign=\"center\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:std_grade\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:type\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:tSum\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:t_date\" textAlign=\"center\" displaytype=\"date\"/></Band></Format></Formats>");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("btn_del",null,null,"100","25","10","12",null,null,null,null,this.Div00.form);
@@ -201,6 +202,7 @@
         this.Div00_grd_std_oncellclick = function(obj,e)
         {
         	this.std_code = this.students_ds.getColumn(e.row,"s_seq");
+        	this.fn_callback_tuition();
         	this.tuition_ds.filter("std_code=='"+this.std_code+"'");
         };
 
@@ -220,11 +222,28 @@
         	);
         };
 
-        this.fn_callback_insertTuition = function()
+
+        this.fn_callback_insertTuition = function(cId, sCode)
         {
-        	this.reload();
+        		this.transaction(
+        		"selectAll.tuition",//id
+        		"/tuition/selectAll.tuition",//url (절대경로)
+        		"",//in_ds:U
+        		"tuition_ds=out_ds",//()_out_ds
+        		"",//argument
+        		"fn_callback_tuition_insert_filter"
+        		)
+        		this.std_code=sCode;
+
         }
 
+        this.fn_callback_tuition_insert_filter=function()
+        {
+        	trace("필터 성공")
+        	this.tuition_ds.filter("std_code=='"+this.std_code+"'");
+        	this.fn_callback_tuition();
+
+        }
 
 
         this.Div00_grd_tuition_oncelldblclick = function(obj,e)
@@ -233,7 +252,7 @@
         	//등록금 수정을 위한 모달창
         	var objCF = new ChildFrame();
         	objCF.init("tuition_read_pop",400,100,400,400);
-        	objCF.set_titletext("등록금 확인하기");
+        	objCF.set_showtitlebar(false);
         	objCF.set_formurl("admWork::tuition_read_pop.xfdl");
         	objCF.showModal(
         		this.getOwnerFrame(),
@@ -243,31 +262,59 @@
         	);
         };
 
-        this.fn_callback_updateTuition=function()
+        this.fn_callback_updateTuition=function(cId, sCode)
         {
-        	this.reload();
+        		this.transaction(
+        		"selectAll.tuition",//id
+        		"/tuition/selectAll.tuition",//url (절대경로)
+        		"",//in_ds:U
+        		"tuition_ds=out_ds",//()_out_ds
+        		"",//argument
+        		"fn_callback_tuition_insert_filter"
+        		)
+        		this.std_code=sCode;
         }
 
 
-        this.seq="";
-        this.Div00_grd_tuition_oncellclick = function(obj,e)
-        {
-        	this.seq=this.tuition_ds.getColumn(e.row,"seq");
-        };
+
 
         this.Div00_btn_del_onclick = function(obj,e)
         {
-        	alert(this.seq)
-        	var nRow = this.tuition_ds.findRow("seq",this.seq);
-        	this.tuition_ds.deleteRow(nRow);
+        	var objDs = this.tuition_ds;
+        	var arr = objDs.extractRows("chk==1");
+        	if(arr.length==0 || arr.length== -1)
+        	{
+        		alert("선택된 항목이 없습니다.");
+        		return;
+        	}
+        	else if (objDs.getRowCount() == 0)
+        	{
+        		alert("선택된 항목이 없습니다.");
+        		return;
+        	}
+
+        	var delCheck = this.confirm("정말로 삭제하시겠습니까?");
+        	if(delCheck)
+        	{
+        	objDs.deleteMultiRows(arr);
+
         	this.transaction(
         		"deleteOne.tuition",//id
         		"/tuition/deleteOne.tuition",//url (절대경로)
-        		"",//in_ds:U
-        		"out_ds=tuition_ds",//()_out_ds
-        		"seq="+this.seq,//argument
+        		"in_ds=tuition_ds:U",//in_ds:U
+        		"",//()_out_ds
+        		"",//argument
         		"fn_callback"
         		)
+
+        	this.Div00.form.grd_tuition.setCellProperty("head",0,"text",0);
+        	}
+        	else
+        	{
+        		return;
+        	}
+
+
         };
 
         this.Div00_btn_searchEtc_onclick = function(obj,e)
@@ -293,6 +340,7 @@
         this.Div00_btn_entire_onclick = function(obj,e)
         {
         	this.tuition_ds.filter("");
+        	this.fn_callback_tuition();
         };
 
 
@@ -328,6 +376,39 @@
         	}
         };
 
+
+        this.Div00_grd_tuition_onheadclick = function(obj,e)
+        {
+        	if(e.cell == 0)
+            {
+                this.gf_setCheckAll(obj, e);
+            }
+        };
+
+        this.gv_isCheckAll = 0;
+        this.gf_setCheckAll = function(obj, e)
+        {
+            var sColID = obj.getCellProperty("body", e.cell, "text").replace("bind:", "");
+
+        	var sheadValue = obj.getCellProperty("head",e.cell,"text");
+
+            if(sColID == "chk")
+            {
+        		sheadValue = (sheadValue =="1"? "0":"1");
+        		obj.setCellProperty("head",e.cell,"text",sheadValue);
+
+        		this.tuition_ds.set_enableevent(false);
+        		for(var i=0; i< this.tuition_ds.getRowCount(); i++)
+        		{
+        			this.tuition_ds.setColumn(i, "chk",sheadValue);
+        		}
+        		this.tuition_ds.set_enableevent(true);
+            }
+
+        }
+
+
+
         });
         
         // Regist UI Components Event
@@ -336,7 +417,7 @@
             this.addEventHandler("onload",this.tuition_onload,this);
             this.Div00.form.grd_std.addEventHandler("oncellclick",this.Div00_grd_std_oncellclick,this);
             this.Div00.form.grd_tuition.addEventHandler("oncelldblclick",this.Div00_grd_tuition_oncelldblclick,this);
-            this.Div00.form.grd_tuition.addEventHandler("oncellclick",this.Div00_grd_tuition_oncellclick,this);
+            this.Div00.form.grd_tuition.addEventHandler("onheadclick",this.Div00_grd_tuition_onheadclick,this);
             this.Div00.form.btn_del.addEventHandler("onclick",this.Div00_btn_del_onclick,this);
             this.Div00.form.btn_entire.addEventHandler("onclick",this.Div00_btn_entire_onclick,this);
             this.Div00.form.Div00.form.cmb_type.addEventHandler("onitemchanged",this.Div00_Div00_cmb_type_onitemchanged,this);

@@ -144,8 +144,8 @@ public class ScholarshipService {
 	public int updateOne(ScholarshipDTO dto) {
 		return sDao.updateOne(dto);
 	}
-	public int deleteOne(int seq) {
-		return sDao.deleteOne(seq);
+	public int deleteOne(List<ScholarshipDTO> list) {
+		return sDao.deleteOne(list);
 	}
 	public int deleteReqSch(List<ReqScholarDTO> list) {
 		return sDao.deleteReqSch(list);

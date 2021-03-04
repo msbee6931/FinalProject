@@ -48,6 +48,9 @@
 	background-color: #efefef;
 	color: gray;
 }
+.add{
+	cursor: pointer;
+}
 </style>
 </head>
 <body>

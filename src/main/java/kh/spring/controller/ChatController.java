@@ -37,7 +37,6 @@ import kh.spring.dto.MessageDTO;
 import kh.spring.dto.RoomDTO;
 import kh.spring.dto.RoomJoinDTO;
 import kh.spring.dto.UserDTO;
-import kh.spring.dto.UserStateDTO;
 import kh.spring.service.ChattingService;
 
 @Controller
@@ -477,11 +476,15 @@ public class ChatController {
 		int roomCreateResult = service.insertRoom(roomNumber,roomName);
 		// 방장 룸조인에 넣기
 		int roomJoinResultU = service.joinRoom(roomNumber,roomName,userId,user.getUserName());
+		// 채팅 알림을 위한 나가기 상태 표시
+		int result = service.insertUserState(userId,roomNumber);
 		// 룸조인에 유저들 넣기
 		int roomJoinResultF = 0;
 		for(int i=0;i<friendId.length;i++) {
 			roomJoinResultF = service.joinRoom(roomNumber,roomName,friendId[i],friendName[i]);
+			service.insertUserState(friendId[i],roomNumber);
 		}
+		
 		
 		PrintWriter pw = response.getWriter();
 		JsonObject obj = new JsonObject();
@@ -507,17 +510,17 @@ public class ChatController {
 			// 채팅방이 없을시 채팅방 생성
 			int auth = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
 			String roomNumber = Integer.toString(auth);
-			// String roomName = userName+"와 "+friendName+"의 채팅방";
 			String roomName = "";
 			int result = service.insertRoom(roomNumber,roomName);
-			List<MessageDTO> list = service.getChatting(roomNumber);
-			List<RoomJoinDTO> joinList = service.getJoinRoomInfo(roomNumber);
+			//List<MessageDTO> list = service.getChatting(roomNumber);
 			
 			// roomjoin에 값 넣기
 			service.joinRoom(roomNumber,roomName,userId,userName);
 			service.joinRoom(roomNumber,roomName,friendId,friendName);
 			
-			model.addAttribute("list",list);
+			List<RoomJoinDTO> joinList = service.getJoinRoomInfo(roomNumber);
+			
+			//model.addAttribute("list",list);
 			model.addAttribute("userId", userId);
 			model.addAttribute("roomNumber",roomNumber);
 			model.addAttribute("joinList",joinList);
@@ -526,6 +529,9 @@ public class ChatController {
 			// 채팅방이 있을시
 			List<MessageDTO> list = service.getChatting(roomNumberCk.getRoomNumber());
 			List<RoomJoinDTO> joinList = service.getJoinRoomInfo(roomNumberCk.getRoomNumber());
+			
+			// 채팅방 입장시 채팅방 나간 기록 삭제
+			int result = service.deleteUserState(roomNumberCk.getRoomNumber(),userId);
 			
 			model.addAttribute("list",list);
 			model.addAttribute("userId", userId);

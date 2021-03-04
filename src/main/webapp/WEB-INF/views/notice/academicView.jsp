@@ -12,11 +12,21 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
 #subLabel{
-	background-color: #275cb8;
+	background-color: #193461;
 	color:white;
 	max-width:200px;
+}
+#btnCol{
+	background-color: #193461;
+	color:white;
 }
 #box {
 	min-height:500px;
@@ -46,6 +56,18 @@
 #sideBox{
 	max-height:300px;
 }
+#nav-ul>li>a.active{
+	background-color :#000d37;
+	color: white;
+}
+#nav-ul>li>a:hover,
+#nav-ul>li>a:focus {
+  background-color: #495d8f;
+  color: white;
+}
+.nav-li{
+	border-bottom:1px solid black;
+}
 </style>
 </head>
 <body>
@@ -62,25 +84,25 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mb-5">
 				<div class="col-lg-2 d-grid text-center" id="sideBox">
 					<!--collapse 추가  -->
 					<div class="col-12 d-none d-lg-block py-5" id="subLabel" >
 						<h3><b>공지사항</b></h3>
 					</div>
-					<nav class="navbar navbar-expand-lg mb-2 nav-pills nav-justified "style="background-color: #e3f2fd; border-radius: 10px">
+					<nav class="navbar navbar-expand-lg mb-2 nav-justified">
 					<div class="col d-grid">
-						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" ><b>공지사항</b></button>
+						<button type="button" class="btn mb-1 d-block d-lg-none "data-bs-toggle="collapse" data-bs-target="#listCollapse" id="btnCol"><b>공지사항</b></button>
 					</div>
 						<div class="collapse navbar-collapse" id="listCollapse" >
-							<ul class="navbar-nav flex-column" id="nav-ul">
-								<li class="nav-item" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
+							<ul class="navbar-nav flex-column " id="nav-ul">
+								<li class="nav-item nav-li" ><a class="nav-link " href="/normalList.notice?page=1">일반공지</a>
 								</li>
-								<li class="nav-item"><a class="nav-link active" href="/academicList.notice?page=1">학사공지</a>
+								<li class="nav-item nav-li"><a class="nav-link active" href="/academicList.notice?page=1">학사공지</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
+								<li class="nav-item nav-li"><a class="nav-link" href="/scholarList.notice?page=1">장학공지</a>
 								</li>
-								<li class="nav-item "><a class="nav-link" href="/employmentList.notice?page=1">취업공지  </a>
+								<li class="nav-item nav-li "><a class="nav-link" href="/employmentList.notice?page=1">취업공지  </a>
 								</li>
 							</ul>
 						</div>
@@ -124,6 +146,7 @@
 									<div class="col-8"><img src="/img/file.png"><a href="/download.notice?seq=${i.f_seq}"> ${i.fileName}</a></div>
 									<div class="col-4"><button type="button" class="download">다운로드</button><input type="hidden" value="${i.f_seq}"></div>
 								</div>
+
 								</c:forEach>
 							</c:if>
 						</div>

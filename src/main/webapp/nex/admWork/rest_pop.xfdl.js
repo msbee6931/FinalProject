@@ -135,6 +135,13 @@
             obj.set_cssclass("sta_default");
             this.addChild(obj.name, obj);
 
+            obj = new Button("btn_complite","90","350","100","25",null,null,null,null,null,null,this);
+            obj.set_taborder("19");
+            obj.set_text("복학 처리 완료");
+            obj.set_cssclass("btn_default");
+            obj.set_visible("false");
+            this.addChild(obj.name, obj);
+
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",400,400,this,function(p){});
@@ -198,7 +205,8 @@
         	var rest = this.students_ds.getColumn(0,"rest");
         	if(rest=='N')
         	{
-        		this.btn_commit.set_text("복학 처리 완료");
+        		this.btn_commit.set_visible(false);
+        		this.btn_complite.set_visible(true);
         	}
         }
 
@@ -222,7 +230,8 @@
 
         this.fn_callback_rest = function()
         {
-        	this.btn_commit.set_text("복학 처리 완료");
+        	this.btn_commit.set_visible(false);
+        	this.btn_complite.set_visible(true);
         }
 
         //그냥 닫기
@@ -241,6 +250,7 @@
             this.addEventHandler("onload",this.rest_pop_onload,this);
             this.btn_commit.addEventHandler("onclick",this.Div00_btn_commit_onclick,this);
             this.btn_ok.addEventHandler("onclick",this.btn_ok_onclick,this);
+            this.btn_complite.addEventHandler("onclick",this.Div00_btn_commit_onclick,this);
         };
 
         this.loadIncludeScript("rest_pop.xfdl");

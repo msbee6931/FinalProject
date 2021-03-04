@@ -134,5 +134,8 @@ public class ClassService {
 	public List<StudentClassDTO> stdListSeq(StudentClassDTO dto){
 		return dao.stdListSeq(dto);
 	}
+	public int evalUpd(ClassDTO dto) {
+		return dao.evalUpd(dto);
+	}
 
 }

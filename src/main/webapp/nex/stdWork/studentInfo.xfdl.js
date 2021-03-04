@@ -17,7 +17,14 @@
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
+            obj = new Dataset("ds_students", this);
+            obj._setContents("<ColumnInfo><Column id=\"s_seq\" type=\"INT\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"adress\" type=\"STRING\" size=\"256\"/><Column id=\"scholarship\" type=\"STRING\" size=\"256\"/><Column id=\"rest\" type=\"STRING\" size=\"256\"/><Column id=\"grade\" type=\"STRING\" size=\"256\"/><Column id=\"gender\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"colGrade\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
 
+
+            obj = new Dataset("ds_professor", this);
+            obj._setContents("<ColumnInfo><Column id=\"p_seq\" type=\"INT\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"secNumber\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"contact\" type=\"STRING\" size=\"256\"/><Column id=\"address\" type=\"STRING\" size=\"256\"/><Column id=\"lecture\" type=\"STRING\" size=\"256\"/><Column id=\"pw\" type=\"STRING\" size=\"256\"/><Column id=\"colCode\" type=\"STRING\" size=\"256\"/><Column id=\"deptCode\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Static("Static00","0","0","29","520",null,null,null,null,null,null,this);
@@ -195,42 +202,75 @@
         this.objApp = nexacro.getApplication();
         this.studentInfo_onload = function(obj,e)
         {
-        	if(this.objApp.gds_students.getRowCount() > 0){
-        		var code = this.objApp.gds_students.getColumn(0,"s_seq").toString();
-        		var name = this.objApp.gds_students.getColumn(0,"name");
-        		var enroll = "20"+code.substring(0,2)+"년 03월 02일";
-        		var colGrade = this.objApp.gds_students.getColumn(0,"colGrade");
-        		var birth = this.objApp.gds_students.getColumn(0,"secNumber");
-        		birth = birth.substring(0,6);
-        		var gender = this.objApp.gds_students.getColumn(0,"gender");
-        		var deptCode = this.objApp.gds_students.getColumn(0,"deptCode");
-        		var colCode = this.objApp.gds_students.getColumn(0,"colCode");
-        		var contact = this.objApp.gds_students.getColumn(0,"contact");
-        		var email = this.objApp.gds_students.getColumn(0,"email");
-        		var address = this.objApp.gds_students.getColumn(0,"address");
+        	if(this.objApp.gds_students.getRowCount() > 0) {
+        		var sCode = this.objApp.gds_students.getColumn(0,"s_seq");
+        		this.transaction(
+        					"studentInfo"
+        					,"/students/selectOneStd.students"
+        					,""
+        					,"ds_students=out_ds"
+        					,"sCode="+sCode
+        					,"fn_callback"
+        				);
 
-        		this.div_Info.form.edt_enroll.set_value(enroll);
-        		this.div_Info.form.edt_colGrade.set_value(colGrade);
-        		this.div_Info.form.rd_gender.set_value(gender)
         	}else if(this.objApp.gds_professor.getRowCount() > 0){
-        		this.div_Info.form.sta_code.set_text("＊ 교번");
-        		this.div_Info.form.sta_enroll.set_visible(false);
-        		this.div_Info.form.edt_enroll.set_visible(false);
-        		this.div_Info.form.sta_gender.set_visible(false);
-        		this.div_Info.form.rd_gender.set_visible(false);
-        		this.div_Info.form.sta_colGrade.set_visible(false);
-        		this.div_Info.form.edt_colGrade.set_visible(false);
+        		var pCode = this.objApp.gds_professor.getColumn(0,"p_seq");
+        		this.transaction(
+        					"professorInfo"
+        					,"/professorInfo.pro"
+        					,""
+        					,"ds_professor=out_ds"
+        					,"pCode="+pCode
+        					,"fn_callback"
+        				);
+        	}
 
-        		var code = this.objApp.gds_professor.getColumn(0,"p_seq").toString();
-        		var name = this.objApp.gds_professor.getColumn(0,"name");
-        		var colGrade = this.objApp.gds_professor.getColumn(0,"colGrade");
-        		var birth = this.objApp.gds_professor.getColumn(0,"secNumber");
-        		birth = birth.substring(0,6);
-        		var deptCode = this.objApp.gds_professor.getColumn(0,"deptCode");
-        		var colCode = this.objApp.gds_professor.getColumn(0,"colCode");
-        		var contact = this.objApp.gds_professor.getColumn(0,"contact");
-        		var email = this.objApp.gds_professor.getColumn(0,"email");
-        		var address = this.objApp.gds_professor.getColumn(0,"address");
+        };
+
+        this.fn_callback = function(sId,errCd,errMsg){
+        	if (errCd < 0) {
+        		trace("sId["+sId+"]: Error["+errCd+"]:"+errMsg);
+        	}
+        	if(sId == "studentInfo"){
+        		if(this.ds_students.getRowCount() > 0){
+        			var code = this.objApp.gds_students.getColumn(0,"s_seq").toString();
+        			var name = this.ds_students.getColumn(0,"name");
+        			var enroll = "20"+code.substring(0,2)+"년 03월 02일";
+        			var colGrade = this.ds_students.getColumn(0,"colGrade");
+        			var birth = this.ds_students.getColumn(0,"secNumber");
+        			birth = birth.substring(0,6);
+        			var gender = this.ds_students.getColumn(0,"gender");
+        			var deptCode = this.ds_students.getColumn(0,"deptCode");
+        			var colCode = this.ds_students.getColumn(0,"colCode");
+        			var contact = this.ds_students.getColumn(0,"contact");
+        			var email = this.ds_students.getColumn(0,"email");
+        			var address = this.ds_students.getColumn(0,"address");
+
+        			this.div_Info.form.edt_enroll.set_value(enroll);
+        			this.div_Info.form.edt_colGrade.set_value(colGrade);
+        			this.div_Info.form.rd_gender.set_value(gender)
+        		}
+        	}else if(sId =="professorInfo"){
+        		if(this.ds_professor.getRowCount()> 0){
+        			this.div_Info.form.sta_code.set_text("＊ 교번");
+        			this.div_Info.form.sta_enroll.set_visible(false);
+        			this.div_Info.form.edt_enroll.set_visible(false);
+        			this.div_Info.form.sta_gender.set_visible(false);
+        			this.div_Info.form.rd_gender.set_visible(false);
+        			this.div_Info.form.sta_colGrade.set_visible(false);
+        			this.div_Info.form.edt_colGrade.set_visible(false);
+
+        			var code = this.objApp.gds_professor.getColumn(0,"p_seq").toString();
+        			var name = this.ds_professor.getColumn(0,"name");
+        			var colGrade = this.ds_professor.getColumn(0,"colGrade");
+        			var birth = this.ds_professor.getColumn(0,"secNumber");
+        			birth = birth.substring(0,6);
+        			var deptCode = this.ds_professor.getColumn(0,"deptCode");
+        			var colCode = this.ds_professor.getColumn(0,"colCode");
+        			var contact = this.ds_professor.getColumn(0,"contact");
+        			var email = this.ds_professor.getColumn(0,"email");
+        			var address = this.ds_professor.getColumn(0,"address");
+        		}
         	}
 
         	var deptRow = this.objApp.deptCode.findRow("code",deptCode);
@@ -248,10 +288,7 @@
         	this.div_Info.form.edt_contact.set_value(contact);
         	this.div_Info.form.edt_email.set_value(email);
         	this.div_Info.form.edt_address.set_value(address);
-
-        };
-
-
+        }
         });
         
         // Regist UI Components Event

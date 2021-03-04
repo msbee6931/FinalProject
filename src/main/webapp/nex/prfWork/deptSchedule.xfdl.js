@@ -82,7 +82,8 @@
             obj.set_taborder("2");
             obj.set_binddataset("deptSchedule_ds");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"295\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:code\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" displaytype=\"combotext\" combocodecol=\"code\" combodatacol=\"name\" textAlign=\"center\" combodataset=\"ScheduleCode_ds\"/><Cell col=\"1\" text=\"bind:title\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\" textAlign=\"center\"/></Band></Format></Formats>");
+            obj.set_cssclass("grd_default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"324\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"분류\"/><Cell col=\"1\" text=\"일정 명\"/></Band><Band id=\"body\"><Cell text=\"bind:code\" textAlign=\"center\" displaytype=\"combotext\" combodataset=\"ScheduleCode_ds\" combocodecol=\"code\" combodatacol=\"name\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\"/><Cell col=\"1\" text=\"bind:title\" textAlign=\"center\" cssclass=\"expr:code=='01'?'Expr_red':code=='02'?'Expr_blue':'Expr_yellow'\"/></Band></Format></Formats>");
             this.div_schedule.addChild(obj.name, obj);
 
             obj = new Button("btn_entireSchd",null,"46","100","25","20",null,null,null,null,null,this.div_schedule.form);

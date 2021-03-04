@@ -72,6 +72,7 @@ public class ScholarshipController {
 		nr.addDataSet("out_ds", list);
 		return nr;
 	}
+	
 
 
 	//학생_장학금 신청내용  입력
@@ -96,21 +97,13 @@ public class ScholarshipController {
 	public NexacroResult uploadReqSchFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("장학금 요청 파일쪽 컨트롤러 확인");
 		int pSeq = Integer.parseInt(request.getParameter("parentSeq"));
-//		int selectLastSeq = sService.selectLastSeq(); 
+
 		System.out.println("parentSeq확인 ----------------->>>> "+pSeq);
 
-//		if(!(request instanceof MultipartHttpServletRequest)) {
-//			if(logger.isDebugEnabled()) {
-//				logger.debug("Request is not a MultipartHttpServletRequest");
-//			}
-//			return new NexacroResult();
-//		}
 
 		MultipartHttpServletRequest multipartRequest = 
 				(MultipartHttpServletRequest) request;
 
-//		// parameter and multipart parameter
-//		Enumeration<String> parameterNames = multipartRequest.getParameterNames();
 
 		// files..
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
@@ -138,12 +131,6 @@ public class ScholarshipController {
 				FileCopyUtils.copy(multipartFile.getBytes(), targetLoc);
 			}
 
-			// upload some logic…
-
-//			if(logger.isDebugEnabled()) {
-//				logger.debug("uploaded file write success. file={}", 
-//						originalFileName);
-//			}
 
 		}
 
@@ -264,11 +251,11 @@ public class ScholarshipController {
 	}
 	
 	@RequestMapping("deleteOne.scholarship")
-	public NexacroResult deleteOne( @ParamVariable(name="seq")int seq) {
+	public NexacroResult deleteOne( @ParamDataSet(name="in_ds")List<ScholarshipDTO> list) {
 		System.out.println("등록금 삭제 확인");
 		NexacroResult nr = new NexacroResult();
 
-		int result = sService.deleteOne(seq);
+		int result = sService.deleteOne(list);
 		
 		return nr;
 	}
@@ -276,14 +263,9 @@ public class ScholarshipController {
 	@RequestMapping("deleteReqSch.scholarship")
 	public NexacroResult deleteReqSch(@ParamDataSet(name="in_ds")List<ReqScholarDTO> list) {
 		System.out.println("등록금 삭제 확인");
-		int[] arr = new int[list.size()];
+
 		for(int i=0; i<list.size();i++) {
-			arr[i]=list.get(i).getSeq();
-			System.out.println("arr값 출력하기,,>"+arr[i]);
-		}
-		
-		for(int j=0; j<arr.length;j++) {
-			sService.deleteReqfile(arr[j]);
+			sService.deleteReqfile(list.get(i).getSeq());
 		}
 		
 		NexacroResult nr = new NexacroResult();
