@@ -101,19 +101,21 @@ button:hover,input[type='button']:hover,input[type='submit']:hover{
 	display: flex;
 	justify-content: space-between;
 	margin: 10px;
-}#mainReply{
-	background-color: lightgray;
-	width: 1000px;
-	height: 200px;
+}
+#mainReply{
+	background-color: #efefef;
+	/* width: 1000px; */
+	width: 100%;
 	text-align: center;
-		padding: 10px;
+	padding: 50px;
 	margin-bottom: 10px;
 	font-size: 20px;
-	color:green;
-}#reply{
+	color:black;
+}
+#reply{
 	width:100%;
 	height: 200px;
-	float:left;
+	/* float:left; */
 	background-color:white;
 }
 </style>
