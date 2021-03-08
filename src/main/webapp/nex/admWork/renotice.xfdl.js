@@ -28,7 +28,7 @@
 
 
             obj = new Dataset("ds_deptcode", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">A</Col><Col id=\"name\">일반</Col></Row><Row><Col id=\"code\">B</Col><Col id=\"name\">장학</Col></Row><Row><Col id=\"code\">C</Col><Col id=\"name\">학사</Col></Row><Row><Col id=\"code\">D</Col><Col id=\"name\">취업</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">A</Col><Col id=\"name\">일반</Col></Row><Row><Col id=\"code\">C</Col><Col id=\"name\">장학</Col></Row><Row><Col id=\"code\">B</Col><Col id=\"name\">학사</Col></Row><Row><Col id=\"code\">D</Col><Col id=\"name\">취업</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -391,6 +391,7 @@
         	this.ds_NoticeFiles.clearData();
         }
 
+
         });
         
         // Regist UI Components Event
@@ -400,6 +401,7 @@
             this.btn_cancel.addEventHandler("onclick",this.btn_cancel_onclick,this);
             this.btn_save.addEventHandler("onclick",this.btn_save_onclick,this);
             this.Grid00.addEventHandler("onheadclick",this.Tab00_Tabpage1_Grid00_onheadclick,this);
+            this.com_list.addEventHandler("onitemchanged",this.com_list_onitemchanged,this);
             this.btn_insert.addEventHandler("onclick",this.btn_insert_onclick,this);
             this.btn_delete.addEventHandler("onclick",this.btn_delete_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);

@@ -45,12 +45,6 @@ public class FreeCommentController {
 	    		  
 
 	     dto.setRev_writer(rev_writer);
-
-
-
-	      System.out.println("insert요청 확인");
-	      System.out.println("현재 게시글 seq : "+dto.getMain_seq());
-	      System.out.println("댓글 내용확인 : " +dto.getRev_contents());
 	     
 	      int result = service.insert(dto);
 	      //---
@@ -110,11 +104,9 @@ public class FreeCommentController {
 	   @ResponseBody
 	   public String printAll(HttpServletRequest request) throws Exception {
 	      String mSeq=(String)request.getParameter("mSeq");
-	      System.out.println("select 요청 확인");
 	      int page =1;
 	      Gson gson=new Gson();
 	      List <FreeCommentDTO> list = service.selectAll(mSeq,page);
-	      String navi = service.navi(page, mSeq);
 	      
 	      return gson.toJson(list);
 	   }
@@ -123,7 +115,6 @@ public class FreeCommentController {
 	   @RequestMapping("delete")
 	   @ResponseBody
 	   public String delete(HttpServletRequest request,Model model) throws Exception {
-	      System.out.println("delete 요청 확인");
 	      String mSeq=request.getParameter("mainSeq");
 	      int rSeq= Integer.parseInt(request.getParameter("revSeq"));
 
@@ -132,12 +123,6 @@ public class FreeCommentController {
 	       if(result>0) {
 	    	   Gson gson = new Gson();
 	    	   List<FreeCommentDTO> list = service.selectAll(mSeq, page);
-	    	   FreeCommentDTO dto =service.fistDTO(Integer.parseInt(mSeq));
-	    	   String navi = service.navi(page, mSeq);
-	    	   dto.setBlank1(Integer.toString((Integer)session.getAttribute("login")));
-	    	   dto.setBlank2(navi);
-	    	   dto.setBlank3(mSeq);
-	    	   list.add(0,dto);
 	    	   return gson.toJson(list);
 	       }
 	      return "false";
@@ -146,22 +131,14 @@ public class FreeCommentController {
 	   @RequestMapping("update")
 	   @ResponseBody
 	   public String update(HttpServletRequest request,Model model) throws Exception {
-	      String mSeq = (String)request.getParameter("mSeq");
-	      System.out.println("update.FreeComment 요청확인");
+	      String mSeq = request.getParameter("mSeq");
 	      String rSeq =  request.getParameter("revSeq");
 	      String rCon =  request.getParameter("revContents");
-	      System.out.println(rSeq +":"+rCon);
 	      int result = service.update(rSeq,rCon);
 	       int page = 1;
 	       if(result>0) {
 	    	   Gson gson = new Gson();
 	    	   List<FreeCommentDTO> list = service.selectAll(mSeq, page);
-	    	   FreeCommentDTO dto =service.fistDTO(Integer.parseInt(mSeq));
-	    	   String navi = service.navi(page, mSeq);
-	    	   dto.setBlank1(Integer.toString((Integer)session.getAttribute("login")));
-	    	   dto.setBlank2(navi);
-	    	   dto.setBlank3(mSeq);
-	    	   list.add(0,dto);
 	    	   return gson.toJson(list);
 	      }
 	      return "false";
@@ -171,7 +148,6 @@ public class FreeCommentController {
 	   @ResponseBody
 	   public String getNavi(HttpServletRequest request) throws Exception {
 	      String mSeq = (String)request.getParameter("mSeq");
-	      System.out.println("mseq : "+mSeq);
 	      int page =1;
 	      String navi = service.navi(page, mSeq);
 	      int count = service.getDataCount(mSeq);

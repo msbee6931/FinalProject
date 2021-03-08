@@ -22,13 +22,35 @@
     
     
     <style>
+    @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+		.container{
+			margin-top: 20px;
+			border: 1px solid lightgray;
+			padding: 10px;
+		}
         .content{
             display: flex;
             justify-content: center;
         }
-        table{width: 800px;}
-        table,tr,td{border: 1px solid;}
+        #textarea>div{
+        	width: 100%;
+        }
+        .content
+        /* table{width: 800px;} */
+        /* table,tr,td{border: 1px solid;} */
         button{float: left;}
+        table{
+        	width: 100%;
+        }
         table tr:nth-child(1){
             height: 30px;
             text-align: center;
@@ -43,7 +65,6 @@
             height: 30px; 
             text-align: right;
         }
-        
         #title{
             width: 70%;
         }
@@ -52,23 +73,37 @@
             width: 98%;
         }
         
-       
+       button,input[type='button'],input[type='submit'] {
+		padding: 12px;
+		border-style: none;
+		background-color: #efefef;
+		border-radius: 4px;
+		}
+		button:hover,input[type='button']:hover,input[type='submit']:hover{
+			background-color: lightgray
+		}
+		#title{
+			border: 1px solid lightgray;
+			padding: 10px;
+			width: 100%;
+			margin-top: 10px;
+		}
     </style>
 </head>
 <body>
-
-<form action=/request/write?capge=1 method="post" name = myform onsubmit="return check()" enctype="multipart/form-data">
+	<div class="container">
+		<form action=/request/write method="post" name = myform onsubmit="return check()" enctype="multipart/form-data">
     <div class = "content">
-       <table border="1">
+       <table>
         <tr>
-            <td>건의게시판 글 쓰기</td>
+            <td><h4><b>건의게시판 글 쓰기</b></h4></td>
         </tr>
         <tr>
             <td> 
-            <input id = title name= title type= text placeholder="제목을 입력하세요"></td>
+            <input id ="title" name="title" type="text" placeholder="제목을 입력하세요"></td>
         </tr>
         <tr>
-            <td> <textarea id = textarea name = contents></textarea></td>
+            <td> <textarea id="textarea" name="contents"></textarea></td>
         </tr>
         <tr>
            <td >
@@ -80,14 +115,14 @@
         
     </div>
     </form>
-    
+	</div>
    <script>
    
    $(function(){
 	    //id가 description인 태그에 summernote 적용
-	    $("#textarea").summernote({
-	        height : 300,
-	        width : 800
+	   $("#textarea").summernote({
+	        height : 500/* ,
+	        width : 800 */
 	    });
 	});
    

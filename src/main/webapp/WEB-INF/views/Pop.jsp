@@ -11,7 +11,14 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <style>
-            *{box-sizing: border-box;}
+        @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	.nanumgothic * {
+		 font-family: 'Nanum Gothic', sans-serif;
+	}
+	*{
+	font-family: 'Nanum Gothic', sans-serif;
+	box-sizing: border-box;
+	}
             .row{font-size: 13px;
             text-align: center}
             .container{

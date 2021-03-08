@@ -74,7 +74,7 @@ nav {
 							<li class="nav-item p-3"><a class="nav-link active" href="/normalList.notice?page=1"
 								tabindex="-1"><b>공지사항</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="/schoolSchedule"
-								tabindex="-1"><b>학사스케쥴</b></a></li>
+								tabindex="-1"><b>학사일정</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="/free/boardList"
 								tabindex="-1"><b>게시판</b></a></li>
 							<li class="nav-item p-3"><a class="nav-link active" href="/reference/refList.ref?page=1"

@@ -116,7 +116,6 @@ li {
 	font-family: 'Nanum Gothic', sans-serif;
 }
 .container {
-	padding: 0;
 	font-size: 14px;
 }
 .align{
@@ -220,7 +219,6 @@ nav {
 				</c:choose>
 				<a href="/nex" class="p-4 txt">종합정보</a>
 			</div>
-
 		</div>
 		<jsp:include page="/WEB-INF/views/mainHeader.jsp" />
 		<div class="row body">

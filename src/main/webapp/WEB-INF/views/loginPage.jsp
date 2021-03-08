@@ -11,6 +11,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+.container{
+	background-color: #efefef;
+	border-radius: 10px;
+}
 #loginBox {
 	position: absolute;
 	width:500px;
@@ -18,21 +29,28 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-
+}
+.btn{
+	background-color: #495d8f;
+	color: #ffffff;
+}
+.btn:hover {
+	background-color: #193461;
+	color: #ffffff;
 }
 </style>
 </head>
 <body>
 	<form action="login.log?logReq=${logReq}" method="post" id="loginBox" onsubmit="return InputChk()">
 		<div class="container">
-			<div class="row text-center" onclick="location.href='/'" style="cursor: pointer">
+			<!-- <div class="row text-center" onclick="location.href='/'" style="cursor: pointer">
 				<div class="col p-3">
 					<h2>
 						<b>통합 로그인</b>
 					</h2>
 				</div>
-			</div>
-			<div class="row p-5" style="border: 1px solid black">
+			</div> -->
+			<div class="row p-5">
 				<div class="col">
 					<div class="row p-3">
 						<div class="col-4 form-check">
@@ -69,7 +87,7 @@
 						</div>
 					</div>
 					<div class="d-grid" >
-						<button type="submit" class="btn btn-primary">로그인</button>
+						<button type="submit" class="btn"><b>로그인</b></button>
 					</div>
 				</div>
 			</div>

@@ -112,20 +112,20 @@ public class FreeBoardController {
 		
 		String cpage = null;
 		int currentPage = 0;
-		String s = null;
-		int p = 0;
+		String sCpage = null;
+		int iPage = 0;
 		int end = 0;
 		try {
-		 s = request.getParameter("cpage");
-		 p = Integer.parseInt(s);
+		 sCpage = request.getParameter("cpage");
+		 iPage = Integer.parseInt(sCpage);
 		 end = FBservice.count()/10+1;
 		}catch(Exception e) {
-			s = null;
+			sCpage = null;
 		}
 		
 		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
-		}else if(p>end){
+		}else if(iPage>end){
 			currentPage = end;
 		}else {
 
@@ -183,9 +183,13 @@ public class FreeBoardController {
 		}
 		List<FreeCommentDTO> list =FCservice.selectAll(seq, page);
 		model.addAttribute("list",list);
-		
-		String navi = FCservice.navi(page, seq);
-		model.addAttribute("navi",navi);
+		if(list==null) {
+			model.addAttribute("navi",1);
+		}else {
+				String navi = FCservice.navi(page, seq);
+				model.addAttribute("navi",navi);
+		}
+
 		model.addAttribute("npage",page+1);
 		model.addAttribute("ppage",page-1);
 		model.addAttribute("seq",seq);
@@ -199,6 +203,8 @@ public class FreeBoardController {
 		int fid = Integer.parseInt(fids);
 		String id= Integer.toString(fid);
 		String seq = request.getParameter("seq");
+		
+		
 		FreeBoardDTO pdto = FBservice.selectBySeq(seq);
 		//view_count +1 업데이트
 		FBservice.updateView_Count(pdto.getView_count(), seq);
@@ -288,20 +294,20 @@ public class FreeBoardController {
 		//-----------------------------------
 		String cpage = null;
 		int currentPage = 0;
-		String s = null;
-		int p = 0;
+		String sCpage = null;
+		int iPage = 0;
 		int end = 0;
 		try {
-		 s = request.getParameter("cpage");
-		 p = Integer.parseInt(s);
+		 sCpage = request.getParameter("cpage");
+		 iPage = Integer.parseInt(sCpage);
 		 end = FBservice.count()/10+1;
 		}catch(Exception e) {
-			s = null;
+			sCpage = null;
 		}
 		
 		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
-		}else if(p>end){
+		}else if(iPage>end){
 			currentPage = end;
 		}else {
 
@@ -356,22 +362,22 @@ public class FreeBoardController {
 		
 		
 		//-----------------------------------
-          String cpage = null;
+  		String cpage = null;
   		int currentPage = 0;
-  		String s = null;
-  		int p = 0;
+  		String sCpage = null;
+  		int iPage = 0;
   		int end = 0;
   		try {
-  		 s = request.getParameter("cpage");
-  		 p = Integer.parseInt(s);
+  		 sCpage = request.getParameter("cpage");
+  		 iPage = Integer.parseInt(sCpage);
   		 end = FBservice.count()/10+1;
   		}catch(Exception e) {
-  			s = null;
+  			sCpage = null;
   		}
   		
   		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
   			currentPage= 1;
-  		}else if(p>end){
+  		}else if(iPage>end){
   			currentPage = end;
   		}else {
 
@@ -402,20 +408,20 @@ public class FreeBoardController {
 		//-----------------------------------
 		String cpage = null;
 		int currentPage = 0;
-		String s = null;
-		int p = 0;
+		String sCpage = null;
+		int iPage = 0;
 		int end = 0;
 		try {
-		 s = request.getParameter("cpage");
-		 p = Integer.parseInt(s);
+		 sCpage = request.getParameter("cpage");
+		 iPage = Integer.parseInt(sCpage);
 		 end = FBservice.count()/10+1;
 		}catch(Exception e) {
-			s = null;
+			sCpage = null;
 		}
 		
 		if(request.getParameter("cpage")==null||request.getParameter("cpage").contentEquals("0")) {
 			currentPage= 1;
-		}else if(p>end){
+		}else if(iPage>end){
 			currentPage = end;
 		}else {
 

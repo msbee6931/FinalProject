@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학사 자료실</title>
+<title>자료실</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -31,11 +31,11 @@
 }
 #refBox{
 	min-height: 30px;
-	border-bottom:1px solid black;
+	border-bottom:1px solid gray;
 }
 #content{
 	min-height:150px;
-	border-bottom:1px solid black;
+	border-bottom:1px solid gray;
 }
 #btnBox{
 	height:80px;
@@ -43,11 +43,26 @@
 #backBtn{
 	width:80px;
 	height:40px;
+	background-color: #495d8f;
+	color: #ffffff;
+}
+#backBtn:hover {
+	background-color: #193461;
+}
+.download{
+	background-color: #495d8f;
+	color: #ffffff;
+	border-style: none;
+	padding: 8px;
+	border-radius: 4px;
+}
+.download:hover {
+	background-color: #193461;
 }
 </style>
 </head>
 <body>
-	<div class="contatiner">
+	<div class="container-fluid p-0">
     <jsp:include page="/WEB-INF/views/topHeader.jsp"/>
 	<jsp:include page="/WEB-INF/views/mainHeader.jsp"/>
 		<div class="container">
@@ -62,17 +77,17 @@
 				<!-- <div class="col-xl-2 d-none d-xl-block"></div> -->
 				<div class="col-xl-12 mb-5" id="box">
 					<div class="row mx-2 ">
-						<div class="col-12 py-4" style="border-bottom: 2px solid black">
+						<div class="col-12 py-4" style="border-bottom: 1px solid gray">
 							<H3>
 								<b>자료실</b>
 							</H3>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col text-center py-4">
-							<h4>
+						<div class="col text-center py-3">
+							<h5>
 								<b>${dto1.title}</b>
-							</h4>
+							</h5>
 						</div>
 					</div>
 					<div class="row text-center" id="viewBox">
@@ -104,17 +119,17 @@
 					</div>
 					<div class="row">
 						<div class="col text-center pt-3 mx-2" id="btnBox">
-							<button type="button" class="btn btn-dark" id="backBtn">목록</button>
+							<button type="button" class="btn" id="backBtn">목록</button>
 						</div>
 					</div>
 					<c:if test="${!empty dto2}">
-					<div class="row  p-3" style="border-top:1px solid black">
+					<div class="row  p-3" style="border-top:1px solid gray">
 						<div class="col-4 col-md-2 text-center"><img src="/img/up.png">다음글</div>
 						<div class="col-8 -md-10"><a href="/reference/view.ref?seq=${dto2.seq}">${dto2.title}</a></div>
 					</div>
 					</c:if>
 					<c:if test="${!empty dto3}">
-					<div class="row  p-3" style="border-top:1px solid black">
+					<div class="row  p-3" style="border-top:1px solid gray">
 						<div class="col-4 col-md-2 text-center"><img src="/img/down.png">이전글</div>
 						<div class="col-8 col-md-10"><a href="/reference/view.ref?seq=${dto3.seq}">${dto3.title}</a></div>
 					</div>

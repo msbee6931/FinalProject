@@ -34,10 +34,12 @@
 	color:white;
 	max-width:200px;
 }
+
 #btnCol{
 	background-color: #193461;
 	color:white;
 }
+
 #sideBox{
 	max-height:300px;
 }

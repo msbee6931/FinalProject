@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학사 자료실</title>
+<title>자료실</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -50,17 +50,17 @@
 			</div>
 
 			<div class="row">
-			<div class="col-xl-12 d- pt-4" id="box">
+			<div class="col-xl-12 pt-4 pb-4" id="box">
 					<div class="row">
 						<div class="col-12">
-							<H3>
+							<h3>
 								<b>자료실</b>
-							</H3>
+							</h3>
 						</div>
 						<div class="col-12">
-							<form action="/reference/search.ref?page=1" method="post" class="row">
+							<form action="/reference/search.ref?page=1" method="post" class="row py-4">
 								<div class="col-md-6 order-md-2">
-									<div class="row p-4">
+									<div class="row">
 										<div class="col-sm-12 col-md-3 p-0">
 											<select class="form-select" name="category" id="select">
 												<option value="1"${category == '1' ? 'selected="selected"' : ''}>제목</option>
@@ -68,7 +68,7 @@
 												<option value="3"${category == '3' ? 'selected="selected"' : ''} >제목+내용</option>			
 											</select>
 										</div>
-										<div class="col-sm-12 col-md-6 p-0">
+										<div class="col-sm-12 col-md-6 p-0 px-2">
 											<input class="form-control" name="content" type="search" placeholder="검색어를 입력해주세요">
 										</div>
 										<div class="col-sm-12 col-md-3 p-0 d-grid">

@@ -103,7 +103,7 @@
             obj.set_binddataset("ds_colSchedule");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\"/><Cell col=\"1\" text=\"bind:sDate\" displaytype=\"date\"/><Cell col=\"2\" text=\"bind:eDate\" displaytype=\"date\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"293\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_bookmark","50","286","100","44",null,null,null,null,null,null,this);
@@ -347,7 +347,6 @@
         		if(month < 10){
         			month = "0"+month;
         		}
-        		trace(month);
         		this.ds_colSchedule.filter("sDate.substring(4,6) >='"+month+"'");
         	}
         }
@@ -475,6 +474,8 @@
 
         	}
         };
+
+
 
 
 

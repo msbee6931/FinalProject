@@ -160,6 +160,7 @@
             obj.set_datacolumn("name");
             obj.set_innerdataset("ds_deptCode");
             obj.set_cssclass("cmb_default");
+            obj.set_displayrowcount("5");
             obj.set_text("전체");
             obj.set_value("");
             obj.set_index("-1");

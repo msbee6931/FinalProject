@@ -74,7 +74,7 @@
             obj.set_autofittype("col");
             obj.set_binddataset("ds_Schedule");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/><Cell col=\"1\" text=\"시작일\"/><Cell col=\"2\" text=\"종료일\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"1\" text=\"bind:sdate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/><Cell col=\"2\" text=\"bind:edate\" displaytype=\"date\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"290\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"일정\"/></Band><Band id=\"body\"><Cell text=\"bind:title\" cursor=\"pointer\" cssclass=\"expr:type=='02'?'Expr_yellow':type=='01'?'Expr_blue':type=='03'?'Expr_green':'Expr_red'\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_bookmark","50","286","100","44",null,null,null,null,null,null,this);
@@ -290,16 +290,30 @@
 
         this.btnGrade_onclick = function(obj,e)
         {
-        	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
-        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("203020","학생 성적 관리","prfWork::classGrade.xfdl"); //form 오픈 함수
+        	var regist = this.objApp.gds_admin.getColumn(0,"regist");
+        	if(regist =='open'){
+        		alert("수강신청 기간입니다. 관리자에게 문의해주세요");
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        		return;
+        	}else{
+        		this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        		this.fn_openForm("203020","학생 성적 관리","prfWork::classGrade.xfdl"); //form 오픈 함수
+        	}
         };
 
         this.btnAttend_onclick = function(obj,e)
         {
-        	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
-        	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
-        	this.fn_openForm("20303010","학생 출석 입력","prfWork::attendManage.xfdl"); //form 오픈 함수
+        	var regist = this.objApp.gds_admin.getColumn(0,"regist");
+        	if(regist =='open'){
+        		alert("수강신청 기간입니다. 관리자에게 문의해주세요");
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,*,0");
+        		return;
+        	}else{
+        		this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 20 + "'");
+        		this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
+        		this.fn_openForm("20303010","학생 출석 입력","prfWork::attendManage.xfdl"); //form 오픈 함수
+        	}
         };
         this.btnDeptStdList_onclick = function(obj,e){
         	this.objApp.prf_menu.filter("menu_id.substring(0,2) == '" + 10 + "'");
@@ -566,6 +580,8 @@
         	this.objApp.mainframe.VFrameSet00.HFrameSet00.VFrameSet00.set_separatesize("30,0,*");
         	this.fn_openForm("4020","받은 쪽지함","admWork::received_postmessage.xfdl"); //form 오픈 함수
         };
+
+
 
 
         });
