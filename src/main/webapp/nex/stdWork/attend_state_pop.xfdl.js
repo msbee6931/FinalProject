@@ -52,11 +52,11 @@
 
         this.attend_state_pop_onload = function(obj,e)
         {	//교수가 입력한 결석에 대한 메모
-        	var aState = this.parent.aState;
+        	var absenceReason = this.parent.absenceReason;
         	//값을 입력했을때
-        	if(aState != null && aState != "")
+        	if(absenceReason != null && absenceReason != "")
         	{
-        		this.edt_state.set_value(aState);
+        		this.edt_state.set_value(absenceReason);
         	} else
         	{
         		//입력하지 않았을 경우

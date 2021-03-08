@@ -37,7 +37,7 @@
             obj.set_binddataset("ds_attend");
             obj.set_autofittype("col");
             obj.set_cssclass("grd_default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"63\"/><Column size=\"55\"/><Column size=\"19\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"날짜\"/><Cell col=\"1\" text=\"출석 여부\"/><Cell col=\"2\" text=\"비고\"/></Band><Band id=\"body\"><Cell text=\"bind:attendDay\" displaytype=\"date\" edittype=\"none\"/><Cell col=\"1\" text=\"bind:attendState\" displaytype=\"combotext\" edittype=\"none\" combodatacol=\"name\" combodataset=\"ds_attendState\" combocodecol=\"id\"/><Cell col=\"2\" edittype=\"none\" expandshow=\"expr:attendState == &quot;04&quot; ? &quot;show&quot;  : &quot;hide&quot;\" textAlign=\"center\" text=\"expr:attendState == &quot;04&quot; ? &quot;기타 &quot;  : &quot;&quot;\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"63\"/><Column size=\"55\"/><Column size=\"19\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"날짜\"/><Cell col=\"1\" text=\"출석 여부\"/><Cell col=\"2\" text=\"비고\"/></Band><Band id=\"body\"><Cell text=\"bind:attendDay\" displaytype=\"date\" edittype=\"none\"/><Cell col=\"1\" text=\"bind:attendState\" displaytype=\"combotext\" edittype=\"none\" combodatacol=\"name\" combodataset=\"ds_attendState\" combocodecol=\"id\"/><Cell col=\"2\" edittype=\"none\" expandshow=\"expr:attendState == &quot;04&quot; ? &quot;show&quot;  : &quot;hide&quot;\" textAlign=\"center\" text=\"expr:attendState == &quot;04&quot; ? &quot;사유&quot;  : &quot;&quot;\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta_title","74","13","396","35",null,null,null,null,null,null,this);
@@ -144,8 +144,7 @@
         	var cValue = this.Grid00.getCellText(e.row,1);
         	if(e.cell == 2 && cValue == "결석")
         	{
-        		var aState = this.ds_attend.getColumn(e.cell,"attendState");
-
+        		var absenceReason = this.ds_attend.getColumn(e.cell,"absenceReason");
         		var objCF = new ChildFrame();
         		var x = this.width/2-150;
         		var y = this.height/2-100;
@@ -154,7 +153,7 @@
         		objCF.set_formurl("stdWork::attend_state_pop.xfdl");
         		objCF.showModal(
         			this.getOwnerFrame(),
-        			{aState:aState}, // 모달창에 결석 메모 넘기기
+        			{absenceReason:absenceReason}, // 모달창에 결석 메모 넘기기
         			this,
         			"fn_callback_attendS"
         		);
