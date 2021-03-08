@@ -95,7 +95,7 @@
             obj.set_cssclass("div_line");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static00","12","5",null,null,"19","147",null,null,null,null,this.Div00.form.Div01.form);
+            obj = new Static("Static00","12","5",null,"28","19",null,null,null,null,null,this.Div00.form.Div01.form);
             obj.set_taborder("0");
             obj.set_text("Reply");
             obj.set_textAlign("center");
