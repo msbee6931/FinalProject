@@ -156,6 +156,7 @@
             obj.set_codecolumn("code");
             obj.set_datacolumn("name");
             obj.set_cssclass("cmb_default");
+            obj.set_displayrowcount("5");
             obj.set_text("");
             obj.set_value("");
             obj.set_index("-1");

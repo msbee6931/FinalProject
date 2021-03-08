@@ -34,7 +34,7 @@
 
 
             obj = new Dataset("ds_attendState", this);
-            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"name\">출석</Col><Col id=\"id\">01</Col></Row><Row><Col id=\"name\">지각</Col><Col id=\"id\">02</Col></Row><Row><Col id=\"name\">결석</Col><Col id=\"id\">03</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"name\">출석</Col><Col id=\"id\">01</Col></Row><Row><Col id=\"name\">지각</Col><Col id=\"id\">02</Col></Row><Row><Col id=\"name\">조퇴</Col><Col id=\"id\">03</Col></Row><Row><Col id=\"id\">04</Col><Col id=\"name\">결석</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -244,6 +244,7 @@
         	if(sId == "stdListSeq"){
         		var nRow = this.ds_class.rowposition
         		var classTime = this.ds_class.getColumn(nRow,"classTime");
+        		var classCode = this.ds_class.getColumn(nRow,"classSeq")
         		var time = classTime.split(")");
         		var day = "";
         		var cal = "";
@@ -275,6 +276,13 @@
         			}
         		}
         		this.cal.set_value(max);
+        		if(this.ds_stdClass.getRowCount() > 0 ){
+        			var calRow = this.ds_cal.addRow();
+        			this.ds_cal.setColumn(calRow,"backgroundcolumn","wheat");
+        			this.ds_cal.setColumn(calRow,"textcolorcolumn","black");
+        			this.ds_cal.setColumn(calRow,"datecolumn",this.cal.value);
+        			this.ds_cal.setColumn(calRow,"classCode",classCode);
+        		}
         	}
         	this.ds_attend.clearData();
         	if(this.ds_stdClass.getRowCount() > 0){
@@ -354,7 +362,7 @@
         		obj.dropdownCombo();
         	}else if(e.col == 4){
         		var attendState = this.ds_attend.getColumn(e.row,"attendState");
-        		if(attendState == 03){
+        		if(attendState == 04){
         			var reason = this.ds_attend.getColumn(e.row,"absenceReason");
         			this.pop_reason.form.ta_reason.set_value(reason);
         			this.col = e.cell;
@@ -402,7 +410,7 @@
         			alert("이번주차 수업을 더이상 등록할 수 없습니다");
         		}else{
         			if(weekTime.indexOf(week) < 0){ // 수업하는 요일이 아닐 경우
-        				if(arr.length == 0){ //수업이 없을 경우
+        				if(arr.length == 0 || arr.length == null){ //수업이 없을 경우
         					if(this.confirm("수업이 없습니다.\n수업을 추가하시겠습니까?")){
         						this.transaction(
         							"stdList"
@@ -440,24 +448,24 @@
 
         this.btnDel_onclick = function(obj,e)
         {
-        	var attendDay = this.ds_attend.getColumn(0,"attendDay");
-        	if(this.confirm("해당 요일을 삭제하시겠습니까?")){
-        		if(this.ds_attend.getRowCount() > 0){
-        			this.transaction(
-        				"attendDel"
-        				,"/attendDel.nex"
-        				,"in_ds=ds_attend:A"
-        				,""
-        				,""
-        				,"fn_callback_attend"
-        			);
-        		}else{
-        			alert("수업이 없습니다");
+        		if(this.confirm("해당 요일을 삭제하시겠습니까?")){
+        			if(this.ds_attend.getRowCount() > 0){
+        				this.transaction(
+        					"attendDel"
+        					,"/attendDel.nex"
+        					,"in_ds=ds_attend:A"
+        					,""
+        					,""
+        					,"fn_callback_attend"
+        				);
+        			}else{
+        				alert("수업이 없습니다");
+        			}
+        			var attendDay = this.ds_attend.getColumn(0,"attendDay");
+        			var arr = this.ds_cal.extractRows("datecolumn=='"+attendDay+"'");
+        			this.ds_cal.deleteMultiRows(arr)
+        			this.ds_attend.deleteAll();
         		}
-        		var arr = this.ds_cal.extractRows("datecolumn=='"+attendDay+"'");
-        		this.ds_cal.deleteMultiRows(arr)
-        		this.ds_attend.deleteAll();
-        	}
         };
 
         this.btnSearch_onclick = function(obj,e)

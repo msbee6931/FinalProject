@@ -70,7 +70,7 @@
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage2",this.Tab00);
-            obj.set_text("장학공지");
+            obj.set_text("학사공지");
             this.Tab00.addChild(obj.name, obj);
 
             obj = new Div("Div00","141","1","729","423",null,null,null,null,null,null,this.Tab00.Tabpage2.form);
@@ -87,7 +87,7 @@
             this.Tab00.Tabpage2.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage3",this.Tab00);
-            obj.set_text("학사공지");
+            obj.set_text("장학공지");
             this.Tab00.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","0","0","1020","420",null,null,null,null,null,null,this.Tab00.Tabpage3.form);
