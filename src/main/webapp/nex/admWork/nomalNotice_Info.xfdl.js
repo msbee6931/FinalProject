@@ -29,7 +29,7 @@
 
 
             obj = new Dataset("ds_deptcode", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">A</Col><Col id=\"name\">일반</Col></Row><Row><Col id=\"code\">C</Col><Col id=\"name\">장학</Col></Row><Row><Col id=\"code\">B</Col><Col id=\"name\">학사</Col></Row><Row><Col id=\"code\">D</Col><Col id=\"name\">취업</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">A</Col><Col id=\"name\">일반</Col></Row><Row><Col id=\"code\">B</Col><Col id=\"name\">장학</Col></Row><Row><Col id=\"code\">C</Col><Col id=\"name\">학사</Col></Row><Row><Col id=\"code\">D</Col><Col id=\"name\">취업</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -265,7 +265,7 @@
 
         this.Tab00_Tabpage1_btn_cancel_onclick = function(obj,e)
         {
-        	this.nomalNotice_Info_onload();
+        	this.close();
         };
         //업로드용 Virtual 파일 onsuccess 이벤트
         this.Upload_VirtualFile_onsuccess = function(obj, e)
@@ -445,7 +445,6 @@
         };
 
 
-
         });
         
         // Regist UI Components Event
@@ -457,7 +456,6 @@
             this.Tab00.Tabpage1.form.btn_cancel.addEventHandler("onclick",this.Tab00_Tabpage1_btn_cancel_onclick,this);
             this.Tab00.Tabpage1.form.btn_save.addEventHandler("onclick",this.Tab00_Tabpage1_btn_save_onclick,this);
             this.Tab00.Tabpage1.form.Grid00.addEventHandler("onheadclick",this.Tab00_Tabpage1_Grid00_onheadclick,this);
-            this.Tab00.Tabpage1.form.com_list.addEventHandler("onitemchanged",this.Tab00_Tabpage1_com_list_onitemchanged,this);
             this.Tab00.Tabpage1.form.btn_del.addEventHandler("onclick",this.Tab00_Tabpage1_btn_del_onclick,this);
             this.FileDialog00.addEventHandler("onclose",this.FileDialog00_onclose,this);
             this.FileUpTransfer00.addEventHandler("onerror",this.FileUpTransfer00_onerror,this);

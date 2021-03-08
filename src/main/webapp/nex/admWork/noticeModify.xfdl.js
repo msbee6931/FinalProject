@@ -40,20 +40,14 @@
             obj.set_background("RGBA(236,135,135,0.71)");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_visible("false");
-            obj.set_background("RGBA(236,135,135,0.71)");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static01","30","9","200","30",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
+            obj.set_taborder("3");
             obj.set_text("공지사항 수정");
             obj.set_cssclass("sta_title");
             this.addChild(obj.name, obj);
 
             obj = new Tab("Tab00","30","40","1022","452",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj.set_taborder("4");
             obj.set_tabindex("0");
             this.addChild(obj.name, obj);
 
@@ -70,13 +64,8 @@
             this.Tab00.Tabpage1.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage2",this.Tab00);
-            obj.set_text("학사공지");
+            obj.set_text("장학공지");
             this.Tab00.addChild(obj.name, obj);
-
-            obj = new Div("Div00","141","1","729","423",null,null,null,null,null,null,this.Tab00.Tabpage2.form);
-            obj.set_taborder("0");
-            obj.set_text("Div00");
-            this.Tab00.Tabpage2.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","0","0","1020","420",null,null,null,null,null,null,this.Tab00.Tabpage2.form);
             obj.set_taborder("1");
@@ -87,7 +76,7 @@
             this.Tab00.Tabpage2.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage3",this.Tab00);
-            obj.set_text("장학공지");
+            obj.set_text("학사공지");
             this.Tab00.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","0","0","1020","420",null,null,null,null,null,null,this.Tab00.Tabpage3.form);
@@ -109,6 +98,12 @@
             obj.set_cssclass("grd_default");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"작성일시\"/><Cell col=\"3\" text=\"내용\"/><Cell col=\"4\" text=\"학과코드\"/></Band><Band id=\"body\"><Cell text=\"bind:n_seq\" displaytype=\"text\"/><Cell col=\"1\" text=\"bind:title\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:writedate\" displaytype=\"date\"/><Cell col=\"3\" text=\"bind:contents\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:deptcode\" displaytype=\"text\"/></Band></Format></Formats>");
             this.Tab00.Tabpage4.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_00","100","490","800","30",null,null,null,null,null,null,this);
+            obj.set_taborder("5");
+            obj.set_visible("false");
+            obj.set_background("RGBA(236,135,135,0.71)");
+            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
